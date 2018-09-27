@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+first page for test!
+<button onclick="showContent()">click to refreash</button>
+<script>
+    let content=''
+    let test=fetch("https://api.github.com/repos/stonehank/blogs/contents/06-07-getDerivedStateFromProps.md").then(v=>v.json()).then(obj=>{
+      content=obj.content
+    })
+    console.log(content)
+
+    function showContent() {
+      document.write(content)
+    }
+</script>
+</body>
+</html>
