@@ -1,8 +1,16 @@
 import React from 'react';
-import { Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
+import ReactMarkdown from 'react-markdown'
+import { Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
+import * as blog_jsonObj from "./asset/blog-data.json"
+
 
 // const SubMenu = Menu.SubMenu;
 // import verticalLoose from "./nav-menu/verticalLoose"
+
+
+// function fetchData(){
+//   return fetch("https://api.github.com/search/code?q=repo:stonehank/blogs+extension:md&per_page=100",check).then(v=>v.json())
+// }
 
 const { Header, Content, Footer, Sider } = Layout;
 const {Meta}=Card
@@ -12,6 +20,8 @@ const IconText = ({ type, text }) => (
     {text}
   </span>
 );
+
+const input='# This is a header\n\nAnd this is a paragraph'
 // const MenuItem=verticalLoose(Menu.Item)
 function itemRender(current, type, originalElement) {
   if (type === 'prev') {
@@ -22,8 +32,39 @@ function itemRender(current, type, originalElement) {
   return originalElement;
 }
 export default class SiderLayout extends React.Component {
-
+  constructor(){
+    super()
+    this.fetchBlogContent=this.fetchBlogContent.bind(this)
+    this.state={}
+  }
+  fetchBlogContent(){
+    let blogData=[]
+    let importQueue=[]
+    for(let key in blog_jsonObj){
+      if(key==="version")continue
+      importQueue.push(import(`./asset/${key}.json`).then(obj=>{
+          blogData.push({
+            title:key,
+            content:obj.content,
+            label:blog_jsonObj[key].label,
+            createdTime:blog_jsonObj[key].createdTime
+          })
+        }
+      ))
+    }
+    Promise.all(importQueue).then(()=>{
+      this.setState({
+        blogs:blogData
+      })
+    })
+  }
+  componentDidMount(){
+    this.fetchBlogContent()
+  }
   render() {
+    const {blogs}=this.state
+    const blog=blogs?blogs[0]:null
+    console.log(blog)
     const customStyle={
       display: "flex",
       flexFlow: "column",
@@ -62,23 +103,35 @@ export default class SiderLayout extends React.Component {
           <Header style={{ background: '#898989', padding: 0 }} >
             FrontEnd Blogs
           </Header>
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
+          {blog?
+          <Content style={{ margin: '0 36px' }}>
+            {/*<Breadcrumb style={{ margin: '16px 0' }}>*/}
+              {/*<Breadcrumb.Item>User</Breadcrumb.Item>*/}
+              {/*<Breadcrumb.Item>Bill</Breadcrumb.Item>*/}
+            {/*</Breadcrumb>*/}
             <article style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               <header>
-                <span>标题</span>
-                <div>时间，标签，评论</div>
+                <span>{blog.title}</span>
+                  <Row type="flex" gutter={"24"}>
+                  <Col >{blog.createdTime}</Col>
+                  <Col >
+                    {blog.label.map(n=>{
+                      return (
+                        <Tag>{n}</Tag>
+                      )
+                    })}
+                  </Col>
+                  <Col  style={{textAlign:"center" }}><IconText type="message" text="2" /></Col>
+                  {/*<Col span={8}></Col>*/}
+                  </Row>
               </header>
-              <div>内容</div>
+              <ReactMarkdown source={blog.content} skipHtml={false} />
               <footer style={{margin:"0 auto"}}>
 
               </footer>
             </article>
           </Content>
-
+            : null}
           <Footer style={{ textAlign: 'center' }}>
             <Pagination simple defaultCurrent={2} total={50} itemRender={itemRender} />
             {/*<Affix offsetBottom={10} style={{background:"#ccc"}}>*/}

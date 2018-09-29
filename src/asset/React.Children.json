@@ -1,0 +1,3 @@
+{
+	"content": "## React.Children 和 this.props.children\n\n都是获取父组件的子元素(子组件)\n\nthis.props.children:\n1. 1个子元素  => {Object}(React元素(组件)对象)\n2. 多个子元素 => [{Object},{Object}...]\n3. 无子元素   => undefined\n4. text元素   => text(字符串)\n5. 注释       => undefined\n\nReact.Children:\n\n一个方法集合\n\n包含`map,forEach,count,toArray,only`\n\n* `count(children)`:计算子组件数量(无就为0)\n\n* `only(children)`:children必须是唯一一个React元素对象(不可以是text)\n\n其他和ES6一样了\n\n其中`map`和`forEach`第一个参数都是children，第二个参数就是自定义函数`(child,index)=>{}`\n\n无论几个子元素，使用上面的`map`和`toArray`都会返回一个数组，包含着{Object}\n\n这样来进行处理就不需要再去判断，方便安全\n\n\n\n\n\n\n\n"
+}

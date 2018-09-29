@@ -4,9 +4,14 @@
   "private": true,
   "dependencies": {
     "antd": "^3.9.3",
+    "axios": "^0.18.0",
+    "fs-extra": "^7.0.0",
     "js-base64": "^2.4.9",
+    "moment": "^2.22.2",
+    "nodejieba": "^2.2.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-markdown": "^3.6.0",
     "react-scripts": "^1.1.5"
   },
   "scripts": {
