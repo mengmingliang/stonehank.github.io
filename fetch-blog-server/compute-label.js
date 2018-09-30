@@ -2,6 +2,7 @@ var nodejieba = require("nodejieba");
 var Base64 = require('js-base64').Base64;
 
 function getWeightExtract(content_base64,title){
+  console.log('正在分析关键词...')
   let extractNum=8
   let content=Base64.decode(content_base64)
   let extract_content=nodejieba.extract(content,extractNum).filter(o=>o.weight>8)

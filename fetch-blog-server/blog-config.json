@@ -1,0 +1,13 @@
+{
+   "token":"b6774f0253b5b570d202583d5372ec0bcf21859e",
+   "user":"stonehank",
+   "repository":"blogs",
+   "per_page":2,
+   "ignoreSHA":true,
+   "forceUpdate":{
+      "label":true,
+      "createdTime":true,
+      "title":true
+   },
+   "dataType":"MM-DD"
+}
