@@ -18,7 +18,7 @@ try{
   console.log("获取配置出现错误，确保fs-extra正确安装")
 }
 
-const {user,repository,per_page,forceUpdate,dataType,token,ignoreSHA}=config
+const {user,repository,per_page,forceUpdate,dataType,token,ignoreSHA,summaryLength}=config
 
 
 let check = {
@@ -49,6 +49,7 @@ axios.get(`https://api.github.com/search/code?q=repo:${user}/${repository}+exten
       }
     })
   })
+
 
 
 function checkIfNeedUpdated(result,blogData){
@@ -87,25 +88,51 @@ function checkIfNeedUpdated(result,blogData){
           console.log("获取"+cur_remote_filename+"文件成功，正在写入...")
 
           blogData[cur_remote_filename].sha=obj["sha"]
-          console.log('正在判断是否需要更新具体标签...')
+          const content=Base64.decode(obj["content"])
 
+          // 计算摘要开始未知
+
+
+          let tryStart=getHighDensity(content)
+          function getHighDensity(content){
+            function checkIsCN(s){ return /[\u4E00-\u9FA5]/.test(s)}
+            let p=0,numCN=0,result=0,aux=Array(content.length).fill(0)
+            for(let i=0;i<content.length;i++){
+              let isCN=checkIsCN(content[i])
+              if(isCN){aux[i]=1;numCN++}
+              if(i>summaryLength-1){
+                numCN-=aux[(i-summaryLength)]
+                p=(numCN)/summaryLength
+              }
+              if(p>=0.4){result=i;break}
+            }
+            return result
+          }
+          // console.log(tryStart,cur_remote_filename)
+          let summaryStart=content.substr(tryStart).match(/\n+[\u4E00-\u9FA5]/)
+
+          // let summaryStart=content.match(new RegExp("[\u4e00-\u9fa5\uFF00-\uFFFF,.!?]{7,}"))
+          if(summaryStart)summaryStart=summaryStart.index+tryStart
+          else summaryStart=0
+
+          console.log('正在判断是否需要更新具体标签...')
           function checkIfNeedForceUpdated(key,value){
             return (!(forceUpdate===true || forceUpdate[key]===true) && blogData[cur_remote_filename][key]) || value
-
           }
           // 如果已经存在标签，则不更新,强制更新除外
           let label=checkIfNeedForceUpdated("label",getWeightExtract(obj["content"],cur_remote_filename))
           let createdTime=checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
           let title=checkIfNeedForceUpdated("title",cur_remote_filename)
+          let summary=checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength).replace(/-{3,}/,'')+"...")
           // let label=(!(forceUpdate===true || forceUpdate["label"]===true) && blogData[cur_remote_filename].label) || getWeightExtract(obj["content"],cur_remote_filename)
           // let createdTime=(!(forceUpdate===true || forceUpdate["createdTime"]===true) && blogData[cur_remote_filename].createdTime) || cur_remote_createdTime
           // let title=(!(forceUpdate===true || forceUpdate["title"]===true) && blogData[cur_remote_filename].title) || cur_remote_filename
           blogData[cur_remote_filename].label=label
           blogData[cur_remote_filename].createdTime=createdTime
           blogData[cur_remote_filename].title=title
+          blogData[cur_remote_filename].summary=summary
 
-
-          fs.writeJson(`${context}/src/asset/${cur_remote_filename}.json`,{content:Base64.decode(obj["content"])},{spaces:'\t'},function(err){
+          fs.writeJson(`${context}/src/asset/${cur_remote_filename}.json`,{content:content},{spaces:'\t'},function(err){
             if(err)console.log('写入失败')
             else console.log(cur_remote_filename+"写入成功")
           })

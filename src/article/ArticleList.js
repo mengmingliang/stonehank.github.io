@@ -16,8 +16,25 @@ const md = require('markdown-it')({
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
   }
 });
+const IconText = ({ type, text }) => (
+  <span>
+    <Icon type={type} style={{ marginRight: 8}} />
+    {text}
+  </span>
+);
+
+function itemRender(current, type, originalElement) {
+  if (type === 'prev') {
+    return <a>上一篇</a>;
+  } if (type === 'next') {
+    return <a>下一篇</a>;
+  }
+  return originalElement;
+}
 
 
+const { Header, Content, Footer, Sider } = Layout;
+const {Meta}=Card
 
 export default class ArticleList extends React.Component{
   constructor(){
@@ -28,54 +45,53 @@ export default class ArticleList extends React.Component{
     }
   }
   fetchBlogContent(){
-    let blogData=[]
-    let importQueue=[]
+    let blogList=[]
     for(let key in blog_jsonObj){
       if(key==="version")continue
-      importQueue.push(import(`./asset/${key}.json`).then(obj=>{
-          blogData.push({
-            title:blog_jsonObj[key].title,
-            content:obj.content,
-            label:blog_jsonObj[key].label,
-            createdTime:blog_jsonObj[key].createdTime
-          })
-        }
-      ))
+      blogList.push(blog_jsonObj[key])
     }
-    Promise.all(importQueue).then(()=>{
-      this.setState({
-        contentLoading:false,
-        blogs:blogData
-      })
+    this.setState({
+      listLoading:false,
+      blogList
     })
   }
   componentDidMount(){
     this.fetchBlogContent()
   }
   render(){
-    const {blogList}=this.props
-    return blogList.map(blog=>{
-      <Skeleton active loading={listLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/>
-    })
-      {/*<article style={{padding: 24, background: '#fff', minHeight: 360}}>*/}
-        {/*<header>*/}
-          {/*<div style={{textAlign: "center"}} dangerouslySetInnerHTML={{__html: md.render(`## ${blog.title}`)}}/>*/}
-          {/*<Row type="flex" gutter="20">*/}
-            {/*<Col>{blog.createdTime}</Col>*/}
-            {/*<Col>*/}
-              {/*{blog.label.map((t,i) => {*/}
-                {/*return (*/}
-                  {/*<Tag key={i}>{t}</Tag>*/}
-                {/*)*/}
-              {/*})}*/}
-            {/*</Col>*/}
-            {/*<Col style={{textAlign: "center"}}><IconText type="message" text="2"/></Col>*/}
-          {/*</Row>*/}
-        {/*</header>*/}
-        {/*<div style={{marginTop:24}} dangerouslySetInnerHTML={{__html: md.render(blog.content)}}/>*/}
-        {/*<footer style={{margin: "0 auto"}}>*/}
-          {/*<BackTop />*/}
-        {/*</footer>*/}
-      {/*</article>*/}
+    const {listLoading}=this.state
+    const {blogList}=this.state
+    return listLoading ?
+      <Skeleton active loading={listLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}} /> :
+      <React.Fragment>
+      <Content style={{margin: '0 36px'}}>
+        {blogList.slice(0,3).map(blog=>(
+        <Card  hoverable bordered={false} style={{ width: "100%" }}>
+          <Skeleton active loading={listLoading} title={{width: "30%"}} paragraph >
+            <Meta style={{width:"100%"}}
+                  title={blog.title}
+                  description={
+                    <Row type="flex" gutter="20">
+                      <Col>{blog.createdTime}</Col>
+                      <Col>
+                        {blog.label.map((t,i) => {
+                          return (
+                            <Tag key={i}>{t}</Tag>
+                          )
+                        })}
+                      </Col>
+                      <Col style={{textAlign: "center"}}><IconText type="message" text="2"/></Col>
+                    </Row>
+                  }>
+            </Meta>
+            <div style={{marginTop:24,fontSize:"small"}} dangerouslySetInnerHTML={{__html: md.render(blog.summary)}}/>
+          </Skeleton>
+        </Card>
+          ))}
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+        <Pagination simple defaultCurrent={1} pageSize={3} total={10}  />
+      </Footer>
+    </React.Fragment>
   }
 }

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
-import SiderLayout from "./SiderLayout";
+import './css/App.css';
+import BlogLayout from "./BlogLayout";
 import 'antd/dist/antd.css';
 
-class App extends Component {
+
+
+class Entry extends Component {
   render() {
     return (
-      <SiderLayout />
+      <BlogLayout />
     );
   }
 }
 
-export default App;
+export default Entry;

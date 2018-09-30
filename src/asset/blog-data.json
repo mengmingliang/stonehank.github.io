@@ -15,22 +15,154 @@
 			"公倍数"
 		],
 		"createdTime": "7/29/2018",
-		"title": "记一道二分查找算法题"
+		"title": "记一道二分查找算法题",
+		"summary": "题目位置：https://leetcode.com/problems/nth-magical-number/description/\n\n题目：\n\n如果正整数 可被A  或B整除，则它是神奇的。\n\n返回第N个魔法数字。由于答案可能非常大，因此返回值需要模(%)10^9 + 7。\n\n例1：\n```\n输入： N = 1，A ..."
 	},
-	"编码-加密-哈希-混淆不同点-文章翻译": {
-		"sha": "22564d8dfc6e308736a16bb8a8abb192c0da11a8",
+	"从源码理解redux-observable": {
+		"sha": "6e85cade1d479e41467fc8f31c7cce1b2d0eca18",
 		"label": [
-			"混淆",
-			"加密",
-			"编码",
-			"哈希",
-			"不同点",
-			"散列法",
-			"https",
-			"数据",
-			"密钥"
+			"源码",
+			"return",
+			"observable",
+			"epic",
+			"redux",
+			"绑定",
+			"const",
+			"action",
+			"操作符"
 		],
-		"createdTime": "未知日期",
-		"title": "编码-加密-哈希-混淆不同点-文章翻译"
+		"createdTime": "7/31/2018",
+		"title": "从源码理解redux-observable",
+		"summary": "\n定义了一个操作方法`ofType`，具体见operators\n```js\n  ofType(...keys) {\n    return ofType(...keys)(this);\n  }\n```\n\n\n### combineEpics.js\n\n将多个epic合并成1个epic，就是分别..."
+	},
+	"一些promise和其他补缺": {
+		"sha": "3bfb5149de44ae6b02ce78a91414ebbd9303a277",
+		"label": [
+			"resolve",
+			"promise",
+			"prototype",
+			"补缺",
+			"function",
+			"Promise",
+			"reject",
+			"console"
+		],
+		"createdTime": "8/2/2018",
+		"title": "一些promise和其他补缺",
+		"summary": "* 如果向 Promise.resolve(..) 传递一个真正的 Promise，就只会返回同一个 promise\n```js\nvar p1 = Promise.resolve( 42 );\nvar p2 = Promise.resolve( p1 );\np1===p2\n// true\n```\n\n\n* P..."
+	},
+	"react的编写模式": {
+		"sha": "ac63fa5d204d619196b3d6c6134d623fb670d2f1",
+		"label": [
+			"react",
+			"const",
+			"comId",
+			"props",
+			"return",
+			"Component3",
+			"Component2",
+			"Component1"
+		],
+		"createdTime": "8/4/2018",
+		"title": "react的编写模式",
+		"summary": "\n\n定义需求，cur符合auth才能查看组件内容，否则进入NotAccess\n```\nconst cur = \"a\";\nconst auth = {\n  com1: [\"a\", \"b\"],\n  com2: [\"b\", \"c\"],\n  com3: [\"c\", \"d\"]\n};\nconst NotAccess = () =>..."
+	},
+	"reselect": {
+		"sha": "f0d4f2e822ae9afefb2da674e748cd479eef8231",
+		"label": [
+			"reselect",
+			"newDescriptions",
+			"descriptions",
+			"mockStore",
+			"const",
+			"mapStateToProps"
+		],
+		"createdTime": "6/28/2018",
+		"title": "reselect",
+		"summary": "## Reselect\n\n当我们使用redux的`connect(mapStateToProps)`的时候\n\n有时候store的数据直接传进组件并不好，于是我们希望在将数据传进组件前，进行调整\n\n例如 store如下\n```\nconst mockStore={\n  descriptions:[\n    {name:\"a..."
+	},
+	"css3种赋值-动态绑定事件": {
+		"sha": "8e96930475cb06f0123593475430fadf9ed6eec0",
+		"label": [
+			"绑定",
+			"赋值",
+			"someEle",
+			"css3",
+			"eventName",
+			"events",
+			"addEventListener",
+			"event",
+			"事件"
+		],
+		"createdTime": "6/30/2018",
+		"title": "css3种赋值-动态绑定事件",
+		"summary": "\n这只是一个元素的事件，当元素或者事件多了，会写很多绑定和解绑代码，\n而且每次解绑都要去查询之前绑定的函数\n\n\n* 动态更新写法\n```js\n// 定义动态事件\nfunction eventListener(event) {\nreturn event.currentTarget.events[event.type](e..."
+	},
+	"超简洁1kb框架-hyperapp": {
+		"sha": "885ccb597d795a6915433872a0e45b118445951f",
+		"label": [
+			"hyperapp",
+			"导图",
+			"框架",
+			"简洁",
+			"源码",
+			"analysis",
+			"github",
+			"README",
+			"blob"
+		],
+		"createdTime": "7/1/2018",
+		"title": "超简洁1kb框架-hyperapp",
+		"summary": "\n\n一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过key），再更新渲染\n\n思维导图：\n\n![](./img/hyperapp导图.jpg)..."
+	},
+	"hyperapp-patch": {
+		"sha": "bcf7fcff4b9e7073b08ad7c80986590462058756",
+		"label": [
+			"patch",
+			"hyperapp",
+			"节点",
+			"导图",
+			"判断",
+			"更新",
+			"源码",
+			"code"
+		],
+		"createdTime": "7/2/2018",
+		"title": "hyperapp-patch",
+		"summary": "\n\n思维导图：\n![](./img/hyperapp-patch导图.png)..."
+	},
+	"JS中位操作": {
+		"sha": "50c40330555ea317421cc46a84ff4b6fe23f1cc1",
+		"label": [
+			"二进制",
+			"编码",
+			"位操作",
+			"按位",
+			"Math",
+			"count"
+		],
+		"createdTime": "7/3/2018",
+		"title": "JS中位操作",
+		"summary": "## JS按位操作符\n\n* 按位异或(^)：二进制编码中，每一位两者相同，则为0，两者不同，则为1\n* 按位与 (&)：二进制编码中，每一位两者都为1，则为1，否则，则为0\n* 按位或 (|)：二进制编码中，每一位两者其中一个为1，则为1，否则，则为0\n* 按位非(~)：二进制编码中，每一位的反码，1为0，0为1（十进..."
+	},
+	"转码,Hash,加密,混淆区别总结": {
+		"sha": "22a37b52e29256c6227488765b3c7bae7216c9d5",
+		"label": [
+			"算法",
+			"输入",
+			"输出",
+			"Hash",
+			"可逆",
+			"加密",
+			"转码",
+			"混淆",
+			"转换",
+			"密钥",
+			"相同",
+			"长度"
+		],
+		"createdTime": "7/4/2018",
+		"title": "转码,Hash,加密,混淆区别总结",
+		"summary": "* 编码\n\n    转换数据格式使其能被各种系统执行，算法公开\n\n* hash\n\n    一个多对一的转换，不可逆，长度固定，用于检测文件是否有改动\n    \n    四个特性：\n    1. 输入相同，输出一定相同\n    2. 绝大部分不同的输入不应该产生相同的输出\n    3. 输入到输出行为不可逆\n    4...."
 	}
 }
