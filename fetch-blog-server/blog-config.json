@@ -2,9 +2,9 @@
    "token":"b6774f0253b5b570d202583d5372ec0bcf21859e",
    "user":"stonehank",
    "repository":"blogs",
-   "per_page":10,
+   "per_page":15,
    "ignoreSHA":true,
    "forceUpdate":true,
-   "dataType":"MM-DD",
+   "dataType":"YY-MM-DD",
    "summaryLength":160
 }

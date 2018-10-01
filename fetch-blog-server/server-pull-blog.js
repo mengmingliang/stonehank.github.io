@@ -59,19 +59,25 @@ function checkIfNeedUpdated(result,blogData){
 
     // let splitTimeName=path.parse(cur.name).name.match(/((?:\d{2}-\d{2})?-?)(.*)/)||[],
     let rawName=path.parse(cur.name).name
-    let moment_splitTimeName=moment(rawName,dataType);
+
       // cur_remote_filename=splitTimeName[2],
       // cur_remote_createdTime=moment(splitTimeName[1],"MM-DD").format("l"),
 
-    let cur_remote_createdTime,cur_remote_filename,cur_remote_sha
+    // 获取时间
+    let moment_splitTimeName=moment(rawName,dataType);
+    let cur_remote_createdTime,cur_remote_filename,cur_remote_sha,cur_remote_timeArr
     if(moment_splitTimeName.isValid()){
+      cur_remote_timeArr=moment_splitTimeName.toArray()
       cur_remote_createdTime=moment_splitTimeName.format("l")
       cur_remote_filename=moment_splitTimeName.parsingFlags().unusedInput[0].replace(/^-/,'')
     }else{
       cur_remote_createdTime="未知日期"
       cur_remote_filename=rawName
+      cur_remote_timeArr=[]
     }
       cur_remote_sha=cur.sha
+
+
     // if(splitTimeName.length===0)throw Error("Something wrong with splitTimeName RegExp !")
     if(ignoreSHA || !blogData[cur_remote_filename] || blogData[cur_remote_filename].sha!==cur_remote_sha){
       pristine=false
@@ -93,8 +99,8 @@ function checkIfNeedUpdated(result,blogData){
           // 计算摘要开始未知
 
 
-          let tryStart=getHighDensity(content)
-          function getHighDensity(content){
+          let tryStart=getHighDensity(content,0.3)
+          function getHighDensity(content,density){
             function checkIsCN(s){ return /[\u4E00-\u9FA5]/.test(s)}
             let p=0,numCN=0,result=0,aux=Array(content.length).fill(0)
             for(let i=0;i<content.length;i++){
@@ -104,12 +110,13 @@ function checkIfNeedUpdated(result,blogData){
                 numCN-=aux[(i-summaryLength)]
                 p=(numCN)/summaryLength
               }
-              if(p>=0.4){result=i;break}
+              if(p>=density){result=i;break}
             }
             return result
           }
           // console.log(tryStart,cur_remote_filename)
-          let summaryStart=content.substr(tryStart).match(/\n+[\u4E00-\u9FA5]/)
+          let summaryStart=content.substr(tryStart)
+          // let summaryStart=content.substr(tryStart).match(/(\s+\n+)[\u4E00-\u9FA5]/)
 
           // let summaryStart=content.match(new RegExp("[\u4e00-\u9fa5\uFF00-\uFFFF,.!?]{7,}"))
           if(summaryStart)summaryStart=summaryStart.index+tryStart
@@ -119,16 +126,18 @@ function checkIfNeedUpdated(result,blogData){
           function checkIfNeedForceUpdated(key,value){
             return (!(forceUpdate===true || forceUpdate[key]===true) && blogData[cur_remote_filename][key]) || value
           }
+
           // 如果已经存在标签，则不更新,强制更新除外
           let label=checkIfNeedForceUpdated("label",getWeightExtract(obj["content"],cur_remote_filename))
           let createdTime=checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
+          let timeArr=checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
           let title=checkIfNeedForceUpdated("title",cur_remote_filename)
-          let summary=checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength).replace(/-{3,}/,'')+"...")
-          // let label=(!(forceUpdate===true || forceUpdate["label"]===true) && blogData[cur_remote_filename].label) || getWeightExtract(obj["content"],cur_remote_filename)
-          // let createdTime=(!(forceUpdate===true || forceUpdate["createdTime"]===true) && blogData[cur_remote_filename].createdTime) || cur_remote_createdTime
-          // let title=(!(forceUpdate===true || forceUpdate["title"]===true) && blogData[cur_remote_filename].title) || cur_remote_filename
+          let summary=checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength).replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/,"#### ")+"...")
+
+
           blogData[cur_remote_filename].label=label
           blogData[cur_remote_filename].createdTime=createdTime
+          blogData[cur_remote_filename].timeArr=timeArr
           blogData[cur_remote_filename].title=title
           blogData[cur_remote_filename].summary=summary
 
@@ -151,6 +160,3 @@ function checkIfNeedUpdated(result,blogData){
   }
 }
 
-
-
-// console.log(nodejieba.extract("升职加薪，当上CEO，走上人生巅峰。", topN));

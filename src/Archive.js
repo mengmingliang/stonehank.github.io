@@ -1,52 +1,95 @@
 import React, { Component } from 'react';
-import {Collapse} from 'antd';
+import {Skeleton,Collapse,List,Row,Col,Tag,Icon} from 'antd';
 
 const Panel = Collapse.Panel;
 
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
 
-const customPanelStyle = {
+const IconText = ({ type, text }) => (
+  <span>
+    <Icon type={type} style={{ marginRight: 8}} />
+    {text}
+  </span>
+);
+
+const yearStyle = {
+  width:"80%",
   background: '#f7f7f7',
+  borderRadius: 4,
+  margin: "24px auto",
+  border: 0,
+  overflow: 'hidden',
+};
+const monthStyle={
+  background: '#fdfdfd',
   borderRadius: 4,
   marginBottom: 24,
   border: 0,
   overflow: 'hidden',
-};
-
-let mockObj={
-  2018:[null,null,null,null,null,[null,null,1],[2,3,4,5]]
 }
 
 
+
 export default class Archive extends Component {
+  constructor(){
+    super()
+    this.state={
+      contentLoading:true,
+      articles:null
+    }
+  }
+  static getDerivedStateFromProps(props){
+    const {articles}=props
+    if(!articles)return null
+    return {
+      articles,
+      contentLoading:false
+    }
+  }
   render() {
-    // const {mockObj}=this.state
-   return (
-     <Collapse bordered={false} defaultActiveKey={['1']}>
-       { Object.keys(mockObj).map((year,i)=>(
-         <Panel header={year+"年"} key={i+"年"} style={customPanelStyle}>
-           {mockObj[year].map((month,i)=>{
-             if(month && month.length>0){
-               return (
-                 <Collapse>
-                   <Panel header={i+1+"月"} key={i+"月"} style={customPanelStyle}>
-                     {month.map((day,i)=>{
-                       return <div key={i+"日"}>{day}</div>
-                     })}
-                   </Panel>
-                 </Collapse>
-               )
-             }
-           })}
-         </Panel>
-       ))
-       }
-     </Collapse>
-    )
+    const {articles,contentLoading}=this.state
+    return contentLoading ?
+      <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/> :
+      <Collapse bordered={false} defaultActiveKey={['2018年']}>
+        { Object.keys(articles).map((year)=>(
+          <Panel header={year+"年"} key={year+"年"} style={yearStyle}>
+            <Collapse>
+              {articles[year].map((month,j)=>{
+                if(month && month.length>0){
+                  return (
+                    <Panel header={j+1+"月"} key={j+1+"月"} style={monthStyle}>
+                      <List itemLayout="vertical ">
+                        {month.map((day,k)=>{
+                          if(day==null)return
+                          return (
+                            <List.Item key={k+"日"}>
+                              <List.Item.Meta
+                                title={<span>{day.title}</span>}
+                                description={
+                                  <Row type="flex" gutter="20">
+                                    <Col>{day.createdTime}</Col>
+                                      <Col>
+                                        {
+                                          day.label.map((t,i) => {
+                                            return <Tag key={i}>{t}</Tag>
+                                          })
+                                        }
+                                      </Col>
+                                     <Col style={{textAlign: "center"}}><IconText type="message" text="2"/></Col>
+                                   </Row>
+                                }
+                              />
+                            </List.Item>
+                          )
+                        })}
+                        </List>
+                    </Panel>
+                  )
+                }
+              })}
+              </Collapse>
+          </Panel>
+        ))}
+        </Collapse>
   }
 }
 

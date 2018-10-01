@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './css/App.css';
 import BlogLayout from "./BlogLayout";
 import 'antd/dist/antd.css';
