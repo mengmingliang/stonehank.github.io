@@ -9,8 +9,8 @@ const {  Sider } = Layout;
 const NavLink = props => {
   const {selectedKeys,selectedKey,...prop}=props
   return (
-    <Link {...prop} getProps={({isCurrent}) => {
-        if(isCurrent)selectedKeys[0]=selectedKey
+    <Link {...prop} getProps={({isPartiallyCurrent}) => {
+        if(isPartiallyCurrent)selectedKeys[0]=selectedKey
       }} />
   )
 };
@@ -19,8 +19,14 @@ const NavLink = props => {
 
 
 export default class NavSider extends React.Component {
-
+  constructor(){
+    super()
+    this.state={
+      collapsed:false
+    }
+  }
   render() {
+    const {collapsed}=this.state
     this.selectedKeys=["home"]
     const customStyle={
       display: "flex",
@@ -29,11 +35,24 @@ export default class NavSider extends React.Component {
     }
     return (
         <Sider
+          style={{zIndex:1,opacity:0.8}}
           theme="dark"
           breakpoint="lg"
           collapsedWidth="0"
-          onBreakpoint={(broken) => { console.log(broken); }}
-          onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
+          // onBreakpoint={(broken) => { console.log(broken); }}
+          // trigger={"sfsf"}
+          // onCollapse={(collapsed, type) => {
+          //   if(collapsed){
+          //     console.log(1)
+          //     this.setState({
+          //       collapsed:true
+          //     })
+          //   }else{
+          //     this.setState({
+          //       collapsed:false
+          //     })
+          //   }
+          //   console.log(collapsed, type); }}
         >
           <div className="logo" />
           <Menu theme="dark"
@@ -53,7 +72,7 @@ export default class NavSider extends React.Component {
             <Menu.Item key="category">
               <Icon type="desktop" />
               <span>标签</span>
-              <NavLink to="/category" selectedKeys={this.selectedKeys} selectedKey={"category"} />
+              <NavLink to="/category/page/1" selectedKeys={this.selectedKeys} selectedKey={"category"} />
             </Menu.Item>
             <Menu.Item key="about">
               <Icon type="file" />

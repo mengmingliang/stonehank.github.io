@@ -49,10 +49,10 @@ export default class Archive extends Component {
     const {articles,contentLoading}=this.state
     return contentLoading ?
       <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/> :
-      <Collapse bordered={false} defaultActiveKey={['2018年']}>
+      <Collapse accordion bordered={false} defaultActiveKey={['2018年']}>
         { Object.keys(articles).map((year)=>(
           <Panel header={year+"年"} key={year+"年"} style={yearStyle}>
-            <Collapse>
+            <Collapse accordion>
               {articles[year].map((month,j)=>{
                 if(month && month.length>0){
                   return (
@@ -65,7 +65,7 @@ export default class Archive extends Component {
                               <List.Item.Meta
                                 title={<span>{day.title}</span>}
                                 description={
-                                  <Row type="flex" gutter="20">
+                                  <Row type="flex" gutter={20}>
                                     <Col>{day.createdTime}</Col>
                                       <Col>
                                         {

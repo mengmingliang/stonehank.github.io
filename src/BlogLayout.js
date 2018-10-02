@@ -1,13 +1,15 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout,BackTop } from 'antd';
 import './css/github.min.css'
 import NavSider from "./nav/NavSider";
 import Archive from "./Archive";
 import Category from "./Category";
 import About from "./About";
 import Home from "./Home";
-import { Router,Redirect } from "@reach/router";
+import { Router,Redirect,Location } from "@reach/router";
 import ArticleDetail from "./article/ArticleDetail";
+import CategoryDetail from './CategoryDetail'
+// import parsePath from "parse-filepath"
 // import * as blog_jsonObj from "./asset/blog-data";
 
 const { Header} = Layout;
@@ -93,15 +95,29 @@ export default class BlogLayout extends React.Component {
           <Header style={{ background: '#898989', padding: 0 }} >
             FrontEnd Blogs
           </Header>
-          <Router>
-            <Redirect to="page/1" from="/" noThrow/>
-            <Home articles={initArticles} path="page/:page" />
-            <Archive articles={archiveArticles} path="archive" >
-            </Archive>
-            <Category articles={categoryArticles} path="category" />
-            <About path="about" />
-            <ArticleDetail path="articles/:articleName" blogList={blog_jsonObj}/>
-          </Router>
+          <Location>
+            {({location:{pathname}})=>{
+              let basenameStart=pathname.lastIndexOf('/')+1
+              let basename=decodeURIComponent(pathname.substr(basenameStart))
+              let matchdir=pathname.substr(0,basenameStart)
+              let activeData
+              if(matchdir.includes("category"))activeData=categoryArticles?categoryArticles[basename]:null
+              // else if(matchdir.includes("articles"))activeData=initArticles
+              return (
+                <Router>
+                  <Redirect to="page/1" from="/" noThrow/>
+                  <Home articles={initArticles} path="page/:page" />
+                  <Archive articles={archiveArticles} path="archive" />
+                  <Category articles={categoryArticles} path="category/page/:page" />
+                  <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
+                  <About path="about" />
+                  <ArticleDetail path="articles/:articleName" blogList={initArticles}/>
+                </Router>
+              )
+            }}
+          </Location>
+
+          <BackTop />
         </Layout>
       </Layout>
     );
