@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
-import {Skeleton,Collapse,List,Row,Col,Tag,Icon} from 'antd';
+import {Skeleton,Collapse,List,Button,Col,Tag,Icon} from 'antd';
+import ArticleStatusBar from "./ArticleStatusBar"
+import {Link} from "@reach/router"
+import ArchiveList from './ArchiveList'
+
+
 
 const Panel = Collapse.Panel;
-
-
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8}} />
-    {text}
-  </span>
-);
-
 const yearStyle = {
   // width:"80%",
-  background: '#f7f7f7',
+  background: '#e1e1e1',
   borderRadius: 4,
   border: 0,
   overflow: 'hidden',
 };
 const monthStyle={
-  background: '#fdfdfd',
+  background: '#f0f0f0',
   borderRadius: 4,
   marginBottom: 24,
   border: 0,
   overflow: 'hidden',
 }
 
+/* todo test */
+function getApartOfData(arr,numOfApart){
+  let n=numOfApart,result=[],i=arr.loadedIndex||0
+  for(;i<arr.length;i++){
+    if(n===0){arr.loadedIndex=i;return result}
+    if(arr[i] && n--)result.push(arr[i])
+  }
+  arr.loadedIndex=i
+  return result
+}
 
 
 export default class Archive extends Component {
@@ -33,8 +39,15 @@ export default class Archive extends Component {
     super()
     this.state={
       contentLoading:true,
-      articles:null
+      articles:null,
+      listRenderLoading:true
     }
+    this.startIndex=0
+    this.onLoadMore=this.onLoadMore.bind(this)
+  }
+  onLoadMore(){
+    const {articles}=this.state
+    this.startIndex+=10
   }
   static getDerivedStateFromProps(props){
     const {articles}=props
@@ -45,9 +58,14 @@ export default class Archive extends Component {
     }
   }
   render() {
-    const {articles,contentLoading}=this.state
+    const loadMore =
+      <div style={{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }}>
+        <Button onClick={this.onLoadMore}>loading more</Button>
+      </div>
+    const {articles,contentLoading,listRenderLoading}=this.state
+
     return contentLoading ?
-      <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/> :
+      <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 10, width: "50%"}}/> :
       <Collapse style={{margin: '24px 36px'}} accordion bordered={false} defaultActiveKey={['2018年']}>
         { Object.keys(articles).map((year)=>(
           <Panel header={year+"年"} key={year+"年"} style={yearStyle}>
@@ -56,31 +74,7 @@ export default class Archive extends Component {
                 if(month && month.length>0){
                   return (
                     <Panel header={j+1+"月"} key={j+1+"月"} style={monthStyle}>
-                      <List itemLayout="vertical ">
-                        {month.map((day,k)=>{
-                          if(day==null)return
-                          return (
-                            <List.Item key={k+"日"}>
-                              <List.Item.Meta
-                                title={<span>{day.title}</span>}
-                                description={
-                                  <Row type="flex" gutter={20}>
-                                    <Col>{day.createdTime}</Col>
-                                      <Col>
-                                        {
-                                          day.label.map((t,i) => {
-                                            return <Tag key={i}>{t}</Tag>
-                                          })
-                                        }
-                                      </Col>
-                                     <Col style={{textAlign: "center"}}><IconText type="message" text="2"/></Col>
-                                   </Row>
-                                }
-                              />
-                            </List.Item>
-                          )
-                        })}
-                        </List>
+                      <ArchiveList month={month}/>
                     </Panel>
                   )
                 }

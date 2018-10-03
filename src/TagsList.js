@@ -12,69 +12,10 @@ const {Header, Content, Footer, Sider} = Layout;
 
 
 export default class TagsList extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      pageSize: 5,
-      contentLoading: true,
-      articles: null,
-      page: 1,
-      renderLoading: false,
-      renderModel: "list"
-    }
-    this.totalPage = 0
-
-    this.handlePageChange = this.handlePageChange.bind(this)
-    this.toggleRender = this.toggleRender.bind(this)
-  }
-
-  handlePageChange(page) {
-    navigate(page)
-  }
-
-  toggleRender() {
-    this.setState(prevState => ({
-      renderModel: prevState.renderModel === "block" ? "list" : "block"
-    }))
-  }
-
 
   render() {
-    // console.log(this.props)
-    const {articles, pageSize, page, renderModel,handlePageChange,totalPage} = this.props
-    let renderArticles
-    if (articles) {
-      let keysArr = Object.keys(articles)
-      this.totalPage = keysArr.length
-      renderArticles = keysArr.slice((page - 1) * pageSize, page * pageSize)
-    } else {
-      renderArticles = null
-    }
+    const {articles, pageSize, page,handlePageChange,totalPage,renderArticles} = this.props
     return (
-      <React.Fragment>
-        <Content style={{margin: '24px 36px'}}>
-          <div className="clearfix">
-            <Button style={{border: "none", background: "#eef8ff", float: "right"}}
-              // loading={renderLoading}
-                    onClick={this.toggleRender}>
-              <Icon type={renderModel === "list" ? "table" : "profile"} style={{fontSize: "1.5rem", color: "#46a6ff"}}/>
-            </Button>
-          </div>
-          {renderModel === "block" ?
-            <Row type="flex"
-                 justify="start"
-                 gutter={"6"}
-            >
-              {Object.keys(articles).map((tag,i) => {
-                return (
-                  <Col style={{margin: "1rem 0"}}>
-                    <Link key={i} to={`/category/${tag}`}>
-                      <Tag>{tag}</Tag>
-                    </Link>
-                  </Col>
-                )
-              })}
-            </Row> :
             <List split={false}
                   pagination={{
                     style: {textAlign: 'center'},
@@ -116,9 +57,6 @@ export default class TagsList extends React.Component {
                     )
                   }}
             />
-          }
-        </Content>
-      </React.Fragment>
     )
   }
 }

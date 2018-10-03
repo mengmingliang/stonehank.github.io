@@ -1,0 +1,211 @@
+import {objSortBy,objGroupBy,refactor} from "../utils"
+
+test("sort by factorArr",function () {
+  let obj={
+  o1:{a:1,b:2,c:3},
+  o2:{a:2,b:2,c:5},
+  o3:{a:4,b:5,c:1},
+  o4:{a:2,b:3,c:6},
+  o5:{a:3,b:5,c:4},
+  o6:{a:4,b:5,c:2}
+  }
+  expect(objSortBy(obj,['a','b','c'],false)).toEqual(
+    [
+      {"a": 4, "b": 5, "c": 2},
+    {"a": 4, "b": 5, "c": 1},
+    {"a": 3, "b": 5, "c": 4},
+    {"a": 2, "b": 3, "c": 6},
+    {"a": 2, "b": 2, "c": 5},
+    {"a": 1, "b": 2, "c": 3}
+    ]
+  )
+})
+
+test("sort by factorArr(String)",function () {
+  let obj={
+    o1:{a:"abc",b:2,c:3},
+    o2:{a:"abca",b:2,c:5},
+    o3:{a:"baca",b:5,c:1},
+    o4:{a:"aaaa",b:"bbbbb",c:6},
+    o5:{a:"aaaa",b:"bbbba",c:4},
+    o6:{a:"azaaaaaa",b:5,c:2}
+  }
+  expect(objSortBy(obj,['a','b','c'],false)).toEqual(
+    [
+      {"a": "baca", "b": 5, "c": 1},
+      {"a": "azaaaaaa", "b": 5, "c": 2},
+      {"a": "abca", "b": 2, "c": 5},
+      {"a": "abc", "b": 2, "c": 3},
+      {"a": "aaaa", "b": "bbbbb", "c": 6},
+      {"a": "aaaa", "b": "bbbba", "c": 4}
+      ]
+  )
+})
+
+test("sort by factorArr(String)2",function () {
+  let obj={
+    o1:{a:"abc",b:2,c:3},
+    o2:{a:"abca",b:2,c:5},
+    o3:{a:"baca",b:5,c:1},
+    o4:{a:"aaaa",b:"bbbbb",c:6},
+    o5:{a:"aaaa",b:"bbbba",c:4},
+    o6:{a:"azaaaaaa",b:5,c:2}
+  }
+  expect(objSortBy(obj,['b','c'],false)).toEqual(
+    [
+      {"a": "aaaa", "b": "bbbbb", "c": 6},
+      {"a": "aaaa", "b": "bbbba", "c": 4},
+      {"a": "azaaaaaa", "b": 5, "c": 2},
+      {"a": "baca", "b": 5, "c": 1},
+      {"a": "abca", "b": 2, "c": 5},
+      {"a": "abc", "b": 2, "c": 3}
+      ]
+  )
+})
+
+test("sort by factorArr(Array)",function () {
+  let obj={
+    o1:{a:[3,2,'c'],b:2,c:3},
+    o2:{a:2,b:2,c:5},
+    o3:{a:[3,2,'a'],b:5,c:1},
+    o4:{a:[2,1,6],b:3,c:6},
+    o5:{a:[12,2,9],b:5,c:4},
+    o6:{a:[3,6,'z'],b:5,c:2},
+    o7:{a:[3,6,'w'],b:4,c:2},
+  }
+  expect(objSortBy(obj,['a','b','c'],false)).toEqual(
+    [
+      {"a": [12, 2, 9], "b": 5, "c": 4},
+      {"a": [3, 6, 'z'], "b": 5, "c": 2},
+      {"a": [3, 6, 'w'], "b": 4, "c": 2},
+      {"a": [3, 2, 'c'], "b": 2, "c": 3},
+      {"a": [3, 2, 'a'], "b": 5, "c": 1},
+      {"a": [2, 1, 6], "b": 3, "c": 6},
+      {"a": 2, "b": 2, "c": 5}
+      ]
+  )
+})
+
+
+test("sort by factorArr(nestArray)",function () {
+  let obj={
+    o1:{a:[3,2,[12,6]],b:2,c:3},
+    o2:{a:2,b:2,c:5},
+    o3:{a:[3,2,[3,5]],b:5,c:1},
+    o4:{a:[2,1,[6,5]],b:3,c:6},
+    o5:{a:[3,6,[1,115]],b:5,c:4},
+    o6:{a:[3,6,[5,99]],b:5,c:2},
+    o7:{a:[3,6,[5,99]],b:4,c:2},
+  }
+  expect(objSortBy(obj,['a','b','c'],false)).toEqual(
+    [
+      {"a": [3, 6, [5, 99]], "b": 5, "c": 2},
+      {"a": [3, 6, [5, 99]], "b": 4, "c": 2},
+      {"a": [3, 6, [1, 115]], "b": 5, "c": 4},
+      {"a": [3, 2, [12, 6]], "b": 2, "c": 3},
+      {"a": [3, 2, [3, 5]], "b": 5, "c": 1},
+      {"a": [2, 1, [6, 5]], "b": 3, "c": 6},
+      {"a": 2, "b": 2, "c": 5}
+      ]
+  )
+})
+
+
+test("sort by factorArr(nestArray) DEC",function () {
+  let obj={
+    o1:{a:[3,2,[12,6]],b:2,c:3},
+    o2:{a:2,b:2,c:5},
+    o3:{a:[3,2,[3,5]],b:5,c:1},
+    o4:{a:[2,1,[6,5]],b:3,c:6},
+    o5:{a:[3,6,[1,115]],b:5,c:4},
+    o6:{a:[3,6,[5,99]],b:5,c:2},
+    o7:{a:[3,6,[5,99]],b:4,c:2},
+  }
+  expect(objSortBy(obj,['a','b','c'],true)).toEqual(
+    [
+      {"a": 2, "b": 2, "c": 5},
+      {"a": [2, 1, [6, 5]], "b": 3, "c": 6},
+      {"a": [3, 2, [3, 5]], "b": 5, "c": 1},
+      {"a": [3, 2, [12, 6]], "b": 2, "c": 3},
+      {"a": [3, 6, [1, 115]], "b": 5, "c": 4},
+      {"a": [3, 6, [5, 99]], "b": 4, "c": 2},
+      {"a": [3, 6, [5, 99]], "b": 5, "c": 2}
+      ]
+  )
+})
+
+/*-----objGroupBy--------*/
+
+test("group by key",function () {
+  let obj={
+    o1:{a:[3,2,[12,6]],b:2,c:3},
+    o2:{a:2,b:2,c:5},
+    o3:{a:[3,2,[3,5]],b:5,c:1},
+    o4:{a:[2,1,[6,5]],b:3,c:6},
+    o5:{a:[3,6,[1,115]],b:5,c:4},
+    o6:{a:[3,6,[5,99]],b:5,c:2},
+    o7:{a:[3,6,[5,99]],b:4,c:2},
+  }
+  expect(objGroupBy(obj,"b")).toEqual(
+    {
+      "2": [{"a": [3, 2, [12, 6]], "b": 2, "c": 3}, {"a": 2, "b": 2, "c": 5}],
+      "3": [{"a": [2, 1, [6, 5]], "b": 3, "c": 6}],
+      "4": [{"a": [3, 6, [5, 99]], "b": 4, "c": 2}],
+      "5": [{"a": [3, 2, [3, 5]], "b": 5, "c": 1}, {"a": [3, 6, [1, 115]], "b": 5, "c": 4}, {"a": [3, 6, [5, 99]], "b": 5, "c": 2}]
+    }
+  )
+})
+
+
+test("group by key 2",function () {
+  let obj={
+    o1:{a:[3,2,[12,6]],b:2,c:3},
+    o2:{a:2,b:2,c:5},
+    o3:{a:[3,2,[3,5]],b:5,c:1},
+    o4:{a:[2,1,[6,5]],b:3,c:6},
+    o5:{a:[3,6,[1,115]],b:5,c:4},
+    o6:{a:[3,6,[5,99]],b:5,c:2},
+    o7:{a:[3,6,[5,99]],b:4,c:2},
+  }
+  expect(objGroupBy(obj,"a")).toEqual(
+    {
+      "1": [{"a": [2, 1, [6, 5]], "b": 3, "c": 6}, {"a": [3, 6, [1, 115]], "b": 5, "c": 4}],
+      "115": [{"a": [3, 6, [1, 115]], "b": 5, "c": 4}],
+      "12": [{"a": [3, 2, [12, 6]], "b": 2, "c": 3}],
+      "2": [{"a": [3, 2, [12, 6]], "b": 2, "c": 3}, {"a": 2, "b": 2, "c": 5}, {"a": [3, 2, [3, 5]], "b": 5, "c": 1}, {"a": [2, 1, [6, 5]], "b": 3, "c": 6}],
+      "3": [{"a": [3, 2, [12, 6]], "b": 2, "c": 3}, {"a": [3, 2, [3, 5]], "b": 5, "c": 1}, {"a": [3, 2, [3, 5]], "b": 5, "c": 1}, {"a": [3, 6, [1, 115]], "b": 5, "c": 4}, {"a": [3, 6, [5, 99]], "b": 5, "c": 2}, {"a": [3, 6, [5, 99]], "b": 4, "c": 2}],
+      "5": [{"a": [3, 2, [3, 5]], "b": 5, "c": 1}, {"a": [2, 1, [6, 5]], "b": 3, "c": 6}, {"a": [3, 6, [5, 99]], "b": 5, "c": 2}, {"a": [3, 6, [5, 99]], "b": 4, "c": 2}],
+      "6": [{"a": [3, 2, [12, 6]], "b": 2, "c": 3}, {"a": [2, 1, [6, 5]], "b": 3, "c": 6}, {"a": [3, 6, [1, 115]], "b": 5, "c": 4}, {"a": [3, 6, [5, 99]], "b": 5, "c": 2}, {"a": [3, 6, [5, 99]], "b": 4, "c": 2}],
+      "99": [{"a": [3, 6, [5, 99]], "b": 5, "c": 2}, {"a": [3, 6, [5, 99]], "b": 4, "c": 2}]
+    }
+      )
+})
+
+
+/*--------refactor----------------*/
+// mock moment.js data
+test("refactor timeArr",function () {
+  let obj={
+    o1:{timeArr:[2018,0,1],cur:"2018/1/1"},
+    o2:{timeArr:[2018,6,1],cur:"2018/7/1"},
+    o3:{timeArr:[2018,4,31],cur:"2018/5/31"},
+    o4:{timeArr:[2018,5,30],cur:"2018/6/30"},
+    o5:{timeArr:[2018,7,15],cur:"2018/8/15"},
+    o6:{timeArr:[2018,7,2],cur:"2018/8/2"},
+    o7:{timeArr:[2018,9,13],cur:"2018/10/13"},
+  }
+  expect(refactor(obj,"time")).toEqual(
+    {"2018": [
+      [undefined, {"cur": "2018/1/1", "timeArr": [2018, 0, 1]}],
+        undefined,
+        undefined,
+        undefined,
+        [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, {"cur": "2018/5/31", "timeArr": [2018, 4, 31]}],
+        [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, {"cur": "2018/6/30", "timeArr": [2018, 5, 30]}],
+        [undefined, {"cur": "2018/7/1", "timeArr": [2018, 6, 1]}],
+        [undefined, undefined, {"cur": "2018/8/2", "timeArr": [2018, 7, 2]}, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, {"cur": "2018/8/15", "timeArr": [2018, 7, 15]}],
+        undefined,
+        [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, {"cur": "2018/10/13", "timeArr": [2018, 9, 13]}]
+      ]}
+      )
+})

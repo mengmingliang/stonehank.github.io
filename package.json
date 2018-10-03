@@ -5,6 +5,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "antd": "^3.9.3",
+    "app-root-path": "^2.1.0",
     "axios": "^0.18.0",
     "fs-extra": "^7.0.0",
     "highlight.js": "^9.12.0",

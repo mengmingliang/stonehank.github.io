@@ -11,60 +11,11 @@ import ArticleDetail from "./article/ArticleDetail";
 import CategoryDetail from './CategoryDetail'
 // import parsePath from "parse-filepath"
 // import * as blog_jsonObj from "./asset/blog-data";
+import {refactor,objSortBy,objGroupBy} from './utils/utils'
 
 const { Header,Footer} = Layout;
 
-function refactor(json,groupBy){
-  let groupObj={}
-  let group
-  if(groupBy==="time" )group="timeArr"
-  else if(groupBy==="label")group="label"
-  else group='init'
-  if(group==="timeArr"){
-    for(let k in json){
-      let cur=json[k]
-      if(!cur[group])continue;
-      let year=cur[group][0]
-      let month=cur[group][1]
-      let day=cur[group][2]
-      if(!groupObj[year])groupObj[year]=Array(11).fill(null)
-      else if(!groupObj[year][month])groupObj[year][month]=Array(31).fill(null)
-      else groupObj[year][month][day]=cur
-    }
-    return groupObj
-  }
-  if(group==="label"){
-    for(let k in json){
-      let cur=json[k]
-      if(!cur[group])continue;
-      let curLabel=cur[group]
-      for(let i=0;i<curLabel.length;i++){
-        if(!groupObj[curLabel[i]])groupObj[curLabel[i]]=[cur]
-        else groupObj[curLabel[i]].push(cur)
-      }
-    }
-    return groupObj
-  }
-  if(group==="init"){
-    let result=[]
-    for(let k in json){
-      if(k==="version" || Object.prototype.toString.call(json[k])!=="[object Object]")continue
-      result.push(json[k])
-    }
-    result.sort(function(o1,o2){
-      let t1=o1.timeArr,t2=o2.timeArr
-      if(!t1 || !t2)return -1
-      if(t2[0]!==t1[0])return t2[0]-t1[0]
-      else if(t2[1]!==t1[1])return t2[1]-t1[1]
-      else return t2[2]-t1[2]
-    })
-    return result
-  }
-}
 
-function sortObj(){
-
-}
 
 export default class BlogLayout extends React.Component {
   constructor(){
@@ -73,16 +24,46 @@ export default class BlogLayout extends React.Component {
       archiveArticles:null,
       categoryArticles:null,
       initArticles:null,
-      blog_jsonObj:null
+      blog_jsonObj:null,
+      tagsRenderMode:"list"
     }
     this.fetchBlogContent=this.fetchBlogContent.bind(this)
+    this.toggleTagRender=this.toggleTagRender.bind(this)
+  }
+  toggleTagRender() {
+    this.setState(prevState => ({
+      tagsRenderMode: prevState.tagsRenderMode === "block" ? "list" : "block"
+    }))
   }
   fetchBlogContent(){
     import(`./asset/blog-data`).then(blog_jsonObj=>{
+      console.time(1)
+      refactor(blog_jsonObj,"time")
+      console.timeEnd(1)
+      console.time(2)
+      refactor(blog_jsonObj,"label")
+      console.timeEnd(2)
+      console.time(3)
+      refactor(blog_jsonObj,"init")
+      console.timeEnd(3)
+
+
+      console.time(8)
+      refactor(blog_jsonObj,"time")
+      console.timeEnd(8)
+      console.time(9)
+      objGroupBy(blog_jsonObj,"label")
+      console.timeEnd(9)
+      console.time(0)
+      objSortBy(blog_jsonObj,"init")
+      console.timeEnd(0)
       this.setState({
+        // archiveArticles:refactor(blog_jsonObj,"time"),
+        // categoryArticles:refactor(blog_jsonObj,"label"),
+        // initArticles:refactor(blog_jsonObj,"init"),
         archiveArticles:refactor(blog_jsonObj,"time"),
-        categoryArticles:refactor(blog_jsonObj,"label"),
-        initArticles:refactor(blog_jsonObj,"init"),
+        categoryArticles:objGroupBy(blog_jsonObj,"label"),
+        initArticles:objSortBy(blog_jsonObj,"timeArr"),
         blog_jsonObj
       })
     })
@@ -91,7 +72,7 @@ export default class BlogLayout extends React.Component {
     this.fetchBlogContent()
   }
   render() {
-    const { archiveArticles, categoryArticles, initArticles,blog_jsonObj}=this.state
+    const { archiveArticles, categoryArticles, initArticles,tagsRenderMode}=this.state
     return (
       <Layout style={{ background:"#fff",minHeight: '100vh' }}>
         <NavSider />
@@ -112,7 +93,7 @@ export default class BlogLayout extends React.Component {
                   <Redirect to="page/1" from="/" noThrow/>
                   <Home articles={initArticles} path="page/:page" />
                   <Archive articles={archiveArticles} path="archive" />
-                  <Category articles={categoryArticles} path="category/page/:page"  />
+                  <Category articles={categoryArticles} path="category/page/:page"  toggleTagRender={this.toggleTagRender} tagsRenderMode={tagsRenderMode}/>
                   <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
                   <About path="about" articles={categoryArticles}/>
                   <ArticleDetail path="articles/:articleName" blogList={initArticles}/>

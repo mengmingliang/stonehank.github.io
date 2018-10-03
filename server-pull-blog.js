@@ -1,16 +1,21 @@
 const axios = require('axios');
 const fs = require('fs-extra')
 const path=require("path")
-var Base64 = require('js-base64').Base64;
-const {getWeightExtract}=require("./compute-label")
+const Base64 = require('js-base64').Base64;
+const {getWeightExtract}=require("./fetch-blog-server/compute-label")
 const moment = require("moment")
 const slash = require('slash');
+const appRoot = require('app-root-path');
+// var myModule = require(appRoot + process.cwd());
 
 
-const context=slash(process.cwd())
-
-
-
+// console.log(process.cwd())
+// console.log(slash(appRoot.path))
+// const context=slash(process.cwd())
+const context=slash(appRoot.path)
+// console.log(`${context}/fetch-blog-server/blog-config.json`)
+// console.log(fs.readJsonSync(`${context}/blog-config.json`))
+console.log("项目根目录为："+context,"正在通过github获取数据...")
 let config
 try{
   config=fs.readJsonSync(`${context}/fetch-blog-server/blog-config.json`)

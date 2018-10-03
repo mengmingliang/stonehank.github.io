@@ -1,0 +1,136 @@
+export function refactor(json,groupBy){
+  let groupObj={}
+  let group
+  if(groupBy==="time" )group="timeArr"
+  else if(groupBy==="label")group="label"
+  else group='init'
+  if(group==="timeArr"){
+    for(let k in json){
+      let cur=json[k]
+      if(!cur[group])continue;
+      let year=cur[group][0]
+      let month=cur[group][1]
+      let day=cur[group][2]
+      if(!groupObj[year])groupObj[year]=[]
+      if(!groupObj[year][month])groupObj[year][month]=[]
+      groupObj[year][month][day]=cur
+    }
+    return groupObj
+  }
+  if(group==="label"){
+    for(let k in json){
+      let cur=json[k]
+      if(!cur[group])continue;
+      let curLabel=cur[group]
+      for(let i=0;i<curLabel.length;i++){
+        if(!groupObj[curLabel[i]])groupObj[curLabel[i]]=[cur]
+        else groupObj[curLabel[i]].push(cur)
+      }
+    }
+    return groupObj
+  }
+  if(group==="init"){
+    let result=[]
+    for(let k in json){
+      if(k==="version" || Object.prototype.toString.call(json[k])!=="[object Object]")continue
+      result.push(json[k])
+    }
+    result.sort(function(o1,o2){
+      let t1=o1.timeArr,t2=o2.timeArr
+      if(!t1 || !t2)return -1
+      if(t2[0]!==t1[0])return t2[0]-t1[0]
+      else if(t2[1]!==t1[1])return t2[1]-t1[1]
+      else return t2[2]-t1[2]
+    })
+    return result
+  }
+}
+
+// 按sortKey的顺序比较，sortKey对应的值支持Array(nest)
+// immutable
+// obj<json>:{ a:{},b:{}}
+export function objSortBy(obj,sortKey,asc){
+  let os=Object.prototype.toString
+  if(os.call(obj)!=="[object Object]")throw Error("obj must be Object")
+  let result=[],
+    // cannotSort=[],
+    compareReturn=asc?1:-1,
+    sortFactor=Array.isArray(sortKey)?sortKey:[sortKey]
+  for(let k in obj){
+    if(!obj.hasOwnProperty(k))continue
+    // if(!obj[k][sortFactor[0]]){
+    //   cannotSort.push(obj[k])
+    //   continue
+    // }
+    result.push(obj[k])
+  }
+  _sort(result,sortFactor)
+  function _sort(sortArr,sortFactor){
+    sortArr.sort((a,b)=>{
+      let index=0
+      let valA,valB
+      while(index<sortFactor.length){
+        valA=a[sortFactor[index]]
+        valB=b[sortFactor[index]]
+        if(!valA || _compare(valA,valB)<0)return -compareReturn
+        else if(!valB || _compare(valA,valB)>0)return compareReturn
+        else index++
+      }
+      return 0
+    })
+  }
+  function _compare(a,b){
+    let typeA=os.call(a),typeB=os.call(b)
+    if(typeA==="[object Array]" && typeB==="[object Array]"){
+      let i=0
+      while(i<a.length){
+        if(_compare(a[i],b[i])<0)return -1
+        else if(_compare(a[i],b[i])>0)return 1
+        else i++
+      }
+    }else if(typeA!=="[object Array]" && typeB!=="[object Array]"){
+      if(typeof a!==typeof b){a=a.toString();b=b.toString()}
+      if(a<b)return -1
+      else if(a>b)return 1
+    }else{
+      if(typeA==="[object Array]")return 1
+      else return -1
+    }
+    return 0
+  }
+  return result
+}
+
+export function objGroupBy(obj,key){
+  let os=Object.prototype.toString
+  if(os.call(obj)!=="[object Object]")throw Error("obj must be Object")
+  let result={}
+  for(let k in obj){
+    if(!obj.hasOwnProperty(k))continue
+    let objValue=obj[k]
+    if(!objValue[key])continue;
+    let keyValue = objValue[key]
+    function _group(data,result){
+      let typeData=os.call(data)
+      if(typeData==="[object Array]") {
+        for (let i = 0; i < data.length; i++) {
+          _group(data[i],result)
+          // if (!result[data[i]]) result[data[i]] = [objValue]
+          // else result[data[i]].push(objValue)
+        }
+      }else if(typeData==="[object Object]"){
+        for(let _k in data){
+          if(!data.hasOwnProperty(_k))continue
+          _group(data[_k],result)
+          // if (!result[data[_k]]) result[data[_k]] = [objValue]
+          // else result[data[_k]].push(objValue)
+        }
+      }else{
+        if (!result[data]) result[data] = [objValue]
+        else result[data].push(objValue)
+      }
+    }
+    _group(keyValue,result)
+  }
+  return result
+}

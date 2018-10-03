@@ -2,7 +2,7 @@
    "token":"b6774f0253b5b570d202583d5372ec0bcf21859e",
    "user":"stonehank",
    "repository":"blogs",
-   "per_page":15,
+   "per_page":200,
    "ignoreSHA":true,
    "forceUpdate":true,
    "dataType":"YY-MM-DD",

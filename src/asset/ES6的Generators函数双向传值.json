@@ -1,0 +1,3 @@
+{
+	"content": "Generators函数的双向传递\n\n每次调用`answer()`，相当于在`generators`函数的next方法加入参数，这个参数会返回给`yield`的返回值\n\n在函数内部可以判断这个返回值，实现双向传递\n```js\n  let stepCount=1\n  let currentPoint=1\n  function *stepToStep(){\n    while(stepCount<4){\n      let choose=yield 'Choose Left or Right ?Call \"answer()\" to answer!'\n      if(choose==='left')currentPoint+=stepCount++;\n      else if (choose==='right')currentPoint+=1+stepCount++;\n      console.log(`You have arrived at point ${currentPoint}`)\n    }\n    if(currentPoint===9)console.log('Good End')\n    else console.log('Bad End')\n  }\n  let start= stepToStep()\n  function answer(answer){\n    console.log(start.next(answer.toLowerCase()).value)\n  }\n  console.log(start.next().value)\n```"
+}

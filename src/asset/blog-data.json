@@ -374,5 +374,1709 @@
 		],
 		"title": "react-diff",
 		"summary": "\n####Diff算法3个策略\n\n1. 跨层级不进行不比较\n2. 不同类不进行比较\n3. 同类同级通过key比较\n\n主要对第三种进行解释#### 例子\n\n更新前组件：`A-B-C-D` => 更新后组件：`C-B-E-A`\n\n满足`child._mountIndex < lastIndex`才会进行组件移动\n\n* `c..."
+	},
+	"一些被忽略的js知识1": {
+		"sha": "f3d8a54250e815d12ccfea75a695e89864ceea02",
+		"label": [
+			"绑定",
+			"obj1",
+			"obj2",
+			"null",
+			"bind"
+		],
+		"createdTime": "6/22/2018",
+		"timeArr": [
+			2018,
+			5,
+			22,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一些被忽略的js知识1",
+		"summary": "#### 硬绑定不会覆盖硬绑定，但new会覆盖硬绑定\n\n* 硬绑定不会覆盖硬绑定\n```js\nfunction show(s){\n  this.a=s\n}\n\nvar obj1={}\nvar obj2={}\n\nshow=show.bind(obj1)\nshow(5)\nobj1.a  // 5\n\nshow=show.bin..."
+	},
+	"未来JS新变化3个": {
+		"sha": "ddb1227014b062262d3aae51eb2adce1d93cfb8c",
+		"label": [
+			"data",
+			"user",
+			"return",
+			"result",
+			"hello",
+			"address",
+			"funcs"
+		],
+		"createdTime": "6/23/2018",
+		"timeArr": [
+			2018,
+			5,
+			23,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "未来JS新变化3个",
+		"summary": "#### 变化1：\n\n原写法：\n```js\nconst data = {\n  user: {},\n};\nconst street = data && data.user && data.user.address && data.user.address.street;\nconsole.log(data.user.add..."
+	},
+	"一些被忽略的js知识2": {
+		"sha": "fb38217065ea7daed0288b266e59095d21a0b662",
+		"label": [
+			"myObject",
+			"Object",
+			"object",
+			"Symbol",
+			"冻结"
+		],
+		"createdTime": "6/24/2018",
+		"timeArr": [
+			2018,
+			5,
+			24,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一些被忽略的js知识2",
+		"summary": "#### Object对象的key\n\n一般来说，obj的key属性会自动转换成字符串（调用默认toString方法），然后再读取\n\n例如：\n\n```js\nvar myObject = { };\nmyObject[true] = \"foo\";\nmyObject[3] = \"bar\";\n\nmyObject[\"true\"];..."
+	},
+	"高阶redux的使用": {
+		"sha": "1a051b70892a766030ca8e55ac15f3c3fbb2d887",
+		"label": [
+			"action",
+			"redux",
+			"reducer",
+			"高阶",
+			"state",
+			"const",
+			"initialState",
+			"function",
+			"type",
+			"return"
+		],
+		"createdTime": "6/25/2018",
+		"timeArr": [
+			2018,
+			5,
+			25,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "高阶redux的使用",
+		"summary": "###3 Redux的复用\n\n因为每一次dispatch都是遍历所有reducer寻找type，因此每一个action的type不能一致，\n当需要复用reducer时，可以使用prefix\n```js\nfunction generateReducer(prefix,state){\n  const SOMETYPE=pr..."
+	},
+	"一些被忽略的js知识3": {
+		"sha": "cf33393c29435b7cdf3d8dcb0fdcc23a85ab8452",
+		"label": [
+			"prototype",
+			"console",
+			"function",
+			"Object"
+		],
+		"createdTime": "6/26/2018",
+		"timeArr": [
+			2018,
+			5,
+			26,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一些被忽略的js知识3",
+		"summary": "#### for...of\n\n `for..of`会寻找内置或者自定义的 @@iterator 对象并调用它的 next() 方法来遍历数据值\n \n array默认带有iterator，因此可以直接使用for...of\n ```js\nvar arr=[1,2,3];\nvar it=arr[Symbol.iterator..."
+	},
+	"JS的AST(Esprima.parse)": {
+		"sha": "8446b12b208921dadb0f44d47ca83eb637509139",
+		"label": [
+			"Esprima",
+			"parse",
+			"node",
+			"正则",
+			"double",
+			"function",
+			"esprima",
+			"estraverse"
+		],
+		"createdTime": "6/27/2018",
+		"timeArr": [
+			2018,
+			5,
+			27,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "JS的AST(Esprima.parse)",
+		"summary": "#### 使用AST完成需求\n\n需求：输出方法中的参数为字符串'1234'的变量名\n\n```js\nfunction x(){\n  var a=parseInt('1234');\n  var b='1234';\n  function double(n){\n    return n*2\n  }\n  var c=double..."
+	},
+	"reselect": {
+		"sha": "f0d4f2e822ae9afefb2da674e748cd479eef8231",
+		"label": [
+			"reselect",
+			"newDescriptions",
+			"descriptions",
+			"mockStore",
+			"const",
+			"mapStateToProps"
+		],
+		"createdTime": "6/28/2018",
+		"timeArr": [
+			2018,
+			5,
+			28,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "reselect",
+		"summary": "#### Reselect\n\n当我们使用redux的`connect(mapStateToProps)`的时候\n\n有时候store的数据直接传进组件并不好，于是我们希望在将数据传进组件前，进行调整\n\n例如 store如下\n```\nconst mockStore={\n  descriptions:[\n    {name:\"a..."
+	},
+	"css3种赋值-动态绑定事件": {
+		"sha": "8e96930475cb06f0123593475430fadf9ed6eec0",
+		"label": [
+			"绑定",
+			"赋值",
+			"someEle",
+			"css3",
+			"eventName",
+			"events",
+			"addEventListener",
+			"event",
+			"事件"
+		],
+		"createdTime": "6/30/2018",
+		"timeArr": [
+			2018,
+			5,
+			30,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "css3种赋值-动态绑定事件",
+		"summary": "#### css3种赋值方式\n\n1. `element.style.name=value`\n2. `element.style.setProperty('name','value')`\n3. `element.style.cssText=\"name:value\"`\n\n1和2一次都只能对单个属性赋值，只对name属性赋值，2..."
+	},
+	"超简洁1kb框架-hyperapp": {
+		"sha": "885ccb597d795a6915433872a0e45b118445951f",
+		"label": [
+			"hyperapp",
+			"导图",
+			"框架",
+			"简洁",
+			"源码",
+			"analysis",
+			"github",
+			"README",
+			"blob"
+		],
+		"createdTime": "7/1/2018",
+		"timeArr": [
+			2018,
+			6,
+			1,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "超简洁1kb框架-hyperapp",
+		"summary": "#### hyperapp框架\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md)\n\n一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过..."
+	},
+	"hyperapp-patch": {
+		"sha": "bcf7fcff4b9e7073b08ad7c80986590462058756",
+		"label": [
+			"patch",
+			"hyperapp",
+			"节点",
+			"导图",
+			"判断",
+			"更新",
+			"源码",
+			"code"
+		],
+		"createdTime": "7/2/2018",
+		"timeArr": [
+			2018,
+			6,
+			2,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "hyperapp-patch",
+		"summary": "#### hyperapp-patch\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md)\n\npatch是hyperapp进行节点更新的核心，主要步骤：\n* 先判断n..."
+	},
+	"JS中位操作": {
+		"sha": "50c40330555ea317421cc46a84ff4b6fe23f1cc1",
+		"label": [
+			"二进制",
+			"编码",
+			"位操作",
+			"按位",
+			"Math",
+			"count"
+		],
+		"createdTime": "7/3/2018",
+		"timeArr": [
+			2018,
+			6,
+			3,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "JS中位操作",
+		"summary": "#### JS按位操作符\n\n* 按位异或(^)：二进制编码中，每一位两者相同，则为0，两者不同，则为1\n* 按位与 (&)：二进制编码中，每一位两者都为1，则为1，否则，则为0\n* 按位或 (|)：二进制编码中，每一位两者其中一个为1，则为1，否则，则为0\n* 按位非(~)：二进制编码中，每一位的反码，1为0，0为1（十进..."
+	},
+	"编码-加密-哈希-混淆不同点-文章翻译": {
+		"sha": "50f63075f5fedd74d4b1ace8fcce1bdfe2f93efa",
+		"label": [
+			"混淆",
+			"加密",
+			"编码",
+			"哈希",
+			"不同点",
+			"https",
+			"数据",
+			"密钥",
+			"散列法"
+		],
+		"createdTime": "7/4/2018",
+		"timeArr": [
+			2018,
+			6,
+			4,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "编码-加密-哈希-混淆不同点-文章翻译",
+		"summary": "[原文阅读](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/)\n\n![js_obfuscation](./img/js_obfuscation.png)\n\n[编码](#编码)\n\n[加密](#加密)\n\n[散列法](#散列法..."
+	},
+	"转码,Hash,加密,混淆区别总结": {
+		"sha": "22a37b52e29256c6227488765b3c7bae7216c9d5",
+		"label": [
+			"算法",
+			"输入",
+			"输出",
+			"Hash",
+			"可逆",
+			"加密",
+			"转码",
+			"混淆",
+			"转换",
+			"密钥",
+			"相同",
+			"长度"
+		],
+		"createdTime": "7/4/2018",
+		"timeArr": [
+			2018,
+			6,
+			4,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "转码,Hash,加密,混淆区别总结",
+		"summary": "* 编码\n\n    转换数据格式使其能被各种系统执行，算法公开\n\n* hash\n\n    一个多对一的转换，不可逆，长度固定，用于检测文件是否有改动\n    \n    四个特性：\n    1. 输入相同，输出一定相同\n    2. 绝大部分不同的输入不应该产生相同的输出\n    3. 输入到输出行为不可逆\n    4...."
+	},
+	"源码阅读-reach-router源码学习到的1": {
+		"sha": "7e151f2405bca2a2f40f41defe20c8dc037ac39e",
+		"label": [
+			"element",
+			"源码",
+			"type",
+			"router",
+			"组件",
+			"reach",
+			"props",
+			"React",
+			"return",
+			"location"
+		],
+		"createdTime": "7/5/2018",
+		"timeArr": [
+			2018,
+			6,
+			5,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-reach-router源码学习到的1",
+		"summary": "#### popstate\n\n只在浏览器下前进后退和改变hash触发，`pushState`和`replaceState`并不会触发\n\n源码中给`popstate`和`navigate`事件绑定了一旦执行就更新当前location(传递到context中的)\n\n\n## 替代pushState和replaceState\n源码..."
+	},
+	"源码阅读-reach-router源码学习到的2": {
+		"sha": "a36a3611a3b4eab9e4d4f48583424f9a869764b8",
+		"label": [
+			"路径",
+			"源码",
+			"router",
+			"reach",
+			"POINTS",
+			"匹配",
+			"section",
+			"artical",
+			"通配符"
+		],
+		"createdTime": "7/6/2018",
+		"timeArr": [
+			2018,
+			6,
+			6,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-reach-router源码学习到的2",
+		"summary": "#### 路径匹配优先权问题\n\n先假设一个问题：\n\n有一个匹配路径： `doc/artical`\n\n待匹配路径有3个：\n\n`doc/:section`\n\n`doc/*`\n \n`doc/artical`\n\n该优先对哪个匹配呢？\n\n源码中是使用了一个评分的方法：\n* 先对路径去除头尾的\"/\" ，并且按\"/\"分割成路径片段数组\n..."
+	},
+	"源码阅读-reach-router源码学习到的3": {
+		"sha": "6725479ff300e88bb4fedb1c5d5ac66abb602051",
+		"label": [
+			"reach",
+			"context",
+			"Provider",
+			"router",
+			"children",
+			"源码",
+			"Consumer",
+			"Promise",
+			"LocationProvider",
+			"组件",
+			"Router"
+		],
+		"createdTime": "7/7/2018",
+		"timeArr": [
+			2018,
+			6,
+			7,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-reach-router源码学习到的3",
+		"summary": "#### 关于Consumer的补充\n\n官方（英文）：\n>All Consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes. \nThe propagation from Pro..."
+	},
+	"reach-router": {
+		"sha": "f167736adbb910529f25fa5bee12ce70bc54b509",
+		"label": [
+			"路径",
+			"reach",
+			"router",
+			"POINTS",
+			"跳转",
+			"绝对路径",
+			"baseuri",
+			"通配符"
+		],
+		"createdTime": "7/8/2018",
+		"timeArr": [
+			2018,
+			6,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "reach-router",
+		"summary": "#### reach/router\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md)\n\n一张导图：\n\n![](./img/reachRouter.png)\n..."
+	},
+	"一些被忽略的JS知识4": {
+		"sha": "8d0bb1a269204fc2d67a1a381e8e6ea888c0f672",
+		"label": [
+			"JSON",
+			"stringify",
+			"function",
+			"toJSON",
+			"对象"
+		],
+		"createdTime": "7/9/2018",
+		"timeArr": [
+			2018,
+			6,
+			9,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一些被忽略的JS知识4",
+		"summary": "#### 按值传递和按引用传递\n\n按值传递的例子：\n```js\nfunction passByValue(x){\n  x=999\n}\nvar a=5;\nvar b={a:1}\npassByValue(a);\npassByValue(b)\na   // 5\nb   // {a:1}\n```\n\n按引用传递的例子(虚构)：\n``..."
+	},
+	"js宽松比较规范": {
+		"sha": "3f5410af480e95ec28f850969f4fa6f156d635a3",
+		"label": [
+			"Type",
+			"true",
+			"2.",
+			"1.",
+			"ToNumber",
+			"false",
+			"字符串",
+			"返回"
+		],
+		"createdTime": "7/10/2018",
+		"timeArr": [
+			2018,
+			6,
+			10,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "js宽松比较规范",
+		"summary": "#### JS宽松比较(==)规范\n\n摘自《你不知道的javascript》\n\n1. 字符串和数字之间的相等比较\n\n    >ES5 规范 11.9.3.4-5 这样定义：\n    >1. 如果 Type(x) 是数字， Type(y) 是字符串，则返回 x == ToNumber(y)\n    的结果。\n    >2. ..."
+	},
+	"正则遗漏点": {
+		"sha": "150a56b6eb7cd88a1e0662000a7a8f23e0c8003a",
+		"label": [
+			"正则",
+			"stick",
+			"遗漏",
+			"exec",
+			"input",
+			"regG",
+			"index",
+			"RegExp"
+		],
+		"createdTime": "7/11/2018",
+		"timeArr": [
+			2018,
+			6,
+			11,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "正则遗漏点",
+		"summary": "#### 正则 exec和match\n\n* 都是返回数组，包括小括号内部\n* 非全局 一致\n* match全局，匹配多个值\n* exec全局，匹配单个值，但每次执行会继续从上一次匹配数据之后开始\n```js\nlet str='this is a stick'\n\nlet reg=/.is/\nreg.exec(str)   /..."
+	},
+	"fetch-corsVSno-cors": {
+		"sha": "17a85d07a1ae45e6a8f6857bf3c621bfba2bd674",
+		"label": [
+			"cors",
+			"response",
+			"corsVSno",
+			"header",
+			"fetch",
+			"filtered",
+			"list",
+			"CORS",
+			"opaque",
+			"headers"
+		],
+		"createdTime": "7/12/2018",
+		"timeArr": [
+			2018,
+			6,
+			12,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "fetch-corsVSno-cors",
+		"summary": "#### cors .vs no-cors\n\n名词：\n\n* `CORS filtered response`\n>A CORS filtered response is a filtered response whose type is \"cors\", header list excludes any headers in ..."
+	},
+	"源码阅读-reselect源码学习": {
+		"sha": "d9ad388a0614782724779268301e0b4a56701aac",
+		"label": [
+			"函数",
+			"源码",
+			"缓存",
+			"reselect",
+			"参数",
+			"createSelector",
+			"2.",
+			"1.",
+			"依赖",
+			"数据处理"
+		],
+		"createdTime": "7/13/2018",
+		"timeArr": [
+			2018,
+			6,
+			13,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-reselect源码学习",
+		"summary": "#### reselect源码亮点介绍\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md)\n\n导图：\n\n![](./img/reselect.png)\n\n### de..."
+	},
+	"2个JS缓存工具学习心得": {
+		"sha": "bf7ea8c78c4aac789cd19ecba2a5d49fc7cf4d9c",
+		"label": [
+			"缓存",
+			"参数",
+			"fast",
+			"学习心得",
+			"序列化",
+			"nano",
+			"运行",
+			"memoize",
+			"源码"
+		],
+		"createdTime": "7/15/2018",
+		"timeArr": [
+			2018,
+			6,
+			15,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "2个JS缓存工具学习心得",
+		"summary": "#### nano-memoize 和 fast-memoize\n\n首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。\n\nfast-memoize导图：\n![](./img/fast-memoize.png)\n\n大概说说它们的实现思路：\n\n1. 定义缓存结构，其中`fast`..."
+	},
+	"处理额外复杂任务的3种方式": {
+		"sha": "b707535a293aa9a30b76763d846ad36d9b944fc1",
+		"label": [
+			"worker",
+			"setTimeout",
+			"function",
+			"target",
+			"createIdle"
+		],
+		"createdTime": "7/16/2018",
+		"timeArr": [
+			2018,
+			6,
+			16,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "处理额外复杂任务的3种方式",
+		"summary": "#### web worker VS idleRequestCallback VS setTimeout\n\n***测试平台：FireFox***(Chrome嵌套worker会有[bug](https://bugs.chromium.org/p/chromium/issues/detail?id=31666))\n\n|*方法..."
+	},
+	"一个记录redux的dispatch耗时的中间件": {
+		"sha": "78386b134e2b2ff73ad010cc436a6bcaadc22582",
+		"label": [
+			"dispatch",
+			"耗时",
+			"action",
+			"中间件",
+			"performance",
+			"redux",
+			"type",
+			"applyMiddleWare",
+			"timing",
+			"mark"
+		],
+		"createdTime": "7/17/2018",
+		"timeArr": [
+			2018,
+			6,
+			17,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一个记录redux的dispatch耗时的中间件",
+		"summary": "#### 一个记录redux每次dispatch耗时中间件\n\n### 源码\n\n[源码地址](https://gist.github.com/clarkbw/966732806e7a38f5b49fd770c62a6099)\n```js\nconst timing = store => next => action => {\n..."
+	},
+	"一个长正则的深入理解": {
+		"sha": "784356b84252e1f80acd38952d47176e1e4a8836",
+		"label": [
+			"匹配",
+			"正则",
+			"match",
+			"后面",
+			"中括号",
+			"引号",
+			"字符串",
+			"expression"
+		],
+		"createdTime": "7/18/2018",
+		"timeArr": [
+			2018,
+			6,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一个长正则的深入理解",
+		"summary": "#### 阅读lodash中一段长正则理解笔记\n\n在lodash源码`/.internal/stringToPath.js`中：\n\n这里英文是原注释，中文是简单的翻译下，后面会详细解释：\n```js\nconst rePropName = RegExp(\n  // Match anything that isn't a do..."
+	},
+	"解析anime核心(1)": {
+		"sha": "2841c2c60ffc45abdca1ed525155f5b777ed54c7",
+		"label": [
+			"instance",
+			"anime",
+			"动画",
+			"解析",
+			"engineTime",
+			"insDuration",
+			"function",
+			"const",
+			"时间",
+			"位置"
+		],
+		"createdTime": "7/20/2018",
+		"timeArr": [
+			2018,
+			6,
+			20,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "解析anime核心(1)",
+		"summary": "本次解析将分为2篇文章，当前是第一篇，第二篇在[这里](./07-21-解析anime核心(2).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli..."
+	},
+	"解析anime核心(2)": {
+		"sha": "a9f78f786c764a619cefc5156e3120771d547641",
+		"label": [
+			"instance",
+			"anime",
+			"function",
+			"解析",
+			"tween",
+			"const",
+			"动画",
+			"reset"
+		],
+		"createdTime": "7/22/2018",
+		"timeArr": [
+			2018,
+			6,
+			22,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "解析anime核心(2)",
+		"summary": "本次解析将分为2篇文章，当前是第二篇，第一篇在[这里](./07-20-解析anime核心(1).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli..."
+	},
+	"Blob对象和createObjectURL": {
+		"sha": "92b4e89a32882a49232d054e12b2f724a0e9fa68",
+		"label": [
+			"Blob",
+			"createObjectURL",
+			"worker",
+			"blob",
+			"对象"
+		],
+		"createdTime": "7/24/2018",
+		"timeArr": [
+			2018,
+			6,
+			24,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "Blob对象和createObjectURL",
+		"summary": "#### Blob与createObjectURL搭配使用\n\n```js\nvar blob = new Blob([document.querySelector('#worker').textContent]);\nvar url = window.URL.createObjectURL(blob);\nvar worker ..."
+	},
+	"通过解析blob实现图片预览": {
+		"sha": "bf946078e90730d7d626fe3573c4adad5f9cd0e2",
+		"label": [
+			"blob",
+			"解析",
+			"预览",
+			"return",
+			"type",
+			"FileReader",
+			"alert"
+		],
+		"createdTime": "7/25/2018",
+		"timeArr": [
+			2018,
+			6,
+			25,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "通过解析blob实现图片预览",
+		"summary": "#### 解析blob实现图片预览\n\n原理很简单，`blob`是一个储存了二进制的大对象，而`createObjectURL`可以解析blob成为一个url格式，\n再用`img`标签渲染即可。\n\n```js\n  if(blob.type.indexOf('image')!==-1){\n    newURL=window.U..."
+	},
+	"通过blob实现文件续传记录(nodejs)": {
+		"sha": "f3a86b01ae6164f031e648596d9eeafb87fb28f6",
+		"label": [
+			"blob",
+			"续传",
+			"start",
+			"nodejs",
+			"function",
+			"form"
+		],
+		"createdTime": "7/26/2018",
+		"timeArr": [
+			2018,
+			6,
+			26,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "通过blob实现文件续传记录(nodejs)",
+		"summary": "#### 一个可暂停分段上传的例子\n\n[代码位置](https://gist.github.com/stonehank/5d3dea234ac6bc200bdef9c181c0a645)\n_______\n\n要点：\n\n1. 通过`blob.slice()`对文件进行分割，再逐个上传\n\n    `blob.slice(star..."
+	},
+	"css补缺": {
+		"sha": "4a1043ffaa6c98e2971a83f9fba138ad8462eafa",
+		"label": [
+			"grid",
+			"补缺",
+			"template",
+			"area",
+			"flex"
+		],
+		"createdTime": "7/27/2018",
+		"timeArr": [
+			2018,
+			6,
+			27,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "css补缺",
+		"summary": "#### @charset\n@charset 在外部样式表文件内使用。指定该样式表使用的字符编码。\n```css\n@charset \"utf-8\";\nbody {  }\ndiv {  }\n```\n## inline-flex\n\ninline-flex和flex 是针对flex容器的内联显示改变，而它内部的flex-item..."
+	},
+	"源码阅读-create-react-app一些收获(笔记备忘)": {
+		"sha": "0a29b597ea9aca0631c7bd70092eb31cf07d8250",
+		"label": [
+			"create",
+			"semver",
+			"1.2.3",
+			"备忘",
+			"process",
+			"源码",
+			"spawn",
+			"react",
+			"valid",
+			"笔记",
+			"data"
+		],
+		"createdTime": "7/28/2018",
+		"timeArr": [
+			2018,
+			6,
+			28,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-create-react-app一些收获(笔记备忘)",
+		"summary": "#### ./creat-react-app/createReactApp.js\n\n* os.EOL\n\n    不同系统的行尾符号\n    \n    > A string constant defining the operating system-specific end-of-line marker:\n    \n   ..."
+	},
+	"记一道二分查找算法题": {
+		"sha": "d3c6d7ae8150d554512c3b20c6ccc2cd575468c5",
+		"label": [
+			"Math",
+			"二分",
+			"floor",
+			"查找",
+			"return",
+			"算法",
+			"次数",
+			"function",
+			"number",
+			"公倍数"
+		],
+		"createdTime": "7/29/2018",
+		"timeArr": [
+			2018,
+			6,
+			29,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "记一道二分查找算法题",
+		"summary": "题目位置：https://leetcode.com/problems/nth-magical-number/description/\n\n题目：\n\n如果正整数 可被A  或B整除，则它是神奇的。\n\n返回第N个魔法数字。由于答案可能非常大，因此返回值需要模(%)10^9 + 7。\n\n例1：\n```\n输入： N = 1，A ..."
+	},
+	"文章记录—当前的网页安全": {
+		"sha": "6901bccad37993cd0ddb283e7bd8f2a32e5ae599",
+		"label": [
+			"linkEl",
+			"网页",
+			"prefetch",
+			"document",
+			"检测",
+			"发射",
+			"安全策略"
+		],
+		"createdTime": "7/30/2018",
+		"timeArr": [
+			2018,
+			6,
+			30,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "文章记录—当前的网页安全",
+		"summary": "原文地址：https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5\n\n作者讲述了一些能够达成的破解网络安全手段(有些已被认为是bug修复，例如2)，并给出建议..."
+	},
+	"从源码理解redux-observable": {
+		"sha": "6e85cade1d479e41467fc8f31c7cce1b2d0eca18",
+		"label": [
+			"源码",
+			"return",
+			"observable",
+			"epic",
+			"redux",
+			"绑定",
+			"const",
+			"action",
+			"操作符"
+		],
+		"createdTime": "7/31/2018",
+		"timeArr": [
+			2018,
+			6,
+			31,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "从源码理解redux-observable",
+		"summary": "#### 阅读前提：\n1. 有rxjs基础，对`Observable`, `Subject`,`pipe`和一些操作符(例如`filter`,`map`,`merge`,`mergeMap`)执行流程有基本了解，最起码遇到不清楚有去查阅的动力\n2. 比较熟悉`redux`中间件的写法，否则像`createEpicMidd..."
+	},
+	"一些promise和其他补缺": {
+		"sha": "3bfb5149de44ae6b02ce78a91414ebbd9303a277",
+		"label": [
+			"resolve",
+			"promise",
+			"prototype",
+			"补缺",
+			"function",
+			"Promise",
+			"reject",
+			"console"
+		],
+		"createdTime": "8/2/2018",
+		"timeArr": [
+			2018,
+			7,
+			2,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一些promise和其他补缺",
+		"summary": "* 如果向 Promise.resolve(..) 传递一个真正的 Promise，就只会返回同一个 promise\n```js\nvar p1 = Promise.resolve( 42 );\nvar p2 = Promise.resolve( p1 );\np1===p2\n// true\n```\n\n\n* P..."
+	},
+	"react的编写模式": {
+		"sha": "ac63fa5d204d619196b3d6c6134d623fb670d2f1",
+		"label": [
+			"react",
+			"const",
+			"comId",
+			"props",
+			"return",
+			"Component3",
+			"Component2",
+			"Component1"
+		],
+		"createdTime": "8/4/2018",
+		"timeArr": [
+			2018,
+			7,
+			4,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "react的编写模式",
+		"summary": "使用4种方式：props传递，父组件公用，hoc，render-prop\n\n定义需求，cur符合auth才能查看组件内容，否则进入NotAccess\n```\nconst cur = \"a\";\nconst auth = {\n  com1: [\"a\", \"b\"],\n  com2: [\"b\", \"c\"],\n  com3: [..."
+	},
+	"源码阅读-anime和react-motion算法差异": {
+		"sha": "9f1747ec27f36e527867dcc4368704ce642ca78d",
+		"label": [
+			"算法",
+			"进度条",
+			"位置",
+			"react",
+			"动画",
+			"motion",
+			"源码",
+			"anime",
+			"暂停",
+			"实现",
+			"调用",
+			"初始"
+		],
+		"createdTime": "8/5/2018",
+		"timeArr": [
+			2018,
+			7,
+			5,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-anime和react-motion算法差异",
+		"summary": "`anime`用的是缓动算法\n\n算法规定了动画形式，需要提供总消耗时间，当前消耗时间，初始位置，目标位置\n\n特点：动画灵活性更大,可以指定任意的时间而得到对应的位置，可以实现暂停/继续，动画跳转，动画进度条等\n\n`react-motion`用的是弹性算法\n\n算法规定了弹性和阻力，只要提供初始位置和目标位置，即可计算出动..."
+	},
+	"CSS BEM和7-1": {
+		"sha": "749d64da627880acf963a5302a4e38ce920592d5",
+		"label": [
+			"article",
+			"Element",
+			"content",
+			"layout",
+			"Block",
+			"Modifier"
+		],
+		"createdTime": "8/8/2018",
+		"timeArr": [
+			2018,
+			7,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "CSS BEM和7-1",
+		"summary": "#### css 的BEM方法和7-1规则\n\n### BEM\n\n按照`Block__Element--Modifier`命名\n\n例如：\n```\narticle__author\narticle__date\narticle__content-leftAlign\narticle__content-centerAlign\n```\n..."
+	},
+	"KMP回溯分析": {
+		"sha": "9b2f31a1afd83292746a2243626db26804af5fa3",
+		"label": [
+			"回溯",
+			"匹配",
+			"length",
+			"后缀",
+			"return",
+			"公共"
+		],
+		"createdTime": "8/9/2018",
+		"timeArr": [
+			2018,
+			7,
+			9,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "KMP回溯分析",
+		"summary": "KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯\n\n一般写法是：\n```js\nfunction calcNext(str,pat){\n  /*...*/\n  if(str[k]!==str[j]){\n    // 有些会写成k=next[k]，原理是一样的\n    // 这里k表示，所对应当前正在进行对比的..."
+	},
+	"源码阅读-react-motion-拓扑排序思想": {
+		"sha": "65c59ec0ce44ba503eeb5cfdeec3d1eba9b70047",
+		"label": [
+			"排序",
+			"源码",
+			"react",
+			"motion",
+			"动画",
+			"序列",
+			"拓扑"
+		],
+		"createdTime": "8/10/2018",
+		"timeArr": [
+			2018,
+			7,
+			10,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-react-motion-拓扑排序思想",
+		"summary": "\n阅读[react-motion](https://github.com/chenglou/react-motion)的源码时候，其中有一个组件`TransitionMotion`\n，它负责元素的新增和移除动画，内部有2个概念：`old`和`new`\n\n这就先说到排序，\n\n当动画队列出现如下状态..."
+	},
+	"svg渲染dom，canvas获取像素": {
+		"sha": "8f6c34d738ca1b40e7dbc5fd7c069695a2fb4443",
+		"label": [
+			"canvas",
+			"width",
+			"像素",
+			"渲染",
+			"foreignObject"
+		],
+		"createdTime": "8/13/2018",
+		"timeArr": [
+			2018,
+			7,
+			13,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "svg渲染dom，canvas获取像素",
+		"summary": "#### foreignObject\n\nsvg内部标签`<foreignObject>`，可以直接在svg内部插入`xhtml`元素，再通过`blob`和`FileReader`可\n将内部`xhtml`内容转换成*同源*url，再通过`img.src=url`将svg内部的dom元素转化为图片。\n\n```js\nlet  d..."
+	},
+	"CORS通信": {
+		"sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425",
+		"label": [
+			"请求",
+			"CORS",
+			"键值",
+			"html",
+			"javascript",
+			"form",
+			"https",
+			"wangdoc"
+		],
+		"createdTime": "8/14/2018",
+		"timeArr": [
+			2018,
+			7,
+			14,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "CORS通信",
+		"summary": "CORS通信就是服务端设置`Access-Control-Allow-Origin`等配置\n\n分为2类请求，简单请求和非简单请求\n\n\n* 简单请求：\n\n    无预检，直接传递数据的时候检查是否同源\n\n    Content-Type类型：\n    \n   `application/x-www-form-urlenco..."
+	},
+	"indexedDB简要增删查": {
+		"sha": "b9c382c33ecfc711c7de0a929d346090b6c78122",
+		"label": [
+			"indexedDB",
+			"增删",
+			"简要",
+			"person",
+			"email",
+			"example"
+		],
+		"createdTime": "8/15/2018",
+		"timeArr": [
+			2018,
+			7,
+			15,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "indexedDB简要增删查",
+		"summary": "indexedDB\n在客户端进行保存保存： \n```\n{id: 1, name: \"张三\", age: 24, email: \"zhangsan@example.com\"}\n{id: 2, name: \"李四\", age: 54, email: \"lisi@example.com\"}\n{id: 3, name: \"王五..."
+	},
+	"源码阅读-lodash-一个创建数组的思考": {
+		"sha": "fd877c6443c7fd59b0f93798c1c4d5d46165b8cf",
+		"label": [
+			"myArray",
+			"源码",
+			"push",
+			"lodash",
+			"result",
+			"数组",
+			"length",
+			"Array",
+			"const"
+		],
+		"createdTime": "8/16/2018",
+		"timeArr": [
+			2018,
+			7,
+			16,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-lodash-一个创建数组的思考",
+		"summary": "####创建数组的思考\n\n`lodash.js>.internal-->baseClone.js`内部\n\n有一句：`const result = new array.constructor(length)`\n\n这里array是一个经过`Array.isArray(array)===true`判断的数组，\n\n这句话..."
+	},
+	"原生表单验证相关": {
+		"sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4",
+		"label": [
+			"表单",
+			"验证",
+			"原生",
+			"form",
+			"自定义",
+			"javascript",
+			"https",
+			"setCustomValidity"
+		],
+		"createdTime": "8/17/2018",
+		"timeArr": [
+			2018,
+			7,
+			17,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "原生表单验证相关",
+		"summary": "#### 表单验证原生\n\n* 查看是否通过验证：\n`ele.checkValidity`\n\n* 验证不通过的时候的提示（只读）：\n`ele.validationMessage`\n\n    可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过\n\n    `ele.set..."
+	},
+	"记录一次xhr.upload.onprogress填坑": {
+		"sha": "bc7ed8c6eae00e50c69810221c75724e5987c3ef",
+		"label": [
+			"onprogress",
+			"content",
+			"upload",
+			"type",
+			"填坑",
+			"OPTIONS",
+			"请求",
+			"options"
+		],
+		"createdTime": "8/18/2018",
+		"timeArr": [
+			2018,
+			7,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "记录一次xhr.upload.onprogress填坑",
+		"summary": "#### 一次xhr.upload.onprogress与multiparty搭配的踩坑记录\n\n有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96..."
+	},
+	"canvas处理大量重复运动": {
+		"sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591",
+		"label": [
+			"canvas",
+			"panels",
+			"画板",
+			"length",
+			"particles",
+			"cctx"
+		],
+		"createdTime": "8/20/2018",
+		"timeArr": [
+			2018,
+			7,
+			20,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "canvas处理大量重复运动",
+		"summary": "canvas做大量重复的粒子运动，例如雪花，星光闪烁\n\n并不需要针对每一个粒子进行动画，例如\n```js\nfor(let i=0;i<particles,length;i++){\n  let p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=function(){}\n  ..."
+	},
+	"对比map,{},[]的存取效率": {
+		"sha": "1600828db65c1a7985630b4aed89be4dccca7233",
+		"label": [
+			"CODES",
+			"存取",
+			"hashTable",
+			"https",
+			"jsperf",
+			"hashtable"
+		],
+		"createdTime": "8/21/2018",
+		"timeArr": [
+			2018,
+			7,
+			21,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "对比map,{},[]的存取效率",
+		"summary": "对比了map和hashTable对数据的存取，key类型为string\n\n测试方法：\n```js\n// CODES是字符串组成的数组\n\n// map\nfor(let x=0;x<2;x++){\n    for(let k=0;k<CODES.length;k++){\n      let i=CODES[k]\n     ..."
+	},
+	"深入海明距离": {
+		"sha": "4a3568d093ea0316f644a973e4b91143b8563bd4",
+		"label": [
+			"海明",
+			"binCount",
+			"nums",
+			"length",
+			"total",
+			"计算",
+			"距离"
+		],
+		"createdTime": "8/23/2018",
+		"timeArr": [
+			2018,
+			7,
+			23,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "深入海明距离",
+		"summary": "通常海明距离的计算使用 `^`，再计算1的次数\n\n但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的\n\n另一种计算海明距离的方法：\n```js\n/**\n* @param nums {Array}\n* @returns {number}\n*/\nfunction cal..."
+	},
+	"canvas执行15万粒子的动画": {
+		"sha": "13a7360e4102e7f5e47de276e5ec183f2ea9309f",
+		"label": [
+			"canvas",
+			"动画",
+			"离屏",
+			"showMotion",
+			"rgba4",
+			"assignedParticles"
+		],
+		"createdTime": "8/26/2018",
+		"timeArr": [
+			2018,
+			7,
+			26,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "canvas执行15万粒子的动画",
+		"summary": "最近遇到的，目的是通过粒子动画渲染图片\n\n图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来\n\n最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...\n\n```js\n for (let py = 0; py < targetH; py ++) ..."
+	},
+	"算法记录-最长回文子字符串": {
+		"sha": "b43da9771d20a5bb5e735c832af36f85b932df54",
+		"label": [
+			"回文",
+			"算法",
+			"字符串",
+			"temp",
+			"newCenter",
+			"length"
+		],
+		"createdTime": "8/27/2018",
+		"timeArr": [
+			2018,
+			7,
+			27,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "算法记录-最长回文子字符串",
+		"summary": "思路：利用对称思想\n\n1. 先将原字符串转换成转换成 `#x$x$x$` 的形式(一定是奇数)\n2. p为一个数组，储存每一个值的最大回文数量的一半+1，例如：'ababa' 对应的p 就是`[1,2,3,2,1]`\n3. `max`为当前已经计算过得最大回文量`p[id]`+对应的位置`id`，默认为0或者-infi..."
+	},
+	"MutationObserver对象": {
+		"sha": "8540f01502cc34ee1bdc412b3483427e52a8e911",
+		"label": [
+			"节点",
+			"MutationObserver",
+			"变动",
+			"属性",
+			"characterData",
+			"childList",
+			"布尔值",
+			"null"
+		],
+		"createdTime": "8/29/2018",
+		"timeArr": [
+			2018,
+			7,
+			29,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "MutationObserver对象",
+		"summary": "```js\nvar observer=new MutationObserver(function(records){\n  // 获取变化的DOM的一些属性 \n  records.API1\n})\n```\nAPI1：\n```\nAPI1={\ntype：观察的变动类型（attribute、characterData或者chil..."
+	},
+	"一个关于GIT撤销合并的处理revert": {
+		"sha": "1de2e1722337b507aecf967ac8e888cae31f7bbb",
+		"label": [
+			"revert",
+			"merge",
+			"v4",
+			"d2",
+			"d1",
+			"master"
+		],
+		"createdTime": "9/1/2018",
+		"timeArr": [
+			2018,
+			8,
+			1,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一个关于GIT撤销合并的处理revert",
+		"summary": "```\ninit -> v1 -> v2 -> v3 -- faulty merge -> v4  (master)\n           \\            /                     \n            d1  -->  d2                               ..."
+	},
+	"drawImage的9个参数": {
+		"sha": "333bd27d13d42a75ce04ffebfb47d36fb1a8153e",
+		"label": [
+			"drawImage",
+			"窗口",
+			"用于",
+			"显示",
+			"dWidth"
+		],
+		"createdTime": "9/3/2018",
+		"timeArr": [
+			2018,
+			8,
+			3,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "drawImage的9个参数",
+		"summary": "```\nvoid ctx.drawImage(image, dx, dy);\nvoid ctx.drawImage(image, dx, dy, dWidth, dHeight);\nvoid ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dH..."
+	},
+	"MYSQL常用命令记录": {
+		"sha": "3a8414077d4d20b0989f09332827e0c904ae7e2f",
+		"label": [
+			"FROM",
+			"MYSQL",
+			"SELECT",
+			"常用命令",
+			"WHERE",
+			"persons",
+			"JOIN",
+			"customers",
+			"grade"
+		],
+		"createdTime": "9/4/2018",
+		"timeArr": [
+			2018,
+			8,
+			4,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "MYSQL常用命令记录",
+		"summary": "* 添加row\n\n`INSERT  INTO library VALUES (1,'javascript',8);`\n\n* 条件排序order by\n\n`SELECT *  FROM movies WHERE release_year>1999 ORDER BY  release_year;`\n\n* SUM\n\n`SEL..."
+	},
+	"关于位操作符应用的算法题": {
+		"sha": "7963f582de66e6e2582fb61249dbba57221190fe",
+		"label": [
+			"操作符",
+			"words",
+			"算法",
+			"word",
+			"length",
+			"axdg",
+			"二进制",
+			"pretreatment"
+		],
+		"createdTime": "9/6/2018",
+		"timeArr": [
+			2018,
+			8,
+			6,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "关于位操作符应用的算法题",
+		"summary": "[原题目](https://leetcode.com/problems/maximum-product-of-word-lengths/)：\n给定一个字符串数组，找到长度的最大值`length(word[i]) * length(word[j])`，其中两个单词中的字母无相同。您可以假定每个单词只包含小写字母。如果没有..."
+	},
+	"文章记录—为什么要知道js的引擎如何工作": {
+		"sha": "f6d88502864f6fa2ddb9fd4f3a6d78cbd5bc29c5",
+		"label": [
+			"lastname",
+			"const",
+			"引擎",
+			"firstname",
+			"luke",
+			"leia",
+			"engine"
+		],
+		"createdTime": "9/8/2018",
+		"timeArr": [
+			2018,
+			8,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "文章记录—为什么要知道js的引擎如何工作",
+		"summary": "\n原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess..."
+	},
+	"二分查找的range方法": {
+		"sha": "5acdcc152f2100d5037ef4497dacbaf79921658e",
+		"label": [
+			"二分",
+			"查找",
+			"range",
+			"count",
+			"排序"
+		],
+		"createdTime": "9/11/2018",
+		"timeArr": [
+			2018,
+			8,
+			11,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "二分查找的range方法",
+		"summary": "通常二分查找是根据index进行查找，并且要求数据结构是已排序的。\n\n这里记录一个未排序的二分查找\n\n题目：在一个数组arr中，找出从小到大第n个的数字\n\n例如：`[6,3,8,1,4,7]`，找出第3位，结果是4\n\n使用排序也可以解决，当空间有限制时，时间复杂度是`O(N*lgN)`，但二分查找的范围法可以控制到`O..."
+	},
+	"获取函数参数名称": {
+		"sha": "666081661a6e70d949e3a7754293a33f83e18432",
+		"label": [
+			"function",
+			"函数参数",
+			"returns",
+			"estraverse",
+			"params",
+			"node",
+			"type",
+			"esprima"
+		],
+		"createdTime": "9/13/2018",
+		"timeArr": [
+			2018,
+			8,
+			13,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "获取函数参数名称",
+		"summary": "今天碰到一个需求，获取函数参数名称，\n刚开始打算用正则去处理，但函数写法(包括es6)也挺多的，\n\n例如：\n```\nfunction x(a,b){}\nfunction x(a=5,b=3){}\nlet x=function(a=5,b){}\nlet x=(a=5,b)=>a+b\nlet x=a=>a*2\nfuncti..."
+	},
+	"ES6的Generators函数双向传值": {
+		"sha": "cacba9466975c15e93a9cba0db310bf12752a2c2",
+		"label": [
+			"answer",
+			"ES6",
+			"Generators",
+			"currentPoint",
+			"传值",
+			"console",
+			"双向",
+			"stepCount",
+			"start",
+			"choose"
+		],
+		"createdTime": "9/14/2018",
+		"timeArr": [
+			2018,
+			8,
+			14,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "ES6的Generators函数双向传值",
+		"summary": "Generators函数的双向传递\n\n每次调用`answer()`，相当于在`generators`函数的next方法加入参数，这个参数会返回给`yield`的返回值\n\n在函数内部可以判断这个返回值，实现双向传递\n```js\n  let stepCount=1\n  let currentPoint=1\n  functi..."
+	},
+	"一段模拟尾调用的代码": {
+		"sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27",
+		"label": [
+			"active",
+			"调用",
+			"return",
+			"accumulated",
+			"value",
+			"function"
+		],
+		"createdTime": "9/17/2018",
+		"timeArr": [
+			2018,
+			8,
+			17,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一段模拟尾调用的代码",
+		"summary": "```js\nfunction tco(f) {\n            var value;\n            var active = false;\n            var accumulated = [];\n            return function accumulator() {\n   ..."
+	},
+	"如何通过AST树去获取函数参数名": {
+		"sha": "a7854a9c9c9dd7722bb525311af632ee5752fe47",
+		"label": [
+			"type",
+			"函数参数",
+			"function",
+			"参数",
+			"树去",
+			"params",
+			"函数",
+			"表达式"
+		],
+		"createdTime": "9/18/2018",
+		"timeArr": [
+			2018,
+			8,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "如何通过AST树去获取函数参数名",
+		"summary": "#### 写在最前\n\n最近项目有个需求，获取函数参数名，听起来很简单，但有了ES6，参数和函数写法千奇百怪，在github上大概看了几个库，基本上都是正则，\n对通用的写法能够覆盖，稍微越过边界，往往无法正确匹配。\n\n于是就有了使用`AST`去进行覆盖查找的想法。\n\n### 概念\n\n抽象语法树（abstract synta..."
+	},
+	"从零开始构建babel插件": {
+		"sha": "cdf0302d047802c4e95fcda08fe66f7972d39d9d",
+		"label": [
+			"babel",
+			"插件",
+			"path",
+			"从零开始",
+			"arguments",
+			"节点",
+			"属性",
+			"创建",
+			"callee"
+		],
+		"createdTime": "9/20/2018",
+		"timeArr": [
+			2018,
+			8,
+			20,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "从零开始构建babel插件",
+		"summary": "#### 回顾\n\n在这一片文章中，我构建一个获取函数参数名的工具，是通过`esprima`去解析`AST`并对其进行分析判断。\n\n通过对`AST`的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。\n\n## 问题\n\n但使用的同时，也发现了3个问题，**第1个是致命的**。\n\n1. babel编译。\n\n ..."
+	},
+	"babel插件的一些总结": {
+		"sha": "35b77bbafb93c7b66d99747c168be81a28ee84aa",
+		"label": [
+			"babel",
+			"插件",
+			"编译",
+			"plugin",
+			"path",
+			"获取",
+			"需要"
+		],
+		"createdTime": "9/24/2018",
+		"timeArr": [
+			2018,
+			8,
+			24,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "babel插件的一些总结",
+		"summary": "#### BABLE插件编写一些总结\n\n1. babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\n    race模式。https://jamie.build/babel-plugin-ordering.html\n\n    这么做是为..."
+	},
+	"service-worker要点概括": {
+		"sha": "e35e017c1e99651fcf6cabf2e7873c3ad59e795c",
+		"label": [
+			"promise",
+			"service",
+			"caches",
+			"worker",
+			"event",
+			"要点",
+			"缓存",
+			"返回",
+			"cache",
+			"waitUntil"
+		],
+		"createdTime": "9/26/2018",
+		"timeArr": [
+			2018,
+			8,
+			26,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "service-worker要点概括",
+		"summary": "service worker和cache\n\n客户端：register\n\n服务端：install, activate, fetch\n\n* `install`\n\n主要作用是内部回调中的参数`event`的方法`event.waitUntil`中缓存本次的资源。\n\n* `activate`\n\n主要作用是在内部回调中的参数`e..."
+	},
+	"关于github-api.v3认证方面的总结": {
+		"sha": "6b205fb9eb1995355142e4b491f0e45bac6ca9f9",
+		"label": [
+			"认证",
+			"github",
+			"token",
+			"v3",
+			"data",
+			"user",
+			"client"
+		],
+		"createdTime": "9/28/2018",
+		"timeArr": [
+			2018,
+			8,
+			28,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "关于github-api.v3认证方面的总结",
+		"summary": "#### GithubAPI-Authorization\n\n一些特定的API，例如获取`user`的public资料，`repo`的内容等，不认证也可以获取，\n区别是，不认证，大约每个小时只有60次调用的次数限制，而使用认证后，则大约有5000次的调用次数。\n\n认证有2方面，\n\n1. 使用你自己的名义去做一些事情\n\n2. ..."
+	},
+	"二维数组旋转的简单算法": {
+		"sha": "a39bd35a7e0ef814336d7906569e045398f8a131",
+		"label": [
+			"matrix",
+			"二维",
+			"算法",
+			"length",
+			"数组",
+			"rotate",
+			"temp",
+			"reverse",
+			"https"
+		],
+		"createdTime": "10/1/2018",
+		"timeArr": [
+			2018,
+			9,
+			1,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "二维数组旋转的简单算法",
+		"summary": "一道`LeetCode`题目，二维数组按顺时针(逆时针)旋转的通用算法，非常简洁。\n\n* 顺时针旋转\n\n步骤：\n\n1. 先`竖向逆转`\n2. 再按对角线交换即可\n\n```\n  init     reverse  diagonal-swap\n  1 2 3     7 8 9     7 4 1\n  4 5 6  => ..."
 	}
 }

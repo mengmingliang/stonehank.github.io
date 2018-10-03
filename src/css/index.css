@@ -10,3 +10,12 @@ body {
   diaplay:table;
   clear:both;
 }
+
+.archive-load-more-spin{
+  width: 100%;
+  margin-top: -360px;
+  display: block;
+  position: absolute;
+  height: 100%;
+  z-index: 4;
+}
