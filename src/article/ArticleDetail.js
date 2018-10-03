@@ -109,9 +109,9 @@ export default class ArticleDetail extends React.Component{
     return(
       contentLoading ?
         <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/> :
-        <article style={{padding: 24, background: '#fff', minHeight: 360}}>
+        <article style={{margin:"24px 36px", background: '#fff', minHeight: 360}}>
           <header>
-            <div style={{textAlign: "center"}} dangerouslySetInnerHTML={{__html: md.render(`## ${curArticleData.title}`)}}/>
+            <h1 style={{textAlign:"center"}}>{curArticleData.title}</h1>
             <ArticleStatusBar justify={"center"} article={curArticleData} />
           </header>
           <div style={{marginTop:24}} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>

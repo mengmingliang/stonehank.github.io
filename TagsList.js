@@ -11,7 +11,7 @@ const Panel = Collapse.Panel;
 const {Header, Content, Footer, Sider} = Layout;
 
 
-export default class Category extends React.Component {
+export default class TagsList extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -19,8 +19,8 @@ export default class Category extends React.Component {
       contentLoading: true,
       articles: null,
       page: 1,
-      tagsRenderMode:"list",
       renderLoading: false,
+      renderModel: "list"
     }
     this.totalPage = 0
 
@@ -34,30 +34,14 @@ export default class Category extends React.Component {
 
   toggleRender() {
     this.setState(prevState => ({
-      tagsRenderMode: prevState.tagsRenderMode === "block" ? "list" : "block"
+      renderModel: prevState.renderModel === "block" ? "list" : "block"
     }))
   }
 
-  // shouldComponentUpdate(a,b,c,d){
-  //   console.log(a,b,c,d)
-  //   return true
-  // }
-  static getDerivedStateFromProps(nextProps, prevState) {
-
-    if (prevState.articles && nextProps.page === prevState.page) return null
-    const {articles, page} = nextProps
-    if (!articles) return null
-    return {
-      page: page,
-      articles,
-      contentLoading: false
-    }
-  }
 
   render() {
     // console.log(this.props)
-    const {articles, contentLoading, pageSize, page, renderLoading, tagsRenderMode} = this.state
-    // const renderArticles=articles?Object.keys(articles).slice((page-1)*pageSize,page*pageSize):null
+    const {articles, pageSize, page, renderModel,handlePageChange,totalPage} = this.props
     let renderArticles
     if (articles) {
       let keysArr = Object.keys(articles)
@@ -66,23 +50,17 @@ export default class Category extends React.Component {
     } else {
       renderArticles = null
     }
-    // console.log(articles)
-    return contentLoading ?
-      <div>
-        <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 3, width: "50%"}}/>
-        <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 3, width: "50%"}}/>
-        <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 3, width: "50%"}}/>
-      </div> :
+    return (
       <React.Fragment>
         <Content style={{margin: '24px 36px'}}>
           <div className="clearfix">
             <Button style={{border: "none", background: "#eef8ff", float: "right"}}
               // loading={renderLoading}
                     onClick={this.toggleRender}>
-              <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={{fontSize: "1.5rem", color: "#46a6ff"}}/>
+              <Icon type={renderModel === "list" ? "table" : "profile"} style={{fontSize: "1.5rem", color: "#46a6ff"}}/>
             </Button>
           </div>
-          {tagsRenderMode === "block" ?
+          {renderModel === "block" ?
             <Row type="flex"
                  justify="start"
                  gutter={"6"}
@@ -91,7 +69,7 @@ export default class Category extends React.Component {
                 return (
                   <Col style={{margin: "1rem 0"}}>
                     <Link key={i} to={`/category/${tag}`}>
-                    <Tag>{tag}</Tag>
+                      <Tag>{tag}</Tag>
                     </Link>
                   </Col>
                 )
@@ -102,8 +80,8 @@ export default class Category extends React.Component {
                     style: {textAlign: 'center'},
                     current: +page,
                     pageSize,
-                    total: this.totalPage,
-                    onChange: this.handlePageChange
+                    total: totalPage,
+                    onChange: handlePageChange
                   }}
                   dataSource={renderArticles}
                   renderItem={(key, i) => {
@@ -138,16 +116,10 @@ export default class Category extends React.Component {
                     )
                   }}
             />
-            // renderArticles.map((key, i) => {
-            //   let tag = key, tagList = articles[key]
-            //
-            // })
           }
         </Content>
-        {/*<Footer style={{textAlign: 'center'}}>*/}
-        {/*<Pagination current={+page} pageSize={pageSize} total={this.totalPage} onChange={this.handlePageChange}/>*/}
-        {/*</Footer>*/}
       </React.Fragment>
+    )
   }
 }
 

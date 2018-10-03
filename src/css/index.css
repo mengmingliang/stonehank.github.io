@@ -4,3 +4,9 @@ body {
   font-family: sans-serif;
 }
 
+
+.clearfix::after{
+  content:"";
+  diaplay:table;
+  clear:both;
+}

@@ -35,8 +35,14 @@ export default class CategoryDetail extends Component {
        <Skeleton active loading={contentLoading} title={{width: "15%"}} paragraph={{rows: 6}}/> :
        <List size="small"
              split={false}
-             style={{margin:"0 36px"}}
-             header={<Button style={{background:"#001529",color:"#fff"}}>{labelName}</Button>}
+             style={{margin: '24px 36px'}}
+             header={
+               <React.Fragment>
+                 <Icon type="tag" />
+                 <Tag>{labelName}</Tag>
+               </React.Fragment>
+               // <Button style={{background:"#001529",color:"#fff"}}>{labelName}</Button>
+             }
          dataSource={labelList}
          renderItem={item => (
            <List.Item style={{margin:"0 0 12px 24px",background:"#fcfcfc"}}>

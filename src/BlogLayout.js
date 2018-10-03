@@ -12,7 +12,7 @@ import CategoryDetail from './CategoryDetail'
 // import parsePath from "parse-filepath"
 // import * as blog_jsonObj from "./asset/blog-data";
 
-const { Header} = Layout;
+const { Header,Footer} = Layout;
 
 function refactor(json,groupBy){
   let groupObj={}
@@ -62,6 +62,10 @@ function refactor(json,groupBy){
   }
 }
 
+function sortObj(){
+
+}
+
 export default class BlogLayout extends React.Component {
   constructor(){
     super()
@@ -108,15 +112,17 @@ export default class BlogLayout extends React.Component {
                   <Redirect to="page/1" from="/" noThrow/>
                   <Home articles={initArticles} path="page/:page" />
                   <Archive articles={archiveArticles} path="archive" />
-                  <Category articles={categoryArticles} path="category/page/:page" />
+                  <Category articles={categoryArticles} path="category/page/:page"  />
                   <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
-                  <About path="about" />
+                  <About path="about" articles={categoryArticles}/>
                   <ArticleDetail path="articles/:articleName" blogList={initArticles}/>
                 </Router>
               )
             }}
           </Location>
-
+          {/*<Footer style={{textAlign: 'center'}}>*/}
+            {/*<Pagination simple current={current} pageSize={pageSize} total={total} onChange={this.handlePageChange}/>*/}
+          {/*</Footer>*/}
           <BackTop />
         </Layout>
       </Layout>

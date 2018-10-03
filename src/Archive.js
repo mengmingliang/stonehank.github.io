@@ -12,10 +12,9 @@ const IconText = ({ type, text }) => (
 );
 
 const yearStyle = {
-  width:"80%",
+  // width:"80%",
   background: '#f7f7f7',
   borderRadius: 4,
-  margin: "24px auto",
   border: 0,
   overflow: 'hidden',
 };
@@ -49,7 +48,7 @@ export default class Archive extends Component {
     const {articles,contentLoading}=this.state
     return contentLoading ?
       <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/> :
-      <Collapse accordion bordered={false} defaultActiveKey={['2018年']}>
+      <Collapse style={{margin: '24px 36px'}} accordion bordered={false} defaultActiveKey={['2018年']}>
         { Object.keys(articles).map((year)=>(
           <Panel header={year+"年"} key={year+"年"} style={yearStyle}>
             <Collapse accordion>
