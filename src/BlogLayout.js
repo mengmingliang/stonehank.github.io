@@ -22,6 +22,7 @@ const styles={
   layout_inner:{background:"#fff"},
   layout_header:{ background: '#898989', padding: 0 }
 }
+const pathEnum=["home","archive","category","about"]
 
 export default class BlogLayout extends React.Component {
   constructor(){
@@ -74,13 +75,75 @@ export default class BlogLayout extends React.Component {
     }
     return (
       <Layout style={styles.layout_wrapper}>
-        <NavSider />
-        <Layout style={styles.layout_inner}>
-          <Header_Pure style={styles.layout_header} >
-            FrontEnd Blogs
-          </Header_Pure>
-          <Location_Pure archiveArticles={archiveArticles} categoryArticles={categoryArticles} initArticles={initArticles} />
+        <Location>
+          {({location:{pathname}})=> {
 
+            let selectedKeyMathch=pathname.match(/^.*?\/(\w+)\/?/) || []
+            let selectedKey=selectedKeyMathch[1]
+            selectedKey=pathEnum.includes(selectedKey)?selectedKey:"home"
+            // let basenameStart=pathname.lastIndexOf('/')+1
+            // let basename=decodeURIComponent(pathname.substr(basenameStart))
+            // let matchdir=pathname.substr(0,basenameStart)
+
+            return <NavSider selectedKey={selectedKey} pathEnum={pathEnum}/>
+          }}
+        </Location>
+        <Layout style={styles.layout_inner}>
+          <Header style={styles.layout_header} >
+            FrontEnd Blogs
+          </Header>
+          {/*<Location_Pure archiveArticles={archiveArticles} categoryArticles={categoryArticles} initArticles={initArticles} />*/}
+          <Location>
+            {({location:{pathname}})=>{
+              let basenameStart=pathname.lastIndexOf('/')+1
+              let basename=decodeURIComponent(pathname.substr(basenameStart))
+              let matchdir=pathname.substr(0,basenameStart)
+              let activeData
+              if(matchdir.includes("category"))activeData=categoryArticles?categoryArticles[basename]:null
+              // else if(matchdir.includes("articles"))activeData=initArticles
+
+              /*
+              * Archive : articles
+              * {
+              *   2018:[
+              *     1:[...],
+              *     2:[...],
+              *     ...
+              *     loadedLength:10 <记录已经加载的文章数目>
+              *   ]
+              *   2017:[
+              *     1:[..],
+              *     ...
+              *     loadedLength:5
+              *   ]
+              *   ..
+              *   activePanel:["2018年","7月"] <记录当前打开的年份和月份>
+              * }
+              * */
+
+              /*
+              * Category : articles
+              * {
+              *   tag1:[...],
+              *   tag2:[...],
+              *   ...
+              *   tagsRenderMode:"list" <记录当前的tags渲染模式>
+              * }
+              * */
+
+              return (
+                <Router>
+                  <Redirect to="page/1" from="/" noThrow/>
+                  <Home articles={initArticles} path="page/:page" />
+                  <Archive articles={archiveArticles} path="archive" />
+                  <Category articles={categoryArticles} path="category/page/:page"  />
+                  <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
+                  <About path="about" articles={categoryArticles}/>
+                  <ArticleDetail path="articles/:articleName" blogList={initArticles}/>
+                </Router>
+              )
+            }}
+          </Location>
           {/*<Footer style={{textAlign: 'center'}}>*/}
             {/*<Pagination simple current={current} pageSize={pageSize} total={total} onChange={this.handlePageChange}/>*/}
           {/*</Footer>*/}

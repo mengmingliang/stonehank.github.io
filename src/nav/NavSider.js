@@ -1,86 +1,83 @@
 import React from 'react';
 import { Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
 import {  Link } from "@reach/router";
-
+import {Sider_Pure} from "../antd_pure"
 const {  Sider } = Layout;
 
 
 
-const NavLink = props => {
-  const {selectedKeys,selectedKey,...prop}=props
-  return (
-    <Link {...prop} getProps={({isPartiallyCurrent}) => {
-        if(isPartiallyCurrent)selectedKeys[0]=selectedKey
-      }} />
-  )
-};
+// const NavLink = props => {
+//   // let {selectedKey,selectedKey,...prop}=props
+//   return (
+//     <Link {...props}  />
+//   )
+// };
 
 
+const styles={sider:{zIndex:1,opacity:0.8}}
 
 
 export default class NavSider extends React.PureComponent {
-  // constructor(){
-  //   super()
-  //   this.state={
-  //     collapsed:false
-  //   }
-  // }
+  constructor(props){
+    super(props)
+    this.state={
+      selectedKey:props.selectedKey||"home"
+    }
+  }
+  static getDerivedStateFromProps(nextProps,prevState){
+    if(nextProps.selectedKey===prevState.selectedKey)return null
+    return {
+      selectedKey:nextProps.selectedKey
+    }
+  }
+
   render() {
-    // const {collapsed}=this.state
-    this.selectedKeys=["home"]
+
+    // console.log("render")
+    // console.log(this.state.selectedKey)
+    const {pathEnum}=this.props
+    const {selectedKey}=this.state
+
+
+    // this.selectedKey=this.props.selectedKey
     const customStyle={
       display: "flex",
       flexFlow: "column",
       justifyContent: "normal",
     }
     return (
-        <Sider
-          style={{zIndex:1,opacity:0.8}}
-          theme="dark"
-          breakpoint="lg"
-          collapsedWidth="0"
-          // onBreakpoint={(broken) => { console.log(broken); }}
-          // trigger={"sfsf"}
-          // onCollapse={(collapsed, type) => {
-          //   if(collapsed){
-          //     console.log(1)
-          //     this.setState({
-          //       collapsed:true
-          //     })
-          //   }else{
-          //     this.setState({
-          //       collapsed:false
-          //     })
-          //   }
-          //   console.log(collapsed, type); }}
-        >
+      <Sider  style={styles.sider}
+                            theme="dark"
+                            breakpoint="lg"
+                            collapsedWidth="0"
+                   >
           <div className="logo" />
           <Menu theme="dark"
                 style={customStyle}
-                defaultSelectedKeys={this.selectedKeys}
+                selectedKeys={[selectedKey]}
                 mode="inline">
-            <Menu.Item key="home">
+            <Menu.Item key={pathEnum[0]}>
               <Icon type="pie-chart" />
               <span>首页</span>
-              <NavLink to="/" selectedKeys={this.selectedKeys} selectedKey={"home"} />
+              <Link to="/" />
             </Menu.Item>
-            <Menu.Item key="archive">
+            <Menu.Item key={pathEnum[1]}>
               <Icon type="desktop" />
               <span>归档</span>
-              <NavLink to="/archive" selectedKeys={this.selectedKeys} selectedKey={"archive"} />
+              <Link to={`/${pathEnum[1]}`} />
             </Menu.Item>
-            <Menu.Item key="category">
+            <Menu.Item key={pathEnum[2]}>
               <Icon type="desktop" />
               <span>标签</span>
-              <NavLink to="/category/page/1" selectedKeys={this.selectedKeys} selectedKey={"category"} />
+              <Link to={`/${pathEnum[2]}/page/1`} />
             </Menu.Item>
-            <Menu.Item key="about">
+            <Menu.Item key={pathEnum[3]}>
               <Icon type="file" />
               <span>关于我</span>
-              <NavLink to="/about" selectedKeys={this.selectedKeys} selectedKey={"about"} />
+              <Link to={`/${pathEnum[3]}`} />
             </Menu.Item>
           </Menu>
-        </Sider>
+      </Sider>
     );
   }
 }
