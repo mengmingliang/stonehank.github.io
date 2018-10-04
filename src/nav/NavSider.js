@@ -1,5 +1,5 @@
 import React from 'react';
-import { BackTop,Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
+import { Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
 import {  Link } from "@reach/router";
 
 const {  Sider } = Layout;
@@ -18,15 +18,15 @@ const NavLink = props => {
 
 
 
-export default class NavSider extends React.Component {
-  constructor(){
-    super()
-    this.state={
-      collapsed:false
-    }
-  }
+export default class NavSider extends React.PureComponent {
+  // constructor(){
+  //   super()
+  //   this.state={
+  //     collapsed:false
+  //   }
+  // }
   render() {
-    const {collapsed}=this.state
+    // const {collapsed}=this.state
     this.selectedKeys=["home"]
     const customStyle={
       display: "flex",

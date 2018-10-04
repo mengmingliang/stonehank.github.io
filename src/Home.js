@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactMarkdown from 'react-markdown'
-import { BackTop,Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
+import { Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
 // import * as blog_jsonObj from "./asset/blog-data.json"
 import './css/github.min.css'
 // import ArticleDetail from "./article/ArticleDetail";

@@ -13,17 +13,31 @@ const {Header, Content, Footer, Sider} = Layout;
 
 
 export default class Category extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    const {articles}=props
     this.state = {
+      // todo 5是默认加载标签数量，可转换为配置
       pageSize: 5,
       contentLoading: true,
       articles: null,
+      // 初始渲染模式
+      tagsRenderMode:(articles && articles.tagsRenderMode) ||"list",
+      // 初始页数
       page: 1
     }
     this.totalPage = 0
-
+    this.toggleTagRender=this.toggleTagRender.bind(this)
     this.handlePageChange = this.handlePageChange.bind(this)
+  }
+
+  toggleTagRender(){
+    const {articles}=this.props
+    let newTagsMode=this.state.tagsRenderMode === "block" ? "list" : "block"
+    articles.tagsRenderMode=newTagsMode
+    this.setState({
+      tagsRenderMode: newTagsMode
+    })
   }
 
   handlePageChange(page) {
@@ -43,8 +57,8 @@ export default class Category extends React.Component {
   }
 
   render() {
-    const {articles, contentLoading, pageSize, page} = this.state
-    const {toggleTagRender,tagsRenderMode}=this.props
+    const {articles, contentLoading, pageSize, page,tagsRenderMode} = this.state
+    // const {toggleTagRender,tagsRenderMode}=this.props
     // const renderArticles=articles?Object.keys(articles).slice((page-1)*pageSize,page*pageSize):null
     let renderArticles
     if (articles) {
@@ -64,8 +78,7 @@ export default class Category extends React.Component {
       <Content style={{margin: '24px 36px'}}>
         <div className="clearfix">
           <Button style={{border: "none", background: "#eef8ff", float: "right"}}
-            // loading={renderLoading}
-                  onClick={toggleTagRender}>
+                  onClick={this.toggleTagRender}>
             <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={{fontSize: "1.5rem", color: "#46a6ff"}}/>
           </Button>
         </div>

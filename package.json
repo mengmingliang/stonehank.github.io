@@ -20,7 +20,8 @@
     "react-markdown": "^3.6.0",
     "react-perf-devtool": "^3.1.8",
     "react-scripts": "^1.1.5",
-    "slash": "^2.0.0"
+    "slash": "^2.0.0",
+    "why-did-you-update": "^0.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

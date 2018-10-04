@@ -28,17 +28,17 @@ export default class TagsList extends React.Component {
                   renderItem={(key, i) => {
                     let tag = key, tagList = articles[key]
                     return (
-                      <List key={i} size="small"
+                      <List key={i}
+                            size="small"
                             split={false}
-                        // style={{margin:"0 36px"}}
                             header={
-                              <React.Fragment>
-                                <Icon type="tag"/>
+                              <strong>
+                                <Icon type="tag" style={{color: "#46a6ff"}} />
                                 <Link to={`/category/${tag}`}>
                                   <Tag>{tag}</Tag>
                                   {/*<Button style={{background:"#fafafa"}}>{tag}</Button>*/}
                                 </Link>
-                              </React.Fragment>
+                              </strong>
                             }
                             dataSource={tagList}
                             renderItem={item => (

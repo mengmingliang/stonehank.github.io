@@ -17,7 +17,6 @@ export default class ArchiveList extends React.Component {
   constructor(){
     super()
     this.state={
-      // loadedIndex:0,
       loadedList:[],
       listLoading:true
     }
@@ -36,11 +35,12 @@ export default class ArchiveList extends React.Component {
   }
   onLoadMore(){
     const {month}=this.props
-    // const {loadedIndex}=this.state
+    // todo 5是默认加载数量，可转换为配置
+    const newLoadedList=this.state.loadedList.concat(this.getApartOfData(month,5))
+    month.loadedLength=newLoadedList.length
     this.setState({
-      loadedList:this.state.loadedList.concat(this.getApartOfData(month,5)),
+      loadedList:newLoadedList,
       listLoading:true
-      // loadedIndex:this.loadedIndex
     })
   }
   componentDidUpdate(){
@@ -53,9 +53,11 @@ export default class ArchiveList extends React.Component {
   }
   componentDidMount(){
     const {month}=this.props
+    // month是数组，遍历时不会遍历到它的自定义属性
+    // todo 5是默认加载数量，可转换为配置
+    month.loadedLength= month.loadedLength || 5
     this.setState({
-      loadedList:this.state.loadedList.concat(this.getApartOfData(month,5))
-      // loadedIndex:this.loadedIndex
+      loadedList:this.state.loadedList.concat(this.getApartOfData(month,month.loadedLength))
     })
   }
   render() {
@@ -78,6 +80,7 @@ export default class ArchiveList extends React.Component {
           return (
             <Skeleton key={k+"日"} title={{width:"20%"}}
                       paragraph={{rows:1,width:40+Math.random()*30+"%"}}
+                      // todo 5是默认加载数量，可转换为配置
                       loading={listLoading && k>=context.length-5} active>
             <List.Item >
               <List.Item.Meta

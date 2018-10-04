@@ -1,4 +1,4 @@
-import {objSortBy,objGroupBy,refactor} from "../utils"
+import {objSortBy,objGroupBy,refactor} from "../index"
 
 test("sort by factorArr",function () {
   let obj={

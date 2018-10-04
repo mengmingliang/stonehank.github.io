@@ -69,7 +69,9 @@ export default class ArticleList extends React.Component {
                 dataSource={articles}
                 renderItem={(item,i) => (
                   <List.Item>
-                    <Card hoverable bordered={false} style={{width: "100%"}} onClick={this.navigateToPath.bind(this,"/articles/"+item.title)}>
+                    <Card hoverable bordered={false} style={{width: "100%"}}
+                          onClick={this.navigateToPath.bind(this,"/articles/"+item.title)}
+                    >
                       <Meta style={{width: "100%"}}
                             title={item.title}
                             description={

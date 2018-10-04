@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout,BackTop } from 'antd';
+import {BackTop, Layout } from 'antd';
 import './css/github.min.css'
 import NavSider from "./nav/NavSider";
 import Archive from "./Archive";
@@ -11,11 +11,17 @@ import ArticleDetail from "./article/ArticleDetail";
 import CategoryDetail from './CategoryDetail'
 // import parsePath from "parse-filepath"
 // import * as blog_jsonObj from "./asset/blog-data";
-import {refactor,objSortBy,objGroupBy} from './utils/utils'
+import {refactor,objSortBy,objGroupBy} from './utils'
+import {Header_Pure,Layout_Pure,Location_Pure,BackTop_Pure} from "./antd_pure"
+
 
 const { Header,Footer} = Layout;
 
-
+const styles={
+  layout_wrapper:{ background:"#fff",minHeight: '100vh' },
+  layout_inner:{background:"#fff"},
+  layout_header:{ background: '#898989', padding: 0 }
+}
 
 export default class BlogLayout extends React.Component {
   constructor(){
@@ -25,38 +31,13 @@ export default class BlogLayout extends React.Component {
       categoryArticles:null,
       initArticles:null,
       blog_jsonObj:null,
-      tagsRenderMode:"list"
     }
     this.fetchBlogContent=this.fetchBlogContent.bind(this)
-    this.toggleTagRender=this.toggleTagRender.bind(this)
+
   }
-  toggleTagRender() {
-    this.setState(prevState => ({
-      tagsRenderMode: prevState.tagsRenderMode === "block" ? "list" : "block"
-    }))
-  }
+
   fetchBlogContent(){
     import(`./asset/blog-data`).then(blog_jsonObj=>{
-      console.time(1)
-      refactor(blog_jsonObj,"time")
-      console.timeEnd(1)
-      console.time(2)
-      refactor(blog_jsonObj,"label")
-      console.timeEnd(2)
-      console.time(3)
-      refactor(blog_jsonObj,"init")
-      console.timeEnd(3)
-
-
-      console.time(8)
-      refactor(blog_jsonObj,"time")
-      console.timeEnd(8)
-      console.time(9)
-      objGroupBy(blog_jsonObj,"label")
-      console.timeEnd(9)
-      console.time(0)
-      objSortBy(blog_jsonObj,"init")
-      console.timeEnd(0)
       this.setState({
         // archiveArticles:refactor(blog_jsonObj,"time"),
         // categoryArticles:refactor(blog_jsonObj,"label"),
@@ -73,34 +54,33 @@ export default class BlogLayout extends React.Component {
   }
   render() {
     const { archiveArticles, categoryArticles, initArticles,tagsRenderMode}=this.state
+    if(archiveArticles){
+      Object.defineProperty(archiveArticles,"activePanel",{
+        value:null,
+        writable:true
+      })
+    }
+    if(categoryArticles){
+      Object.defineProperties(categoryArticles,{
+        "tagsRenderMode":{
+          value:null,
+          writable:true
+        },
+        "tagsBlockLoaded":{
+          value:null,
+          writable:true
+        }
+      })
+    }
     return (
-      <Layout style={{ background:"#fff",minHeight: '100vh' }}>
+      <Layout style={styles.layout_wrapper}>
         <NavSider />
-        <Layout style={{background:"#fff"}}>
-          <Header style={{ background: '#898989', padding: 0 }} >
+        <Layout style={styles.layout_inner}>
+          <Header_Pure style={styles.layout_header} >
             FrontEnd Blogs
-          </Header>
-          <Location>
-            {({location:{pathname}})=>{
-              let basenameStart=pathname.lastIndexOf('/')+1
-              let basename=decodeURIComponent(pathname.substr(basenameStart))
-              let matchdir=pathname.substr(0,basenameStart)
-              let activeData
-              if(matchdir.includes("category"))activeData=categoryArticles?categoryArticles[basename]:null
-              // else if(matchdir.includes("articles"))activeData=initArticles
-              return (
-                <Router>
-                  <Redirect to="page/1" from="/" noThrow/>
-                  <Home articles={initArticles} path="page/:page" />
-                  <Archive articles={archiveArticles} path="archive" />
-                  <Category articles={categoryArticles} path="category/page/:page"  toggleTagRender={this.toggleTagRender} tagsRenderMode={tagsRenderMode}/>
-                  <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
-                  <About path="about" articles={categoryArticles}/>
-                  <ArticleDetail path="articles/:articleName" blogList={initArticles}/>
-                </Router>
-              )
-            }}
-          </Location>
+          </Header_Pure>
+          <Location_Pure archiveArticles={archiveArticles} categoryArticles={categoryArticles} initArticles={initArticles} />
+
           {/*<Footer style={{textAlign: 'center'}}>*/}
             {/*<Pagination simple current={current} pageSize={pageSize} total={total} onChange={this.handlePageChange}/>*/}
           {/*</Footer>*/}

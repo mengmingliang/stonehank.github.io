@@ -3,7 +3,7 @@ import {Pagination, Row, Button, Anchor, Skeleton, Collapse, List, Affix, Col, T
 import {Link, navigate} from "@reach/router"
 import ArticleStatusBar from "./ArticleStatusBar"
 import {Layout} from "antd/lib/index";
-
+import Tag_Light from './Tag_Light'
 
 // const {Link : AntdLink} =Anchor
 const Panel = Collapse.Panel;
@@ -24,7 +24,7 @@ export default class TagsBlock extends React.Component {
                 return (
                   <Col key={i} style={{margin: "1rem 0"}}>
                     <Link to={`/category/${tag}`}>
-                      <Tag>{tag}</Tag>
+                      <Tag_Light>{tag}</Tag_Light>
                     </Link>
                   </Col>
                 )

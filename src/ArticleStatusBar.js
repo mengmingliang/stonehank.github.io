@@ -1,6 +1,8 @@
 import React from 'react'
 import {Drawer,Button,Anchor ,Skeleton,Collapse,List,Row,Col,Tag,Icon} from 'antd';
 import {Link} from "@reach/router"
+import Tag_Light from "./Tag_Light"
+
 
 const IconText = ({ type, text,...props}) => {
   return (
@@ -22,7 +24,7 @@ export default class ArticleStatusBar extends React.PureComponent{
             article.label.map((t,i) => {
               return (
                 <Link key={i} to={`/category/${t}`}>
-                  <Tag>{t}</Tag>
+                  <Tag_Light>{t}</Tag_Light>
                 </Link>
               )
             }) :
