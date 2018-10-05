@@ -1,8 +1,8 @@
 import React from 'react';
 import {List, Tag, Card, Skeleton, Avatar, Pagination, Layout, Menu, Breadcrumb, Icon, Affix, Row, Col} from 'antd';
-// import * as blog_jsonObj from "../asset/blog-data";
 import {Link, navigate} from "@reach/router";
 import ArticleStatusBar from "../ArticleStatusBar"
+import Card_Pure from "../antd_pure/Card_Pure";
 
 const hljs = require('highlight.js'); // https://highlightjs.org/
 const md = require('markdown-it')({
@@ -26,7 +26,12 @@ const IconText = ({type, text}) => (
   </span>
 );
 
-
+const styles={
+  summary:{marginTop: 24, fontSize: "small", opacity: '0.7'},
+  list_pagi_style:{textAlign: 'center',marginBottom:"1rem"},
+  card:{margin:"15px 0"},
+  content:{margin: '24px 36px'}
+}
 
 
 const {Header, Content, Footer, Sider} = Layout;
@@ -47,50 +52,39 @@ export default class ArticleList extends React.Component {
     navigate(path)
   }
   render() {
-    // const {listLoading}=this.state
-    // const {blogList}=this.state
     const {articles, current, pageSize, total} = this.props
-    // console.log(this.props)
-    // return listLoading ?
-    //   <Skeleton active loading={listLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}} /> :
+    const listPageSetting={
+      style:styles.list_pagi_style,
+      simple:true,
+      current,
+      pageSize,
+      total,
+      onChange:this.paginationPageChange
+    }
     return (
       <React.Fragment>
-        <Content style={{margin: '24px 36px'}}>
+        <Content style={styles.content}>
           <List split={false}
                 header={<strong>最新文章</strong>}
-                pagination={{
-                  style:{textAlign: 'center',marginBottom:"1rem"},
-                  simple:true,
-                  current,
-                  pageSize,
-                  total,
-                  onChange:this.paginationPageChange
-                }}
-                dataSource={articles}
-                renderItem={(item,i) => (
-                  <List.Item>
-                    <Card hoverable bordered={false} style={{width: "100%"}}
-                          onClick={this.navigateToPath.bind(this,"/articles/"+item.title)}
-                    >
-                      <Meta style={{width: "100%"}}
-                            title={item.title}
-                            description={
-                              <ArticleStatusBar article={item}/>
-                            }>
-                      </Meta>
-                      {/*<Link to={"/articles/"+item.title}>*/}
-                        <div style={{marginTop: 24, fontSize: "small", opacity: '0.7'}}
-                             dangerouslySetInnerHTML={{__html: md.render(item.summary)}}/>
-                      {/*</Link>*/}
-                    </Card>
-                  </List.Item>
-                )}
-          />
+                pagination={listPageSetting}
+          >
+            {articles.map((item,i)=>(
+              <Card_Pure key={i} hoverable bordered={false} style={styles.card}
+                    onClick={this.navigateToPath.bind(this,"/articles/"+item.title)}
+              >
+                <Meta
+                      title={item.title}
+                      description={
+                        <ArticleStatusBar article={item}/>
+                      }>
+                </Meta>
+                <div style={styles.summary}
+                     dangerouslySetInnerHTML={{__html: md.render(item.summary)}}/>
+              </Card_Pure>
+            ))}
+          </List>
 
         </Content>
-        {/*<Footer style={{textAlign: 'center'}}>*/}
-          {/*<Pagination simple current={current} pageSize={pageSize} total={total} onChange={this.handlePageChange}/>*/}
-        {/*</Footer>*/}
       </React.Fragment>
     )
   }

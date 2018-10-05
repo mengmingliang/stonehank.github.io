@@ -14,7 +14,14 @@ const {  Sider } = Layout;
 // };
 
 
-const styles={sider:{zIndex:1,opacity:0.8}}
+const styles={
+  sider:{zIndex:1,opacity:0.8},
+  menu: {
+    display: "flex",
+    flexFlow: "column",
+    justifyContent: "normal",
+  }
+}
 
 
 export default class NavSider extends React.PureComponent {
@@ -32,19 +39,8 @@ export default class NavSider extends React.PureComponent {
   }
 
   render() {
-
-    // console.log("render")
-    // console.log(this.state.selectedKey)
     const {pathEnum}=this.props
     const {selectedKey}=this.state
-
-
-    // this.selectedKey=this.props.selectedKey
-    const customStyle={
-      display: "flex",
-      flexFlow: "column",
-      justifyContent: "normal",
-    }
     return (
       <Sider  style={styles.sider}
                             theme="dark"
@@ -53,7 +49,7 @@ export default class NavSider extends React.PureComponent {
                    >
           <div className="logo" />
           <Menu theme="dark"
-                style={customStyle}
+                style={styles.menu}
                 selectedKeys={[selectedKey]}
                 mode="inline">
             <Menu.Item key={pathEnum[0]}>

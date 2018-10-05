@@ -1,10 +1,13 @@
 {
-   "token":"b6774f0253b5b570d202583d5372ec0bcf21859e",
+   "token":"728c736d5610f27a084ff2353f85111553eb6dc0",
    "user":"stonehank",
    "repository":"blogs",
-   "per_page":200,
-   "ignoreSHA":true,
-   "forceUpdate":true,
+   "branch":"master",
+   "per_page":100,
+   "ignoreSHA":false,
+   "forceUpdate":false,
    "dataType":"YY-MM-DD",
-   "summaryLength":160
+   "summaryLength":160,
+   "retry_times":1,
+   "resource_dir_list":["img"]
 }

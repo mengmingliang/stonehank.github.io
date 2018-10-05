@@ -3,15 +3,11 @@ import { Layout,BackTop } from 'antd';
 import {deepEqual} from '../utils'
 const { Header,Footer} = Layout;
 
-export default class BackTop_Pure extends React.Component {
+export default class BackTop_Pure extends React.PureComponent {
 
-  shouldComponentUpdate(){
-    return false
-  }
   render() {
-    console.log(this.props)
     return (
-      <BackTop />
+      <BackTop {...this.props}/>
     )
   }
 }

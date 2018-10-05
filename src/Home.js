@@ -7,26 +7,14 @@ import './css/github.min.css'
 import ArticleList from "./article/ArticleList";
 
 
-// import { Router, Link } from "@reach/router";
-//
-//
-// const { Header, Content, Footer, Sider } = Layout;
-// const {Meta}=Card
-
-
-
-function itemRender(current, type, originalElement) {
-  if (type === 'prev') {
-    return <a>上一篇</a>;
-  } if (type === 'next') {
-    return <a>下一篇</a>;
-  }
-  return originalElement;
+const styles={
+  skeleton_title:{width: "30%"},
+  skeleton_paragraph:{rows: 3, width: "50%"}
 }
-export default class Home extends React.Component {
+
+export default class Home extends React.PureComponent {
   constructor(){
     super()
-    // this.fetchBlogContent=this.fetchBlogContent.bind(this)
     this.state={
       contentLoading:true,
       discussLoading:true,
@@ -34,28 +22,6 @@ export default class Home extends React.Component {
       pageSize:3
     }
   }
-  // fetchBlogContent(){
-  //   let blogData=[]
-  //   let importQueue=[]
-  //   for(let key in blog_jsonObj){
-  //     if(key==="version")continue
-  //     importQueue.push(import(`./asset/${key}.json`).then(obj=>{
-  //         blogData.push({
-  //           title:blog_jsonObj[key].title,
-  //           content:obj.content,
-  //           label:blog_jsonObj[key].label,
-  //           createdTime:blog_jsonObj[key].createdTime
-  //         })
-  //       }
-  //     ))
-  //   }
-  //   Promise.all(importQueue).then(()=>{
-  //     this.setState({
-  //       contentLoading:false,
-  //       blogs:blogData
-  //     })
-  //   })
-  // }
   static getDerivedStateFromProps(props){
     const {articles}=props
     if(!articles)return null
@@ -69,14 +35,13 @@ export default class Home extends React.Component {
     const {articles,contentLoading,pageSize}=this.state
     const {page}=this.props
     const renderArticles=articles?articles.slice((page-1)*pageSize,page*pageSize):null
-    // const customStyle={
-    //   display: "flex",
-    //   flexFlow: "column",
-    //   justifyContent: "normal",
-    // }
     return(
       contentLoading ?
-      <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/> :
+        <React.Fragment>
+          <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/>
+          <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/>
+          <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/>
+        </React.Fragment> :
       <ArticleList articles={renderArticles} current={+page} pageSize={pageSize} total={articles.length} />
     )
   }

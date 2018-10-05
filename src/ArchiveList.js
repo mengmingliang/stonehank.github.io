@@ -10,7 +10,9 @@ const Panel = Collapse.Panel;
 
 const {Header, Content, Footer, Sider} = Layout;
 
-
+const styles={
+  loadMore:{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }
+}
 
 export default class ArchiveList extends React.Component {
 
@@ -28,7 +30,13 @@ export default class ArchiveList extends React.Component {
     let n=numOfApart,result=[],i=this.loadedIndex
     for(;i<arr.length;i++){
       if(n===0){this.loadedIndex=i;return result}
-      if(arr[i] && n--)result.push(arr[i])
+      if(Array.isArray(arr[i])){
+        let subResult=this.getApartOfData(arr[i],n)
+        n-=subResult.length
+        result.concat(subResult)
+        console.log(subResult)
+      }
+      else if(arr[i] && n--)result.push(arr[i])
     }
     this.loadedIndex=i
     return result
@@ -62,8 +70,9 @@ export default class ArchiveList extends React.Component {
   }
   render() {
     const {month}=this.props
+    console.log(month)
     const loadMore = (
-      <div style={{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }}>
+      <div style={styles.loadMore}>
         {this.loadedIndex < month.length ?
           <Button onClick={this.onLoadMore}>loading more</Button> :
           <Button disabled>没有更多了</Button>

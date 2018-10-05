@@ -9,9 +9,8 @@ import Home from "./Home";
 import { Router,Redirect,Location } from "@reach/router";
 import ArticleDetail from "./article/ArticleDetail";
 import CategoryDetail from './CategoryDetail'
-// import parsePath from "parse-filepath"
-// import * as blog_jsonObj from "./asset/blog-data";
 import {refactor,objSortBy,objGroupBy} from './utils'
+
 import {Header_Pure,Layout_Pure,Location_Pure,BackTop_Pure} from "./antd_pure"
 
 
@@ -38,18 +37,23 @@ export default class BlogLayout extends React.Component {
   }
 
   fetchBlogContent(){
-    import(`./asset/blog-data`).then(blog_jsonObj=>{
-      this.setState({
-        // archiveArticles:refactor(blog_jsonObj,"time"),
-        // categoryArticles:refactor(blog_jsonObj,"label"),
-        // initArticles:refactor(blog_jsonObj,"init"),
-        archiveArticles:refactor(blog_jsonObj,"time"),
-        categoryArticles:objGroupBy(blog_jsonObj,"label"),
-        initArticles:objSortBy(blog_jsonObj,"timeArr"),
-        blog_jsonObj
-      })
-    })
-  }
+      import(`./asset/_blog-data`)
+        .then(blog_jsonObj=>{
+          this.setState({
+            // archiveArticles:refactor(blog_jsonObj,"time"),
+            // categoryArticles:refactor(blog_jsonObj,"label"),
+            // initArticles:refactor(blog_jsonObj,"init"),
+            archiveArticles:refactor(blog_jsonObj,"time"),
+            categoryArticles:objGroupBy(blog_jsonObj,"label"),
+            initArticles:objSortBy(blog_jsonObj,"timeArr"),
+            blog_jsonObj
+          })
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+    }
+
   componentDidMount(){
     this.fetchBlogContent()
   }

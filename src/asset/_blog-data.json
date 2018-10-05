@@ -1,5 +1,4 @@
 {
-	"version": "1.0.0",
 	"getDerivedStateFromProps": {
 		"sha": "5773c257a100e1f2106db59fb0bc4ad273375da0",
 		"label": [
@@ -96,28 +95,7 @@
 		"summary": "`React.Children`和`this.props.children`都是获取父组件的子元素(子组件)\n\nthis.props.children:\n1. 1个子元素  => {Object}(React元素(组件)对象)\n2. 多个子元素 => [{Object},{Object}...]\n3. 无子元素   =..."
 	},
 	"React.cloneElement": {
-		"sha": "f758381282764ccf2eeb5e222145b6ab40de7d78",
-		"label": [
-			"React",
-			"cloneElement",
-			"props",
-			"children",
-			"child",
-			"组件",
-			"参数"
-		],
-		"createdTime": "6/11/2018",
-		"timeArr": [
-			2018,
-			5,
-			11,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "React.cloneElement",
-		"summary": "```jsx\nReact.cloneElement(\n  element,\n  [props],\n  [...children]\n)\n```#### 第一个参数：element\n\n必须是一个存在的React组件或者原生DOM，以下都可以\n\n`React.cloneElement(<div />)`\n`React.clon..."
+		"sha": "f758381282764ccf2eeb5e222145b6ab40de7d78"
 	},
 	"redux-observable笔记1": {
 		"sha": "2c3ca78c66c568c2182c1a0a3db4f01790f268e3",
@@ -1054,29 +1032,7 @@
 		"summary": "本次解析将分为2篇文章，当前是第一篇，第二篇在[这里](./07-21-解析anime核心(2).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli..."
 	},
 	"解析anime核心(2)": {
-		"sha": "a9f78f786c764a619cefc5156e3120771d547641",
-		"label": [
-			"instance",
-			"anime",
-			"function",
-			"解析",
-			"tween",
-			"const",
-			"动画",
-			"reset"
-		],
-		"createdTime": "7/22/2018",
-		"timeArr": [
-			2018,
-			6,
-			22,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "解析anime核心(2)",
-		"summary": "本次解析将分为2篇文章，当前是第二篇，第一篇在[这里](./07-20-解析anime核心(1).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli..."
+		"sha": "a9f78f786c764a619cefc5156e3120771d547641"
 	},
 	"Blob对象和createObjectURL": {
 		"sha": "92b4e89a32882a49232d054e12b2f724a0e9fa68",
@@ -1148,54 +1104,10 @@
 		"summary": "#### 一个可暂停分段上传的例子\n\n[代码位置](https://gist.github.com/stonehank/5d3dea234ac6bc200bdef9c181c0a645)\n_______\n\n要点：\n\n1. 通过`blob.slice()`对文件进行分割，再逐个上传\n\n    `blob.slice(star..."
 	},
 	"css补缺": {
-		"sha": "4a1043ffaa6c98e2971a83f9fba138ad8462eafa",
-		"label": [
-			"grid",
-			"补缺",
-			"template",
-			"area",
-			"flex"
-		],
-		"createdTime": "7/27/2018",
-		"timeArr": [
-			2018,
-			6,
-			27,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "css补缺",
-		"summary": "#### @charset\n@charset 在外部样式表文件内使用。指定该样式表使用的字符编码。\n```css\n@charset \"utf-8\";\nbody {  }\ndiv {  }\n```\n## inline-flex\n\ninline-flex和flex 是针对flex容器的内联显示改变，而它内部的flex-item..."
+		"sha": "4a1043ffaa6c98e2971a83f9fba138ad8462eafa"
 	},
 	"源码阅读-create-react-app一些收获(笔记备忘)": {
-		"sha": "0a29b597ea9aca0631c7bd70092eb31cf07d8250",
-		"label": [
-			"create",
-			"semver",
-			"1.2.3",
-			"备忘",
-			"process",
-			"源码",
-			"spawn",
-			"react",
-			"valid",
-			"笔记",
-			"data"
-		],
-		"createdTime": "7/28/2018",
-		"timeArr": [
-			2018,
-			6,
-			28,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "源码阅读-create-react-app一些收获(笔记备忘)",
-		"summary": "#### ./creat-react-app/createReactApp.js\n\n* os.EOL\n\n    不同系统的行尾符号\n    \n    > A string constant defining the operating system-specific end-of-line marker:\n    \n   ..."
+		"sha": "0a29b597ea9aca0631c7bd70092eb31cf07d8250"
 	},
 	"记一道二分查找算法题": {
 		"sha": "d3c6d7ae8150d554512c3b20c6ccc2cd575468c5",
@@ -1249,30 +1161,7 @@
 		"summary": "原文地址：https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5\n\n作者讲述了一些能够达成的破解网络安全手段(有些已被认为是bug修复，例如2)，并给出建议..."
 	},
 	"从源码理解redux-observable": {
-		"sha": "6e85cade1d479e41467fc8f31c7cce1b2d0eca18",
-		"label": [
-			"源码",
-			"return",
-			"observable",
-			"epic",
-			"redux",
-			"绑定",
-			"const",
-			"action",
-			"操作符"
-		],
-		"createdTime": "7/31/2018",
-		"timeArr": [
-			2018,
-			6,
-			31,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "从源码理解redux-observable",
-		"summary": "#### 阅读前提：\n1. 有rxjs基础，对`Observable`, `Subject`,`pipe`和一些操作符(例如`filter`,`map`,`merge`,`mergeMap`)执行流程有基本了解，最起码遇到不清楚有去查阅的动力\n2. 比较熟悉`redux`中间件的写法，否则像`createEpicMidd..."
+		"sha": "6e85cade1d479e41467fc8f31c7cce1b2d0eca18"
 	},
 	"一些promise和其他补缺": {
 		"sha": "3bfb5149de44ae6b02ce78a91414ebbd9303a277",
@@ -1325,33 +1214,7 @@
 		"summary": "使用4种方式：props传递，父组件公用，hoc，render-prop\n\n定义需求，cur符合auth才能查看组件内容，否则进入NotAccess\n```\nconst cur = \"a\";\nconst auth = {\n  com1: [\"a\", \"b\"],\n  com2: [\"b\", \"c\"],\n  com3: [..."
 	},
 	"源码阅读-anime和react-motion算法差异": {
-		"sha": "9f1747ec27f36e527867dcc4368704ce642ca78d",
-		"label": [
-			"算法",
-			"进度条",
-			"位置",
-			"react",
-			"动画",
-			"motion",
-			"源码",
-			"anime",
-			"暂停",
-			"实现",
-			"调用",
-			"初始"
-		],
-		"createdTime": "8/5/2018",
-		"timeArr": [
-			2018,
-			7,
-			5,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "源码阅读-anime和react-motion算法差异",
-		"summary": "`anime`用的是缓动算法\n\n算法规定了动画形式，需要提供总消耗时间，当前消耗时间，初始位置，目标位置\n\n特点：动画灵活性更大,可以指定任意的时间而得到对应的位置，可以实现暂停/继续，动画跳转，动画进度条等\n\n`react-motion`用的是弹性算法\n\n算法规定了弹性和阻力，只要提供初始位置和目标位置，即可计算出动..."
+		"sha": "9f1747ec27f36e527867dcc4368704ce642ca78d"
 	},
 	"CSS BEM和7-1": {
 		"sha": "749d64da627880acf963a5302a4e38ce920592d5",
@@ -1377,27 +1240,7 @@
 		"summary": "#### css 的BEM方法和7-1规则\n\n### BEM\n\n按照`Block__Element--Modifier`命名\n\n例如：\n```\narticle__author\narticle__date\narticle__content-leftAlign\narticle__content-centerAlign\n```\n..."
 	},
 	"KMP回溯分析": {
-		"sha": "9b2f31a1afd83292746a2243626db26804af5fa3",
-		"label": [
-			"回溯",
-			"匹配",
-			"length",
-			"后缀",
-			"return",
-			"公共"
-		],
-		"createdTime": "8/9/2018",
-		"timeArr": [
-			2018,
-			7,
-			9,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "KMP回溯分析",
-		"summary": "KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯\n\n一般写法是：\n```js\nfunction calcNext(str,pat){\n  /*...*/\n  if(str[k]!==str[j]){\n    // 有些会写成k=next[k]，原理是一样的\n    // 这里k表示，所对应当前正在进行对比的..."
+		"sha": "9b2f31a1afd83292746a2243626db26804af5fa3"
 	},
 	"源码阅读-react-motion-拓扑排序思想": {
 		"sha": "65c59ec0ce44ba503eeb5cfdeec3d1eba9b70047",
@@ -1446,29 +1289,7 @@
 		"summary": "#### foreignObject\n\nsvg内部标签`<foreignObject>`，可以直接在svg内部插入`xhtml`元素，再通过`blob`和`FileReader`可\n将内部`xhtml`内容转换成*同源*url，再通过`img.src=url`将svg内部的dom元素转化为图片。\n\n```js\nlet  d..."
 	},
 	"CORS通信": {
-		"sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425",
-		"label": [
-			"请求",
-			"CORS",
-			"键值",
-			"html",
-			"javascript",
-			"form",
-			"https",
-			"wangdoc"
-		],
-		"createdTime": "8/14/2018",
-		"timeArr": [
-			2018,
-			7,
-			14,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "CORS通信",
-		"summary": "CORS通信就是服务端设置`Access-Control-Allow-Origin`等配置\n\n分为2类请求，简单请求和非简单请求\n\n\n* 简单请求：\n\n    无预检，直接传递数据的时候检查是否同源\n\n    Content-Type类型：\n    \n   `application/x-www-form-urlenco..."
+		"sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425"
 	},
 	"indexedDB简要增删查": {
 		"sha": "b9c382c33ecfc711c7de0a929d346090b6c78122",
@@ -1520,29 +1341,7 @@
 		"summary": "####创建数组的思考\n\n`lodash.js>.internal-->baseClone.js`内部\n\n有一句：`const result = new array.constructor(length)`\n\n这里array是一个经过`Array.isArray(array)===true`判断的数组，\n\n这句话..."
 	},
 	"原生表单验证相关": {
-		"sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4",
-		"label": [
-			"表单",
-			"验证",
-			"原生",
-			"form",
-			"自定义",
-			"javascript",
-			"https",
-			"setCustomValidity"
-		],
-		"createdTime": "8/17/2018",
-		"timeArr": [
-			2018,
-			7,
-			17,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "原生表单验证相关",
-		"summary": "#### 表单验证原生\n\n* 查看是否通过验证：\n`ele.checkValidity`\n\n* 验证不通过的时候的提示（只读）：\n`ele.validationMessage`\n\n    可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过\n\n    `ele.set..."
+		"sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4"
 	},
 	"记录一次xhr.upload.onprogress填坑": {
 		"sha": "bc7ed8c6eae00e50c69810221c75724e5987c3ef",
@@ -1570,27 +1369,7 @@
 		"summary": "#### 一次xhr.upload.onprogress与multiparty搭配的踩坑记录\n\n有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96..."
 	},
 	"canvas处理大量重复运动": {
-		"sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591",
-		"label": [
-			"canvas",
-			"panels",
-			"画板",
-			"length",
-			"particles",
-			"cctx"
-		],
-		"createdTime": "8/20/2018",
-		"timeArr": [
-			2018,
-			7,
-			20,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "canvas处理大量重复运动",
-		"summary": "canvas做大量重复的粒子运动，例如雪花，星光闪烁\n\n并不需要针对每一个粒子进行动画，例如\n```js\nfor(let i=0;i<particles,length;i++){\n  let p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=function(){}\n  ..."
+		"sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591"
 	},
 	"对比map,{},[]的存取效率": {
 		"sha": "1600828db65c1a7985630b4aed89be4dccca7233",
@@ -1640,27 +1419,7 @@
 		"summary": "通常海明距离的计算使用 `^`，再计算1的次数\n\n但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的\n\n另一种计算海明距离的方法：\n```js\n/**\n* @param nums {Array}\n* @returns {number}\n*/\nfunction cal..."
 	},
 	"canvas执行15万粒子的动画": {
-		"sha": "13a7360e4102e7f5e47de276e5ec183f2ea9309f",
-		"label": [
-			"canvas",
-			"动画",
-			"离屏",
-			"showMotion",
-			"rgba4",
-			"assignedParticles"
-		],
-		"createdTime": "8/26/2018",
-		"timeArr": [
-			2018,
-			7,
-			26,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "canvas执行15万粒子的动画",
-		"summary": "最近遇到的，目的是通过粒子动画渲染图片\n\n图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来\n\n最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...\n\n```js\n for (let py = 0; py < targetH; py ++) ..."
+		"sha": "13a7360e4102e7f5e47de276e5ec183f2ea9309f"
 	},
 	"算法记录-最长回文子字符串": {
 		"sha": "b43da9771d20a5bb5e735c832af36f85b932df54",
@@ -1831,26 +1590,7 @@
 		"summary": "\n原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess..."
 	},
 	"二分查找的range方法": {
-		"sha": "5acdcc152f2100d5037ef4497dacbaf79921658e",
-		"label": [
-			"二分",
-			"查找",
-			"range",
-			"count",
-			"排序"
-		],
-		"createdTime": "9/11/2018",
-		"timeArr": [
-			2018,
-			8,
-			11,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "二分查找的range方法",
-		"summary": "通常二分查找是根据index进行查找，并且要求数据结构是已排序的。\n\n这里记录一个未排序的二分查找\n\n题目：在一个数组arr中，找出从小到大第n个的数字\n\n例如：`[6,3,8,1,4,7]`，找出第3位，结果是4\n\n使用排序也可以解决，当空间有限制时，时间复杂度是`O(N*lgN)`，但二分查找的范围法可以控制到`O..."
+		"sha": "5acdcc152f2100d5037ef4497dacbaf79921658e"
 	},
 	"获取函数参数名称": {
 		"sha": "666081661a6e70d949e3a7754293a33f83e18432",
@@ -1905,27 +1645,7 @@
 		"summary": "Generators函数的双向传递\n\n每次调用`answer()`，相当于在`generators`函数的next方法加入参数，这个参数会返回给`yield`的返回值\n\n在函数内部可以判断这个返回值，实现双向传递\n```js\n  let stepCount=1\n  let currentPoint=1\n  functi..."
 	},
 	"一段模拟尾调用的代码": {
-		"sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27",
-		"label": [
-			"active",
-			"调用",
-			"return",
-			"accumulated",
-			"value",
-			"function"
-		],
-		"createdTime": "9/17/2018",
-		"timeArr": [
-			2018,
-			8,
-			17,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "一段模拟尾调用的代码",
-		"summary": "```js\nfunction tco(f) {\n            var value;\n            var active = false;\n            var accumulated = [];\n            return function accumulator() {\n   ..."
+		"sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27"
 	},
 	"如何通过AST树去获取函数参数名": {
 		"sha": "a7854a9c9c9dd7722bb525311af632ee5752fe47",
@@ -2003,31 +1723,7 @@
 		"summary": "#### BABLE插件编写一些总结\n\n1. babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\n    race模式。https://jamie.build/babel-plugin-ordering.html\n\n    这么做是为..."
 	},
 	"service-worker要点概括": {
-		"sha": "e35e017c1e99651fcf6cabf2e7873c3ad59e795c",
-		"label": [
-			"promise",
-			"service",
-			"caches",
-			"worker",
-			"event",
-			"要点",
-			"缓存",
-			"返回",
-			"cache",
-			"waitUntil"
-		],
-		"createdTime": "9/26/2018",
-		"timeArr": [
-			2018,
-			8,
-			26,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "service-worker要点概括",
-		"summary": "service worker和cache\n\n客户端：register\n\n服务端：install, activate, fetch\n\n* `install`\n\n主要作用是内部回调中的参数`event`的方法`event.waitUntil`中缓存本次的资源。\n\n* `activate`\n\n主要作用是在内部回调中的参数`e..."
+		"sha": "e35e017c1e99651fcf6cabf2e7873c3ad59e795c"
 	},
 	"关于github-api.v3认证方面的总结": {
 		"sha": "6b205fb9eb1995355142e4b491f0e45bac6ca9f9",

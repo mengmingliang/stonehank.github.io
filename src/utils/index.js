@@ -13,7 +13,13 @@ export function refactor(json,groupBy){
       let day=cur[group][2]
       if(!groupObj[year])groupObj[year]=[]
       if(!groupObj[year][month])groupObj[year][month]=[]
-      groupObj[year][month][day]=cur
+      groupObj[year][month].push(cur)
+      // if(!groupObj[year][month][day])groupObj[year][month][day]=cur
+      // else {
+      //   let conflictDay=groupObj[year][month][day]
+      //   if(Array.isArray(conflictDay))conflictDay.push(cur)
+      //   else groupObj[year][month][day]=[conflictDay,cur]
+      // }
     }
     return groupObj
   }
