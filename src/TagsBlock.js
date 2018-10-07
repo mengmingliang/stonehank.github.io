@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {Pagination, Row, Button, Anchor, Skeleton, Collapse, List, Affix, Col, Tag, Icon} from 'antd';
 import {Link, navigate} from "@reach/router"
-import ArticleStatusBar from "./ArticleStatusBar"
-import {Layout} from "antd/lib/index";
 import Tag_Light from './Tag_Light'
+import {linkTo} from './linkPathList'
 
-// const {Link : AntdLink} =Anchor
-const Panel = Collapse.Panel;
 
-const {Header, Content, Footer, Sider} = Layout;
 
+const styles={
+  col:{margin: "1rem 0"}
+}
 
 export default class TagsBlock extends React.Component {
 
@@ -22,8 +21,8 @@ export default class TagsBlock extends React.Component {
             >
               {Object.keys(articles).map((tag,i) => {
                 return (
-                  <Col key={i} style={{margin: "1rem 0"}}>
-                    <Link to={`/category/${tag}`}>
+                  <Col key={i} style={styles.col}>
+                    <Link to={`${linkTo.category}/${tag}`}>
                       <Tag_Light>{tag}</Tag_Light>
                     </Link>
                   </Col>

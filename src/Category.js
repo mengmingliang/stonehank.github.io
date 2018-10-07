@@ -5,12 +5,18 @@ import ArticleStatusBar from "./ArticleStatusBar"
 import {Layout} from "antd/lib/index";
 import TagsList from "./TagsList"
 import TagsBlock from "./TagsBlock"
+import Loading from "./Loading";
 
 // const {Link : AntdLink} =Anchor
 const Panel = Collapse.Panel;
 
 const {Header, Content, Footer, Sider} = Layout;
 
+const styles={
+  defaultMargin:{margin: '24px 36px'},
+  toggleRenderButton:{border: "none", background: "#eef8ff", float: "right"},
+  toggleRenderIcon:{fontSize: "1.5rem", color: "#46a6ff"}
+}
 
 export default class Category extends React.Component {
   constructor(props) {
@@ -70,16 +76,13 @@ export default class Category extends React.Component {
     }
     // console.log(articles)
     return contentLoading ?
-      <div>
-        <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 3, width: "50%"}}/>
-        <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 3, width: "50%"}}/>
-        <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 3, width: "50%"}}/>
-      </div> :
-      <Content style={{margin: '24px 36px'}}>
+      <Loading loading={contentLoading} render_nums={3} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={3} /> :
+
+      <Content style={styles.defaultMargin}>
         <div className="clearfix">
-          <Button style={{border: "none", background: "#eef8ff", float: "right"}}
+          <Button style={styles.toggleRenderButton}
                   onClick={this.toggleTagRender}>
-            <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={{fontSize: "1.5rem", color: "#46a6ff"}}/>
+            <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={styles.toggleRenderIcon}/>
           </Button>
         </div>
         {tagsRenderMode === "list" ?

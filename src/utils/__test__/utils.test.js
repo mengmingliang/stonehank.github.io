@@ -1,4 +1,4 @@
-import {objSortBy,objGroupBy,refactor} from "../index"
+import {objSortBy, objGroupBy, refactor, deepEqual} from "../index"
 
 test("sort by factorArr",function () {
   let obj={
@@ -209,4 +209,39 @@ test("refactor timeArr",function () {
         undefined,
         [{"cur": "2018/10/13", "timeArr": [2018, 9, 13]}]]}
       )
+})
+
+/*----------deepEqual---------------------*/
+
+
+test("refactor timeArr",function () {
+  let obj1={
+    createdTime: "6/7/2018",
+    label:["getDerivedStateFromProps", "props", "state", "myFetch", "list", "return", "null"],
+    sha: "5773c257a100e1f2106db59fb0bc4ad273375da0",
+    summary: {x:1,y:2,z:[5,67,7,2,{a:823974,b:function(x){return x+5},c:[1299,324,65,false,true,{lastArr:[]}]}]},
+    timeArr: [2018, 5, 7, 0, 0, 0, 0],
+    title: ()=>"title"
+  }
+  let obj2={
+    createdTime: "6/7/2018",
+    label:["getDerivedStateFromProps", "props", "state", "myFetch", "list", "return", "null"],
+    sha: "5773c257a100e1f2106db59fb0bc4ad273375da0",
+    summary: {x:1,y:2,z:[5,67,7,2,{a:823974,b:function(x){return x+5},c:[1299,324,65,false,true,{lastArr:[]}]}]},
+    timeArr: [2018, 5, 7, 0, 0, 0, 0],
+    title: ()=>"title"
+  }
+  // b:function...x+6
+  let obj3={
+    createdTime: "6/7/2018",
+    label:["getDerivedStateFromProps", "props", "state", "myFetch", "list", "return", "null"],
+    sha: "5773c257a100e1f2106db59fb0bc4ad273375da0",
+    summary: {x:1,y:2,z:[5,67,7,2,{a:823974,b:function(x){return x+6},c:[1299,324,65,false,true,{lastArr:[]}]}]},
+    timeArr: [2018, 5, 7, 0, 0, 0, 0],
+    title: ()=>"title"
+  }
+  expect(obj1===obj2).toBe(false)
+  expect(deepEqual(obj1,obj2)).toBe(true)
+  expect(deepEqual(obj1,obj3)).toBe(false)
+  expect(deepEqual(obj2,obj3)).toBe(false)
 })

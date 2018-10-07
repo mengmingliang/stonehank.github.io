@@ -1,3 +1,5 @@
+import {pathEnum} from "../linkPathList";
+
 export function refactor(json,groupBy){
   let groupObj={}
   let group
@@ -150,7 +152,7 @@ export function objGroupBy(obj,key){
  * @returns {boolean}
  */
 export function deepEqual(obj1,obj2){
-  if(obj1!==obj2)return false
+  if(obj1===obj2)return true
   let os=Object.prototype.toString,result=true;
   for(let key in obj1){
     if(obj1.hasOwnProperty(key)){
@@ -175,4 +177,11 @@ export function deepEqual(obj1,obj2){
     }
   }
   return true
+}
+
+
+export function parseHrefToNav(pathname){
+  let selectedKeyMathch=pathname.match(/^.*?(\/\w+)\/?/) || []
+  let selectedKey=selectedKeyMathch[1]
+  return pathEnum.includes(selectedKey)?selectedKey:pathEnum[0]
 }

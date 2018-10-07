@@ -2,8 +2,10 @@ import React from 'react';
 import { Divider,Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
 import {navigate} from "@reach/router";
 import ArticleStatusBar from "../ArticleStatusBar"
+import Loading from '../Loading'
+import hljs from 'highlight.js' // https://highlightjs.org/
 
-const hljs = require('highlight.js'); // https://highlightjs.org/
+
 const md = require('markdown-it')({
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
@@ -108,7 +110,7 @@ export default class ArticleDetail extends React.Component{
     const {blogList}=this.props
     return(
       contentLoading ?
-        <Skeleton active loading={contentLoading} title={{width: "30%"}} paragraph={{rows: 6, width: "50%"}}/> :
+        <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
         <article style={{margin:"24px 36px", background: '#fff', minHeight: 360}}>
           <header>
             <h1 style={{textAlign:"center"}}>{curArticleData.title}</h1>

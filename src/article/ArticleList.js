@@ -30,7 +30,7 @@ const styles={
   summary:{marginTop: 24, fontSize: "small", opacity: '0.7'},
   list_pagi_style:{textAlign: 'center',marginBottom:"1rem"},
   card:{margin:"15px 0"},
-  content:{margin: '24px 36px'}
+  defaultMargin:{margin: '24px 36px'}
 }
 
 
@@ -63,7 +63,7 @@ export default class ArticleList extends React.Component {
     }
     return (
       <React.Fragment>
-        <Content style={styles.content}>
+        <Content style={styles.defaultMargin}>
           <List split={false}
                 header={<strong>最新文章</strong>}
                 pagination={listPageSetting}

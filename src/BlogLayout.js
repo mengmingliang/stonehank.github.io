@@ -10,18 +10,18 @@ import { Router,Redirect,Location } from "@reach/router";
 import ArticleDetail from "./article/ArticleDetail";
 import CategoryDetail from './CategoryDetail'
 import {refactor,objSortBy,objGroupBy} from './utils'
+import {Header_Pure} from "./antd_pure"
+import {pathEnum} from './linkPathList'
+import NavSiderContainer from "./nav/NavSiderContainer";
 
-import {Header_Pure,Layout_Pure,Location_Pure,BackTop_Pure} from "./antd_pure"
 
-
-const { Header,Footer} = Layout;
 
 const styles={
   layout_wrapper:{ background:"#fff",minHeight: '100vh' },
   layout_inner:{background:"#fff"},
   layout_header:{ background: '#898989', padding: 0 }
 }
-const pathEnum=["home","archive","category","about"]
+
 
 export default class BlogLayout extends React.Component {
   constructor(){
@@ -58,7 +58,7 @@ export default class BlogLayout extends React.Component {
     this.fetchBlogContent()
   }
   render() {
-    const { archiveArticles, categoryArticles, initArticles,tagsRenderMode}=this.state
+    const { archiveArticles, categoryArticles, initArticles}=this.state
     if(archiveArticles){
       Object.defineProperty(archiveArticles,"activePanel",{
         value:null,
@@ -79,24 +79,11 @@ export default class BlogLayout extends React.Component {
     }
     return (
       <Layout style={styles.layout_wrapper}>
-        <Location>
-          {({location:{pathname}})=> {
-
-            let selectedKeyMathch=pathname.match(/^.*?\/(\w+)\/?/) || []
-            let selectedKey=selectedKeyMathch[1]
-            selectedKey=pathEnum.includes(selectedKey)?selectedKey:"home"
-            // let basenameStart=pathname.lastIndexOf('/')+1
-            // let basename=decodeURIComponent(pathname.substr(basenameStart))
-            // let matchdir=pathname.substr(0,basenameStart)
-
-            return <NavSider selectedKey={selectedKey} pathEnum={pathEnum}/>
-          }}
-        </Location>
+        <NavSiderContainer />
         <Layout style={styles.layout_inner}>
-          <Header style={styles.layout_header} >
+          <Header_Pure style={styles.layout_header} >
             FrontEnd Blogs
-          </Header>
-          {/*<Location_Pure archiveArticles={archiveArticles} categoryArticles={categoryArticles} initArticles={initArticles} />*/}
+          </Header_Pure>
           <Location>
             {({location:{pathname}})=>{
               let basenameStart=pathname.lastIndexOf('/')+1

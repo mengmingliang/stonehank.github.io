@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
-import {Button,Anchor ,Skeleton,Collapse,List,Row,Col,Tag,Icon} from 'antd';
-// import {navigate} from "@reach/router"
+import React from 'react';
+import {Button,Anchor ,Skeleton,Collapse,List,Tag,Icon} from 'antd';
 import {Link} from "@reach/router"
-
+import {linkTo} from './linkPathList'
 import ArticleStatusBar from "./ArticleStatusBar"
+import Tag_Light from "./Tag_Light";
 
 
-const Panel = Collapse.Panel;
+const styles={
+  list:{margin: '24px 36px'},
+  list_item:{margin:"0 0 12px 24px",background:"#fcfcfc"},
+  skeleton_title:{width: "15%"},
+  skeleton_paragraph:{rows: 6}
+}
 
-export default class CategoryDetail extends Component {
+export default class CategoryDetail extends React.Component {
   constructor(){
     super()
     this.state={
@@ -32,27 +37,25 @@ export default class CategoryDetail extends Component {
     const {labelList,contentLoading,labelName}=this.state
    return (
      contentLoading ?
-       <Skeleton active loading={contentLoading} title={{width: "15%"}} paragraph={{rows: 6}}/> :
+       <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/> :
        <List size="small"
              split={false}
-             style={{margin: '24px 36px'}}
+             style={styles.list}
              header={
                <React.Fragment>
                  <Icon type="tag" />
-                 <Tag>{labelName}</Tag>
+                 <Tag_Light>{labelName}</Tag_Light>
                </React.Fragment>
-               // <Button style={{background:"#001529",color:"#fff"}}>{labelName}</Button>
              }
          dataSource={labelList}
          renderItem={item => (
-           <List.Item style={{margin:"0 0 12px 24px",background:"#fcfcfc"}}>
+           <List.Item style={styles.list_item}>
              <List.Item.Meta
-               title={<Link to={`/articles/${item.title}`}>{item.title}</Link>}
+               title={<Link to={`${linkTo.article}/${item.title}`}>{item.title}</Link>}
                description={
                  <ArticleStatusBar article={item}/>
                }
              />
-
            </List.Item>
          )}
        />
