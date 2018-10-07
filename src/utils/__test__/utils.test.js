@@ -214,7 +214,7 @@ test("refactor timeArr",function () {
 /*----------deepEqual---------------------*/
 
 
-test("refactor timeArr",function () {
+test("deepEqual",function () {
   let obj1={
     createdTime: "6/7/2018",
     label:["getDerivedStateFromProps", "props", "state", "myFetch", "list", "return", "null"],
@@ -244,4 +244,22 @@ test("refactor timeArr",function () {
   expect(deepEqual(obj1,obj2)).toBe(true)
   expect(deepEqual(obj1,obj3)).toBe(false)
   expect(deepEqual(obj2,obj3)).toBe(false)
+})
+
+
+
+test("deepEqual",function () {
+  let obj1={x:1}
+  let obj2=null
+  let obj3=undefined
+  let obj4=null
+
+  expect(deepEqual(obj1,obj2)).toBe(false)
+  expect(deepEqual(obj1,obj3)).toBe(false)
+  expect(deepEqual(obj2,obj3)).toBe(false)
+  expect(deepEqual(obj2,obj1)).toBe(false)
+  expect(deepEqual(obj3,obj1)).toBe(false)
+  expect(deepEqual(obj3,obj2)).toBe(false)
+
+  expect(deepEqual(obj2,obj4)).toBe(true)
 })

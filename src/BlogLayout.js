@@ -2,13 +2,13 @@ import React from 'react';
 import {BackTop, Layout } from 'antd';
 import './css/github.min.css'
 import NavSider from "./nav/NavSider";
-import Archive from "./Archive";
-import Category from "./Category";
+import Archive from "./Archive/Archive";
+import Category from "./Category/Category";
 import About from "./About";
-import Home from "./Home";
+import Home from "./Home/Home";
 import { Router,Redirect,Location } from "@reach/router";
-import ArticleDetail from "./article/ArticleDetail";
-import CategoryDetail from './CategoryDetail'
+import ArticleDetail from "./ArticleDetail";
+import CategoryDetail from './Category/CategoryDetail'
 import {refactor,objSortBy,objGroupBy} from './utils'
 import {Header_Pure} from "./antd_pure"
 import {pathEnum} from './linkPathList'
@@ -45,7 +45,7 @@ export default class BlogLayout extends React.Component {
             // initArticles:refactor(blog_jsonObj,"init"),
             archiveArticles:refactor(blog_jsonObj,"time"),
             categoryArticles:objGroupBy(blog_jsonObj,"label"),
-            initArticles:objSortBy(blog_jsonObj,"timeArr"),
+            initArticles:objSortBy(blog_jsonObj,"timeArr").filter(item=>item.title),
             blog_jsonObj
           })
         })

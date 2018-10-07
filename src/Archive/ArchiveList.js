@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Pagination, Spin, Button, Anchor, Skeleton, Collapse, List, Affix, Col, Tag, Icon} from 'antd';
 import {Link, navigate} from "@reach/router"
-import ArticleStatusBar from "./ArticleStatusBar"
+import ArticleStatusBar from "../ArticleStatusBar"
 import {Layout} from "antd/lib/index";
-import Loading from "./Loading";
-import {linkTo} from "./linkPathList";
+import Loading from "../Loading";
+import {linkTo} from "../linkPathList";
 
 
 
@@ -40,10 +40,10 @@ export default class ArchiveList extends React.Component {
     return result
   }
   onLoadMore(){
-    const {month}=this.props
+    const {dayList}=this.props
     // todo 5是默认加载数量，可转换为配置
-    const newLoadedList=this.state.loadedList.concat(this.getApartOfData(month,5))
-    month.loadedLength=newLoadedList.length
+    const newLoadedList=this.state.loadedList.concat(this.getApartOfData(dayList,5))
+    dayList.loadedLength=newLoadedList.length
     this.setState({
       loadedList:newLoadedList,
       listLoading:true
@@ -58,20 +58,20 @@ export default class ArchiveList extends React.Component {
     },300)
   }
   componentDidMount(){
-    const {month}=this.props
-    // month是数组，遍历时不会遍历到它的自定义属性
+    const {dayList}=this.props
+    // dayList是数组，遍历时不会遍历到它的自定义属性
     // todo 5是默认加载数量，可转换为配置
-    month.loadedLength= month.loadedLength || 5
+    dayList.loadedLength= dayList.loadedLength || 5
     this.setState({
-      loadedList:this.state.loadedList.concat(this.getApartOfData(month,month.loadedLength))
+      loadedList:this.state.loadedList.concat(this.getApartOfData(dayList,dayList.loadedLength))
     })
   }
   render() {
-    const {month}=this.props
-    console.log(month)
+    const {dayList}=this.props
+    console.log(dayList)
     const loadMore = (
       <div style={styles.loadMore}>
-        {this.loadedIndex < month.length ?
+        {this.loadedIndex < dayList.length ?
           <Button onClick={this.onLoadMore}>loading more</Button> :
           <Button disabled>没有更多了</Button>
         }

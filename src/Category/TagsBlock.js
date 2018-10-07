@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Pagination, Row, Button, Anchor, Skeleton, Collapse, List, Affix, Col, Tag, Icon} from 'antd';
 import {Link, navigate} from "@reach/router"
-import Tag_Light from './Tag_Light'
-import {linkTo} from './linkPathList'
+import Tag_Light from '../Tag_Light'
+import {linkTo} from '../linkPathList'
 
 
 

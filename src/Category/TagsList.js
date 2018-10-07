@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Pagination, Row, Button, Anchor, Skeleton, Collapse, List, Affix, Col, Tag, Icon} from 'antd';
 import {Link, navigate} from "@reach/router"
-import ArticleStatusBar from "./ArticleStatusBar"
+import ArticleStatusBar from "../ArticleStatusBar"
 import {Layout} from "antd/lib/index";
-import {linkTo} from './linkPathList'
+import {linkTo} from '../linkPathList'
 
 // const {Link : AntdLink} =Anchor
 const Panel = Collapse.Panel;

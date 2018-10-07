@@ -27,10 +27,10 @@ const styles={
 export default class ArticleStatusBar extends React.Component{
 
 
-  shouldComponentUpdate(prevProps,nextState) {
-    console.log(deepEqual(prevProps, this.props))
-    return !deepEqual(prevProps, this.props)
-  }
+  // shouldComponentUpdate(prevProps,nextState) {
+  //   console.log(prevProps, this.props)
+  //   return !deepEqual(prevProps, this.props)
+  // }
 
 
   render(){

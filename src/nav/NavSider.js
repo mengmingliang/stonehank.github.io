@@ -29,7 +29,7 @@ export default class NavSider extends React.PureComponent {
     }
   }
   static getDerivedStateFromProps(nextProps,prevState){
-    console.log(nextProps.selectedKey,prevState.selectedKey)
+    // console.log(nextProps.selectedKey,prevState.selectedKey)
     if(nextProps.selectedKey===prevState.selectedKey)return null
     return {
       selectedKey:nextProps.selectedKey
@@ -38,7 +38,7 @@ export default class NavSider extends React.PureComponent {
 
   render() {
     const {selectedKey}=this.state
-    // console.log(selectedKey)
+    // console.log("rendernav")
     return (
       <Sider  style={styles.sider}
                             theme="dark"
@@ -53,7 +53,7 @@ export default class NavSider extends React.PureComponent {
             <Menu.Item key={linkTo.home}>
               <Icon type="pie-chart" />
               <span>首页</span>
-              <Link to="/" />
+              <Link to="/page/1" />
             </Menu.Item>
             <Menu.Item key={linkTo.archive}>
               <Icon type="desktop" />

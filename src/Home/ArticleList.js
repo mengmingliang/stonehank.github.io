@@ -3,6 +3,8 @@ import {List, Tag, Card, Skeleton, Avatar, Pagination, Layout, Menu, Breadcrumb,
 import {Link, navigate} from "@reach/router";
 import ArticleStatusBar from "../ArticleStatusBar"
 import Card_Pure from "../antd_pure/Card_Pure";
+import {deepEqual} from "../utils/index";
+import {linkTo} from "../linkPathList";
 
 const hljs = require('highlight.js'); // https://highlightjs.org/
 const md = require('markdown-it')({
@@ -51,7 +53,13 @@ export default class ArticleList extends React.Component {
     if(e.target.className.includes('tag'))return
     navigate(path)
   }
+
+  shouldComponentUpdate(nextProps){
+    return !deepEqual(nextProps.articles,this.props.articles)
+  }
+
   render() {
+    // console.log("render")
     const {articles, current, pageSize, total} = this.props
     const listPageSetting={
       style:styles.list_pagi_style,
@@ -70,7 +78,7 @@ export default class ArticleList extends React.Component {
           >
             {articles.map((item,i)=>(
               <Card_Pure key={i} hoverable bordered={false} style={styles.card}
-                    onClick={this.navigateToPath.bind(this,"/articles/"+item.title)}
+                    onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.title)}
               >
                 <Meta
                       title={item.title}

@@ -153,6 +153,7 @@ export function objGroupBy(obj,key){
  */
 export function deepEqual(obj1,obj2){
   if(obj1===obj2)return true
+  if(!obj1 || !obj2)return false
   let os=Object.prototype.toString,result=true;
   for(let key in obj1){
     if(obj1.hasOwnProperty(key)){

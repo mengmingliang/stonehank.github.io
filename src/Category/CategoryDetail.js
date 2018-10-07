@@ -1,10 +1,10 @@
 import React from 'react';
 import {Button,Anchor ,Skeleton,Collapse,List,Tag,Icon} from 'antd';
 import {Link} from "@reach/router"
-import {linkTo} from './linkPathList'
-import ArticleStatusBar from "./ArticleStatusBar"
-import Tag_Light from "./Tag_Light";
-import Loading from "./Loading";
+import {linkTo} from '../linkPathList'
+import ArticleStatusBar from "../ArticleStatusBar"
+import Tag_Light from "../Tag_Light";
+import Loading from "../Loading";
 
 
 const styles={

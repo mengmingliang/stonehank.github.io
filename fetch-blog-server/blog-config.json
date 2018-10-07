@@ -4,11 +4,16 @@
    "repository":"blogs",
    "branch":"master",
    "per_page":100,
-   "ignoreSHA":false,
-   "forceUpdate":false,
+   "ignoreSHA":true,
+   "forceUpdate":true,
    "dataType":"YY-MM-DD",
    "summaryLength":160,
    "retry_times":1,
    "resource_dir_list":["img"],
-   "keywords":["算法","leetcode","react","cssModule","CSSTransition","redux"]
+   "keywords":["算法","leetcode","react","cssModule","CSSTransition",
+      "redux","性能","diff","AST","css","源码","位操作","正则","CORS",
+      "缓存","worker","promise","canvas","indexedDB","MutationObserver",
+      "git","MySQL","ES6","尾调用","babel","github","尾调用","表单","网络安全",
+      "规范"
+   ]
 }

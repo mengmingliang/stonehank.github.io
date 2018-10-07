@@ -1,9 +1,10 @@
 import React from 'react';
 import { Divider,Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
 import {navigate} from "@reach/router";
-import ArticleStatusBar from "../ArticleStatusBar"
-import Loading from '../Loading'
-import hljs from 'highlight.js' // https://highlightjs.org/
+import ArticleStatusBar from "./ArticleStatusBar"
+import Loading from './Loading'
+import hljs from 'highlight.js'
+import {linkTo} from "./linkPathList"; // https://highlightjs.org/
 
 
 const md = require('markdown-it')({
@@ -20,12 +21,15 @@ const md = require('markdown-it')({
   }
 });
 
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8}} />
-    {text}
-  </span>
-);
+
+
+const styles={
+  article:{margin:"24px 36px", background: '#fff', minHeight: 360},
+  h1:{textAlign:"center"},
+  contentDiv:{marginTop:24},
+  footer:{margin: "0 auto"}
+}
+
 
 export default class ArticleDetail extends React.Component{
   constructor(){
@@ -51,7 +55,7 @@ export default class ArticleDetail extends React.Component{
     return originalElement;
   }
   handlePageChange(page) {
-    navigate(`/articles/${this.props.blogList[page-1].title}`)
+    navigate(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
   }
   fetchBlogContent(){
     const {articleName,blogList}=this.props
@@ -61,7 +65,7 @@ export default class ArticleDetail extends React.Component{
         return true
       }
     })
-    return import(`../asset/${articleName}.json`)
+    return import(`./asset/${articleName}.json`)
       .then(obj=>({
         content:obj.content,
         title:curArticle.title,
@@ -111,15 +115,18 @@ export default class ArticleDetail extends React.Component{
     return(
       contentLoading ?
         <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
-        <article style={{margin:"24px 36px", background: '#fff', minHeight: 360}}>
+        <article style={styles.article}>
           <header>
-            <h1 style={{textAlign:"center"}}>{curArticleData.title}</h1>
+            <h1 style={styles.h1}>{curArticleData.title}</h1>
             <ArticleStatusBar justify={"center"} article={curArticleData} />
           </header>
-          <div style={{marginTop:24}} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>
+          <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>
           <Divider />
-          <footer style={{margin: "0 auto"}}>
-            <Pagination simple  pageSize={1} total={blogList.length} current={this.curArticleIndex} itemRender={this.itemRender} onChange={this.handlePageChange}/>
+          <footer style={styles.footer}>
+            <Pagination simple  pageSize={1} total={blogList.length}
+                        current={this.curArticleIndex}
+                        itemRender={this.itemRender}
+                        onChange={this.handlePageChange}/>
           </footer>
         </article>
     )

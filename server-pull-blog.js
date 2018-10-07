@@ -53,7 +53,15 @@ try{
   console.log(`获取配置出现错误，确保fs-extra正确安装以及${config_json_path}存在`)
 }
 
-const {user,repository,branch,per_page,forceUpdate,dataType,token,ignoreSHA,summaryLength,retry_times,resource_dir_list}=config
+const {user,repository,branch,per_page,forceUpdate,dataType,token,ignoreSHA,summaryLength,retry_times,resource_dir_list,keywords}=config
+
+// label初始化
+let lowercaseKeyWords={}
+for(let i=0;i<keywords.length;i++){
+  let cur=keywords[i].toLowerCase()
+  lowercaseKeyWords[cur]=1
+}
+
 
 const blog_listInfoPath=`${context}/src/asset/_blog-data.json`
 const blog_contentInfoDIR=`${context}/src/asset`
@@ -151,7 +159,7 @@ function checkANDwrite(searchCommand,getListInfoPath,getContentInfoPath,
 }
 
 
-let listInfoPath,listData,result,getContentInfoPath,finalOptions
+// let listInfoPath,listData,result,getContentInfoPath,finalOptions
 
 
 let fileWritingList={}
@@ -191,10 +199,11 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
       pristine=false
       if(!listData[cur_remote_filename]) listData[cur_remote_filename]={}
       if(!ignoreSHA)console.log("找到不存在/不匹配的，name为"+cur_remote_filename)
-      listData[cur_remote_filename].sha=cur_remote_sha
+
 
       if(isResource){
         listData[cur_remote_filename].title=cur_remote_filename
+        listData[cur_remote_filename].sha=cur_remote_sha
         let encodeBasename=encodeURIComponent(cur_remote_basename)
         // let encodeRawBasename=encodeURIComponent(basename)
         // console.log(encodeBasename,encodeRawBasename)
@@ -245,7 +254,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
           .then(obj=>{
             console.log("获取"+cur_remote_filename+"文件成功，正在写入...")
 
-
+            let currentListData={}
             // todo 图片是否需要
             // const content=Base64.atob(obj["content"])
             const content=Base64.decode(obj["content"])
@@ -269,20 +278,42 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
               return (!(forceUpdate===true || forceUpdate[key]===true) && listData[cur_remote_filename][key]) || value
             }
 
-            // 如果已经存在标签，则不更新,强制更新除外
-            // let label=checkIfNeedForceUpdated("label",getWeightExtract(obj["content"],cur_remote_filename))
+
+
+            let labels=getWeightExtract(obj["content"],cur_remote_filename)
+            let filteredSet=new Set()
+            let filteredLabels=[]
+            for(let i=0;i<labels.length;i++){
+              let cur=labels[i].toLowerCase()
+              if(lowercaseKeyWords.hasOwnProperty(cur) && lowercaseKeyWords[cur]){
+                filteredSet.add(cur)
+                // lowercaseKeyWords[labels[i]]--
+              }
+            }
+
+            for(let label of filteredSet){
+              filteredLabels.push(label)
+            }
+            // // 如果已经存在标签，则不更新,强制更新除外
+            // let label=checkIfNeedForceUpdated("label",filteredLabels)
             // let createdTime=checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
             // let timeArr=checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
             // let title=checkIfNeedForceUpdated("title",cur_remote_filename)
-            // let summary=checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength).replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/,"#### ")+"...")
+            // let summary=checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength)
+            //   .replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/,"#### ")+"...")
 
-            let getLabel=()=>checkIfNeedForceUpdated("label",getWeightExtract(obj["content"],cur_remote_filename))
+
+            let getLabel=()=>checkIfNeedForceUpdated("label",filteredLabels)
             let getCreatedTime=()=>checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
             let getTimeArr=()=>checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
             let getTitle=()=>checkIfNeedForceUpdated("title",cur_remote_filename)
-            let getSummary=()=>checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength).replace(/-{3,}/,'')
-              .replace(/(^|\n|\s)+#{1,3}\s/g,"#### ")+"...")
+            let getSummary=()=>checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength)
+              .replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/g,"#### ")+"...")
 
+            // console.log(`------------------------------${customListKeys.length}---------------------------------`)
+            // if(cur_remote_filename==="从零开始构建babel插件")console.log(`------------------------------${customListKeys}---------------------------------`)
+            // if(cur_remote_filename==="babel插件的一些总结")console.log(`------------------------------${customListKeys}---------------------------------`)
+            // if(cur_remote_filename==="worker要点概括")console.log(`------------------------------${customListKeys}---------------------------------`)
             if(Array.isArray(customListKeys)){
               let listValue={
                 label:getLabel,
@@ -292,19 +323,21 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
                 summary:getSummary}
               for(let i=0;i<customListKeys.length;i++){
                 let curKey=customListKeys[i]
-                listData[cur_remote_filename][curKey]=listValue[curKey]()
+                currentListData[curKey]=listValue[curKey]()
               }
             }else{
               console.error("customListKeys必须是Array")
             }
-            // listData[cur_remote_filename].label=getLabel()
-            // listData[cur_remote_filename].createdTime=createdTime
-            // listData[cur_remote_filename].timeArr=timeArr
-            // listData[cur_remote_filename].title=title
-            // listData[cur_remote_filename].summary=summary
+
+            //
+            // currentListData[cur_remote_filename].label=label
+            // currentListData[cur_remote_filename].createdTime=createdTime
+            // currentListData[cur_remote_filename].timeArr=timeArr
+            // currentListData[cur_remote_filename].title=title
+            // currentListData[cur_remote_filename].summary=summary
 
             let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_basename)
-            // let listInfo=getListInfo(listData)
+            // let listInfo=getListInfo(currentListData)
 
             fs.outputJson(contentInfoPath,{content},{spaces:2},function(err){
               if(err){
@@ -317,6 +350,8 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
               }
               else console.log(cur_remote_filename+"写入成功")
             })
+            currentListData.sha=cur_remote_sha
+            listData[cur_remote_filename]=currentListData
             if(i===result.length-1)
             writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions)
 
