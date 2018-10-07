@@ -9,5 +9,6 @@
    "dataType":"YY-MM-DD",
    "summaryLength":160,
    "retry_times":1,
-   "resource_dir_list":["img"]
+   "resource_dir_list":["img"],
+   "keywords":["算法","leetcode","react","cssModule","CSSTransition","redux"]
 }

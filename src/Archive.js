@@ -3,6 +3,7 @@ import {Skeleton,Collapse,List,Button,Col,Tag,Icon} from 'antd';
 import ArticleStatusBar from "./ArticleStatusBar"
 import {Link} from "@reach/router"
 import ArchiveList from './ArchiveList'
+import Loading from "./Loading";
 
 
 
@@ -23,8 +24,6 @@ const styles={
     border: 0,
     overflow: 'hidden',
   },
-  skeleton_paragraph:{rows: 10, width: "50%"},
-  skeleton_title:{width:"30%"},
   defaultMargin:{margin: '24px 36px'}
 }
 export default class Archive extends React.Component {
@@ -71,7 +70,7 @@ export default class Archive extends React.Component {
     const {contentLoading,activePanel}=this.state
     const {articles}=this.props
     return contentLoading ?
-      <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/> :
+      <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={10} /> :
       <Collapse style={styles.defaultMargin} accordion
                 bordered={false}
                 activeKey={activePanel[0]}

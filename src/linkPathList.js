@@ -2,7 +2,7 @@ const pathEnum=["/home","/archive","/category","/about"]
 
 const linkTo={
   category:`/category`,
-  article:`/articles`,
+  articles:`/articles`,
   home: "/home",
   archive:"/archive",
   about:"/about"

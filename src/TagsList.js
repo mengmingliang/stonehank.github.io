@@ -50,7 +50,7 @@ export default class TagsList extends React.Component {
                               <List.Item style={styles.list_item}>
                                 <List.Item.Meta
                                   title={
-                                    <Link to={`${linkTo.article}/${item.title}`}>
+                                    <Link to={`${linkTo.articles}/${item.title}`}>
                                       <div>{item.title}</div>
                                     </Link>}
                                   description={

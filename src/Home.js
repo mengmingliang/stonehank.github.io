@@ -2,12 +2,10 @@ import React from 'react';
 import { Skeleton } from 'antd';
 import './css/github.min.css'
 import ArticleList from "./article/ArticleList";
+import Loading from "./Loading";
 
 
-const styles={
-  skeleton_title:{width: "30%"},
-  skeleton_paragraph:{rows: 3, width: "50%"}
-}
+
 
 export default class Home extends React.PureComponent {
   constructor(){
@@ -15,31 +13,29 @@ export default class Home extends React.PureComponent {
     this.state={
       contentLoading:true,
       discussLoading:true,
-      articles:null,
+      filteredArticles:null,
       pageSize:3
     }
   }
   static getDerivedStateFromProps(props){
     const {articles}=props
     if(!articles)return null
+    const filteredArticles=articles.filter(item=>item.title)
     return {
-      articles,
+      filteredArticles,
       contentLoading:false
     }
   }
 
   render() {
-    const {articles,contentLoading,pageSize}=this.state
+    const {filteredArticles,contentLoading,pageSize}=this.state
     const {page}=this.props
-    const renderArticles=articles?articles.slice((page-1)*pageSize,page*pageSize):null
+    const renderArticles=filteredArticles?filteredArticles.slice((page-1)*pageSize,page*pageSize):null
     return(
       contentLoading ?
-        <React.Fragment>
-          <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/>
-          <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/>
-          <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/>
-        </React.Fragment> :
-      <ArticleList articles={renderArticles} current={+page} pageSize={pageSize} total={articles.length} />
+        <Loading loading={contentLoading} render_nums={3} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={3} /> :
+
+      <ArticleList articles={renderArticles} current={+page} pageSize={pageSize} total={filteredArticles.length} />
     )
   }
 }

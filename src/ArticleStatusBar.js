@@ -37,7 +37,7 @@ export default class ArticleStatusBar extends React.Component{
     const {article,...props}=this.props
     return (
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
-        <Col>{article.createdTime}</Col>
+        <Col>{article.createdTime || "未知日期"}</Col>
         <Col>
           { article.label ?
             article.label.map((t,i) => {
@@ -47,7 +47,7 @@ export default class ArticleStatusBar extends React.Component{
                 </Link>
               )
             }) :
-            <Tag>No-Tag</Tag>
+            null
           }
         </Col>
         <Col style={styles.col_message_style}><IconText type="message" text="2"/></Col>

@@ -280,7 +280,8 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             let getCreatedTime=()=>checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
             let getTimeArr=()=>checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
             let getTitle=()=>checkIfNeedForceUpdated("title",cur_remote_filename)
-            let getSummary=()=>checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength).replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/,"#### ")+"...")
+            let getSummary=()=>checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength).replace(/-{3,}/,'')
+              .replace(/(^|\n|\s)+#{1,3}\s/g,"#### ")+"...")
 
             if(Array.isArray(customListKeys)){
               let listValue={

@@ -3,12 +3,10 @@ import {Pagination, Spin, Button, Anchor, Skeleton, Collapse, List, Affix, Col, 
 import {Link, navigate} from "@reach/router"
 import ArticleStatusBar from "./ArticleStatusBar"
 import {Layout} from "antd/lib/index";
+import Loading from "./Loading";
+import {linkTo} from "./linkPathList";
 
 
-// const {Link : AntdLink} =Anchor
-const Panel = Collapse.Panel;
-
-const {Header, Content, Footer, Sider} = Layout;
 
 const styles={
   loadMore:{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }
@@ -87,13 +85,16 @@ export default class ArchiveList extends React.Component {
         {loadedList.map((day,k,context)=>{
           if(day==null)return
           return (
-            <Skeleton key={k+"日"} title={{width:"20%"}}
-                      paragraph={{rows:1,width:40+Math.random()*30+"%"}}
-                      // todo 5是默认加载数量，可转换为配置
-                      loading={listLoading && k>=context.length-5} active>
+            <Loading key={k}
+                     loading={listLoading && k>=context.length-5}
+                     render_nums={1}
+                     ske_title_width={"20%"}
+                     ske_para_width={40+Math.random()*30+"%"}
+                     ske_para_rows={1}
+            >
             <List.Item >
               <List.Item.Meta
-                title={<Link to={`/articles/${day.title}`}>
+                title={<Link to={`${linkTo.articles}/${day.title}`}>
                   <div>{day.title}</div>
                 </Link>}
                 description={
@@ -101,7 +102,7 @@ export default class ArchiveList extends React.Component {
                 }
               />
             </List.Item>
-            </Skeleton>
+            </Loading>
           )
         })}
       </List>

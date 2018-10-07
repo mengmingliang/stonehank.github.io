@@ -1645,6 +1645,7 @@
 		"summary": "Generators函数的双向传递\n\n每次调用`answer()`，相当于在`generators`函数的next方法加入参数，这个参数会返回给`yield`的返回值\n\n在函数内部可以判断这个返回值，实现双向传递\n```js\n  let stepCount=1\n  let currentPoint=1\n  functi..."
 	},
 	"一段模拟尾调用的代码": {
+		"title":"一段模拟尾调用的代码",
 		"sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27"
 	},
 	"如何通过AST树去获取函数参数名": {

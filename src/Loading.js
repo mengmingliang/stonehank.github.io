@@ -1,8 +1,8 @@
 import React from 'react';
-import { Divider,Tag,Card,Skeleton } from 'antd';
+import { Skeleton } from 'antd';
 
-let ske_title_style={width:null}
-let ske_para_style={width:null,rows:null}
+let ske_title_style={}
+let ske_para_style={}
 
 
 export default class Loading extends React.PureComponent{
@@ -13,7 +13,9 @@ export default class Loading extends React.PureComponent{
     ske_para_style.width=ske_para_width
     return(
       Array(render_nums).fill(1).map((n,i)=>(
-        <Skeleton key={i} active loading={loading} title={ske_title_style} paragraph={ske_para_style}/>
+        <Skeleton key={i} active loading={loading} title={ske_title_style} paragraph={ske_para_style}>
+          {this.props.children}
+        </Skeleton>
       ))
     )
   }

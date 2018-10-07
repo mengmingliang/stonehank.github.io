@@ -4,13 +4,12 @@ import {Link} from "@reach/router"
 import {linkTo} from './linkPathList'
 import ArticleStatusBar from "./ArticleStatusBar"
 import Tag_Light from "./Tag_Light";
+import Loading from "./Loading";
 
 
 const styles={
   list:{margin: '24px 36px'},
   list_item:{margin:"0 0 12px 24px",background:"#fcfcfc"},
-  skeleton_title:{width: "15%"},
-  skeleton_paragraph:{rows: 6}
 }
 
 export default class CategoryDetail extends React.Component {
@@ -37,7 +36,7 @@ export default class CategoryDetail extends React.Component {
     const {labelList,contentLoading,labelName}=this.state
    return (
      contentLoading ?
-       <Skeleton active loading={contentLoading} title={styles.skeleton_title} paragraph={styles.skeleton_paragraph}/> :
+       <Loading loading={contentLoading} render_nums={1} ske_title_width={"15%"}  ske_para_rows={6} /> :
        <List size="small"
              split={false}
              style={styles.list}
@@ -51,7 +50,7 @@ export default class CategoryDetail extends React.Component {
          renderItem={item => (
            <List.Item style={styles.list_item}>
              <List.Item.Meta
-               title={<Link to={`${linkTo.article}/${item.title}`}>{item.title}</Link>}
+               title={<Link to={`${linkTo.articles}/${item.title}`}>{item.title}</Link>}
                description={
                  <ArticleStatusBar article={item}/>
                }

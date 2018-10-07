@@ -79,7 +79,7 @@ export default class ArticleList extends React.Component {
                       }>
                 </Meta>
                 <div style={styles.summary}
-                     dangerouslySetInnerHTML={{__html: md.render(item.summary)}}/>
+                     dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>
               </Card_Pure>
             ))}
           </List>
