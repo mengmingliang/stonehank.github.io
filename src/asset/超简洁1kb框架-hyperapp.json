@@ -1,3 +1,0 @@
-{
-  "content": "## hyperapp框架\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md)\n\n一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过key），再更新渲染\n\n思维导图：\n\n![](./img/hyperapp导图.jpg)"
-}

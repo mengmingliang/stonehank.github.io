@@ -1,3 +1,0 @@
-{
-  "content": "通常海明距离的计算使用 `^`，再计算1的次数\n\n但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的\n\n另一种计算海明距离的方法：\n```js\n/**\n* @param nums {Array}\n* @returns {number}\n*/\nfunction calcHam(nums){\n  let total=0,binCount\n  for(let i=0;i<32;i++){\n    binCount=0\n    for(let j=0;j<nums.length;j++){\n          binCount+=(nums[j] >> i) & 1\n    }\n    total+=binCount*(nums.length-binCount)\n  }\n  return total\n}\n```\n\n这里主要是 `>>` 和 `&`，实现对每一个数据进行位数处理\n\n思路是：\n\n1、对每一个数据进行右移 i位`nums[j] >> i` ，得出 k\n\n2、对 k 进行 `k & 1`， 1 的二进制是`...00001`，因此可以判断出 k 的最后1位是 1 还是 0，所以`binCount`就是最后一位为1的数量\n\n3、`binCount*(nums.length-binCount)` ，其中`nums.length-binCount`指最后一位是0的数量，因此`1的数量*0的数量`，也就是它们能组合的海明距离\n\n"
-}

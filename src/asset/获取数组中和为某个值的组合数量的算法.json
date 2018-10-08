@@ -1,3 +1,0 @@
-{
-  "content": "记录一个算法，要求获取数组中的和为`sum`的组合的数量\n\n例如`arr=[1,2,3,4,5]`，那么和为5的组合数量为3，分别是`2,3`，`1,4`，`5`\n\n```js\nfunction computeSubset(arr,sum){\n  // 创建数组，用于记录从1到sum每一个数的组合数量\n  let aux=Array(sum+1).fill(0)\n  // 设置0为1，因为后面的处理，0也就是它本身\n  aux[0]=1\n  for(let n of arr){\n    // 这里i<n，就没意义了，就会出现数组索引是负值\n    for(let i=sum;i>=n;i--){\n      // 精髓，见最后\n      aux[i]+=aux[i-n]\n    }\n  }\n  // 返回第sum个的组合数量\n  return aux[sum]\n}\n\ncomputeSubset([1,2,3,4,5],5) // 3\n```\n关于上面`aux[i]+=aux[i-1]`\n```\naux[1] = aux[1] +aux[0]\naux[2] = aux[2] +aux[1]\naux[3] = aux[3] +aux[2]\n```\n==>`aux[3] = aux[3] +aux[2] +aux[1] +aux[0]`\n"
-}

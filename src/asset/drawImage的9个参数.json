@@ -1,3 +1,0 @@
-{
-  "content": "canvas的drawImage方法组多可以有9个参数，如下：\n```\nvoid ctx.drawImage(image, dx, dy);\nvoid ctx.drawImage(image, dx, dy, dWidth, dHeight);\nvoid ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);\n```\n\n第三种使用的参数理解：\n* dx：用于显示的窗口位置x\n* dy：用于显示的窗口位置y\n* dWidth：用于显示的窗口宽度\n* dHeight：用于显示的窗口高度\n* sx：用于显示的画的位置x\n* sy：用于显示的画的位置y\n* sWidth：用于显示的画的宽度\n* sHeight：用于显示的画的高度\n\n可以看成2张画布，外面的一张通过`d`参数对其开窗口\n里面的一张是画，通过`s`参数对其裁剪\n\n例如：\n\n`sx=0,sy=0,sw=1,sh=1`\n\n说明从`[0,0]`开始裁减了`1*1`的图像\n\n`dx=0,dy=0,dw=100,dh=100`\n\n说明从`[0,0]`开始，开了一个`100*100`的窗口\n\n最后将裁剪的图像填满窗口，也就是宽高都放大了100倍"
-}

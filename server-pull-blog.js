@@ -170,6 +170,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 {
   const {  cus_extension,customListKeys,isResource}=finalOptions
   let pristine=true
+  let fetchQueue=[]
   for(let i=0;i<result.length;i++){
     let cur=result[i];
 
@@ -179,7 +180,12 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
     // 获取时间
     let moment_splitTimeName=moment(rawname,dataType);
-    let cur_remote_createdTime,cur_remote_filename,cur_remote_sha,cur_remote_timeArr,cur_remote_basename=basename
+    let cur_remote_createdTime,
+      cur_remote_filename,
+      cur_remote_sha=cur.sha,
+      cur_remote_timeArr,
+      cur_remote_basename=basename
+
     if(moment_splitTimeName.isValid()){
       cur_remote_timeArr=moment_splitTimeName.toArray()
       cur_remote_createdTime=moment_splitTimeName.format("l")
@@ -191,16 +197,14 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
     }
 
 
-      cur_remote_sha=cur.sha
 
-
-    // if(splitTimeName.length===0)throw Error("Something wrong with splitTimeName RegExp !")
     if(ignoreSHA || !listData[cur_remote_filename] || listData[cur_remote_filename].sha!==cur_remote_sha){
       pristine=false
       if(!listData[cur_remote_filename]) listData[cur_remote_filename]={}
       if(!ignoreSHA)console.log("找到不存在/不匹配的，name为"+cur_remote_filename)
 
 
+      // 写入resource 或者 blog的content，listInfo在最后统一axios.all()写入，确保不会有漏
       if(isResource){
         listData[cur_remote_filename].title=cur_remote_filename
         listData[cur_remote_filename].sha=cur_remote_sha
@@ -211,40 +215,63 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
         // console.log(`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${basename}`)
         // console.log(decodeURIComponent)
         let resorceWriteStream
-        request(`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${encodeBasename}`)
-          .on("error",err=>{
-            console.error("请求resource错误，请检查参数")
-          })
-          .on('response',res=>{
+        // axios.get()
+        //   .then(data=>data.data)
+        //   .catch(function (error) {
+        //     console.log("获取"+cur_remote_filename+"文件失败")
+        //     console.log(error);
+        //   })
+        //   .then(obj=>{
+        //     fs.createWriteStream(contentInfoPath)
+        //   })
+        axios({
+          method:'get',
+          url:`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${encodeBasename}`,
+          responseType:'stream'
+        })
+          .then(response=>{
+            response.data.pipe(resorceWriteStream=fs.createWriteStream(contentInfoPath))
+
             console.log(`${resorceWriteStream.path}正在写入...`)
             fileWritingList[resorceWriteStream.path]=1
-            // console.log(fileWritingList)
+
+            resorceWriteStream.close=function(){
+              delete(fileWritingList[resorceWriteStream.path])
+              let leaveWritingList=Object.keys(fileWritingList)
+              if(leaveWritingList.length===0)console.log("全部写入完成！")
+              else {
+                console.log(`${resorceWriteStream.path}写入结束，当前还剩下:\n`)
+                leaveWritingList.forEach(path=>{
+                  console.log(path)
+                })
+                console.log("-------------------------------------")
+              }
+            }
           })
-          .pipe(resorceWriteStream=fs.createWriteStream(contentInfoPath))
+          .catch(err=>{
+            console.error("请求resource错误，请检查路径参数")
+          })
+        // request(`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${encodeBasename}`)
+        //   .on("error",err=>{
+        //     console.error("请求resource错误，请检查参数")
+        //   })
+        //   .on('response',res=>{
+        //     console.log(`${resorceWriteStream.path}正在写入...`)
+        //     fileWritingList[resorceWriteStream.path]=1
+        //   })
+        //   .pipe(resorceWriteStream=fs.createWriteStream(contentInfoPath))
         // resorceWriteStream.ready=function(){
         //   console.log(`${resorceWriteStream.path}正在写入...`)
         // }
         // console.log(resorceWriteStream.bytesWritten)
-        resorceWriteStream.close=function(){
-          // console.log(x,y,z)
-          delete(fileWritingList[resorceWriteStream.path])
-          let leaveWritingList=Object.keys(fileWritingList)
-          if(leaveWritingList.length===0)console.log("全部写入完成！")
-          else {
-            console.log(`${resorceWriteStream.path}写入结束，当前还剩下:\n`)
-            leaveWritingList.forEach(path=>{
-              console.log(path)
-            })
-            console.log("-------------------------------------")
-          }
 
-        }
-        if(i===result.length-1)
-        writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions)
+
+
+        // if(i===result.length-1)
+        // writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions)
       }
       else{
-
-        axios.get(`https://api.github.com/repos/${user}/${repository}/git/blobs/${cur_remote_sha}`,check)
+       let curFetch= axios.get(`https://api.github.com/repos/${user}/${repository}/git/blobs/${cur_remote_sha}`,check)
         // axios.get(`https://raw.githubusercontent.com/${user}/${repository}/master/${cur.name}`,check)
           .then(data=>data.data)
           .catch(function (error) {
@@ -254,7 +281,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
           .then(obj=>{
             console.log("获取"+cur_remote_filename+"文件成功，正在写入...")
 
-            let currentListData={}
+            // let currentListData={}
             // todo 图片是否需要
             // const content=Base64.atob(obj["content"])
             const content=Base64.decode(obj["content"])
@@ -314,6 +341,8 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             // if(cur_remote_filename==="从零开始构建babel插件")console.log(`------------------------------${customListKeys}---------------------------------`)
             // if(cur_remote_filename==="babel插件的一些总结")console.log(`------------------------------${customListKeys}---------------------------------`)
             // if(cur_remote_filename==="worker要点概括")console.log(`------------------------------${customListKeys}---------------------------------`)
+
+
             if(Array.isArray(customListKeys)){
               let listValue={
                 label:getLabel,
@@ -323,11 +352,12 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
                 summary:getSummary}
               for(let i=0;i<customListKeys.length;i++){
                 let curKey=customListKeys[i]
-                currentListData[curKey]=listValue[curKey]()
+                listData[cur_remote_filename][curKey]=listValue[curKey]()
               }
             }else{
               console.error("customListKeys必须是Array")
             }
+
 
             //
             // currentListData[cur_remote_filename].label=label
@@ -335,6 +365,19 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             // currentListData[cur_remote_filename].timeArr=timeArr
             // currentListData[cur_remote_filename].title=title
             // currentListData[cur_remote_filename].summary=summary
+
+
+            listData[cur_remote_filename].sha=cur_remote_sha
+            // console.log("当前filename为："+cur_remote_filename,"数据是")
+            // console.log(currentListData)
+            // listData[cur_remote_filename]=currentListData
+            // console.log(`*************************************${currentListData}****************************************`)
+
+
+            // todo 此处逻辑有问题，可能前面未获取完，但是已经i为最后了，需要使用axios.all
+            // if(i===result.length-1)
+            // writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions)
+
 
             let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_basename)
             // let listInfo=getListInfo(currentListData)
@@ -350,18 +393,17 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
               }
               else console.log(cur_remote_filename+"写入成功")
             })
-            currentListData.sha=cur_remote_sha
-            listData[cur_remote_filename]=currentListData
-            if(i===result.length-1)
-            writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions)
-
-
 
 
           })
+        fetchQueue.push(curFetch)
+
       }
     }
   }
+  // 所有blog数据准备完成后，再一次性写入
+  axios.all(fetchQueue).then(()=>writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions))
+
   if(pristine){
     console.log("未发现变化，无须更新")
   }
