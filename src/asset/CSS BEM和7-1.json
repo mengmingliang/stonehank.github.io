@@ -1,0 +1,3 @@
+{
+  "content": "## css 的BEM方法和7-1规则\n\n### BEM\n\n按照`Block__Element--Modifier`命名\n\n例如：\n```\narticle__author\narticle__date\narticle__content-leftAlign\narticle__content-centerAlign\n```\n\n命名规则：\n\n* B(Block)：表示模块，最小的可复用单元，功能独立，可以嵌套、组合使用\n\n* E(Element)：B的组成部分\n\n* M（Modifier）：表示E的状态（不同状态下的E有不同的功能和外观），也是B的组成部分\n\n------\n### 7-1规则\n\n* base: 样板代码，每次新项目都要使用的，例如消除margin等等\n\n* components: 页面的组件，例如 buttons, forms, swipers, popups\n* layout: layout结构，例如header，footer\n* pages: 一些特定的页面css\n* themes: 与主题相关的css\n* abstracts: 放置函数，变量和mixin等辅助类\n\n* vendors: 外部依赖，例如 Font Awesome file, Bootstrap"
+}

@@ -1,19 +1,18 @@
 import React from 'react';
 import {BackTop, Layout } from 'antd';
-import './css/github.min.css'
-import NavSider from "./nav/NavSider";
-import Archive from "./Archive/Archive";
-import Category from "./Category/Category";
+import Archive from "./archive/Archive";
+import Category from "./category/Category";
 import About from "./About";
-import Home from "./Home/Home";
+import Home from "./home/Home";
 import { Router,Redirect,Location } from "@reach/router";
-import ArticleDetail from "./ArticleDetail";
-import CategoryDetail from './Category/CategoryDetail'
+import ArticleDetail from "./article/ArticleDetail";
+import CategoryDetail from './category/CategoryDetail'
 import {refactor,objSortBy,objGroupBy} from './utils'
 import {Header_Pure} from "./antd_pure"
-import {pathEnum} from './linkPathList'
 import NavSiderContainer from "./nav/NavSiderContainer";
-
+import NotFound from "./tools/NotFound";
+import Search from "./tools/Search"
+import SearchDetail from "./tools/SearchDetail"
 
 
 const styles={
@@ -82,7 +81,7 @@ export default class BlogLayout extends React.Component {
         <NavSiderContainer />
         <Layout style={styles.layout_inner}>
           <Header_Pure style={styles.layout_header} >
-            FrontEnd Blogs
+            <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
           </Header_Pure>
           <Location>
             {({location:{pathname}})=>{
@@ -124,13 +123,16 @@ export default class BlogLayout extends React.Component {
 
               return (
                 <Router>
+                  <NotFound default />
                   <Redirect to="page/1" from="/" noThrow/>
+                  <Redirect to="category/page/1" from="category" noThrow/>
                   <Home articles={initArticles} path="page/:page" />
                   <Archive articles={archiveArticles} path="archive" />
                   <Category articles={categoryArticles} path="category/page/:page"  />
                   <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
                   <About path="about" articles={categoryArticles}/>
                   <ArticleDetail path="articles/:articleName" blogList={initArticles}/>
+                  <SearchDetail path="search/:keyword" />
                 </Router>
               )
             }}

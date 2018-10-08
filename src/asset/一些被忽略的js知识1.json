@@ -1,0 +1,3 @@
+{
+  "content": "一些JS基础(1)\n#### 硬绑定不会覆盖硬绑定，但new会覆盖硬绑定\n\n* 硬绑定不会覆盖硬绑定\n```js\nfunction show(s){\n  this.a=s\n}\n\nvar obj1={}\nvar obj2={}\n\nshow=show.bind(obj1)\nshow(5)\nobj1.a  // 5\n\nshow=show.bind(obj2)\n// 此处修改的还是obj1\nshow(10)\nobj2.a  // undefined\nobj1.a  // 10\n```\n* new会覆盖硬绑定\n```js\nfunction show(s){\n  this.a=s\n}\n\nvar obj1={}\nvar obj2={}\n\nshow=show.bind(obj1)\nshow(5)\nobj1.a  // 5\n\nobj2=new show(10)\nobj2.a  // 10\n```\n\n#### 安全的this\n\n如果不需要绑定this，一般会使用null，但这是不安全的，一旦再次使用this，绑定null会让我们绑定到默认(window)；\n\n推荐使用`Object.create(null)`\n\n#### 软绑定\n\n`someMethod.softBind(obj)`\n\n检查调用时的 this ，如果 this 绑定到全局对象或者 undefined ，那就把\n指定的默认对象 obj 绑定到 this ，否则不会修改 this\n\n\n"
+}

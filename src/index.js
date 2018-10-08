@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/index.css';
-import Entry from './Entry';
 import registerServiceWorker from './registerServiceWorker';
+import BlogLayout from "./BlogLayout";
+
+import './css/index.css';
+import 'antd/dist/antd.css';
+import './css/github.min.css'
 
 
-
-var {registerObserver} = require('react-perf-devtool')
+const {registerObserver} = require('react-perf-devtool')
 
 // Simple, no?
 registerObserver({
@@ -18,5 +20,5 @@ registerObserver({
 //   whyDidYouUpdate(React);
 // }
 
-ReactDOM.render(<Entry />, document.getElementById('root'));
+ReactDOM.render(<BlogLayout />, document.getElementById('root'));
 registerServiceWorker();

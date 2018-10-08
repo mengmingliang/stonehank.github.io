@@ -7,7 +7,7 @@ body {
 
 .clearfix::after{
   content:"";
-  diaplay:table;
+  display:table;
   clear:both;
 }
 

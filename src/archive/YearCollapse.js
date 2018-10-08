@@ -1,0 +1,70 @@
+import React from 'react';
+import {Skeleton,Collapse,List,Button,Col,Tag,Icon} from 'antd';
+import MonthCollapse from "./MonthCollapse";
+
+const Panel = Collapse.Panel;
+
+const styles={
+  yearStyle:{
+    background: '#e1e1e1',
+    borderRadius: 4,
+    border: 0,
+    overflow: 'hidden',
+  },
+  defaultMargin:{margin: '24px 36px'}
+}
+
+export default class YearCollapse extends React.Component {
+
+  constructor(props) {
+    super(props)
+    const {activePanel} = props
+    this.state = {
+      curActivePanel: activePanel
+    }
+  }
+  //取消其他非相关组件的渲染
+  shouldComponentUpdate(nextProps,nextState){
+    const {year,activePanel}=nextProps
+    const {curActivePanel}=nextState
+    return !activePanel.includes(year) && !curActivePanel.includes(year)
+  }
+
+  componentDidUpdate(){
+    if(this.props.activePanel[0]!==this.state.curActivePanel[0]){
+      // 防止动画效果被取消
+      setTimeout(()=>{
+        this.setState({
+          curActivePanel:this.props.activePanel
+        })
+      },500)
+    }
+  }
+
+
+  render() {
+    // console.log(this.props.activePanel,this.state.curActivePanel,this.props.year)
+    const {monthList,activePanel,year,changeActiveYear,changeActiveMonth}=this.props
+    return (
+      <Collapse style={styles.defaultMargin} accordion
+                bordered={false}
+                activeKey={activePanel[0]}
+                onChange={changeActiveYear}
+      >
+        <Panel header={year + "年"} key={year + "年"} style={styles.yearStyle}>
+          { monthList.map((dayList,j)=>{
+            if(dayList && dayList.length>0){
+              return <MonthCollapse dayList={dayList}
+                                    month={j+1}
+                                    activePanel={activePanel}
+                                    changeActiveMonth={changeActiveMonth}/>
+            }
+          })}
+
+        </Panel>
+      </Collapse>
+
+    )
+  }
+}
+

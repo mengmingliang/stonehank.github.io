@@ -1,8 +1,8 @@
 import React from 'react';
-import { Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
+import { Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon } from 'antd';
 import {  Link } from "@reach/router";
 import {Sider_Pure} from "../antd_pure"
-import {linkTo} from '../linkPathList'
+import {linkTo} from '../routes/linkPathList'
 
 
 
@@ -51,22 +51,22 @@ export default class NavSider extends React.PureComponent {
                 selectedKeys={[selectedKey]}
                 mode="inline">
             <Menu.Item key={linkTo.home}>
-              <Icon type="pie-chart" />
+              <Icon type="home" />
               <span>首页</span>
-              <Link to="/page/1" />
+              <Link to="/" />
             </Menu.Item>
             <Menu.Item key={linkTo.archive}>
-              <Icon type="desktop" />
+              <Icon type="database" />
               <span>归档</span>
               <Link to={linkTo.archive} />
             </Menu.Item>
             <Menu.Item key={linkTo.category}>
-              <Icon type="desktop" />
+              <Icon type="cluster" />
               <span>标签</span>
-              <Link to={`${linkTo.category}/page/1`} />
+              <Link to={`${linkTo.category}`} />
             </Menu.Item>
             <Menu.Item key={linkTo.about}>
-              <Icon type="file" />
+              <Icon type="user" />
               <span>关于我</span>
               <Link to={linkTo.about} />
             </Menu.Item>

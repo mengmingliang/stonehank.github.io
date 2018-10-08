@@ -1,4 +1,4 @@
-import {pathEnum} from "../linkPathList";
+import {pathEnum} from "../routes/linkPathList";
 
 export function refactor(json,groupBy){
   let groupObj={}

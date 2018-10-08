@@ -1,0 +1,3 @@
+{
+  "content": "## 一个记录redux每次dispatch耗时中间件\n\n### 源码\n\n[源码地址](https://gist.github.com/clarkbw/966732806e7a38f5b49fd770c62a6099)\n```js\nconst timing = store => next => action => {\n  if(performance.mark===undefined) return next(action)\n  performance.mark(`${action.type}_start`);\n  let result = next(action);\n  performance.mark(`${action.type}_end`);\n  performance.measure(\n    `${action.type}`,\n    `${action.type}_start`,\n    `${action.type}_end`\n  );\n  return result;\n};\n```\n------\n### 使用\n\n如果需要记录包括中间件和dispatch的耗时，放在`applyMiddleWare`最前面：\n\n`applyMiddleWare(timing,thunk,...milldeware)`\n\n如果只记录dispatch的，放在最后面：\n\n`applyMiddleWare(thunk,middleware1,...,timing)`\n\n然后可以通过`performance.getEntriesByType('measure')`获取所有耗时的集合(Array)。\n\n"
+}
