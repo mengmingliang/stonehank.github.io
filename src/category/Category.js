@@ -1,16 +1,14 @@
-import React, {Component} from 'react';
-import {Pagination, Row, Button, Anchor, Skeleton, Collapse, List, Affix, Col, Tag, Icon} from 'antd';
-import {Link, navigate} from "@reach/router"
-import ArticleStatusBar from "../tools/ArticleStatusBar"
+import React from 'react';
+import {Button, Icon} from 'antd';
+import { navigate} from "@reach/router"
+
 import {Layout} from "antd/lib/index";
 import TagsList from "./TagsList"
 import TagsBlock from "./TagsBlock"
 import Loading from "../tools/Loading";
 
-// const {Link : AntdLink} =Anchor
-const Panel = Collapse.Panel;
 
-const {Header, Content, Footer, Sider} = Layout;
+const { Content} = Layout;
 
 const styles={
   defaultMargin:{margin: '24px 36px'},
@@ -24,7 +22,7 @@ export default class Category extends React.Component {
     const {articles}=props
     this.state = {
       // todo 5是默认加载标签数量，可转换为配置
-      pageSize: 5,
+      pageSize: 3,
       contentLoading: true,
       articles: null,
       // 初始渲染模式
@@ -64,8 +62,7 @@ export default class Category extends React.Component {
 
   render() {
     const {articles, contentLoading, pageSize, page,tagsRenderMode} = this.state
-    // const {toggleTagRender,tagsRenderMode}=this.props
-    // const renderArticles=articles?Object.keys(articles).slice((page-1)*pageSize,page*pageSize):null
+
     let renderArticles
     if (articles) {
       let keysArr = Object.keys(articles)
@@ -74,7 +71,6 @@ export default class Category extends React.Component {
     } else {
       renderArticles = null
     }
-    // console.log(articles)
     return contentLoading ?
       <Loading loading={contentLoading} render_nums={3} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={3} /> :
 

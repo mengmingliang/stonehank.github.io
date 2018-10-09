@@ -24,6 +24,11 @@ body {
   z-index: 4;
 }
 
+.spotLightWrap{
+   position:relative;
+    /*top:0;bottom:0;left:0;right:0;*/
+    /*background: #334454;*/
+}
 
 .show{
     text-transform: uppercase;
@@ -38,7 +43,7 @@ body {
     width: 150px;
     height: 150px;
     position:absolute;
-    top:50px;
+    top:0;
     left:0;
     opacity: 1;
     overflow: hidden;
@@ -48,5 +53,27 @@ body {
     width: 150px;
     height: 150px;
     position:absolute;
-    top:-50px;
+    top:0;
 }
+
+
+
+
+
+
+.slide-enter {
+    transform:translate3d(-100%,0,0);
+}
+.slide-enter-active {
+    transform:translate3d(0,0,0);
+    transition: all 500ms;
+}
+/*.slide-exit {*/
+    /*opacity:1;*/
+    /*transform:translate3d(0,0,0);*/
+/*}*/
+/*.slide-exit-active {*/
+    /*opacity:0;*/
+    /*transform:translate3d(0,100%,0);*/
+    /*transition: all 500ms;*/
+/*}*/

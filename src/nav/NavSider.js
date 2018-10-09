@@ -1,7 +1,6 @@
 import React from 'react';
-import { Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon } from 'antd';
+import {Layout,Menu, Icon } from 'antd';
 import {  Link } from "@reach/router";
-import {Sider_Pure} from "../antd_pure"
 import {linkTo} from '../routes/linkPathList'
 
 
@@ -29,7 +28,6 @@ export default class NavSider extends React.PureComponent {
     }
   }
   static getDerivedStateFromProps(nextProps,prevState){
-    // console.log(nextProps.selectedKey,prevState.selectedKey)
     if(nextProps.selectedKey===prevState.selectedKey)return null
     return {
       selectedKey:nextProps.selectedKey
@@ -38,7 +36,6 @@ export default class NavSider extends React.PureComponent {
 
   render() {
     const {selectedKey}=this.state
-    // console.log("rendernav")
     return (
       <Sider  style={styles.sider}
                             theme="dark"

@@ -41,7 +41,6 @@ export default class Archive extends React.Component {
     const {articles}=nextProps
     if(!articles)return null
     return {
-      // articles,
       contentLoading:false
     }
   }

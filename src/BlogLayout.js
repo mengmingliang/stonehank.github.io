@@ -1,37 +1,48 @@
 import React from 'react';
+import { Router,Redirect,Location } from "@reach/router";
 import {BackTop, Layout } from 'antd';
+
 import Archive from "./archive/Archive";
 import Category from "./category/Category";
 import About from "./About";
 import Home from "./home/Home";
-import { Router,Redirect,Location } from "@reach/router";
 import ArticleDetail from "./article/ArticleDetail";
 import CategoryDetail from './category/CategoryDetail'
-import {refactor,objSortBy,objGroupBy} from './utils'
 import {Header_Pure} from "./antd_pure"
 import NavSiderContainer from "./nav/NavSiderContainer";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
 import Search from "./tools/Search"
 
 
 const styles={
-  layout_wrapper:{ background:"#fff",minHeight: '100vh' },
+  layout_wrapper:{minHeight: '100vh',transition:"background 1s solid"  },
   layout_inner:{background:"#fff"},
-  layout_header:{ background: '#898989', padding: 0 }
+  layout_header:{ background: '#898989', padding: 0 ,zIndex:1}
 }
+
 
 
 export default class BlogLayout extends React.Component {
   constructor(){
     super()
     this.state={
+      wrapperBackground:"#fff",
       archiveArticles:null,
       categoryArticles:null,
       initArticles:null,
       blog_jsonObj:null,
     }
     this.fetchBlogContent=this.fetchBlogContent.bind(this)
+    this.changeBackground=this.changeBackground.bind(this)
+  }
 
+  changeBackground(color){
+    this.setState({
+      wrapperBackground:color
+    })
   }
 
   fetchBlogContent(){
@@ -56,7 +67,7 @@ export default class BlogLayout extends React.Component {
     this.fetchBlogContent()
   }
   render() {
-    const { archiveArticles, categoryArticles, initArticles}=this.state
+    const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
     if(archiveArticles){
       Object.defineProperty(archiveArticles,"activePanel",{
         value:null,
@@ -75,15 +86,17 @@ export default class BlogLayout extends React.Component {
         }
       })
     }
+
     return (
-      <Layout style={styles.layout_wrapper}>
+      <Layout>
         <NavSiderContainer />
-        <Layout style={styles.layout_inner}>
+        <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <Header_Pure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
           </Header_Pure>
           <Location>
-            {({location:{pathname}})=>{
+            {({location})=>{
+              const pathname=location.pathname
               let basenameStart=pathname.lastIndexOf('/')+1
               let basename=decodeURIComponent(pathname.substr(basenameStart))
               let matchdir=pathname.substr(0,basenameStart)
@@ -121,17 +134,22 @@ export default class BlogLayout extends React.Component {
               * */
 
               return (
-                <Router>
-                  <NotFound default />
-                  <Redirect to="page/1" from="/" noThrow/>
-                  <Redirect to="category/page/1" from="category" noThrow/>
-                  <Home articles={initArticles} path="page/:page" />
-                  <Archive articles={archiveArticles} path="archive" />
-                  <Category articles={categoryArticles} path="category/page/:page"  />
-                  <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
-                  <About path="about" articles={categoryArticles}/>
-                  <ArticleDetail path="articles/:articleName" blogList={initArticles}/>
-                </Router>
+                <TransitionGroup>
+                  <CSSTransition key={location.key} classNames="slide" exit={false} timeout={500} >
+                    <Router location={location}>
+                        <NotFound default changeBG={this.changeBackground} />
+                        <Home articles={initArticles} path="/" page={1} />
+                        <Home articles={initArticles} path="page/:page" />
+                        <Archive articles={archiveArticles} path="archive" />
+                        <Category articles={categoryArticles} path="category"  page={1} />
+                        <Category articles={categoryArticles} path="category/page/:page"  />
+                        <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
+                        <About path="about" articles={categoryArticles} />
+                        <ArticleDetail path="articles/:articleName" blogList={initArticles} />
+                      </Router>
+                  </CSSTransition>
+                </TransitionGroup>
+
               )
             }}
           </Location>

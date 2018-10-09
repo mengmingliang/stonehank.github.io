@@ -1,5 +1,5 @@
 import React from 'react';
-import {Skeleton,Collapse,List,Button,Col,Tag,Icon} from 'antd';
+import {Collapse} from 'antd';
 import MonthCollapse from "./MonthCollapse";
 
 const Panel = Collapse.Panel;
@@ -43,7 +43,6 @@ export default class YearCollapse extends React.Component {
 
 
   render() {
-    // console.log(this.props.activePanel,this.state.curActivePanel,this.props.year)
     const {monthList,activePanel,year,changeActiveYear,changeActiveMonth}=this.props
     return (
       <Collapse style={styles.defaultMargin} accordion

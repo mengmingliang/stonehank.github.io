@@ -1,7 +1,7 @@
 import React from 'react';
-import {List, Tag, Card, Skeleton, Avatar, Pagination, Layout, Menu, Breadcrumb, Icon, Affix, Row, Col} from 'antd';
-import {Link, navigate} from "@reach/router";
-import ArticleStatusBar from "../tools/ArticleStatusBar"
+import {List,  Layout} from 'antd';
+import {navigate} from "@reach/router";
+
 import Card_Pure from "../antd_pure/Card_Pure";
 import {deepEqual} from "../utils/index";
 import {linkTo} from "../routes/linkPathList";
@@ -21,12 +21,6 @@ const md = require('markdown-it')({
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
   }
 });
-const IconText = ({type, text}) => (
-  <span>
-    <Icon type={type} style={{marginRight: 8}}/>
-    {text}
-  </span>
-);
 
 const styles={
   summary:{marginTop: 24, fontSize: "small", opacity: '0.7'},
@@ -36,8 +30,8 @@ const styles={
 }
 
 
-const {Header, Content, Footer, Sider} = Layout;
-const {Meta} = Card
+const { Content} = Layout;
+
 
 export default class ArticleList extends React.Component {
   constructor() {
@@ -59,7 +53,7 @@ export default class ArticleList extends React.Component {
   }
 
   render() {
-    // console.log("render")
+
     const {articles, current, pageSize, total} = this.props
     const listPageSetting={
       style:styles.list_pagi_style,

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Divider,Tag,Card,Skeleton,Avatar, Pagination,Layout,Menu, Breadcrumb, Icon,Affix,Row,Col } from 'antd';
-import {navigate} from "@reach/router";
+import { Divider, Pagination} from 'antd';
+import {navigate,redirectTo} from "@reach/router";
 import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import hljs from 'highlight.js'
@@ -25,7 +25,7 @@ const md = require('markdown-it')({
 
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
-  h1:{textAlign:"center"},
+  articleTitle:{textAlign:"center"},
   contentDiv:{marginTop:24},
   footer:{margin: "0 auto"}
 }
@@ -72,10 +72,7 @@ export default class ArticleDetail extends React.Component{
         label:curArticle.label,
         createdTime:curArticle.createdTime
       }))
-      .catch(err=>{
-        console.log("延迟加载失败")
-        console.log(err)
-      })
+
   }
   static getDerivedStateFromProps(props,state){
     if(props.articleName===state.curArticleName)return null
@@ -96,6 +93,10 @@ export default class ArticleDetail extends React.Component{
             contentLoading:false
           })
         })
+        .catch(err=>{
+          console.log(err)
+          navigate("/notTHisPage", { replace: true })
+        })
     }
   }
   componentDidMount(){
@@ -108,6 +109,10 @@ export default class ArticleDetail extends React.Component{
           contentLoading:false
         })
       })
+      .catch(err=>{
+        console.log(err)
+        navigate("/notTHisPage", { replace: true })
+      })
   }
   render(){
     const {curArticleData,contentLoading}=this.state
@@ -117,7 +122,7 @@ export default class ArticleDetail extends React.Component{
         <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
         <article style={styles.article}>
           <header>
-            <h1 style={styles.h1}>{curArticleData.title}</h1>
+            <h1 style={styles.articleTitle}>{curArticleData.title}</h1>
             <ArticleStatusBar justify={"center"} article={curArticleData} />
           </header>
           <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>

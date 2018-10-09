@@ -1,37 +1,16 @@
 import React from 'react'
-import {Drawer,Button,Anchor ,Skeleton,Collapse,List,Row,Col,Tag,Icon} from 'antd';
+import {Row,Col} from 'antd';
 import {Link} from "@reach/router"
 import Tag_Light from "./Tag_Light"
-import {deepEqual} from "../utils/index";
 import {linkTo} from '../routes/linkPathList'
 
 
-class IconText extends React.PureComponent{
-  render(){
-    const { type, text,...props}=this.props
-    return (
-      <span {...props}>
-    <Icon type={type}  />
-        {text}
-  </span>
-    )
-  }
-}
-
 const styles={
   row_gutter:{ xs: 4, sm: 8, md: 16,lg:24},
-  row_style:{fontWeight: 500},
-  col_message_style:{textAlign: "center"}
+  row_style:{fontWeight: 500}
 }
 
 export default class ArticleStatusBar extends React.Component{
-
-
-  // shouldComponentUpdate(prevProps,nextState) {
-  //   console.log(prevProps, this.props)
-  //   return !deepEqual(prevProps, this.props)
-  // }
-
 
   render(){
     const {article,...props}=this.props
@@ -50,7 +29,6 @@ export default class ArticleStatusBar extends React.Component{
             null
           }
         </Col>
-        {/*<Col style={styles.col_message_style}><IconText type="message" text="2"/></Col>*/}
       </Row>
     )
   }

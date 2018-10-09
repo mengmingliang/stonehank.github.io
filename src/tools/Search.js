@@ -1,10 +1,6 @@
 import React from 'react';
-import { Input,List,Divider,Drawer } from 'antd';
-import Tag_Light from "./Tag_Light";
+import { Input} from 'antd';
 import hljs from 'highlight.js'
-import {navigate} from "@reach/router"
-import {linkTo} from "../routes/linkPathList";
-import Loading from "./Loading";
 import SearchDrawer from "./SearchDrawer"; // https://highlightjs.org/
 
 
@@ -23,7 +19,9 @@ const md = require('markdown-it')({
 });
 
 const Search = Input.Search;
-
+const styles={
+  search:{ width: 256 }
+}
 
 export default class NotFound extends React.Component {
   constructor(){
@@ -52,38 +50,41 @@ export default class NotFound extends React.Component {
     const {data}=this.props
     let matchResultObj={
       top:[],middle:[],bottom:[]
-    },reg=new RegExp(patternValue)
+    }
+    // ,reg=new RegExp(patternValue)
 
     for(let i=0;i<data.length;i++){
-      let titleMatch=data[i].title.toLowerCase().match(reg) || []
+      // let titleMatch=data[i].title.toLowerCase().match(reg) || []
+      let titleMatchIndex=data[i].title.toLowerCase().indexOf(patternValue)
       let markdownSummary=md.render(data[i].summary)
-      let contentMatch=markdownSummary.toLowerCase().match(reg) || []
+      // let contentMatch=markdownSummary.toLowerCase().match(reg) || []
+      let contentMatchIndex=markdownSummary.toLowerCase().indexOf(patternValue)
       let titlePrefix,titleAffix,titleFix,contentPrefix,contentAffix,contentFix
       // 存在关键字，分割(为了添加背景色)
-      if(titleMatch.index){
-        titlePrefix=data[i].title.substr(0,titleMatch.index)
-        titleFix=data[i].title.substr(titleMatch.index,patternValue.length)
-        titleAffix=data[i].title.substr(titleMatch.index+patternValue.length)
+      if(titleMatchIndex!==-1){
+        titlePrefix=data[i].title.substr(0,titleMatchIndex)
+        titleFix=data[i].title.substr(titleMatchIndex,patternValue.length)
+        titleAffix=data[i].title.substr(titleMatchIndex+patternValue.length)
       }
-      if(contentMatch.index){
-        contentPrefix=markdownSummary.substr(contentMatch.index-50,50)
-        contentFix=markdownSummary.substr(contentMatch.index,patternValue.length)
-        contentAffix=markdownSummary.substr(contentMatch.index+patternValue.length,70)
+      if(contentMatchIndex!==-1){
+        contentPrefix=markdownSummary.substr(contentMatchIndex-50,50)
+        contentFix=markdownSummary.substr(contentMatchIndex,patternValue.length)
+        contentAffix=markdownSummary.substr(contentMatchIndex+patternValue.length,70)
       }
       // 两者都存在最优先，其次是title存在，最后是summary存在
-      if(titleMatch.index && contentMatch.index){
+      if(titleMatchIndex!==-1 && contentMatchIndex!==-1){
         matchResultObj.top.push({
           title:`<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`,
           matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`,
           rawTitle:data[i].title
         })
-      }else if(titleMatch.index){
+      }else if(titleMatchIndex!==-1){
         matchResultObj.middle.push({
           title:`<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`,
           matchContent:markdownSummary.substr(0,100),
           rawTitle:data[i].title
         })
-      }else if(contentMatch.index){
+      }else if(contentMatchIndex!==-1){
         matchResultObj.bottom.push({
           title:data[i].title,
           matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`,
@@ -106,7 +107,7 @@ export default class NotFound extends React.Component {
     return matchResult
   }
 
-  onSearchHandle(value){
+  onSearchHandle(){
     // 如果有结果显示，没有则无
     const {controlledValue,matchTags,matchArticles}=this.state
     if(matchArticles && matchArticles.length >0 || (matchTags && matchTags.length >0)){
@@ -123,7 +124,6 @@ export default class NotFound extends React.Component {
     const trimValue=value.trim().toLowerCase()
     let matchTags=this.computeTagsMathch(trimValue)
     let matchArticles=this.computeArtcileMathch(trimValue)
-    // console.log(matchTags)
     this.setState({
       matchTags:matchTags,
       matchArticles:matchArticles,
@@ -142,9 +142,9 @@ export default class NotFound extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
+
     const {controlledValue,matchTags,matchArticles,drawShow}=this.state
-    // console.log(matchArticles)
+
     return (
      <React.Fragment>
        <Search
@@ -153,7 +153,7 @@ export default class NotFound extends React.Component {
          onSearch={this.onSearchHandle}
          enterButton
          value={controlledValue}
-         style={{ width: 256 }}
+         style={styles.search}
        />
        <SearchDrawer matchTags={matchTags}
                      searchKeyword={controlledValue}
