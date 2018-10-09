@@ -78,17 +78,12 @@ export default class ArticleList extends React.Component {
           >
             {articles.map((item,i)=>(
               <Card_Pure key={i} hoverable bordered={false} style={styles.card}
+                         title={item.title}
+                         statusBarItem={item}
+                         summary={<div style={styles.summary}
+                                       dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>}
                     onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.title)}
-              >
-                <Meta
-                      title={item.title}
-                      description={
-                        <ArticleStatusBar article={item}/>
-                      }>
-                </Meta>
-                <div style={styles.summary}
-                     dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>
-              </Card_Pure>
+              />
             ))}
           </List>
 

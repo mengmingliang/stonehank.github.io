@@ -1,9 +1,11 @@
 import React from 'react';
-import { Input,List,Divider } from 'antd';
+import { Input,List,Divider,Drawer } from 'antd';
 import Tag_Light from "./Tag_Light";
 import hljs from 'highlight.js'
 import {navigate} from "@reach/router"
-import {linkTo} from "../routes/linkPathList"; // https://highlightjs.org/
+import {linkTo} from "../routes/linkPathList";
+import Loading from "./Loading";
+import SearchDrawer from "./SearchDrawer"; // https://highlightjs.org/
 
 
 const md = require('markdown-it')({
@@ -28,16 +30,23 @@ export default class NotFound extends React.Component {
     super()
     this.state={
       controlledValue:'',
-      hasMatch:false,
       matchTags:null,
-      matchArticles:null
+      matchArticles:null,
+      drawShow:false
     }
     this.onChangeHandle=this.onChangeHandle.bind(this)
     this.onSearchHandle=this.onSearchHandle.bind(this)
     this.computeTagsMathch=this.computeTagsMathch.bind(this)
     this.computeArtcileMathch=this.computeArtcileMathch.bind(this)
+    this.handleDrawerClose=this.handleDrawerClose.bind(this)
+    this.clearSearchInput=this.clearSearchInput.bind(this)
   }
 
+  handleDrawerClose(){
+    this.setState({
+      drawShow:false
+    })
+  }
   computeArtcileMathch(patternValue){
     if(patternValue==="")return []
     const {data}=this.props
@@ -65,17 +74,20 @@ export default class NotFound extends React.Component {
       if(titleMatch.index && contentMatch.index){
         matchResultObj.top.push({
           title:`<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`,
-          matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`
+          matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`,
+          rawTitle:data[i].title
         })
       }else if(titleMatch.index){
         matchResultObj.middle.push({
           title:`<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`,
-          matchContent:markdownSummary.substr(0,100)
+          matchContent:markdownSummary.substr(0,100),
+          rawTitle:data[i].title
         })
       }else if(contentMatch.index){
         matchResultObj.bottom.push({
           title:data[i].title,
-          matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`
+          matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`,
+          rawTitle:data[i].title
         })
       }
     }
@@ -94,8 +106,20 @@ export default class NotFound extends React.Component {
     return matchResult
   }
 
-  onChangeHandle(ev){
-    const value=ev.target.value
+  onSearchHandle(value){
+    // 如果有结果显示，没有则无
+    const {controlledValue,matchTags,matchArticles}=this.state
+    if(matchArticles && matchArticles.length >0 || (matchTags && matchTags.length >0)){
+      this.setState({
+        drawShow:true
+      })
+    }else if(controlledValue){
+      this.onChangeHandle(null,controlledValue)
+    }
+  }
+
+  onChangeHandle(ev,v){
+    const value=v || ev.target.value
     const trimValue=value.trim().toLowerCase()
     let matchTags=this.computeTagsMathch(trimValue)
     let matchArticles=this.computeArtcileMathch(trimValue)
@@ -104,59 +128,39 @@ export default class NotFound extends React.Component {
       matchTags:matchTags,
       matchArticles:matchArticles,
       controlledValue:value,
-      hasMatch:matchArticles.length>0 || matchTags.length>0
+      drawShow:matchArticles.length>0 || matchTags.length>0
     })
   }
-  onSearchHandle(value){
-    const {matchArticles,matchTags}=this.state
-    // const value=ev.target.value
-    navigate(`/search/${value}`)
+
+  clearSearchInput(){
     this.setState({
+      matchTags:null,
+      matchArticles:null,
       controlledValue:'',
-      hasMatch:false
+      drawShow:false
     })
   }
 
   render() {
     // console.log(this.props)
-    const {controlledValue,hasMatch,matchTags,matchArticles}=this.state
+    const {controlledValue,matchTags,matchArticles,drawShow}=this.state
     // console.log(matchArticles)
     return (
      <React.Fragment>
        <Search
-         placeholder="tag/keyword/article"
+         placeholder="tag/title/keywords"
          onChange={this.onChangeHandle}
          onSearch={this.onSearchHandle}
+         enterButton
          value={controlledValue}
-         style={{ width: 200 }}
+         style={{ width: 256 }}
        />
-       { hasMatch ?
-         <List
-           style={{width:200}}
-           size="small"
-         >
-           <Divider orientation={"left"} style={{fontSize:"smaller",fontWeight:"lighter" }}>标签</Divider>
-           {matchTags.map((tag,i)=>(
-             <List.Item key={i} style={{border:"none"}}>
-               <Tag_Light>{tag}</Tag_Light>
-             </List.Item>
-           ))}
-           <Divider orientation={"left"} style={{fontSize:"smaller",fontWeight:"lighter" }}>文章</Divider>
-           {matchArticles.map((article,i)=>(
-             <List.Item.Meta
-               key={i}
-               style={{border:"none"}}
-               title={<div dangerouslySetInnerHTML={{__html: article.title}}/>}
-               description={
-                 <div style={{background:"#f8f8f8"}} dangerouslySetInnerHTML={{__html: article.matchContent}}/>
-               }
-             >
-             </List.Item.Meta>
-           ))}
-         </List>:
-         null
-       }
-
+       <SearchDrawer matchTags={matchTags}
+                     searchKeyword={controlledValue}
+                     matchArticles={matchArticles}
+                     drawShow={drawShow}
+                     clearSearchInput={this.clearSearchInput}
+                     handleDrawerClose={this.handleDrawerClose}/>
      </React.Fragment>
     )
   }

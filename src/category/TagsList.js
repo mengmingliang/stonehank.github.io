@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Pagination, Row, Button, Anchor, Skeleton, Collapse, List, Affix, Col, Tag, Icon} from 'antd';
+import {Pagination, Row, Card, Anchor, Skeleton, Collapse, List, Affix, Col, Tag, Icon} from 'antd';
 import {Link, navigate} from "@reach/router"
 import ArticleStatusBar from "../tools/ArticleStatusBar"
 import {Layout} from "antd/lib/index";
 import {linkTo} from '../routes/linkPathList'
+import Card_Pure from "../antd_pure/Card_Pure";
 
 // const {Link : AntdLink} =Anchor
 const Panel = Collapse.Panel;
@@ -12,13 +13,27 @@ const {Header, Content, Footer, Sider} = Layout;
 const styles={
   pages:{textAlign: 'center'},
   list_item:{background: "#fcfcfc"},
-  icon:{color: "#46a6ff"}
+  icon:{color: "#46a6ff"},
+  list_pagi_style:{textAlign: 'center',marginBottom:"1rem"},
+  card:{margin:"8px 0"},
+  defaultMargin:{margin: '24px 36px'}
 }
+const {Meta} = Card
 
 
 
 export default class TagsList extends React.Component {
+  constructor() {
+    super()
+    this.navigateToPath=this.navigateToPath.bind(this)
+  }
 
+  navigateToPath(path,e){
+    // const {clearSearchInput}=this.props
+    if(e.target.className.includes('tag'))return
+    // clearSearchInput()
+    navigate(path)
+  }
   render() {
     const {articles, pageSize, page,handlePageChange,totalPage,renderArticles} = this.props
     return (
@@ -47,17 +62,13 @@ export default class TagsList extends React.Component {
                             }
                             dataSource={tagList}
                             renderItem={item => (
-                              <List.Item style={styles.list_item}>
-                                <List.Item.Meta
-                                  title={
-                                    <Link to={`${linkTo.articles}/${item.title}`}>
-                                      <div>{item.title}</div>
-                                    </Link>}
-                                  description={
-                                    <ArticleStatusBar article={item}/>
-                                  }
-                                />
-                              </List.Item>
+                              <Card_Pure hoverable bordered={false}
+                                         bodyStyle={{padding:12}}
+                                         style={styles.card}
+                                         title={item.title}
+                                         statusBarItem={item}
+                                         onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.title)}
+                              />
                             )}
                       />
                     )

@@ -193,21 +193,28 @@ test("refactor timeArr",function () {
     o5:{timeArr:[2018,7,15],cur:"2018/8/15"},
     o6:{timeArr:[2018,7,2],cur:"2018/8/2"},
     o7:{timeArr:[2018,9,13],cur:"2018/10/13"},
-    o8:{timeArr:[2018,4,6],cur:"should be exist1"},
-    o9:{timeArr:[2018,4,6],cur:"should be exist2"},
+    o8:{timeArr:[2018,4,6],cur:"should be exist"},
+    o9:{timeArr:[2018,4,6],cur:"should be exist"},
+    o10:{timeArr:[2018,4,8],cur:"2018/5/8"},
+    o11:{timeArr:[2018,4,25],cur:"2018/5/25"},
+    o12:{timeArr:[2018,4,3],cur:"2018/5/3"},
+    o13:{timeArr:[2018,4,31],cur:"2018/5/31"},
+    o14:{timeArr:[2018,4,16],cur:"2018/5/16"},
+    o15:{timeArr:[2018,4,9],cur:"2018/5/9"},
   }
   expect(refactor(obj,"time")).toEqual(
-    {"2018": [
-      [{"cur": "2018/1/1", "timeArr": [2018, 0, 1]}],
-        undefined,
-        undefined,
-        undefined,
-        [{"cur": "2018/5/31", "timeArr": [2018, 4, 31]}, {"cur": "should be exist1", "timeArr": [2018, 4, 6]}, {"cur": "should be exist2", "timeArr": [2018, 4, 6]}],
-        [{"cur": "2018/6/30", "timeArr": [2018, 5, 30]}],
-        [{"cur": "2018/7/1", "timeArr": [2018, 6, 1]}],
-        [{"cur": "2018/8/15", "timeArr": [2018, 7, 15]}, {"cur": "2018/8/2", "timeArr": [2018, 7, 2]}],
-        undefined,
-        [{"cur": "2018/10/13", "timeArr": [2018, 9, 13]}]]}
+    {"2018":
+        [[{"cur": "2018/1/1", "timeArr": [2018, 0, 1]}],
+          undefined,
+          undefined,
+          undefined,
+          [{"cur": "2018/5/3", "timeArr": [2018, 4, 3]}, {"cur": "should be exist", "timeArr": [2018, 4, 6]}, {"cur": "should be exist", "timeArr": [2018, 4, 6]}, {"cur": "2018/5/8", "timeArr": [2018, 4, 8]}, {"cur": "2018/5/9", "timeArr": [2018, 4, 9]}, {"cur": "2018/5/16", "timeArr": [2018, 4, 16]}, {"cur": "2018/5/25", "timeArr": [2018, 4, 25]}, {"cur": "2018/5/31", "timeArr": [2018, 4, 31]}, {"cur": "2018/5/31", "timeArr": [2018, 4, 31]}],
+          [{"cur": "2018/6/30", "timeArr": [2018, 5, 30]}],
+          [{"cur": "2018/7/1", "timeArr": [2018, 6, 1]}],
+          [{"cur": "2018/8/2", "timeArr": [2018, 7, 2]}, {"cur": "2018/8/15", "timeArr": [2018, 7, 15]}],
+          undefined,
+          [{"cur": "2018/10/13", "timeArr": [2018, 9, 13]}]
+        ]}
       )
 })
 

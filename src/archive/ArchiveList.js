@@ -31,7 +31,6 @@ export default class ArchiveList extends React.Component {
         let subResult=this.getApartOfData(arr[i],n)
         n-=subResult.length
         result.concat(subResult)
-        console.log(subResult)
       }
       else if(arr[i] && n--)result.push(arr[i])
     }

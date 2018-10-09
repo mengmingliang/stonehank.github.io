@@ -12,7 +12,6 @@ import {Header_Pure} from "./antd_pure"
 import NavSiderContainer from "./nav/NavSiderContainer";
 import NotFound from "./tools/NotFound";
 import Search from "./tools/Search"
-import SearchDetail from "./tools/SearchDetail"
 
 
 const styles={
@@ -132,7 +131,6 @@ export default class BlogLayout extends React.Component {
                   <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
                   <About path="about" articles={categoryArticles}/>
                   <ArticleDetail path="articles/:articleName" blogList={initArticles}/>
-                  <SearchDetail path="search/:keyword" />
                 </Router>
               )
             }}

@@ -33,11 +33,11 @@ export default class YearCollapse extends React.Component {
   componentDidUpdate(){
     if(this.props.activePanel[0]!==this.state.curActivePanel[0]){
       // 防止动画效果被取消
-      setTimeout(()=>{
+      // setTimeout(()=>{
         this.setState({
           curActivePanel:this.props.activePanel
         })
-      },500)
+      // },200)
     }
   }
 

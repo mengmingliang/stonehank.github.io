@@ -39,7 +39,6 @@ export default class Archive extends React.Component {
   // 此组件默认每次渲染，具体拦截在YearCollapse
   static getDerivedStateFromProps(nextProps){
     const {articles}=nextProps
-    console.log(articles)
     if(!articles)return null
     return {
       // articles,
@@ -53,10 +52,11 @@ export default class Archive extends React.Component {
     return contentLoading ?
       <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={10} /> :
       <React.Fragment>
-        {Object.keys(articles).map((year) => {
+        {Object.keys(articles).map((year,i) => {
           const monthList=articles[year]
           return (
-            <YearCollapse monthList={monthList} year={year}
+            <YearCollapse key={i} year={year}
+                          monthList={monthList}
                           activePanel={activePanel}
                           changeActiveYear={this.changeActiveYear}
                           changeActiveMonth={this.changeActiveMonth} />

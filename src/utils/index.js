@@ -15,13 +15,10 @@ export function refactor(json,groupBy){
       let day=cur[group][2]
       if(!groupObj[year])groupObj[year]=[]
       if(!groupObj[year][month])groupObj[year][month]=[]
-      groupObj[year][month].push(cur)
-      // if(!groupObj[year][month][day])groupObj[year][month][day]=cur
-      // else {
-      //   let conflictDay=groupObj[year][month][day]
-      //   if(Array.isArray(conflictDay))conflictDay.push(cur)
-      //   else groupObj[year][month][day]=[conflictDay,cur]
-      // }
+      let index=groupObj[year][month].length
+      // insertion sort
+      while(index>0 && day< groupObj[year][month][index-1][group][2])index--;
+      groupObj[year][month].splice(index,0,cur)
     }
     return groupObj
   }

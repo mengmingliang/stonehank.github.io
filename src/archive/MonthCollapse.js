@@ -35,11 +35,11 @@ export default class MonthCollapse extends React.Component {
   componentDidUpdate(){
     if(this.props.activePanel[1]!==this.state.curActivePanel[1]){
       // 防止动画效果被取消
-      setTimeout(()=>{
+      // setTimeout(()=>{
         this.setState({
           curActivePanel:this.props.activePanel
         })
-      },500)
+      // },200)
     }
   }
   render() {
