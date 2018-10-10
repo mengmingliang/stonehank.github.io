@@ -5,10 +5,28 @@ body {
 }
 
 .logo {
-    height: 32px;
-    background: rgba(255,255,255,.2);
-    margin: 16px;
+    height: 64px;
 }
+
+#githubIcon{
+    font-size:48px;
+    float:right;
+    line-height:64px;
+    transform-origin: 50%;
+    transform: rotate(-45deg);
+    margin-right: -15px;
+    transition:all 0.2s linear;
+}
+
+#githubIcon:hover{
+    animation:githubShow 0.5s 1;
+}
+@keyframes githubShow {
+    25%{transform:rotate(-50deg)}
+    75%{transform:rotate(-40deg)}
+    100%{transform:rotate(-45deg)}
+}
+
 .clearfix::after{
   content:"";
   display:table;
@@ -48,17 +66,46 @@ body {
     opacity: 1;
     overflow: hidden;
     border-radius: 50%;
+    animation:slMove 10s infinite;
+
 }
 #spotlightHelper{
     width: 150px;
     height: 150px;
     position:absolute;
     top:0;
+    animation:slHelperMove 10s infinite;
 }
 
+@keyframes slMove
+{
+    0% {transform:translate3d(20px,20px,0)}
+    10%{transform:translate3d(100px,80px,0)}
+    20%{transform:translate3d(180px,180px,0)}
+    30%{transform:translate3d(40px,212px,0)}
+    40%{transform:translate3d(-15px,123px,0)}
+    50%{transform:translate3d(18px,170px,0)}
+    60%{transform:translate3d(0px,0px,0)}
+    70%{transform:translate3d(130px,100px,0)}
+    80%{transform:translate3d(10px,135px,0)}
+    90%{transform:translate3d(99px,200px,0)}
+    100%{transform:translate3d(20px,20px,0)}
+}
 
-
-
+@keyframes slHelperMove
+{
+    0% {transform:translate3d(-20px,-20px,0)}
+    10%{transform:translate3d(-100px,-80px,0)}
+    20%{transform:translate3d(-180px,-180px,0)}
+    30%{transform:translate3d(-40px,-212px,0)}
+    40%{transform:translate3d(15px,-123px,0)}
+    50%{transform:translate3d(-18px,-170px,0)}
+    60%{transform:translate3d(-0px,-0px,0)}
+    70%{transform:translate3d(-130px,-100px,0)}
+    80%{transform:translate3d(-10px,-135px,0)}
+    90%{transform:translate3d(-99px,-200px,0)}
+    100%{transform:translate3d(-20px,-20px,0)}
+}
 
 
 .slide-enter {

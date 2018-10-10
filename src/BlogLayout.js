@@ -1,6 +1,6 @@
 import React from 'react';
-import { Router,Redirect,Location } from "@reach/router";
-import {BackTop, Layout } from 'antd';
+import { Router,Link,Location,navigate } from "@reach/router";
+import {BackTop, Layout,Icon } from 'antd';
 
 import Archive from "./archive/Archive";
 import Category from "./category/Category";
@@ -15,15 +15,18 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
 import Search from "./tools/Search"
+import Connect from "./tools/Connect";
 
 
 const styles={
   layout_wrapper:{minHeight: '100vh',transition:"background 1s solid"  },
   layout_inner:{background:"#fff"},
-  layout_header:{ background: '#898989', padding: 0 ,zIndex:1}
+  layout_header:{ background: '#898989', padding: 0 ,zIndex:1},
 }
 
-
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_866706_dd0xsi92d3v.js',
+});
 
 export default class BlogLayout extends React.Component {
   constructor(){
@@ -93,12 +96,18 @@ export default class BlogLayout extends React.Component {
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <Header_Pure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
+            <Link to={"https://github.com/stonehank"} ><IconFont id="githubIcon" type="icon-github" /></Link>
           </Header_Pure>
           <Location>
             {({location})=>{
               const pathname=location.pathname
               let basenameStart=pathname.lastIndexOf('/')+1
-              let basename=decodeURIComponent(pathname.substr(basenameStart))
+              let basename
+              try{
+                basename=decodeURIComponent(pathname.substr(basenameStart))
+              } catch(err){
+                navigate("/NoThisPage")
+              }
               let matchdir=pathname.substr(0,basenameStart)
               let activeData
               if(matchdir.includes("category"))activeData=categoryArticles?categoryArticles[basename]:null

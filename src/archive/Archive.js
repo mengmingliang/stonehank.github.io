@@ -54,7 +54,7 @@ export default class Archive extends React.Component {
         {Object.keys(articles).map((year,i) => {
           const monthList=articles[year]
           return (
-            <YearCollapse key={i} year={year}
+            <YearCollapse key={year + "年"} year={year}
                           monthList={monthList}
                           activePanel={activePanel}
                           changeActiveYear={this.changeActiveYear}

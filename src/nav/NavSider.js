@@ -1,7 +1,8 @@
 import React from 'react';
-import {Layout,Menu, Icon } from 'antd';
+import {Layout,Menu, Icon ,Avatar} from 'antd';
 import {  Link } from "@reach/router";
 import {linkTo} from '../routes/linkPathList'
+import Connect from "../tools/Connect";
 
 
 
@@ -42,7 +43,9 @@ export default class NavSider extends React.PureComponent {
                             breakpoint="lg"
                             collapsedWidth="0"
                    >
-          <div className="logo" />
+          <div className="logo">
+            <Avatar shape="square" size={64} icon="user" />
+          </div>
           <Menu theme="dark"
                 style={styles.menu}
                 selectedKeys={[selectedKey]}
@@ -60,13 +63,14 @@ export default class NavSider extends React.PureComponent {
             <Menu.Item key={linkTo.category}>
               <Icon type="cluster" />
               <span>标签</span>
-              <Link to={`${linkTo.category}`} />
+              <Link to={linkTo.category} />
             </Menu.Item>
             <Menu.Item key={linkTo.about}>
               <Icon type="user" />
               <span>关于我</span>
               <Link to={linkTo.about} />
             </Menu.Item>
+            {/*<Connect github={"#"} mail={"#"} twitter={"#"} wechat={"#"} qq={"#"} />*/}
           </Menu>
       </Sider>
     );

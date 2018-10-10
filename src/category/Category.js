@@ -45,7 +45,8 @@ export default class Category extends React.Component {
   }
 
   handlePageChange(page) {
-    navigate(page)
+    // console.log(page,this.props)
+    navigate(`/category/page/${page}`)
   }
 
 

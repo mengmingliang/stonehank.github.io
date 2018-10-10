@@ -32,6 +32,7 @@ export default class NotFound extends React.Component {
       matchArticles:null,
       drawShow:false
     }
+    this.memory={}
     this.onChangeHandle=this.onChangeHandle.bind(this)
     this.onSearchHandle=this.onSearchHandle.bind(this)
     this.computeTagsMathch=this.computeTagsMathch.bind(this)
@@ -47,12 +48,13 @@ export default class NotFound extends React.Component {
   }
   computeArtcileMathch(patternValue){
     if(patternValue==="")return []
+    if(this.memory[patternValue])return this.memory[patternValue]
     const {data}=this.props
     let matchResultObj={
       top:[],middle:[],bottom:[]
     }
     // ,reg=new RegExp(patternValue)
-
+    // console.time(1)
     for(let i=0;i<data.length;i++){
       // let titleMatch=data[i].title.toLowerCase().match(reg) || []
       let titleMatchIndex=data[i].title.toLowerCase().indexOf(patternValue)
@@ -92,8 +94,10 @@ export default class NotFound extends React.Component {
         })
       }
     }
-
-    return matchResultObj.top.concat(matchResultObj.middle,matchResultObj.bottom)
+    // console.timeEnd(1)
+    let result=matchResultObj.top.concat(matchResultObj.middle,matchResultObj.bottom)
+    this.memory[patternValue]=result
+    return result
   }
 
   computeTagsMathch(patternValue){

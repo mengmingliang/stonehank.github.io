@@ -55,6 +55,7 @@ export default class ArticleDetail extends React.Component{
     return originalElement;
   }
   handlePageChange(page) {
+    console.log(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
     navigate(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
   }
   fetchBlogContent(){
@@ -95,7 +96,7 @@ export default class ArticleDetail extends React.Component{
         })
         .catch(err=>{
           console.log(err)
-          navigate("/notTHisPage", { replace: true })
+          navigate("/NoThisPage", { replace: true })
         })
     }
   }
@@ -111,7 +112,7 @@ export default class ArticleDetail extends React.Component{
       })
       .catch(err=>{
         console.log(err)
-        navigate("/notTHisPage", { replace: true })
+        navigate("/NoThisPage", { replace: true })
       })
   }
   render(){
