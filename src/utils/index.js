@@ -178,6 +178,12 @@ export function deepEqual(obj1,obj2){
 }
 
 
+/*
+* 获取第一个路径
+* /category/page  --> category
+* pathEnum.includes("category") --> true
+* return category
+* */
 export function parseHrefToNav(pathname){
   let selectedKeyMathch=pathname.match(/^.*?(\/\w+)\/?/) || []
   let selectedKey=selectedKeyMathch[1]

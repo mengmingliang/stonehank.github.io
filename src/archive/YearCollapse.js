@@ -50,7 +50,7 @@ export default class YearCollapse extends React.Component {
                 activeKey={activePanel[0]}
                 onChange={changeActiveYear}
       >
-        <Panel header={year + "年"}  style={styles.yearStyle}>
+        <Panel header={year + "年"} key={year + "年"} style={styles.yearStyle}>
           { monthList.map((dayList,j)=>{
             if(dayList && dayList.length>0){
               return <MonthCollapse key={j+1+"月"} dayList={dayList}

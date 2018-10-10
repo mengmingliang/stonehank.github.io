@@ -5,12 +5,12 @@ import YearCollapse from "./YearCollapse";
 export default class Archive extends React.Component {
   constructor(props){
     super(props)
-    const {articles}=props
+    const {articles,defaultActiveArchive}=props
     this.state={
       contentLoading:true,
       // articles:null,
       listRenderLoading:true,
-      activePanel:(articles && articles.activePanel) || ["2018年",""]
+      activePanel:(articles && articles.activePanel) || defaultActiveArchive
     }
     this.changeActiveYear=this.changeActiveYear.bind(this)
     this.changeActiveMonth=this.changeActiveMonth.bind(this)
@@ -33,7 +33,11 @@ export default class Archive extends React.Component {
       activePanel:newActPan
     })
   }
-
+  componentDidMount() {
+    Promise.resolve().then(()=>{
+      window.scrollTo(0, 0);
+    })
+  }
 
   // todo 是否需要配置state保存articles，取决于外部更新是否频繁
   // 此组件默认每次渲染，具体拦截在YearCollapse
@@ -54,7 +58,7 @@ export default class Archive extends React.Component {
         {Object.keys(articles).map((year,i) => {
           const monthList=articles[year]
           return (
-            <YearCollapse key={year + "年"} year={year}
+            <YearCollapse key={i + "年"} year={year}
                           monthList={monthList}
                           activePanel={activePanel}
                           changeActiveYear={this.changeActiveYear}

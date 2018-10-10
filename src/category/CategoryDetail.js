@@ -1,15 +1,17 @@
 import React from 'react';
 import {List,Icon} from 'antd';
-import {Link} from "@reach/router"
+import {navigate} from "@reach/router"
 import {linkTo} from '../routes/linkPathList'
-import ArticleStatusBar from "../tools/ArticleStatusBar"
-import Tag_Light from "../tools/Tag_Light";
 import Loading from "../tools/Loading";
+import TagHeader from "./TagHeader";
+import Card_Pure from "../antd_pure/Card_Pure";
 
 
 const styles={
+  card_pure_body:{padding:12},
+  card:{margin:"8px 0"},
   list:{margin: '24px 36px'},
-  list_item:{margin:"0 0 12px 24px",background:"#fcfcfc"},
+  icon:{color: "#46a6ff",marginRight:4},
 }
 
 export default class CategoryDetail extends React.Component {
@@ -21,8 +23,13 @@ export default class CategoryDetail extends React.Component {
       labelName:null
     }
   }
+  navigateToPath(path,e){
+    if(e.target.className.includes('tag'))return
+    navigate(path)
+  }
   static getDerivedStateFromProps(nextProps,prevState){
-    console.log(prevState.labelName,nextProps.labelName)
+    // console.log(prevState.labelName,nextProps.labelName)
+
     if(prevState.labelName===nextProps.labelName)return null
     const {labelList,labelName}=nextProps
     if(!labelList)return null
@@ -41,21 +48,17 @@ export default class CategoryDetail extends React.Component {
              split={false}
              style={styles.list}
              header={
-               <React.Fragment>
-                 <Icon type="tag" />
-                 <Tag_Light>{labelName}</Tag_Light>
-               </React.Fragment>
+               <TagHeader tag={labelName} />
              }
          dataSource={labelList}
          renderItem={item => (
-           <List.Item style={styles.list_item}>
-             <List.Item.Meta
-               title={<Link to={`${linkTo.articles}/${item.title}`}>{item.title}</Link>}
-               description={
-                 <ArticleStatusBar article={item}/>
-               }
-             />
-           </List.Item>
+           <Card_Pure hoverable bordered={false}
+                      bodyStyle={styles.card_pure_body}
+                      style={styles.card}
+                      title={item.title}
+                      statusBarItem={item}
+                      onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+           />
          )}
        />
    )

@@ -2,13 +2,10 @@ import React from 'react';
 import {Layout,Menu, Icon ,Avatar} from 'antd';
 import {  Link } from "@reach/router";
 import {linkTo} from '../routes/linkPathList'
-import Connect from "../tools/Connect";
 
 
 
 const {  Sider } = Layout;
-
-
 
 
 const styles={
@@ -17,6 +14,16 @@ const styles={
     display: "flex",
     flexFlow: "column",
     justifyContent: "normal",
+  },
+  bio:{
+    color:"#fff",
+    textAlign:"center",
+    flex:1,height:64,
+    display: 'flex',
+    flexFlow: 'column',
+    justifyContent: 'center',
+    fontSize:"smaller",
+    textShadow:`#a2a2a2 0px 1px 0px, #696969 0px 2px 0px, #4e4e4e 0px 3px 0px`
   }
 }
 
@@ -36,6 +43,7 @@ export default class NavSider extends React.PureComponent {
   }
 
   render() {
+    const {bio,avatar}=this.props
     const {selectedKey}=this.state
     return (
       <Sider  style={styles.sider}
@@ -44,7 +52,10 @@ export default class NavSider extends React.PureComponent {
                             collapsedWidth="0"
                    >
           <div className="logo">
-            <Avatar shape="square" size={64} icon="user" />
+            <Avatar shape="square" size={64} src={avatar} />
+            <section style={styles.bio}>
+              <p>{bio}</p>
+            </section>
           </div>
           <Menu theme="dark"
                 style={styles.menu}

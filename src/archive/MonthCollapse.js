@@ -49,7 +49,7 @@ export default class MonthCollapse extends React.Component {
                   activeKey={activePanel[1]}
                   onChange={changeActiveMonth}
         >
-                <Panel header={month+"月"} style={styles.monthStyle}>
+                <Panel header={month+"月"} key={month+"月"} style={styles.monthStyle}>
                   <ArchiveList dayList={dayList} />
                 </Panel>
 

@@ -61,7 +61,7 @@ export default class SearchDrawer extends React.Component {
                        title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
                        summary={<div style={styles.summary}
                                      dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
-                       onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.rawTitle)}
+                       onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
             />
           ))}
         </List>

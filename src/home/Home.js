@@ -7,13 +7,14 @@ import Loading from "../tools/Loading";
 
 
 export default class Home extends React.PureComponent {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+    const {articlesEachPage}=props
     this.state={
       contentLoading:true,
       discussLoading:true,
       articles:null,
-      pageSize:3
+      pageSize:articlesEachPage
     }
   }
 
@@ -28,6 +29,11 @@ export default class Home extends React.PureComponent {
     }
   }
 
+  componentDidMount() {
+    Promise.resolve().then(()=>{
+      window.scrollTo(0, 0);
+    })
+  }
   render() {
     const {articles,contentLoading,pageSize}=this.state
     const {page}=this.props

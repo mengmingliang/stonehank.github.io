@@ -92,7 +92,7 @@ export default class ArchiveList extends React.Component {
             >
             <List.Item >
               <List.Item.Meta
-                title={<Link to={`${linkTo.articles}/${day.title}`}>
+                title={<Link to={`${linkTo.articles}/${day.sha}`}>
                   <div>{day.title}</div>
                 </Link>}
                 description={

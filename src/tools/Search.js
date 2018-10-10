@@ -73,24 +73,27 @@ export default class NotFound extends React.Component {
         contentFix=markdownSummary.substr(contentMatchIndex,patternValue.length)
         contentAffix=markdownSummary.substr(contentMatchIndex+patternValue.length,70)
       }
-      // 两者都存在最优先，其次是title存在，最后是summary存在
+      // 搜索优先度
+      // 1. title && summary
+      // 2. title
+      // 3. summary
       if(titleMatchIndex!==-1 && contentMatchIndex!==-1){
         matchResultObj.top.push({
           title:`<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`,
           matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`,
-          rawTitle:data[i].title
+          sha:data[i].sha
         })
       }else if(titleMatchIndex!==-1){
         matchResultObj.middle.push({
           title:`<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`,
           matchContent:markdownSummary.substr(0,100),
-          rawTitle:data[i].title
+          sha:data[i].sha
         })
       }else if(contentMatchIndex!==-1){
         matchResultObj.bottom.push({
           title:data[i].title,
           matchContent:`<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`,
-          rawTitle:data[i].title
+          sha:data[i].sha
         })
       }
     }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import BlogLayout from "./BlogLayout";
 
+import * as userConfig from './user-config'
 import './css/index.css';
 import 'antd/dist/antd.css';
 import './css/github.min.css'
@@ -20,5 +21,5 @@ registerObserver({
 //   whyDidYouUpdate(React);
 // }
 
-ReactDOM.render(<BlogLayout />, document.getElementById('root'));
+ReactDOM.render(<BlogLayout userConfig={userConfig}/>, document.getElementById('root'));
 registerServiceWorker();

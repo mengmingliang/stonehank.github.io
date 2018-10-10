@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router,Link,Location,navigate } from "@reach/router";
+import { Router,Location } from "@reach/router";
 import {BackTop, Layout,Icon } from 'antd';
 
 import Archive from "./archive/Archive";
@@ -15,7 +15,6 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
 import Search from "./tools/Search"
-import Connect from "./tools/Connect";
 
 
 const styles={
@@ -52,9 +51,6 @@ export default class BlogLayout extends React.Component {
       import(`./asset/_blog-data`)
         .then(blog_jsonObj=>{
           this.setState({
-            // archiveArticles:refactor(blog_jsonObj,"time"),
-            // categoryArticles:refactor(blog_jsonObj,"label"),
-            // initArticles:refactor(blog_jsonObj,"init"),
             archiveArticles:refactor(blog_jsonObj,"time"),
             categoryArticles:objGroupBy(blog_jsonObj,"label"),
             initArticles:objSortBy(blog_jsonObj,"timeArr").filter(item=>item.title),
@@ -70,48 +66,37 @@ export default class BlogLayout extends React.Component {
     this.fetchBlogContent()
   }
   render() {
+    const {userConfig}=this.props
+
     const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
-    if(archiveArticles){
-      Object.defineProperty(archiveArticles,"activePanel",{
-        value:null,
-        writable:true
-      })
+
+    if(archiveArticles && !archiveArticles.activePanel){
+      Object.defineProperty(archiveArticles,"activePanel",{value:null, writable:true})
     }
-    if(categoryArticles){
+    if(categoryArticles && !categoryArticles.tagsRenderMode && !categoryArticles.tagsBlockLoaded){
       Object.defineProperties(categoryArticles,{
-        "tagsRenderMode":{
-          value:null,
-          writable:true
-        },
-        "tagsBlockLoaded":{
-          value:null,
-          writable:true
-        }
+        "tagsRenderMode":{value:null, writable:true},
+        "tagsBlockLoaded":{value:null, writable:true}
       })
     }
 
     return (
       <Layout>
-        <NavSiderContainer />
+        <NavSiderContainer bio={userConfig.bio} avatar={userConfig.avatar}/>
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <Header_Pure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
-            <Link to={"https://github.com/stonehank"} ><IconFont id="githubIcon" type="icon-github" /></Link>
+            <a href={userConfig.github}><IconFont id="githubIcon" type="icon-github" /></a>
           </Header_Pure>
           <Location>
             {({location})=>{
               const pathname=location.pathname
               let basenameStart=pathname.lastIndexOf('/')+1
-              let basename
-              try{
-                basename=decodeURIComponent(pathname.substr(basenameStart))
-              } catch(err){
-                navigate("/NoThisPage")
-              }
+              let basename=decodeURIComponent(pathname.substr(basenameStart))
               let matchdir=pathname.substr(0,basenameStart)
               let activeData
+              console.log(matchdir.includes("category"),basename)
               if(matchdir.includes("category"))activeData=categoryArticles?categoryArticles[basename]:null
-              // else if(matchdir.includes("articles"))activeData=initArticles
 
               /*
               * Archive : articles
@@ -146,15 +131,24 @@ export default class BlogLayout extends React.Component {
                 <TransitionGroup>
                   <CSSTransition key={location.key} classNames="slide" exit={false} timeout={500} >
                     <Router location={location}>
+                        <Home path="/" page={1} articles={initArticles}
+                              articlesEachPage={userConfig.articlesEachPage}  />
+                        <Home path="page/:page" articles={initArticles}
+                              articlesEachPage={userConfig.articlesEachPage}  />
+                        <Archive path="archive" articles={archiveArticles}
+                                 defaultActiveArchive={userConfig.defaultActiveArchive} />
+                        <Category path="category" page={1}
+                                  tagsRenderMode={userConfig.tagsRenderMode}
+                                  tagsEachPage={userConfig.tagsEachPage}
+                                  articles={categoryArticles}  />
+                        <Category path="category/page/:page"
+                                  tagsRenderMode={userConfig.tagsRenderMode}
+                                  tagsEachPage={userConfig.tagsEachPage}
+                                  articles={categoryArticles}   />
+                        <CategoryDetail path="category/:tag" labelList={activeData} labelName={basename}  />
+                        <About path="about" articles={categoryArticles} aboutMe={userConfig.aboutMe}/>
+                        <ArticleDetail path="articles/:articleSha" blogList={initArticles} />
                         <NotFound default changeBG={this.changeBackground} />
-                        <Home articles={initArticles} path="/" page={1} />
-                        <Home articles={initArticles} path="page/:page" />
-                        <Archive articles={archiveArticles} path="archive" />
-                        <Category articles={categoryArticles} path="category"  page={1} />
-                        <Category articles={categoryArticles} path="category/page/:page"  />
-                        <CategoryDetail labelList={activeData} labelName={basename} path="category/:tag" />
-                        <About path="about" articles={categoryArticles} />
-                        <ArticleDetail path="articles/:articleName" blogList={initArticles} />
                       </Router>
                   </CSSTransition>
                 </TransitionGroup>

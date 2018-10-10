@@ -56,17 +56,17 @@ export default class ArticleDetail extends React.Component{
   }
   handlePageChange(page) {
     console.log(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
-    navigate(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
+    navigate(`${linkTo.articles}/${this.props.blogList[page-1].sha}`)
   }
   fetchBlogContent(){
-    const {articleName,blogList}=this.props
+    const {articleSha,blogList}=this.props
     const curArticle=blogList.find((o,i)=>{
-      if(o.title===articleName){
+      if(o.sha===articleSha){
         this.curArticleIndex=i+1
         return true
       }
     })
-    return import(`../asset/${articleName}.json`)
+    return import(`../asset/${articleSha}.json`)
       .then(obj=>({
         content:obj.content,
         title:curArticle.title,
@@ -76,7 +76,7 @@ export default class ArticleDetail extends React.Component{
 
   }
   static getDerivedStateFromProps(props,state){
-    if(props.articleName===state.curArticleName)return null
+    if(props.articleSha===state.curArticleName)return null
     return {
       curArticleName:null,
       curArticleData:null,
@@ -85,11 +85,11 @@ export default class ArticleDetail extends React.Component{
   }
   componentDidUpdate(){
     if(!this.props.blogList)return
-    if(this.props.articleName!==this.state.curArticleName){
+    if(this.props.articleSha!==this.state.curArticleName){
       this.fetchBlogContent()
         .then(obj=>{
           this.setState({
-            curArticleName:this.props.articleName,
+            curArticleName:this.props.articleSha,
             curArticleData:obj,
             contentLoading:false
           })
@@ -105,7 +105,7 @@ export default class ArticleDetail extends React.Component{
     this.fetchBlogContent()
       .then(obj=>{
         this.setState({
-          curArticleName:this.props.articleName,
+          curArticleName:this.props.articleSha,
           curArticleData:obj,
           contentLoading:false
         })

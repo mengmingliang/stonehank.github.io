@@ -6,6 +6,9 @@ body {
 
 .logo {
     height: 64px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
 }
 
 #githubIcon{

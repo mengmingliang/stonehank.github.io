@@ -19,14 +19,14 @@ const styles={
 export default class Category extends React.Component {
   constructor(props) {
     super(props)
-    const {articles}=props
+    const {articles,tagsEachPage,tagsRenderMode}=props
     this.state = {
       // todo 5是默认加载标签数量，可转换为配置
-      pageSize: 3,
+      pageSize: tagsEachPage,
       contentLoading: true,
       articles: null,
       // 初始渲染模式
-      tagsRenderMode:(articles && articles.tagsRenderMode) ||"list",
+      tagsRenderMode:(articles && articles.tagsRenderMode) ||tagsRenderMode,
       // 初始页数
       page: 1
     }
@@ -49,6 +49,11 @@ export default class Category extends React.Component {
     navigate(`/category/page/${page}`)
   }
 
+  componentDidMount() {
+    Promise.resolve().then(()=>{
+      window.scrollTo(0, 0);
+    })
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (prevState.articles && nextProps.page === prevState.page) return null

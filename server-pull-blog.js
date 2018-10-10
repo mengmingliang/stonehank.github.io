@@ -173,10 +173,12 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
   let fetchQueue=[]
   for(let i=0;i<result.length;i++){
     let cur=result[i];
+    let parse=path.parse(cur.path)
 
-    let basename=path.parse(cur.path).base
-    let resourcedir=path.parse(cur.path).dir
-    let rawname=path.parse(cur.path).name
+    let initExtension=parse.ext
+    let basename=parse.base
+    let resourcedir=parse.dir
+    let rawname=parse.name
 
     // 获取时间
     let moment_splitTimeName=moment(rawname,dataType);
@@ -211,7 +213,8 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
         let encodeBasename=encodeURIComponent(cur_remote_basename)
         // let encodeRawBasename=encodeURIComponent(basename)
         // console.log(encodeBasename,encodeRawBasename)
-        let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_basename)
+        // let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_basename)
+        let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_sha+cus_extension:cur_remote_sha+initExtension)
         // console.log(`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${basename}`)
         // console.log(decodeURIComponent)
         let resorceWriteStream
@@ -379,7 +382,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             // writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions)
 
 
-            let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_basename)
+            let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_sha+cus_extension:cur_remote_sha+initExtension)
             // let listInfo=getListInfo(currentListData)
 
             fs.outputJson(contentInfoPath,{content},{spaces:2},function(err){

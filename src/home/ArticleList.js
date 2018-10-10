@@ -76,7 +76,7 @@ export default class ArticleList extends React.Component {
                          statusBarItem={item}
                          summary={<div style={styles.summary}
                                        dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>}
-                    onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.title)}
+                    onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
               />
             ))}
           </List>

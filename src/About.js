@@ -3,12 +3,13 @@ import React from 'react';
 
 
 
-export default class About extends React.Component {
+export default class About extends React.PureComponent {
   render() {
+    const {aboutMe}=this.props
     return (
 
       <div>
-        this is wrap
+        <p>{aboutMe}</p>
       </div>
     )
   }
