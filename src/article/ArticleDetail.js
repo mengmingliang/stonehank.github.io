@@ -100,7 +100,11 @@ export default class ArticleDetail extends React.Component{
         })
     }
   }
+
   componentDidMount(){
+    Promise.resolve().then(()=>{
+      window.scrollTo(0, 0);
+    })
     if(!this.props.blogList)return
     this.fetchBlogContent()
       .then(obj=>{

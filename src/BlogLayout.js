@@ -67,7 +67,7 @@ export default class BlogLayout extends React.Component {
   }
   render() {
     const {userConfig}=this.props
-
+    const {bio,avatar,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,aboutMe}=userConfig
     const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
 
     if(archiveArticles && !archiveArticles.activePanel){
@@ -80,79 +80,70 @@ export default class BlogLayout extends React.Component {
       })
     }
 
+    /* archiveArticles数据结构
+                * Archive : articles
+                * {
+                *   2018:[
+                *     1:[...],
+                *     2:[...],
+                *     ...
+                *     loadedLength:10 <记录已经加载的文章数目>
+                *   ]
+                *   2017:[
+                *     1:[..],
+                *     ...
+                *     loadedLength:5
+                *   ]
+                *   ..
+                *   activePanel:["2018年","7月"] <记录当前打开的年份和月份>
+                * }
+                * */
+
+    /* categoryArticles数据结构
+    * Category : articles
+    * {
+    *   tag1:[...],
+    *   tag2:[...],
+    *   ...
+    *   tagsRenderMode:"list" <记录当前的tags渲染模式>
+    * }
+    * */
     return (
       <Layout>
-        <NavSiderContainer bio={userConfig.bio} avatar={userConfig.avatar}/>
+        <NavSiderContainer bio={bio} avatar={avatar}/>
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <Header_Pure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
-            <a href={userConfig.github}><IconFont id="githubIcon" type="icon-github" /></a>
+            <a href={github}><IconFont id="githubIcon" type="icon-github" /></a>
           </Header_Pure>
           <Location>
             {({location})=>{
-              const pathname=location.pathname
-              let basenameStart=pathname.lastIndexOf('/')+1
-              let basename=decodeURIComponent(pathname.substr(basenameStart))
-              let matchdir=pathname.substr(0,basenameStart)
-              let activeData
-              console.log(matchdir.includes("category"),basename)
-              if(matchdir.includes("category"))activeData=categoryArticles?categoryArticles[basename]:null
-
-              /*
-              * Archive : articles
-              * {
-              *   2018:[
-              *     1:[...],
-              *     2:[...],
-              *     ...
-              *     loadedLength:10 <记录已经加载的文章数目>
-              *   ]
-              *   2017:[
-              *     1:[..],
-              *     ...
-              *     loadedLength:5
-              *   ]
-              *   ..
-              *   activePanel:["2018年","7月"] <记录当前打开的年份和月份>
-              * }
-              * */
-
-              /*
-              * Category : articles
-              * {
-              *   tag1:[...],
-              *   tag2:[...],
-              *   ...
-              *   tagsRenderMode:"list" <记录当前的tags渲染模式>
-              * }
-              * */
-
+              console.log(location)
               return (
                 <TransitionGroup>
                   <CSSTransition key={location.key} classNames="slide" exit={false} timeout={500} >
                     <Router location={location}>
                         <Home path="/" page={1} articles={initArticles}
-                              articlesEachPage={userConfig.articlesEachPage}  />
+                              articlesEachPage={articlesEachPage}  />
                         <Home path="page/:page" articles={initArticles}
-                              articlesEachPage={userConfig.articlesEachPage}  />
+                              articlesEachPage={articlesEachPage}  />
                         <Archive path="archive" articles={archiveArticles}
-                                 defaultActiveArchive={userConfig.defaultActiveArchive} />
+                                 defaultActiveArchive={defaultActiveArchive} />
                         <Category path="category" page={1}
-                                  tagsRenderMode={userConfig.tagsRenderMode}
-                                  tagsEachPage={userConfig.tagsEachPage}
+                                  tagsRenderMode={tagsRenderMode}
+                                  tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}  />
                         <Category path="category/page/:page"
-                                  tagsRenderMode={userConfig.tagsRenderMode}
-                                  tagsEachPage={userConfig.tagsEachPage}
+                                  tagsRenderMode={tagsRenderMode}
+                                  tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}   />
-                        <CategoryDetail path="category/:tag" labelList={activeData} labelName={basename}  />
-                        <About path="about" articles={categoryArticles} aboutMe={userConfig.aboutMe}/>
+                        <CategoryDetail path="category/:tag" categoryArticles={categoryArticles} />
+                        <About path="about" articles={categoryArticles} aboutMe={aboutMe}/>
                         <ArticleDetail path="articles/:articleSha" blogList={initArticles} />
                         <NotFound default changeBG={this.changeBackground} />
                       </Router>
                   </CSSTransition>
                 </TransitionGroup>
-
               )
             }}
           </Location>

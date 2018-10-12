@@ -47,10 +47,10 @@ export default class NavSider extends React.PureComponent {
     const {selectedKey}=this.state
     return (
       <Sider  style={styles.sider}
-                            theme="dark"
-                            breakpoint="lg"
-                            collapsedWidth="0"
-                   >
+              theme="dark"
+              breakpoint="lg"
+              collapsedWidth="0"
+      >
           <div className="logo">
             <Avatar shape="square" size={64} src={avatar} />
             <section style={styles.bio}>

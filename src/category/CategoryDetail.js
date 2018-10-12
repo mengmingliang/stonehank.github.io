@@ -14,33 +14,49 @@ const styles={
   icon:{color: "#46a6ff",marginRight:4},
 }
 
+
 export default class CategoryDetail extends React.Component {
   constructor(){
     super()
     this.state={
       contentLoading:true,
-      labelList:null,
-      labelName:null
+      tagList:null,
+      tagName:null,
     }
   }
   navigateToPath(path,e){
     if(e.target.className.includes('tag'))return
     navigate(path)
   }
-  static getDerivedStateFromProps(nextProps,prevState){
-    // console.log(prevState.labelName,nextProps.labelName)
 
-    if(prevState.labelName===nextProps.labelName)return null
-    const {labelList,labelName}=nextProps
-    if(!labelList)return null
+  static getDerivedStateFromProps(nextProps,prevState){
+    const {location,categoryArticles}=nextProps
+    const pathname=location.pathname
+    let basenameStart=pathname.lastIndexOf('/')+1
+    let basename=decodeURIComponent(pathname.substr(basenameStart))
+    if(prevState.tagName===basename)return null
+    let activeData =categoryArticles?categoryArticles[basename]:null
+    if(categoryArticles && !activeData){
+      navigate("/NoThisPage",{replace:true})
+    }
+    if(!activeData)return null
+    console.log(basename,prevState.tagName,activeData)
     return {
-      labelList,
-      labelName,
+      tagList:activeData,
+      tagName:basename,
       contentLoading:false
     }
   }
+
+  componentDidMount(){
+    Promise.resolve().then(()=>{
+      window.scrollTo(0, 0);
+    })
+  }
+
   render() {
-    const {labelList,contentLoading,labelName}=this.state
+    console.log("render")
+    const {tagList,contentLoading,tagName}=this.state
    return (
      contentLoading ?
        <Loading loading={contentLoading} render_nums={1} ske_title_width={"15%"}  ske_para_rows={6} /> :
@@ -48,9 +64,9 @@ export default class CategoryDetail extends React.Component {
              split={false}
              style={styles.list}
              header={
-               <TagHeader tag={labelName} />
+               <TagHeader tag={tagName} />
              }
-         dataSource={labelList}
+         dataSource={tagList}
          renderItem={item => (
            <Card_Pure hoverable bordered={false}
                       bodyStyle={styles.card_pure_body}
