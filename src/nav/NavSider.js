@@ -32,9 +32,26 @@ export default class NavSider extends React.PureComponent {
   constructor(props){
     super(props)
     this.state={
-      selectedKey:props.selectedKey||"/home"
+      selectedKey:props.selectedKey||"/home",
+      collapse:false,
+      collapsible:false
     }
+    this.toggleCollapse=this.toggleCollapse.bind(this)
+    this.toggleCollapsible=this.toggleCollapsible.bind(this)
   }
+  toggleCollapsible(breakPoint){
+      this.setState({
+        collapse:breakPoint,
+        collapsible:breakPoint
+      })
+  }
+  toggleCollapse(){
+    if(this.state.collapsible)
+    this.setState(prevS=>({
+      collapse:!prevS.collapse
+    }))
+  }
+
   static getDerivedStateFromProps(nextProps,prevState){
     if(nextProps.selectedKey===prevState.selectedKey)return null
     return {
@@ -44,12 +61,16 @@ export default class NavSider extends React.PureComponent {
 
   render() {
     const {bio,avatar}=this.props
-    const {selectedKey}=this.state
+    const {selectedKey,collapse,collapsible}=this.state
     return (
       <Sider  style={styles.sider}
               theme="dark"
-              breakpoint="lg"
+              breakpoint="md"
               collapsedWidth="0"
+              collapsible={collapsible}
+              collapsed={collapse}
+              onCollapse={this.toggleCollapse}
+              onBreakpoint={this.toggleCollapsible}
       >
           <div className="logo">
             <Avatar shape="square" size={64} src={avatar} />
@@ -60,7 +81,9 @@ export default class NavSider extends React.PureComponent {
           <Menu theme="dark"
                 style={styles.menu}
                 selectedKeys={[selectedKey]}
-                mode="inline">
+                mode="inline"
+                onClick={this.toggleCollapse}
+          >
             <Menu.Item key={linkTo.home}>
               <Icon type="home" />
               <span>首页</span>

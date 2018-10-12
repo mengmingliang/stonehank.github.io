@@ -11,8 +11,10 @@ export default class About extends React.PureComponent {
 
   componentDidMount(){
     try {
+      setTimeout(()=>{
       this.start = init(this.textRef.current, document.body.clientWidth , document.body.clientHeight - 64, document.getElementById("wrap"))
-      this.start()
+        this.start()
+      },100)
     }catch(err){
       // doNothing
     }

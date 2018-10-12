@@ -35,8 +35,8 @@ export default class NotFound extends React.Component {
     this.memory={}
     this.onChangeHandle=this.onChangeHandle.bind(this)
     this.onSearchHandle=this.onSearchHandle.bind(this)
-    this.computeTagsMathch=this.computeTagsMathch.bind(this)
-    this.computeArtcileMathch=this.computeArtcileMathch.bind(this)
+    this.computeTagsMatch=this.computeTagsMatch.bind(this)
+    this.computeArticleMatch=this.computeArticleMatch.bind(this)
     this.handleDrawerClose=this.handleDrawerClose.bind(this)
     this.clearSearchInput=this.clearSearchInput.bind(this)
   }
@@ -46,7 +46,7 @@ export default class NotFound extends React.Component {
       drawShow:false
     })
   }
-  computeArtcileMathch(patternValue){
+  computeArticleMatch(patternValue){
     if(patternValue==="")return []
     if(this.memory[patternValue])return this.memory[patternValue]
     const {data}=this.props
@@ -103,7 +103,7 @@ export default class NotFound extends React.Component {
     return result
   }
 
-  computeTagsMathch(patternValue){
+  computeTagsMatch(patternValue){
     if(patternValue==="")return []
     const {tagsList}=this.props
     let matchResult=[]
@@ -129,8 +129,8 @@ export default class NotFound extends React.Component {
   onChangeHandle(ev,v){
     const value=v || ev.target.value
     const trimValue=value.trim().toLowerCase()
-    let matchTags=this.computeTagsMathch(trimValue)
-    let matchArticles=this.computeArtcileMathch(trimValue)
+    let matchTags=this.computeTagsMatch(trimValue)
+    let matchArticles=this.computeArticleMatch(trimValue)
     this.setState({
       matchTags:matchTags,
       matchArticles:matchArticles,
