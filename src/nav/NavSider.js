@@ -24,6 +24,9 @@ const styles={
     justifyContent: 'center',
     fontSize:"smaller",
     textShadow:`#a2a2a2 0px 1px 0px, #696969 0px 2px 0px, #4e4e4e 0px 3px 0px`
+  },
+  blogName:{
+    fontSize:"medium"
   }
 }
 
@@ -60,7 +63,7 @@ export default class NavSider extends React.PureComponent {
   }
 
   render() {
-    const {bio,avatar}=this.props
+    const {bio,avatar,username}=this.props
     const {selectedKey,collapse,collapsible}=this.state
     return (
       <Sider  style={styles.sider}
@@ -75,7 +78,8 @@ export default class NavSider extends React.PureComponent {
           <div className="logo">
             <Avatar shape="square" size={64} src={avatar} />
             <section style={styles.bio}>
-              <p>{bio}</p>
+              <span style={styles.blogName}>{username}'s Blog</span>
+              <span>{bio}</span>
             </section>
           </div>
           <Menu theme="dark"

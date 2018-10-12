@@ -1,22 +1,4 @@
 {
-	"React获取DOM": {
-		"label": [
-			"react"
-		],
-		"createdTime": "6/8/2018",
-		"timeArr": [
-			2018,
-			5,
-			8,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "React获取DOM",
-		"summary": "#### createRef\n当 ref 属性在组件时，获取组件实例；当ref属性在dom时，获取dom实例#### findDOMNode\n\n获取findDOMNode(this)参数组件(this)的DOM（所有DOM）\n\n如果只是Fragment包裹，则只能获取其第一个子组件的DOM\n\n例如：\n\n获取的第一个子组...",
-		"sha": "9e89f03a3762051de93b842c53564befbc0dc27c"
-	},
 	"es6箭头函数的this": {
 		"label": [
 			"es6"
@@ -132,6 +114,7 @@
 	},
 	"redux的鸭子类型": {
 		"label": [
+			"npm",
 			"redux",
 			"性能"
 		],
@@ -375,6 +358,7 @@
 	"源码阅读-reach-router源码学习到的1": {
 		"label": [
 			"源码",
+			"router",
 			"react"
 		],
 		"createdTime": "7/5/2018",
@@ -393,7 +377,8 @@
 	},
 	"源码阅读-reach-router源码学习到的2": {
 		"label": [
-			"源码"
+			"源码",
+			"router"
 		],
 		"createdTime": "7/6/2018",
 		"timeArr": [
@@ -412,6 +397,7 @@
 	"源码阅读-reach-router源码学习到的3": {
 		"label": [
 			"源码",
+			"router",
 			"promise",
 			"算法"
 		],
@@ -431,6 +417,7 @@
 	},
 	"reach-router": {
 		"label": [
+			"router",
 			"源码",
 			"react",
 			"github"
@@ -723,6 +710,7 @@
 	"源码阅读-create-react-app一些收获(笔记备忘)": {
 		"label": [
 			"react",
+			"npm",
 			"源码",
 			"github"
 		],
@@ -761,6 +749,7 @@
 	},
 	"文章记录—当前的网页安全": {
 		"label": [
+			"npm",
 			"表单",
 			"网络安全"
 		],
@@ -1165,6 +1154,7 @@
 	},
 	"获取函数参数名称": {
 		"label": [
+			"npm",
 			"正则",
 			"es6",
 			"ast"
@@ -1222,6 +1212,7 @@
 			"ast",
 			"正则",
 			"github",
+			"npm",
 			"es6"
 		],
 		"createdTime": "9/18/2018",
@@ -1621,5 +1612,61 @@
 		"title": "关于回溯算法(backtrack)的模板解析",
 		"summary": "今天在LeetCode看到一篇非常有价值的讨论，列举了一系列列数组的`回溯算法`，自己动手一个个完成后，\n感觉对理解回溯算法的原理有很大帮助。\n\n就用一篇文章记录下解析过程。\n\n[原文地址](https://leetcode.com/problems/combination-sum/discuss/16502/A-ge...",
 		"sha": "8392ce085e533c1fff99ad21b3d8583449fec2d3"
+	},
+	"React获取DOM": {
+		"label": [
+			"react"
+		],
+		"createdTime": "6/8/2018",
+		"timeArr": [
+			2018,
+			5,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "React获取DOM",
+		"summary": "#### createRef\n当 ref 属性在组件时，获取组件实例；当ref属性在dom时，获取dom实例\n\n```jsx\nclass MyComponent extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.inp...",
+		"sha": "584a1de3b3d076a60c2ae132c0b6ae9e4451ad42"
+	},
+	"关于近期使用reach-router的一些总结": {
+		"label": [
+			"router",
+			"react"
+		],
+		"createdTime": "10/11/2018",
+		"timeArr": [
+			2018,
+			9,
+			11,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "关于近期使用reach-router的一些总结",
+		"summary": "reach-router是一个轻量级的router组件，当然功能也相对于react-router少了一些。\n\n近期使用的时候遇到以下问题，在这里总结一次\n\n1. router遇到`url:parameter` ，当无法匹配的情况，默认会一直读取loading组件，因为它不知道这个参数是否有效，\n\n    需要自行判断`...",
+		"sha": "3a57533a3dc20f28769f523891951917242119ad"
+	},
+	"npm-link的使用": {
+		"label": [
+			"npm",
+			"源码"
+		],
+		"createdTime": "10/12/2018",
+		"timeArr": [
+			2018,
+			9,
+			12,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "npm-link的使用",
+		"summary": "关于`npm-link`的使用\n\n当开发项目时，有时候会想用一个本地的工具，复制源码什么的太麻烦了，发布到npm也很麻烦，就只想直接用。\n那么可以考虑使用`npm-link`。\n\n现在我有一个工具项目叫做`tool`\n\n我可以先注册到全局\n\n`npm link tool`\n\n接着，找到我想导入的项目：`cd proje...",
+		"sha": "622748c94137c2c180569b7e9ea94fee9140add1"
 	}
 }

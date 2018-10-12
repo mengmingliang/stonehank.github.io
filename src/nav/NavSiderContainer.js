@@ -6,12 +6,12 @@ import {parseHrefToNav} from "../utils";
 
 export default class NavSiderContainer extends React.PureComponent {
   render() {
-    const {bio,avatar}=this.props
+    const {bio,avatar,username}=this.props
     return (
         <Location>
           {({location:{pathname}})=> {
             parseHrefToNav(pathname)
-          return <NavSider bio={bio} avatar={avatar}
+          return <NavSider bio={bio} avatar={avatar} username={username}
                            selectedKey={parseHrefToNav(pathname)} />
         }}
         </Location>

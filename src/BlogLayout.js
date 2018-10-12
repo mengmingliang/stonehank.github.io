@@ -67,7 +67,7 @@ export default class BlogLayout extends React.Component {
   }
   render() {
     const {userConfig}=this.props
-    const {bio,avatar,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,aboutMe}=userConfig
+    const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,aboutMe}=userConfig
     const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
 
     if(archiveArticles && !archiveArticles.activePanel){
@@ -110,7 +110,7 @@ export default class BlogLayout extends React.Component {
     * */
     return (
       <Layout>
-        <NavSiderContainer bio={bio} avatar={avatar}/>
+        <NavSiderContainer bio={bio} avatar={avatar} username={username}/>
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <Header_Pure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>

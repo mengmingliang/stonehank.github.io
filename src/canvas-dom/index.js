@@ -23,7 +23,7 @@ export default function init( targetElement,canvasW,canvasH,context,animateType=
                   </svg>`;
   let assignedParticles=[]
   let allParticles=[]
-  return function(){
+  return function(willAnimate,animated){
     let img = new Image();
     img.style.cssText=`position:absolute;top:${targetElementRealTop}px;left:${targetElementRealLeft}px;width:${targetElementWidth}px;height:${targetElementHeight}px`
     if(targetElement.nodeName==="IMG"){
@@ -41,12 +41,14 @@ export default function init( targetElement,canvasW,canvasH,context,animateType=
       ctx_showMotion.drawImage(img, targetElementRealLeft, targetElementRealTop,targetElementWidth,targetElementHeight);
       let imgData = ctx_showMotion.getImageData(targetElementRealLeft, targetElementRealTop, targetElementWidth, targetElementHeight);
       targetElement.style.display='none'
+      if(willAnimate)willAnimate()
       if(allParticles.length===0)
       allParticles=fillAnimateArr(imgData,[],1,targetElementWidth, targetElementHeight)
       if(assignedParticles.length===0){
         assignedParticles=createAssignParticles(allParticles,fineness, targetElementWidth)
         if(assignedParticles.length===0){
           targetElement.style.display='block'
+          if(animated)animated()
           return
         }
         assignedParticles=animateFactory(assignedParticles,allParticles,animateType,options)
@@ -63,6 +65,7 @@ export default function init( targetElement,canvasW,canvasH,context,animateType=
           ctx_showMotion.clearRect(0,0,canvasW,canvasH)
           ctx_showMotion2.clearRect(0,0,canvasW,canvasH)
           ctx_storeStatus.clearRect(0,0,canvasW,canvasH)
+          if(animated)animated()
         },0)
       })
     }
