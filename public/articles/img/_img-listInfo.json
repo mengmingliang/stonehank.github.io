@@ -7,10 +7,6 @@
 		"title": "ciphertext",
 		"sha": "1d88e3e8ce8ce2e66faf3d6b1beff1de95d86d86"
 	},
-	"hyperapp-patch导图": {
-		"title": "hyperapp-patch导图",
-		"sha": "2e1e95dff05a30ffedac1b40181b0aa839bc7236"
-	},
 	"hyperapp导图": {
 		"title": "hyperapp导图",
 		"sha": "8676638b39c97c597cdfbe00467dd3290ec22907"
@@ -58,5 +54,9 @@
 	"AST-sample": {
 		"title": "AST-sample",
 		"sha": "9c3cf406366da8d6f52e8d3b9e92225ae4b50a04"
+	},
+	"hyperapp-patch导图": {
+		"title": "hyperapp-patch导图",
+		"sha": "2e1e95dff05a30ffedac1b40181b0aa839bc7236"
 	}
 }

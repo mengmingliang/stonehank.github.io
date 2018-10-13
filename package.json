@@ -35,6 +35,8 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "jsdom": "12.1.0",
-    "jsdom-global": "3.0.2"
+    "jsdom-global": "3.0.2",
+    "progress": "^2.0.0",
+    "single-line-log": "^1.1.2"
   }
 }

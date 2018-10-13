@@ -2,7 +2,6 @@ var nodejieba = require("nodejieba");
 var Base64 = require('js-base64').Base64;
 
 function getWeightExtract(content_base64,title){
-  console.log('正在分析关键词...')
   let extractNum=200
   let content=Base64.decode(content_base64)
   // let content=content_base64
