@@ -32,6 +32,7 @@
     "nodejieba": "^2.2.6",
     "parse-filepath": "^1.0.2",
     "progress": "^2.0.0",
+    "react-app-rewire-webpack-bundle-analyzer": "^1.0.1",
     "react-app-rewired": "^1.6.2",
     "react-perf-devtool": "^3.1.8",
     "single-line-log": "^1.1.2",
