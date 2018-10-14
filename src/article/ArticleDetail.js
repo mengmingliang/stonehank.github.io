@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider, Pagination} from 'antd';
-import {navigate,redirectTo} from "@reach/router";
+import {navigate} from "@reach/router";
 import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import hljs from 'highlight.js'
@@ -55,7 +55,7 @@ export default class ArticleDetail extends React.Component{
     return originalElement;
   }
   handlePageChange(page) {
-    console.log(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
+    // console.log(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
     navigate(`${linkTo.articles}/${this.props.blogList[page-1].sha}`)
   }
   fetchBlogContent(){
@@ -65,6 +65,7 @@ export default class ArticleDetail extends React.Component{
         this.curArticleIndex=i+1
         return true
       }
+      return false
     })
     return import(`../asset/${articleSha}.json`)
       .then(obj=>({
@@ -95,7 +96,8 @@ export default class ArticleDetail extends React.Component{
           })
         })
         .catch(err=>{
-          console.log(err)
+          // todo 此处可以用全局提示
+          // console.log(err)
           navigate("/NoThisPage", { replace: true })
         })
     }
@@ -115,7 +117,8 @@ export default class ArticleDetail extends React.Component{
         })
       })
       .catch(err=>{
-        console.log(err)
+        // todo 此处可以用全局提示
+        // console.log(err)
         navigate("/NoThisPage", { replace: true })
       })
   }

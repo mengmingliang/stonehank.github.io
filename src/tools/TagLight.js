@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Tag_Light extends React.Component {
+export default class TagLight extends React.Component {
 
   render() {
     return (

@@ -5,7 +5,7 @@ import animateFactory from "./animations-factory/animateFactory"
 import createAssignParticles from './createAssignParticles'
 import framePlay from './animations/framePlay'
 
-let isAnimating=false
+// let isAnimating=false
 
 export default function init( targetElement,canvasW,canvasH,context,animateType='spiral-explode') {
 
@@ -59,7 +59,7 @@ export default function init( targetElement,canvasW,canvasH,context,animateType=
         progress:[1,2],
         name:['spiral','explode']
       },targetElement,()=>{
-        isAnimating=false
+        // isAnimating=false
         setTimeout(()=>{
           targetElement.style.display='block'
           ctx_showMotion.clearRect(0,0,canvasW,canvasH)

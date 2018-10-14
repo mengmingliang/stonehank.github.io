@@ -1,10 +1,10 @@
 import React from 'react';
-import {List,Icon} from 'antd';
+import {List} from 'antd';
 import {navigate} from "@reach/router"
 import {linkTo} from '../routes/linkPathList'
 import Loading from "../tools/Loading";
 import TagHeader from "./TagHeader";
-import Card_Pure from "../antd_pure/Card_Pure";
+import CardPure from "../tools/CardPure";
 
 
 const styles={
@@ -40,7 +40,7 @@ export default class CategoryDetail extends React.Component {
       navigate("/NoThisPage",{replace:true})
     }
     if(!activeData)return null
-    console.log(basename,prevState.tagName,activeData)
+    // console.log(basename,prevState.tagName,activeData)
     return {
       tagList:activeData,
       tagName:basename,
@@ -55,7 +55,7 @@ export default class CategoryDetail extends React.Component {
   }
 
   render() {
-    console.log("render")
+    // console.log("render")
     const {tagList,contentLoading,tagName}=this.state
    return (
      contentLoading ?
@@ -68,12 +68,12 @@ export default class CategoryDetail extends React.Component {
              }
          dataSource={tagList}
          renderItem={item => (
-           <Card_Pure hoverable bordered={false}
-                      bodyStyle={styles.card_pure_body}
-                      style={styles.card}
-                      title={item.title}
-                      statusBarItem={item}
-                      onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+           <CardPure hoverable bordered={false}
+                     bodyStyle={styles.card_pure_body}
+                     style={styles.card}
+                     title={item.title}
+                     statusBarItem={item}
+                     onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
            />
          )}
        />

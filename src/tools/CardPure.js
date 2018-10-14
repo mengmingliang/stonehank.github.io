@@ -1,10 +1,9 @@
 import React from 'react';
 import { Card } from 'antd';
-import {navigate} from "@reach/router/index";
-import ArticleStatusBar from "../tools/ArticleStatusBar";
+import ArticleStatusBar from "./ArticleStatusBar";
 
 
-export default class Card_Pure extends React.PureComponent {
+export default class CardPure extends React.PureComponent {
 
   render() {
     const {title,statusBarItem,summary,...otherProps}=this.props

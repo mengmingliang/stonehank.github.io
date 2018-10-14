@@ -1,20 +1,19 @@
 import React from 'react';
 import { Router,Location } from "@reach/router";
 import {BackTop, Layout,Icon } from 'antd';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Archive from "./archive/Archive";
 import Category from "./category/Category";
-import About from "./About";
+import About from "./about/About";
 import Home from "./home/Home";
 import ArticleDetail from "./article/ArticleDetail";
 import CategoryDetail from './category/CategoryDetail'
-import {Header_Pure} from "./antd_pure"
 import NavSiderContainer from "./nav/NavSiderContainer";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-
 import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
 import Search from "./tools/Search"
+import HeaderPure from "./tools/HeaderPure"
 
 
 const styles={
@@ -67,7 +66,7 @@ export default class BlogLayout extends React.Component {
   }
   render() {
     const {userConfig}=this.props
-    const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,aboutMe}=userConfig
+    const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,archiveEachPage,aboutMe}=userConfig
     const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
 
     if(archiveArticles && !archiveArticles.activePanel){
@@ -112,13 +111,13 @@ export default class BlogLayout extends React.Component {
       <Layout>
         <NavSiderContainer bio={bio} avatar={avatar} username={username}/>
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
-          <Header_Pure style={styles.layout_header} >
+          <HeaderPure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
             <a href={github}><IconFont id="githubIcon" type="icon-github" /></a>
-          </Header_Pure>
+          </HeaderPure>
           <Location>
             {({location})=>{
-              console.log(location)
+              // console.log(location)
               return (
                 <TransitionGroup>
                   <CSSTransition key={location.key} classNames="slide" exit={false} timeout={500} >
@@ -128,7 +127,7 @@ export default class BlogLayout extends React.Component {
                         <Home path="page/:page" articles={initArticles}
                               articlesEachPage={articlesEachPage}  />
                         <Archive path="archive" articles={archiveArticles}
-                                 defaultActiveArchive={defaultActiveArchive} />
+                                 defaultActiveArchive={defaultActiveArchive} archiveEachPage={archiveEachPage} />
                         <Category path="category" page={1}
                                   tagsRenderMode={tagsRenderMode}
                                   tagsEachPage={tagsEachPage}

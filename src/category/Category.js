@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Icon} from 'antd';
 import { navigate} from "@reach/router"
 
-import {Layout} from "antd/lib/index";
+import {Layout} from "antd";
 import TagsList from "./TagsList"
 import TagsBlock from "./TagsBlock"
 import Loading from "../tools/Loading";

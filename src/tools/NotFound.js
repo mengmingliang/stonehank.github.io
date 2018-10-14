@@ -4,7 +4,6 @@ export default class NotFound extends React.Component {
   constructor(){
     super()
     this.throttleFlag=false
-    this.throttleTimer
     this.throttle=this.throttle.bind(this)
     this.spotLightRef = React.createRef()
     this.spotLightHelper=React.createRef()

@@ -1,4 +1,3 @@
-import {fadeIn, spiral} from "./core";
 import stopIfNeed from './stopIfNeed'
 
 export default function checkForStop(name,arrs,precision,dom){

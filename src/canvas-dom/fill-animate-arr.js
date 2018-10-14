@@ -1,4 +1,3 @@
-import {canvas, ctx2} from "./create-canvas";
 
 /**
  *
@@ -15,7 +14,7 @@ import {canvas, ctx2} from "./create-canvas";
  */
 
 export default function fillAnimateArr(imgData,allParticles,fineness,targetElementWidth,targetElementHeight){
-console.time('fillArray')
+// console.time('fillArray')
   for (let py = 0; py < targetElementHeight; py += fineness) {
     for (let px = 0; px < targetElementWidth; px += fineness) {
       let rgba4 = (px + py * targetElementWidth) * 4 - 1
@@ -41,6 +40,6 @@ console.time('fillArray')
       }
     }
   }
-  console.timeEnd('fillArray')
+  // console.timeEnd('fillArray')
   return allParticles
 }

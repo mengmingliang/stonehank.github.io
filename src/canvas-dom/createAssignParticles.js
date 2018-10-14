@@ -1,5 +1,5 @@
 export default function createAssignParticles(allParticles,fineness, targetElementWidth){
-  console.time("createOffScreenCanvas")
+  // console.time("createOffScreenCanvas")
   const eachPanelParticles=1000
   const minPanelSize=2
   const assignedParticles=[]
@@ -31,6 +31,6 @@ export default function createAssignParticles(allParticles,fineness, targetEleme
     assignedParticles[putInWhichPanel].sourceArr.push(allParticles[i])
 
   }
-  console.timeEnd("createOffScreenCanvas")
+  // console.timeEnd("createOffScreenCanvas")
   return assignedParticles
 }

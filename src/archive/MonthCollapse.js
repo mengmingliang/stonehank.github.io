@@ -43,14 +43,14 @@ export default class MonthCollapse extends React.Component {
     }
   }
   render() {
-    const {dayList,activePanel,changeActiveMonth,month}=this.props
+    const {dayList,activePanel,changeActiveMonth,month,archiveEachPage}=this.props
     return (
         <Collapse accordion
                   activeKey={activePanel[1]}
                   onChange={changeActiveMonth}
         >
                 <Panel header={month+"月"} key={month+"月"} style={styles.monthStyle}>
-                  <ArchiveList dayList={dayList} />
+                  <ArchiveList dayList={dayList} archiveEachPage={archiveEachPage}/>
                 </Panel>
 
         </Collapse>

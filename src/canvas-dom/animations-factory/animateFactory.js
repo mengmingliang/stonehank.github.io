@@ -11,7 +11,7 @@ import spiralExplodeMotion from './spiralExplodeMotion'
  * @returns {Array}
  */
 export default function animateFactory(assignedParticles,allParticles,animateType,options){
-  const {targetElementWidth,targetElementHeight,targetElementRealLeft,targetElementRealTop,canvasW,canvasH,fineness}=options
+  const {targetElementWidth,targetElementHeight,fineness}=options
   let newArrs=[]
 if(animateType==="spiral-explode")
     newArrs=spiralExplodeMotion(assignedParticles,targetElementWidth,targetElementHeight,fineness)

@@ -1,8 +1,8 @@
 import React from 'react';
-import { List, Tag, Icon} from 'antd';
-import {Link, navigate} from "@reach/router"
+import { List} from 'antd';
+import { navigate} from "@reach/router"
 import {linkTo} from '../routes/linkPathList'
-import Card_Pure from "../antd_pure/Card_Pure";
+import CardPure from "../tools/CardPure";
 import TagHeader from "./TagHeader";
 
 
@@ -46,12 +46,12 @@ export default class TagsList extends React.Component {
                             }
                             dataSource={tagList}
                             renderItem={item => (
-                              <Card_Pure hoverable bordered={false}
-                                         bodyStyle={styles.card_pure_body}
-                                         style={styles.card}
-                                         title={item.title}
-                                         statusBarItem={item}
-                                         onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+                              <CardPure hoverable bordered={false}
+                                        bodyStyle={styles.card_pure_body}
+                                        style={styles.card}
+                                        title={item.title}
+                                        statusBarItem={item}
+                                        onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
                               />
                             )}
                       />

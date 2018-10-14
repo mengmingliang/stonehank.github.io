@@ -117,7 +117,7 @@ export default class NotFound extends React.Component {
   onSearchHandle(){
     // 如果有结果显示，没有则无
     const {controlledValue,matchTags,matchArticles}=this.state
-    if(matchArticles && matchArticles.length >0 || (matchTags && matchTags.length >0)){
+    if((matchArticles && matchArticles.length >0) || (matchTags && matchTags.length >0)){
       this.setState({
         drawShow:true
       })

@@ -2,7 +2,7 @@ import React from 'react';
 import {List,  Layout} from 'antd';
 import {navigate} from "@reach/router";
 
-import Card_Pure from "../antd_pure/Card_Pure";
+import CardPure from "../tools/CardPure";
 import {deepEqual} from "../utils/index";
 import {linkTo} from "../routes/linkPathList";
 
@@ -71,12 +71,12 @@ export default class ArticleList extends React.Component {
                 pagination={listPageSetting}
           >
             {articles.map((item,i)=>(
-              <Card_Pure key={i} hoverable bordered={false} style={styles.card}
-                         title={item.title}
-                         statusBarItem={item}
-                         summary={<div style={styles.summary}
+              <CardPure key={i} hoverable bordered={false} style={styles.card}
+                        title={item.title}
+                        statusBarItem={item}
+                        summary={<div style={styles.summary}
                                        dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>}
-                    onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+                        onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
               />
             ))}
           </List>

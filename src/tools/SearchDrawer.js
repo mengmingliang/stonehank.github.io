@@ -2,8 +2,8 @@ import React from 'react';
 import { List,Divider,Drawer,Row } from 'antd';
 import {navigate} from "@reach/router"
 import {linkTo} from "../routes/linkPathList";
-import Card_Pure from "../antd_pure/Card_Pure";
-import Tags_Col from "./Tags_Col";
+import CardPure from "./CardPure";
+import TagsCol from "./TagsCol";
 
 
 
@@ -47,21 +47,21 @@ export default class SearchDrawer extends React.Component {
           >
             {matchTags.map((tag,i) => {
               return (
-                <Tags_Col key={i} tag={tag}/>
+                <TagsCol key={i} tag={tag}/>
               )
             })}
           </Row>
 
           <Divider orientation={"left"} style={styles.divider}>文章</Divider>
           {matchArticles.map((item,i)=>(
-            <Card_Pure key={i} hoverable
-                       bordered={false}
-                       style={styles.card}
-                       bodyStyle={styles.card_pure_body}
-                       title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
-                       summary={<div style={styles.summary}
+            <CardPure key={i} hoverable
+                      bordered={false}
+                      style={styles.card}
+                      bodyStyle={styles.card_pure_body}
+                      title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
+                      summary={<div style={styles.summary}
                                      dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
-                       onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+                      onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
             />
           ))}
         </List>

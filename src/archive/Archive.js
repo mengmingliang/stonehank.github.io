@@ -51,7 +51,7 @@ export default class Archive extends React.Component {
   render() {
 
     const {contentLoading,activePanel}=this.state
-    const {articles}=this.props
+    const {articles,archiveEachPage}=this.props
     return contentLoading ?
       <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={10} /> :
       <React.Fragment>
@@ -60,6 +60,7 @@ export default class Archive extends React.Component {
           return (
             <YearCollapse key={i + "年"} year={year}
                           monthList={monthList}
+                          archiveEachPage={archiveEachPage}
                           activePanel={activePanel}
                           changeActiveYear={this.changeActiveYear}
                           changeActiveMonth={this.changeActiveMonth} />

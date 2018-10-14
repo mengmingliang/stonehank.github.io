@@ -43,7 +43,7 @@ export default class YearCollapse extends React.Component {
 
 
   render() {
-    const {monthList,activePanel,year,changeActiveYear,changeActiveMonth}=this.props
+    const {monthList,activePanel,year,changeActiveYear,changeActiveMonth,archiveEachPage}=this.props
     return (
       <Collapse style={styles.defaultMargin} accordion
                 bordered={false}
@@ -55,9 +55,11 @@ export default class YearCollapse extends React.Component {
             if(dayList && dayList.length>0){
               return <MonthCollapse key={j+1+"月"} dayList={dayList}
                                     month={j+1}
+                                    archiveEachPage={archiveEachPage}
                                     activePanel={activePanel}
                                     changeActiveMonth={changeActiveMonth}/>
             }
+            return null
           })}
 
         </Panel>

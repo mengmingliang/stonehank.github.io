@@ -38,9 +38,8 @@ export default class ArchiveList extends React.Component {
     return result
   }
   onLoadMore(){
-    const {dayList}=this.props
-    // todo 5是默认加载数量，可转换为配置
-    const newLoadedList=this.state.loadedList.concat(this.getApartOfData(dayList,5))
+    const {dayList,archiveEachPage}=this.props
+    const newLoadedList=this.state.loadedList.concat(this.getApartOfData(dayList,archiveEachPage))
     dayList.loadedLength=newLoadedList.length
     this.setState({
       loadedList:newLoadedList,
@@ -56,17 +55,17 @@ export default class ArchiveList extends React.Component {
     },300)
   }
   componentDidMount(){
-    const {dayList}=this.props
+    const {dayList,archiveEachPage}=this.props
     // dayList是数组，遍历时不会遍历到它的自定义属性
     // todo 5是默认加载数量，可转换为配置
-    dayList.loadedLength= dayList.loadedLength || 5
+    dayList.loadedLength= dayList.loadedLength || archiveEachPage || 5
     this.setState({
       loadedList:this.state.loadedList.concat(this.getApartOfData(dayList,dayList.loadedLength))
     })
   }
   render() {
     const {dayList}=this.props
-    console.log(dayList)
+    // console.log(dayList)
     const loadMore = (
       <div style={styles.loadMore}>
         {this.loadedIndex < dayList.length ?
@@ -77,14 +76,15 @@ export default class ArchiveList extends React.Component {
       </div>
     )
     const {loadedList,listLoading} = this.state
+    const {archiveEachPage}=this.props
     return (
       <List itemLayout="vertical "
             loadMore={loadMore}>
         {loadedList.map((day,k,context)=>{
-          if(day==null)return
+          if(day==null)return null
           return (
             <Loading key={k}
-                     loading={listLoading && k>=context.length-5}
+                     loading={listLoading && k>=context.length-archiveEachPage}
                      render_nums={1}
                      ske_title_width={"20%"}
                      ske_para_width={40+Math.random()*30+"%"}

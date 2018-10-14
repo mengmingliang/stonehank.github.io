@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/github.min.css'
 import ArticleList from "./ArticleList";
 import Loading from "../tools/Loading";
 

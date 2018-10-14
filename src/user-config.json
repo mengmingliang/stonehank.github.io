@@ -7,5 +7,6 @@
   "tagsEachPage":2,
   "defaultActiveArchive":["2018年",""],
   "tagsRenderMode":"list",
-  "articlesEachPage":3
+  "articlesEachPage":3,
+  "archiveEachPage":5
 }

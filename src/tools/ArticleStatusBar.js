@@ -1,7 +1,7 @@
 import React from 'react'
 import {Row,Col} from 'antd';
 import {Link} from "@reach/router"
-import Tag_Light from "./Tag_Light"
+import TagLight from "./TagLight"
 import {linkTo} from '../routes/linkPathList'
 
 
@@ -22,7 +22,7 @@ export default class ArticleStatusBar extends React.Component{
             article.label.map((t,i) => {
               return (
                 <Link key={i} to={`${linkTo.category}/${t}`}>
-                  <Tag_Light>{t}</Tag_Light>
+                  <TagLight>{t}</TagLight>
                 </Link>
               )
             }) :
