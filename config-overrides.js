@@ -3,7 +3,7 @@ const rewireWebpackBundleAnalyzer = require('react-app-rewire-webpack-bundle-ana
 
 module.exports = function override(config, env) {
   config = injectBabelPlugin(
-    ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
+    ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
     config,
   );
   if (env === 'production') {

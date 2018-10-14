@@ -1,12 +1,15 @@
 import React from 'react';
 import {List,  Layout} from 'antd';
 import {navigate} from "@reach/router";
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
 
 import CardPure from "../tools/CardPure";
 import {deepEqual} from "../utils/index";
 import {linkTo} from "../routes/linkPathList";
 
-const hljs = require('highlight.js'); // https://highlightjs.org/
+hljs.registerLanguage('javascript', javascript); // https://highlightjs.org/
+
 const md = require('markdown-it')({
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
