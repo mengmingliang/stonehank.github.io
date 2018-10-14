@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router,Location } from "@reach/router";
 import {BackTop, Layout,Icon } from 'antd';
+
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Archive from "./archive/Archive";
@@ -47,7 +48,9 @@ export default class BlogLayout extends React.Component {
   }
 
   fetchBlogContent(){
-      import(`./asset/_blog-data`)
+      import(
+        /*webpackChunkName: "articles-list"*/
+        `./asset/_blog-data`)
         .then(blog_jsonObj=>{
           this.setState({
             archiveArticles:refactor(blog_jsonObj,"time"),

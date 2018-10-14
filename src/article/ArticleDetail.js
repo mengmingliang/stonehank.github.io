@@ -3,12 +3,13 @@ import { Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
-
 import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import {linkTo} from "../routes/linkPathList";
 
+
 hljs.registerLanguage('javascript', javascript);
+
 const md = require('markdown-it')({
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
@@ -69,7 +70,9 @@ export default class ArticleDetail extends React.Component{
       }
       return false
     })
-    return import(`../asset/${articleSha}.json`)
+    return import(
+      /*webpackChunkName: "article"[index] */
+      `../asset/${articleSha}.json`)
       .then(obj=>({
         content:obj.content,
         title:curArticle.title,

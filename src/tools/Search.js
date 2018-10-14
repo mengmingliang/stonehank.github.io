@@ -1,9 +1,10 @@
 import React from 'react';
 import { Input} from 'antd';
-import hljs from 'highlight.js'
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
 import SearchDrawer from "./SearchDrawer"; // https://highlightjs.org/
 
-
+hljs.registerLanguage('javascript', javascript);
 const md = require('markdown-it')({
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
