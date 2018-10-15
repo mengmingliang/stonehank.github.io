@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
 import BlogLayout from "./BlogLayout";
 
 import * as userConfig from './user-config'
@@ -20,4 +19,3 @@ registerObserver({
 // }
 
 ReactDOM.render(<BlogLayout userConfig={userConfig}/>, document.getElementById('root'));
-registerServiceWorker();

@@ -15,33 +15,33 @@ module.exports = function override(config, env) {
   );
 
   // 添加mrakdown-loader
-  const marked = require("marked");
-  const renderer = new marked.Renderer();
-  let mdLoader={
-    test: /\.md$/,
-    use: [
-      { loader: "html-loader"},
-      { loader: "markdown-loader",
-        options: {
-          renderer,
-          highlight: function (str, lang) {
-            if (lang && hljs.getLanguage(lang)) {
-              try {
-                return '<pre class="hljs"><code>' +
-                  hljs.highlight(lang, str, true).value +
-                  '</code></pre>';
-              } catch (__) {}
-            }
-
-            return '<pre class="hljs"><code>' + str + '</code></pre>';
-          }
-        }
-      }
-    ]
-  }
-  let rules=config.module.rules
-  let oneOf=rules[rules.length-1]["oneOf"]
-  oneOf.splice(oneOf.length-1,0,mdLoader)
+  // const marked = require("marked");
+  // const renderer = new marked.Renderer();
+  // let mdLoader={
+  //   test: /\.md$/,
+  //   use: [
+  //     { loader: "html-loader"},
+  //     { loader: "markdown-loader",
+  //       options: {
+  //         renderer,
+  //         highlight: function (str, lang) {
+  //           if (lang && hljs.getLanguage(lang)) {
+  //             try {
+  //               return '<pre class="hljs"><code>' +
+  //                 hljs.highlight(lang, str, true).value +
+  //                 '</code></pre>';
+  //             } catch (__) {}
+  //           }
+  //
+  //           return '<pre class="hljs"><code>' + str + '</code></pre>';
+  //         }
+  //       }
+  //     }
+  //   ]
+  // }
+  // let rules=config.module.rules
+  // let oneOf=rules[rules.length-1]["oneOf"]
+  // oneOf.splice(oneOf.length-1,0,mdLoader)
 
 
   // bunlde-analyzer分析
