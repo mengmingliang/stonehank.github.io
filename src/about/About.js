@@ -6,25 +6,24 @@ const styles={
   show:{textShadow:"1px 1px 1px,-1px 1px 2px",fontSize:"1.5rem",lineHeight:1.5}
 }
 
-export default class About extends React.PureComponent {
+export default class About extends React.Component {
   constructor(){
     super()
     this.textRef=React.createRef()
   }
 
   componentDidMount(){
-    try {
       setTimeout(()=>{
+        try {
       this.start = init(this.textRef.current, document.body.clientWidth , document.body.clientHeight - 64, document.getElementById("wrap"))
 
         this.start(()=>{
           this.textRef.current.style.color="black"
         })
-
-      },100)
-    }catch(err){
-      // doNothing
-    }
+        }catch(err){
+          // doNothing
+        }
+      },150)
   }
   render() {
     const {aboutMe}=this.props

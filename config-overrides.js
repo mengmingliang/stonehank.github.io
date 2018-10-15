@@ -1,3 +1,6 @@
+const hljs=require('highlight.js/lib/highlight')
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
+
 const { injectBabelPlugin } = require('react-app-rewired');
 // const rewireWebpackBundleAnalyzer = require('react-app-rewire-webpack-bundle-analyzer')
 const path=require("path")
@@ -10,6 +13,38 @@ module.exports = function override(config, env) {
     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
     config,
   );
+
+  // 添加mrakdown-loader
+  const marked = require("marked");
+  const renderer = new marked.Renderer();
+  let mdLoader={
+    test: /\.md$/,
+    use: [
+      { loader: "html-loader"},
+      { loader: "markdown-loader",
+        options: {
+          renderer,
+          highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+              try {
+                return '<pre class="hljs"><code>' +
+                  hljs.highlight(lang, str, true).value +
+                  '</code></pre>';
+              } catch (__) {}
+            }
+
+            return '<pre class="hljs"><code>' + str + '</code></pre>';
+          }
+        }
+      }
+    ]
+  }
+  let rules=config.module.rules
+  let oneOf=rules[rules.length-1]["oneOf"]
+  oneOf.splice(oneOf.length-1,0,mdLoader)
+
+
+  // bunlde-analyzer分析
   // if (env === 'production') {
   //   config = rewireWebpackBundleAnalyzer(config, env, {
   //     analyzerMode: 'static',
