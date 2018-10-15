@@ -224,7 +224,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
 
         let resorceWriteStream
-
+        let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
         curFetch=axios({
           method:'get',
           url:`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${encodeBasename}`,

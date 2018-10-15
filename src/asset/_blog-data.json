@@ -1668,5 +1668,87 @@
 		"title": "npm-link的使用",
 		"summary": "关于`npm-link`的使用\n\n当开发项目时，有时候会想用一个本地的工具，复制源码什么的太麻烦了，发布到npm也很麻烦，就只想直接用。\n那么可以考虑使用`npm-link`。\n\n现在我有一个工具项目叫做`tool`\n\n我可以先注册到全局\n\n`npm link tool`\n\n接着，找到我想导入的项目：`cd proje...",
 		"sha": "622748c94137c2c180569b7e9ea94fee9140add1"
+	},
+	"一个create-react-app项目构建体积的压缩": {
+		"label": [
+			"react",
+			"github",
+			"babel",
+			"css"
+		],
+		"createdTime": "10/14/2018",
+		"timeArr": [
+			2018,
+			9,
+			14,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一个create-react-app项目构建体积的压缩",
+		"summary": "这是一个个人博客，基于`antd`搭建，这个项目构建流程如下：\n1. 先启动`fetch-blog-serve`，这是一个能将你的`repertory`的blog内容拉去到本地，并且写入`xxx.json`。\n2. 在写入之前会生成一个列表，包含每一篇blog的标题、日期、标签、摘要、sha值(唯一性判断)。\n3. 前...",
+		"sha": "7cd2eb217f67d7f3988aa2e4eeffdf3e8a3dfc12"
+	},
+	"源码阅读-解析anime核心(1)": {
+		"label": [
+			"css",
+			"算法",
+			"源码",
+			"github",
+			"promise"
+		],
+		"createdTime": "7/20/2018",
+		"timeArr": [
+			2018,
+			6,
+			20,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-解析anime核心(1)",
+		"summary": "本次解析将分为2篇文章，当前是第一篇，第二篇在[这里](./07-21-解析anime核心(2).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli...",
+		"sha": "2841c2c60ffc45abdca1ed525155f5b777ed54c7"
+	},
+	"源码阅读-解析anime核心(2)": {
+		"label": [
+			"算法",
+			"源码",
+			"github",
+			"css"
+		],
+		"createdTime": "7/22/2018",
+		"timeArr": [
+			2018,
+			6,
+			22,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-解析anime核心(2)",
+		"summary": "本次解析将分为2篇文章，当前是第二篇，第一篇在[这里](./07-20-解析anime核心(1).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli...",
+		"sha": "a9f78f786c764a619cefc5156e3120771d547641"
+	},
+	"使用git-subtree合并多个仓库并保存git记录": {
+		"label": [
+			"git"
+		],
+		"createdTime": "10/15/2018",
+		"timeArr": [
+			2018,
+			9,
+			15,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "使用git-subtree合并多个仓库并保存git记录",
+		"summary": "#### 步骤解释：\n\n1. 创建remote连接\ngit remote add 自定义远程仓库名 远程仓库地址 远程仓库分支\n\n2. 添加subtree \ngit subtree add --prefix=当前仓库的子目录名称(可以使用/进行分割)  远程仓库地址 远程仓库分支 <--squash>添加squash则...",
+		"sha": "45b974064ac9411014a451c0abd392f2b223e760"
 	}
 }

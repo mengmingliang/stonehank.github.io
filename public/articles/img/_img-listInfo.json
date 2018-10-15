@@ -58,5 +58,21 @@
 	"AST-sample": {
 		"title": "AST-sample",
 		"sha": "9c3cf406366da8d6f52e8d3b9e92225ae4b50a04"
+	},
+	"final": {
+		"title": "final",
+		"sha": "7151a49c03a6aefb1f1393f3436437140dbcbde1"
+	},
+	"first": {
+		"title": "first",
+		"sha": "bebab6e8d245b5739d05853a99e9de6c02a74c8b"
+	},
+	"init": {
+		"title": "init",
+		"sha": "9878d84288fb8d9be1968d0ade58b3561e1efbab"
+	},
+	"second": {
+		"title": "second",
+		"sha": "68a1f5742856fdf063940107fccbf542ab324e7f"
 	}
 }

@@ -51,5 +51,8 @@ module.exports = function override(config, env) {
   //     reportFilename: 'report.html'
   //   })
   // }
+
+  config.output.path="D:\\Project\\github\\stonehank.github.io"
+  console.log(config)
   return config;
 };
