@@ -197,13 +197,20 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
       cur_remote_timeArr=[]
     }
 
-    let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_sha+cus_extension:cur_remote_sha+initExtension)
+    // blog用sha做名称
+    let contentPath_sha=getContentInfoPath(cus_extension?cur_remote_sha+cus_extension:cur_remote_sha+initExtension)
+    // 资源用原名，因为文件内部可能有引用资源原名
+    let contentPath_filename=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
     function checkFile(){
       let noExist=false
       try{
-        fs.accessSync(contentInfoPath, fs.constants.F_OK)
+        fs.accessSync(contentPath_sha, fs.constants.F_OK)
       }catch(err){
-        noExist=true
+        try{
+          fs.accessSync(contentPath_filename, fs.constants.F_OK)
+        }catch (e) {
+          noExist=true
+        }
       }
       return noExist
     }
@@ -224,7 +231,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
 
         let resorceWriteStream
-        let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
+        let contentPath_filename=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
         curFetch=axios({
           method:'get',
           url:`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${encodeBasename}`,
@@ -234,7 +241,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
         })
           .then(response=>{
-            response.data.pipe(resorceWriteStream=fs.createWriteStream(contentInfoPath))
+            response.data.pipe(resorceWriteStream=fs.createWriteStream(contentPath_filename))
             if(showDetail)console.log(`${resorceWriteStream.path}正在写入...`)
             fileWritingList.addTask(resorceWriteStream.path)
             let read=0
@@ -310,22 +317,22 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             listData[cur_remote_filename].sha=cur_remote_sha
 
 
-            let contentInfoPath=getContentInfoPath(cus_extension?cur_remote_sha+cus_extension:cur_remote_sha+initExtension)
-            blogWritingList.addTask(contentInfoPath)
+            let contentPath_sha=getContentInfoPath(cus_extension?cur_remote_sha+cus_extension:cur_remote_sha+initExtension)
+            blogWritingList.addTask(contentPath_sha)
 
 
 
-            fs.outputJson(contentInfoPath,{content},{spaces:2},function(err){
+            fs.outputJson(contentPath_sha,{content},{spaces:2},function(err){
               if(err){
                 console.log(`写入${cur_remote_filename}失败，尝试重新写入`)
                 try{
-                  fs.outputJsonSync(contentInfoPath,{content},{spaces:2})
-                  fetchBlogHasDone=blogWritingList.doneTask(contentInfoPath,fetchQueue.length,1,1)
+                  fs.outputJsonSync(contentPath_sha,{content},{spaces:2})
+                  fetchBlogHasDone=blogWritingList.doneTask(contentPath_sha,fetchQueue.length,1,1)
                 }
                 catch(e){console.log(`写入${cur_remote_filename}失败！尝试手动添加`)}
               }
               else{
-                fetchBlogHasDone=blogWritingList.doneTask(contentInfoPath,fetchQueue.length,1,1)
+                fetchBlogHasDone=blogWritingList.doneTask(contentPath_sha,fetchQueue.length,1,1)
               }
               if(fetchBlogHasDone){
                 fetchResource()

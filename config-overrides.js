@@ -1,6 +1,6 @@
 const hljs=require('highlight.js/lib/highlight')
 hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
-
+const webpack = require('webpack');
 const { injectBabelPlugin } = require('react-app-rewired');
 // const rewireWebpackBundleAnalyzer = require('react-app-rewire-webpack-bundle-analyzer')
 const path=require("path")
@@ -51,8 +51,18 @@ module.exports = function override(config, env) {
   //     reportFilename: 'report.html'
   //   })
   // }
-
-  config.output.path="D:\\Project\\github\\stonehank.github.io"
-  console.log(config)
+  if(env==="production"){
+    config.plugins.push(
+      new webpack.NamedChunksPlugin((chunk) => {
+        if (chunk.name) {
+          return chunk.name;
+        }
+        return chunk.modules.map(m => path.relative(m.context, m.request)).join("_");
+      })
+    )
+  }
+  // if(env==="production")
+  // config.output.path="D:\\Project\\github\\stonehank.github.io"
+  // console.log(config)
   return config;
 };

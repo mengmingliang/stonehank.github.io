@@ -76,7 +76,7 @@ export default class NavSider extends React.PureComponent {
               onBreakpoint={this.toggleCollapsible}
       >
           <div className="logo">
-            <Avatar shape="square" size={64} src={avatar} />
+            <Avatar shape="square" size={64} src={process.env.PUBLIC_URL+avatar} />
             <section style={styles.bio}>
               <span style={styles.blogName}>{username}'s Blog</span>
               <span>{bio}</span>
