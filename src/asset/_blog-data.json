@@ -1813,5 +1813,24 @@
 		"title": "记录CRA的webpack配置曾经的issue-3",
 		"summary": "* `terser`的配置output\n\n```\nterserOptions: {\n  ...\n  output: {\n    ...      \n    // Turned on because emoji and regex is not minified properly using default\n    //...",
 		"sha": "578982e3d37ef324089ae9591f0a39802c74a3a1"
+	},
+	"获取最大收益的算法": {
+		"label": [
+			"算法",
+			"leetcode"
+		],
+		"createdTime": "10/19/2018",
+		"timeArr": [
+			2018,
+			9,
+			19,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "获取最大收益的算法",
+		"summary": "`Leetcode`上有一系列类似的题目，看了几位大神的答案，感觉这类题目都能套用，都是DP(动态规划)的思路。\n\n题目1：\n\n给出一个数组，其中每一个元素表示第`i`天的价格。\n\n你可以多次交易，但同一天是能交易1次，求交易获取最大值。\n\n例如：`[1,6,0,3,4,8,2]`\n\n最大收益为：`6-1 + 8-0`...",
+		"sha": "a277ec6be676cebf3b0f7d93109d63cda59b4c17"
 	}
 }
