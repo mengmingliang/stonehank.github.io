@@ -21,7 +21,7 @@ after_script:
 
 branches:
   only:
-    - source
+    - blog_source
 env:
  global:
    - GH_REF: github.com/stonehank/stonehank.github.io
