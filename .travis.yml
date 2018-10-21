@@ -1,0 +1,27 @@
+language: node_js
+node_js: stable
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+
+script:
+  - npm run build
+
+after_script:
+  - cd ./build
+  - git init
+  - git config user.name "stonehank"
+  - git config user.email "stonehank310@gmail.com"
+  - git add .
+  - git commit -m "Update"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master >/dev/null 2>&1
+# E: Build LifeCycle
+
+branches:
+  only:
+    - source
+env:
+ global:
+   - GH_REF: github.com/stonehank/stonehank.github.io

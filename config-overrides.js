@@ -57,12 +57,15 @@ module.exports = function override(config, env) {
         if (chunk.name) {
           return chunk.name;
         }
-        return chunk.modules.map(m => path.relative(m.context, m.request)).join("_");
+        return chunk.mapModules(m => path.relative(m.context, m.request)).join("_");
       })
     )
   }
-  // if(env==="production")
-  // config.output.path="D:\\Project\\github\\stonehank.github.io"
+  if(env==="production"){
+    // config.output.path="D:\\Project\\github\\stonehank.github.io"
+    config.output.chunkFilename='static/js/[name].chunk.js'
+  }
+
   // console.log(config)
   return config;
 };
