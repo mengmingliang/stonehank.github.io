@@ -1,4 +1,4 @@
-import {objSortBy, objGroupBy, refactor, deepEqual} from "../index"
+import {objSortBy, objGroupBy, refactor, deepEqual,withOutImgHTML} from "../index"
 
 test("sort by factorArr",function () {
   let obj={
@@ -270,6 +270,17 @@ test("deepEqual",function () {
 
   expect(deepEqual(obj2,obj4)).toBe(true)
 })
+
+// test("确保通过withOutImgHTML后不会渲染IMG标签",function () {
+//   let match1='<img src="./abc.png" />`
+//   let match1='<div>img</div><<img src="./abc.png" />`
+//   expect(withOutImgHTML("target",match1)).toBe(true)
+//   expect(withOutImgHTML("target",match2)).toBe(false)
+//   expect(withOutImgHTML("target",match3)).toBe(false)
+//   expect(withOutImgHTML("target",match4)).toBe(true)
+//   expect(withOutImgHTML("target",match5)).toBe(true)
+//   expect(withOutImgHTML("./img",match6)).toBe(true)
+// })
 
 
 // test("match without src in markdown",function () {
