@@ -15,9 +15,11 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "react-app-rewired test --env=jsdom --coverage",
+    "eject": "react-scripts eject",
+    "fetch": "node ./fetch-blog-server/server-pull-blog.js &&  npm run test"
   },
+  "pre-commit": "test",
   "devDependencies": {
     "app-root-path": "^2.1.0",
     "axios": "^0.18.0",
