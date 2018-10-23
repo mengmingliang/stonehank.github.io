@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "fetch": "node ./fetch-blog-server/server-pull-blog.js &&  npm run test"
   },
-  "pre-commit": "check",
+  "pre-commit": "test",
   "devDependencies": {
     "app-root-path": "^2.1.0",
     "axios": "^0.18.0",

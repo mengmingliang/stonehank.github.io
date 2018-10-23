@@ -192,6 +192,8 @@ export default class SearchContainer extends React.Component {
     for(let i=0;i<data.length;i++){
       fetchQueue[i]=import(
         /* webpackMode: "lazy-once" */
+        /* webpackExclude: /_blog-data\.json$/ */
+        /* webpackChunkName: "global-search" */
         `../asset/${data[i].sha}.json`)
         .then(obj=>{
           data[i].content=obj.content
