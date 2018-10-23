@@ -270,3 +270,19 @@ test("deepEqual",function () {
 
   expect(deepEqual(obj2,obj4)).toBe(true)
 })
+
+
+// test("match without src in markdown",function () {
+//   let match1='sf ![](./img/target.png)'
+//   let match2='we this is (target)'
+//   let match3='cad[target]("./abc.png")'
+//   let match4='abcde ![target]("./abc.png")'
+//   let match5='zxcwr ![./img/target.png](./img/target.png)'
+//   let match6='zxcwr ![](./img/target.png)'
+//   expect(withOutSrcInMD("target",match1)).toBe(true)
+//   expect(withOutSrcInMD("target",match2)).toBe(false)
+//   expect(withOutSrcInMD("target",match3)).toBe(false)
+//   expect(withOutSrcInMD("target",match4)).toBe(true)
+//   expect(withOutSrcInMD("target",match5)).toBe(true)
+//   expect(withOutSrcInMD("./img",match6)).toBe(true)
+// })

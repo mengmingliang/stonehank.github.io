@@ -58,6 +58,7 @@ export default class ArticleList extends React.Component {
   render() {
 
     const {articles, current, pageSize, total} = this.props
+    console.log(articles)
     const listPageSetting={
       style:styles.list_pagi_style,
       simple:true,

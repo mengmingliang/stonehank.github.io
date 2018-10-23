@@ -1,13 +1,11 @@
-
-
-import 'jsdom-global/register'
+// import 'jsdom-global/register'
 import React from 'react';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 
 import NavSider from "../nav/NavSider";
-import { mount,shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import {parseHrefToNav} from "../utils";
 
 configure({ adapter: new Adapter() });

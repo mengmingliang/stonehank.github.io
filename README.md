@@ -2,6 +2,8 @@
 
 主要适合在github写博客没有利用文件夹分类或者归档，没有使用issue，就像我的[blogs](https://github.com/stonehank/blogs)一样。
 
+示例：[My-blog](https://stonehank.github.io)
+
 特点：
 
 1. 使用了`nodejieba`分词来进行标签分类。

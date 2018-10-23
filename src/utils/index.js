@@ -189,3 +189,13 @@ export function parseHrefToNav(pathname){
   let selectedKey=selectedKeyMathch[1]
   return pathEnum.includes(selectedKey)?selectedKey:pathEnum[0]
 }
+
+
+// export function withOutSrcInMD(patternValue,content){
+//   return new RegExp(`.*?\\[.*?]\\(.*?${patternValue}.*?\\).*`).test(content) ||
+//     new RegExp(`.*?\!\\[.*?${patternValue}.*?].*`).test(content)
+// }
+
+export function withOutImgHTML(patternValue,content){
+  return content.replace(/<(img.*?)>?/g," $1 ")
+}
