@@ -7,7 +7,6 @@ install:
 
 
 script:
-  - unset CI
   - npm run build
 
 after_script:

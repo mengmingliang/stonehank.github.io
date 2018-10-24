@@ -17,7 +17,7 @@ export default class SlideCheckBox extends React.PureComponent{
     checkBoxChange()
   }
   render(){
-    const {checkedChildren,unCheckedChildren,id,isChecked,size,style}=this.props
+    const {checkedChildren,unCheckedChildren,id,isChecked,size,style,isDisabled}=this.props
     let customSize,widthVU,heightVU,heightValue,widthValue,widthUnit,heightUnit,slideW,slideH;
     if(size){
       customSize=true
@@ -36,11 +36,14 @@ export default class SlideCheckBox extends React.PureComponent{
         slideH=height|| widthValue*2/5+widthUnit
       }
     }
-    console.log(slideH)
     return (
       <div style={Object.assign({height:slideH},style)}>
-        <input className='inputCheckBox' id={id}  type="checkbox" checked={!!isChecked}
-               onClick={this.cancelBubble} onChange={this.checkBoxChange}/>
+        <input className='inputCheckBox' id={id}
+               type="checkbox"
+               checked={!!isChecked}
+               disabled={isDisabled}
+               onClick={this.cancelBubble}
+               onChange={this.checkBoxChange}/>
         <label className="slide-checkbox"
                style={customSize?{width:slideW,height:slideH}:null}
                htmlFor={id}  onClick={this.cancelBubble}>

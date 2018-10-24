@@ -20,7 +20,7 @@ import HeaderPure from "./tools/HeaderPure"
 const styles={
   layout_wrapper:{minHeight: '100vh',transition:"background 1s solid"  },
   layout_inner:{background:"#fff"},
-  layout_header:{ background: '#898989', padding: 0 ,zIndex:1},
+  layout_header:{ background: '#898989', padding: 0 ,zIndex:1,display: "flex", flexFlow: "row", justifyContent: "space-between"},
 }
 
 const IconFont = Icon.createFromIconfontCN({

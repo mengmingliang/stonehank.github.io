@@ -196,6 +196,19 @@ export function parseHrefToNav(pathname){
 //     new RegExp(`.*?\!\\[.*?${patternValue}.*?].*`).test(content)
 // }
 
-export function withOutImgHTML(patternValue,content){
-  return content.replace(/<(img.*?)>?/g," $1 ")
+export function withOutImgHTML(content){
+  return content.replace(/<\s*(img[^>]*)>?/g," $1 ")
+}
+// todo add test
+export function inHTMLTag(patternValue,content){
+  return new RegExp(`<[^>]*${patternValue}`).test(content)
+}
+
+
+export function isMatchPrecision(patternValue,content){
+  if(/^[^\x00-\xff]+$/.test(patternValue))return true
+  else if(/[^\x00-\xff]+$/.test(patternValue)) return new RegExp(`\\b${patternValue}`).test(content)
+  else if(/^[^\x00-\xff]+/.test(patternValue))return new RegExp(`${patternValue}\\b`).test(content)
+  else if(/[^\x00-\xff]+/.test(patternValue))return new RegExp(`${patternValue}`).test(content)
+  else return new RegExp(`\\b${patternValue}\\b`).test(content)
 }

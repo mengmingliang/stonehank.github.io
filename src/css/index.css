@@ -213,6 +213,9 @@ body{
 .inputCheckBox:checked + .slide-checkbox {
     background-color: #1890ff;
 }
+.inputCheckBox:disabled + .slide-checkbox {
+    opacity:0.5;
+}
 
 .square-checkbox{
     background-color:#fff;

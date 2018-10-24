@@ -1,4 +1,4 @@
-import {objSortBy, objGroupBy, refactor, deepEqual,withOutImgHTML} from "../index"
+import {objSortBy, objGroupBy, refactor, deepEqual,withOutImgHTML,inHTMLTag,isMatchPrecision} from "../index"
 
 test("sort by factorArr",function () {
   let obj={
@@ -271,16 +271,28 @@ test("deepEqual",function () {
   expect(deepEqual(obj2,obj4)).toBe(true)
 })
 
-// test("确保通过withOutImgHTML后不会渲染IMG标签",function () {
-//   let match1='<img src="./abc.png" />`
-//   let match1='<div>img</div><<img src="./abc.png" />`
-//   expect(withOutImgHTML("target",match1)).toBe(true)
-//   expect(withOutImgHTML("target",match2)).toBe(false)
-//   expect(withOutImgHTML("target",match3)).toBe(false)
-//   expect(withOutImgHTML("target",match4)).toBe(true)
-//   expect(withOutImgHTML("target",match5)).toBe(true)
-//   expect(withOutImgHTML("./img",match6)).toBe(true)
-// })
+test("确保通过withOutImgHTML后不会渲染IMG标签",function () {
+  let match1=`<img src="./abc.png" />`
+  let match2=`<div>img</div><img src="./abc.png" />`
+  let match3=`<div>img</div><img src="./abc.png" >`
+  let match3_2=`<div>img</div><      img src="./abc.png" >`
+  let match4=`<div>img</div><img src="./abc.png"`
+  let match4_2=`<div>img</div><   img src="./abc.png"`
+  let match5=`<div><img src="#"/></div><img src="./abc.png"`
+  let match6=`<div><img src="#"/><img src="./abc.png" ><img src="./abc.png" ></div><img src="./abc.png" ><img src="./abc.png" ><img src="./abc.png" ><img src="./abc.png" ><img src="./abc.png" >`
+  let match6_2=`<div><  img  id="a" class="bb"  src="#"/><img src="./abc.png" ><       img src="./abc.png" ></div><img src="./abc.png" ><       img src="./abc.png" ><img src="./abc.png" ><img src="./abc.png" ><img src="./abc.png" >`
+
+  let reg=/<\s*?img/
+  expect(reg.test(withOutImgHTML(match1))).toBe(false)
+  expect(reg.test(withOutImgHTML(match2))).toBe(false)
+  expect(reg.test(withOutImgHTML(match3))).toBe(false)
+  expect(reg.test(withOutImgHTML(match3_2))).toBe(false)
+  expect(reg.test(withOutImgHTML(match4))).toBe(false)
+  expect(reg.test(withOutImgHTML(match4_2))).toBe(false)
+  expect(reg.test(withOutImgHTML(match5))).toBe(false)
+  expect(reg.test(withOutImgHTML(match6))).toBe(false)
+
+})
 
 
 // test("match without src in markdown",function () {
@@ -297,3 +309,72 @@ test("deepEqual",function () {
 //   expect(withOutSrcInMD("target",match5)).toBe(true)
 //   expect(withOutSrcInMD("./img",match6)).toBe(true)
 // })
+
+test("判断是否在HTML标签内",function () {
+
+  let match1=`<div abc/>`
+  let match2=`<div id="abc" />`
+  let match3=`<div class="abcde"/>`
+  let match4=`<div class="abcde"/>abc`
+  let match5=`<div class="abde"/>abc`
+
+  let t='abc'
+  expect(inHTMLTag(t,match1)).toBe(true)
+  expect(inHTMLTag(t,match2)).toBe(true)
+  expect(inHTMLTag(t,match3)).toBe(true)
+  expect(inHTMLTag(t,match4)).toBe(true)
+  expect(inHTMLTag(t,match5)).toBe(false)
+
+})
+
+
+test("判断是否精确匹配",function () {
+  let match1="_a_abc_b"
+  let match2="_aabc_b"
+  let match3="_a abcb"
+  let match4="_a abc b"
+  let match5="_a 6abc b"
+  let match6="_a 'abc' b"
+  let match7=`_a" abc" b`
+  let match8=`这是abc字母`
+
+  let cnMatch1="学算法"
+  let cnMatch2="算法竞赛"
+  let cnMatch3="a算法b"
+  let cnMatch4="DP算法"
+  let cnMatch5="介绍：算法"
+  let cnMatch6="介绍“算法”"
+  let cnMatch7="算法666"
+  let cnMatch8="算数方法"
+
+  let cnMatch100="学Tree结构"
+  let cnMatch101="Tree结构"
+  let cnMatch102="RBTree结构"
+
+  let t='abc'
+  let t2="算法"
+  let t3="Tree结构"
+  expect(isMatchPrecision(t,match1)).toBe(false)
+  expect(isMatchPrecision(t,match2)).toBe(false)
+  expect(isMatchPrecision(t,match3)).toBe(false)
+  expect(isMatchPrecision(t,match4)).toBe(true)
+  expect(isMatchPrecision(t,match5)).toBe(false)
+  expect(isMatchPrecision(t,match6)).toBe(true)
+  expect(isMatchPrecision(t,match7)).toBe(true)
+  expect(isMatchPrecision(t,match8)).toBe(true)
+
+  expect(isMatchPrecision(t2,cnMatch1)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch2)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch3)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch4)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch5)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch6)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch7)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch8)).toBe(true)
+
+  expect(isMatchPrecision(t3,cnMatch100)).toBe(true)
+  expect(isMatchPrecision(t3,cnMatch101)).toBe(true)
+  expect(isMatchPrecision(t3,cnMatch102)).toBe(false)
+
+
+})
