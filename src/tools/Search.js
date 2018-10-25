@@ -3,7 +3,7 @@ import {Input, Badge, Modal, Spin} from 'antd';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import SearchDrawer from "./SearchDrawer";
-import {withOutImgHTML,inHTMLTag,isMatchPrecision,tryReg} from '../utils'
+import {withOutImgHTML,inHTMLTag,isMatchPrecision,tryReg,searchPrecision} from '../utils'
 import SlideCheckBox from "./SlideCheckBox";
 
 hljs.registerLanguage('javascript', javascript);
@@ -88,8 +88,25 @@ export default class SearchContainer extends React.Component {
       let markdownTitle = data[i].title
       let lowerCaseTitle=markdownTitle.toLowerCase()
       let lowerCaseSummary=markdownSummary.toLowerCase()
-      let titleMatchIndex = lowerCaseTitle.indexOf(patternValue)
-      let contentMatchIndex = lowerCaseSummary.indexOf(patternValue)
+
+
+      function searchTitle(pattern,content,fromIndex){
+        let titleMatchIndex,titlePrecIndex=searchPrecision(pattern,content,fromIndex)
+        if(titlePrecIndex===null)titleMatchIndex= -1
+        else if(titlePrecIndex!==-1){titleIsPrec=true;titleMatchIndex=titlePrecIndex}
+        else titleMatchIndex = lowerCaseTitle.indexOf(patternValue,fromIndex)
+        return titleMatchIndex
+      }
+      function searchContent(pattern,content,fromIndex){
+        let contentMatchIndex,contentPrecIndex=searchPrecision(pattern,content,fromIndex)
+        if(contentPrecIndex===null)contentMatchIndex= -1
+        else if(contentPrecIndex!==-1){contentIsPrec=true;contentMatchIndex=contentPrecIndex}
+        else contentMatchIndex =  lowerCaseSummary.indexOf(patternValue,fromIndex)
+        return contentMatchIndex
+      }
+      let titleMatchIndex=searchTitle(patternValue,lowerCaseTitle),
+        contentMatchIndex=searchContent(patternValue,lowerCaseSummary)
+
 
       // let titleMatch=data[i].title.toLowerCase().match(reg) || []
       // let titleMatchIndex=titleMatch.index
@@ -102,8 +119,8 @@ export default class SearchContainer extends React.Component {
       if (titleMatchIndex !== -1) {
       // if (titleMatchIndex) {
         // 确定是否精确匹配
-        if(isMatchPrecision(patternValue,lowerCaseTitle))titleIsPrec=true
-        console.log(patternValue,lowerCaseTitle,isMatchPrecision(patternValue,lowerCaseTitle))
+        // if(isMatchPrecision(patternValue,lowerCaseTitle))titleIsPrec=true
+        // console.log(patternValue,lowerCaseTitle,isMatchPrecision(patternValue,lowerCaseTitle))
         titlePrefix = data[i].title.substr(0, titleMatchIndex)
         titleFix = data[i].title.substr(titleMatchIndex, patternValue.length)
         titleAffix = data[i].title.substr(titleMatchIndex + patternValue.length)
@@ -117,22 +134,25 @@ export default class SearchContainer extends React.Component {
         // 去除tag内部内容
         // console.log(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo)))
         while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo))){
-          contentMatchIndex=lowerCaseSummary.indexOf(patternValue,contentMatchIndex+patternValue.length)
+          // contentMatchIndex=lowerCaseSummary.indexOf(patternValue,contentMatchIndex+patternValue.length)
+          contentIsPrec=false
+          contentMatchIndex=searchContent(patternValue,lowerCaseSummary,contentMatchIndex+patternValue.length)
           // contentMatch=markdownSummary.substr(contentMatchIndex+patternValue.length).toLowerCase().match(reg) || []
           // contentMatchIndex=contentMatch.index
           // console.log(count++,contentMatchIndex)
+          // console.log(contentMatchIndex,markdownSummary,lowerCaseSummary)
           if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
           // if(contentMatchIndex)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
           else break
         }
         if(contentMatchIndex===-1){continue}
         // if(!contentMatchIndex) continue
-        console.log(contentMatchIndex,markdownSummary.substring(contentMatchIndex-5,contentMatchIndex+5))
+        // console.log(contentMatchIndex,markdownSummary.substring(contentMatchIndex-5,contentMatchIndex+5))
 
         // 去除图片
         // contentMatchPart = withOutImgHTML(contentMatchPart)
         // 确定是否精确匹配
-        if(isMatchPrecision(patternValue,contentMatchPart))contentIsPrec=true
+        // if(isMatchPrecision(patternValue,contentMatchPart))contentIsPrec=true
 
         // newIndex = contentMatchPart.toLowerCase().indexOf(patternValue)
 
@@ -143,9 +163,10 @@ export default class SearchContainer extends React.Component {
         contentPrefix = markdownSummary.substring(contentMatchIndex-lo, contentMatchIndex)
         contentFix = markdownSummary.substr(contentMatchIndex, patternValue.length)
         contentAffix = markdownSummary.substr(contentMatchIndex + patternValue.length,hi)
-        console.log(contentPrefix,contentFix,contentAffix)
-        console.log(contentMatchPart)
-        console.log(contentIsPrec,titleIsPrec)
+        // console.log(contentPrefix,contentFix,contentAffix)
+        // console.log(lowerCaseTitle,contentFix,contentAffix)
+        // console.log(contentMatchPart)
+        // console.log(contentIsPrec,titleIsPrec)
       }
 
       let finalMatchTitle=titleMatchIndex===-1? data[i].title :

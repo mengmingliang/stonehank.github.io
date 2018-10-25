@@ -202,8 +202,11 @@ export function withOutImgHTML(content){
 // todo add test
 export function inHTMLTag(patternValue,content,preIdx){
   let reg
-console.log(patternValue,content,preIdx)
-  if(preIdx && content.substr(preIdx,patternValue.length)!==patternValue)throw new Error('preIdx 指定错误，当前指定下标并不是匹配值')
+// console.log(patternValue,content,preIdx)
+  if(preIdx && content.substr(preIdx,patternValue.length)!==patternValue){
+    console.warn('preIdx 指定错误，当前指定下标并不是匹配值')
+    return true
+  }
   // console.log(1)
   // return tryReg(()=>new RegExp(`<[^>]*${patternValue}`).test(content),true)
   // 设定前一个搜索的index，当preIdx在前一个和当前index之间，说明preIdx属于tag内部
@@ -232,12 +235,23 @@ console.log(patternValue,content,preIdx)
     return true
   }
 }
-export function searchPrecision(patternValue,content){
-  if(/^[^\x00-\xff]+$/.test(patternValue))return content.search(patternValue)
-  else if(/[^\x00-\xff]+$/.test(patternValue)) return content.search(new RegExp(`\\b${patternValue}`))
-  else if(/^[^\x00-\xff]+/.test(patternValue))return content.search(new RegExp(`${patternValue}\\b`))
-  else if(/[^\x00-\xff]+/.test(patternValue))return content.search(new RegExp(`${patternValue}`))
-  else return content.search(new RegExp(`\\b${patternValue}\\b`))
+export function searchPrecision(patternValue,content,fromIndex=0){
+  let _content=content.substr(fromIndex),result,regPattern=''
+  if(/^[^\x00-\xff]+$/.test(patternValue))regPattern= patternValue
+  else if(/[^\x00-\xff]+$/.test(patternValue)) regPattern=`\\b${patternValue}`
+  else if(/^[^\x00-\xff]+/.test(patternValue))regPattern=`${patternValue}\\b`
+  else if(/[^\x00-\xff]+/.test(patternValue))regPattern= `${patternValue}`
+  else regPattern= `\\b${patternValue}\\b`
+  let tryP=tryReg(regPattern,false)
+  if(tryP)result=_content.search(tryP)
+  else return null
+  // if(/^[^\x00-\xff]+$/.test(patternValue))result= _content.search(patternValue)
+  // else if(/[^\x00-\xff]+$/.test(patternValue)) result= _content.search(new RegExp(`\\b${patternValue}`))
+  // else if(/^[^\x00-\xff]+/.test(patternValue))result= _content.search(new RegExp(`${patternValue}\\b`))
+  // else if(/[^\x00-\xff]+/.test(patternValue))result= _content.search(new RegExp(`${patternValue}`))
+  // else result= _content.search(new RegExp(`\\b${patternValue}\\b`))
+  if(result!==-1)return result+fromIndex
+  else return -1
 }
 
 export function isMatchPrecision(patternValue,content){
@@ -248,9 +262,9 @@ export function isMatchPrecision(patternValue,content){
   else return new RegExp(`\\b${patternValue}\\b`).test(content)
 }
 
-export function tryReg(regExpression,otherwise){
+export function tryReg(regPattern,otherwise){
   try{
-    return regExpression()
+    return new RegExp(regPattern)
   }catch(__){
     return otherwise
   }
