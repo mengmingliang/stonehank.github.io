@@ -200,10 +200,45 @@ export function withOutImgHTML(content){
   return content.replace(/<\s*(img[^>]*)>?/g," $1 ")
 }
 // todo add test
-export function inHTMLTag(patternValue,content){
-  return new RegExp(`<[^>]*${patternValue}`).test(content)
-}
+export function inHTMLTag(patternValue,content,preIdx){
+  let reg
+console.log(patternValue,content,preIdx)
+  if(preIdx && content.substr(preIdx,patternValue.length)!==patternValue)throw new Error('preIdx 指定错误，当前指定下标并不是匹配值')
+  // console.log(1)
+  // return tryReg(()=>new RegExp(`<[^>]*${patternValue}`).test(content),true)
+  // 设定前一个搜索的index，当preIdx在前一个和当前index之间，说明preIdx属于tag内部
+  let lastSearchIdx=Infinity
+  try{
+    reg=new RegExp(`(<[^>]*?)${patternValue}|${patternValue}[^<]*?>`,'g')
 
+    // result=new RegExp(`(<[^>]*${patternValue}|${patternValue}[^<]*?>)`).test(content.substr(preIdx))
+    let match=reg.exec(content)
+    // console.log(match)
+    while(match){
+      // console.log(1)
+      if(preIdx!=null){
+        if(preIdx===match.index+(match[1] && match[1].length || 0))return true
+        else if(preIdx > lastSearchIdx && preIdx<reg.lastIndex)return true
+        else {
+          lastSearchIdx=reg.lastIndex
+          match=reg.exec(content)
+        }
+      }
+      else return true
+    }
+    return false
+  }catch(__){
+    console.log('err')
+    return true
+  }
+}
+export function searchPrecision(patternValue,content){
+  if(/^[^\x00-\xff]+$/.test(patternValue))return content.search(patternValue)
+  else if(/[^\x00-\xff]+$/.test(patternValue)) return content.search(new RegExp(`\\b${patternValue}`))
+  else if(/^[^\x00-\xff]+/.test(patternValue))return content.search(new RegExp(`${patternValue}\\b`))
+  else if(/[^\x00-\xff]+/.test(patternValue))return content.search(new RegExp(`${patternValue}`))
+  else return content.search(new RegExp(`\\b${patternValue}\\b`))
+}
 
 export function isMatchPrecision(patternValue,content){
   if(/^[^\x00-\xff]+$/.test(patternValue))return true
@@ -211,4 +246,12 @@ export function isMatchPrecision(patternValue,content){
   else if(/^[^\x00-\xff]+/.test(patternValue))return new RegExp(`${patternValue}\\b`).test(content)
   else if(/[^\x00-\xff]+/.test(patternValue))return new RegExp(`${patternValue}`).test(content)
   else return new RegExp(`\\b${patternValue}\\b`).test(content)
+}
+
+export function tryReg(regExpression,otherwise){
+  try{
+    return regExpression()
+  }catch(__){
+    return otherwise
+  }
 }

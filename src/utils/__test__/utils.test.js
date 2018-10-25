@@ -314,16 +314,44 @@ test("判断是否在HTML标签内",function () {
 
   let match1=`<div abc/>`
   let match2=`<div id="abc" />`
-  let match3=`<div class="abcde"/>`
+  let match3=`<abc class="abb"/>`
   let match4=`<div class="abcde"/>abc`
   let match5=`<div class="abde"/>abc`
+  let match6=`class="abc"/>`
+  let match7=`class="ab"/>abc<img class="abc"/>`
+  let match8=`class="abde"/>abc`
+  let match9=`class="abc"/>abc<div class="abc"><img class="abc"/>`
+  let match10=`class="abc"/>abc<div class="abc"><img class="abc"/>`
+  let match11=`class="abc"/>abc<div class="abc"><img class="abc"/>`
+  let match12=`<abc s="abcoioabcmoabc">`
+  let match13=`<abc s="abcabcabcabcabcabc">`
+  let match14=`abcoioabcmoabc`
 
   let t='abc'
+  // let t2="\\"
   expect(inHTMLTag(t,match1)).toBe(true)
   expect(inHTMLTag(t,match2)).toBe(true)
   expect(inHTMLTag(t,match3)).toBe(true)
   expect(inHTMLTag(t,match4)).toBe(true)
   expect(inHTMLTag(t,match5)).toBe(false)
+  expect(inHTMLTag(t,match6)).toBe(true)
+  expect(inHTMLTag(t,match7)).toBe(true)
+  expect(inHTMLTag(t,match7,12)).toBe(false)
+  expect(inHTMLTag(t,match8)).toBe(false)
+  expect(inHTMLTag(t,match9)).toBe(true)
+  expect(inHTMLTag(t,match9,13)).toBe(false)
+  expect(inHTMLTag(t,match10,7)).toBe(true)
+  expect(inHTMLTag(t,match11,28)).toBe(true)
+  expect(inHTMLTag(t,match12,14)).toBe(true)
+  expect(inHTMLTag(t,match13,17)).toBe(true)
+  expect(inHTMLTag(t,match14)).toBe(false)
+
+  // expect(inHTMLTag(t2,match1)).toBe(true)
+  // expect(inHTMLTag(t2,match2)).toBe(true)
+  // expect(inHTMLTag(t2,match3)).toBe(true)
+  // expect(inHTMLTag(t2,match4)).toBe(true)
+  // expect(inHTMLTag(t2,match5)).toBe(true)
+
 
 })
 
@@ -351,6 +379,8 @@ test("判断是否精确匹配",function () {
   let cnMatch101="Tree结构"
   let cnMatch102="RBTree结构"
 
+  let extra=`关于回溯算法(backtrack)的模板解析`
+
   let t='abc'
   let t2="算法"
   let t3="Tree结构"
@@ -375,6 +405,9 @@ test("判断是否精确匹配",function () {
   expect(isMatchPrecision(t3,cnMatch100)).toBe(true)
   expect(isMatchPrecision(t3,cnMatch101)).toBe(true)
   expect(isMatchPrecision(t3,cnMatch102)).toBe(false)
+
+
+  expect(isMatchPrecision('a',extra)).toBe(false)
 
 
 })

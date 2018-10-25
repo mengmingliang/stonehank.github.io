@@ -2,17 +2,13 @@ import React from 'react';
 import {Input, Badge, Modal, Spin} from 'antd';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
-import SearchDrawer from "./SearchDrawer"; // https://highlightjs.org/
-import {withOutImgHTML,inHTMLTag,isMatchPrecision} from '../utils'
+import SearchDrawer from "./SearchDrawer";
+import {withOutImgHTML,inHTMLTag,isMatchPrecision,tryReg} from '../utils'
 import SlideCheckBox from "./SlideCheckBox";
 
 hljs.registerLanguage('javascript', javascript);
 const md = require('markdown-it')({
   highlight: function (str, lang) {
-    // console.log(str,lang)
-    if(lang==="search-result"){
-      console.log(str)
-    }
     if (lang && hljs.getLanguage(lang)) {
       try {
         return '<pre class="hljs"><code>' +
@@ -21,10 +17,13 @@ const md = require('markdown-it')({
       } catch (__) {
       }
     }
-
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
   }
 });
+
+
+let count=0
+
 const confirm = Modal.confirm;
 const {Search} = Input;
 const styles = {
@@ -68,6 +67,7 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  // patternValue 已经转换为小写
   computeArticleMatch(patternValue) {
     if (patternValue === "") return []
     const {data, globalSearch} = this.state
@@ -81,54 +81,80 @@ export default class SearchContainer extends React.Component {
     let matchResultObj = {
       _first:[],_second:[],_third:[],_forth: [], _fifth: [], _sixth: []
     }
+    // let reg=new RegExp(`${patternValue}`)
     for (let i = 0; i < data.length; i++) {
       let contentIsPrec=false,titleIsPrec=false
-      // let titleMatch=data[i].title.toLowerCase().match(reg) || []
-      let titleMatchIndex = data[i].title.toLowerCase().indexOf(patternValue)
       let markdownSummary = md.render(globalSearch ? data[i].content : data[i].summary)
-      // let contentMatch=markdownSummary.toLowerCase().match(reg) || []
-      let contentMatchIndex = markdownSummary.toLowerCase().indexOf(patternValue)
+      let markdownTitle = data[i].title
+      let lowerCaseTitle=markdownTitle.toLowerCase()
+      let lowerCaseSummary=markdownSummary.toLowerCase()
+      let titleMatchIndex = lowerCaseTitle.indexOf(patternValue)
+      let contentMatchIndex = lowerCaseSummary.indexOf(patternValue)
 
+      // let titleMatch=data[i].title.toLowerCase().match(reg) || []
+      // let titleMatchIndex=titleMatch.index
+      // let contentMatch=markdownSummary.toLowerCase().match(reg) || []
+      // let contentMatchIndex=contentMatch.index
+
+      // console.log(contentMatchIndex,titleMatchIndex)
       let titlePrefix, titleAffix, titleFix, contentPrefix, contentAffix, contentFix
       // 存在关键字，分割(为了添加背景色)
       if (titleMatchIndex !== -1) {
-        if(isMatchPrecision(patternValue,data[i].title))titleIsPrec=true
+      // if (titleMatchIndex) {
+        // 确定是否精确匹配
+        if(isMatchPrecision(patternValue,lowerCaseTitle))titleIsPrec=true
+        console.log(patternValue,lowerCaseTitle,isMatchPrecision(patternValue,lowerCaseTitle))
         titlePrefix = data[i].title.substr(0, titleMatchIndex)
         titleFix = data[i].title.substr(titleMatchIndex, patternValue.length)
         titleAffix = data[i].title.substr(titleMatchIndex + patternValue.length)
       }
       if (contentMatchIndex !== -1) {
+      // if (contentMatchIndex ) {
         const lo = 50, hi = 100
-        let contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
-        let newIndex
+        let contentMatchPart=lowerCaseSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
+        // let newIndex
+        // console.log(contentMatchPart,contentMatchIndex,lo)
         // 去除tag内部内容
-        while(inHTMLTag(patternValue,contentMatchPart)){
-          // console.log(contentMatchIndex)
-          contentMatchIndex=markdownSummary.toLowerCase().indexOf(patternValue,contentMatchIndex+patternValue.length)
+        // console.log(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo)))
+        while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo))){
+          contentMatchIndex=lowerCaseSummary.indexOf(patternValue,contentMatchIndex+patternValue.length)
+          // contentMatch=markdownSummary.substr(contentMatchIndex+patternValue.length).toLowerCase().match(reg) || []
+          // contentMatchIndex=contentMatch.index
+          // console.log(count++,contentMatchIndex)
           if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
+          // if(contentMatchIndex)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
           else break
         }
         if(contentMatchIndex===-1){continue}
+        // if(!contentMatchIndex) continue
+        console.log(contentMatchIndex,markdownSummary.substring(contentMatchIndex-5,contentMatchIndex+5))
+
         // 去除图片
-        contentMatchPart = withOutImgHTML(contentMatchPart)
-        // console.log(contentMatchIndex)
+        // contentMatchPart = withOutImgHTML(contentMatchPart)
+        // 确定是否精确匹配
         if(isMatchPrecision(patternValue,contentMatchPart))contentIsPrec=true
 
-        newIndex = contentMatchPart.toLowerCase().indexOf(patternValue)
+        // newIndex = contentMatchPart.toLowerCase().indexOf(patternValue)
 
-        contentPrefix = contentMatchPart.substr(0, newIndex)
-        contentFix = contentMatchPart.substr(newIndex, patternValue.length)
-        contentAffix = contentMatchPart.substr(newIndex + patternValue.length)
+        // contentPrefix = contentMatchPart.substr(0, newIndex)
+        // contentFix = contentMatchPart.substr(newIndex, patternValue.length)
+        // contentAffix = contentMatchPart.substr(newIndex + patternValue.length)
 
+        contentPrefix = markdownSummary.substring(contentMatchIndex-lo, contentMatchIndex)
+        contentFix = markdownSummary.substr(contentMatchIndex, patternValue.length)
+        contentAffix = markdownSummary.substr(contentMatchIndex + patternValue.length,hi)
+        console.log(contentPrefix,contentFix,contentAffix)
+        console.log(contentMatchPart)
+        console.log(contentIsPrec,titleIsPrec)
       }
 
       let finalMatchTitle=titleMatchIndex===-1? data[i].title :
+      // let finalMatchTitle=!titleMatchIndex? data[i].title :
         `<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`
-      if(data[i].title==="react-transition-group"){
-        // console.log(titleMatchIndex,titleIsPrec,contentMatchIndex,contentIsPrec)
-      }
+
       let finalMatchContent=contentMatchIndex===-1? markdownSummary.substr(0, 100):
-        `<div>${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}</div>`
+      // let finalMatchContent=!contentMatchIndex? markdownSummary.substr(0, 100):
+        `${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}`
       let resultObj={
         title:finalMatchTitle,
         matchContent:finalMatchContent,
@@ -145,13 +171,17 @@ export default class SearchContainer extends React.Component {
       if(titleIsPrec && contentIsPrec) matchResultObj._first.push(resultObj)
       else if(titleIsPrec) matchResultObj._second.push(resultObj)
       else if(contentIsPrec) matchResultObj._third.push(resultObj)
+      // else if (titleMatchIndex && contentMatchIndex) matchResultObj._forth.push(resultObj)
       else if (titleMatchIndex !== -1 && contentMatchIndex !== -1) matchResultObj._forth.push(resultObj)
+      // else if (titleMatchIndex ) matchResultObj._fifth.push(resultObj)
       else if (titleMatchIndex !== -1) matchResultObj._fifth.push(resultObj)
+      // else if (contentMatchIndex ) matchResultObj._sixth.push(resultObj)
       else if (contentMatchIndex !== -1) matchResultObj._sixth.push(resultObj)
     }
     // console.timeEnd(1)
     let result = matchResultObj._first.concat(matchResultObj._second,matchResultObj._third,matchResultObj._forth,matchResultObj._fifth, matchResultObj._sixth)
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
+    // console.log(count)
     return result
   }
 
