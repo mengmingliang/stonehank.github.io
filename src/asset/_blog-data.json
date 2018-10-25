@@ -1793,5 +1793,56 @@
 		"title": "记录CRA的webpack配置曾经的issue-3",
 		"summary": "* `terser`的配置output\n\n```\nterserOptions: {\n  ...\n  output: {\n    ...      \n    // Turned on because emoji and regex is not minified properly using default\n    //...",
 		"sha": "578982e3d37ef324089ae9591f0a39802c74a3a1"
+	},
+	"记录一次Travis构建前后流程": {
+		"label": [
+			"github",
+			"git",
+			"npm"
+		],
+		"createdTime": "10/21/2018",
+		"timeArr": [
+			2018,
+			9,
+			21,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "记录一次Travis构建前后流程",
+		"summary": "环境：3个文件夹\n* blogs 用于写博客\n* create-my-blog 用于获取博客内容和创建静态博客页面\n* stonehank.github.io 用于展示博客\n\n造成文件夹比较繁杂是因为当时写的时候并没有想去在github做一个博客页面。\n\n自动构建前的流程：\n\n|—blogs\n\n`git commit`...",
+		"sha": "8ba24bced12747fd7394737f432e13c73a8659d2"
+	},
+	"记录CRA的webpack配置曾经的issue-4": {
+		"label": [
+			"webpack",
+			"github",
+			"react",
+			"css"
+		],
+		"createdTime": "10/25/2018",
+		"timeArr": [
+			2018,
+			9,
+			25,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "记录CRA的webpack配置曾经的issue-4",
+		"summary": "* webpack的`sideEffect`\n\n在配置css-loader的内部\n\n```\n{\n  test: sassRegex,\n  ...\n  // Don't consider CSS imports dead code even if the\n  // containing package claims to...",
+		"sha": "c652978c17e0cd7fcf3dd94e0dab32551f0b884e"
+	},
+	"readme": {
+		"label": [
+			"github"
+		],
+		"createdTime": "未知日期",
+		"timeArr": [],
+		"title": "readme",
+		"summary": "[My-blog](https://stonehank.github.io)...",
+		"sha": "d0eefe7d7cd9eb5a90d0c3f0c33087d00204265d"
 	}
 }

@@ -203,7 +203,7 @@ export function withOutImgHTML(content){
 export function inHTMLTag(patternValue,content,preIdx){
   let reg
   if(preIdx && content.substr(preIdx,patternValue.length)!==patternValue){
-    console.warn('preIdx 指定错误，当前指定下标并不是匹配值')
+    console.warn('preIdx 指定错误，当前指定下标并不是匹配值，此处逻辑有误需要修复')
     return true
   }
 
