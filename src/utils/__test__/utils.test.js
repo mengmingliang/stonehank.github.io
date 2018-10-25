@@ -328,7 +328,6 @@ test("判断是否在HTML标签内",function () {
   let match14=`abcoioabcmoabc`
 
   let t='abc'
-  // let t2="\\"
   expect(inHTMLTag(t,match1)).toBe(true)
   expect(inHTMLTag(t,match2)).toBe(true)
   expect(inHTMLTag(t,match3)).toBe(true)
@@ -345,13 +344,6 @@ test("判断是否在HTML标签内",function () {
   expect(inHTMLTag(t,match12,14)).toBe(true)
   expect(inHTMLTag(t,match13,17)).toBe(true)
   expect(inHTMLTag(t,match14)).toBe(false)
-
-  // expect(inHTMLTag(t2,match1)).toBe(true)
-  // expect(inHTMLTag(t2,match2)).toBe(true)
-  // expect(inHTMLTag(t2,match3)).toBe(true)
-  // expect(inHTMLTag(t2,match4)).toBe(true)
-  // expect(inHTMLTag(t2,match5)).toBe(true)
-
 
 })
 

@@ -199,28 +199,22 @@ export function parseHrefToNav(pathname){
 export function withOutImgHTML(content){
   return content.replace(/<\s*(img[^>]*)>?/g," $1 ")
 }
-// todo add test
+
 export function inHTMLTag(patternValue,content,preIdx){
   let reg
-// console.log(patternValue,content,preIdx)
   if(preIdx && content.substr(preIdx,patternValue.length)!==patternValue){
     console.warn('preIdx 指定错误，当前指定下标并不是匹配值')
     return true
   }
-  // console.log(1)
-  // return tryReg(()=>new RegExp(`<[^>]*${patternValue}`).test(content),true)
+
   // 设定前一个搜索的index，当preIdx在前一个和当前index之间，说明preIdx属于tag内部
   let lastSearchIdx=Infinity
   try{
     reg=new RegExp(`(<[^>]*?)${patternValue}|${patternValue}[^<]*?>`,'g')
-
-    // result=new RegExp(`(<[^>]*${patternValue}|${patternValue}[^<]*?>)`).test(content.substr(preIdx))
     let match=reg.exec(content)
-    // console.log(match)
     while(match){
-      // console.log(1)
       if(preIdx!=null){
-        if(preIdx===match.index+(match[1] && match[1].length || 0))return true
+        if(preIdx===match.index+((match[1] && match[1].length) || 0))return true
         else if(preIdx > lastSearchIdx && preIdx<reg.lastIndex)return true
         else {
           lastSearchIdx=reg.lastIndex
@@ -245,11 +239,6 @@ export function searchPrecision(patternValue,content,fromIndex=0){
   let tryP=tryReg(regPattern,false)
   if(tryP)result=_content.search(tryP)
   else return null
-  // if(/^[^\x00-\xff]+$/.test(patternValue))result= _content.search(patternValue)
-  // else if(/[^\x00-\xff]+$/.test(patternValue)) result= _content.search(new RegExp(`\\b${patternValue}`))
-  // else if(/^[^\x00-\xff]+/.test(patternValue))result= _content.search(new RegExp(`${patternValue}\\b`))
-  // else if(/[^\x00-\xff]+/.test(patternValue))result= _content.search(new RegExp(`${patternValue}`))
-  // else result= _content.search(new RegExp(`\\b${patternValue}\\b`))
   if(result!==-1)return result+fromIndex
   else return -1
 }

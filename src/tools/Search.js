@@ -3,7 +3,7 @@ import {Input, Badge, Modal, Spin} from 'antd';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import SearchDrawer from "./SearchDrawer";
-import {withOutImgHTML,inHTMLTag,isMatchPrecision,tryReg,searchPrecision} from '../utils'
+import {inHTMLTag,searchPrecision} from '../utils'
 import SlideCheckBox from "./SlideCheckBox";
 
 hljs.registerLanguage('javascript', javascript);
@@ -21,8 +21,6 @@ const md = require('markdown-it')({
   }
 });
 
-
-let count=0
 
 const confirm = Modal.confirm;
 const {Search} = Input;
@@ -81,14 +79,12 @@ export default class SearchContainer extends React.Component {
     let matchResultObj = {
       _first:[],_second:[],_third:[],_forth: [], _fifth: [], _sixth: []
     }
-    // let reg=new RegExp(`${patternValue}`)
     for (let i = 0; i < data.length; i++) {
       let contentIsPrec=false,titleIsPrec=false
       let markdownSummary = md.render(globalSearch ? data[i].content : data[i].summary)
       let markdownTitle = data[i].title
       let lowerCaseTitle=markdownTitle.toLowerCase()
       let lowerCaseSummary=markdownSummary.toLowerCase()
-
 
       function searchTitle(pattern,content,fromIndex){
         let titleMatchIndex,titlePrecIndex=searchPrecision(pattern,content,fromIndex)
@@ -108,73 +104,34 @@ export default class SearchContainer extends React.Component {
         contentMatchIndex=searchContent(patternValue,lowerCaseSummary)
 
 
-      // let titleMatch=data[i].title.toLowerCase().match(reg) || []
-      // let titleMatchIndex=titleMatch.index
-      // let contentMatch=markdownSummary.toLowerCase().match(reg) || []
-      // let contentMatchIndex=contentMatch.index
-
-      // console.log(contentMatchIndex,titleMatchIndex)
       let titlePrefix, titleAffix, titleFix, contentPrefix, contentAffix, contentFix
       // 存在关键字，分割(为了添加背景色)
       if (titleMatchIndex !== -1) {
-      // if (titleMatchIndex) {
-        // 确定是否精确匹配
-        // if(isMatchPrecision(patternValue,lowerCaseTitle))titleIsPrec=true
-        // console.log(patternValue,lowerCaseTitle,isMatchPrecision(patternValue,lowerCaseTitle))
         titlePrefix = data[i].title.substr(0, titleMatchIndex)
         titleFix = data[i].title.substr(titleMatchIndex, patternValue.length)
         titleAffix = data[i].title.substr(titleMatchIndex + patternValue.length)
       }
       if (contentMatchIndex !== -1) {
-      // if (contentMatchIndex ) {
         const lo = 50, hi = 100
         let contentMatchPart=lowerCaseSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
-        // let newIndex
-        // console.log(contentMatchPart,contentMatchIndex,lo)
         // 去除tag内部内容
-        // console.log(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo)))
         while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo))){
-          // contentMatchIndex=lowerCaseSummary.indexOf(patternValue,contentMatchIndex+patternValue.length)
           contentIsPrec=false
           contentMatchIndex=searchContent(patternValue,lowerCaseSummary,contentMatchIndex+patternValue.length)
-          // contentMatch=markdownSummary.substr(contentMatchIndex+patternValue.length).toLowerCase().match(reg) || []
-          // contentMatchIndex=contentMatch.index
-          // console.log(count++,contentMatchIndex)
-          // console.log(contentMatchIndex,markdownSummary,lowerCaseSummary)
           if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
-          // if(contentMatchIndex)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
           else break
         }
         if(contentMatchIndex===-1){continue}
-        // if(!contentMatchIndex) continue
-        // console.log(contentMatchIndex,markdownSummary.substring(contentMatchIndex-5,contentMatchIndex+5))
-
-        // 去除图片
-        // contentMatchPart = withOutImgHTML(contentMatchPart)
-        // 确定是否精确匹配
-        // if(isMatchPrecision(patternValue,contentMatchPart))contentIsPrec=true
-
-        // newIndex = contentMatchPart.toLowerCase().indexOf(patternValue)
-
-        // contentPrefix = contentMatchPart.substr(0, newIndex)
-        // contentFix = contentMatchPart.substr(newIndex, patternValue.length)
-        // contentAffix = contentMatchPart.substr(newIndex + patternValue.length)
 
         contentPrefix = markdownSummary.substring(contentMatchIndex-lo, contentMatchIndex)
         contentFix = markdownSummary.substr(contentMatchIndex, patternValue.length)
         contentAffix = markdownSummary.substr(contentMatchIndex + patternValue.length,hi)
-        // console.log(contentPrefix,contentFix,contentAffix)
-        // console.log(lowerCaseTitle,contentFix,contentAffix)
-        // console.log(contentMatchPart)
-        // console.log(contentIsPrec,titleIsPrec)
       }
 
       let finalMatchTitle=titleMatchIndex===-1? data[i].title :
-      // let finalMatchTitle=!titleMatchIndex? data[i].title :
         `<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`
 
       let finalMatchContent=contentMatchIndex===-1? markdownSummary.substr(0, 100):
-      // let finalMatchContent=!contentMatchIndex? markdownSummary.substr(0, 100):
         `${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}`
       let resultObj={
         title:finalMatchTitle,
@@ -192,17 +149,12 @@ export default class SearchContainer extends React.Component {
       if(titleIsPrec && contentIsPrec) matchResultObj._first.push(resultObj)
       else if(titleIsPrec) matchResultObj._second.push(resultObj)
       else if(contentIsPrec) matchResultObj._third.push(resultObj)
-      // else if (titleMatchIndex && contentMatchIndex) matchResultObj._forth.push(resultObj)
       else if (titleMatchIndex !== -1 && contentMatchIndex !== -1) matchResultObj._forth.push(resultObj)
-      // else if (titleMatchIndex ) matchResultObj._fifth.push(resultObj)
       else if (titleMatchIndex !== -1) matchResultObj._fifth.push(resultObj)
-      // else if (contentMatchIndex ) matchResultObj._sixth.push(resultObj)
       else if (contentMatchIndex !== -1) matchResultObj._sixth.push(resultObj)
     }
-    // console.timeEnd(1)
     let result = matchResultObj._first.concat(matchResultObj._second,matchResultObj._third,matchResultObj._forth,matchResultObj._fifth, matchResultObj._sixth)
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
-    // console.log(count)
     return result
   }
 
