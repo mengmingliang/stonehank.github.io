@@ -54,6 +54,7 @@ export function refactor(json,groupBy){
 // 按sortKey的顺序比较，sortKey对应的值支持Array(nest)
 // immutable
 // obj<json>:{ a:{},b:{}}
+// 不同类型只能比较数字，字符串等js默认能比较的（需要更准确需要类似JAVA compare函数）
 export function objSortBy(obj,sortKey,asc){
   let os=Object.prototype.toString
   if(os.call(obj)!=="[object Object]")throw Error("obj must be Object")
@@ -77,14 +78,18 @@ export function objSortBy(obj,sortKey,asc){
       while(index<sortFactor.length){
         valA=a[sortFactor[index]]
         valB=b[sortFactor[index]]
-        if(!valA || _compare(valA,valB)<0)return -compareReturn
-        else if(!valB || _compare(valA,valB)>0)return compareReturn
+        if(valA==null && valB==null) index++
+        else if(valA==null || _compare(valA,valB)<0)return -compareReturn
+        else if(valB==null || _compare(valA,valB)>0)return compareReturn
         else index++
       }
       return 0
     })
   }
   function _compare(a,b){
+    if(a==null && b==null)return 0
+    else if(a==null)return -1
+    else if(b==null)return 1
     let typeA=os.call(a),typeB=os.call(b)
     if(typeA==="[object Array]" && typeB==="[object Array]"){
       let i=0

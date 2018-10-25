@@ -15,5 +15,6 @@
       "缓存","worker","promise","canvas","indexedDB","MutationObserver",
       "git","MySQL","ES6","尾调用","babel","github","尾调用","表单","网络安全",
       "规范","npm","router","webpack"
-   ]
+   ],
+   "fetchExcludes":["readme"]
 }

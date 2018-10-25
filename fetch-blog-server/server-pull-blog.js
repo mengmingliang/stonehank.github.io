@@ -26,7 +26,7 @@ try{
 // 开始
 console.log("项目根目录为："+context,"正在通过github获取数据...")
 const {token}=token_json
-const {user,repository,branch,per_page,forceUpdate,dataType,ignoreSHA,summaryLength,retry_times,resource_dir_list,keywords,showDetail}=config
+const {user,repository,branch,per_page,forceUpdate,dataType,ignoreSHA,summaryLength,retry_times,resource_dir_list,keywords,showDetail,fetchExcludes}=config
 // 判断blog是否完成，完成blog后才执行资源
 let fetchBlogHasDone
 // 用于保存获取的github数据，用于发生错误重复执行
@@ -182,6 +182,8 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
     let resourcedir=parse.dir
     let rawname=parse.name
 
+    // 排除
+    if(fetchExcludes.includes(rawname))continue
     // 获取时间
     let moment_splitTimeName=moment(rawname,dataType);
     let cur_remote_createdTime,
