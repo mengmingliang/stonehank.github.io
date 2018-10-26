@@ -6,7 +6,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import {linkTo} from "../routes/linkPathList";
-
+import Disqus from 'disqus-react';
 
 hljs.registerLanguage('javascript', javascript);
 
@@ -58,7 +58,6 @@ export default class ArticleDetail extends React.Component{
     return originalElement;
   }
   handlePageChange(page) {
-    // console.log(`${linkTo.articles}/${this.props.blogList[page-1].title}`)
     navigate(`${linkTo.articles}/${this.props.blogList[page-1].sha}`)
   }
   fetchBlogContent(){
@@ -129,17 +128,24 @@ export default class ArticleDetail extends React.Component{
   }
   render(){
     const {curArticleData,contentLoading}=this.state
-    const {blogList}=this.props
+    const {blogList,articleSha,location}=this.props
+    const disqusShortname = 'stonehank';
+    const disqusConfig = {
+      url: `${location.origin}/articles/${articleSha}`,
+      identifier: articleSha,
+      title: curArticleData && curArticleData.title,
+    };
     return(
       contentLoading ?
         <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
         <article style={styles.article}>
           <header>
             <h1 style={styles.articleTitle}>{curArticleData.title}</h1>
-            <ArticleStatusBar justify={"center"} article={curArticleData} />
+            <ArticleStatusBar justify={"center"} article={curArticleData} articleSha={articleSha}/>
           </header>
           <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>
           <Divider />
+          <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
           <footer style={styles.footer}>
             <Pagination simple  pageSize={1} total={blogList.length}
                         current={this.curArticleIndex}

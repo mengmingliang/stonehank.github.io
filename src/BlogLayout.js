@@ -149,9 +149,6 @@ export default class BlogLayout extends React.Component {
               )
             }}
           </Location>
-          {/*<Footer style={{textAlign: 'center'}}>*/}
-            {/*<Pagination simple current={current} pageSize={pageSize} total={total} onChange={this.handlePageChange}/>*/}
-          {/*</Footer>*/}
           <BackTop />
         </Layout>
       </Layout>

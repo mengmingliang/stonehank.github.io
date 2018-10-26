@@ -221,16 +221,16 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
     }
 
 
-    if(ignoreSHA || !listData[cur_remote_filename] || listData[cur_remote_filename].sha!==cur_remote_sha || checkFile()){
+    if(ignoreSHA || !listData[cur_remote_sha] || listData[cur_remote_sha].sha!==cur_remote_sha || checkFile()){
       pristine=false
-      if(!listData[cur_remote_filename]) listData[cur_remote_filename]={}
+      if(!listData[cur_remote_sha]) listData[cur_remote_sha]={}
       if(showDetail)if(!ignoreSHA)console.log("找到不存在/不匹配的，name为"+cur_remote_filename)
 
       let curFetch
       // 写入resource 或者 blog的content，listInfo在最后统一axios.all()写入，确保不会有漏
       if(isResource){
-        listData[cur_remote_filename].title=cur_remote_filename
-        listData[cur_remote_filename].sha=cur_remote_sha
+        listData[cur_remote_sha].title=cur_remote_filename
+        listData[cur_remote_sha].sha=cur_remote_sha
         let encodeBasename=encodeURIComponent(cur_remote_basename)
 
 
@@ -284,7 +284,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
             if(showDetail)console.log('正在判断是否需要更新具体标签...')
             function checkIfNeedForceUpdated(key,value){
-              return (!(forceUpdate===true || forceUpdate[key]===true) && listData[cur_remote_filename][key]) || value
+              return (!(forceUpdate===true || forceUpdate[key]===true) && listData[cur_remote_sha][key]) || value
             }
 
 
@@ -311,7 +311,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
                 summary:getSummary}
               for(let i=0;i<customListKeys.length;i++){
                 let curKey=customListKeys[i]
-                listData[cur_remote_filename][curKey]=listValue[curKey]()
+                listData[cur_remote_sha][curKey]=listValue[curKey]()
               }
             }else{
               console.error("customListKeys必须是Array")
@@ -319,7 +319,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
 
 
-            listData[cur_remote_filename].sha=cur_remote_sha
+            listData[cur_remote_sha].sha=cur_remote_sha
 
 
             let contentPath_sha=getContentInfoPath(cus_extension?cur_remote_sha+cus_extension:cur_remote_sha+initExtension)

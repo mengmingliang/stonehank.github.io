@@ -5,6 +5,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "antd": "^3.10.1",
+    "disqus-react": "^1.0.5",
     "highlight.js": "^9.13.0",
     "markdown-it": "^8.4.2",
     "react": "^16.5.2",

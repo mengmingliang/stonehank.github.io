@@ -57,7 +57,6 @@ export default class ArchiveList extends React.Component {
   componentDidMount(){
     const {dayList,archiveEachPage}=this.props
     // dayList是数组，遍历时不会遍历到它的自定义属性
-    // todo 5是默认加载数量，可转换为配置
     dayList.loadedLength= dayList.loadedLength || archiveEachPage || 5
     this.setState({
       loadedList:this.state.loadedList.concat(this.getApartOfData(dayList,dayList.loadedLength))
@@ -69,7 +68,7 @@ export default class ArchiveList extends React.Component {
     const loadMore = (
       <div style={styles.loadMore}>
         {this.loadedIndex < dayList.length ?
-          <Button onClick={this.onLoadMore}>loading more</Button> :
+          <Button onClick={this.onLoadMore}>● ● ●</Button> :
           <Button disabled>没有更多了</Button>
         }
 

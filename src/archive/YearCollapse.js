@@ -50,19 +50,22 @@ export default class YearCollapse extends React.Component {
                 activeKey={activePanel[0]}
                 onChange={changeActiveYear}
       >
-        <Panel header={year + "年"} key={year + "年"} style={styles.yearStyle}>
-          { monthList.map((dayList,j)=>{
-            if(dayList && dayList.length>0){
-              return <MonthCollapse key={j+1+"月"} dayList={dayList}
-                                    month={j+1}
-                                    archiveEachPage={archiveEachPage}
-                                    activePanel={activePanel}
-                                    changeActiveMonth={changeActiveMonth}/>
-            }
-            return null
-          })}
+        { year ?
+          <Panel header={year + "年"} key={year + "年"} style={styles.yearStyle}>
+            {monthList.map((dayList, j) => {
+              if (dayList && dayList.length > 0) {
+                return <MonthCollapse key={j + 1 + "月"} dayList={dayList}
+                                      month={j + 1}
+                                      archiveEachPage={archiveEachPage}
+                                      activePanel={activePanel}
+                                      changeActiveMonth={changeActiveMonth}/>
+              }
+              return null
+            })}
 
-        </Panel>
+          </Panel> :
+          <Panel header={"无时间归档"} style={styles.yearStyle} disabled/>
+        }
       </Collapse>
 
     )
