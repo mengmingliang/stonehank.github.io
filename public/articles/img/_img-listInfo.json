@@ -150,5 +150,25 @@
 	"68a1f5742856fdf063940107fccbf542ab324e7f": {
 		"title": "second",
 		"sha": "68a1f5742856fdf063940107fccbf542ab324e7f"
+	},
+	"6f9e3300209d9fcb6b1e577f0d5ff26397b774aa": {
+		"title": "comment_count_fail",
+		"sha": "6f9e3300209d9fcb6b1e577f0d5ff26397b774aa"
+	},
+	"14ce11ceded9b7e854bf1fbea0981239d439a9ce": {
+		"title": "comment_count_succ",
+		"sha": "14ce11ceded9b7e854bf1fbea0981239d439a9ce"
+	},
+	"d06be451e28244c0b00b6084e49191266cd43109": {
+		"title": "disque_request_first",
+		"sha": "d06be451e28244c0b00b6084e49191266cd43109"
+	},
+	"10a3a71d8af817b2e44e3c1e26b282de11a45d94": {
+		"title": "disque_request_second",
+		"sha": "10a3a71d8af817b2e44e3c1e26b282de11a45d94"
+	},
+	"6e5da6e3f90fd38de2ec492b85d5e46f57077f9f": {
+		"title": "disqus_concole",
+		"sha": "6e5da6e3f90fd38de2ec492b85d5e46f57077f9f"
 	}
 }

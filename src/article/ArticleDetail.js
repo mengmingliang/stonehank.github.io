@@ -133,7 +133,6 @@ export default class ArticleDetail extends React.Component{
     const disqusConfig = {
       url: `${location.origin}/articles/${articleSha}`,
       identifier: articleSha,
-      title: curArticleData && curArticleData.title,
     };
     return(
       contentLoading ?
