@@ -23,6 +23,7 @@ export default class ArticleStatusBar extends React.Component{
     const disqusConfig = {
       url: `${window.location.origin}/articles/${sha}`,
       identifier: sha,
+      title: article.title,
     };
     return (
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
