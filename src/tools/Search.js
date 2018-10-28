@@ -219,14 +219,21 @@ export default class SearchContainer extends React.Component {
     for (let i = 0; i < data.length; i++) {
       fetchQueue[i] = import(
         /* webpackMode: "lazy-once" */
+        /* webpackInclude: /\.json$/ */
         /* webpackExclude: /_blog-data\.json$/ */
         /* webpackChunkName: "global-search" */
-        `../asset/${data[i].sha}.json`)
+        `../asset/${data[i].titleSHA}.json`)
         .then(obj => {
           data[i].content = obj.content
         })
     }
     Promise.all(fetchQueue).then(() => {
+      this.setState({
+        globalFetching: false,
+        data: data
+      })
+    }).catch(e=>{
+      console.warn(e)
       this.setState({
         globalFetching: false,
         data: data

@@ -28,7 +28,6 @@ export default class SearchDrawer extends React.Component {
   render() {
     const {matchTags,matchArticles,drawShow,handleDrawerClose,searchKeyword,clearSearchInput}=this.props
     const canShow=matchArticles && handleDrawerClose
-    console.log(matchArticles)
     return (
       canShow ?
       <Drawer

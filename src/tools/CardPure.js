@@ -13,7 +13,6 @@ export default class CardPure extends React.PureComponent {
 
   navigateToPath(path,e){
     const {beforeNavigate}=this.props
-    console.log(e.target)
     if(e.target.className.includes('tag'))return
     if(beforeNavigate)beforeNavigate()
     navigate(path)
