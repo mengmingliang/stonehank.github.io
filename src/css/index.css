@@ -14,7 +14,7 @@ body{
     background-color: #fff;
 }
 img{
-    width:100%;
+    max-width:100%;
 }
 .logo {
     height: 64px;

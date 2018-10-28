@@ -18,7 +18,7 @@ export default class ArticleStatusBar extends React.Component{
 
   render(){
     const {article,articleSha,...props}=this.props
-    let sha=article.sha || articleSha
+    let sha=article.titleSHA || articleSha
     const disqusShortname = 'stonehank';
     const disqusConfig = {
       url: `${window.location.origin}/articles/${sha}`,

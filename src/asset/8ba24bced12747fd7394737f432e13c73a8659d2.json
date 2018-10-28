@@ -1,3 +1,0 @@
-{
-  "content": "环境：3个文件夹\n* blogs 用于写博客\n* create-my-blog 用于获取博客内容和创建静态博客页面\n* stonehank.github.io 用于展示博客\n\n造成文件夹比较繁杂是因为当时写的时候并没有想去在github做一个博客页面。\n\n自动构建前的流程：\n\n|—blogs\n\n`git commit`和`git push`上传最新博客内容\n\n|—create-my-blog\n\n1. `fetch`最新资源\n2. `git run test`测试\n3. `git commit`确认文件\n4. `npm run build`构建静态资源\n5. 手动copy`build`文件夹的内容至`stonehank.github.io`\n\n|—stonehank.github.io\n\n`git commit`和`git push`上传至github\n\n------\n\n自动构建过程中将create-my-blog和stonehank.github.io作为一个仓库的两个分支处理。\n\n------\n\n自动构建后的流程：\n\n|—blogs\n\n`git commit`和`git push`上传最新博客内容\n\n|—stonehank.github.io\n\n1. `fetch`最新资源\n3. `git commit`和`git push`\n\n自动构建过程：\n1. `npm run build`构建静态资源\n2. `git push`build文件夹内容到`master`分支\n\n流程做个记录。"
-}

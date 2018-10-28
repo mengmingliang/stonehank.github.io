@@ -1,7 +1,7 @@
 import React from 'react';
 import { List} from 'antd';
-import { navigate} from "@reach/router"
-import {linkTo} from '../routes/linkPathList'
+// import { navigate} from "@reach/router"
+// import {linkTo} from '../routes/linkPathList'
 import CardPure from "../tools/CardPure";
 import TagHeader from "./TagHeader";
 
@@ -14,15 +14,15 @@ const styles={
 
 
 export default class TagsList extends React.Component {
-  constructor() {
-    super()
-    this.navigateToPath=this.navigateToPath.bind(this)
-  }
+  // constructor() {
+  //   super()
+  //   this.navigateToPath=this.navigateToPath.bind(this)
+  // }
 
-  navigateToPath(path,e){
-    if(e.target.className.includes('tag'))return
-    navigate(path)
-  }
+  // navigateToPath(path,e){
+  //   if(e.target.className.includes('tag'))return
+  //   navigate(path)
+  // }
   render() {
     const {articles, pageSize, page,handlePageChange,totalPage,renderArticles} = this.props
     return (
@@ -51,7 +51,7 @@ export default class TagsList extends React.Component {
                                         style={styles.card}
                                         title={item.title}
                                         statusBarItem={item}
-                                        onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+
                               />
                             )}
                       />

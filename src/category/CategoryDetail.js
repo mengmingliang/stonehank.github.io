@@ -1,7 +1,7 @@
 import React from 'react';
 import {List} from 'antd';
 import {navigate} from "@reach/router"
-import {linkTo} from '../routes/linkPathList'
+// import {linkTo} from '../routes/linkPathList'
 import Loading from "../tools/Loading";
 import TagHeader from "./TagHeader";
 import CardPure from "../tools/CardPure";
@@ -24,10 +24,10 @@ export default class CategoryDetail extends React.Component {
       tagName:null,
     }
   }
-  navigateToPath(path,e){
-    if(e.target.className.includes('tag'))return
-    navigate(path)
-  }
+  // navigateToPath(path,e){
+  //   if(e.target.className.includes('tag'))return
+  //   navigate(path)
+  // }
 
   static getDerivedStateFromProps(nextProps,prevState){
     const {location,categoryArticles}=nextProps
@@ -73,7 +73,7 @@ export default class CategoryDetail extends React.Component {
                      style={styles.card}
                      title={item.title}
                      statusBarItem={item}
-                     onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+                     // onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
            />
          )}
        />

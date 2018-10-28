@@ -1,7 +1,7 @@
 import React from 'react';
 import { List,Divider,Drawer,Row } from 'antd';
-import {navigate} from "@reach/router"
-import {linkTo} from "../routes/linkPathList";
+// import {navigate} from "@reach/router"
+// import {linkTo} from "../routes/linkPathList";
 import CardPure from "./CardPure";
 import TagsCol from "./TagsCol";
 
@@ -15,19 +15,20 @@ const styles={
 }
 
 export default class SearchDrawer extends React.Component {
-  constructor() {
-    super()
-    this.navigateToPath=this.navigateToPath.bind(this)
-  }
+  // constructor() {
+  //   super()
+  //   this.navigateToPath=this.navigateToPath.bind(this)
+  // }
 
-  navigateToPath(path,e){
-    const {clearSearchInput}=this.props
-    clearSearchInput()
-    navigate(path)
-  }
+  // navigateToPath(path,e){
+  //   const {clearSearchInput}=this.props
+  //   clearSearchInput()
+  //   navigate(path)
+  // }
   render() {
-    const {matchTags,matchArticles,drawShow,handleDrawerClose,searchKeyword}=this.props
+    const {matchTags,matchArticles,drawShow,handleDrawerClose,searchKeyword,clearSearchInput}=this.props
     const canShow=matchArticles && handleDrawerClose
+    console.log(matchArticles)
     return (
       canShow ?
       <Drawer
@@ -58,10 +59,12 @@ export default class SearchDrawer extends React.Component {
                       bordered={false}
                       style={styles.card}
                       bodyStyle={styles.card_pure_body}
+                      statusBarItem={item}
                       title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
                       summary={<div style={styles.summary}
                                      dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
-                      onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+                      beforeNavigate={clearSearchInput}
+                      // onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
             />
           ))}
         </List>

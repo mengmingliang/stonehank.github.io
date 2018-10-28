@@ -58,12 +58,14 @@ export default class ArticleDetail extends React.Component{
     return originalElement;
   }
   handlePageChange(page) {
-    navigate(`${linkTo.articles}/${this.props.blogList[page-1].sha}`)
+    navigate(`${linkTo.articles}/${this.props.blogList[page-1].titleSHA}`)
   }
   fetchBlogContent(){
     const {articleSha,blogList}=this.props
+
     const curArticle=blogList.find((o,i)=>{
-      if(o.sha===articleSha){
+      console.log(o.titleSHA,articleSha)
+      if(o.titleSHA===articleSha){
         this.curArticleIndex=i+1
         return true
       }
@@ -89,6 +91,7 @@ export default class ArticleDetail extends React.Component{
     }
   }
   componentDidUpdate(){
+    console.log(1)
     if(!this.props.blogList)return
     if(this.props.articleSha!==this.state.curArticleName){
       this.fetchBlogContent()
@@ -108,14 +111,15 @@ export default class ArticleDetail extends React.Component{
   }
 
   componentDidMount(){
+    const {articleSha,blogList}=this.props
     Promise.resolve().then(()=>{
       window.scrollTo(0, 0);
     })
-    if(!this.props.blogList)return
+    if(!blogList)return
     this.fetchBlogContent()
       .then(obj=>{
         this.setState({
-          curArticleName:this.props.articleSha,
+          curArticleName:articleSha,
           curArticleData:obj,
           contentLoading:false
         })

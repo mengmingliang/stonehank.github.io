@@ -6,7 +6,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 
 import CardPure from "../tools/CardPure";
 import {deepEqual} from "../utils/index";
-import {linkTo} from "../routes/linkPathList";
+// import {linkTo} from "../routes/linkPathList";
 
 hljs.registerLanguage('javascript', javascript); // https://highlightjs.org/
 
@@ -40,16 +40,16 @@ export default class ArticleList extends React.Component {
   constructor() {
     super()
     this.paginationPageChange = this.paginationPageChange.bind(this)
-    this.navigateToPath=this.navigateToPath.bind(this)
+    // this.navigateToPath=this.navigateToPath.bind(this)
   }
 
   paginationPageChange(page) {
     navigate(`/page/${page}`)
   }
-  navigateToPath(path,e){
-    if(e.target.className.includes('tag'))return
-    navigate(path)
-  }
+  // navigateToPath(path,e){
+  //   if(e.target.className.includes('tag'))return
+  //   navigate(path)
+  // }
 
   shouldComponentUpdate(nextProps){
     return !deepEqual(nextProps.articles,this.props.articles)
@@ -79,7 +79,6 @@ export default class ArticleList extends React.Component {
                         statusBarItem={item}
                         summary={<div style={styles.summary}
                                        dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>}
-                        onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
               />
             ))}
           </List>
