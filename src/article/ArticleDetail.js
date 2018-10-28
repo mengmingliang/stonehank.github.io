@@ -64,7 +64,6 @@ export default class ArticleDetail extends React.Component{
     const {articleSha,blogList}=this.props
 
     const curArticle=blogList.find((o,i)=>{
-      console.log(o.titleSHA,articleSha)
       if(o.titleSHA===articleSha){
         this.curArticleIndex=i+1
         return true
