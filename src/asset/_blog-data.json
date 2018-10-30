@@ -124,7 +124,7 @@
 		"title": "React v16.7新功能提议：Hooks(1)",
 		"titleSHA": "6333d42d6632d6a828d0bdcbf93085fefd6043d0",
 		"summary": "#### Hooks\n\n\n\n* useState:\n1. 可以在非class使用state\n2. 返回一个数组\n\n    arr[0]是具体的state\n    \n    arr[1]是改变state的方法\n    \n    `const [count, setCount] = useState(in...",
-		"sha": "045c2ec23ad34769ae0245f59915bac32d2a26ef"
+		"sha": "7592784d02c2bac58c7ac782ae1efb07edaf2f20"
 	},
 	"4483d4ae741e5f281dba7c87dd850e305a2b0565": {
 		"label": [
@@ -1988,5 +1988,25 @@
 		"titleSHA": "8e74b1491a2006b6a1642598cc517a267cfa577b",
 		"summary": "#### 一个记录redux每次dispatch耗时中间件#### 源码\n\n[源码地址](https://gist.github.com/clarkbw/966732806e7a38f5b49fd770c62a6099)\n```js\nconst timing = store => next => action => {\n...",
 		"sha": "78386b134e2b2ff73ad010cc436a6bcaadc22582"
+	},
+	"8cf3eb3203db34468cc1b1507b0c244e16cbf3ab": {
+		"label": [
+			"react",
+			"github"
+		],
+		"createdTime": "10/30/2018",
+		"timeArr": [
+			2018,
+			9,
+			30,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "React的Strict Mode",
+		"titleSHA": "8cf3eb3203db34468cc1b1507b0c244e16cbf3ab",
+		"summary": "#### Strict Mode\n\n在React v16.3时添加，目的是帮助找出应用中潜在的问题。\n\n使用：\n```jsx\nimport React from 'react';\n\nfunction ExampleApplication() {\n  return (\n    <div>\n      <Header />...",
+		"sha": "041680b86309bc84db432c597afbaf572d179c1f"
 	}
 }
