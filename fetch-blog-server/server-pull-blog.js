@@ -27,7 +27,9 @@ try{
 // 开始
 console.log("项目根目录为："+context,"正在通过github获取数据...")
 const {token}=token_json
-const {user,repository,branch,per_page,forceUpdate,dataType,ignoreSHA,summaryLength,retry_times,resource_dir_list,keywords,showDetail,fetchExcludes}=config
+const {user,repository,branch,per_page,
+  dataType,summaryLength,resource_dir_list,keywords,delRedundance,fetchExcludes,
+  forceUpdate,ignoreSHA,retry_times,showDetail}=config
 // 判断blog是否完成，完成blog后才执行资源
 let fetchBlogHasDone
 let hasFetchResource=false
@@ -57,41 +59,94 @@ for(let i=0;i<keywords.length;i++){
 
 
 // 获取blog
-const blog_listInfoPath=`${context}/src/asset/_blog-data.json`
+const blog_list_name=`_blog-data.json`
+const blog_listInfoPath=`${context}/src/asset/${blog_list_name}`
 const blog_contentInfoDIR=`${context}/src/asset`
+// 动态页码查询命令
 const createBlogSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}&page=${page}`
-const blog_searchCommands=[createBlogSearchCommand(1)]
+
 let getBlogContentInfoPath=(filename)=>`${blog_contentInfoDIR}/${filename}`
 let getBlogListInfoPath=()=>blog_listInfoPath
 
-let pageList=[]
 
-axios.get(blog_searchCommands[0],check)
-  .then(data=>{
-    console.log("正在获取页数...")
-    return data.data
-  })
-  .catch(function (error) {
-    console.log("github获取页数失败");
-    console.error(error);
-  }).then(obj=>{
-  let totleCounts=obj["total_count"]
-  if(totleCounts>100 && totleCounts<=1000 && blog_searchCommands.length===1){
-    for(let i=1;i<Math.ceil(totleCounts/per_page);i++){
-      blog_searchCommands[i]=createBlogSearchCommand(i+1)
+
+// 分页查询所有内容并且合并
+function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getContentInfoPath, options){
+  let allDataListArr=[]
+  let pageList=[]
+
+  // 查询分页
+  function pagination(searchCommand,i){
+    return axios.get(searchCommand,check)
+      .then(data=>data.data)
+      .catch(function (error) {
+        console.log(`第${i}页获取失败`);
+        console.error(error);
+      })
+      .then(obj=>allDataListArr=allDataListArr.concat(obj.items))
+  }
+  axios.get(createBlogSearchCommand(1),check)
+    .then(data=>{
+      console.log("\n正在获取页数...")
+      return data.data
+    })
+    .catch(function (error) {
+      console.log("github获取页数失败");
+      console.error(error);
+    })
+    .then(obj=>{
+      let totleCounts=obj["total_count"]
+    if(totleCounts<=1000 ){
+      for(let i=0;i<Math.ceil(totleCounts/per_page);i++){
+        if(showDetail)console.log("正在获取第"+(i+1)+"页")
+        pageList.push(pagination(createBlogSearchCommand(i+1),i+1))
+      }
+      axios.all(pageList)
+        .then(()=>{
+          if(showDetail)console.log("全部页面获取完毕")
+          checkANDwrite(allDataListArr,getListInfoPath,getContentInfoPath, options)
+        })
     }
+    else {
+      console.error("超过1000条数据，需要设定分割条件")
+    }
+  })
+}
+
+getPagesAndConcatData(createBlogSearchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
+
+
+// 检查/创建list文件并且判断是否需要更新
+function checkANDwrite(githubData,getListInfoPath,getContentInfoPath,
+                       options) {
+  let defaultOptions= {
+    cus_extension:null,
+    customListKeys:["label","createdTime","timeArr","title","titleSHA","summary"],
+    isResource:false
   }
-  for(let i=0;i<blog_searchCommands.length;i++){
-    let blog_searchCommand=blog_searchCommands[i]
-    console.log("正在获取第"+(i+1)+"页")
-    checkANDwrite(blog_searchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
-  }
-})
+  let finalOptions=Object.assign(defaultOptions,options)
+  let listInfoPath=getListInfoPath()
+  if(showDetail)console.log("github search成功，开始检查json")
+  fs.ensureFile(listInfoPath)
+    .then(() => {
+      if(showDetail)console.log(`检查成功，开始读取${listInfoPath}`)
+      fs.readJson(listInfoPath)
+        .then(listData=>{
+          if(showDetail)console.log(`${listInfoPath} 读取成功，开始检测sha值`)
+          if(Object.prototype.toString.call(listData)!=="[object Object]")listData={}
+          checkIfNeedUpdated(githubData,listData,listInfoPath,getContentInfoPath,finalOptions)
+        })
+        .catch(err=>{
+          console.log(`${listInfoPath}读取失败，尝试重新创建`)
+          checkIfNeedUpdated(githubData,{},listInfoPath,getContentInfoPath,finalOptions)
+        })
+    })
+    .catch(err => {
+      console.log(`检查${listInfoPath}出现错误，确保fs-extra正确安装！`)
+      console.error(err)
+    })
 
-
-
-
-
+}
 
 // 获取resource
 function fetchResource(){
@@ -100,12 +155,19 @@ function fetchResource(){
   const resource_DIR=`${context}/public`
   // blog全部获取完成后，获取资源
   for(let i=0;i<resource_dir_list.length;i++){
-    const resoucre_searchCommand=`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}`
+
+
+    // 动态页码查询命令
+    const createResourceSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}&page=${page}`
+
+    // const resoucre_searchCommand=`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}`
     const resource_contentInfoDIR=resource_DIR+`/articles/${resource_dir_list[i]}`
     const resource_listInfoPath=`${resource_contentInfoDIR}/_${resource_dir_list[i]}-listInfo.json`
     const getResource_listInfoPath=()=>resource_listInfoPath
     const getResource_contentInfoPath=(filename)=>`${resource_contentInfoDIR}/${filename}`
-    checkANDwrite(resoucre_searchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
+
+    getPagesAndConcatData(createResourceSearchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
+    // checkANDwrite(resoucre_searchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
   }
 }
 
@@ -155,69 +217,21 @@ function writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,final
 
 
 
-// 检查/创建list文件并且判断是否需要更新
-function checkANDwrite(searchCommand,getListInfoPath,getContentInfoPath,
-                       options) {
-  let defaultOptions= {
-    cus_extension:null,
-    customListKeys:["label","createdTime","timeArr","title","titleSHA","summary"],
-    isResource:false
-  }
-  let finalOptions=Object.assign(defaultOptions,options)
-
-  let listInfoPath=getListInfoPath()
-
-
-  function searchGithub(searchCommand){
-    return axios.get(searchCommand,check)
-      .then(data=>data.data)
-      .catch(function (error) {
-        console.log("github search失败");
-        console.error(error);
-      })
-  }
-  searchGithub(searchCommand)
-    .then(obj=>{
-      githubData=obj.items
-      if(showDetail)console.log("github search成功，开始检查json")
-      fs.ensureFile(listInfoPath)
-        .then(() => {
-          if(showDetail)console.log(`检查成功，开始读取${listInfoPath}`)
-          fs.readJson(listInfoPath)
-            .then(listData=>{
-              if(showDetail)console.log(`${listInfoPath} 读取成功，开始检测sha值`)
-              if(Object.prototype.toString.call(listData)!=="[object Object]")listData={}
-              checkIfNeedUpdated(githubData,listData,listInfoPath,getContentInfoPath,finalOptions)
-            })
-            .catch(err=>{
-              console.log(`${listInfoPath}读取失败，尝试重新创建`)
-              checkIfNeedUpdated(githubData,{},listInfoPath,getContentInfoPath,finalOptions)
-            })
-        })
-        .catch(err => {
-          console.log(`检查${listInfoPath}出现错误，确保fs-extra正确安装！`)
-          console.error(err)
-        })
-    })
-}
-
-
-
 
 // 执行listInfo和contentInfo的更新，需要先确定文件存在，读取文件内容(用来判断是否可以不更新一些key)
-function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, finalOptions)
-{
+function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, finalOptions) {
   const {  cus_extension,customListKeys,isResource}=finalOptions
   let pristine=true
   let fetchQueue=[]
   for(let i=0;i<result.length;i++){
+    // 解析path和name和ext等
     let cur=result[i];
     let parse=path.parse(cur.path)
-
     let initExtension=parse.ext
     let basename=parse.base
     let resourcedir=parse.dir
     let rawname=parse.name
+
 
     // titleSHA 用于blog_list的key，url和disqus的identify
     const sha1 = crypto.createHash('sha1');
@@ -226,28 +240,26 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
     // 排除
     if(fetchExcludes.includes(rawname))continue
-    // 获取时间
-    let moment_splitTimeName=moment(rawname,dataType);
-    let cur_remote_createdTime,
-      cur_remote_filename,
-      cur_remote_sha=cur.sha,
-      cur_remote_timeArr,
-      cur_remote_basename=basename
 
-    if(moment_splitTimeName.isValid()){
-      cur_remote_timeArr=moment_splitTimeName.toArray()
-      cur_remote_createdTime=moment_splitTimeName.format("l")
-      cur_remote_filename=moment_splitTimeName.parsingFlags().unusedInput[0].replace(/^-/,'')
-    }else{
-      cur_remote_createdTime="未知日期"
-      cur_remote_filename=rawname
-      cur_remote_timeArr=[]
-    }
+    let cur_remote_filename=rawname,
+        cur_remote_sha=cur.sha,
+        cur_remote_basename=basename,
+        // 以下在非resource中处理
+        cur_remote_timeArr,
+        cur_remote_createdTime
+
+
+    let appropriateKey
+
+    if(finalOptions.isResource)appropriateKey=cur_remote_filename
+    else appropriateKey=titleSHA
+
 
     // blog用sha做名称
     let contentPath_sha=getContentInfoPath(cus_extension?titleSHA+cus_extension:titleSHA+initExtension)
     // 资源用原名，因为文件内部可能有引用资源原名
     let contentPath_filename=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
+
     function checkFile(){
       let noExist=false
       try{
@@ -263,23 +275,20 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
     }
 
 
-    if(ignoreSHA || !listData[titleSHA] || listData[titleSHA].sha!==cur_remote_sha || checkFile()){
+    if(ignoreSHA || !listData[appropriateKey] || listData[appropriateKey].sha!==cur_remote_sha || checkFile()){
       pristine=false
-      if(!listData[titleSHA]) listData[titleSHA]={}
+      if(!listData[appropriateKey]) listData[appropriateKey]={}
       if(showDetail)if(!ignoreSHA)console.log("找到不存在/不匹配的，name为"+cur_remote_filename)
 
       let curFetch
 
       // 写入resource 或者 blog的content，listInfo在最后统一axios.all()写入，确保不会有漏
       if(isResource){
-        listData[titleSHA].title=cur_remote_filename
-        listData[titleSHA].sha=cur_remote_sha
+        listData[appropriateKey].title=cur_remote_filename
+        listData[appropriateKey].sha=cur_remote_sha
         let encodeBasename=encodeURIComponent(cur_remote_basename)
 
-
-
         let resorceWriteStream
-        let contentPath_filename=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
         curFetch=axios({
           method:'get',
           url:`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${encodeBasename}`,
@@ -307,6 +316,21 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
           })
       }
       else{
+        // 获取时间
+        let dataString=rawname.substr(0,dataType.length)
+        let parseDataStr=moment(dataString,dataType,true)
+        let isDataValid=parseDataStr.isValid();
+
+        if(isDataValid){
+          cur_remote_timeArr=parseDataStr.toArray()
+          cur_remote_createdTime=parseDataStr.format("l")
+          cur_remote_filename=rawname.substr(dataType.length).replace(/^-/,'')
+        }else{
+          cur_remote_createdTime="未知日期"
+          cur_remote_filename=rawname
+          cur_remote_timeArr=[]
+        }
+
         curFetch= axios.get(`https://api.github.com/repos/${user}/${repository}/git/blobs/${cur_remote_sha}`,check)
           .then(data=>data.data)
           .catch(function (error) {
@@ -327,7 +351,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
             if(showDetail)console.log('正在判断是否需要更新具体标签...')
             function checkIfNeedForceUpdated(key,defaultValue){
-              return (!(forceUpdate===true || forceUpdate[key]===true) && listData[titleSHA][key]) || defaultValue
+              return (!(forceUpdate===true || forceUpdate[key]===true) && listData[appropriateKey][key]) || defaultValue
             }
 
 
@@ -356,7 +380,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
                 summary:getSummary}
               for(let i=0;i<customListKeys.length;i++){
                 let curKey=customListKeys[i]
-                listData[titleSHA][curKey]=listValue[curKey]()
+                listData[appropriateKey][curKey]=listValue[curKey]()
               }
             }else{
               console.error("customListKeys必须是Array")
@@ -364,10 +388,10 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
 
 
-            listData[titleSHA].sha=cur_remote_sha
+            listData[appropriateKey].sha=cur_remote_sha
 
 
-            let contentPath_sha=getContentInfoPath(cus_extension?titleSHA+cus_extension:titleSHA+initExtension)
+            // let contentPath_sha=getContentInfoPath(cus_extension?titleSHA+cus_extension:titleSHA+initExtension)
             blogWritingList.addTask(contentPath_sha)
 
 
@@ -398,11 +422,71 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
   axios.all(fetchQueue).then(()=>writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions))
     .then(()=>{
       if(showDetail)console.log("list全部写入完成！")
+      if(!delRedundance)return
+
       // 检查asset目录，删除多余文件
-      // todo 需要重构分页获取
-      // fs.readdir(blog_contentInfoDIR,function(e,d){
-      //   if(e)console.error(e)
-      // })
+      let contentInfoDIR=getContentInfoPath('')
+      // 读取文件夹中存在的内容
+      fs.readdir(contentInfoDIR,function(e,fileData){
+        if(e)console.error(e)
+        let set=new Set()
+        // 将当前github结果 hash化
+        for(let i=0;i<result.length;i++){
+          let  parse=path.parse(result[i].name)
+          let rawname=parse.name
+          let githubTitle
+          if(finalOptions.isResource)githubTitle=rawname
+          else{
+            const sha1 = crypto.createHash('sha1');
+            sha1.update(rawname);
+            githubTitle=sha1.digest('hex')
+          }
+          set.add(githubTitle)
+        }
+        // 忽略的文件
+        let not_delete_list_name=path.parse(listInfoPath).base
+        let deleteList=new Set()
+
+        // 检测文件夹中list是否有多余
+        for(let key in listData){
+          if(!set.has(key)){
+            deleteList.add(key)
+          }
+        }
+
+        // 检测文件夹中文件是否有多余
+        for(let i=0;i<fileData.length;i++){
+          if(fileData[i]===not_delete_list_name)continue
+          let parse=path.parse(fileData[i])
+          let rawname=parse.name
+
+          if(!set.has(rawname)){
+            deleteList.add(rawname)
+            fs.remove(contentInfoDIR+'/'+fileData[i])
+              .then(() => {
+                if(showDetail)console.log('成功删除'+fileData[i])
+              })
+              .catch(err => {
+                console.error(err)
+              })
+          }
+        }
+        // size为0，不存在多余文件
+        if(deleteList.size===0)return
+        if(showDetail)console.log("多余的文件和list有："+deleteList)
+        // 重写list
+        fs.readJson(listInfoPath)
+          .then((obj)=>{
+            deleteList.forEach(n=>delete(obj[n]))
+            fs.writeJson(listInfoPath,obj,{spaces:'\t'})
+              .then(()=>{
+                console.log("存在多余文件或者list并且已删除!")
+              })
+          })
+          .catch((e)=>{
+            console.log("已删除多余文件，但读取list失败！")
+          })
+      })
     })
 
   if(pristine){

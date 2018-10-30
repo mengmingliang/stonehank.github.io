@@ -3,8 +3,8 @@
    "repository":"blogs",
    "branch":"master",
    "showDetail":false,
-   "per_page":100,
-   "ignoreSHA":true,
+   "per_page":30,
+   "ignoreSHA":false,
    "forceUpdate":false,
    "dataType":"YY-MM-DD",
    "summaryLength":160,
@@ -16,5 +16,6 @@
       "git","MySQL","ES6","尾调用","babel","github","尾调用","表单","网络安全",
       "规范","npm","router","webpack","disqus"
    ],
-   "fetchExcludes":["readme"]
+   "fetchExcludes":["readme"],
+   "delRedundance":true
 }
