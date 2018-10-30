@@ -137,6 +137,7 @@ export default class SearchContainer extends React.Component {
         title:finalMatchTitle,
         matchContent:finalMatchContent,
         titleSHA:data[i].titleSHA,
+        createdTime:data[i].createdTime
       }
       // 搜索优先度
       // 1. titlePre && contentPre

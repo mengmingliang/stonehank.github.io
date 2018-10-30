@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Pagination} from 'antd';
+import { Spin,Icon,Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -25,12 +25,13 @@ const md = require('markdown-it')({
 });
 
 
-
+const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
   articleTitle:{textAlign:"center"},
   contentDiv:{marginTop:24},
-  footer:{margin: "0 auto"}
+  footer:{margin: "0 auto"},
+  disqusButton:{display:"block",margin:"20px auto"}
 }
 
 
@@ -40,12 +41,14 @@ export default class ArticleDetail extends React.Component{
     this.state={
       curArticleData:null,
       contentLoading:true,
-      curArticleName:null
+      curArticleName:null,
+      disqusRender:false
     }
     this.curArticleIndex=null
     this.fetchBlogContent=this.fetchBlogContent.bind(this)
     this.handlePageChange=this.handlePageChange.bind(this)
     this.itemRender=this.itemRender.bind(this)
+    this.showDisqus=this.showDisqus.bind(this)
   }
   itemRender(current, type,originalElement) {
     const {blogList}=this.props
@@ -81,6 +84,11 @@ export default class ArticleDetail extends React.Component{
       }))
 
   }
+  showDisqus(){
+    this.setState({
+      disqusRender:true
+    })
+  }
   static getDerivedStateFromProps(props,state){
     if(props.articleSha===state.curArticleName)return null
     return {
@@ -90,7 +98,7 @@ export default class ArticleDetail extends React.Component{
     }
   }
   componentDidUpdate(){
-    console.log(1)
+    // console.log(1)
     if(!this.props.blogList)return
     if(this.props.articleSha!==this.state.curArticleName){
       this.fetchBlogContent()
@@ -130,7 +138,7 @@ export default class ArticleDetail extends React.Component{
       })
   }
   render(){
-    const {curArticleData,contentLoading}=this.state
+    const {curArticleData,contentLoading,disqusRender}=this.state
     const {blogList,articleSha,location}=this.props
     const disqusShortname = 'stonehank';
     const disqusConfig = {
@@ -148,7 +156,17 @@ export default class ArticleDetail extends React.Component{
           </header>
           <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>
           <Divider />
-          <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+          {disqusRender ?
+            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} /> :
+            <Button onClick={this.showDisqus} style={styles.disqusButton}>
+              加载评论
+              (
+              <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
+                评论数：<Spin indicator={antIcon} />
+              </Disqus.CommentCount>
+              )
+            </Button>
+          }
           <footer style={styles.footer}>
             <Pagination simple  pageSize={1} total={blogList.length}
                         current={this.curArticleIndex}

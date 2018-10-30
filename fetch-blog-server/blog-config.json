@@ -4,7 +4,7 @@
    "branch":"master",
    "showDetail":false,
    "per_page":100,
-   "ignoreSHA":false,
+   "ignoreSHA":true,
    "forceUpdate":false,
    "dataType":"YY-MM-DD",
    "summaryLength":160,
@@ -14,7 +14,7 @@
       "redux","性能","diff","AST","css","源码","位操作","正则","CORS",
       "缓存","worker","promise","canvas","indexedDB","MutationObserver",
       "git","MySQL","ES6","尾调用","babel","github","尾调用","表单","网络安全",
-      "规范","npm","router","webpack"
+      "规范","npm","router","webpack","disqus"
    ],
    "fetchExcludes":["readme"]
 }

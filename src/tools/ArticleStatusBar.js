@@ -40,9 +40,11 @@ export default class ArticleStatusBar extends React.Component{
             null
           }
         </Col>
-        <Col><Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
-          评论数：<Spin indicator={antIcon} />
-        </Disqus.CommentCount></Col>
+        <Col>
+          <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
+            评论数：<Spin indicator={antIcon} />
+          </Disqus.CommentCount>
+        </Col>
       </Row>
     )
   }

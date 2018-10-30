@@ -14,6 +14,7 @@ function filterExtract(lowercaseKeyWords,content,title){
   for(let label of filteredSet){
     filteredLabels.push(label)
   }
+  if(filteredLabels.length===0)return null
   return filteredLabels
 }
 

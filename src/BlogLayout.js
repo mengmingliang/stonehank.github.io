@@ -81,7 +81,6 @@ export default class BlogLayout extends React.Component {
         "tagsBlockLoaded":{value:null, writable:true}
       })
     }
-
     /* archiveArticles数据结构
                 * Archive : articles
                 * {

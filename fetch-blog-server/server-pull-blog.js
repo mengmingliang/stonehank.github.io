@@ -30,14 +30,15 @@ const {token}=token_json
 const {user,repository,branch,per_page,forceUpdate,dataType,ignoreSHA,summaryLength,retry_times,resource_dir_list,keywords,showDetail,fetchExcludes}=config
 // 判断blog是否完成，完成blog后才执行资源
 let fetchBlogHasDone
+let hasFetchResource=false
 // 用于保存获取的github数据，用于发生错误重复执行
 let  githubData=null
 let retryTimes=retry_times
-// valid的tags集合
-let lowercaseKeyWords={}
+
 // 创建写入列表，用于显示progress
 let fileWritingList=new ProgressRemider("资源文件",showDetail)
 let blogWritingList=new ProgressRemider("blog文件",showDetail)
+
 // 定义github search的header
 let check = {
   headers: {
@@ -45,7 +46,10 @@ let check = {
     Authorization:`token ${token}  `
   },
 }
-// 填充valid的tags
+
+// valid的tags集合
+let lowercaseKeyWords={}
+// 填充valid的tags(keyword)
 for(let i=0;i<keywords.length;i++){
   let cur=keywords[i].toLowerCase()
   lowercaseKeyWords[cur]=1
@@ -55,14 +59,44 @@ for(let i=0;i<keywords.length;i++){
 // 获取blog
 const blog_listInfoPath=`${context}/src/asset/_blog-data.json`
 const blog_contentInfoDIR=`${context}/src/asset`
-const blog_searchCommand=`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}`
+const createBlogSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}&page=${page}`
+const blog_searchCommands=[createBlogSearchCommand(1)]
 let getBlogContentInfoPath=(filename)=>`${blog_contentInfoDIR}/${filename}`
 let getBlogListInfoPath=()=>blog_listInfoPath
-checkANDwrite(blog_searchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
+
+let pageList=[]
+
+axios.get(blog_searchCommands[0],check)
+  .then(data=>{
+    console.log("正在获取页数...")
+    return data.data
+  })
+  .catch(function (error) {
+    console.log("github获取页数失败");
+    console.error(error);
+  }).then(obj=>{
+  let totleCounts=obj["total_count"]
+  if(totleCounts>100 && totleCounts<=1000 && blog_searchCommands.length===1){
+    for(let i=1;i<Math.ceil(totleCounts/per_page);i++){
+      blog_searchCommands[i]=createBlogSearchCommand(i+1)
+    }
+  }
+  for(let i=0;i<blog_searchCommands.length;i++){
+    let blog_searchCommand=blog_searchCommands[i]
+    console.log("正在获取第"+(i+1)+"页")
+    checkANDwrite(blog_searchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
+  }
+})
+
+
+
+
 
 
 // 获取resource
 function fetchResource(){
+  if(hasFetchResource)return
+  hasFetchResource=true
   const resource_DIR=`${context}/public`
   // blog全部获取完成后，获取资源
   for(let i=0;i<resource_dir_list.length;i++){
@@ -132,6 +166,8 @@ function checkANDwrite(searchCommand,getListInfoPath,getContentInfoPath,
   let finalOptions=Object.assign(defaultOptions,options)
 
   let listInfoPath=getListInfoPath()
+
+
   function searchGithub(searchCommand){
     return axios.get(searchCommand,check)
       .then(data=>data.data)
@@ -362,6 +398,11 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
   axios.all(fetchQueue).then(()=>writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,finalOptions))
     .then(()=>{
       if(showDetail)console.log("list全部写入完成！")
+      // 检查asset目录，删除多余文件
+      // todo 需要重构分页获取
+      // fs.readdir(blog_contentInfoDIR,function(e,d){
+      //   if(e)console.error(e)
+      // })
     })
 
   if(pristine){
