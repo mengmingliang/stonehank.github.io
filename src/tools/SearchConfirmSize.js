@@ -1,5 +1,6 @@
 import React from 'react';
 import {Icon,Spin} from 'antd';
+import * as sizeData from '../global-search-size.json'
 
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 const deafultRender=<Spin indicator={antIcon} />
@@ -12,13 +13,9 @@ export default class SearchConfirmSize extends React.Component{
   }
   componentDidMount(){
     if(this.props.size!=null)return
-    import('../global-search-size.json')
-      .catch(e=>console.warn(e))
-      .then(obj=>{
-        this.setState({
-          fileSize:obj.size
-        })
-      })
+    this.setState({
+      fileSize:sizeData.size
+    })
   }
   render(){
     const {size}=this.props
