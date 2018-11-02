@@ -1,5 +1,8 @@
 import React from 'react';
+import {Icon,Spin} from 'antd';
 
+const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
+const deafultRender=<Spin indicator={antIcon} />
 export default class SearchConfirmSize extends React.Component{
   constructor(props){
     super(props)
@@ -9,20 +12,20 @@ export default class SearchConfirmSize extends React.Component{
   }
   componentDidMount(){
     if(this.props.size!=null)return
-    fetch("https://api.github.com/repositories/151232913/contents/static/js/global-search.chunk.js")
-      .then(data=>data.json())
-      .catch(e=>"未知")
+    import('../global-search-size.json')
+      .catch(e=>console.warn(e))
       .then(obj=>{
-        let size=Math.floor(obj.size/3.4/1024)
-        this.props.setGlobalSearchSize(size)
         this.setState({
-          fileSize:size
+          fileSize:obj.size
         })
       })
   }
   render(){
+    const {size}=this.props
+    const {fileSize}=this.state
+
     return(
-      <span>全局搜索会一次性加载所有内容，将会消耗额外流量约 <b>{this.props.size || this.state.fileSize}</b> kb</span>
+      <span>全局搜索会一次性加载所有内容，将会消耗额外流量约 <b>{  size || fileSize ||deafultRender}</b> kb</span>
     )
   }
 }

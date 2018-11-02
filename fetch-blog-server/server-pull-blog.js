@@ -68,6 +68,7 @@ const createBlogSearchCommand=(page)=>`https://api.github.com/search/code?q=repo
 let getBlogContentInfoPath=(filename)=>`${blog_contentInfoDIR}/${filename}`
 let getBlogListInfoPath=()=>blog_listInfoPath
 
+getPagesAndConcatData(createBlogSearchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
 
 
 // 分页查询所有内容并且合并
@@ -113,8 +114,6 @@ function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getConten
   })
 }
 
-getPagesAndConcatData(createBlogSearchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
-
 
 // 检查/创建list文件并且判断是否需要更新
 function checkANDwrite(githubData,getListInfoPath,getContentInfoPath,
@@ -148,11 +147,31 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath,
 
 }
 
+// 获取global-search文件size
+
+function getSize(assetFilePath,userConfigPath,sizeSum){
+  let files=fs.readdirSync(assetFilePath)
+  files.forEach(file=>{
+    if(file==="_blog-data.json")return
+    let status=fs.statSync(assetFilePath+'/'+file)
+    if(status.isDirectory())console.error("asset目录中存在目录")
+    sizeSum+=status.size
+  })
+  fs.writeJsonSync(userConfigPath,{size:Math.floor(sizeSum/1024/2)})
+}
+
+
+
+
 // 获取resource
 function fetchResource(){
   if(hasFetchResource)return
   hasFetchResource=true
   const resource_DIR=`${context}/public`
+  // 写入globalSearchSize
+  const sizeFilename="global-search-size.json"
+  getSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
+
   // blog全部获取完成后，获取资源
   for(let i=0;i<resource_dir_list.length;i++){
 
