@@ -5,6 +5,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import SearchDrawer from "./SearchDrawer";
 import {inHTMLTag,searchPrecision} from '../utils'
 import SlideCheckBox from "./SlideCheckBox";
+import SearchConfirmSize from "./SearchConfirmSize";
 
 hljs.registerLanguage('javascript', javascript);
 const md = require('markdown-it')({
@@ -44,7 +45,7 @@ export default class SearchContainer extends React.Component {
       drawShow: false,
       data: null,
       globalSearch: false,
-      globalFetching: false,
+      globalFetching: false
     }
     this.globalMem = {}
     this.localMem = {}
@@ -57,6 +58,7 @@ export default class SearchContainer extends React.Component {
     this.toggleGlobalSearch = this.toggleGlobalSearch.bind(this)
     this.fetchGlobal = this.fetchGlobal.bind(this)
     this.showConfirm = this.showConfirm.bind(this)
+    this.setGlobalSearchSize=this.setGlobalSearchSize.bind(this)
   }
 
   handleDrawerClose() {
@@ -242,10 +244,14 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  setGlobalSearchSize(size){
+    this.fileSize=size
+  }
+
   showConfirm() {
     confirm({
       title: '确定使用全局搜索？',
-      content: '全局搜索会一次性加载所有内容，将会消耗额外流量',
+      content: <SearchConfirmSize size={this.fileSize} setGlobalSearchSize={this.setGlobalSearchSize}/>,
       onOk: () => {
         this.fetchGlobal()
         this.setState(prevState => ({

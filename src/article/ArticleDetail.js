@@ -1,12 +1,12 @@
 import React from 'react';
-import { Spin,Icon,Button,Divider, Pagination} from 'antd';
+import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import {linkTo} from "../routes/linkPathList";
-import Disqus from 'disqus-react';
+import CustomComment from "../tools/CustomComment";
 
 hljs.registerLanguage('javascript', javascript);
 
@@ -25,7 +25,6 @@ const md = require('markdown-it')({
 });
 
 
-const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
   articleTitle:{textAlign:"center"},
@@ -140,12 +139,6 @@ export default class ArticleDetail extends React.Component{
   render(){
     const {curArticleData,contentLoading,disqusRender}=this.state
     const {blogList,articleSha,location}=this.props
-    const disqusShortname = 'stonehank';
-    const disqusConfig = {
-      url: `${location.origin}/articles/${articleSha}`,
-      identifier: articleSha,
-      title: curArticleData && curArticleData.title,
-    };
     return(
       contentLoading ?
         <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
@@ -157,14 +150,9 @@ export default class ArticleDetail extends React.Component{
           <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>
           <Divider />
           {disqusRender ?
-            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} /> :
+            <CustomComment.Detail title={curArticleData.title} sha={articleSha} locationOrigin={location.origin}/>:
             <Button onClick={this.showDisqus} style={styles.disqusButton}>
-              加载评论
-              (
-              <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
-                评论数：<Spin indicator={antIcon} />
-              </Disqus.CommentCount>
-              )
+              加载评论 (<CustomComment.Count title={curArticleData.title} sha={articleSha} locationOrigin={location.origin}/>)
             </Button>
           }
           <footer style={styles.footer}>

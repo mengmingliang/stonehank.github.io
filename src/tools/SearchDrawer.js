@@ -59,11 +59,11 @@ export default class SearchDrawer extends React.Component {
                       style={styles.card}
                       bodyStyle={styles.card_pure_body}
                       statusBarItem={item}
+                      noCount={true}
                       title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
                       summary={<div style={styles.summary}
                                      dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
                       beforeNavigate={clearSearchInput}
-                      // onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
             />
           ))}
         </List>

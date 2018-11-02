@@ -1,12 +1,9 @@
 import React from 'react'
-import {Row,Col,Icon,Spin} from 'antd';
+import {Row,Col} from 'antd';
 import {Link} from "@reach/router"
 import TagLight from "./TagLight"
 import {linkTo} from '../routes/linkPathList'
-import Disqus from 'disqus-react';
-
-
-const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
+import CustomComment from "./CustomComment";
 
 
 const styles={
@@ -17,14 +14,7 @@ const styles={
 export default class ArticleStatusBar extends React.Component{
 
   render(){
-    const {article,articleSha,...props}=this.props
-    let sha=article.titleSHA || articleSha
-    const disqusShortname = 'stonehank';
-    const disqusConfig = {
-      url: `${window.location.origin}/articles/${sha}`,
-      identifier: sha,
-      title: article.title,
-    };
+    const {article,articleSha,noCount,...props}=this.props
     return (
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
         <Col>{article.createdTime || "未知日期"}</Col>
@@ -41,9 +31,10 @@ export default class ArticleStatusBar extends React.Component{
           }
         </Col>
         <Col>
-          <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
-            评论数：<Spin indicator={antIcon} />
-          </Disqus.CommentCount>
+          {noCount ?
+            null :
+          <CustomComment.Count title={article.title} sha={article.titleSHA || articleSha} locationOrigin={window.location.origin}/>
+          }
         </Col>
       </Row>
     )
