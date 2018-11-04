@@ -58,7 +58,7 @@ export default class SearchContainer extends React.Component {
     this.toggleGlobalSearch = this.toggleGlobalSearch.bind(this)
     this.fetchGlobal = this.fetchGlobal.bind(this)
     this.showConfirm = this.showConfirm.bind(this)
-    this.setGlobalSearchSize=this.setGlobalSearchSize.bind(this)
+
   }
 
   handleDrawerClose() {
@@ -244,14 +244,12 @@ export default class SearchContainer extends React.Component {
     })
   }
 
-  setGlobalSearchSize(size){
-    this.fileSize=size
-  }
+
 
   showConfirm() {
     confirm({
       title: '确定使用全局搜索？',
-      content: <SearchConfirmSize size={this.fileSize} setGlobalSearchSize={this.setGlobalSearchSize}/>,
+      content: <SearchConfirmSize  />,
       onOk: () => {
         this.fetchGlobal()
         this.setState(prevState => ({

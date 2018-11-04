@@ -1,0 +1,37 @@
+@keyframes lampAllMove{
+    100% {transform: rotate(0deg);}
+}
+@keyframes lampTopMove {
+    50% {transform: rotate(-71deg);}
+    70% {transform: rotate(-41deg);}
+    100%{transform: rotate(0deg);}
+}
+@keyframes lampBulbMove {
+    60%{transform:translate(67px, 1px) rotate(98deg);}
+    100%{transform:translate(67px, 1px) rotate(128deg)}
+}
+@keyframes lampTopLeft {
+    100%{opacity:1}
+}
+@keyframes lampBottomLeft {
+    100%{opacity:1}
+}
+@keyframes bookMove {
+    100%{
+        opacity:1;
+        transform: translate3d(0,0px,0);
+    }
+}
+@keyframes bookText3Move {
+    100%{
+        opacity:1
+    }
+}
+@keyframes bookText5Move {
+    100%{
+        opacity:1
+    }
+}
+@keyframes bulbLightMove {
+    100%{opacity:0.45;}
+}

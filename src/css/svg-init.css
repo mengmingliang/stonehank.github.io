@@ -1,0 +1,74 @@
+#lamp_all{
+    transform-origin: 164px 173px;
+    transform: rotate(-116deg);
+    animation:lampAllMove 0.7s linear;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+#lamp_top {
+    transform-origin: 205px 93px;
+    transform: rotate(-121deg);
+    animation:lampTopMove 1s linear;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+#lamp_bulb {
+    transform-origin: 73px 36px;
+    transform: translate(67px, 1px) rotate(58deg);
+    animation:lampBulbMove 1s linear;
+    animation-delay: .5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+#lamp_top_left{
+    opacity: 0;
+    animation:lampTopLeft 0.5s linear;
+    animation-delay: 1.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+#lamp_bottom_left{
+    opacity:0;
+    animation:lampBottomLeft 0.5s linear;
+    animation-delay: 1s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+#book_1,#book_2,#book_3,#book_4,#book_5{
+    transform: translate3d(0,-50px,0);
+    opacity: 0;
+    animation:bookMove 0.2s linear;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+#book_1{animation-delay: 0.3s;}
+#book_2{animation-delay: 0.5s;}
+#book_3{animation-delay: 0.7s;}
+#book_4{animation-delay: 1.1s;}
+#book_5{animation-delay: 1.3s;}
+#book_3_text{
+    opacity:0;
+    animation:bookText3Move 0.2s linear;
+    animation-delay: 0.9s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+#book_5_text{
+    opacity:0;
+    animation:bookText5Move 0.2s linear;
+    animation-delay: .5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+#bulb_light{
+    opacity:0;
+    animation:bulbLightMove 0.5s linear;
+    animation-delay: 1.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+#svgWrapper{
+    transition:all .5s linear;
+}

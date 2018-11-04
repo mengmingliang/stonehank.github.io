@@ -1,6 +1,7 @@
 node_modules/
 .idea/
 maybe-delete/
+canvas-dom2/
 blog-token.json
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 

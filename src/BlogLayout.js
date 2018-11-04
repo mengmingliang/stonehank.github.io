@@ -65,6 +65,7 @@ export default class BlogLayout extends React.Component {
     }
 
   componentDidMount(){
+    document.body.removeChild(document.getElementById("loading"))
     this.fetchBlogContent()
   }
   render() {
