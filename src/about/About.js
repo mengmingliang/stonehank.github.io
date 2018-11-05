@@ -1,6 +1,8 @@
 import React from 'react';
 import  init from "../canvas-dom/index"
 import '../css/svg-init.css'
+import'../css/svg-animate.css'
+
 const styles={
   wrap:{position:"relative",top:0,left:0,bottom:0,right:0,margin:"0 auto",color:"white"},
   show:{textShadow:"1px 1px 1px,-1px 1px 2px",fontSize:"1.5rem",lineHeight:1.5,position:"absolute"}
@@ -10,9 +12,6 @@ export default class About extends React.Component {
   constructor(){
     super()
     this.textRef=React.createRef()
-    // this.state={
-    //   showSVG:false
-    // }
   }
 
   componentDidMount(){
@@ -28,16 +27,8 @@ export default class About extends React.Component {
 
         this.start({
           willAnimate:()=>{
-            import('../css/svg-animate.css')
             this.textRef.current.style.color="black"
           },
-          // didAnimated:()=>{
-          //   // console.log(2)
-          //
-          //   this.setState({
-          //     showSVG:true
-          //   })
-          // }
         })
         }catch(err){
             this.textRef.current.style.color="black"
