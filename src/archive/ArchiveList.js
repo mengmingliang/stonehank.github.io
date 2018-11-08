@@ -68,7 +68,7 @@ export default class ArchiveList extends React.Component {
     const loadMore = (
       <div style={styles.loadMore}>
         {this.loadedIndex < dayList.length ?
-          <Button onClick={this.onLoadMore}>● ● ●</Button> :
+          <Button onClick={this.onLoadMore}> ▪ ▪ ▪ </Button> :
           <Button disabled>没有更多了</Button>
         }
 

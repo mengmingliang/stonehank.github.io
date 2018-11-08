@@ -107,25 +107,6 @@
 		"summary": "* webpack的`sideEffect`\n\n在配置css-loader的内部\n\n```\n{\n  test: sassRegex,\n  ...\n  // Don't consider CSS imports dead code even if the\n  // containing package claims to...",
 		"sha": "c652978c17e0cd7fcf3dd94e0dab32551f0b884e"
 	},
-	"6333d42d6632d6a828d0bdcbf93085fefd6043d0": {
-		"label": [
-			"react"
-		],
-		"createdTime": "10/29/2018",
-		"timeArr": [
-			2018,
-			9,
-			29,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "React v16.7新功能提议：Hooks(1)",
-		"titleSHA": "6333d42d6632d6a828d0bdcbf93085fefd6043d0",
-		"summary": "#### Hooks\n\n\n\n* useState:\n1. 可以在非class使用state\n2. 返回一个数组\n\n    arr[0]是具体的state\n    \n    arr[1]是改变state的方法\n    \n    `const [count, setCount] = useState(in...",
-		"sha": "7592784d02c2bac58c7ac782ae1efb07edaf2f20"
-	},
 	"4483d4ae741e5f281dba7c87dd850e305a2b0565": {
 		"label": [
 			"算法",
@@ -795,594 +776,6 @@
 		"summary": "reach-router是一个轻量级的router组件，当然功能也相对于react-router少了一些。\n\n近期使用的时候遇到以下问题，在这里总结一次\n\n1. router遇到`url:parameter` ，当无法匹配的情况，默认会一直读取loading组件，因为它不知道这个参数是否有效，\n\n    需要自行判断`...",
 		"sha": "3a57533a3dc20f28769f523891951917242119ad"
 	},
-	"cdf39a26b776d98ab203524d376b062840672373": {
-		"label": [
-			"正则",
-			"源码"
-		],
-		"createdTime": "7/18/2018",
-		"timeArr": [
-			2018,
-			6,
-			18,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "一个长正则的深入理解",
-		"titleSHA": "cdf39a26b776d98ab203524d376b062840672373",
-		"summary": "#### 阅读lodash中一段长正则理解笔记\n\n在lodash源码`/.internal/stringToPath.js`中：\n\n这里英文是原注释，中文是简单的翻译下，后面会详细解释：\n```js\nconst rePropName = RegExp(\n  // Match anything that isn't a do...",
-		"sha": "784356b84252e1f80acd38952d47176e1e4a8836"
-	},
-	"c2c3bf8775d224910f8bdac31eb7e0ff5a28d431": {
-		"label": [
-			"worker"
-		],
-		"createdTime": "7/24/2018",
-		"timeArr": [
-			2018,
-			6,
-			24,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "Blob对象和createObjectURL",
-		"titleSHA": "c2c3bf8775d224910f8bdac31eb7e0ff5a28d431",
-		"summary": "#### Blob与createObjectURL搭配使用\n\n```js\nvar blob = new Blob([document.querySelector('#worker').textContent]);\nvar url = window.URL.createObjectURL(blob);\nvar worker ...",
-		"sha": "92b4e89a32882a49232d054e12b2f724a0e9fa68"
-	},
-	"c210dfbee9273c04ed715f0cf70a75b648672b17": {
-		"label": [
-			"github"
-		],
-		"createdTime": "7/25/2018",
-		"timeArr": [
-			2018,
-			6,
-			25,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "通过解析blob实现图片预览",
-		"titleSHA": "c210dfbee9273c04ed715f0cf70a75b648672b17",
-		"summary": "#### 解析blob实现图片预览\n\n原理很简单，`blob`是一个储存了二进制的大对象，而`createObjectURL`可以解析blob成为一个url格式，\n再用`img`标签渲染即可。\n\n```js\n  if(blob.type.indexOf('image')!==-1){\n    newURL=window.U...",
-		"sha": "bf946078e90730d7d626fe3573c4adad5f9cd0e2"
-	},
-	"46e9b0a650dba0fd4351e6b9b36a76775bb0bc76": {
-		"label": [
-			"github",
-			"表单"
-		],
-		"createdTime": "7/26/2018",
-		"timeArr": [
-			2018,
-			6,
-			26,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "通过blob实现文件续传记录(nodejs)",
-		"titleSHA": "46e9b0a650dba0fd4351e6b9b36a76775bb0bc76",
-		"summary": "#### 一个可暂停分段上传的例子\n\n[代码位置](https://gist.github.com/stonehank/5d3dea234ac6bc200bdef9c181c0a645)\n_______\n\n要点：\n\n1. 通过`blob.slice()`对文件进行分割，再逐个上传\n\n    `blob.slice(star...",
-		"sha": "f3a86b01ae6164f031e648596d9eeafb87fb28f6"
-	},
-	"4f7f64522646a72cae1c94073ca8d665ecf77efd": {
-		"label": [
-			"css"
-		],
-		"createdTime": "7/27/2018",
-		"timeArr": [
-			2018,
-			6,
-			27,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "css补缺",
-		"titleSHA": "4f7f64522646a72cae1c94073ca8d665ecf77efd",
-		"summary": "#### @charset\n@charset 在外部样式表文件内使用。指定该样式表使用的字符编码。\n```css\n@charset \"utf-8\";\nbody {  }\ndiv {  }\n```#### inline-flex\n\ninline-flex和flex 是针对flex容器的内联显示改变，而它内部的flex-item...",
-		"sha": "4a1043ffaa6c98e2971a83f9fba138ad8462eafa"
-	},
-	"f433b9ed4007a7781ed42e23c229928ae08ba1d8": {
-		"label": [
-			"react",
-			"npm",
-			"源码",
-			"github"
-		],
-		"createdTime": "7/28/2018",
-		"timeArr": [
-			2018,
-			6,
-			28,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "源码阅读-create-react-app一些收获(笔记备忘)",
-		"titleSHA": "f433b9ed4007a7781ed42e23c229928ae08ba1d8",
-		"summary": "#### ./creat-react-app/createReactApp.js\n\n* os.EOL\n\n    不同系统的行尾符号\n    \n    > A string constant defining the operating system-specific end-of-line marker:\n    \n   ...",
-		"sha": "0a29b597ea9aca0631c7bd70092eb31cf07d8250"
-	},
-	"00c5d9ed2847e38150e59f8030c9eff752b313f7": {
-		"label": [
-			"算法",
-			"leetcode"
-		],
-		"createdTime": "7/29/2018",
-		"timeArr": [
-			2018,
-			6,
-			29,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "记一道二分查找算法题",
-		"titleSHA": "00c5d9ed2847e38150e59f8030c9eff752b313f7",
-		"summary": "题目位置：https://leetcode.com/problems/nth-magical-number/description/\n\n题目：\n\n如果正整数 可被A  或B整除，则它是神奇的。\n\n返回第N个魔法数字。由于答案可能非常大，因此返回值需要模(%)10^9 + 7。\n\n例1：\n```\n输入： N = 1，A ...",
-		"sha": "d3c6d7ae8150d554512c3b20c6ccc2cd575468c5"
-	},
-	"fe3678963ac1c863362da40651884c9820158971": {
-		"label": [
-			"npm",
-			"表单",
-			"网络安全"
-		],
-		"createdTime": "7/30/2018",
-		"timeArr": [
-			2018,
-			6,
-			30,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "文章记录—当前的网页安全",
-		"titleSHA": "fe3678963ac1c863362da40651884c9820158971",
-		"summary": "原文地址：https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5\n\n作者讲述了一些能够达成的破解网络安全手段(有些已被认为是bug修复，例如2)，并给出建议...",
-		"sha": "6901bccad37993cd0ddb283e7bd8f2a32e5ae599"
-	},
-	"11c12164597745ff2b79b9aa256465683ed63ab6": {
-		"label": [
-			"redux",
-			"源码",
-			"github"
-		],
-		"createdTime": "7/31/2018",
-		"timeArr": [
-			2018,
-			6,
-			31,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "从源码理解redux-observable",
-		"titleSHA": "11c12164597745ff2b79b9aa256465683ed63ab6",
-		"summary": "#### 阅读前提：\n1. 有rxjs基础，对`Observable`, `Subject`,`pipe`和一些操作符(例如`filter`,`map`,`merge`,`mergeMap`)执行流程有基本了解，最起码遇到不清楚有去查阅的动力\n2. 比较熟悉`redux`中间件的写法，否则像`createEpicMidd...",
-		"sha": "6e85cade1d479e41467fc8f31c7cce1b2d0eca18"
-	},
-	"e1662cfda83fcae8dc160c993bb54ff04956653c": {
-		"label": [
-			"promise"
-		],
-		"createdTime": "8/2/2018",
-		"timeArr": [
-			2018,
-			7,
-			2,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "一些promise和其他补缺",
-		"titleSHA": "e1662cfda83fcae8dc160c993bb54ff04956653c",
-		"summary": "* 如果向 Promise.resolve(..) 传递一个真正的 Promise，就只会返回同一个 promise\n```js\nvar p1 = Promise.resolve( 42 );\nvar p2 = Promise.resolve( p1 );\np1===p2\n// true\n```\n\n\n* P...",
-		"sha": "3bfb5149de44ae6b02ce78a91414ebbd9303a277"
-	},
-	"6fd675137d4fc7c9017a5d49e6617b15a17ace30": {
-		"label": [
-			"react"
-		],
-		"createdTime": "8/4/2018",
-		"timeArr": [
-			2018,
-			7,
-			4,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "react的编写模式",
-		"titleSHA": "6fd675137d4fc7c9017a5d49e6617b15a17ace30",
-		"summary": "使用4种方式：props传递，父组件公用，hoc，render-prop\n\n定义需求，cur符合auth才能查看组件内容，否则进入NotAccess\n```\nconst cur = \"a\";\nconst auth = {\n  com1: [\"a\", \"b\"],\n  com2: [\"b\", \"c\"],\n  com3: [...",
-		"sha": "ac63fa5d204d619196b3d6c6134d623fb670d2f1"
-	},
-	"3b4d16a57b6ee44ecffdda18a89a5c0f7cf5808c": {
-		"label": [
-			"react",
-			"算法",
-			"源码"
-		],
-		"createdTime": "8/5/2018",
-		"timeArr": [
-			2018,
-			7,
-			5,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "源码阅读-anime和react-motion算法差异",
-		"titleSHA": "3b4d16a57b6ee44ecffdda18a89a5c0f7cf5808c",
-		"summary": "`anime`用的是缓动算法\n\n算法规定了动画形式，需要提供总消耗时间，当前消耗时间，初始位置，目标位置\n\n特点：动画灵活性更大,可以指定任意的时间而得到对应的位置，可以实现暂停/继续，动画跳转，动画进度条等\n\n`react-motion`用的是弹性算法\n\n算法规定了弹性和阻力，只要提供初始位置和目标位置，即可计算出动...",
-		"sha": "9f1747ec27f36e527867dcc4368704ce642ca78d"
-	},
-	"7d006085fe6510e84760d5dac1964ffab407a64b": {
-		"label": [
-			"css"
-		],
-		"createdTime": "8/8/2018",
-		"timeArr": [
-			2018,
-			7,
-			8,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "CSS BEM和7-1",
-		"titleSHA": "7d006085fe6510e84760d5dac1964ffab407a64b",
-		"summary": "#### css 的BEM方法和7-1规则#### BEM\n\n按照`Block__Element--Modifier`命名\n\n例如：\n```\narticle__author\narticle__date\narticle__content-leftAlign\narticle__content-centerAlign\n```\n...",
-		"sha": "749d64da627880acf963a5302a4e38ce920592d5"
-	},
-	"d19b06a421c09a6a7e3d012ce39d42cf0cfc380b": {
-		"label": [
-			"算法"
-		],
-		"createdTime": "8/9/2018",
-		"timeArr": [
-			2018,
-			7,
-			9,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "KMP回溯分析",
-		"titleSHA": "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b",
-		"summary": "KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯\n\n一般写法是：\n```js\nfunction calcNext(str,pat){\n  /*...*/\n  if(str[k]!==str[j]){\n    // 有些会写成k=next[k]，原理是一样的\n    // 这里k表示，所对应当前正在进行对比的...",
-		"sha": "9b2f31a1afd83292746a2243626db26804af5fa3"
-	},
-	"f616d21af7026eb71d6d96d1e0adfc13871af644": {
-		"label": [
-			"react",
-			"源码",
-			"github"
-		],
-		"createdTime": "8/10/2018",
-		"timeArr": [
-			2018,
-			7,
-			10,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "源码阅读-react-motion-拓扑排序思想",
-		"titleSHA": "f616d21af7026eb71d6d96d1e0adfc13871af644",
-		"summary": "\n阅读[react-motion](https://github.com/chenglou/react-motion)的源码时候，其中有一个组件`TransitionMotion`\n，它负责元素的新增和移除动画，内部有2个概念：`old`和`new`\n\n这就先说到排序，\n\n当动画队列出现如下状态...",
-		"sha": "65c59ec0ce44ba503eeb5cfdeec3d1eba9b70047"
-	},
-	"2d2fe99476f8b0fcf2a0f7ff6061756eff4803e5": {
-		"label": [
-			"canvas"
-		],
-		"createdTime": "8/13/2018",
-		"timeArr": [
-			2018,
-			7,
-			13,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "svg渲染dom，canvas获取像素",
-		"titleSHA": "2d2fe99476f8b0fcf2a0f7ff6061756eff4803e5",
-		"summary": "#### foreignObject\n\nsvg内部标签`<foreignObject>`，可以直接在svg内部插入`xhtml`元素，再通过`blob`和`FileReader`可\n将内部`xhtml`内容转换成*同源*url，再通过`img.src=url`将svg内部的dom元素转化为图片。\n\n```js\nlet  d...",
-		"sha": "8f6c34d738ca1b40e7dbc5fd7c069695a2fb4443"
-	},
-	"4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1": {
-		"label": [
-			"cors",
-			"表单"
-		],
-		"createdTime": "8/14/2018",
-		"timeArr": [
-			2018,
-			7,
-			14,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "CORS通信",
-		"titleSHA": "4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1",
-		"summary": "CORS通信就是服务端设置`Access-Control-Allow-Origin`等配置\n\n分为2类请求，简单请求和非简单请求\n\n\n* 简单请求：\n\n    无预检，直接传递数据的时候检查是否同源\n\n    Content-Type类型：\n    \n   `application/x-www-form-urlenco...",
-		"sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425"
-	},
-	"b8d2829958b70c73fa0733e45fe779eff931cbc5": {
-		"label": [
-			"indexeddb"
-		],
-		"createdTime": "8/15/2018",
-		"timeArr": [
-			2018,
-			7,
-			15,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "indexedDB简要增删查",
-		"titleSHA": "b8d2829958b70c73fa0733e45fe779eff931cbc5",
-		"summary": "indexedDB\n在客户端进行保存保存： \n```\n{id: 1, name: \"张三\", age: 24, email: \"zhangsan@example.com\"}\n{id: 2, name: \"李四\", age: 54, email: \"lisi@example.com\"}\n{id: 3, name: \"王五...",
-		"sha": "b9c382c33ecfc711c7de0a929d346090b6c78122"
-	},
-	"bd9804a5d37884a5eff1d06717429f0517cd2782": {
-		"label": [
-			"表单"
-		],
-		"createdTime": "8/17/2018",
-		"timeArr": [
-			2018,
-			7,
-			17,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "原生表单验证相关",
-		"titleSHA": "bd9804a5d37884a5eff1d06717429f0517cd2782",
-		"summary": "#### 表单验证原生\n\n* 查看是否通过验证：\n`ele.checkValidity`\n\n* 验证不通过的时候的提示（只读）：\n`ele.validationMessage`\n\n    可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过\n\n    `ele.set...",
-		"sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4"
-	},
-	"f72ad63b02516bf71d570ecbf6c39488e64deb8e": {
-		"label": [
-			"github"
-		],
-		"createdTime": "8/18/2018",
-		"timeArr": [
-			2018,
-			7,
-			18,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "记录一次xhr.upload.onprogress填坑",
-		"titleSHA": "f72ad63b02516bf71d570ecbf6c39488e64deb8e",
-		"summary": "#### 一次xhr.upload.onprogress与multiparty搭配的踩坑记录\n\n有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96...",
-		"sha": "bc7ed8c6eae00e50c69810221c75724e5987c3ef"
-	},
-	"7d330d0cc2eaff951ab1a45bc216f483c483f6e0": {
-		"label": [
-			"canvas"
-		],
-		"createdTime": "8/20/2018",
-		"timeArr": [
-			2018,
-			7,
-			20,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "canvas处理大量重复运动",
-		"titleSHA": "7d330d0cc2eaff951ab1a45bc216f483c483f6e0",
-		"summary": "canvas做大量重复的粒子运动，例如雪花，星光闪烁\n\n并不需要针对每一个粒子进行动画，例如\n```js\nfor(let i=0;i<particles,length;i++){\n  let p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=function(){}\n  ...",
-		"sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591"
-	},
-	"a5bed495fbfaa670dcb632ac350bfa5c527e6eca": {
-		"label": null,
-		"createdTime": "8/23/2018",
-		"timeArr": [
-			2018,
-			7,
-			23,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "深入海明距离",
-		"titleSHA": "a5bed495fbfaa670dcb632ac350bfa5c527e6eca",
-		"summary": "通常海明距离的计算使用 `^`，再计算1的次数\n\n但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的\n\n另一种计算海明距离的方法：\n```js\n/**\n* @param nums {Array}\n* @returns {number}\n*/\nfunction cal...",
-		"sha": "4a3568d093ea0316f644a973e4b91143b8563bd4"
-	},
-	"7d5b714624c6bcfe8c2c66acd5114f3f547fbb49": {
-		"label": [
-			"canvas"
-		],
-		"createdTime": "8/26/2018",
-		"timeArr": [
-			2018,
-			7,
-			26,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "canvas执行15万粒子的动画",
-		"titleSHA": "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49",
-		"summary": "最近遇到的，目的是通过粒子动画渲染图片\n\n图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来\n\n最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...\n\n```js\n for (let py = 0; py < targetH; py ++) ...",
-		"sha": "13a7360e4102e7f5e47de276e5ec183f2ea9309f"
-	},
-	"af105b2df12bc15528a731d149193b4aa9927533": {
-		"label": [
-			"算法"
-		],
-		"createdTime": "8/27/2018",
-		"timeArr": [
-			2018,
-			7,
-			27,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "算法记录-最长回文子字符串",
-		"titleSHA": "af105b2df12bc15528a731d149193b4aa9927533",
-		"summary": "思路：利用对称思想\n\n1. 先将原字符串转换成转换成 `#x$x$x$` 的形式(一定是奇数)\n2. p为一个数组，储存每一个值的最大回文数量的一半+1，例如：'ababa' 对应的p 就是`[1,2,3,2,1]`\n3. `max`为当前已经计算过得最大回文量`p[id]`+对应的位置`id`，默认为0或者-infi...",
-		"sha": "b43da9771d20a5bb5e735c832af36f85b932df54"
-	},
-	"e3b94840e980e8848b479296e62a83d39630ab76": {
-		"label": [
-			"mutationobserver"
-		],
-		"createdTime": "8/29/2018",
-		"timeArr": [
-			2018,
-			7,
-			29,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "MutationObserver对象",
-		"titleSHA": "e3b94840e980e8848b479296e62a83d39630ab76",
-		"summary": "```js\nvar observer=new MutationObserver(function(records){\n  // 获取变化的DOM的一些属性 \n  records.API1\n})\n```\nAPI1：\n```\nAPI1={\ntype：观察的变动类型（attribute、characterData或者chil...",
-		"sha": "8540f01502cc34ee1bdc412b3483427e52a8e911"
-	},
-	"c717f697562ea9e27b08040a52e05db0718b1a50": {
-		"label": [
-			"git"
-		],
-		"createdTime": "9/1/2018",
-		"timeArr": [
-			2018,
-			8,
-			1,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "一个关于GIT撤销合并的处理revert",
-		"titleSHA": "c717f697562ea9e27b08040a52e05db0718b1a50",
-		"summary": "```\ninit -> v1 -> v2 -> v3 -- faulty merge -> v4  (master)\n           \\            /                     \n            d1  -->  d2                               ...",
-		"sha": "1de2e1722337b507aecf967ac8e888cae31f7bbb"
-	},
-	"b3f75a48780077e930c5409efefb6e27050a2057": {
-		"label": [
-			"mysql"
-		],
-		"createdTime": "9/4/2018",
-		"timeArr": [
-			2018,
-			8,
-			4,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "MYSQL常用命令记录",
-		"titleSHA": "b3f75a48780077e930c5409efefb6e27050a2057",
-		"summary": "* 添加row\n\n`INSERT  INTO library VALUES (1,'javascript',8);`\n\n* 条件排序order by\n\n`SELECT *  FROM movies WHERE release_year>1999 ORDER BY  release_year;`\n\n* SUM\n\n`SEL...",
-		"sha": "3a8414077d4d20b0989f09332827e0c904ae7e2f"
-	},
-	"c8b2b19bf52484de902c2d4d23a44ed8b158ab18": {
-		"label": [
-			"算法",
-			"leetcode"
-		],
-		"createdTime": "9/6/2018",
-		"timeArr": [
-			2018,
-			8,
-			6,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "关于位操作符应用的算法题",
-		"titleSHA": "c8b2b19bf52484de902c2d4d23a44ed8b158ab18",
-		"summary": "[原题目](https://leetcode.com/problems/maximum-product-of-word-lengths/)：\n给定一个字符串数组，找到长度的最大值`length(word[i]) * length(word[j])`，其中两个单词中的字母无相同。您可以假定每个单词只包含小写字母。如果没有...",
-		"sha": "7963f582de66e6e2582fb61249dbba57221190fe"
-	},
-	"1ce699882ae4c19377061e00fa95e2bc41b3f185": {
-		"label": [
-			"缓存",
-			"性能"
-		],
-		"createdTime": "9/8/2018",
-		"timeArr": [
-			2018,
-			8,
-			8,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "文章记录—为什么要知道js的引擎如何工作",
-		"titleSHA": "1ce699882ae4c19377061e00fa95e2bc41b3f185",
-		"summary": "\n原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess...",
-		"sha": "f6d88502864f6fa2ddb9fd4f3a6d78cbd5bc29c5"
-	},
-	"be95143b4d5b92aa8901844dde5e73230a1d2f49": {
-		"label": [
-			"npm",
-			"正则",
-			"es6",
-			"ast"
-		],
-		"createdTime": "9/13/2018",
-		"timeArr": [
-			2018,
-			8,
-			13,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "获取函数参数名称",
-		"titleSHA": "be95143b4d5b92aa8901844dde5e73230a1d2f49",
-		"summary": "今天碰到一个需求，获取函数参数名称，\n刚开始打算用正则去处理，但函数写法(包括es6)也挺多的，\n\n例如：\n```\nfunction x(a,b){}\nfunction x(a=5,b=3){}\nlet x=function(a=5,b){}\nlet x=(a=5,b)=>a+b\nlet x=a=>a*2\nfuncti...",
-		"sha": "666081661a6e70d949e3a7754293a33f83e18432"
-	},
 	"9ef13100cd0019709df5ac5974b441155efa3b42": {
 		"label": [
 			"es6"
@@ -2008,5 +1401,728 @@
 		"titleSHA": "8cf3eb3203db34468cc1b1507b0c244e16cbf3ab",
 		"summary": "#### Strict Mode\n\n在React v16.3时添加，目的是帮助找出应用中潜在的问题。\n\n使用：\n```jsx\nimport React from 'react';\n\nfunction ExampleApplication() {\n  return (\n    <div>\n      <Header />...",
 		"sha": "041680b86309bc84db432c597afbaf572d179c1f"
+	},
+	"f38c0d6abc75ce713d9bcd733aa66d5097d25e56": {
+		"label": [
+			"react"
+		],
+		"createdTime": "10/29/2018",
+		"timeArr": [
+			2018,
+			9,
+			29,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "React v16.7 Hooks(1)",
+		"titleSHA": "f38c0d6abc75ce713d9bcd733aa66d5097d25e56",
+		"summary": "#### Hooks\n\n\n\n* useState:\n1. 可以在非class使用state\n2. 返回一个数组\n\n    arr[0]是具体的state\n    \n    arr[1]是改变state的方法\n    \n    `const [count, setCount] = useState(in...",
+		"sha": "7592784d02c2bac58c7ac782ae1efb07edaf2f20"
+	},
+	"98dd615567b3aca2beb98ad1d65b71331760149b": {
+		"label": [
+			"react",
+			"缓存"
+		],
+		"createdTime": "10/31/2018",
+		"timeArr": [
+			2018,
+			9,
+			31,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "React v16.7 Hooks(2)",
+		"titleSHA": "98dd615567b3aca2beb98ad1d65b71331760149b",
+		"summary": "* useCallback\n\n* useMemo\n\n`useCallback(fn, inputs) is equivalent to useMemo(() => fn, inputs)`\n\n根据inputs的内容判断是否执行缓存。\n\n待更新：\n\n与`shouldComponentUpdate`搭配\n\n* useRef...",
+		"sha": "c76766c24ec93918abe3a16107c74155bbddaae9"
+	},
+	"13253a7dee631700da97fcd58ea9765840ae7706": {
+		"label": null,
+		"createdTime": "11/3/2018",
+		"timeArr": [
+			2018,
+			10,
+			3,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "DNS重绑定攻击-提示点",
+		"titleSHA": "13253a7dee631700da97fcd58ea9765840ae7706",
+		"summary": "攻击者需要知道的：\n\n* 知道被攻击网站地址\n* 知道被攻击网站**内部**缺少认证环节\n* 知道需要请求的(目标)存放在哪个位置\n\n被攻击这需要做的：\n\n* 通过诱导链接访问了恶意网站\n\n执行关键点\n\n* 恶意网站第一次响应DNS为实际DNS，TTL极短，然后执行请求(作用在恶意网站上)。\n* 恶意网站第二次响应DN...",
+		"sha": "2d4b04e1670845ec9792e2d6dbb9a9828db06632"
+	},
+	"8f280c8e1286471ef7f34acf52ea54212de93568": {
+		"label": [
+			"react",
+			"router"
+		],
+		"createdTime": "11/6/2018",
+		"timeArr": [
+			2018,
+			10,
+			6,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "react-router2个技巧",
+		"titleSHA": "8f280c8e1286471ef7f34acf52ea54212de93568",
+		"summary": "1. `SPA`的router跳转后立刻回到最顶端\n\n核心：添加`window.scrollTo(0, 0)`\n\n可以在每一个`Component`里面写，也可以包裹`Route`\n\n```jsx harmony\nclass ScrollToTopRoute extends Component {\n  componen...",
+		"sha": "557c27da0f9f9270e3a273c2f21a0885dca67e10"
+	},
+	"7d5b714624c6bcfe8c2c66acd5114f3f547fbb49": {
+		"label": [
+			"canvas"
+		],
+		"createdTime": "8/26/2018",
+		"timeArr": [
+			2018,
+			7,
+			26,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "canvas执行15万粒子的动画",
+		"titleSHA": "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49",
+		"summary": "最近遇到的，目的是通过粒子动画渲染图片\n\n图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来\n\n最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...\n\n```js\n for (let py = 0; py < targetH; py ++) ...",
+		"sha": "13a7360e4102e7f5e47de276e5ec183f2ea9309f"
+	},
+	"af105b2df12bc15528a731d149193b4aa9927533": {
+		"label": [
+			"算法"
+		],
+		"createdTime": "8/27/2018",
+		"timeArr": [
+			2018,
+			7,
+			27,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "算法记录-最长回文子字符串",
+		"titleSHA": "af105b2df12bc15528a731d149193b4aa9927533",
+		"summary": "思路：利用对称思想\n\n1. 先将原字符串转换成转换成 `#x$x$x$` 的形式(一定是奇数)\n2. p为一个数组，储存每一个值的最大回文数量的一半+1，例如：'ababa' 对应的p 就是`[1,2,3,2,1]`\n3. `max`为当前已经计算过得最大回文量`p[id]`+对应的位置`id`，默认为0或者-infi...",
+		"sha": "b43da9771d20a5bb5e735c832af36f85b932df54"
+	},
+	"e3b94840e980e8848b479296e62a83d39630ab76": {
+		"label": [
+			"mutationobserver"
+		],
+		"createdTime": "8/29/2018",
+		"timeArr": [
+			2018,
+			7,
+			29,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "MutationObserver对象",
+		"titleSHA": "e3b94840e980e8848b479296e62a83d39630ab76",
+		"summary": "```js\nvar observer=new MutationObserver(function(records){\n  // 获取变化的DOM的一些属性 \n  records.API1\n})\n```\nAPI1：\n```\nAPI1={\ntype：观察的变动类型（attribute、characterData或者chil...",
+		"sha": "8540f01502cc34ee1bdc412b3483427e52a8e911"
+	},
+	"c717f697562ea9e27b08040a52e05db0718b1a50": {
+		"label": [
+			"git"
+		],
+		"createdTime": "9/1/2018",
+		"timeArr": [
+			2018,
+			8,
+			1,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一个关于GIT撤销合并的处理revert",
+		"titleSHA": "c717f697562ea9e27b08040a52e05db0718b1a50",
+		"summary": "```\ninit -> v1 -> v2 -> v3 -- faulty merge -> v4  (master)\n           \\            /                     \n            d1  -->  d2                               ...",
+		"sha": "1de2e1722337b507aecf967ac8e888cae31f7bbb"
+	},
+	"b3f75a48780077e930c5409efefb6e27050a2057": {
+		"label": [
+			"mysql"
+		],
+		"createdTime": "9/4/2018",
+		"timeArr": [
+			2018,
+			8,
+			4,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "MYSQL常用命令记录",
+		"titleSHA": "b3f75a48780077e930c5409efefb6e27050a2057",
+		"summary": "* 添加row\n\n`INSERT  INTO library VALUES (1,'javascript',8);`\n\n* 条件排序order by\n\n`SELECT *  FROM movies WHERE release_year>1999 ORDER BY  release_year;`\n\n* SUM\n\n`SEL...",
+		"sha": "3a8414077d4d20b0989f09332827e0c904ae7e2f"
+	},
+	"c8b2b19bf52484de902c2d4d23a44ed8b158ab18": {
+		"label": [
+			"算法",
+			"leetcode"
+		],
+		"createdTime": "9/6/2018",
+		"timeArr": [
+			2018,
+			8,
+			6,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "关于位操作符应用的算法题",
+		"titleSHA": "c8b2b19bf52484de902c2d4d23a44ed8b158ab18",
+		"summary": "[原题目](https://leetcode.com/problems/maximum-product-of-word-lengths/)：\n给定一个字符串数组，找到长度的最大值`length(word[i]) * length(word[j])`，其中两个单词中的字母无相同。您可以假定每个单词只包含小写字母。如果没有...",
+		"sha": "7963f582de66e6e2582fb61249dbba57221190fe"
+	},
+	"1ce699882ae4c19377061e00fa95e2bc41b3f185": {
+		"label": [
+			"缓存",
+			"性能"
+		],
+		"createdTime": "9/8/2018",
+		"timeArr": [
+			2018,
+			8,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "文章记录—为什么要知道js的引擎如何工作",
+		"titleSHA": "1ce699882ae4c19377061e00fa95e2bc41b3f185",
+		"summary": "\n原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess...",
+		"sha": "f6d88502864f6fa2ddb9fd4f3a6d78cbd5bc29c5"
+	},
+	"be95143b4d5b92aa8901844dde5e73230a1d2f49": {
+		"label": [
+			"npm",
+			"正则",
+			"es6",
+			"ast"
+		],
+		"createdTime": "9/13/2018",
+		"timeArr": [
+			2018,
+			8,
+			13,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "获取函数参数名称",
+		"titleSHA": "be95143b4d5b92aa8901844dde5e73230a1d2f49",
+		"summary": "今天碰到一个需求，获取函数参数名称，\n刚开始打算用正则去处理，但函数写法(包括es6)也挺多的，\n\n例如：\n```\nfunction x(a,b){}\nfunction x(a=5,b=3){}\nlet x=function(a=5,b){}\nlet x=(a=5,b)=>a+b\nlet x=a=>a*2\nfuncti...",
+		"sha": "666081661a6e70d949e3a7754293a33f83e18432"
+	},
+	"dc88a14e3350748449cfa7bae96179c2301f3548": {
+		"label": [
+			"缓存",
+			"github"
+		],
+		"createdTime": "11/7/2018",
+		"timeArr": [
+			2018,
+			10,
+			7,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "监控网页状态的-Page Lifecycle",
+		"titleSHA": "dc88a14e3350748449cfa7bae96179c2301f3548",
+		"summary": "#### 监听网页读取状况使用\n`DOMContentLoaded`和`window.onload`\n\n监听网页展示状况，可以调用一系列`Page LIfecycle`API\n\n#### 生命周期：\n\n![](https://raw.githubusercontent.com/WICG/page-lifecycle/m...",
+		"sha": "ce6d06466d2502c0c7cc081e44839f05bad8e8b0"
+	},
+	"fc7c450a8aab31c939be77ef556ba927f8da6619": {
+		"label": [
+			"react",
+			"redux"
+		],
+		"createdTime": "11/8/2018",
+		"timeArr": [
+			2018,
+			10,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "React v16.7 Hooks(3)",
+		"titleSHA": "fc7c450a8aab31c939be77ef556ba927f8da6619",
+		"summary": "useReducer\n\n模拟reducer\n\n`const [state, dispatch] = useReducer(reducer, initialState, initialAction);`\n\n* 参数1`reducer` \n\n与`redux`写法相比，不需要默认返回值\n\n```js\nfunction red...",
+		"sha": "012abf1ae3a9d2bef888109e1147dae1407eda09"
+	},
+	"bebc0fc1532d19e9cec7bedd22a5141f7927276c": {
+		"label": [
+			"算法"
+		],
+		"createdTime": "11/8/2018",
+		"timeArr": [
+			2018,
+			10,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "求不重叠间隔的算法",
+		"titleSHA": "bebc0fc1532d19e9cec7bedd22a5141f7927276c",
+		"summary": "给出一系列间隔，例如`[[1,2],[3,5],[1,3],[2,3],[2,4]]`\n\n求出最大的不重复间隔数量。\n\n例1:\n\ninput : `[[1,2],[3,5],[1,3],[2,3],[2,4]]`\n\noutput : 3\n\n这种题思路是按间隔的`尾部排序`。\n\n```js\n/**\n * Definiti...",
+		"sha": "88bd0b8b65d66224f77f7c40a5034f06a5ca729a"
+	},
+	"cdf39a26b776d98ab203524d376b062840672373": {
+		"label": [
+			"正则",
+			"源码"
+		],
+		"createdTime": "7/18/2018",
+		"timeArr": [
+			2018,
+			6,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一个长正则的深入理解",
+		"titleSHA": "cdf39a26b776d98ab203524d376b062840672373",
+		"summary": "#### 阅读lodash中一段长正则理解笔记\n\n在lodash源码`/.internal/stringToPath.js`中：\n\n这里英文是原注释，中文是简单的翻译下，后面会详细解释：\n```js\nconst rePropName = RegExp(\n  // Match anything that isn't a do...",
+		"sha": "784356b84252e1f80acd38952d47176e1e4a8836"
+	},
+	"c2c3bf8775d224910f8bdac31eb7e0ff5a28d431": {
+		"label": [
+			"worker"
+		],
+		"createdTime": "7/24/2018",
+		"timeArr": [
+			2018,
+			6,
+			24,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "Blob对象和createObjectURL",
+		"titleSHA": "c2c3bf8775d224910f8bdac31eb7e0ff5a28d431",
+		"summary": "#### Blob与createObjectURL搭配使用\n\n```js\nvar blob = new Blob([document.querySelector('#worker').textContent]);\nvar url = window.URL.createObjectURL(blob);\nvar worker ...",
+		"sha": "92b4e89a32882a49232d054e12b2f724a0e9fa68"
+	},
+	"c210dfbee9273c04ed715f0cf70a75b648672b17": {
+		"label": [
+			"github"
+		],
+		"createdTime": "7/25/2018",
+		"timeArr": [
+			2018,
+			6,
+			25,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "通过解析blob实现图片预览",
+		"titleSHA": "c210dfbee9273c04ed715f0cf70a75b648672b17",
+		"summary": "#### 解析blob实现图片预览\n\n原理很简单，`blob`是一个储存了二进制的大对象，而`createObjectURL`可以解析blob成为一个url格式，\n再用`img`标签渲染即可。\n\n```js\n  if(blob.type.indexOf('image')!==-1){\n    newURL=window.U...",
+		"sha": "bf946078e90730d7d626fe3573c4adad5f9cd0e2"
+	},
+	"46e9b0a650dba0fd4351e6b9b36a76775bb0bc76": {
+		"label": [
+			"github",
+			"表单"
+		],
+		"createdTime": "7/26/2018",
+		"timeArr": [
+			2018,
+			6,
+			26,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "通过blob实现文件续传记录(nodejs)",
+		"titleSHA": "46e9b0a650dba0fd4351e6b9b36a76775bb0bc76",
+		"summary": "#### 一个可暂停分段上传的例子\n\n[代码位置](https://gist.github.com/stonehank/5d3dea234ac6bc200bdef9c181c0a645)\n_______\n\n要点：\n\n1. 通过`blob.slice()`对文件进行分割，再逐个上传\n\n    `blob.slice(star...",
+		"sha": "f3a86b01ae6164f031e648596d9eeafb87fb28f6"
+	},
+	"4f7f64522646a72cae1c94073ca8d665ecf77efd": {
+		"label": [
+			"css"
+		],
+		"createdTime": "7/27/2018",
+		"timeArr": [
+			2018,
+			6,
+			27,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "css补缺",
+		"titleSHA": "4f7f64522646a72cae1c94073ca8d665ecf77efd",
+		"summary": "#### @charset\n@charset 在外部样式表文件内使用。指定该样式表使用的字符编码。\n```css\n@charset \"utf-8\";\nbody {  }\ndiv {  }\n```#### inline-flex\n\ninline-flex和flex 是针对flex容器的内联显示改变，而它内部的flex-item...",
+		"sha": "4a1043ffaa6c98e2971a83f9fba138ad8462eafa"
+	},
+	"f433b9ed4007a7781ed42e23c229928ae08ba1d8": {
+		"label": [
+			"react",
+			"npm",
+			"源码",
+			"github"
+		],
+		"createdTime": "7/28/2018",
+		"timeArr": [
+			2018,
+			6,
+			28,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-create-react-app一些收获(笔记备忘)",
+		"titleSHA": "f433b9ed4007a7781ed42e23c229928ae08ba1d8",
+		"summary": "#### ./creat-react-app/createReactApp.js\n\n* os.EOL\n\n    不同系统的行尾符号\n    \n    > A string constant defining the operating system-specific end-of-line marker:\n    \n   ...",
+		"sha": "0a29b597ea9aca0631c7bd70092eb31cf07d8250"
+	},
+	"00c5d9ed2847e38150e59f8030c9eff752b313f7": {
+		"label": [
+			"算法",
+			"leetcode"
+		],
+		"createdTime": "7/29/2018",
+		"timeArr": [
+			2018,
+			6,
+			29,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "记一道二分查找算法题",
+		"titleSHA": "00c5d9ed2847e38150e59f8030c9eff752b313f7",
+		"summary": "题目位置：https://leetcode.com/problems/nth-magical-number/description/\n\n题目：\n\n如果正整数 可被A  或B整除，则它是神奇的。\n\n返回第N个魔法数字。由于答案可能非常大，因此返回值需要模(%)10^9 + 7。\n\n例1：\n```\n输入： N = 1，A ...",
+		"sha": "d3c6d7ae8150d554512c3b20c6ccc2cd575468c5"
+	},
+	"fe3678963ac1c863362da40651884c9820158971": {
+		"label": [
+			"npm",
+			"表单",
+			"网络安全"
+		],
+		"createdTime": "7/30/2018",
+		"timeArr": [
+			2018,
+			6,
+			30,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "文章记录—当前的网页安全",
+		"titleSHA": "fe3678963ac1c863362da40651884c9820158971",
+		"summary": "原文地址：https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5\n\n作者讲述了一些能够达成的破解网络安全手段(有些已被认为是bug修复，例如2)，并给出建议...",
+		"sha": "6901bccad37993cd0ddb283e7bd8f2a32e5ae599"
+	},
+	"11c12164597745ff2b79b9aa256465683ed63ab6": {
+		"label": [
+			"redux",
+			"源码",
+			"github"
+		],
+		"createdTime": "7/31/2018",
+		"timeArr": [
+			2018,
+			6,
+			31,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "从源码理解redux-observable",
+		"titleSHA": "11c12164597745ff2b79b9aa256465683ed63ab6",
+		"summary": "#### 阅读前提：\n1. 有rxjs基础，对`Observable`, `Subject`,`pipe`和一些操作符(例如`filter`,`map`,`merge`,`mergeMap`)执行流程有基本了解，最起码遇到不清楚有去查阅的动力\n2. 比较熟悉`redux`中间件的写法，否则像`createEpicMidd...",
+		"sha": "6e85cade1d479e41467fc8f31c7cce1b2d0eca18"
+	},
+	"e1662cfda83fcae8dc160c993bb54ff04956653c": {
+		"label": [
+			"promise"
+		],
+		"createdTime": "8/2/2018",
+		"timeArr": [
+			2018,
+			7,
+			2,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一些promise和其他补缺",
+		"titleSHA": "e1662cfda83fcae8dc160c993bb54ff04956653c",
+		"summary": "* 如果向 Promise.resolve(..) 传递一个真正的 Promise，就只会返回同一个 promise\n```js\nvar p1 = Promise.resolve( 42 );\nvar p2 = Promise.resolve( p1 );\np1===p2\n// true\n```\n\n\n* P...",
+		"sha": "3bfb5149de44ae6b02ce78a91414ebbd9303a277"
+	},
+	"6fd675137d4fc7c9017a5d49e6617b15a17ace30": {
+		"label": [
+			"react"
+		],
+		"createdTime": "8/4/2018",
+		"timeArr": [
+			2018,
+			7,
+			4,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "react的编写模式",
+		"titleSHA": "6fd675137d4fc7c9017a5d49e6617b15a17ace30",
+		"summary": "使用4种方式：props传递，父组件公用，hoc，render-prop\n\n定义需求，cur符合auth才能查看组件内容，否则进入NotAccess\n```\nconst cur = \"a\";\nconst auth = {\n  com1: [\"a\", \"b\"],\n  com2: [\"b\", \"c\"],\n  com3: [...",
+		"sha": "ac63fa5d204d619196b3d6c6134d623fb670d2f1"
+	},
+	"3b4d16a57b6ee44ecffdda18a89a5c0f7cf5808c": {
+		"label": [
+			"react",
+			"算法",
+			"源码"
+		],
+		"createdTime": "8/5/2018",
+		"timeArr": [
+			2018,
+			7,
+			5,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-anime和react-motion算法差异",
+		"titleSHA": "3b4d16a57b6ee44ecffdda18a89a5c0f7cf5808c",
+		"summary": "`anime`用的是缓动算法\n\n算法规定了动画形式，需要提供总消耗时间，当前消耗时间，初始位置，目标位置\n\n特点：动画灵活性更大,可以指定任意的时间而得到对应的位置，可以实现暂停/继续，动画跳转，动画进度条等\n\n`react-motion`用的是弹性算法\n\n算法规定了弹性和阻力，只要提供初始位置和目标位置，即可计算出动...",
+		"sha": "9f1747ec27f36e527867dcc4368704ce642ca78d"
+	},
+	"7d006085fe6510e84760d5dac1964ffab407a64b": {
+		"label": [
+			"css"
+		],
+		"createdTime": "8/8/2018",
+		"timeArr": [
+			2018,
+			7,
+			8,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "CSS BEM和7-1",
+		"titleSHA": "7d006085fe6510e84760d5dac1964ffab407a64b",
+		"summary": "#### css 的BEM方法和7-1规则#### BEM\n\n按照`Block__Element--Modifier`命名\n\n例如：\n```\narticle__author\narticle__date\narticle__content-leftAlign\narticle__content-centerAlign\n```\n...",
+		"sha": "749d64da627880acf963a5302a4e38ce920592d5"
+	},
+	"d19b06a421c09a6a7e3d012ce39d42cf0cfc380b": {
+		"label": [
+			"算法"
+		],
+		"createdTime": "8/9/2018",
+		"timeArr": [
+			2018,
+			7,
+			9,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "KMP回溯分析",
+		"titleSHA": "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b",
+		"summary": "KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯\n\n一般写法是：\n```js\nfunction calcNext(str,pat){\n  /*...*/\n  if(str[k]!==str[j]){\n    // 有些会写成k=next[k]，原理是一样的\n    // 这里k表示，所对应当前正在进行对比的...",
+		"sha": "9b2f31a1afd83292746a2243626db26804af5fa3"
+	},
+	"f616d21af7026eb71d6d96d1e0adfc13871af644": {
+		"label": [
+			"react",
+			"源码",
+			"github"
+		],
+		"createdTime": "8/10/2018",
+		"timeArr": [
+			2018,
+			7,
+			10,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-react-motion-拓扑排序思想",
+		"titleSHA": "f616d21af7026eb71d6d96d1e0adfc13871af644",
+		"summary": "\n阅读[react-motion](https://github.com/chenglou/react-motion)的源码时候，其中有一个组件`TransitionMotion`\n，它负责元素的新增和移除动画，内部有2个概念：`old`和`new`\n\n这就先说到排序，\n\n当动画队列出现如下状态...",
+		"sha": "65c59ec0ce44ba503eeb5cfdeec3d1eba9b70047"
+	},
+	"2d2fe99476f8b0fcf2a0f7ff6061756eff4803e5": {
+		"label": [
+			"canvas"
+		],
+		"createdTime": "8/13/2018",
+		"timeArr": [
+			2018,
+			7,
+			13,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "svg渲染dom，canvas获取像素",
+		"titleSHA": "2d2fe99476f8b0fcf2a0f7ff6061756eff4803e5",
+		"summary": "#### foreignObject\n\nsvg内部标签`<foreignObject>`，可以直接在svg内部插入`xhtml`元素，再通过`blob`和`FileReader`可\n将内部`xhtml`内容转换成*同源*url，再通过`img.src=url`将svg内部的dom元素转化为图片。\n\n```js\nlet  d...",
+		"sha": "8f6c34d738ca1b40e7dbc5fd7c069695a2fb4443"
+	},
+	"4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1": {
+		"label": [
+			"cors",
+			"表单"
+		],
+		"createdTime": "8/14/2018",
+		"timeArr": [
+			2018,
+			7,
+			14,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "CORS通信",
+		"titleSHA": "4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1",
+		"summary": "CORS通信就是服务端设置`Access-Control-Allow-Origin`等配置\n\n分为2类请求，简单请求和非简单请求\n\n\n* 简单请求：\n\n    无预检，直接传递数据的时候检查是否同源\n\n    Content-Type类型：\n    \n   `application/x-www-form-urlenco...",
+		"sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425"
+	},
+	"b8d2829958b70c73fa0733e45fe779eff931cbc5": {
+		"label": [
+			"indexeddb"
+		],
+		"createdTime": "8/15/2018",
+		"timeArr": [
+			2018,
+			7,
+			15,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "indexedDB简要增删查",
+		"titleSHA": "b8d2829958b70c73fa0733e45fe779eff931cbc5",
+		"summary": "indexedDB\n在客户端进行保存保存： \n```\n{id: 1, name: \"张三\", age: 24, email: \"zhangsan@example.com\"}\n{id: 2, name: \"李四\", age: 54, email: \"lisi@example.com\"}\n{id: 3, name: \"王五...",
+		"sha": "b9c382c33ecfc711c7de0a929d346090b6c78122"
+	},
+	"bd9804a5d37884a5eff1d06717429f0517cd2782": {
+		"label": [
+			"表单"
+		],
+		"createdTime": "8/17/2018",
+		"timeArr": [
+			2018,
+			7,
+			17,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "原生表单验证相关",
+		"titleSHA": "bd9804a5d37884a5eff1d06717429f0517cd2782",
+		"summary": "#### 表单验证原生\n\n* 查看是否通过验证：\n`ele.checkValidity`\n\n* 验证不通过的时候的提示（只读）：\n`ele.validationMessage`\n\n    可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过\n\n    `ele.set...",
+		"sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4"
+	},
+	"f72ad63b02516bf71d570ecbf6c39488e64deb8e": {
+		"label": [
+			"github"
+		],
+		"createdTime": "8/18/2018",
+		"timeArr": [
+			2018,
+			7,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "记录一次xhr.upload.onprogress填坑",
+		"titleSHA": "f72ad63b02516bf71d570ecbf6c39488e64deb8e",
+		"summary": "#### 一次xhr.upload.onprogress与multiparty搭配的踩坑记录\n\n有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96...",
+		"sha": "bc7ed8c6eae00e50c69810221c75724e5987c3ef"
+	},
+	"7d330d0cc2eaff951ab1a45bc216f483c483f6e0": {
+		"label": [
+			"canvas"
+		],
+		"createdTime": "8/20/2018",
+		"timeArr": [
+			2018,
+			7,
+			20,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "canvas处理大量重复运动",
+		"titleSHA": "7d330d0cc2eaff951ab1a45bc216f483c483f6e0",
+		"summary": "canvas做大量重复的粒子运动，例如雪花，星光闪烁\n\n并不需要针对每一个粒子进行动画，例如\n```js\nfor(let i=0;i<particles,length;i++){\n  let p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=function(){}\n  ...",
+		"sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591"
+	},
+	"a5bed495fbfaa670dcb632ac350bfa5c527e6eca": {
+		"label": null,
+		"createdTime": "8/23/2018",
+		"timeArr": [
+			2018,
+			7,
+			23,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "深入海明距离",
+		"titleSHA": "a5bed495fbfaa670dcb632ac350bfa5c527e6eca",
+		"summary": "通常海明距离的计算使用 `^`，再计算1的次数\n\n但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的\n\n另一种计算海明距离的方法：\n```js\n/**\n* @param nums {Array}\n* @returns {number}\n*/\nfunction cal...",
+		"sha": "4a3568d093ea0316f644a973e4b91143b8563bd4"
 	}
 }
