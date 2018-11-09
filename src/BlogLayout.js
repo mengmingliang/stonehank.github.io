@@ -16,7 +16,8 @@ import NotFound from "./tools/NotFound";
 import Search from "./tools/Search"
 import HeaderPure from "./tools/HeaderPure"
 
-
+import './css/github.min.css'
+import './css/index.css';
 const styles={
   layout_wrapper:{minHeight: '100vh',transition:"background 1s solid"  },
   layout_inner:{background:"#fff"},
@@ -51,7 +52,7 @@ export default class BlogLayout extends React.Component {
       import(
         /*webpackChunkName: "articles-list"*/
         `./asset/_blog-data`)
-        .then(blog_jsonObj=>{
+        .then(({default:blog_jsonObj})=>{
           this.setState({
             archiveArticles:refactor(blog_jsonObj,"time"),
             categoryArticles:objGroupBy(blog_jsonObj,"label"),
@@ -65,14 +66,12 @@ export default class BlogLayout extends React.Component {
     }
 
   componentDidMount(){
-    document.body.removeChild(document.getElementById("loading"))
     this.fetchBlogContent()
   }
   render() {
     const {userConfig}=this.props
     const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,archiveEachPage,aboutMe}=userConfig
     const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
-
     if(archiveArticles && !archiveArticles.activePanel){
       Object.defineProperty(archiveArticles,"activePanel",{value:null, writable:true})
     }

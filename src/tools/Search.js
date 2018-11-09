@@ -208,7 +208,7 @@ export default class SearchContainer extends React.Component {
 
   toggleGlobalSearch() {
     const {globalSearch, data} = this.state
-    if (!globalSearch && !data[0].content) this.showConfirm()
+    if (!globalSearch && data && !data[0].content) this.showConfirm()
     else {
       this.setState(prevState => ({
         globalSearch: !prevState.globalSearch,
@@ -226,7 +226,7 @@ export default class SearchContainer extends React.Component {
         /* webpackExclude: /_blog-data\.json$/ */
         /* webpackChunkName: "global-search" */
         `../asset/${data[i].titleSHA}.json`)
-        .then(obj => {
+        .then(({default:obj}) => {
           data[i].content = obj.content
         })
     }

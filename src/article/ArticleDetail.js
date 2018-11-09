@@ -72,10 +72,10 @@ export default class ArticleDetail extends React.Component{
       }
       return false
     })
+
     return import(
-      /*webpackChunkName: "article"[index] */
       `../asset/${articleSha}.json`)
-      .then(obj=>({
+      .then(({default:obj})=>({
         content:obj.content,
         title:curArticle.title,
         label:curArticle.label,

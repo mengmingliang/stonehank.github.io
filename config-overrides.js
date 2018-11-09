@@ -51,16 +51,17 @@ module.exports = function override(config, env) {
   //     reportFilename: 'report.html'
   //   })
   // }
-  if(env==="production"){
-    config.plugins.push(
-      new webpack.NamedChunksPlugin((chunk) => {
-        if (chunk.name) {
-          return chunk.name;
-        }
-        return chunk.mapModules(m => path.relative(m.context, m.request)).join("_");
-      })
-    )
-  }
+
+  // if(env==="production"){
+  //   config.plugins.push(
+  //     new webpack.NamedChunksPlugin((chunk) => {
+  //       if (chunk.name) {
+  //         return chunk.name;
+  //       }
+  //       return chunk.mapModules(m => path.relative(m.context, m.request)).join("_");
+  //     })
+  //   )
+  // }
   if(env==="production"){
     // config.output.path="D:\\Project\\github\\stonehank.github.io"
     config.output.chunkFilename='static/js/[name].chunk.js'

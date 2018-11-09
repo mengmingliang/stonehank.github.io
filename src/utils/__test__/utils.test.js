@@ -378,6 +378,7 @@ test("判断是否精确匹配",function () {
   let cnMatch6="介绍“算法”"
   let cnMatch7="算法666"
   let cnMatch8="算数方法"
+  let cnMatch9="算“法"
 
   let cnMatch100="学Tree结构"
   let cnMatch101="Tree结构"
@@ -404,7 +405,8 @@ test("判断是否精确匹配",function () {
   expect(isMatchPrecision(t2,cnMatch5)).toBe(true)
   expect(isMatchPrecision(t2,cnMatch6)).toBe(true)
   expect(isMatchPrecision(t2,cnMatch7)).toBe(true)
-  expect(isMatchPrecision(t2,cnMatch8)).toBe(true)
+  expect(isMatchPrecision(t2,cnMatch8)).toBe(false)
+  expect(isMatchPrecision(t2,cnMatch9)).toBe(false)
 
   expect(isMatchPrecision(t3,cnMatch100)).toBe(true)
   expect(isMatchPrecision(t3,cnMatch101)).toBe(true)

@@ -11,7 +11,6 @@ export default class Home extends React.PureComponent {
     const {articlesEachPage}=props
     this.state={
       contentLoading:true,
-      discussLoading:true,
       articles:null,
       pageSize:articlesEachPage
     }

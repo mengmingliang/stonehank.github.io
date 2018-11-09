@@ -8,9 +8,9 @@
     "disqus-react": "^1.0.5",
     "highlight.js": "^9.13.0",
     "markdown-it": "^8.4.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-scripts": "^1.1.5",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-scripts": "^2.1.1",
     "react-transition-group": "^2.5.0"
   },
   "scripts": {
@@ -44,5 +44,11 @@
     "single-line-log": "^1.1.2",
     "slash": "^2.0.0",
     "why-did-you-update": "^0.1.1"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
