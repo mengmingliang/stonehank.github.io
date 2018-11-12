@@ -7,7 +7,8 @@
     "antd": "^3.10.1",
     "disqus-react": "^1.0.5",
     "highlight.js": "^9.13.0",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^8.4.2",g
+    "raf": "^3.4.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-scripts": "^2.1.1",
@@ -32,7 +33,6 @@
     "js-base64": "^2.4.9",
     "jsdom": "12.1.0",
     "jsdom-global": "3.0.2",
-    "markdown-loader": "^4.0.0",
     "moment": "^2.22.2",
     "nodejieba": "^2.2.6",
     "parse-filepath": "^1.0.2",
