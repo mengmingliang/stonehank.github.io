@@ -16,6 +16,13 @@ body{
 img{
     max-width:100%;
 }
+
+blockquote{
+    padding: 5px 1rem;
+    border-left: 5px solid #eee;
+    font-weight: 400;
+    font-style: italic;
+}
 .logo {
     height: 64px;
     display: flex;
