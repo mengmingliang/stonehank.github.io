@@ -1,4 +1,4 @@
-import {objSortBy, objGroupBy, refactor, deepEqual,withOutImgHTML,inHTMLTag,isMatchPrecision} from "../index"
+import {objSortBy, objGroupBy, refactor, deepEqual,withOutImgHTML,inHTMLTag,isMatchPrecision,getCookie,querySearch} from "../index"
 
 test("sort by factorArr",function () {
   let obj={
@@ -415,5 +415,25 @@ test("判断是否精确匹配",function () {
 
   expect(isMatchPrecision('a',extra)).toBe(false)
 
+
+})
+
+test("获取cookie",function () {
+
+  let cookie1=`uid_bg=5675TB67V123fFHdHghDFdye;yu67=1!&%456&sfGJKGV%^<>=-_+[];abc=<>?/*-+~YYYYY=TTTTT!@#$%^~&%^`
+
+  expect(getCookie("uid_bg",cookie1)).toBe("5675TB67V123fFHdHghDFdye")
+  expect(getCookie("yu67",cookie1)).toBe("1!&%456&sfGJKGV%^<>=-_+[]")
+  expect(getCookie("abc",cookie1)).toBe("<>?/*-+~YYYYY=TTTTT!@#$%^~&%^")
+  expect(getCookie("YYYYY",cookie1)).toBe("")
+
+})
+
+
+test("简易获取URL中search参数",function () {
+
+  let href=`?bookmark=1327&a=56&b=12&c=64`
+
+  expect(querySearch(href)).toEqual({bookmark:'1327',a:'56',b:'12',c:'64'})
 
 })

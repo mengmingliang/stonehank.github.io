@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react"
 import {navigate} from "@reach/router";
 import {linkTo} from "../routes/linkPathList";
-import {Icon ,Affix} from 'antd';
+import {Icon ,Affix,message} from 'antd';
 const styles={
   setBookmark:{fontSize:"1.2rem",margin:"auto",color:"#fff"},
   getBookmark:{fontSize:"1.5rem"},
@@ -14,16 +14,9 @@ const IconBookmark = Icon.createFromIconfontCN({
 
 export function GetMark({bookmark}) {
   function getMark(){
-    const [articleSha,scrollHeight]=bookmark.split('-')
-    navigate(`${linkTo.articles}/${articleSha}`)
-      .then(()=>{
-        setTimeout(()=>{
-          window.scrollTo({
-            top: +scrollHeight,
-            behavior: 'smooth'
-          });
-        },300)
-      })
+    const [articleSha,scrollHeight]=bookmark.split('-')||[]
+    if(!articleSha)return
+    navigate(`${linkTo.articles}/${articleSha}/?bookmark=${scrollHeight}`)
   }
 
   return  bookmark ?
@@ -40,9 +33,11 @@ export function SetMark({sha,setBookmark}) {
   useEffect(()=>{if(sha)setStatus(true)},[sha])
 
   function setMark(){
+    if(!sha)return message.error("添加书签失败");
     let scrollHeight=window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop
     document.cookie=`blog_bookmark=${sha}-${scrollHeight};max-age=31536000 ; path=/`
     setBookmark(`${sha}-${scrollHeight}`)
+    message.success("成功添加书签");
   }
 
   return ready ?

@@ -265,7 +265,18 @@ export function tryReg(regPattern,otherwise){
 }
 
 
-export function getCookie(key){
-  return document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" +
+export function getCookie(key,forTestCookie){
+  let cookie=forTestCookie?forTestCookie:document.cookie
+  return cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" +
     encodeURIComponent(key).replace(/[-.+*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")
+}
+
+export function querySearch(search){
+  let splitSearch=search.replace("?",'').split('&')
+  let data={}
+  for(let i=0;i<splitSearch.length;i++){
+    let splitEach=splitSearch[i].split('=')
+    data[splitEach[0]]=splitEach[1]
+  }
+  return data
 }

@@ -9,6 +9,8 @@ import {linkTo} from "../routes/linkPathList";
 import CustomComment from "../tools/CustomComment";
 import BookmarkContext from '../tools/BookmarkContext'
 import {SetMark} from "../tools/Bookmark";
+import {querySearch} from "../utils/index";
+
 
 hljs.registerLanguage('javascript', javascript);
 
@@ -50,6 +52,7 @@ export default class ArticleDetail extends React.Component{
     this.handlePageChange=this.handlePageChange.bind(this)
     this.itemRender=this.itemRender.bind(this)
     this.showDisqus=this.showDisqus.bind(this)
+    this.bookmarkScroll=this.bookmarkScroll.bind(this)
   }
   itemRender(current, type,originalElement) {
     const {blogList}=this.props
@@ -90,6 +93,20 @@ export default class ArticleDetail extends React.Component{
       disqusRender:true
     })
   }
+  bookmarkScroll(){
+    const {location}=this.props
+    const {search}=location
+    if(/bookmark/.test(search)){
+      let data=querySearch(search)
+      this.timer=setTimeout(()=>{
+        window.scrollTo({
+          top: +data.bookmark,
+          behavior: 'smooth'
+        });
+      },200)
+    }
+  }
+
   static getDerivedStateFromProps(props,state){
     if(props.articleSha===state.curArticleName)return null
     return {
@@ -104,6 +121,7 @@ export default class ArticleDetail extends React.Component{
     if(this.props.articleSha!==this.state.curArticleName){
       this.fetchBlogContent()
         .then(obj=>{
+          this.bookmarkScroll()
           this.setState({
             curArticleName:this.props.articleSha,
             curArticleData:obj,
@@ -126,6 +144,7 @@ export default class ArticleDetail extends React.Component{
     if(!blogList)return
     this.fetchBlogContent()
       .then(obj=>{
+        this.bookmarkScroll()
         this.setState({
           curArticleName:articleSha,
           curArticleData:obj,
@@ -137,6 +156,9 @@ export default class ArticleDetail extends React.Component{
         // console.log(err)
         navigate("/NoThisPage", { replace: true })
       })
+  }
+  componentWillUnmount(){
+    clearTimeout(this.timer)
   }
   render(){
     // console.log('article')

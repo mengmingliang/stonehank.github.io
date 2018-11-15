@@ -87,12 +87,15 @@ export default class Category extends React.Component {
           </Button>
         </div>
         {tagsRenderMode === "list" ?
-          <TagsList articles={articles}
-                    pageSize={pageSize} page={page}
-                    handlePageChange={this.handlePageChange}
-                    totalPage={this.totalPage}
-                    renderArticles={renderArticles}
-          /> :
+          <React.Fragment>
+            <TagsBlock articles={articles}/>,
+            <TagsList articles={articles}
+                      pageSize={pageSize} page={page}
+                      handlePageChange={this.handlePageChange}
+                      totalPage={this.totalPage}
+                      renderArticles={renderArticles}
+            />
+          </React.Fragment> :
           <TagsBlock articles={articles}/>
         }
       </Content>
