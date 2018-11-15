@@ -157,7 +157,7 @@ function getSize(assetFilePath,userConfigPath,sizeSum){
     if(status.isDirectory())console.error("asset目录中存在目录")
     sizeSum+=status.size
   })
-  fs.writeJsonSync(userConfigPath,{size:Math.floor(sizeSum/1024/2)})
+  fs.writeJsonSync(userConfigPath,{size:Math.floor(sizeSum/1024/2.45)})
 }
 
 
