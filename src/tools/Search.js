@@ -1,4 +1,4 @@
-import React ,{Suspense}from 'react';
+import React from 'react';
 import {Input, Badge, Modal, Spin} from 'antd';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -72,7 +72,7 @@ export default class SearchContainer extends React.Component {
   // 4x: 900ms, 2000ms
   // patternValue 已经转换为小写
   computeArticleMatch(patternValue) {
-    console.time(2)
+    // console.time(2)
     if (patternValue === "") return []
     const {data, globalSearch} = this.state
     if (globalSearch && this.globalMem[patternValue]) {
@@ -162,7 +162,7 @@ export default class SearchContainer extends React.Component {
     }
     let result = matchResultObj._first.concat(matchResultObj._second,matchResultObj._third,matchResultObj._forth,matchResultObj._fifth, matchResultObj._sixth)
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
-    console.timeEnd(2)
+    // console.timeEnd(2)
     if(patternValue.length===1 && result.length>15)return result.slice(0,15)
     return result
   }

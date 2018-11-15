@@ -92,7 +92,6 @@ export default class BlogLayout extends React.Component {
     this.fetchBlogContent()
   }
   render() {
-    console.log(1)
     const {userConfig}=this.props
     const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,archiveEachPage,aboutMe}=userConfig
     const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
