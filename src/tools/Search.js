@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{Suspense}from 'react';
 import {Input, Badge, Modal, Spin} from 'antd';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -40,6 +40,7 @@ export default class SearchContainer extends React.Component {
     super()
     this.state = {
       controlledValue: '',
+      searchKeyword:'',
       matchTags: null,
       matchArticles: null,
       drawShow: false,
@@ -67,8 +68,11 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  // no throttle:  150ms, 300ms
+  // 4x: 900ms, 2000ms
   // patternValue 已经转换为小写
   computeArticleMatch(patternValue) {
+    console.time(2)
     if (patternValue === "") return []
     const {data, globalSearch} = this.state
     if (globalSearch && this.globalMem[patternValue]) {
@@ -96,11 +100,11 @@ export default class SearchContainer extends React.Component {
         return titleMatchIndex
       }
       function searchContent(pattern,content,fromIndex){
-        let contentMatchIndex,contentPrecIndex=searchPrecision(pattern,content,fromIndex)
-        if(contentPrecIndex===null)contentMatchIndex= -1
-        else if(contentPrecIndex!==-1){contentIsPrec=true;contentMatchIndex=contentPrecIndex}
-        else contentMatchIndex =  lowerCaseSummary.indexOf(patternValue,fromIndex)
-        return contentMatchIndex
+          let contentMatchIndex,contentPrecIndex=searchPrecision(pattern,content,fromIndex)
+          if(contentPrecIndex===null)contentMatchIndex= -1
+          else if(contentPrecIndex!==-1){contentIsPrec=true;contentMatchIndex=contentPrecIndex}
+          else contentMatchIndex =  lowerCaseSummary.indexOf(patternValue,fromIndex)
+          return contentMatchIndex
       }
       let titleMatchIndex=searchTitle(patternValue,lowerCaseTitle),
         contentMatchIndex=searchContent(patternValue,lowerCaseSummary)
@@ -118,10 +122,10 @@ export default class SearchContainer extends React.Component {
         let contentMatchPart=lowerCaseSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
         // 去除tag内部内容
         while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo))){
-          contentIsPrec=false
-          contentMatchIndex=searchContent(patternValue,lowerCaseSummary,contentMatchIndex+patternValue.length)
-          if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
-          else break
+            contentIsPrec=false
+            contentMatchIndex=searchContent(patternValue,lowerCaseSummary,contentMatchIndex+patternValue.length)
+            if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
+            else break
         }
         if(contentMatchIndex===-1){continue}
 
@@ -158,6 +162,8 @@ export default class SearchContainer extends React.Component {
     }
     let result = matchResultObj._first.concat(matchResultObj._second,matchResultObj._third,matchResultObj._forth,matchResultObj._fifth, matchResultObj._sixth)
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
+    console.timeEnd(2)
+    if(patternValue.length===1 && result.length>15)return result.slice(0,15)
     return result
   }
 
@@ -184,17 +190,24 @@ export default class SearchContainer extends React.Component {
     }
   }
 
+  // throttling 500ms
   onChangeHandle(ev, v) {
     const value = v || ev.target.value
-    const trimValue = value.trim().toLowerCase()
-    let matchTags = this.computeTagsMatch(trimValue)
-    let matchArticles = this.computeArticleMatch(trimValue)
     this.setState({
-      matchTags: matchTags,
-      matchArticles: matchArticles,
       controlledValue: value,
-      drawShow: matchArticles.length > 0 || matchTags.length > 0
     })
+    clearTimeout(this.timer)
+    this.timer=setTimeout(()=>{
+      const trimValue = value.trim().toLowerCase()
+      let matchTags=this.computeTagsMatch(trimValue)
+      let matchArticles = this.computeArticleMatch(trimValue)
+      this.setState({
+        matchTags: matchTags,
+        matchArticles: matchArticles,
+        searchKeyword: value,
+        drawShow: matchArticles.length > 0 || matchTags.length > 0
+      })
+    },500)
   }
 
   clearSearchInput() {
@@ -270,8 +283,12 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  componentWillUnmount(){
+    clearTimeout(this.timer)
+  }
+
   render() {
-    const {controlledValue, matchTags, matchArticles, drawShow, globalFetching, globalSearch} = this.state
+    const {controlledValue,searchKeyword, matchTags, matchArticles, drawShow, globalFetching, globalSearch} = this.state
     return (
       <React.Fragment>
         <div style={styles.searchWrap}>
@@ -315,7 +332,7 @@ export default class SearchContainer extends React.Component {
           />
         </div>
         <SearchDrawer matchTags={matchTags}
-                      searchKeyword={controlledValue}
+                      searchKeyword={searchKeyword}
                       matchArticles={matchArticles}
                       drawShow={drawShow}
                       clearSearchInput={this.clearSearchInput}

@@ -20,6 +20,15 @@ export default class SearchDrawer extends React.Component {
   //   this.navigateToPath=this.navigateToPath.bind(this)
   // }
 
+  shouldComponentUpdate(props){
+    const {matchArticles,matchTags,drawShow,searchKeyword}=this.props
+    return searchKeyword!==props.searchKeyword ||
+      drawShow!==props.drawShow ||
+      !!matchArticles !== !!props.matchArticles ||
+      !!matchTags !== !!props.matchTags ||
+      ( matchArticles && props.matchArticles && matchArticles.length !== props.matchArticles.length ) ||
+      (matchTags && props.matchTags && matchTags.length !== props.matchTags.length)
+  }
   // navigateToPath(path,e){
   //   const {clearSearchInput}=this.props
   //   clearSearchInput()
