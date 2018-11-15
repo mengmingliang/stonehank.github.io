@@ -23,6 +23,14 @@ export {
   default as ClusterOutline
 } from '@ant-design/icons/lib/outline/ClusterOutline';
 
+export {
+  default as BookFill
+} from '@ant-design/icons/lib/fill/BookFill';
+
+export {
+  default as ReadFill
+} from '@ant-design/icons/lib/fill/ReadFill';
+
 
 
 // export what antd other components need

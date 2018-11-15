@@ -7,6 +7,8 @@ import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import {linkTo} from "../routes/linkPathList";
 import CustomComment from "../tools/CustomComment";
+import BookmarkContext from '../tools/BookmarkContext'
+import {SetMark} from "../tools/Bookmark";
 
 hljs.registerLanguage('javascript', javascript);
 
@@ -137,6 +139,7 @@ export default class ArticleDetail extends React.Component{
       })
   }
   render(){
+    // console.log('article')
     const {curArticleData,contentLoading,disqusRender}=this.state
     const {blogList,articleSha,location}=this.props
     return(
@@ -161,6 +164,9 @@ export default class ArticleDetail extends React.Component{
                         itemRender={this.itemRender}
                         onChange={this.handlePageChange}/>
           </footer>
+          <BookmarkContext.Consumer>
+            {({setBookmark})=><SetMark sha={articleSha} setBookmark={setBookmark}/>}
+          </BookmarkContext.Consumer>
         </article>
     )
   }

@@ -31,7 +31,7 @@ const styles = {
   spinWrap: {position: "absolute"},
   badge: {backgroundColor: '#b8b8b8',color: '#fff', transform: "scale(0.7)", transformOrigin: "center", fontSize: "medium"},
   searchAddon: {display: 'flex', flexFlow: 'row nowrap', alignItems: 'center', marginLeft: -11},
-  searchWrap: {display: "flex", alignSelf:"center",flex:1},
+  searchWrap: {display: "flex", alignSelf:"center"},
   slideCheckBox:{marginRight: -11}
 }
 

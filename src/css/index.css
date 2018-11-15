@@ -141,6 +141,23 @@ blockquote{
     transform:translate3d(0,0,0);
     transition: transform 500ms  cubic-bezier(.23,.54,.32,1.2);
 }
+
+.fade-enter{
+    opacity:0;
+}
+.fade-enter-active {
+    opacity:1;
+    transition: opacity 500ms  linear;
+}
+.fade-exit {
+    opacity:1;
+}
+.fade-exit-active {
+    opacity:0;
+    transition: opacity 500ms  linear;
+}
+
+
 /*.slide-exit {*/
     /*opacity:1;*/
     /*transform:translate3d(0,0,0);*/
@@ -249,4 +266,33 @@ blockquote{
 }
 .inputCheckBox:checked + .square-checkbox:after {
     background-color:#57ad68;
+}
+
+/*-----Bookmark-----*/
+
+.bookmark_set{
+    z-index: 10;
+    display: flex;
+    /*position: fixed;*/
+    /*right: 40px;*/
+    bottom: 100px;
+    /*cursor: pointer;*/
+    /*height: 40px;*/
+    /*width: 40px;*/
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    overflow: hidden;
+}
+.bookmark_set:hover{
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.bookmark_get{
+    align-self: center;
+    margin-left: 1rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }

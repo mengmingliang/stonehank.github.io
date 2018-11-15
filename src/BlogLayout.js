@@ -15,18 +15,25 @@ import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
 import Search from "./tools/Search"
 import HeaderPure from "./tools/HeaderPure"
+import {GetMark} from "./tools/Bookmark";
+import BookmarkContext from "./tools/BookmarkContext";
 
 import './css/github.min.css'
 import './css/index.css';
+
+
 const styles={
   layout_wrapper:{minHeight: '100vh',transition:"background 1s solid"  },
   layout_inner:{background:"#fff"},
-  layout_header:{ background: '#898989', padding: 0 ,zIndex:1,display: "flex", flexFlow: "row", justifyContent: "space-between"},
+  layout_header:{ background: '#898989', padding: 0 ,zIndex:1,display: "flex", flexFlow: "row", justifyContent: "start"},
 }
 
 const IconFont = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_866706_dd0xsi92d3v.js',
 });
+
+
+
 
 export default class BlogLayout extends React.Component {
   constructor(){
@@ -37,11 +44,27 @@ export default class BlogLayout extends React.Component {
       categoryArticles:null,
       initArticles:null,
       blog_jsonObj:null,
+      bookmark:BookmarkContext._currentValue.bookmark
     }
+    this.setBookmark=this.setBookmark.bind(this)
     this.fetchBlogContent=this.fetchBlogContent.bind(this)
     this.changeBackground=this.changeBackground.bind(this)
+    this.bookmarkData={
+      bookmark:this.state.bookmark,
+      setBookmark:this.setBookmark
+    }
   }
 
+  setBookmark(bm){
+    if(bm===this.state.bookmark)return
+    this.bookmarkData={
+      bookmark:bm,
+      setBookmark:this.setBookmark
+    }
+    this.setState({
+      bookmark:bm
+    })
+  }
   changeBackground(color){
     this.setState({
       wrapperBackground:color
@@ -69,6 +92,7 @@ export default class BlogLayout extends React.Component {
     this.fetchBlogContent()
   }
   render() {
+    console.log(1)
     const {userConfig}=this.props
     const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,archiveEachPage,aboutMe}=userConfig
     const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
@@ -113,9 +137,13 @@ export default class BlogLayout extends React.Component {
       <Layout>
         <NavSiderContainer bio={bio} avatar={avatar} username={username}/>
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
+          <BookmarkContext.Provider value={this.bookmarkData}>
           <HeaderPure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
-            <a href={github}><IconFont id="githubIcon" type="icon-github" /></a>
+            <BookmarkContext.Consumer>
+              {({bookmark})=> <GetMark bookmark={bookmark} />}
+            </BookmarkContext.Consumer>
+            <a style={{marginLeft:"auto"}} href={github}><IconFont id="githubIcon" type="icon-github" /></a>
           </HeaderPure>
           <Location>
             {({location})=>{
@@ -149,6 +177,7 @@ export default class BlogLayout extends React.Component {
             }}
           </Location>
           <BackTop />
+          </BookmarkContext.Provider>
         </Layout>
       </Layout>
     );

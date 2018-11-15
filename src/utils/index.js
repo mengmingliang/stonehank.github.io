@@ -263,3 +263,9 @@ export function tryReg(regPattern,otherwise){
     return otherwise
   }
 }
+
+
+export function getCookie(key){
+  return document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" +
+    encodeURIComponent(key).replace(/[-.+*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")
+}
