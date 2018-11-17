@@ -1,29 +1,9 @@
 import React from 'react';
 import {List,  Layout} from 'antd';
 import {navigate} from "@reach/router";
-import hljs from 'highlight.js/lib/highlight';
-import javascript from 'highlight.js/lib/languages/javascript';
-
 import CardPure from "../tools/CardPure";
 import {deepEqual} from "../utils/index";
-// import {linkTo} from "../routes/linkPathList";
 
-hljs.registerLanguage('javascript', javascript); // https://highlightjs.org/
-
-const md = require('markdown-it')({
-  highlight: function (str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return '<pre class="hljs"><code>' +
-          hljs.highlight(lang, str, true).value +
-          '</code></pre>';
-      } catch (__) {
-      }
-    }
-
-    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-  }
-});
 
 const styles={
   summary:{marginTop: 24, fontSize: "small", opacity: '0.7'},
@@ -46,10 +26,6 @@ export default class ArticleList extends React.Component {
   paginationPageChange(page) {
     navigate(`/page/${page}`)
   }
-  // navigateToPath(path,e){
-  //   if(e.target.className.includes('tag'))return
-  //   navigate(path)
-  // }
 
   shouldComponentUpdate(nextProps){
     return !deepEqual(nextProps.articles,this.props.articles)
@@ -78,7 +54,8 @@ export default class ArticleList extends React.Component {
                         title={item.title}
                         statusBarItem={item}
                         summary={<div style={styles.summary}
-                                       dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>}
+                                      // dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>}
+                                      dangerouslySetInnerHTML={{__html: item.summary || ''}}/>}
               />
             ))}
           </List>

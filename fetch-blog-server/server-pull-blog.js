@@ -8,7 +8,8 @@ const appRoot = require('app-root-path');
 const ProgressRemider=require('./progress_remider')
 const filterExtract=require('./filterExtract')
 const crypto = require('crypto');
-
+const md2Html= require('./md2Html')
+const getGZipSize=require('./getGZipSize')
 
 // 获取根目录
 const context=slash(appRoot.path)
@@ -23,6 +24,8 @@ try{
 }catch(err){
   console.log(`获取配置出现错误，确保fs-extra正确安装以及${config_json_path}和${token_json_path}存在`)
 }
+
+let globalSearchFileSize=0
 
 // 开始
 console.log("项目根目录为："+context,"正在通过github获取数据...")
@@ -149,16 +152,16 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath,
 
 // 获取global-search文件size
 
-function getSize(assetFilePath,userConfigPath,sizeSum){
-  let files=fs.readdirSync(assetFilePath)
-  files.forEach(file=>{
-    if(file==="_blog-data.json")return
-    let status=fs.statSync(assetFilePath+'/'+file)
-    if(status.isDirectory())console.error("asset目录中存在目录")
-    sizeSum+=status.size
-  })
-  fs.writeJsonSync(userConfigPath,{size:Math.floor(sizeSum/1024/2.45)})
-}
+// function getGZipSize(assetFilePath,userConfigPath,sizeSum){
+//   let files=fs.readdirSync(assetFilePath)
+//   files.forEach(file=>{
+//     if(file==="_blog-data.json")return
+//     let status=fs.statSync(assetFilePath+'/'+file)
+//     if(status.isDirectory())console.error("asset目录中存在目录")
+//     sizeSum+=status.size
+//   })
+//   fs.writeJsonSync(userConfigPath,{size:Math.floor(sizeSum/1024/2.45)})
+// }
 
 
 
@@ -170,7 +173,7 @@ function fetchResource(){
   const resource_DIR=`${context}/public`
   // 写入globalSearchSize
   const sizeFilename="global-search-size.json"
-  getSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
+  getGZipSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
 
   // blog全部获取完成后，获取资源
   for(let i=0;i<resource_dir_list.length;i++){
@@ -385,8 +388,8 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             let getTimeArr=()=>checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
             let getTitle=()=>checkIfNeedForceUpdated("title",cur_remote_filename)
             let getTitleSHA=()=>checkIfNeedForceUpdated("titleSHA",titleSHA)
-            let getSummary=()=>checkIfNeedForceUpdated("summary",content.substr(summaryStart,summaryLength)
-              .replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/g,"#### ")+"...")
+            let getSummary=()=>checkIfNeedForceUpdated("summary",md2Html(content.substr(summaryStart,summaryLength)
+              .replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/g,"#### ")+"..."))
 
 
             if(Array.isArray(customListKeys)){
@@ -414,8 +417,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             blogWritingList.addTask(contentPath_sha)
 
 
-
-            fs.outputJson(contentPath_sha,{content},{spaces:2},function(err){
+            fs.outputJson(contentPath_sha,{content:md2Html(content)},{spaces:2},function(err){
               if(err){
                 console.log(`写入${cur_remote_filename}失败，尝试重新写入`)
                 try{

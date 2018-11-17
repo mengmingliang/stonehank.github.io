@@ -16,7 +16,7 @@
 		],
 		"title": "npm-link的使用",
 		"titleSHA": "4e6c7ab04e26dcf8fee1500f1d90cb218b836309",
-		"summary": "关于`npm-link`的使用\n\n当开发项目时，有时候会想用一个本地的工具，复制源码什么的太麻烦了，发布到npm也很麻烦，就只想直接用。\n那么可以考虑使用`npm-link`。\n\n现在我有一个工具项目叫做`tool`\n\n我可以先注册到全局\n\n`npm link tool`\n\n接着，找到我想导入的项目：`cd proje...",
+		"summary": "<p>关于<code>npm-link</code>的使用</p>\n<p>当开发项目时，有时候会想用一个本地的工具，复制源码什么的太麻烦了，发布到npm也很麻烦，就只想直接用。\n那么可以考虑使用<code>npm-link</code>。</p>\n<p>现在我有一个工具项目叫做<code>tool</code></p>\n<p>我可以先注册到全局</p>\n<p><code>npm link tool</code></p>\n<p>接着，找到我想导入的项目：`cd proje...</p>\n",
 		"sha": "622748c94137c2c180569b7e9ea94fee9140add1"
 	},
 	"42db7875df4e226dd9de2945de9bc1f9b287114c": {
@@ -39,7 +39,7 @@
 		],
 		"title": "记录CRA的webpack配置曾经的issue-1",
 		"titleSHA": "42db7875df4e226dd9de2945de9bc1f9b287114c",
-		"summary": "`CRA`的webpack配置强大的很重要一点就是通过不断地解决一个个issue，才能达到今天的兼容性和性能。\n\n下面来数一数曾经的issue和对应的解决办法。\n\n* 关于`postcss-loader`的`ident`\n\n它是一个唯一标识符，引用webpack的原话，是要求`plugins`为函数(复杂配置)的时候，...",
+		"summary": "<p><code>CRA</code>的webpack配置强大的很重要一点就是通过不断地解决一个个issue，才能达到今天的兼容性和性能。</p>\n<p>下面来数一数曾经的issue和对应的解决办法。</p>\n<ul>\n<li>关于<code>postcss-loader</code>的<code>ident</code></li>\n</ul>\n<p>它是一个唯一标识符，引用webpack的原话，是要求<code>plugins</code>为函数(复杂配置)的时候，...</p>\n",
 		"sha": "68bd27b56a1e0ed5a6a7ea8b9e7a53a8221e699d"
 	},
 	"09551be59c48cabd2ec9043da881b563d7044cbf": {
@@ -60,7 +60,7 @@
 		],
 		"title": "记录CRA的webpack配置曾经的issue-2",
 		"titleSHA": "09551be59c48cabd2ec9043da881b563d7044cbf",
-		"summary": "* 关于Uglify的`compress`\n\n```\n compress: {\n    ecma: 5,\n    warnings: false,\n    // Disabled because of an issue with Uglify breaking seemingly valid code:\n    // ...",
+		"summary": "<ul>\n<li>关于Uglify的<code>compress</code></li>\n</ul>\n<pre class=\"hljs\"><code> compress: {\n    ecma: 5,\n    warnings: false,\n    // Disabled because of an issue with Uglify breaking seemingly valid code:\n    // ...</code></pre>\n",
 		"sha": "727e95a1ec46dc90c1cfe467e84a90fa08aedfb0"
 	},
 	"f0f5a9f7c1ddeec7f61b8a95cfc5ec817c6bd3fb": {
@@ -82,7 +82,7 @@
 		],
 		"title": "记录CRA的webpack配置曾经的issue-3",
 		"titleSHA": "f0f5a9f7c1ddeec7f61b8a95cfc5ec817c6bd3fb",
-		"summary": "* `terser`的配置output\n\n```\nterserOptions: {\n  ...\n  output: {\n    ...      \n    // Turned on because emoji and regex is not minified properly using default\n    //...",
+		"summary": "<ul>\n<li><code>terser</code>的配置output</li>\n</ul>\n<pre class=\"hljs\"><code>terserOptions: {\n  ...\n  output: {\n    ...      \n    // Turned on because emoji and regex is not minified properly using default\n    //...</code></pre>\n",
 		"sha": "578982e3d37ef324089ae9591f0a39802c74a3a1"
 	},
 	"26521baed3a1e852019bad397f751e106be8b610": {
@@ -104,7 +104,7 @@
 		],
 		"title": "记录CRA的webpack配置曾经的issue-4",
 		"titleSHA": "26521baed3a1e852019bad397f751e106be8b610",
-		"summary": "* webpack的`sideEffect`\n\n在配置css-loader的内部\n\n```\n{\n  test: sassRegex,\n  ...\n  // Don't consider CSS imports dead code even if the\n  // containing package claims to...",
+		"summary": "<ul>\n<li>webpack的<code>sideEffect</code></li>\n</ul>\n<p>在配置css-loader的内部</p>\n<pre class=\"hljs\"><code>{\n  test: sassRegex,\n  ...\n  // Don't consider CSS imports dead code even if the\n  // containing package claims to...</code></pre>\n",
 		"sha": "c652978c17e0cd7fcf3dd94e0dab32551f0b884e"
 	},
 	"4483d4ae741e5f281dba7c87dd850e305a2b0565": {
@@ -124,7 +124,7 @@
 		],
 		"title": "LeetCode获取最大收益的算法",
 		"titleSHA": "4483d4ae741e5f281dba7c87dd850e305a2b0565",
-		"summary": "`Leetcode`上有一系列类似的题目，看了几位大神的答案，感觉这类题目都能套用，都是DP(动态规划)的思路。\n\n题目1：\n\n给出一个数组，其中每一个元素表示第`i`天的价格。\n\n你可以多次交易，但同一天只能交易1次，求交易获取最大值。\n\n例如：`[1,6,0,3,4,8,2]`\n\n最大收益为：`6-1 + 8-0`...",
+		"summary": "<p><code>Leetcode</code>上有一系列类似的题目，看了几位大神的答案，感觉这类题目都能套用，都是DP(动态规划)的思路。</p>\n<p>题目1：</p>\n<p>给出一个数组，其中每一个元素表示第<code>i</code>天的价格。</p>\n<p>你可以多次交易，但同一天只能交易1次，求交易获取最大值。</p>\n<p>例如：<code>[1,6,0,3,4,8,2]</code></p>\n<p>最大收益为：<code>6-1 + 8-0</code>...</p>\n",
 		"sha": "61921acd4c40080ae873343cffc1a26316b6f608"
 	},
 	"34a2842eae3595228bf0ac5e118a4db4df7b7344": {
@@ -145,7 +145,7 @@
 		],
 		"title": "记录一次Travis构建前后流程",
 		"titleSHA": "34a2842eae3595228bf0ac5e118a4db4df7b7344",
-		"summary": "环境：3个文件夹\n* blogs 用于写博客\n* create-my-blog 用于获取博客内容和创建静态博客页面\n* stonehank.github.io 用于展示博客\n\n造成文件夹比较繁杂是因为当时写的时候并没有想去在github做一个博客页面。\n\n自动构建前的流程：\n\n|—blogs\n\n`git commit`...",
+		"summary": "<p>环境：3个文件夹</p>\n<ul>\n<li>blogs 用于写博客</li>\n<li>create-my-blog 用于获取博客内容和创建静态博客页面</li>\n<li>stonehank.github.io 用于展示博客</li>\n</ul>\n<p>造成文件夹比较繁杂是因为当时写的时候并没有想去在github做一个博客页面。</p>\n<p>自动构建前的流程：</p>\n<p>|—blogs</p>\n<p><code>git commit</code>...</p>\n",
 		"sha": "e8224d6946122b6d3062e3637631d9202e32bd4c"
 	},
 	"761230c6c621098f0a8a2e62ab620dffa59a3460": {
@@ -164,7 +164,7 @@
 		],
 		"title": "LeetCode最大3个不重叠子数组之和",
 		"titleSHA": "761230c6c621098f0a8a2e62ab620dffa59a3460",
-		"summary": "一个只包含正数的数组，找三个长度为k的不重叠的子数组，使得所有子数组的数字之和最大。\n\n例如：\n```\nInput: [1,2,1,2,6,7,5,1], 2\nOutput: [0, 3, 5]\nExplanation: Subarrays [1, 2], [2, 6], [7, 5] correspond to th...",
+		"summary": "<p>一个只包含正数的数组，找三个长度为k的不重叠的子数组，使得所有子数组的数字之和最大。</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>Input: [1,2,1,2,6,7,5,1], 2\nOutput: [0, 3, 5]\nExplanation: Subarrays [1, 2], [2, 6], [7, 5] correspond to th...</code></pre>\n",
 		"sha": "abbf38ac11dcc38431445248ada55b000c3406ec"
 	},
 	"7a618f35d69b48cbdbef3e7285fffc03098e720a": {
@@ -183,7 +183,7 @@
 		],
 		"title": "解决disqus无法正确显示每一个comment count",
 		"titleSHA": "7a618f35d69b48cbdbef3e7285fffc03098e720a",
-		"summary": "博客添加了`disqus`，并且在文章列表处每一篇标题边上添加一个评论计数器。\n\n它通过`identifier`去获取，`identifier`在文章详情页面提供配置。\n\n问题是：**这个计数器并不是每一篇文章都能正确显示**，有的列表能显示2个，有的列表一个都不显示，\n\n![](./img/comment_count...",
+		"summary": "<p>博客添加了<code>disqus</code>，并且在文章列表处每一篇标题边上添加一个评论计数器。</p>\n<p>它通过<code>identifier</code>去获取，<code>identifier</code>在文章详情页面提供配置。</p>\n<p>问题是：<strong>这个计数器并不是每一篇文章都能正确显示</strong>，有的列表能显示2个，有的列表一个都不显示，</p>\n<p>![](./img/comment_count...</p>\n",
 		"sha": "98bf8f985983e2f6583d7088efb409ef54dfaad5"
 	},
 	"a20bb2e8ea076042017b4a5a990e2aac82af6a1b": {
@@ -202,7 +202,7 @@
 		],
 		"title": "ES6的Generators函数双向传值",
 		"titleSHA": "a20bb2e8ea076042017b4a5a990e2aac82af6a1b",
-		"summary": "Generators函数的双向传递\n\n每次调用`answer()`，相当于在`generators`函数的next方法加入参数，这个参数会返回给`yield`的返回值\n\n在函数内部可以判断这个返回值，实现双向传递\n```js\n  let stepCount=1\n  let currentPoint=1\n  functi...",
+		"summary": "<p>Generators函数的双向传递</p>\n<p>每次调用<code>answer()</code>，相当于在<code>generators</code>函数的next方法加入参数，这个参数会返回给<code>yield</code>的返回值</p>\n<p>在函数内部可以判断这个返回值，实现双向传递</p>\n<pre class=\"hljs\"><code>  <span class=\"hljs-keyword\">let</span> stepCount=<span class=\"hljs-number\">1</span>\n  <span class=\"hljs-keyword\">let</span> currentPoint=<span class=\"hljs-number\">1</span>\n  functi...</code></pre>\n",
 		"sha": "cacba9466975c15e93a9cba0db310bf12752a2c2"
 	},
 	"486e17cd17cf6034e71874e022bd9b11474cb15f": {
@@ -219,7 +219,7 @@
 		],
 		"title": "一段模拟尾调用的代码",
 		"titleSHA": "486e17cd17cf6034e71874e022bd9b11474cb15f",
-		"summary": "```js\nfunction tco(f) {\n            var value;\n            var active = false;\n            var accumulated = [];\n            return function accumulator() {\n   ...",
+		"summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">tco</span>(<span class=\"hljs-params\">f</span>) </span>{\n            <span class=\"hljs-keyword\">var</span> value;\n            <span class=\"hljs-keyword\">var</span> active = <span class=\"hljs-literal\">false</span>;\n            <span class=\"hljs-keyword\">var</span> accumulated = [];\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">accumulator</span>(<span class=\"hljs-params\"></span>) </span>{\n   ...</code></pre>\n",
 		"sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27"
 	},
 	"ddc3d1d8d6334cc464eb634a0d813d48c0d48776": {
@@ -242,7 +242,7 @@
 		],
 		"title": "如何通过AST树去获取函数参数名",
 		"titleSHA": "ddc3d1d8d6334cc464eb634a0d813d48c0d48776",
-		"summary": "#### 写在最前\n\n最近项目有个需求，获取函数参数名，听起来很简单，但有了ES6，参数和函数写法千奇百怪，在github上大概看了几个库，基本上都是正则，\n对通用的写法能够覆盖，稍微越过边界，往往无法正确匹配。\n\n于是就有了使用`AST`去进行覆盖查找的想法。#### 概念\n\n抽象语法树（abstract synta...",
+		"summary": "<h4>写在最前</h4>\n<p>最近项目有个需求，获取函数参数名，听起来很简单，但有了ES6，参数和函数写法千奇百怪，在github上大概看了几个库，基本上都是正则，\n对通用的写法能够覆盖，稍微越过边界，往往无法正确匹配。</p>\n<p>于是就有了使用<code>AST</code>去进行覆盖查找的想法。#### 概念</p>\n<p>抽象语法树（abstract synta...</p>\n",
 		"sha": "a7854a9c9c9dd7722bb525311af632ee5752fe47"
 	},
 	"1fe9476aee8ec9e615a5ea77d64b322605aa28f8": {
@@ -263,7 +263,7 @@
 		],
 		"title": "从零开始构建babel插件",
 		"titleSHA": "1fe9476aee8ec9e615a5ea77d64b322605aa28f8",
-		"summary": "#### 回顾\n\n在这一片文章中，我构建一个获取函数参数名的工具，是通过`esprima`去解析`AST`并对其进行分析判断。\n\n通过对`AST`的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。#### 问题\n\n但使用的同时，也发现了3个问题，**第1个是致命的**。\n\n1. babel编译。\n\n ...",
+		"summary": "<h4>回顾</h4>\n<p>在这一片文章中，我构建一个获取函数参数名的工具，是通过<code>esprima</code>去解析<code>AST</code>并对其进行分析判断。</p>\n<p>通过对<code>AST</code>的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。#### 问题</p>\n<p>但使用的同时，也发现了3个问题，<strong>第1个是致命的</strong>。</p>\n<ol>\n<li>babel编译。</li>\n</ol>\n<p>...</p>\n",
 		"sha": "cdf0302d047802c4e95fcda08fe66f7972d39d9d"
 	},
 	"ca04d014d61ce50791c49363dae3a3d3ae3b1e54": {
@@ -284,7 +284,7 @@
 		],
 		"title": "babel插件的一些总结",
 		"titleSHA": "ca04d014d61ce50791c49363dae3a3d3ae3b1e54",
-		"summary": "#### BABLE插件编写一些总结\n\n1. babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\n    race模式。https://jamie.build/babel-plugin-ordering.html\n\n    这么做是为...",
+		"summary": "<h4>BABLE插件编写一些总结</h4>\n<ol>\n<li>\n<p>babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\nrace模式。https://jamie.build/babel-plugin-ordering.html</p>\n<p>这么做是为...</p>\n</li>\n</ol>\n",
 		"sha": "35b77bbafb93c7b66d99747c168be81a28ee84aa"
 	},
 	"39277c1a6e1a6c2280d116793ed086ee2507fa7e": {
@@ -305,7 +305,7 @@
 		],
 		"title": "service-worker要点概括",
 		"titleSHA": "39277c1a6e1a6c2280d116793ed086ee2507fa7e",
-		"summary": "service worker和cache\n\n客户端：register\n\n服务端：install, activate, fetch\n\n* `install`\n\n主要作用是内部回调中的参数`event`的方法`event.waitUntil`中缓存本次的资源。\n\n* `activate`\n\n主要作用是在内部回调中的参数`e...",
+		"summary": "<p>service worker和cache</p>\n<p>客户端：register</p>\n<p>服务端：install, activate, fetch</p>\n<ul>\n<li><code>install</code></li>\n</ul>\n<p>主要作用是内部回调中的参数<code>event</code>的方法<code>event.waitUntil</code>中缓存本次的资源。</p>\n<ul>\n<li><code>activate</code></li>\n</ul>\n<p>主要作用是在内部回调中的参数`e...</p>\n",
 		"sha": "e35e017c1e99651fcf6cabf2e7873c3ad59e795c"
 	},
 	"734ec46092d55f646e70dce2766a3c42e017cad4": {
@@ -324,7 +324,7 @@
 		],
 		"title": "关于github-api.v3认证方面的总结",
 		"titleSHA": "734ec46092d55f646e70dce2766a3c42e017cad4",
-		"summary": "#### GithubAPI-Authorization\n\n一些特定的API，例如获取`user`的public资料，`repo`的内容等，不认证也可以获取，\n区别是，不认证，大约每个小时只有60次调用的次数限制，而使用认证后，则大约有5000次的调用次数。\n\n认证有2方面，\n\n1. 使用你自己的名义去做一些事情\n\n2. ...",
+		"summary": "<h4>GithubAPI-Authorization</h4>\n<p>一些特定的API，例如获取<code>user</code>的public资料，<code>repo</code>的内容等，不认证也可以获取，\n区别是，不认证，大约每个小时只有60次调用的次数限制，而使用认证后，则大约有5000次的调用次数。</p>\n<p>认证有2方面，</p>\n<ol>\n<li>\n<p>使用你自己的名义去做一些事情</p>\n</li>\n<li>\n<p>...</p>\n</li>\n</ol>\n",
 		"sha": "6b205fb9eb1995355142e4b491f0e45bac6ca9f9"
 	},
 	"495269ded2b2a66ea2642b605595dd81515e05b7": {
@@ -344,7 +344,7 @@
 		],
 		"title": "二维数组旋转的简单算法",
 		"titleSHA": "495269ded2b2a66ea2642b605595dd81515e05b7",
-		"summary": "一道`LeetCode`题目，二维数组按顺时针(逆时针)旋转的通用算法，非常简洁。\n\n* 顺时针旋转\n\n步骤：\n\n1. 先`竖向逆转`\n2. 再按对角线交换即可\n\n```\n  init     reverse  diagonal-swap\n  1 2 3     7 8 9     7 4 1\n  4 5 6  => ...",
+		"summary": "<p>一道<code>LeetCode</code>题目，二维数组按顺时针(逆时针)旋转的通用算法，非常简洁。</p>\n<ul>\n<li>顺时针旋转</li>\n</ul>\n<p>步骤：</p>\n<ol>\n<li>先<code>竖向逆转</code></li>\n<li>再按对角线交换即可</li>\n</ol>\n<pre class=\"hljs\"><code>  init     reverse  diagonal-swap\n  1 2 3     7 8 9     7 4 1\n  4 5 6  =&gt; ...</code></pre>\n",
 		"sha": "a39bd35a7e0ef814336d7906569e045398f8a131"
 	},
 	"5a309baed59601de7885e379ac2562b045fb413d": {
@@ -363,7 +363,7 @@
 		],
 		"title": "getDerivedStateFromProps",
 		"titleSHA": "5a309baed59601de7885e379ac2562b045fb413d",
-		"summary": "react的`getDerivedStateFromProps`内部不可以有副作用，因为现在是无论是state改变还是props改变，\n都会执行它。\n\n例如：\n\n这种写法会导致多次循环渲染直到报错\n```jsx\nclass App extends Component {\n  constructor(props){\n  ...",
+		"summary": "<p>react的<code>getDerivedStateFromProps</code>内部不可以有副作用，因为现在是无论是state改变还是props改变，\n都会执行它。</p>\n<p>例如：</p>\n<p>这种写法会导致多次循环渲染直到报错</p>\n<pre class=\"hljs\"><code><span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">App</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">Component</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>(props){\n  ...</code></pre>\n",
 		"sha": "b0683499799fb64f81d0d942134c7304c29cc5f0"
 	},
 	"1bc31bd290d4582fbd008d35949802c4ed8ba93e": {
@@ -382,7 +382,7 @@
 		],
 		"title": "初始化数组的性能比较",
 		"titleSHA": "1bc31bd290d4582fbd008d35949802c4ed8ba93e",
-		"summary": "#### 一些常用的初始化数组为index的方法的性能比较\n\n注释为执行时间，这就是为什么循环推荐使用for循环了\n\n(整段复制到控制台执行)\n```js\n// 一、\nvar a=performance.now()\nvar arr=[];\nfor(let i=0;i<10000000;i++){\n    arr[i]=...",
+		"summary": "<h4>一些常用的初始化数组为index的方法的性能比较</h4>\n<p>注释为执行时间，这就是为什么循环推荐使用for循环了</p>\n<p>(整段复制到控制台执行)</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">// 一、</span>\n<span class=\"hljs-keyword\">var</span> a=performance.now()\n<span class=\"hljs-keyword\">var</span> arr=[];\n<span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> i=<span class=\"hljs-number\">0</span>;i&lt;<span class=\"hljs-number\">10000000</span>;i++){\n    arr[i]=...</code></pre>\n",
 		"sha": "933a48b25bde1a4296a5e153484a755778fd792c"
 	},
 	"a016c3917edd52dc61593c47a19f112ce3e57081": {
@@ -403,7 +403,7 @@
 		],
 		"title": "react-transition-group",
 		"titleSHA": "a016c3917edd52dc61593c47a19f112ce3e57081",
-		"summary": "#### ReactTransitionGroup\n\n#### Transition\n\n默认展示组件某个特定状态的样式，而不是创建渐变动画\n\n例如：\n```jsx\n<Transition\n        in={toggleShow}\n        timeout={1000}\n        unmountOnEx...",
+		"summary": "<h4>ReactTransitionGroup</h4>\n<h4>Transition</h4>\n<p>默认展示组件某个特定状态的样式，而不是创建渐变动画</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>&lt;Transition\n        <span class=\"hljs-keyword\">in</span>={toggleShow}\n        timeout={<span class=\"hljs-number\">1000</span>}\n        unmountOnEx...</code></pre>\n",
 		"sha": "2c184a72cccb6e8c5cb04541f46eb06b15533efa"
 	},
 	"a7eefe5d3d4ed07619a790048edf4b9617f40957": {
@@ -424,7 +424,7 @@
 		],
 		"title": "react-diff",
 		"titleSHA": "a7eefe5d3d4ed07619a790048edf4b9617f40957",
-		"summary": "\n#### Diff算法3个策略\n\n1. 跨层级不进行不比较\n2. 不同类不进行比较\n3. 同类同级通过key比较\n\n主要对第三种进行解释#### 例子\n\n更新前组件：`A-B-C-D` => 更新后组件：`C-B-E-A`\n\n满足`child._mountIndex < lastIndex`才会进行组件移动\n\n* `...",
+		"summary": "<h4>Diff算法3个策略</h4>\n<ol>\n<li>跨层级不进行不比较</li>\n<li>不同类不进行比较</li>\n<li>同类同级通过key比较</li>\n</ol>\n<p>主要对第三种进行解释#### 例子</p>\n<p>更新前组件：<code>A-B-C-D</code> =&gt; 更新后组件：<code>C-B-E-A</code></p>\n<p>满足<code>child._mountIndex &lt; lastIndex</code>才会进行组件移动</p>\n<ul>\n<li>`...</li>\n</ul>\n",
 		"sha": "815f451f91044acdeba648889b432803b50a1130"
 	},
 	"7f574c8ed284705a049ad19e6b43a77dbe30c6f2": {
@@ -441,7 +441,7 @@
 		],
 		"title": "一些被忽略的js知识1",
 		"titleSHA": "7f574c8ed284705a049ad19e6b43a77dbe30c6f2",
-		"summary": "一些JS基础(1)\n#### 硬绑定不会覆盖硬绑定，但new会覆盖硬绑定\n\n* 硬绑定不会覆盖硬绑定\n```js\nfunction show(s){\n  this.a=s\n}\n\nvar obj1={}\nvar obj2={}\n\nshow=show.bind(obj1)\nshow(5)\nobj1.a  // 5\n\nsho...",
+		"summary": "<p>一些JS基础(1)</p>\n<h4>硬绑定不会覆盖硬绑定，但new会覆盖硬绑定</h4>\n<ul>\n<li>硬绑定不会覆盖硬绑定</li>\n</ul>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">show</span>(<span class=\"hljs-params\">s</span>)</span>{\n  <span class=\"hljs-keyword\">this</span>.a=s\n}\n\n<span class=\"hljs-keyword\">var</span> obj1={}\n<span class=\"hljs-keyword\">var</span> obj2={}\n\nshow=show.bind(obj1)\nshow(<span class=\"hljs-number\">5</span>)\nobj1.a  <span class=\"hljs-comment\">// 5</span>\n\nsho...</code></pre>\n",
 		"sha": "5965a8eef20c8f12cc64d0794de2cf6b851589a9"
 	},
 	"19eb833c0872c308711633143c73c05509c956cd": {
@@ -458,7 +458,7 @@
 		],
 		"title": "未来JS新变化3个",
 		"titleSHA": "19eb833c0872c308711633143c73c05509c956cd",
-		"summary": ">ES\n\n#### 变化1：\n\n原写法：\n```js\nconst data = {\n  user: {},\n};\nconst street = data && data.user && data.user.address && data.user.address.street;\nconsole.log(data.use...",
+		"summary": "<blockquote>\n<p>ES</p>\n</blockquote>\n<h4>变化1：</h4>\n<p>原写法：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">const</span> data = {\n  <span class=\"hljs-attr\">user</span>: {},\n};\n<span class=\"hljs-keyword\">const</span> street = data &amp;&amp; data.user &amp;&amp; data.user.address &amp;&amp; data.user.address.street;\n<span class=\"hljs-built_in\">console</span>.log(data.use...</code></pre>\n",
 		"sha": "026909510ca57f701c4dfaa8c73e5cae0f6caab1"
 	},
 	"cfe39dfd0c96a8f6a8263f7275c5d9f94c1a0480": {
@@ -475,7 +475,7 @@
 		],
 		"title": "一些被忽略的js知识2",
 		"titleSHA": "cfe39dfd0c96a8f6a8263f7275c5d9f94c1a0480",
-		"summary": "一些JS基础(2)\n#### Object对象的key\n\n一般来说，obj的key属性会自动转换成字符串（调用默认toString方法），然后再读取\n\n例如：\n\n```js\nvar myObject = { };\nmyObject[true] = \"foo\";\nmyObject[3] = \"bar\";\n\nmyObjec...",
+		"summary": "<p>一些JS基础(2)</p>\n<h4>Object对象的key</h4>\n<p>一般来说，obj的key属性会自动转换成字符串（调用默认toString方法），然后再读取</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> myObject = { };\nmyObject[<span class=\"hljs-literal\">true</span>] = <span class=\"hljs-string\">\"foo\"</span>;\nmyObject[<span class=\"hljs-number\">3</span>] = <span class=\"hljs-string\">\"bar\"</span>;\n\nmyObjec...</code></pre>\n",
 		"sha": "d923bf5ea77aeead80931e8ae800e2382bec4caf"
 	},
 	"0c8cd68f3ca83da85ae41e597f8b4869615a425b": {
@@ -494,7 +494,7 @@
 		],
 		"title": "一些被忽略的js知识3",
 		"titleSHA": "0c8cd68f3ca83da85ae41e597f8b4869615a425b",
-		"summary": "一些JS基础(3)\n#### for...of\n\n `for..of`会寻找内置或者自定义的 @@iterator 对象并调用它的 next() 方法来遍历数据值\n \n array默认带有iterator，因此可以直接使用for...of\n ```js\nvar arr=[1,2,3];\nvar it=arr[Symbo...",
+		"summary": "<p>一些JS基础(3)</p>\n<h4>for...of</h4>\n<p><code>for..of</code>会寻找内置或者自定义的 @@iterator 对象并调用它的 next() 方法来遍历数据值</p>\n<p>array默认带有iterator，因此可以直接使用for...of</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> arr=[<span class=\"hljs-number\">1</span>,<span class=\"hljs-number\">2</span>,<span class=\"hljs-number\">3</span>];\n<span class=\"hljs-keyword\">var</span> it=arr[Symbo...</code></pre>\n",
 		"sha": "4fd90b9ee966a8e1972197c101a2e960a01d9493"
 	},
 	"fd8492b29dfac9fa4e50c5b2b4926048c19a0553": {
@@ -513,7 +513,7 @@
 		],
 		"title": "一些被忽略的JS知识4",
 		"titleSHA": "fd8492b29dfac9fa4e50c5b2b4926048c19a0553",
-		"summary": "一些JS基础(4)\n#### 按值传递和按引用传递\n\n按值传递的例子：\n```js\nfunction passByValue(x){\n  x=999\n}\nvar a=5;\nvar b={a:1}\npassByValue(a);\npassByValue(b)\na   // 5\nb   // {a:1}\n```\n\n按引用传...",
+		"summary": "<p>一些JS基础(4)</p>\n<h4>按值传递和按引用传递</h4>\n<p>按值传递的例子：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">passByValue</span>(<span class=\"hljs-params\">x</span>)</span>{\n  x=<span class=\"hljs-number\">999</span>\n}\n<span class=\"hljs-keyword\">var</span> a=<span class=\"hljs-number\">5</span>;\n<span class=\"hljs-keyword\">var</span> b={<span class=\"hljs-attr\">a</span>:<span class=\"hljs-number\">1</span>}\npassByValue(a);\npassByValue(b)\na   <span class=\"hljs-comment\">// 5</span>\nb   <span class=\"hljs-comment\">// {a:1}</span>\n</code></pre>\n<p>按引用传...</p>\n",
 		"sha": "340d5e43659ef754ccb360908ba8d5206f671aab"
 	},
 	"0d719ffaecb85402ef37b03bbd557d9adf641cd7": {
@@ -532,7 +532,7 @@
 		],
 		"title": "源码阅读-lodash-一个创建数组的思考",
 		"titleSHA": "0d719ffaecb85402ef37b03bbd557d9adf641cd7",
-		"summary": "#### 创建数组的思考\n\n`lodash.js>.internal-->baseClone.js`内部\n\n有一句：`const result = new array.constructor(length)`\n\n这里array是一个经过`Array.isArray(array)===true`判断的数组，\n\n这句...",
+		"summary": "<h4>创建数组的思考</h4>\n<p><code>lodash.js&gt;.internal--&gt;baseClone.js</code>内部</p>\n<p>有一句：<code>const result = new array.constructor(length)</code></p>\n<p>这里array是一个经过<code>Array.isArray(array)===true</code>判断的数组，</p>\n<p>这句...</p>\n",
 		"sha": "7166eb621f1c1bf86fd6cf194dc19b9f3f408810"
 	},
 	"80cda11f9e18b118723c11b54a629d2ce4a71c79": {
@@ -551,7 +551,7 @@
 		],
 		"title": "对比map,{},[]的存取效率",
 		"titleSHA": "80cda11f9e18b118723c11b54a629d2ce4a71c79",
-		"summary": "对比了map和hashTable对数据存取的性能，key类型为string\n\n测试方法：\n```js\n// CODES是字符串组成的数组\n\n// map\nfor(let x=0;x<2;x++){\n    for(let k=0;k<CODES.length;k++){\n      let i=CODES[k]\n   ...",
+		"summary": "<p>对比了map和hashTable对数据存取的性能，key类型为string</p>\n<p>测试方法：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">// CODES是字符串组成的数组</span>\n\n<span class=\"hljs-comment\">// map</span>\n<span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> x=<span class=\"hljs-number\">0</span>;x&lt;<span class=\"hljs-number\">2</span>;x++){\n    <span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> k=<span class=\"hljs-number\">0</span>;k&lt;CODES.length;k++){\n      <span class=\"hljs-keyword\">let</span> i=CODES[k]\n   ...</code></pre>\n",
 		"sha": "d2b8968488e3098bc8d6a318374cc0b57ab9511d"
 	},
 	"0dd0d60aa80404051e5b01683717fd83676f1c68": {
@@ -570,7 +570,7 @@
 		],
 		"title": "drawImage的9个参数",
 		"titleSHA": "0dd0d60aa80404051e5b01683717fd83676f1c68",
-		"summary": "canvas的drawImage方法组多可以有9个参数，如下：\n```\nvoid ctx.drawImage(image, dx, dy);\nvoid ctx.drawImage(image, dx, dy, dWidth, dHeight);\nvoid ctx.drawImage(image, sx, sy, sWi...",
+		"summary": "<p>canvas的drawImage方法组多可以有9个参数，如下：</p>\n<pre class=\"hljs\"><code>void ctx.drawImage(image, dx, dy);\nvoid ctx.drawImage(image, dx, dy, dWidth, dHeight);\nvoid ctx.drawImage(image, sx, sy, sWi...</code></pre>\n",
 		"sha": "9037842d9026af5c37a1ba0eca58e9071b5903e3"
 	},
 	"5ba1422eb5748f36ae6b36980b06e537d336b746": {
@@ -589,7 +589,7 @@
 		],
 		"title": "二分查找的range方法",
 		"titleSHA": "5ba1422eb5748f36ae6b36980b06e537d336b746",
-		"summary": "通常二分查找算法是根据index进行查找，并且要求数据结构是已排序的。\n\n这里记录一个未排序的二分查找\n\n题目：在一个数组arr中，找出从小到大第n个的数字\n\n例如：`[6,3,8,1,4,7]`，找出第3位，结果是4\n\n使用排序也可以解决，当空间有限制时，时间复杂度是`O(N*lgN)`，但二分查找的范围法可以控制到...",
+		"summary": "<p>通常二分查找算法是根据index进行查找，并且要求数据结构是已排序的。</p>\n<p>这里记录一个未排序的二分查找</p>\n<p>题目：在一个数组arr中，找出从小到大第n个的数字</p>\n<p>例如：<code>[6,3,8,1,4,7]</code>，找出第3位，结果是4</p>\n<p>使用排序也可以解决，当空间有限制时，时间复杂度是<code>O(N*lgN)</code>，但二分查找的范围法可以控制到...</p>\n",
 		"sha": "53ccfb734ad70ac02e1be60b9a6733ef41596999"
 	},
 	"d8cf763cd33c2883caf30f5d6f247da84af3cf8f": {
@@ -608,7 +608,7 @@
 		],
 		"title": "获取数组中和为某个值的组合数量的算法",
 		"titleSHA": "d8cf763cd33c2883caf30f5d6f247da84af3cf8f",
-		"summary": "记录一个算法，要求获取数组中的和为`sum`的组合的数量\n\n例如`arr=[1,2,3,4,5]`，那么和为5的组合数量为3，分别是`2,3`，`1,4`，`5`\n\n```js\nfunction computeSubset(arr,sum){\n  // 创建数组，用于记录从1到sum每一个数的组合数量\n  let au...",
+		"summary": "<p>记录一个算法，要求获取数组中的和为<code>sum</code>的组合的数量</p>\n<ul>\n<li>不要求连续</li>\n</ul>\n<p>例如<code>arr=[1,2,3,4,5]</code>，那么和为5的组合数量为3，分别是<code>2,3</code>，<code>1,4</code>，<code>5</code></p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">computeSubset</span>(<span class=\"hljs-params\">arr,sum</span>)</span>{\n  <span class=\"hljs-comment\">// 创建数组，用于记录从1到sum每一个数的组合数量...</span></code></pre>\n",
 		"sha": "e90cb96e14c1855c47a02c1366800c2d3b5b5993"
 	},
 	"df98df497745a7628226928d1110b2baad0c50cb": {
@@ -627,7 +627,7 @@
 		],
 		"title": "记录一道LeetCode 位操作符计算单个数字方法",
 		"titleSHA": "df98df497745a7628226928d1110b2baad0c50cb",
-		"summary": "[原题目：](https://leetcode.com/problems/single-number-ii/description/)\n`LeetCode`的一个题目，要求算出数组中单独出现的数字\n```\nGiven a non-empty array of integers, every element appear...",
+		"summary": "<p><a href=\"https://leetcode.com/problems/single-number-ii/description/\">原题目：</a>\n<code>LeetCode</code>的一个题目，要求算出数组中单独出现的数字</p>\n<pre class=\"hljs\"><code>Given a non-empty array of integers, every element appear...</code></pre>\n",
 		"sha": "6a99838485b9fda6b8a6b0e9d892100d68d0a27c"
 	},
 	"362c875dc274eb593fe68c8afd58f51afebc57c9": {
@@ -647,7 +647,7 @@
 		],
 		"title": "关于回溯算法(backtrack)的模板解析",
 		"titleSHA": "362c875dc274eb593fe68c8afd58f51afebc57c9",
-		"summary": "今天在LeetCode看到一篇非常有价值的讨论，列举了一系列列数组的`回溯算法`，自己动手一个个完成后，\n感觉对理解回溯算法的原理有很大帮助。\n\n就用一篇文章记录下解析过程。\n\n[原文地址](https://leetcode.com/problems/combination-sum/discuss/16502/A-ge...",
+		"summary": "<p>今天在LeetCode看到一篇非常有价值的讨论，列举了一系列列数组的<code>回溯算法</code>，自己动手一个个完成后，\n感觉对理解回溯算法的原理有很大帮助。</p>\n<p>就用一篇文章记录下解析过程。</p>\n<p>[原文地址](https://leetcode.com/problems/combination-sum/discuss/16502/A-ge...</p>\n",
 		"sha": "8392ce085e533c1fff99ad21b3d8583449fec2d3"
 	},
 	"631c6ad421f436a2f8a59b287261b6a4cdaae80d": {
@@ -670,7 +670,7 @@
 		],
 		"title": "源码阅读-解析anime核心(1)",
 		"titleSHA": "631c6ad421f436a2f8a59b287261b6a4cdaae80d",
-		"summary": "本次解析将分为2篇文章，当前是第一篇，第二篇在[这里](./07-21-解析anime核心(2).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli...",
+		"summary": "<p>本次解析将分为2篇文章，当前是第一篇，第二篇在<a href=\"./07-21-%E8%A7%A3%E6%9E%90anime%E6%A0%B8%E5%BF%83(2).md\">这里</a></p>\n<p>另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli...</p>\n",
 		"sha": "2841c2c60ffc45abdca1ed525155f5b777ed54c7"
 	},
 	"2a9c7da01d48a31e62efc8c651405161597524f1": {
@@ -692,7 +692,7 @@
 		],
 		"title": "源码阅读-解析anime核心(2)",
 		"titleSHA": "2a9c7da01d48a31e62efc8c651405161597524f1",
-		"summary": "本次解析将分为2篇文章，当前是第二篇，第一篇在[这里](./07-20-解析anime核心(1).md)\n\n另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli...",
+		"summary": "<p>本次解析将分为2篇文章，当前是第二篇，第一篇在<a href=\"./07-20-%E8%A7%A3%E6%9E%90anime%E6%A0%B8%E5%BF%83(1).md\">这里</a></p>\n<p>另外，为了能更好的理解这个库，个人写了一个此库的压缩版，实现了核心的功能(主要也是为了更好理解核心功能)，内容更少方便阅读，\n地址在[这里](https://github.com/stonehank/simpli...</p>\n",
 		"sha": "a9f78f786c764a619cefc5156e3120771d547641"
 	},
 	"8f18e156230f2d648d08410062a8bf8183c0628e": {
@@ -711,7 +711,7 @@
 		],
 		"title": "使用git-subtree合并多个仓库并保存git记录",
 		"titleSHA": "8f18e156230f2d648d08410062a8bf8183c0628e",
-		"summary": "#### 步骤解释：\n\n1. 创建remote连接\ngit remote add 自定义远程仓库名 远程仓库地址 远程仓库分支\n\n2. 添加subtree \ngit subtree add --prefix=当前仓库的子目录名称(可以使用/进行分割)  远程仓库地址 远程仓库分支 <--squash>添加squash则...",
+		"summary": "<h4>步骤解释：</h4>\n<ol>\n<li>\n<p>创建remote连接\ngit remote add 自定义远程仓库名 远程仓库地址 远程仓库分支</p>\n</li>\n<li>\n<p>添加subtree\ngit subtree add --prefix=当前仓库的子目录名称(可以使用/进行分割)  远程仓库地址 远程仓库分支 &lt;--squash&gt;添加squash则...</p>\n</li>\n</ol>\n",
 		"sha": "45b974064ac9411014a451c0abd392f2b223e760"
 	},
 	"f410e8013460016ef21db0425ddcc6ef131809a0": {
@@ -734,7 +734,7 @@
 		],
 		"title": "一个create-react-app项目构建体积的压缩",
 		"titleSHA": "f410e8013460016ef21db0425ddcc6ef131809a0",
-		"summary": "这是一个个人博客，基于`antd`搭建，这个项目构建流程如下：\n1. 先启动`fetch-blog-serve`，这是一个能将你的`repertory`的blog内容拉去到本地，并且写入`xxx.json`。\n2. 在写入之前会生成一个列表，包含每一篇blog的标题、日期、标签、摘要、sha值(唯一性判断)。\n3. 前...",
+		"summary": "<p>这是一个个人博客，基于<code>antd</code>搭建，这个项目构建流程如下：</p>\n<ol>\n<li>先启动<code>fetch-blog-serve</code>，这是一个能将你的<code>repertory</code>的blog内容拉去到本地，并且写入<code>xxx.json</code>。</li>\n<li>在写入之前会生成一个列表，包含每一篇blog的标题、日期、标签、摘要、sha值(唯一性判断)。</li>\n<li>前...</li>\n</ol>\n",
 		"sha": "7cd2eb217f67d7f3988aa2e4eeffdf3e8a3dfc12"
 	},
 	"8fb9804dd71b929b0e5256563c63f9d6c48d95b2": {
@@ -753,7 +753,7 @@
 		],
 		"title": "React获取DOM",
 		"titleSHA": "8fb9804dd71b929b0e5256563c63f9d6c48d95b2",
-		"summary": "#### createRef\n当 ref 属性在组件时，获取组件实例；当ref属性在dom时，获取dom实例\n\n```jsx\nclass MyComponent extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.inp...",
+		"summary": "<h4>createRef</h4>\n<p>当 ref 属性在组件时，获取组件实例；当ref属性在dom时，获取dom实例</p>\n<pre class=\"hljs\"><code><span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">MyComponent</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">React</span>.<span class=\"hljs-title\">Component</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>(props) {\n    <span class=\"hljs-keyword\">super</span>(props);\n\n    <span class=\"hljs-keyword\">this</span>.inp...</code></pre>\n",
 		"sha": "584a1de3b3d076a60c2ae132c0b6ae9e4451ad42"
 	},
 	"d8bf00a3ca68fe4e1b5c7acde9855e2148c7762f": {
@@ -773,7 +773,7 @@
 		],
 		"title": "关于近期使用reach-router的一些总结",
 		"titleSHA": "d8bf00a3ca68fe4e1b5c7acde9855e2148c7762f",
-		"summary": "reach-router是一个轻量级的router组件，当然功能也相对于react-router少了一些。\n\n近期使用的时候遇到以下问题，在这里总结一次\n\n1. router遇到`url:parameter` ，当无法匹配的情况，默认会一直读取loading组件，因为它不知道这个参数是否有效，\n\n    需要自行判断`...",
+		"summary": "<p>reach-router是一个轻量级的router组件，当然功能也相对于react-router少了一些。</p>\n<p>近期使用的时候遇到以下问题，在这里总结一次</p>\n<ol>\n<li>\n<p>router遇到<code>url:parameter</code> ，当无法匹配的情况，默认会一直读取loading组件，因为它不知道这个参数是否有效，</p>\n<p>需要自行判断`...</p>\n</li>\n</ol>\n",
 		"sha": "3a57533a3dc20f28769f523891951917242119ad"
 	},
 	"9ef13100cd0019709df5ac5974b441155efa3b42": {
@@ -792,7 +792,7 @@
 		],
 		"title": "es6箭头函数的this",
 		"titleSHA": "9ef13100cd0019709df5ac5974b441155efa3b42",
-		"summary": "箭头函数()=>{},没有自己的this指针,this为上一层的的this指针\n\nfunction(){},有自己的this指针,this指向调用时的对象\n\n例子：\n```js\na=\"windowScope\"\nlet obj1={\n  a:1,\n  // 向上找不到this指针，指向window\n  show:()=>...",
+		"summary": "<p>箭头函数()=&gt;{},没有自己的this指针,this为上一层的的this指针</p>\n<p>function(){},有自己的this指针,this指向调用时的对象</p>\n<p>例子：</p>\n<pre class=\"hljs\"><code>a=<span class=\"hljs-string\">\"windowScope\"</span>\n<span class=\"hljs-keyword\">let</span> obj1={\n  <span class=\"hljs-attr\">a</span>:<span class=\"hljs-number\">1</span>,\n  <span class=\"hljs-comment\">// 向上找不到this指针，指向window</span>\n  show:<span class=\"hljs-function\"><span class=\"hljs-params\">()</span>=&gt;</span>...</code></pre>\n",
 		"sha": "662ce20e60723f1b990376486a6f12aef2e2935c"
 	},
 	"07cc2d304f96574c9995198fe6ff05e9fc342322": {
@@ -812,7 +812,7 @@
 		],
 		"title": "React.Children",
 		"titleSHA": "07cc2d304f96574c9995198fe6ff05e9fc342322",
-		"summary": "`React.Children`和`this.props.children`都是获取父组件的子元素(子组件)\n\nthis.props.children:\n1. 1个子元素  => {Object}(React元素(组件)对象)\n2. 多个子元素 => [{Object},{Object}...]\n3. 无子元素   =...",
+		"summary": "<p><code>React.Children</code>和<code>this.props.children</code>都是获取父组件的子元素(子组件)</p>\n<p>this.props.children:</p>\n<ol>\n<li>1个子元素  =&gt; {Object}(React元素(组件)对象)</li>\n<li>多个子元素 =&gt; [{Object},{Object}...]</li>\n<li>无子元素   =...</li>\n</ol>\n",
 		"sha": "1440a870a8ef487d085e89b8002a9e6e9c4f2f3d"
 	},
 	"9fc02f51e144eb4dc14889a72398e5a21ee05145": {
@@ -831,12 +831,13 @@
 		],
 		"title": "React.cloneElement",
 		"titleSHA": "9fc02f51e144eb4dc14889a72398e5a21ee05145",
-		"summary": "```jsx\nReact.cloneElement(\n  element,\n  [props],\n  [...children]\n)\n```#### 第一个参数：element\n\n必须是一个存在的React组件或者原生DOM，以下都可以\n\n`React.cloneElement(<div />)`\n`React.clon...",
+		"summary": "<pre class=\"hljs\"><code>React.cloneElement(\n  element,\n  [props],\n  [...children]\n)\n<span class=\"hljs-string\">``</span><span class=\"hljs-string\">`#### 第一个参数：element\n\n必须是一个存在的React组件或者原生DOM，以下都可以\n\n`</span>React.cloneElement(&lt;div /&gt;)`\n`React.clon...</code></pre>\n",
 		"sha": "f758381282764ccf2eeb5e222145b6ab40de7d78"
 	},
 	"476aa40826f78ed929e4d188e5272ba3b366c415": {
 		"label": [
 			"redux",
+			"笔记",
 			"源码",
 			"github"
 		],
@@ -852,7 +853,7 @@
 		],
 		"title": "redux-observable笔记1",
 		"titleSHA": "476aa40826f78ed929e4d188e5272ba3b366c415",
-		"summary": "#### 一\n```js\nconst pingEpic = action$ =>\n  action$.filter(action => action.type === 'PING')\n    .mapTo({ type: 'PONG' });\n```\n>pingEpic 会监听类型为 PING 的 actions，然后投...",
+		"summary": "<h4>一</h4>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">const</span> pingEpic = <span class=\"hljs-function\"><span class=\"hljs-params\">action$</span> =&gt;</span>\n  action$.filter(<span class=\"hljs-function\"><span class=\"hljs-params\">action</span> =&gt;</span> action.type === <span class=\"hljs-string\">'PING'</span>)\n    .mapTo({ <span class=\"hljs-attr\">type</span>: <span class=\"hljs-string\">'PONG'</span> });\n</code></pre>\n<blockquote>\n<p>pingEpic 会监听类型为 PING 的 actions，然后投...</p>\n</blockquote>\n",
 		"sha": "2c3ca78c66c568c2182c1a0a3db4f01790f268e3"
 	},
 	"bc4cf19b8dcd0b9fd7c436d8de5961ecf9099175": {
@@ -872,7 +873,7 @@
 		],
 		"title": "源码阅读-学习redux的compose",
 		"titleSHA": "bc4cf19b8dcd0b9fd7c436d8de5961ecf9099175",
-		"summary": "先上源码：\n```js\n// 将(fun1,fun2,fun3)转换成fun1(fun2(fun3()))\nexport default function compose(...funcs) {\n  if (funcs.length === 0) {\n    return arg => arg\n  }\n\n  if (f...",
+		"summary": "<p>先上源码：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">// 将(fun1,fun2,fun3)转换成fun1(fun2(fun3()))</span>\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">compose</span>(<span class=\"hljs-params\">...funcs</span>) </span>{\n  <span class=\"hljs-keyword\">if</span> (funcs.length === <span class=\"hljs-number\">0</span>) {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-params\">arg</span> =&gt;</span> arg\n  }\n\n  <span class=\"hljs-keyword\">if</span> (f...</code></pre>\n",
 		"sha": "1c31d66483e93c9656f2d42ae1164c3b016501b8"
 	},
 	"69fe426e6a96922cdf337f974413968848ec6076": {
@@ -892,7 +893,7 @@
 		],
 		"title": "源码阅读-redux源码一个小技巧",
 		"titleSHA": "69fe426e6a96922cdf337f974413968848ec6076",
-		"summary": "先上源码：\n```js\nexport default function applyMiddleware(...middlewares) {\n  // ...\n  \n  let dispatch = () => {\n    throw new Error(\n    `Dispatching while construct...",
+		"summary": "<p>先上源码：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">applyMiddleware</span>(<span class=\"hljs-params\">...middlewares</span>) </span>{\n  <span class=\"hljs-comment\">// ...</span>\n  \n  <span class=\"hljs-keyword\">let</span> dispatch = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> {\n    <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Error</span>(\n    <span class=\"hljs-string\">`Dispatching while construct...</span></code></pre>\n",
 		"sha": "f2bdc7f7ed9f3d78acc23221e83c625f7b8568f8"
 	},
 	"4a83e73cdbfb044bbcaeec9d58a931ead5069ff7": {
@@ -913,7 +914,7 @@
 		],
 		"title": "redux的鸭子类型",
 		"titleSHA": "4a83e73cdbfb044bbcaeec9d58a931ead5069ff7",
-		"summary": "* 之前的项目架构写法\n```\nproduct/\n├── product.js\n├── constant.js\n├── productActions.js\n├── productReducers.js\n...\nwidget/\n├── widget.js\n├── constant.js\n├── widgetActions...",
+		"summary": "<ul>\n<li>之前的项目架构写法</li>\n</ul>\n<pre class=\"hljs\"><code>product/\n├── product.js\n├── constant.js\n├── productActions.js\n├── productReducers.js\n...\nwidget/\n├── widget.js\n├── constant.js\n├── widgetActions...</code></pre>\n",
 		"sha": "fb8d734075bef018a7449f06ddd06ffbb203848f"
 	},
 	"518351f05dc93d811b1d88f9c35718525adb0e07": {
@@ -932,7 +933,7 @@
 		],
 		"title": "reactComponent.displayName",
 		"titleSHA": "518351f05dc93d811b1d88f9c35718525adb0e07",
-		"summary": "`displayName`定义调试时的组件name，例如：\n```jsx\n function withHOC(WrapComponent) {\n   // 此处未定义名称或者希望动态定义名称\n   return class extends React.Component {\n     // 定义displayName\n...",
+		"summary": "<p><code>displayName</code>定义调试时的组件name，例如：</p>\n<pre class=\"hljs\"><code> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">withHOC</span>(<span class=\"hljs-params\">WrapComponent</span>) </span>{\n   <span class=\"hljs-comment\">// 此处未定义名称或者希望动态定义名称</span>\n   <span class=\"hljs-keyword\">return</span> <span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">React</span>.<span class=\"hljs-title\">Component</span> </span>{\n     <span class=\"hljs-comment\">// 定义displayName</span>\n...</code></pre>\n",
 		"sha": "fde82993f585c209a25f00c57ea4fb1713626d27"
 	},
 	"0c2b37a7633e1d040b742bc9653e1a42eef51f8c": {
@@ -953,7 +954,7 @@
 		],
 		"title": "cssModule",
 		"titleSHA": "0c2b37a7633e1d040b742bc9653e1a42eef51f8c",
-		"summary": "cssModule配置，先进行webpack配置：\n```\n// ...\ntest: /\\.css$/,\nuse: ['style-loader', {\n  loader: 'css-loader',\n  options: {\n    module: true,\n    localIdentName: '[name]-...",
+		"summary": "<p>cssModule配置，先进行webpack配置：</p>\n<pre class=\"hljs\"><code>// ...\ntest: /\\.css$/,\nuse: ['style-loader', {\n  loader: 'css-loader',\n  options: {\n    module: true,\n    localIdentName: '[name]-...</code></pre>\n",
 		"sha": "6ccea1616a61dc321481094dcb50899b11c98624"
 	},
 	"77f0065531e454cbcc9fad960f3cdbe37d6e2d25": {
@@ -972,7 +973,7 @@
 		],
 		"title": "两个字符串最小编辑距离算法",
 		"titleSHA": "77f0065531e454cbcc9fad960f3cdbe37d6e2d25",
-		"summary": "#### 学习Levenshtein Distance算法\n \n  任意单个字符变动有3种情况，替换，增加和删除：\n\n**1. 如果对应的字符相同，则从它的左，斜或者上方选取最小值，直接填写**\n**2. 如果对应的字符不相同，则从它的左，斜或者上方选取最小值，+1后填写**\n\n括号内部表示需要进行移动的步数\n\n * ...",
+		"summary": "<h4>学习Levenshtein Distance算法</h4>\n<p>任意单个字符变动有3种情况，替换，增加和删除：</p>\n<p><strong>1. 如果对应的字符相同，则从它的左，斜或者上方选取最小值，直接填写</strong>\n<strong>2. 如果对应的字符不相同，则从它的左，斜或者上方选取最小值，+1后填写</strong></p>\n<p>括号内部表示需要进行移动的步数</p>\n<ul>\n<li>...</li>\n</ul>\n",
 		"sha": "be3a5d23fd6575a2a323c8daa62b9432f71776ec"
 	},
 	"0c096d72d4add9e9c5b5fcc24624e4c8d6669aec": {
@@ -991,7 +992,7 @@
 		],
 		"title": "高阶redux的使用",
 		"titleSHA": "0c096d72d4add9e9c5b5fcc24624e4c8d6669aec",
-		"summary": "###3 Redux的复用\n\n因为每一次dispatch都是遍历所有reducer寻找type，因此每一个action的type不能一致，\n当需要复用reducer时，可以使用prefix\n```js\nfunction generateReducer(prefix,state){\n  const SOMETYPE=pr...",
+		"summary": "<p>###3 Redux的复用</p>\n<p>因为每一次dispatch都是遍历所有reducer寻找type，因此每一个action的type不能一致，\n当需要复用reducer时，可以使用prefix</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">generateReducer</span>(<span class=\"hljs-params\">prefix,state</span>)</span>{\n  <span class=\"hljs-keyword\">const</span> SOMETYPE=pr...</code></pre>\n",
 		"sha": "1a051b70892a766030ca8e55ac15f3c3fbb2d887"
 	},
 	"36b0972f79325bab8c6db377892c184e894e5492": {
@@ -1011,7 +1012,7 @@
 		],
 		"title": "JS的AST(Esprima.parse)",
 		"titleSHA": "36b0972f79325bab8c6db377892c184e894e5492",
-		"summary": "#### 使用AST完成需求\n\n需求：输出方法中的参数为字符串'1234'的变量名\n\n```js\nfunction x(){\n  var a=parseInt('1234');\n  var b='1234';\n  function double(n){\n    return n*2\n  }\n  var c=double...",
+		"summary": "<h4>使用AST完成需求</h4>\n<p>需求：输出方法中的参数为字符串'1234'的变量名</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">x</span>(<span class=\"hljs-params\"></span>)</span>{\n  <span class=\"hljs-keyword\">var</span> a=<span class=\"hljs-built_in\">parseInt</span>(<span class=\"hljs-string\">'1234'</span>);\n  <span class=\"hljs-keyword\">var</span> b=<span class=\"hljs-string\">'1234'</span>;\n  <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">double</span>(<span class=\"hljs-params\">n</span>)</span>{\n    <span class=\"hljs-keyword\">return</span> n*<span class=\"hljs-number\">2</span>\n  }\n  <span class=\"hljs-keyword\">var</span> c=double...</code></pre>\n",
 		"sha": "8446b12b208921dadb0f44d47ca83eb637509139"
 	},
 	"e28099171dfe31f2da457cda1c3b45aac1715cd2": {
@@ -1032,7 +1033,7 @@
 		],
 		"title": "reselect",
 		"titleSHA": "e28099171dfe31f2da457cda1c3b45aac1715cd2",
-		"summary": "#### Reselect\n\n当我们使用redux的`connect(mapStateToProps)`的时候\n\n有时候store的数据直接传进组件并不好，于是我们希望在将数据传进组件前，进行调整\n\n例如 store如下\n```\nconst mockStore={\n  descriptions:[\n    {name:\"a...",
+		"summary": "<h4>Reselect</h4>\n<p>当我们使用redux的<code>connect(mapStateToProps)</code>的时候</p>\n<p>有时候store的数据直接传进组件并不好，于是我们希望在将数据传进组件前，进行调整</p>\n<p>例如 store如下</p>\n<pre class=\"hljs\"><code>const mockStore={\n  descriptions:[\n    {name:&quot;a...</code></pre>\n",
 		"sha": "f0d4f2e822ae9afefb2da674e748cd479eef8231"
 	},
 	"4f4c6e28771908a591c243c12f68d65599bc6d0e": {
@@ -1051,7 +1052,7 @@
 		],
 		"title": "css3种赋值-动态绑定事件",
 		"titleSHA": "4f4c6e28771908a591c243c12f68d65599bc6d0e",
-		"summary": "#### css3种赋值方式\n\n1. `element.style.name=value`\n2. `element.style.setProperty('name','value')`\n3. `element.style.cssText=\"name:value\"`\n\n1和2一次都只能对单个属性赋值，只对name属性赋值，2...",
+		"summary": "<h4>css3种赋值方式</h4>\n<ol>\n<li><code>element.style.name=value</code></li>\n<li><code>element.style.setProperty('name','value')</code></li>\n<li><code>element.style.cssText=&quot;name:value&quot;</code></li>\n</ol>\n<p>1和2一次都只能对单个属性赋值，只对name属性赋值，2...</p>\n",
 		"sha": "8e96930475cb06f0123593475430fadf9ed6eec0"
 	},
 	"041e14e2880378f2920fae48877b46694fbfc26d": {
@@ -1072,7 +1073,7 @@
 		],
 		"title": "超简洁1kb框架-hyperapp",
 		"titleSHA": "041e14e2880378f2920fae48877b46694fbfc26d",
-		"summary": "#### hyperapp框架\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md)\n\n一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过...",
+		"summary": "<h4>hyperapp框架</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过...</p>\n",
 		"sha": "885ccb597d795a6915433872a0e45b118445951f"
 	},
 	"ab4d7fd4fc306830807768df35b00d9bc91c9d20": {
@@ -1092,7 +1093,7 @@
 		],
 		"title": "hyperapp-patch",
 		"titleSHA": "ab4d7fd4fc306830807768df35b00d9bc91c9d20",
-		"summary": "#### hyperapp-patch\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md)\n\npatch是hyperapp进行节点更新的核心，主要步骤：\n* 先判断n...",
+		"summary": "<h4>hyperapp-patch</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>patch是hyperapp进行节点更新的核心，主要步骤：</p>\n<ul>\n<li>先判断n...</li>\n</ul>\n",
 		"sha": "bcf7fcff4b9e7073b08ad7c80986590462058756"
 	},
 	"18afb8f32bc7fc0b2ce146673e4998010db08a12": {
@@ -1111,7 +1112,7 @@
 		],
 		"title": "JS中位操作",
 		"titleSHA": "18afb8f32bc7fc0b2ce146673e4998010db08a12",
-		"summary": "#### JS按位操作符\n\n* 按位异或(^)：二进制编码中，每一位两者相同，则为0，两者不同，则为1\n* 按位与 (&)：二进制编码中，每一位两者都为1，则为1，否则，则为0\n* 按位或 (|)：二进制编码中，每一位两者其中一个为1，则为1，否则，则为0\n* 按位非(~)：二进制编码中，每一位的反码，1为0，0为1（十进...",
+		"summary": "<h4>JS按位操作符</h4>\n<ul>\n<li>按位异或(^)：二进制编码中，每一位两者相同，则为0，两者不同，则为1</li>\n<li>按位与 (&amp;)：二进制编码中，每一位两者都为1，则为1，否则，则为0</li>\n<li>按位或 (|)：二进制编码中，每一位两者其中一个为1，则为1，否则，则为0</li>\n<li>按位非(~)：二进制编码中，每一位的反码，1为0，0为1（十进...</li>\n</ul>\n",
 		"sha": "50c40330555ea317421cc46a84ff4b6fe23f1cc1"
 	},
 	"e3c935001e875147dac6c7b68d6d86f7cfb78754": {
@@ -1130,7 +1131,7 @@
 		],
 		"title": "编码-加密-哈希-混淆不同点-文章翻译",
 		"titleSHA": "e3c935001e875147dac6c7b68d6d86f7cfb78754",
-		"summary": "[原文阅读](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/)\n\n![js_obfuscation](./img/js_obfuscation.png)\n\n[编码](#编码)\n\n[加密](#加密)\n\n[散列法](#散列法...",
+		"summary": "<p><a href=\"https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/\">原文阅读</a></p>\n<p><img src=\"./img/js_obfuscation.png\" alt=\"js_obfuscation\"></p>\n<p><a href=\"#%E7%BC%96%E7%A0%81\">编码</a></p>\n<p><a href=\"#%E5%8A%A0%E5%AF%86\">加密</a></p>\n<p>[散列法](#散列法...</p>\n",
 		"sha": "50f63075f5fedd74d4b1ace8fcce1bdfe2f93efa"
 	},
 	"c177754811a4f2e83d02b2906306ad34211a38a7": {
@@ -1149,7 +1150,7 @@
 		],
 		"title": "转码,Hash,加密,混淆区别总结",
 		"titleSHA": "c177754811a4f2e83d02b2906306ad34211a38a7",
-		"summary": "* 编码\n\n    转换数据格式使其能被各种系统执行，算法公开\n\n* hash\n\n    一个多对一的转换，不可逆，长度固定，用于检测文件是否有改动\n    \n    四个特性：\n    1. 输入相同，输出一定相同\n    2. 绝大部分不同的输入不应该产生相同的输出\n    3. 输入到输出行为不可逆\n    4....",
+		"summary": "<ul>\n<li>\n<p>编码</p>\n<p>转换数据格式使其能被各种系统执行，算法公开</p>\n</li>\n<li>\n<p>hash</p>\n<p>一个多对一的转换，不可逆，长度固定，用于检测文件是否有改动</p>\n<p>四个特性：</p>\n<ol>\n<li>输入相同，输出一定相同</li>\n<li>绝大部分不同的输入不应该产生相同的输出</li>\n<li>输入到输出行为不可逆\n4....</li>\n</ol>\n</li>\n</ul>\n",
 		"sha": "22a37b52e29256c6227488765b3c7bae7216c9d5"
 	},
 	"7b0adb17281c68e7822dafdd8044bb001e43c5ee": {
@@ -1170,7 +1171,7 @@
 		],
 		"title": "源码阅读-reach-router源码学习到的1",
 		"titleSHA": "7b0adb17281c68e7822dafdd8044bb001e43c5ee",
-		"summary": "#### popstate\n\n只在浏览器下前进后退和改变hash触发，`pushState`和`replaceState`并不会触发\n\n源码中给`popstate`和`navigate`事件绑定了一旦执行就更新当前location(传递到context中的)#### 替代pushState和replaceState\n源码...",
+		"summary": "<h4>popstate</h4>\n<p>只在浏览器下前进后退和改变hash触发，<code>pushState</code>和<code>replaceState</code>并不会触发</p>\n<p>源码中给<code>popstate</code>和<code>navigate</code>事件绑定了一旦执行就更新当前location(传递到context中的)#### 替代pushState和replaceState\n源码...</p>\n",
 		"sha": "7e151f2405bca2a2f40f41defe20c8dc037ac39e"
 	},
 	"cc5d864eab97f30e3cb11aff77b2ac5a7ad4ed86": {
@@ -1190,7 +1191,7 @@
 		],
 		"title": "源码阅读-reach-router源码学习到的2",
 		"titleSHA": "cc5d864eab97f30e3cb11aff77b2ac5a7ad4ed86",
-		"summary": "#### 路径匹配优先权问题\n\n先假设一个问题：\n\n有一个匹配路径： `doc/artical`\n\n待匹配路径有3个：\n\n`doc/:section`\n\n`doc/*`\n \n`doc/artical`\n\n该优先对哪个匹配呢？\n\n源码中是使用了一个评分的方法：\n* 先对路径去除头尾的\"/\" ，并且按\"/\"分割成路径片段数组\n...",
+		"summary": "<h4>路径匹配优先权问题</h4>\n<p>先假设一个问题：</p>\n<p>有一个匹配路径： <code>doc/artical</code></p>\n<p>待匹配路径有3个：</p>\n<p><code>doc/:section</code></p>\n<p><code>doc/*</code></p>\n<p><code>doc/artical</code></p>\n<p>该优先对哪个匹配呢？</p>\n<p>源码中是使用了一个评分的方法：</p>\n<ul>\n<li>先对路径去除头尾的&quot;/&quot; ，并且按&quot;/&quot;分割成路径片段数组\n...</li>\n</ul>\n",
 		"sha": "a36a3611a3b4eab9e4d4f48583424f9a869764b8"
 	},
 	"94269872739a3bce7b949811a96155420826e1bd": {
@@ -1212,7 +1213,7 @@
 		],
 		"title": "源码阅读-reach-router源码学习到的3",
 		"titleSHA": "94269872739a3bce7b949811a96155420826e1bd",
-		"summary": "#### 关于Consumer的补充\n\n官方（英文）：\n>All Consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes. \nThe propagation from Pro...",
+		"summary": "<h4>关于Consumer的补充</h4>\n<p>官方（英文）：</p>\n<blockquote>\n<p>All Consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.\nThe propagation from Pro...</p>\n</blockquote>\n",
 		"sha": "6725479ff300e88bb4fedb1c5d5ac66abb602051"
 	},
 	"1478ca77fae5cf65527c2cf310fae0e530ea7496": {
@@ -1234,7 +1235,7 @@
 		],
 		"title": "reach-router",
 		"titleSHA": "1478ca77fae5cf65527c2cf310fae0e530ea7496",
-		"summary": "#### reach/router\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md)\n\n一张导图：\n\n![](./img/reachRouter.png)\n...",
+		"summary": "<h4>reach/router</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md\">完整源码说明注释</a></p>\n<p>一张导图：</p>\n<p><img src=\"./img/reachRouter.png\" alt=\"\">\n...</p>\n",
 		"sha": "f167736adbb910529f25fa5bee12ce70bc54b509"
 	},
 	"a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44": {
@@ -1253,7 +1254,7 @@
 		],
 		"title": "js宽松比较规范",
 		"titleSHA": "a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44",
-		"summary": "#### JS宽松比较(==)规范\n\n摘自《你不知道的javascript》\n\n1. 字符串和数字之间的相等比较\n\n    >ES5 规范 11.9.3.4-5 这样定义：\n    >1. 如果 Type(x) 是数字， Type(y) 是字符串，则返回 x == ToNumber(y)\n    的结果。\n    >2. ...",
+		"summary": "<h4>JS宽松比较(==)规范</h4>\n<p>摘自《你不知道的javascript》</p>\n<ol>\n<li>\n<p>字符串和数字之间的相等比较</p>\n<blockquote>\n<p>ES5 规范 11.9.3.4-5 这样定义：</p>\n<ol>\n<li>如果 Type(x) 是数字， Type(y) 是字符串，则返回 x == ToNumber(y)\n的结果。</li>\n<li>...</li>\n</ol>\n</blockquote>\n</li>\n</ol>\n",
 		"sha": "3f5410af480e95ec28f850969f4fa6f156d635a3"
 	},
 	"5fc1f9d14abff5f33e3b3a286fadfe82ad9a48b2": {
@@ -1272,7 +1273,7 @@
 		],
 		"title": "正则遗漏点",
 		"titleSHA": "5fc1f9d14abff5f33e3b3a286fadfe82ad9a48b2",
-		"summary": "#### 正则 exec和match\n\n* 都是返回数组，包括小括号内部\n* 非全局 一致\n* match全局，匹配多个值\n* exec全局，匹配单个值，但每次执行会继续从上一次匹配数据之后开始\n```js\nlet str='this is a stick'\n\nlet reg=/.is/\nreg.exec(str)   /...",
+		"summary": "<h4>正则 exec和match</h4>\n<ul>\n<li>都是返回数组，包括小括号内部</li>\n<li>非全局 一致</li>\n<li>match全局，匹配多个值</li>\n<li>exec全局，匹配单个值，但每次执行会继续从上一次匹配数据之后开始</li>\n</ul>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">let</span> str=<span class=\"hljs-string\">'this is a stick'</span>\n\n<span class=\"hljs-keyword\">let</span> reg=<span class=\"hljs-regexp\">/.is/</span>\nreg.exec(str)   /...</code></pre>\n",
 		"sha": "150a56b6eb7cd88a1e0662000a7a8f23e0c8003a"
 	},
 	"26780522dc2b9dd466ebe91331b58247e5f73627": {
@@ -1293,7 +1294,7 @@
 		],
 		"title": "fetch-corsVSno-cors",
 		"titleSHA": "26780522dc2b9dd466ebe91331b58247e5f73627",
-		"summary": "#### cors .vs no-cors\n\n名词：\n\n* `CORS filtered response`\n>A CORS filtered response is a filtered response whose type is \"cors\", header list excludes any headers in ...",
+		"summary": "<h4>cors .vs no-cors</h4>\n<p>名词：</p>\n<ul>\n<li><code>CORS filtered response</code></li>\n</ul>\n<blockquote>\n<p>A CORS filtered response is a filtered response whose type is &quot;cors&quot;, header list excludes any headers in ...</p>\n</blockquote>\n",
 		"sha": "17a85d07a1ae45e6a8f6857bf3c621bfba2bd674"
 	},
 	"a6a06a76f20c9fd24c4954c100dbd016a75a5974": {
@@ -1315,7 +1316,7 @@
 		],
 		"title": "2个JS缓存工具学习心得",
 		"titleSHA": "a6a06a76f20c9fd24c4954c100dbd016a75a5974",
-		"summary": "#### nano-memoize 和 fast-memoize\n\n首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。\n\nfast-memoize导图：\n![](./img/fast-memoize.png)\n\n大概说说它们的实现思路：\n\n1. 定义缓存结构，其中`fast`...",
+		"summary": "<h4>nano-memoize 和 fast-memoize</h4>\n<p>首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。</p>\n<p>fast-memoize导图：\n<img src=\"./img/fast-memoize.png\" alt=\"\"></p>\n<p>大概说说它们的实现思路：</p>\n<ol>\n<li>定义缓存结构，其中<code>fast</code>...</li>\n</ol>\n",
 		"sha": "bf7ea8c78c4aac789cd19ecba2a5d49fc7cf4d9c"
 	},
 	"54ce9f8dc0d7064cd42d8c9ee6a7138966a00888": {
@@ -1337,7 +1338,7 @@
 		],
 		"title": "处理额外复杂任务的3种方式",
 		"titleSHA": "54ce9f8dc0d7064cd42d8c9ee6a7138966a00888",
-		"summary": "#### web worker VS idleRequestCallback VS setTimeout\n\n***测试平台：FireFox***(Chrome嵌套worker会有[bug](https://bugs.chromium.org/p/chromium/issues/detail?id=31666))\n\n|*方法...",
+		"summary": "<h4>web worker VS idleRequestCallback VS setTimeout</h4>\n<p><em><strong>测试平台：FireFox</strong></em>(Chrome嵌套worker会有<a href=\"https://bugs.chromium.org/p/chromium/issues/detail?id=31666\">bug</a>)</p>\n<p>|*方法...</p>\n",
 		"sha": "b707535a293aa9a30b76763d846ad36d9b944fc1"
 	},
 	"8e74b1491a2006b6a1642598cc517a267cfa577b": {
@@ -1358,7 +1359,7 @@
 		],
 		"title": "一个记录redux的dispatch耗时的中间件",
 		"titleSHA": "8e74b1491a2006b6a1642598cc517a267cfa577b",
-		"summary": "#### 一个记录redux每次dispatch耗时中间件#### 源码\n\n[源码地址](https://gist.github.com/clarkbw/966732806e7a38f5b49fd770c62a6099)\n```js\nconst timing = store => next => action => {\n...",
+		"summary": "<h4>一个记录redux每次dispatch耗时中间件#### 源码</h4>\n<p><a href=\"https://gist.github.com/clarkbw/966732806e7a38f5b49fd770c62a6099\">源码地址</a></p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">const</span> timing = <span class=\"hljs-function\"><span class=\"hljs-params\">store</span> =&gt;</span> next =&gt; <span class=\"hljs-function\"><span class=\"hljs-params\">action</span> =&gt;</span> {\n...</code></pre>\n",
 		"sha": "78386b134e2b2ff73ad010cc436a6bcaadc22582"
 	},
 	"8cf3eb3203db34468cc1b1507b0c244e16cbf3ab": {
@@ -1378,7 +1379,7 @@
 		],
 		"title": "React的Strict Mode",
 		"titleSHA": "8cf3eb3203db34468cc1b1507b0c244e16cbf3ab",
-		"summary": "#### Strict Mode\n\n在React v16.3时添加，目的是帮助找出应用中潜在的问题。\n\n使用：\n```jsx\nimport React from 'react';\n\nfunction ExampleApplication() {\n  return (\n    <div>\n      <Header />...",
+		"summary": "<h4>Strict Mode</h4>\n<p>在React v16.3时添加，目的是帮助找出应用中潜在的问题。</p>\n<p>使用：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">import</span> React <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">'react'</span>;\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">ExampleApplication</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">return</span> (\n    &lt;div&gt;\n      &lt;Header /&gt;...</code></pre>\n",
 		"sha": "041680b86309bc84db432c597afbaf572d179c1f"
 	},
 	"f38c0d6abc75ce713d9bcd733aa66d5097d25e56": {
@@ -1397,7 +1398,7 @@
 		],
 		"title": "React v16.7 Hooks(1)",
 		"titleSHA": "f38c0d6abc75ce713d9bcd733aa66d5097d25e56",
-		"summary": "#### Hooks\n\n\n\n* useState:\n1. 可以在非class使用state\n2. 返回一个数组\n\n    arr[0]是具体的state\n    \n    arr[1]是改变state的方法\n    \n    `const [count, setCount] = useState(in...",
+		"summary": "<h4>Hooks</h4>\n<ul>\n<li>useState:</li>\n</ul>\n<ol>\n<li>\n<p>可以在非class使用state</p>\n</li>\n<li>\n<p>返回一个数组</p>\n<p>arr[0]是具体的state</p>\n<p>arr[1]是改变state的方法</p>\n<p>`const [count, setCount] = useState(in...</p>\n</li>\n</ol>\n",
 		"sha": "7592784d02c2bac58c7ac782ae1efb07edaf2f20"
 	},
 	"98dd615567b3aca2beb98ad1d65b71331760149b": {
@@ -1417,7 +1418,7 @@
 		],
 		"title": "React v16.7 Hooks(2)",
 		"titleSHA": "98dd615567b3aca2beb98ad1d65b71331760149b",
-		"summary": "* useCallback\n\n* useMemo\n\n`useCallback(fn, inputs) is equivalent to useMemo(() => fn, inputs)`\n\n根据inputs的内容判断是否执行缓存。\n\n待更新：\n\n与`shouldComponentUpdate`搭配\n\n* useRef...",
+		"summary": "<ul>\n<li>\n<p>useCallback</p>\n</li>\n<li>\n<p>useMemo</p>\n</li>\n</ul>\n<p><code>useCallback(fn, inputs) is equivalent to useMemo(() =&gt; fn, inputs)</code></p>\n<p>根据inputs的内容判断是否执行缓存。</p>\n<p>待更新：</p>\n<p>与<code>shouldComponentUpdate</code>搭配</p>\n<ul>\n<li>useRef...</li>\n</ul>\n",
 		"sha": "c76766c24ec93918abe3a16107c74155bbddaae9"
 	},
 	"13253a7dee631700da97fcd58ea9765840ae7706": {
@@ -1434,7 +1435,7 @@
 		],
 		"title": "DNS重绑定攻击-提示点",
 		"titleSHA": "13253a7dee631700da97fcd58ea9765840ae7706",
-		"summary": "攻击者需要知道的：\n\n* 知道被攻击网站地址\n* 知道被攻击网站**内部**缺少认证环节\n* 知道需要请求的(目标)存放在哪个位置\n\n被攻击这需要做的：\n\n* 通过诱导链接访问了恶意网站\n\n执行关键点\n\n* 恶意网站第一次响应DNS为实际DNS，TTL极短，然后执行请求(作用在恶意网站上)。\n* 恶意网站第二次响应DN...",
+		"summary": "<p>攻击者需要知道的：</p>\n<ul>\n<li>知道被攻击网站地址</li>\n<li>知道被攻击网站<strong>内部</strong>缺少认证环节</li>\n<li>知道需要请求的(目标)存放在哪个位置</li>\n</ul>\n<p>被攻击这需要做的：</p>\n<ul>\n<li>通过诱导链接访问了恶意网站</li>\n</ul>\n<p>执行关键点</p>\n<ul>\n<li>恶意网站第一次响应DNS为实际DNS，TTL极短，然后执行请求(作用在恶意网站上)。</li>\n<li>恶意网站第二次响应DN...</li>\n</ul>\n",
 		"sha": "2d4b04e1670845ec9792e2d6dbb9a9828db06632"
 	},
 	"8f280c8e1286471ef7f34acf52ea54212de93568": {
@@ -1454,7 +1455,7 @@
 		],
 		"title": "react-router2个技巧",
 		"titleSHA": "8f280c8e1286471ef7f34acf52ea54212de93568",
-		"summary": "1. `SPA`的router跳转后立刻回到最顶端\n\n核心：添加`window.scrollTo(0, 0)`\n\n可以在每一个`Component`里面写，也可以包裹`Route`\n\n```jsx harmony\nclass ScrollToTopRoute extends Component {\n  componen...",
+		"summary": "<ol>\n<li><code>SPA</code>的router跳转后立刻回到最顶端</li>\n</ol>\n<p>核心：添加<code>window.scrollTo(0, 0)</code></p>\n<p>可以在每一个<code>Component</code>里面写，也可以包裹<code>Route</code></p>\n<pre class=\"hljs\"><code><span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">ScrollToTopRoute</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">Component</span> </span>{\n  componen...</code></pre>\n",
 		"sha": "557c27da0f9f9270e3a273c2f21a0885dca67e10"
 	},
 	"7d5b714624c6bcfe8c2c66acd5114f3f547fbb49": {
@@ -1473,7 +1474,7 @@
 		],
 		"title": "canvas执行15万粒子的动画",
 		"titleSHA": "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49",
-		"summary": "最近遇到的，目的是通过粒子动画渲染图片\n\n图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来\n\n最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...\n\n```js\n for (let py = 0; py < targetH; py ++) ...",
+		"summary": "<p>最近遇到的，目的是通过粒子动画渲染图片</p>\n<p>图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来</p>\n<p>最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...</p>\n<pre class=\"hljs\"><code> <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> py = <span class=\"hljs-number\">0</span>; py &lt; targetH; py ++) ...</code></pre>\n",
 		"sha": "13a7360e4102e7f5e47de276e5ec183f2ea9309f"
 	},
 	"af105b2df12bc15528a731d149193b4aa9927533": {
@@ -1492,7 +1493,7 @@
 		],
 		"title": "算法记录-最长回文子字符串",
 		"titleSHA": "af105b2df12bc15528a731d149193b4aa9927533",
-		"summary": "思路：利用对称思想\n\n1. 先将原字符串转换成转换成 `#x$x$x$` 的形式(一定是奇数)\n2. p为一个数组，储存每一个值的最大回文数量的一半+1，例如：'ababa' 对应的p 就是`[1,2,3,2,1]`\n3. `max`为当前已经计算过得最大回文量`p[id]`+对应的位置`id`，默认为0或者-infi...",
+		"summary": "<p>思路：利用对称思想</p>\n<ol>\n<li>先将原字符串转换成转换成 <code>#x$x$x$</code> 的形式(一定是奇数)</li>\n<li>p为一个数组，储存每一个值的最大回文数量的一半+1，例如：'ababa' 对应的p 就是<code>[1,2,3,2,1]</code></li>\n<li><code>max</code>为当前已经计算过得最大回文量<code>p[id]</code>+对应的位置<code>id</code>，默认为0或者-infi...</li>\n</ol>\n",
 		"sha": "b43da9771d20a5bb5e735c832af36f85b932df54"
 	},
 	"e3b94840e980e8848b479296e62a83d39630ab76": {
@@ -1511,7 +1512,7 @@
 		],
 		"title": "MutationObserver对象",
 		"titleSHA": "e3b94840e980e8848b479296e62a83d39630ab76",
-		"summary": "```js\nvar observer=new MutationObserver(function(records){\n  // 获取变化的DOM的一些属性 \n  records.API1\n})\n```\nAPI1：\n```\nAPI1={\ntype：观察的变动类型（attribute、characterData或者chil...",
+		"summary": "<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> observer=<span class=\"hljs-keyword\">new</span> MutationObserver(<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\">records</span>)</span>{\n  <span class=\"hljs-comment\">// 获取变化的DOM的一些属性 </span>\n  records.API1\n})\n</code></pre>\n<p>API1：</p>\n<pre class=\"hljs\"><code>API1={\ntype：观察的变动类型（attribute、characterData或者chil...</code></pre>\n",
 		"sha": "8540f01502cc34ee1bdc412b3483427e52a8e911"
 	},
 	"c717f697562ea9e27b08040a52e05db0718b1a50": {
@@ -1530,7 +1531,7 @@
 		],
 		"title": "一个关于GIT撤销合并的处理revert",
 		"titleSHA": "c717f697562ea9e27b08040a52e05db0718b1a50",
-		"summary": "```\ninit -> v1 -> v2 -> v3 -- faulty merge -> v4  (master)\n           \\            /                     \n            d1  -->  d2                               ...",
+		"summary": "<pre class=\"hljs\"><code>init -&gt; v1 -&gt; v2 -&gt; v3 -- faulty merge -&gt; v4  (master)\n           \\            /                     \n            d1  --&gt;  d2                               ...</code></pre>\n",
 		"sha": "1de2e1722337b507aecf967ac8e888cae31f7bbb"
 	},
 	"b3f75a48780077e930c5409efefb6e27050a2057": {
@@ -1549,7 +1550,7 @@
 		],
 		"title": "MYSQL常用命令记录",
 		"titleSHA": "b3f75a48780077e930c5409efefb6e27050a2057",
-		"summary": "* 添加row\n\n`INSERT  INTO library VALUES (1,'javascript',8);`\n\n* 条件排序order by\n\n`SELECT *  FROM movies WHERE release_year>1999 ORDER BY  release_year;`\n\n* SUM\n\n`SEL...",
+		"summary": "<ul>\n<li>添加row</li>\n</ul>\n<p><code>INSERT INTO library VALUES (1,'javascript',8);</code></p>\n<ul>\n<li>条件排序order by</li>\n</ul>\n<p><code>SELECT * FROM movies WHERE release_year&gt;1999 ORDER BY release_year;</code></p>\n<ul>\n<li>SUM</li>\n</ul>\n<p>`SEL...</p>\n",
 		"sha": "3a8414077d4d20b0989f09332827e0c904ae7e2f"
 	},
 	"c8b2b19bf52484de902c2d4d23a44ed8b158ab18": {
@@ -1569,7 +1570,7 @@
 		],
 		"title": "关于位操作符应用的算法题",
 		"titleSHA": "c8b2b19bf52484de902c2d4d23a44ed8b158ab18",
-		"summary": "[原题目](https://leetcode.com/problems/maximum-product-of-word-lengths/)：\n给定一个字符串数组，找到长度的最大值`length(word[i]) * length(word[j])`，其中两个单词中的字母无相同。您可以假定每个单词只包含小写字母。如果没有...",
+		"summary": "<p><a href=\"https://leetcode.com/problems/maximum-product-of-word-lengths/\">原题目</a>：\n给定一个字符串数组，找到长度的最大值<code>length(word[i]) * length(word[j])</code>，其中两个单词中的字母无相同。您可以假定每个单词只包含小写字母。如果没有...</p>\n",
 		"sha": "7963f582de66e6e2582fb61249dbba57221190fe"
 	},
 	"1ce699882ae4c19377061e00fa95e2bc41b3f185": {
@@ -1589,7 +1590,7 @@
 		],
 		"title": "文章记录—为什么要知道js的引擎如何工作",
 		"titleSHA": "1ce699882ae4c19377061e00fa95e2bc41b3f185",
-		"summary": "\n原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess...",
+		"summary": "<p>原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess...</p>\n",
 		"sha": "f6d88502864f6fa2ddb9fd4f3a6d78cbd5bc29c5"
 	},
 	"be95143b4d5b92aa8901844dde5e73230a1d2f49": {
@@ -1611,7 +1612,7 @@
 		],
 		"title": "获取函数参数名称",
 		"titleSHA": "be95143b4d5b92aa8901844dde5e73230a1d2f49",
-		"summary": "今天碰到一个需求，获取函数参数名称，\n刚开始打算用正则去处理，但函数写法(包括es6)也挺多的，\n\n例如：\n```\nfunction x(a,b){}\nfunction x(a=5,b=3){}\nlet x=function(a=5,b){}\nlet x=(a=5,b)=>a+b\nlet x=a=>a*2\nfuncti...",
+		"summary": "<p>今天碰到一个需求，获取函数参数名称，\n刚开始打算用正则去处理，但函数写法(包括es6)也挺多的，</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>function x(a,b){}\nfunction x(a=5,b=3){}\nlet x=function(a=5,b){}\nlet x=(a=5,b)=&gt;a+b\nlet x=a=&gt;a*2\nfuncti...</code></pre>\n",
 		"sha": "666081661a6e70d949e3a7754293a33f83e18432"
 	},
 	"dc88a14e3350748449cfa7bae96179c2301f3548": {
@@ -1631,7 +1632,7 @@
 		],
 		"title": "监控网页状态的-Page Lifecycle",
 		"titleSHA": "dc88a14e3350748449cfa7bae96179c2301f3548",
-		"summary": "#### 监听网页读取状况使用\n`DOMContentLoaded`和`window.onload`\n\n监听网页展示状况，可以调用一系列`Page LIfecycle`API\n\n#### 生命周期：\n\n![](https://raw.githubusercontent.com/WICG/page-lifecycle/m...",
+		"summary": "<h4>监听网页读取状况使用</h4>\n<p><code>DOMContentLoaded</code>和<code>window.onload</code></p>\n<p>监听网页展示状况，可以调用一系列<code>Page LIfecycle</code>API</p>\n<h4>生命周期：</h4>\n<p>![](https://raw.githubusercontent.com/WICG/page-lifecycle/m...</p>\n",
 		"sha": "ce6d06466d2502c0c7cc081e44839f05bad8e8b0"
 	},
 	"fc7c450a8aab31c939be77ef556ba927f8da6619": {
@@ -1651,7 +1652,7 @@
 		],
 		"title": "React v16.7 Hooks(3)",
 		"titleSHA": "fc7c450a8aab31c939be77ef556ba927f8da6619",
-		"summary": "useReducer\n\n模拟reducer\n\n`const [state, dispatch] = useReducer(reducer, initialState, initialAction);`\n\n* 参数1`reducer` \n\n与`redux`写法相比，不需要默认返回值\n\n```js\nfunction red...",
+		"summary": "<p>useReducer</p>\n<p>模拟reducer</p>\n<p><code>const [state, dispatch] = useReducer(reducer, initialState, initialAction);</code></p>\n<ul>\n<li>参数1<code>reducer</code></li>\n</ul>\n<p>与<code>redux</code>写法相比，不需要默认返回值</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">red</span>...</span></code></pre>\n",
 		"sha": "012abf1ae3a9d2bef888109e1147dae1407eda09"
 	},
 	"bebc0fc1532d19e9cec7bedd22a5141f7927276c": {
@@ -1670,13 +1671,14 @@
 		],
 		"title": "求不重叠间隔的算法",
 		"titleSHA": "bebc0fc1532d19e9cec7bedd22a5141f7927276c",
-		"summary": "给出一系列间隔，例如`[[1,2],[3,5],[1,3],[2,3],[2,4]]`\n\n求出最大的不重复间隔数量。\n\n例1:\n\ninput : `[[1,2],[3,5],[1,3],[2,3],[2,4]]`\n\noutput : 3\n\n这种题思路是按间隔的`尾部排序`。\n\n```js\n/**\n * Definiti...",
+		"summary": "<p>给出一系列间隔，例如<code>[[1,2],[3,5],[1,3],[2,3],[2,4]]</code></p>\n<p>求出最大的不重复间隔数量。</p>\n<p>例1:</p>\n<p>input : <code>[[1,2],[3,5],[1,3],[2,3],[2,4]]</code></p>\n<p>output : 3</p>\n<p>这种题思路是按间隔的<code>尾部排序</code>。</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">/**\n * Definiti...</span></code></pre>\n",
 		"sha": "88bd0b8b65d66224f77f7c40a5034f06a5ca729a"
 	},
 	"cdf39a26b776d98ab203524d376b062840672373": {
 		"label": [
 			"正则",
-			"源码"
+			"源码",
+			"笔记"
 		],
 		"createdTime": "7/18/2018",
 		"timeArr": [
@@ -1690,7 +1692,7 @@
 		],
 		"title": "一个长正则的深入理解",
 		"titleSHA": "cdf39a26b776d98ab203524d376b062840672373",
-		"summary": "#### 阅读lodash中一段长正则理解笔记\n\n在lodash源码`/.internal/stringToPath.js`中：\n\n这里英文是原注释，中文是简单的翻译下，后面会详细解释：\n```js\nconst rePropName = RegExp(\n  // Match anything that isn't a do...",
+		"summary": "<h4>阅读lodash中一段长正则理解笔记</h4>\n<p>在lodash源码<code>/.internal/stringToPath.js</code>中：</p>\n<p>这里英文是原注释，中文是简单的翻译下，后面会详细解释：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">const</span> rePropName = <span class=\"hljs-built_in\">RegExp</span>(\n  <span class=\"hljs-comment\">// Match anything that isn't a do...</span></code></pre>\n",
 		"sha": "784356b84252e1f80acd38952d47176e1e4a8836"
 	},
 	"c2c3bf8775d224910f8bdac31eb7e0ff5a28d431": {
@@ -1709,7 +1711,7 @@
 		],
 		"title": "Blob对象和createObjectURL",
 		"titleSHA": "c2c3bf8775d224910f8bdac31eb7e0ff5a28d431",
-		"summary": "#### Blob与createObjectURL搭配使用\n\n```js\nvar blob = new Blob([document.querySelector('#worker').textContent]);\nvar url = window.URL.createObjectURL(blob);\nvar worker ...",
+		"summary": "<h4>Blob与createObjectURL搭配使用</h4>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> blob = <span class=\"hljs-keyword\">new</span> Blob([<span class=\"hljs-built_in\">document</span>.querySelector(<span class=\"hljs-string\">'#worker'</span>).textContent]);\n<span class=\"hljs-keyword\">var</span> url = <span class=\"hljs-built_in\">window</span>.URL.createObjectURL(blob);\n<span class=\"hljs-keyword\">var</span> worker ...</code></pre>\n",
 		"sha": "92b4e89a32882a49232d054e12b2f724a0e9fa68"
 	},
 	"c210dfbee9273c04ed715f0cf70a75b648672b17": {
@@ -1728,7 +1730,7 @@
 		],
 		"title": "通过解析blob实现图片预览",
 		"titleSHA": "c210dfbee9273c04ed715f0cf70a75b648672b17",
-		"summary": "#### 解析blob实现图片预览\n\n原理很简单，`blob`是一个储存了二进制的大对象，而`createObjectURL`可以解析blob成为一个url格式，\n再用`img`标签渲染即可。\n\n```js\n  if(blob.type.indexOf('image')!==-1){\n    newURL=window.U...",
+		"summary": "<h4>解析blob实现图片预览</h4>\n<p>原理很简单，<code>blob</code>是一个储存了二进制的大对象，而<code>createObjectURL</code>可以解析blob成为一个url格式，\n再用<code>img</code>标签渲染即可。</p>\n<pre class=\"hljs\"><code>  <span class=\"hljs-keyword\">if</span>(blob.type.indexOf(<span class=\"hljs-string\">'image'</span>)!==<span class=\"hljs-number\">-1</span>){\n    newURL=<span class=\"hljs-built_in\">window</span>.U...</code></pre>\n",
 		"sha": "bf946078e90730d7d626fe3573c4adad5f9cd0e2"
 	},
 	"46e9b0a650dba0fd4351e6b9b36a76775bb0bc76": {
@@ -1748,7 +1750,7 @@
 		],
 		"title": "通过blob实现文件续传记录(nodejs)",
 		"titleSHA": "46e9b0a650dba0fd4351e6b9b36a76775bb0bc76",
-		"summary": "#### 一个可暂停分段上传的例子\n\n[代码位置](https://gist.github.com/stonehank/5d3dea234ac6bc200bdef9c181c0a645)\n_______\n\n要点：\n\n1. 通过`blob.slice()`对文件进行分割，再逐个上传\n\n    `blob.slice(star...",
+		"summary": "<h4>一个可暂停分段上传的例子</h4>\n<p><a href=\"https://gist.github.com/stonehank/5d3dea234ac6bc200bdef9c181c0a645\">代码位置</a></p>\n<hr>\n<p>要点：</p>\n<ol>\n<li>\n<p>通过<code>blob.slice()</code>对文件进行分割，再逐个上传</p>\n<p>`blob.slice(star...</p>\n</li>\n</ol>\n",
 		"sha": "f3a86b01ae6164f031e648596d9eeafb87fb28f6"
 	},
 	"4f7f64522646a72cae1c94073ca8d665ecf77efd": {
@@ -1767,12 +1769,13 @@
 		],
 		"title": "css补缺",
 		"titleSHA": "4f7f64522646a72cae1c94073ca8d665ecf77efd",
-		"summary": "#### @charset\n@charset 在外部样式表文件内使用。指定该样式表使用的字符编码。\n```css\n@charset \"utf-8\";\nbody {  }\ndiv {  }\n```#### inline-flex\n\ninline-flex和flex 是针对flex容器的内联显示改变，而它内部的flex-item...",
+		"summary": "<h4>@charset</h4>\n<p>@charset 在外部样式表文件内使用。指定该样式表使用的字符编码。</p>\n<pre class=\"hljs\"><code>@charset &quot;utf-8&quot;;\nbody {  }\ndiv {  }\n```#### inline-flex\n\ninline-flex和flex 是针对flex容器的内联显示改变，而它内部的flex-item...</code></pre>\n",
 		"sha": "4a1043ffaa6c98e2971a83f9fba138ad8462eafa"
 	},
 	"f433b9ed4007a7781ed42e23c229928ae08ba1d8": {
 		"label": [
 			"react",
+			"笔记",
 			"npm",
 			"源码",
 			"github"
@@ -1789,7 +1792,7 @@
 		],
 		"title": "源码阅读-create-react-app一些收获(笔记备忘)",
 		"titleSHA": "f433b9ed4007a7781ed42e23c229928ae08ba1d8",
-		"summary": "#### ./creat-react-app/createReactApp.js\n\n* os.EOL\n\n    不同系统的行尾符号\n    \n    > A string constant defining the operating system-specific end-of-line marker:\n    \n   ...",
+		"summary": "<h4>./creat-react-app/createReactApp.js</h4>\n<ul>\n<li>\n<p>os.EOL</p>\n<p>不同系统的行尾符号</p>\n<blockquote>\n<p>A string constant defining the operating system-specific end-of-line marker:</p>\n</blockquote>\n<p>...</p>\n</li>\n</ul>\n",
 		"sha": "0a29b597ea9aca0631c7bd70092eb31cf07d8250"
 	},
 	"00c5d9ed2847e38150e59f8030c9eff752b313f7": {
@@ -1809,7 +1812,7 @@
 		],
 		"title": "记一道二分查找算法题",
 		"titleSHA": "00c5d9ed2847e38150e59f8030c9eff752b313f7",
-		"summary": "题目位置：https://leetcode.com/problems/nth-magical-number/description/\n\n题目：\n\n如果正整数 可被A  或B整除，则它是神奇的。\n\n返回第N个魔法数字。由于答案可能非常大，因此返回值需要模(%)10^9 + 7。\n\n例1：\n```\n输入： N = 1，A ...",
+		"summary": "<p>题目位置：https://leetcode.com/problems/nth-magical-number/description/</p>\n<p>题目：</p>\n<p>如果正整数 可被A  或B整除，则它是神奇的。</p>\n<p>返回第N个魔法数字。由于答案可能非常大，因此返回值需要模(%)10^9 + 7。</p>\n<p>例1：</p>\n<pre class=\"hljs\"><code>输入： N = 1，A ...</code></pre>\n",
 		"sha": "d3c6d7ae8150d554512c3b20c6ccc2cd575468c5"
 	},
 	"fe3678963ac1c863362da40651884c9820158971": {
@@ -1830,7 +1833,7 @@
 		],
 		"title": "文章记录—当前的网页安全",
 		"titleSHA": "fe3678963ac1c863362da40651884c9820158971",
-		"summary": "原文地址：https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5\n\n作者讲述了一些能够达成的破解网络安全手段(有些已被认为是bug修复，例如2)，并给出建议...",
+		"summary": "<p>原文地址：https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5</p>\n<p>作者讲述了一些能够达成的破解网络安全手段(有些已被认为是bug修复，例如2)，并给出建议...</p>\n",
 		"sha": "6901bccad37993cd0ddb283e7bd8f2a32e5ae599"
 	},
 	"11c12164597745ff2b79b9aa256465683ed63ab6": {
@@ -1851,7 +1854,7 @@
 		],
 		"title": "从源码理解redux-observable",
 		"titleSHA": "11c12164597745ff2b79b9aa256465683ed63ab6",
-		"summary": "#### 阅读前提：\n1. 有rxjs基础，对`Observable`, `Subject`,`pipe`和一些操作符(例如`filter`,`map`,`merge`,`mergeMap`)执行流程有基本了解，最起码遇到不清楚有去查阅的动力\n2. 比较熟悉`redux`中间件的写法，否则像`createEpicMidd...",
+		"summary": "<h4>阅读前提：</h4>\n<ol>\n<li>有rxjs基础，对<code>Observable</code>, <code>Subject</code>,<code>pipe</code>和一些操作符(例如<code>filter</code>,<code>map</code>,<code>merge</code>,<code>mergeMap</code>)执行流程有基本了解，最起码遇到不清楚有去查阅的动力</li>\n<li>比较熟悉<code>redux</code>中间件的写法，否则像`createEpicMidd...</li>\n</ol>\n",
 		"sha": "6e85cade1d479e41467fc8f31c7cce1b2d0eca18"
 	},
 	"e1662cfda83fcae8dc160c993bb54ff04956653c": {
@@ -1870,7 +1873,7 @@
 		],
 		"title": "一些promise和其他补缺",
 		"titleSHA": "e1662cfda83fcae8dc160c993bb54ff04956653c",
-		"summary": "* 如果向 Promise.resolve(..) 传递一个真正的 Promise，就只会返回同一个 promise\n```js\nvar p1 = Promise.resolve( 42 );\nvar p2 = Promise.resolve( p1 );\np1===p2\n// true\n```\n\n\n* P...",
+		"summary": "<ul>\n<li>如果向 Promise.resolve(..) 传递一个真正的 Promise，就只会返回同一个 promise</li>\n</ul>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> p1 = <span class=\"hljs-built_in\">Promise</span>.resolve( <span class=\"hljs-number\">42</span> );\n<span class=\"hljs-keyword\">var</span> p2 = <span class=\"hljs-built_in\">Promise</span>.resolve( p1 );\np1===p2\n<span class=\"hljs-comment\">// true</span>\n</code></pre>\n<ul>\n<li>P...</li>\n</ul>\n",
 		"sha": "3bfb5149de44ae6b02ce78a91414ebbd9303a277"
 	},
 	"6fd675137d4fc7c9017a5d49e6617b15a17ace30": {
@@ -1889,7 +1892,7 @@
 		],
 		"title": "react的编写模式",
 		"titleSHA": "6fd675137d4fc7c9017a5d49e6617b15a17ace30",
-		"summary": "使用4种方式：props传递，父组件公用，hoc，render-prop\n\n定义需求，cur符合auth才能查看组件内容，否则进入NotAccess\n```\nconst cur = \"a\";\nconst auth = {\n  com1: [\"a\", \"b\"],\n  com2: [\"b\", \"c\"],\n  com3: [...",
+		"summary": "<p>使用4种方式：props传递，父组件公用，hoc，render-prop</p>\n<p>定义需求，cur符合auth才能查看组件内容，否则进入NotAccess</p>\n<pre class=\"hljs\"><code>const cur = &quot;a&quot;;\nconst auth = {\n  com1: [&quot;a&quot;, &quot;b&quot;],\n  com2: [&quot;b&quot;, &quot;c&quot;],\n  com3: [...</code></pre>\n",
 		"sha": "ac63fa5d204d619196b3d6c6134d623fb670d2f1"
 	},
 	"3b4d16a57b6ee44ecffdda18a89a5c0f7cf5808c": {
@@ -1910,7 +1913,7 @@
 		],
 		"title": "源码阅读-anime和react-motion算法差异",
 		"titleSHA": "3b4d16a57b6ee44ecffdda18a89a5c0f7cf5808c",
-		"summary": "`anime`用的是缓动算法\n\n算法规定了动画形式，需要提供总消耗时间，当前消耗时间，初始位置，目标位置\n\n特点：动画灵活性更大,可以指定任意的时间而得到对应的位置，可以实现暂停/继续，动画跳转，动画进度条等\n\n`react-motion`用的是弹性算法\n\n算法规定了弹性和阻力，只要提供初始位置和目标位置，即可计算出动...",
+		"summary": "<p><code>anime</code>用的是缓动算法</p>\n<p>算法规定了动画形式，需要提供总消耗时间，当前消耗时间，初始位置，目标位置</p>\n<p>特点：动画灵活性更大,可以指定任意的时间而得到对应的位置，可以实现暂停/继续，动画跳转，动画进度条等</p>\n<p><code>react-motion</code>用的是弹性算法</p>\n<p>算法规定了弹性和阻力，只要提供初始位置和目标位置，即可计算出动...</p>\n",
 		"sha": "9f1747ec27f36e527867dcc4368704ce642ca78d"
 	},
 	"7d006085fe6510e84760d5dac1964ffab407a64b": {
@@ -1929,7 +1932,7 @@
 		],
 		"title": "CSS BEM和7-1",
 		"titleSHA": "7d006085fe6510e84760d5dac1964ffab407a64b",
-		"summary": "#### css 的BEM方法和7-1规则#### BEM\n\n按照`Block__Element--Modifier`命名\n\n例如：\n```\narticle__author\narticle__date\narticle__content-leftAlign\narticle__content-centerAlign\n```\n...",
+		"summary": "<h4>css 的BEM方法和7-1规则#### BEM</h4>\n<p>按照<code>Block__Element--Modifier</code>命名</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>article__author\narticle__date\narticle__content-leftAlign\narticle__content-centerAlign\n</code></pre>\n<p>...</p>\n",
 		"sha": "749d64da627880acf963a5302a4e38ce920592d5"
 	},
 	"d19b06a421c09a6a7e3d012ce39d42cf0cfc380b": {
@@ -1948,7 +1951,7 @@
 		],
 		"title": "KMP回溯分析",
 		"titleSHA": "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b",
-		"summary": "KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯\n\n一般写法是：\n```js\nfunction calcNext(str,pat){\n  /*...*/\n  if(str[k]!==str[j]){\n    // 有些会写成k=next[k]，原理是一样的\n    // 这里k表示，所对应当前正在进行对比的...",
+		"summary": "<p>KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯</p>\n<p>一般写法是：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">calcNext</span>(<span class=\"hljs-params\">str,pat</span>)</span>{\n  <span class=\"hljs-comment\">/*...*/</span>\n  <span class=\"hljs-keyword\">if</span>(str[k]!==str[j]){\n    <span class=\"hljs-comment\">// 有些会写成k=next[k]，原理是一样的</span>\n    <span class=\"hljs-comment\">// 这里k表示，所对应当前正在进行对比的...</span></code></pre>\n",
 		"sha": "9b2f31a1afd83292746a2243626db26804af5fa3"
 	},
 	"f616d21af7026eb71d6d96d1e0adfc13871af644": {
@@ -1969,7 +1972,7 @@
 		],
 		"title": "源码阅读-react-motion-拓扑排序思想",
 		"titleSHA": "f616d21af7026eb71d6d96d1e0adfc13871af644",
-		"summary": "\n阅读[react-motion](https://github.com/chenglou/react-motion)的源码时候，其中有一个组件`TransitionMotion`\n，它负责元素的新增和移除动画，内部有2个概念：`old`和`new`\n\n这就先说到排序，\n\n当动画队列出现如下状态...",
+		"summary": "<p>阅读<a href=\"https://github.com/chenglou/react-motion\">react-motion</a>的源码时候，其中有一个组件<code>TransitionMotion</code>\n，它负责元素的新增和移除动画，内部有2个概念：<code>old</code>和<code>new</code></p>\n<p>这就先说到排序，</p>\n<p>当动画队列出现如下状态...</p>\n",
 		"sha": "65c59ec0ce44ba503eeb5cfdeec3d1eba9b70047"
 	},
 	"2d2fe99476f8b0fcf2a0f7ff6061756eff4803e5": {
@@ -1988,7 +1991,7 @@
 		],
 		"title": "svg渲染dom，canvas获取像素",
 		"titleSHA": "2d2fe99476f8b0fcf2a0f7ff6061756eff4803e5",
-		"summary": "#### foreignObject\n\nsvg内部标签`<foreignObject>`，可以直接在svg内部插入`xhtml`元素，再通过`blob`和`FileReader`可\n将内部`xhtml`内容转换成*同源*url，再通过`img.src=url`将svg内部的dom元素转化为图片。\n\n```js\nlet  d...",
+		"summary": "<h4>foreignObject</h4>\n<p>svg内部标签<code>&lt;foreignObject&gt;</code>，可以直接在svg内部插入<code>xhtml</code>元素，再通过<code>blob</code>和<code>FileReader</code>可\n将内部<code>xhtml</code>内容转换成<em>同源</em>url，再通过<code>img.src=url</code>将svg内部的dom元素转化为图片。</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">let</span>  d...</code></pre>\n",
 		"sha": "8f6c34d738ca1b40e7dbc5fd7c069695a2fb4443"
 	},
 	"4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1": {
@@ -2008,7 +2011,7 @@
 		],
 		"title": "CORS通信",
 		"titleSHA": "4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1",
-		"summary": "CORS通信就是服务端设置`Access-Control-Allow-Origin`等配置\n\n分为2类请求，简单请求和非简单请求\n\n\n* 简单请求：\n\n    无预检，直接传递数据的时候检查是否同源\n\n    Content-Type类型：\n    \n   `application/x-www-form-urlenco...",
+		"summary": "<p>CORS通信就是服务端设置<code>Access-Control-Allow-Origin</code>等配置</p>\n<p>分为2类请求，简单请求和非简单请求</p>\n<ul>\n<li>\n<p>简单请求：</p>\n<p>无预检，直接传递数据的时候检查是否同源</p>\n<p>Content-Type类型：</p>\n<p>`application/x-www-form-urlenco...</p>\n</li>\n</ul>\n",
 		"sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425"
 	},
 	"b8d2829958b70c73fa0733e45fe779eff931cbc5": {
@@ -2027,7 +2030,7 @@
 		],
 		"title": "indexedDB简要增删查",
 		"titleSHA": "b8d2829958b70c73fa0733e45fe779eff931cbc5",
-		"summary": "indexedDB\n在客户端进行保存保存： \n```\n{id: 1, name: \"张三\", age: 24, email: \"zhangsan@example.com\"}\n{id: 2, name: \"李四\", age: 54, email: \"lisi@example.com\"}\n{id: 3, name: \"王五...",
+		"summary": "<p>indexedDB\n在客户端进行保存保存：</p>\n<pre class=\"hljs\"><code>{id: 1, name: &quot;张三&quot;, age: 24, email: &quot;zhangsan@example.com&quot;}\n{id: 2, name: &quot;李四&quot;, age: 54, email: &quot;lisi@example.com&quot;}\n{id: 3, name: &quot;王五...</code></pre>\n",
 		"sha": "b9c382c33ecfc711c7de0a929d346090b6c78122"
 	},
 	"bd9804a5d37884a5eff1d06717429f0517cd2782": {
@@ -2046,7 +2049,7 @@
 		],
 		"title": "原生表单验证相关",
 		"titleSHA": "bd9804a5d37884a5eff1d06717429f0517cd2782",
-		"summary": "#### 表单验证原生\n\n* 查看是否通过验证：\n`ele.checkValidity`\n\n* 验证不通过的时候的提示（只读）：\n`ele.validationMessage`\n\n    可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过\n\n    `ele.set...",
+		"summary": "<h4>表单验证原生</h4>\n<ul>\n<li>\n<p>查看是否通过验证：\n<code>ele.checkValidity</code></p>\n</li>\n<li>\n<p>验证不通过的时候的提示（只读）：\n<code>ele.validationMessage</code></p>\n<p>可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过</p>\n<p>`ele.set...</p>\n</li>\n</ul>\n",
 		"sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4"
 	},
 	"f72ad63b02516bf71d570ecbf6c39488e64deb8e": {
@@ -2065,7 +2068,7 @@
 		],
 		"title": "记录一次xhr.upload.onprogress填坑",
 		"titleSHA": "f72ad63b02516bf71d570ecbf6c39488e64deb8e",
-		"summary": "#### 一次xhr.upload.onprogress与multiparty搭配的踩坑记录\n\n有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96...",
+		"summary": "<h4>一次xhr.upload.onprogress与multiparty搭配的踩坑记录</h4>\n<p>有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96...</p>\n",
 		"sha": "bc7ed8c6eae00e50c69810221c75724e5987c3ef"
 	},
 	"7d330d0cc2eaff951ab1a45bc216f483c483f6e0": {
@@ -2084,7 +2087,7 @@
 		],
 		"title": "canvas处理大量重复运动",
 		"titleSHA": "7d330d0cc2eaff951ab1a45bc216f483c483f6e0",
-		"summary": "canvas做大量重复的粒子运动，例如雪花，星光闪烁\n\n并不需要针对每一个粒子进行动画，例如\n```js\nfor(let i=0;i<particles,length;i++){\n  let p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=function(){}\n  ...",
+		"summary": "<p>canvas做大量重复的粒子运动，例如雪花，星光闪烁</p>\n<p>并不需要针对每一个粒子进行动画，例如</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> i=<span class=\"hljs-number\">0</span>;i&lt;particles,length;i++){\n  <span class=\"hljs-keyword\">let</span> p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>)</span>{}\n  ...</code></pre>\n",
 		"sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591"
 	},
 	"a5bed495fbfaa670dcb632ac350bfa5c527e6eca": {
@@ -2101,7 +2104,7 @@
 		],
 		"title": "深入海明距离",
 		"titleSHA": "a5bed495fbfaa670dcb632ac350bfa5c527e6eca",
-		"summary": "通常海明距离的计算使用 `^`，再计算1的次数\n\n但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的\n\n另一种计算海明距离的方法：\n```js\n/**\n* @param nums {Array}\n* @returns {number}\n*/\nfunction cal...",
+		"summary": "<p>通常海明距离的计算使用 <code>^</code>，再计算1的次数</p>\n<p>但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的</p>\n<p>另一种计算海明距离的方法：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">/**\n* @param nums {Array}\n* @returns {number}\n*/</span>\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">cal</span>...</span></code></pre>\n",
 		"sha": "4a3568d093ea0316f644a973e4b91143b8563bd4"
 	},
 	"d1414b5e8fe837fbddd4957fcf7183b76489732f": {
@@ -2121,7 +2124,7 @@
 		],
 		"title": "LeetCode岛屿问题算法",
 		"titleSHA": "d1414b5e8fe837fbddd4957fcf7183b76489732f",
-		"summary": "岛屿问题比较通用的算法\n\n大概思路：\n\n1. 先用dfs求出岛屿\n\n2. 再用bfs根据要求算出连通量\n\n以`827. Making A Large Island`为例\n\n题目给出一个二维数组，只有`0`和`1`，`1`代表陆地，\n当`1`周围4个方向(上下左右)有另一个`1`的时候，可以连接。\n\n问题是，只能走1步，...",
+		"summary": "<p>岛屿问题比较通用的算法</p>\n<p>大概思路：</p>\n<ol>\n<li>\n<p>先用dfs求出岛屿</p>\n</li>\n<li>\n<p>再用bfs根据要求算出连通量</p>\n</li>\n</ol>\n<p>以<code>827. Making A Large Island</code>为例</p>\n<p>题目给出一个二维数组，只有<code>0</code>和<code>1</code>，<code>1</code>代表陆地，\n当<code>1</code>周围4个方向(上下左右)有另一个<code>1</code>的时候，可以连接。</p>\n<p>问题是，只能走1步，...</p>\n",
 		"sha": "3fc478b01fbc4df0042a6b4ccd3ba389fff31494"
 	},
 	"2cf2373f2fa9c28ce15661630048ac1848d2530f": {
@@ -2142,7 +2145,7 @@
 		],
 		"title": "源码阅读-reselect源码学习",
 		"titleSHA": "2cf2373f2fa9c28ce15661630048ac1848d2530f",
-		"summary": "#### reselect源码亮点介绍\n\n[完整源码说明注释](https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md)\n\n导图：\n\n![](./img/reselect.png)#### de...",
+		"summary": "<h4>reselect源码亮点介绍</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md\">完整源码说明注释</a></p>\n<p>导图：</p>\n<p><img src=\"./img/reselect.png\" alt=\"\">#### de...</p>\n",
 		"sha": "d9ad388a0614782724779268301e0b4a56701aac"
 	},
 	"9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da": {
@@ -2162,7 +2165,7 @@
 		],
 		"title": "GraphQL服务器的简易实现",
 		"titleSHA": "9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da",
-		"summary": "* 为什么要实现一个`GraphQL`服务器\n\n    通过自己实现，更深入了解`GraphQL`怎么构造，怎么获取，一些术语\n\n* 直接入正题，如何实现一个`GraphQL`服务器\n\n    了解4种类型\n    \n    * Query\n    \n        执行内容查询\n        \n    * Muta...",
+		"summary": "<ul>\n<li>\n<p>为什么要实现一个<code>GraphQL</code>服务器</p>\n<p>通过自己实现，更深入了解<code>GraphQL</code>怎么构造，怎么获取，一些术语</p>\n</li>\n<li>\n<p>直接入正题，如何实现一个<code>GraphQL</code>服务器</p>\n<p>了解4种类型</p>\n<ul>\n<li>\n<p>Query</p>\n<p>执行内容查询</p>\n</li>\n<li>\n<p>Muta...</p>\n</li>\n</ul>\n</li>\n</ul>\n",
 		"sha": "2df708b7274da2278a0b10daebf16bf60e8a965f"
 	}
 }

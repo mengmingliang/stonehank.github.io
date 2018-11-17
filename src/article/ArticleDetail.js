@@ -1,8 +1,6 @@
 import React from 'react';
 import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
-import hljs from 'highlight.js/lib/highlight';
-import javascript from 'highlight.js/lib/languages/javascript';
 import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import {linkTo} from "../routes/linkPathList";
@@ -10,23 +8,6 @@ import CustomComment from "../tools/CustomComment";
 import BookmarkContext from '../tools/BookmarkContext'
 import {SetMark} from "../tools/Bookmark";
 import {querySearch} from "../utils/index";
-
-
-hljs.registerLanguage('javascript', javascript);
-
-const md = require('markdown-it')({
-  highlight: function (str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return '<pre class="hljs"><code>' +
-          hljs.highlight(lang, str, true).value +
-          '</code></pre>';
-      } catch (__) {}
-    }
-
-    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-  }
-});
 
 
 const styles={
@@ -172,7 +153,8 @@ export default class ArticleDetail extends React.Component{
             <h1 style={styles.articleTitle}>{curArticleData.title}</h1>
             <ArticleStatusBar justify={"center"} article={curArticleData} articleSha={articleSha}/>
           </header>
-          <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>
+          {/*<div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>*/}
+          <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curArticleData.content}}/>
           <Divider />
           {disqusRender ?
             <CustomComment.Detail title={curArticleData.title} sha={articleSha} locationOrigin={location.origin}/>:
