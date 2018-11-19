@@ -1,5 +1,6 @@
 const {getWeightExtract}=require("./compute-label")
 
+// 过滤 label(tags)关键词
 
 function filterExtract(lowercaseKeyWords,content,title){
   let filteredLabels=[]

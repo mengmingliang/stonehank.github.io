@@ -3,7 +3,7 @@
    "repository":"blogs",
    "branch":"master",
    "showDetail":false,
-   "per_page":30,
+   "per_page":100,
    "ignoreSHA":false,
    "forceUpdate":false,
    "dataType":"YY-MM-DD",

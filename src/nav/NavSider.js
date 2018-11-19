@@ -103,12 +103,16 @@ export default class NavSider extends React.PureComponent {
               <span>标签</span>
               <Link to={linkTo.category} />
             </Menu.Item>
+            <Menu.Item key={linkTo.sourceCode}>
+              <Icon type="file-text" />
+              <span>源码阅读</span>
+              <Link to={linkTo.sourceCode} />
+            </Menu.Item>
             <Menu.Item key={linkTo.about}>
               <Icon type="user" />
               <span>关于我</span>
               <Link to={linkTo.about} />
             </Menu.Item>
-            {/*<Connect github={"#"} mail={"#"} twitter={"#"} wechat={"#"} qq={"#"} />*/}
           </Menu>
       </Sider>
     );

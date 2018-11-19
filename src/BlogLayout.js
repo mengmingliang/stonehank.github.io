@@ -20,6 +20,7 @@ import BookmarkContext from "./tools/BookmarkContext";
 
 import './css/github.min.css'
 import './css/index.css';
+import SourceCode from "./sourceCode/SourceCode";
 
 
 const styles={
@@ -44,10 +45,12 @@ export default class BlogLayout extends React.Component {
       categoryArticles:null,
       initArticles:null,
       blog_jsonObj:null,
+      sourceCodeNavSHA:null,
       bookmark:BookmarkContext._currentValue.bookmark
     }
     this.setBookmark=this.setBookmark.bind(this)
     this.fetchBlogContent=this.fetchBlogContent.bind(this)
+    this.fetchSourceCodeNav=this.fetchSourceCodeNav.bind(this)
     this.changeBackground=this.changeBackground.bind(this)
     this.bookmarkData={
       bookmark:this.state.bookmark,
@@ -72,29 +75,42 @@ export default class BlogLayout extends React.Component {
   }
 
   fetchBlogContent(){
-      import(
+      return import(
         /*webpackChunkName: "articles-list"*/
         `./asset/_blog-data`)
-        .then(({default:blog_jsonObj})=>{
-          this.setState({
-            archiveArticles:refactor(blog_jsonObj,"time"),
-            categoryArticles:objGroupBy(blog_jsonObj,"label"),
-            initArticles:objSortBy(blog_jsonObj,"timeArr").filter(item=>item.title),
-            blog_jsonObj
-          })
-        })
-        .catch(err=>{
-          console.log(err)
-        })
+    }
+
+    fetchSourceCodeNav(){
+      return import(
+        /*webpackChunkName: "sourceCode-navList"*/
+        `./sourceCode-asset/_source-code-list.json`)
     }
 
   componentDidMount(){
-    this.fetchBlogContent()
+    let promiseQueue=[]
+    promiseQueue.push(this.fetchBlogContent())
+    promiseQueue.push(this.fetchSourceCodeNav())
+    Promise.all(promiseQueue)
+      .then(modules=>{
+        let blog_jsonObj=modules[0].default
+        let source_jsonObj=modules[1].default
+        this.setState({
+          archiveArticles:refactor(blog_jsonObj,"time"),
+          categoryArticles:objGroupBy(blog_jsonObj,"label"),
+          initArticles:objSortBy(blog_jsonObj,"timeArr").filter(item=>item.title),
+          blog_jsonObj,
+          sourceCodeNavSHA:objSortBy(source_jsonObj,"titleSHA").filter(item=>item.title)[0].titleSHA,
+        })
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+
   }
   render() {
     const {userConfig}=this.props
     const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,archiveEachPage,aboutMe}=userConfig
-    const { wrapperBackground,archiveArticles, categoryArticles, initArticles}=this.state
+    const { wrapperBackground,archiveArticles, categoryArticles, initArticles,sourceCodeNavSHA}=this.state
     if(archiveArticles && !archiveArticles.activePanel){
       Object.defineProperty(archiveArticles,"activePanel",{value:null, writable:true})
     }
@@ -166,6 +182,7 @@ export default class BlogLayout extends React.Component {
                                   tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}   />
                         <CategoryDetail path="category/:tag" categoryArticles={categoryArticles} />
+                        <SourceCode path="sourceCode"  sourceCodeNavSHA={sourceCodeNavSHA} />
                         <About path="about" articles={categoryArticles} aboutMe={aboutMe}/>
                         <ArticleDetail path="articles/:articleSha" blogList={initArticles} />
                         <NotFound default changeBG={this.changeBackground} />

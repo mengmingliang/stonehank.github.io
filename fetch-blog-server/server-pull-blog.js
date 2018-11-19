@@ -1,16 +1,18 @@
 const axios = require('axios');
 const fs = require('fs-extra')
 const path=require("path")
-const Base64 = require('js-base64').Base64;
+// const Base64 = require('js-base64').Base64;
 const moment = require("moment")
 const slash = require('slash');
 const appRoot = require('app-root-path');
-const ProgressRemider=require('./progress_remider')
-const filterExtract=require('./filterExtract')
+const ProgressRemider=require('./utils/progress_remider')
+const filterExtract=require('./utils/filterExtract')
 const crypto = require('crypto');
-const md2Html= require('./md2Html')
-const getGZipSize=require('./getGZipSize')
-
+const md2Html= require('./utils/md2Html')
+const getGZipSize=require('./utils/getGZipSize')
+const {base64Decode}=require('./utils/base64-code')
+const getHighDensity=require('./utils/getSummaryByDensity')
+const href2Absolute=require('./utils/href2Absolute')
 // 获取根目录
 const context=slash(appRoot.path)
 
@@ -35,14 +37,13 @@ const {user,repository,branch,per_page,
   forceUpdate,ignoreSHA,retry_times,showDetail}=config
 // 判断blog是否完成，完成blog后才执行资源
 let fetchBlogHasDone
+let fetchRsourceDone
 let hasFetchResource=false
 // 用于保存获取的github数据，用于发生错误重复执行
 let  githubData=null
 let retryTimes=retry_times
 
-// 创建写入列表，用于显示progress
-let fileWritingList=new ProgressRemider("资源文件",showDetail)
-let blogWritingList=new ProgressRemider("blog文件",showDetail)
+
 
 // 定义github search的header
 let check = {
@@ -61,17 +62,8 @@ for(let i=0;i<keywords.length;i++){
 }
 
 
-// 获取blog
-const blog_list_name=`_blog-data.json`
-const blog_listInfoPath=`${context}/src/asset/${blog_list_name}`
-const blog_contentInfoDIR=`${context}/src/asset`
-// 动态页码查询命令
-const createBlogSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}&page=${page}`
 
-let getBlogContentInfoPath=(filename)=>`${blog_contentInfoDIR}/${filename}`
-let getBlogListInfoPath=()=>blog_listInfoPath
 
-getPagesAndConcatData(createBlogSearchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
 
 
 // 分页查询所有内容并且合并
@@ -89,6 +81,7 @@ function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getConten
       })
       .then(obj=>allDataListArr=allDataListArr.concat(obj.items))
   }
+  // console.log(createBlogSearchCommand(1))
   axios.get(createBlogSearchCommand(1),check)
     .then(data=>{
       console.log("\n正在获取页数...")
@@ -119,13 +112,17 @@ function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getConten
 
 
 // 检查/创建list文件并且判断是否需要更新
-function checkANDwrite(githubData,getListInfoPath,getContentInfoPath,
-                       options) {
+function checkANDwrite(githubData,getListInfoPath,getContentInfoPath, options) {
   let defaultOptions= {
     cus_extension:null,
     customListKeys:["label","createdTime","timeArr","title","titleSHA","summary"],
-    isResource:false
+    isResource:false,
+    user,
+    repository,
+    fileWrittingQueue:null,
+    needHref2Absolute:false
   }
+
   let finalOptions=Object.assign(defaultOptions,options)
   let listInfoPath=getListInfoPath()
   if(showDetail)console.log("github search成功，开始检查json")
@@ -149,49 +146,133 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath,
     })
 
 }
+// // 创建写入列表，用于显示progress
+// let fileWritingList=new ProgressRemider("资源文件",showDetail)
+// let blogWritingList=new ProgressRemider("blog文件",showDetail)
 
-// 获取global-search文件size
+let taskQueue=[
+  {
+    writeListInfoName:`_blog-data.json`,
+    writeDIRPath:`${context}/src/asset`,
+    initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
+    initComputeWriteContentInfoPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
+    initComputeSearchCommand:(user,repository)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}&page=${page}`,
+    read_restrictDIRList:null,
+    checkANDwriteOptions:
+      { cus_extension:'.json',
+        user:user,
+        repository:repository,
+        fileWrittingQueue:new ProgressRemider("blog文件",showDetail),
+      },
+  },
+  {
+    writeListInfoName:`_source-code-list.json`,
+    writeDIRPath:`${context}/src/sourceCode-asset`,
+    initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
+    initComputeWriteContentInfoPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
+    initComputeSearchCommand:(user,repository)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+filename:navigation&per_page=${per_page}&page=${page}`,
+    read_restrictDIRList:null,
+    checkANDwriteOptions:
+      { cus_extension:'.json',
+        user:user,
+        repository:`sourcecode-analysis`,
+        fileWrittingQueue:new ProgressRemider("源码阅读",showDetail),
+        needHref2Absolute:'https://github.com/stonehank/sourcecode-analysis/blob/master/'
+      },
+  },
+  {
 
-// function getGZipSize(assetFilePath,userConfigPath,sizeSum){
-//   let files=fs.readdirSync(assetFilePath)
-//   files.forEach(file=>{
-//     if(file==="_blog-data.json")return
-//     let status=fs.statSync(assetFilePath+'/'+file)
-//     if(status.isDirectory())console.error("asset目录中存在目录")
-//     sizeSum+=status.size
-//   })
-//   fs.writeJsonSync(userConfigPath,{size:Math.floor(sizeSum/1024/2.45)})
-// }
+    writeListInfoName:`_resource_list.json`,
+    writeDIRPath:`${context}/public/articles`,
+    initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName,restrictPath)=>()=>`${writeDIRPath}/${restrictPath}/${writeListInfoName}`,
+    initComputeWriteContentInfoPath:(writeDIRPath,restrictPath)=>filename=>`${writeDIRPath}/${restrictPath}/${filename}`,
+    initComputeSearchCommand:(user,repository,restrictPath)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${restrictPath}&page=${page}`,
+    read_restrictDIRList:resource_dir_list,
+    checkANDwriteOptions:
+      { isResource:true,
+        user:user,
+        repository:repository,
+        fileWrittingQueue:new ProgressRemider("资源文件",showDetail),
+      },
+  }
+]
+fetchTaskQueue()
+function fetchTaskQueue(){
+  if(taskQueue.length===0){
+    // 写入globalSearchSize
+    const blog_contentInfoDIR=`${context}/src/asset`
+    const sizeFilename="global-search-size.json"
+    getGZipSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
+    console.log('\n 已写入globalSearchSize')
+    return
+  }
 
+  let curTask=taskQueue.shift()
+  let {
+    writeListInfoName,
+    writeDIRPath,
+    checkANDwriteOptions,
+    initComputeWriteListInfoPath,
+    initComputeWriteContentInfoPath,
+    initComputeSearchCommand,
+    read_restrictDIRList
+  } = curTask
+  const {user,repository,}=checkANDwriteOptions
+  if(!read_restrictDIRList)read_restrictDIRList=[null]
+  let computeWriteListInfoPath,computeWriteContentInfoPath,computeSearchCommand
+  for(let i=0;i<read_restrictDIRList.length;i++){
+    if(read_restrictDIRList[i]){
+      computeWriteListInfoPath = initComputeWriteListInfoPath(writeDIRPath,writeListInfoName,read_restrictDIRList[i])
+      computeWriteContentInfoPath = initComputeWriteContentInfoPath(writeDIRPath,read_restrictDIRList[i])
+      computeSearchCommand = initComputeSearchCommand(user,repository,read_restrictDIRList[i])
+    }else{
+      computeWriteListInfoPath=initComputeWriteListInfoPath(writeDIRPath,writeListInfoName)
+      computeWriteContentInfoPath=initComputeWriteContentInfoPath(writeDIRPath)
+      computeSearchCommand=initComputeSearchCommand(user,repository)
+    }
+    getPagesAndConcatData(computeSearchCommand,computeWriteListInfoPath,computeWriteContentInfoPath,checkANDwriteOptions)
+  }
+}
 
+// // 获取blog
+// const blog_list_name=`_blog-data.json`
+// const blog_listInfoPath=`${context}/src/asset/${blog_list_name}`
+// const blog_contentInfoDIR=`${context}/src/asset`
+// // 动态页码查询命令
+// const createBlogSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}&page=${page}`
+//
+// let getBlogContentInfoPath=(filename)=>`${blog_contentInfoDIR}/${filename}`
+// let getBlogListInfoPath=()=>blog_listInfoPath
+//
+// getPagesAndConcatData(createBlogSearchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
 
 
 // 获取resource
-function fetchResource(){
-  if(hasFetchResource)return
-  hasFetchResource=true
-  const resource_DIR=`${context}/public`
-  // 写入globalSearchSize
-  const sizeFilename="global-search-size.json"
-  getGZipSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
-
-  // blog全部获取完成后，获取资源
-  for(let i=0;i<resource_dir_list.length;i++){
-
-
-    // 动态页码查询命令
-    const createResourceSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}&page=${page}`
-
-    // const resoucre_searchCommand=`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}`
-    const resource_contentInfoDIR=resource_DIR+`/articles/${resource_dir_list[i]}`
-    const resource_listInfoPath=`${resource_contentInfoDIR}/_${resource_dir_list[i]}-listInfo.json`
-    const getResource_listInfoPath=()=>resource_listInfoPath
-    const getResource_contentInfoPath=(filename)=>`${resource_contentInfoDIR}/${filename}`
-
-    getPagesAndConcatData(createResourceSearchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
-    // checkANDwrite(resoucre_searchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
-  }
-}
+// function fetchResource(){
+//   if(hasFetchResource)return
+//   hasFetchResource=true
+//   const resource_DIR=`${context}/public`
+//   // 写入globalSearchSize
+//   const sizeFilename="global-search-size.json"
+//   getGZipSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
+//
+//   // blog全部获取完成后，获取资源
+//   for(let i=0;i<resource_dir_list.length;i++){
+//
+//
+//     // 动态页码查询命令
+//     const createResourceSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}&page=${page}`
+//
+//     // const resoucre_searchCommand=`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}`
+//     const resource_contentInfoDIR=resource_DIR+`/articles/${resource_dir_list[i]}`
+//     const resource_listInfoPath=`${resource_contentInfoDIR}/_${resource_dir_list[i]}-listInfo.json`
+//     const getResource_listInfoPath=()=>resource_listInfoPath
+//     const getResource_contentInfoPath=(filename)=>`${resource_contentInfoDIR}/${filename}`
+//
+//     getPagesAndConcatData(createResourceSearchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
+//     // checkANDwrite(resoucre_searchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
+//   }
+// }
 
 
 // 写入list文件
@@ -220,21 +301,7 @@ function writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,final
 
 
 
-// 根据密度获取摘要
-// function getHighDensity(content,density){
-//   function checkIsCN(s){ return /[\u4E00-\u9FA5]/.test(s)}
-//   let p=0,numCN=0,result=0,aux=Array(content.length).fill(0)
-//   for(let i=0;i<content.length;i++){
-//     let isCN=checkIsCN(content[i])
-//     if(isCN){aux[i]=1;numCN++}
-//     if(i>summaryLength-1){
-//       numCN-=aux[(i-summaryLength)]
-//       p=(numCN)/summaryLength
-//     }
-//     if(p>=density){result=i;break}
-//   }
-//   return result
-// }
+
 
 
 
@@ -242,7 +309,8 @@ function writelistInfoJson(listInfoPath,listData,result,getContentInfoPath,final
 
 // 执行listInfo和contentInfo的更新，需要先确定文件存在，读取文件内容(用来判断是否可以不更新一些key)
 function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, finalOptions) {
-  const {  cus_extension,customListKeys,isResource}=finalOptions
+  const {  cus_extension,customListKeys,isResource,user,repository,fileWrittingQueue,needHref2Absolute}=finalOptions
+  if(!fileWrittingQueue)throw new Error('fileWrittingQueue must be set in options')
   let pristine=true
   let fetchQueue=[]
   for(let i=0;i<result.length;i++){
@@ -322,15 +390,18 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
           .then(response=>{
             response.data.pipe(resorceWriteStream=fs.createWriteStream(contentPath_filename))
             if(showDetail)console.log(`${resorceWriteStream.path}正在写入...`)
-            fileWritingList.addTask(resorceWriteStream.path)
+            fileWrittingQueue.addTask(resorceWriteStream.path)
             let read=0
             let fullBytes=+response.headers["content-length"]
             response.data.on("data",function(data){
               read+=data.length
-              fileWritingList.fetching(read,fullBytes,fetchQueue.length)
+              fileWrittingQueue.fetching(read,fullBytes,fetchQueue.length)
             })
             resorceWriteStream.close=function(){
-              fileWritingList.doneTask(resorceWriteStream.path,fetchQueue.length,read,fullBytes)
+              fetchRsourceDone=fileWrittingQueue.doneTask(resorceWriteStream.path,fetchQueue.length,read,fullBytes)
+              if(fetchRsourceDone){
+                fetchTaskQueue()
+              }
             }
           })
           .catch(err=>{
@@ -361,11 +432,12 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
           })
           .then(obj=>{
             if(showDetail)console.log("获取"+cur_remote_filename+"文件成功，正在写入...")
-            const content=Base64.decode(obj["content"])
+            let content=base64Decode(obj["content"])
+            // const content=Base64.decode(obj["content"])
 
-
+            if(needHref2Absolute)content=href2Absolute(content,needHref2Absolute)
             // 计算摘要开始未知
-            // let tryStart=getHighDensity(content,0.3)
+            // let tryStart=getHighDensity(content,0.3,summaryLength)
             // let summaryStart=content.substr(tryStart).match(/(\n+)[\u4E00-\u9FA5]/)
             // if(summaryStart)summaryStart=summaryStart.index+tryStart
 
@@ -414,7 +486,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
 
             // let contentPath_sha=getContentInfoPath(cus_extension?titleSHA+cus_extension:titleSHA+initExtension)
-            blogWritingList.addTask(contentPath_sha)
+            fileWrittingQueue.addTask(contentPath_sha)
 
 
             fs.outputJson(contentPath_sha,{content:md2Html(content)},{spaces:2},function(err){
@@ -422,15 +494,16 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
                 console.log(`写入${cur_remote_filename}失败，尝试重新写入`)
                 try{
                   fs.outputJsonSync(contentPath_sha,{content},{spaces:2})
-                  fetchBlogHasDone=blogWritingList.doneTask(contentPath_sha,fetchQueue.length,1,1)
+                  fetchBlogHasDone=fileWrittingQueue.doneTask(contentPath_sha,fetchQueue.length,1,1)
                 }
                 catch(e){console.log(`写入${cur_remote_filename}失败！尝试手动添加`)}
               }
               else{
-                fetchBlogHasDone=blogWritingList.doneTask(contentPath_sha,fetchQueue.length,1,1)
+                fetchBlogHasDone=fileWrittingQueue.doneTask(contentPath_sha,fetchQueue.length,1,1)
               }
               if(fetchBlogHasDone){
-                fetchResource()
+                fetchTaskQueue()
+                // fetchResource()
               }
             })
           })
@@ -512,10 +585,11 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
 
   if(pristine){
     console.log("未发现变化，无须更新")
-    if(!fetchBlogHasDone){
-      fetchBlogHasDone=true
-      fetchResource()
-    }
+    // if(!fetchBlogHasDone){
+    //   fetchBlogHasDone=true
+      fetchTaskQueue()
+    //   fetchResource()
+    // }
   }
   if(ignoreSHA){
     console.log("\n强制更新开启\n")

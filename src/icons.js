@@ -31,6 +31,10 @@ export {
   default as ReadFill
 } from '@ant-design/icons/lib/fill/ReadFill';
 
+export {
+  default as FileTextOutline
+} from '@ant-design/icons/lib/outline/FileTextOutline';
+
 
 
 // export what antd other components need

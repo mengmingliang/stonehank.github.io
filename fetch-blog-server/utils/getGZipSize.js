@@ -1,6 +1,8 @@
 const gzipSize = require('gzip-size');
 const fs=require('fs-extra')
 
+// 计算global-search 文件大小
+
 function getGZipSize(assetFilePath,userConfigPath,sizeSum){
   let files=fs.readdirSync(assetFilePath)
   files.forEach(file=>{

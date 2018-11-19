@@ -1,6 +1,8 @@
 var nodejieba = require("nodejieba");
 var Base64 = require('js-base64').Base64;
 
+// 计算 label(tags)关键词
+
 function getWeightExtract(content_base64,title){
   let extractNum=200
   let content=Base64.decode(content_base64)

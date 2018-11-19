@@ -1,5 +1,7 @@
 const log = require('single-line-log').stdout;
 
+// 进度提示
+
 function ProgressRemider(fileType,showDetail){
   let hasDoneNum=0
   let fileWritingList={}
