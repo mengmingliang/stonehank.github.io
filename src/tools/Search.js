@@ -200,7 +200,7 @@ export default class SearchContainer extends React.Component {
         searchKeyword: value,
         drawShow: matchArticles.length > 0 || matchTags.length > 0
       })
-    },500)
+    },300)
   }
 
   clearSearchInput() {

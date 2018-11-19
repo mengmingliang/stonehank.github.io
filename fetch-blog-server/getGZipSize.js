@@ -5,7 +5,7 @@ function getGZipSize(assetFilePath,userConfigPath,sizeSum){
   let files=fs.readdirSync(assetFilePath)
   files.forEach(file=>{
     if(file==="_blog-data.json")return
-    let size=gzipSize.fileSync(assetFilePath+'/'+file)
+    let size=gzipSize.fileSync(assetFilePath+'/'+file)-200
     let status=fs.statSync(assetFilePath+'/'+file)
     if(status.isDirectory())console.error("asset目录中存在目录")
     sizeSum+=size
