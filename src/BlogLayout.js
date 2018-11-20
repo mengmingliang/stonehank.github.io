@@ -46,28 +46,13 @@ export default class BlogLayout extends React.Component {
       initArticles:null,
       blog_jsonObj:null,
       sourceCodeNavSHA:null,
-      bookmark:BookmarkContext._currentValue.bookmark
     }
-    this.setBookmark=this.setBookmark.bind(this)
     this.fetchBlogContent=this.fetchBlogContent.bind(this)
     this.fetchSourceCodeNav=this.fetchSourceCodeNav.bind(this)
     this.changeBackground=this.changeBackground.bind(this)
-    this.bookmarkData={
-      bookmark:this.state.bookmark,
-      setBookmark:this.setBookmark
-    }
   }
 
-  setBookmark(bm){
-    if(bm===this.state.bookmark)return
-    this.bookmarkData={
-      bookmark:bm,
-      setBookmark:this.setBookmark
-    }
-    this.setState({
-      bookmark:bm
-    })
-  }
+
   changeBackground(color){
     this.setState({
       wrapperBackground:color
@@ -152,7 +137,6 @@ export default class BlogLayout extends React.Component {
       <Layout>
         <NavSiderContainer bio={bio} avatar={avatar} username={username}/>
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
-          <BookmarkContext.Provider value={this.bookmarkData}>
           <HeaderPure style={styles.layout_header} >
             <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
             <BookmarkContext.Consumer>
@@ -193,7 +177,6 @@ export default class BlogLayout extends React.Component {
             }}
           </Location>
           <BackTop />
-          </BookmarkContext.Provider>
         </Layout>
       </Layout>
     );

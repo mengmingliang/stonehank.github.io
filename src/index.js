@@ -2,6 +2,7 @@ import React,{lazy,Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import * as userConfig from './user-config'
 import ProgressLoading from './ProgressWrapper/ProgressLoading'
+import BookmarkProvider from "./tools/BookmarkProvider";
 
 
 // const {registerObserver} = require('react-perf-devtool')
@@ -29,6 +30,8 @@ const Initial=InitialComponentHOC(lazy(() => import("./ProgressWrapper/WrappedPr
 
 ReactDOM.render(
   <Suspense fallback={<ProgressLoading />}>
-    <Initial userConfig={userConfig.default}/>
+    <BookmarkProvider>
+      <Initial userConfig={userConfig.default}/>
+    </BookmarkProvider>
   </Suspense>
   , document.getElementById('root'));

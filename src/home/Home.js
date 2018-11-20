@@ -33,6 +33,7 @@ export default class Home extends React.PureComponent {
     })
   }
   render() {
+    // console.log("home")
     const {articles,contentLoading,pageSize}=this.state
     const {page}=this.props
     const renderArticles=articles?articles.slice((page-1)*pageSize,page*pageSize):null
