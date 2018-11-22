@@ -17,7 +17,7 @@ export default class ArticleStatusBar extends React.Component{
     const {article,articleSha,noCount,...props}=this.props
     return (
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
-        <Col>{article.createdTime || "未知日期"}</Col>
+        <Col>{<div dangerouslySetInnerHTML={{__html:article.createdTime || "未知日期"}} />}</Col>
         <Col>
           { article.label ?
             article.label.map((t,i) => {

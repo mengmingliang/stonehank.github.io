@@ -50,8 +50,9 @@
         }
       }(window.location))
     </script>
-    <style id="loadingStyle">
+    <style>
       #initialLoading{
+        display:-moz-flex;
         display:flex;
         justify-content: center;
         align-items: center;
@@ -64,44 +65,176 @@
         flex-flow:row wrap;
       }
       #cube1,#cube2,#cube3,#cube4{
-        animation:cube2Circle 3s ease-out infinite;
+        -webkit-animation: cube2Circle 3s ease-out infinite;
+        -o-animation: cube2Circle 3s ease-out infinite;
+        animation: cube2Circle 3s ease-out infinite;
         width:20px;
         height:20px;
         border-radius:2px;
       }
       #cube1{
         background:#ff4141;
+        -webkit-transform-origin: 30px 10px;
+        -moz-transform-origin: 30px 10px;
+        -ms-transform-origin: 30px 10px;
+        -o-transform-origin: 30px 10px;
         transform-origin: 30px 10px;
       }
       #cube2{
         background: #5adfff;
+        -webkit-transform-origin: 10px 30px;
+        -moz-transform-origin: 10px 30px;
+        -ms-transform-origin: 10px 30px;
+        -o-transform-origin: 10px 30px;
         transform-origin: 10px 30px;
+
       }
       #cube3{
         background:lightgreen;
-        transform-origin:  10px -10px;
+        -webkit-transform-origin: 10px -10px;
+        -moz-transform-origin: 10px -10px;
+        -ms-transform-origin: 10px -10px;
+        -o-transform-origin: 10px -10px;
+        transform-origin: 10px -10px;
       }
       #cube4{
         background: #ffce73;
-        transform-origin:-10px 10px;
+        -webkit-transform-origin: -10px 10px;
+        -moz-transform-origin: -10px 10px;
+        -ms-transform-origin: -10px 10px;
+        -o-transform-origin: -10px 10px;
+        transform-origin: -10px 10px;
       }
-
-      @keyframes cube2Circle {
+      @-o-keyframes cube2Circle {
         40%{
           border-radius: 50%;
-          transform:rotate(180deg)
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
         }
         50%{
           border-radius: 50%;
-          transform:rotate(180deg)
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
         }
         90%{
-          border-radius:2px;
-          transform:rotate(360deg)
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
         }
         100%{
           border-radius:2px;
-          transform:rotate(360deg)
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes cube2Circle {
+        40%{
+          border-radius: 50%;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        50%{
+          border-radius: 50%;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        90%{
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+        100%{
+          border-radius:2px;
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @-ms-keyframes cube2Circle {
+        40%{
+          border-radius: 50%;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        50%{
+          border-radius: 50%;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        90%{
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+        100%{
+          border-radius:2px;
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes cube2Circle {
+        40%{
+          border-radius: 50%;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        50%{
+          border-radius: 50%;
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        90%{
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+        100%{
+          border-radius:2px;
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
         }
       }
     </style>

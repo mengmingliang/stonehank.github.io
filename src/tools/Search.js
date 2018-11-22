@@ -75,35 +75,61 @@ export default class SearchContainer extends React.Component {
       _first:[],_second:[],_third:[],_forth: [], _fifth: [], _sixth: []
     }
     for (let i = 0; i < data.length; i++) {
-      let contentIsPrec=false,titleIsPrec=false
+      let isPrec={
+        content:false,
+        title:false,
+        date:false
+      }
+      // let contentIsPrec=false,titleIsPrec=false,dateIsPrec=false
       // let x=performance.now()
       let markdownSummary = globalSearch ? data[i].content : data[i].summary
       // let markdownSummary = md.render(globalSearch ? data[i].content : data[i].summary)
       // time+=performance.now()-x
       let markdownTitle = data[i].title
+      let markdownCreatedTime=data[i].createdTime
       let lowerCaseTitle=markdownTitle.toLowerCase()
       let lowerCaseSummary=markdownSummary.toLowerCase()
+      let lowerCaseDate=markdownCreatedTime.toLowerCase()
 
-      function searchTitle(pattern,content,fromIndex){
-        let titleMatchIndex,titlePrecIndex=searchPrecision(pattern,content,fromIndex)
-        if(titlePrecIndex===null)titleMatchIndex= -1
-        else if(titlePrecIndex!==-1){titleIsPrec=true;titleMatchIndex=titlePrecIndex}
-        else titleMatchIndex = lowerCaseTitle.indexOf(patternValue,fromIndex)
-        return titleMatchIndex
+      // console.log(lowerCaseDate)
+
+      function searchCore(pattern,content,isPrecName,fromIndex){
+        let matchIndex,precisionIndex=searchPrecision(pattern,content,fromIndex)
+        if(precisionIndex===null)matchIndex= -1
+        else if(precisionIndex!==-1){isPrec[isPrecName]=true;matchIndex=precisionIndex}
+        else matchIndex = content.indexOf(patternValue,fromIndex)
+        return matchIndex
       }
-      function searchContent(pattern,content,fromIndex){
-          let contentMatchIndex,contentPrecIndex=searchPrecision(pattern,content,fromIndex)
-          if(contentPrecIndex===null)contentMatchIndex= -1
-          else if(contentPrecIndex!==-1){contentIsPrec=true;contentMatchIndex=contentPrecIndex}
-          else contentMatchIndex =  lowerCaseSummary.indexOf(patternValue,fromIndex)
-          return contentMatchIndex
-      }
-      let titleMatchIndex=searchTitle(patternValue,lowerCaseTitle),
-        contentMatchIndex=searchContent(patternValue,lowerCaseSummary)
 
+      // function searchTitle(pattern,content,fromIndex){
+      //   let titleMatchIndex,titlePrecIndex=searchPrecision(pattern,content,fromIndex)
+      //   if(titlePrecIndex===null)titleMatchIndex= -1
+      //   else if(titlePrecIndex!==-1){titleIsPrec=true;titleMatchIndex=titlePrecIndex}
+      //   else titleMatchIndex = lowerCaseTitle.indexOf(patternValue,fromIndex)
+      //   return titleMatchIndex
+      // }
+      // function searchContent(pattern,content,fromIndex){
+      //     let contentMatchIndex,contentPrecIndex=searchPrecision(pattern,content,fromIndex)
+      //     if(contentPrecIndex===null)contentMatchIndex= -1
+      //     else if(contentPrecIndex!==-1){contentIsPrec=true;contentMatchIndex=contentPrecIndex}
+      //     else contentMatchIndex =  lowerCaseSummary.indexOf(patternValue,fromIndex)
+      //     return contentMatchIndex
+      // }
+      // let titleMatchIndex=searchTitle(patternValue,lowerCaseTitle),
+      //   contentMatchIndex=searchContent(patternValue,lowerCaseSummary)
 
-      let titlePrefix, titleAffix, titleFix, contentPrefix, contentAffix, contentFix
+      let titleMatchIndex=searchCore(patternValue,lowerCaseTitle,'title'),
+        contentMatchIndex=searchCore(patternValue,lowerCaseSummary,'content'),
+        dateMatchIndex=searchCore(patternValue,lowerCaseDate,'date')
+
+      let titlePrefix, titleAffix, titleFix, contentPrefix, contentAffix, contentFix, datePrefix, dateAffix, dateFix
       // 存在关键字，分割(为了添加背景色)
+      if(dateMatchIndex !== -1){
+        datePrefix = data[i].createdTime.substr(0, dateMatchIndex)
+        dateFix = data[i].createdTime.substr(dateMatchIndex, patternValue.length)
+        dateAffix = data[i].createdTime.substr(dateMatchIndex + patternValue.length)
+      }
+
       if (titleMatchIndex !== -1) {
         titlePrefix = data[i].title.substr(0, titleMatchIndex)
         titleFix = data[i].title.substr(titleMatchIndex, patternValue.length)
@@ -114,8 +140,10 @@ export default class SearchContainer extends React.Component {
         let contentMatchPart=lowerCaseSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
         // 去除tag内部内容
         while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo))){
-            contentIsPrec=false
-            contentMatchIndex=searchContent(patternValue,lowerCaseSummary,contentMatchIndex+patternValue.length)
+            // contentIsPrec=false
+            isPrec['content']=false
+            // contentMatchIndex=searchContent(patternValue,lowerCaseSummary,contentMatchIndex+patternValue.length)
+            contentMatchIndex=searchCore(patternValue,lowerCaseSummary,'content',contentMatchIndex+patternValue.length)
             if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
             else break
         }
@@ -126,30 +154,41 @@ export default class SearchContainer extends React.Component {
         contentAffix = markdownSummary.substr(contentMatchIndex + patternValue.length,hi)
       }
 
-      let finalMatchTitle=titleMatchIndex===-1? data[i].title :
-        `<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`
+      // 添加颜色html
 
-      let finalMatchContent=contentMatchIndex===-1? markdownSummary.substr(0, 100):
-        `${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}`
+      function addMatchColor(prefix,match,affix){
+        return `<span>${prefix}<span style="background:yellow">${match}</span>${affix}</span>`
+      }
+
+      let finalMatchDate=dateMatchIndex===-1 ? data[i].createdTime : addMatchColor(datePrefix,dateFix,dateAffix)
+        // `<span>${datePrefix}<span style="background:yellow">${dateFix}</span>${dateAffix}</span>`
+
+      let finalMatchTitle=titleMatchIndex===-1 ? data[i].title : addMatchColor(titlePrefix,titleFix,titleAffix)
+        // `<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`
+
+      let finalMatchContent=contentMatchIndex===-1 ? markdownSummary.substr(0, 100) : addMatchColor(contentPrefix,contentFix,contentAffix)
+        // `${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}`
       let resultObj={
         title:finalMatchTitle,
         matchContent:finalMatchContent,
         titleSHA:data[i].titleSHA,
-        createdTime:data[i].createdTime
+        createdTime:finalMatchDate
       }
       // 搜索优先度
-      // 1. titlePre && contentPre
-      // 2. titlePre
+      // 1. titlePre && contentPre && datePre
+      // 2. titlePre || datePre
       // 3. contentPre
-      // 4. title && summary
-      // 5. title
+      // 4. title && summary && date
+      // 5. title || date
       // 6. summary
 
-      if(titleIsPrec && contentIsPrec) matchResultObj._first.push(resultObj)
-      else if(titleIsPrec) matchResultObj._second.push(resultObj)
+      let titleIsPrec=isPrec.title,contentIsPrec=isPrec.content,dateIsPrec=isPrec.date
+
+      if(titleIsPrec && contentIsPrec && dateIsPrec) matchResultObj._first.push(resultObj)
+      else if(titleIsPrec || dateIsPrec) matchResultObj._second.push(resultObj)
       else if(contentIsPrec) matchResultObj._third.push(resultObj)
-      else if (titleMatchIndex !== -1 && contentMatchIndex !== -1) matchResultObj._forth.push(resultObj)
-      else if (titleMatchIndex !== -1) matchResultObj._fifth.push(resultObj)
+      else if (titleMatchIndex !== -1 && contentMatchIndex !== -1 && dateMatchIndex !== -1) matchResultObj._forth.push(resultObj)
+      else if (titleMatchIndex !== -1 || dateMatchIndex !== -1) matchResultObj._fifth.push(resultObj)
       else if (contentMatchIndex !== -1) matchResultObj._sixth.push(resultObj)
     }
     let result = matchResultObj._first.concat(matchResultObj._second,matchResultObj._third,matchResultObj._forth,matchResultObj._fifth, matchResultObj._sixth)
@@ -325,9 +364,11 @@ export default class SearchContainer extends React.Component {
           />
         </div>
         <SearchDrawer matchTags={matchTags}
+                      controlledValue={controlledValue}
                       searchKeyword={searchKeyword}
                       matchArticles={matchArticles}
                       drawShow={drawShow}
+                      onChange={this.onChangeHandle}
                       clearSearchInput={this.clearSearchInput}
                       handleDrawerClose={this.handleDrawerClose}/>
       </React.Fragment>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { List,Divider,Drawer,Row } from 'antd';
+import { List,Divider,Drawer,Row,Input } from 'antd';
 // import {navigate} from "@reach/router"
 // import {linkTo} from "../routes/linkPathList";
 import CardPure from "./CardPure";
@@ -21,8 +21,9 @@ export default class SearchDrawer extends React.Component {
   // }
 
   shouldComponentUpdate(props){
-    const {matchArticles,matchTags,drawShow,searchKeyword}=this.props
+    const {matchArticles,matchTags,drawShow,searchKeyword,controlledValue}=this.props
     return searchKeyword!==props.searchKeyword ||
+      controlledValue!==props.controlledValue ||
       drawShow!==props.drawShow ||
       !!matchArticles !== !!props.matchArticles ||
       !!matchTags !== !!props.matchTags ||
@@ -35,13 +36,13 @@ export default class SearchDrawer extends React.Component {
   //   navigate(path)
   // }
   render() {
-    const {matchTags,matchArticles,drawShow,handleDrawerClose,searchKeyword,clearSearchInput}=this.props
+    const {matchTags,matchArticles,drawShow,handleDrawerClose,searchKeyword,onChange,clearSearchInput,controlledValue}=this.props
     const canShow=matchArticles && handleDrawerClose
     return (
       canShow ?
       <Drawer
         width={256}
-        title={`搜索：${searchKeyword}`}
+        title={<Input addonBefore="搜索" value={controlledValue} onChange={onChange}/>}
         placement={"right"}
         onClose={handleDrawerClose}
         visible={drawShow}
