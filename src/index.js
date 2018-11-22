@@ -28,10 +28,14 @@ function InitialComponentHOC(LazyComponent){
 }
 const Initial=InitialComponentHOC(lazy(() => import("./ProgressWrapper/WrappedProgressApp")))
 
-ReactDOM.render(
-  <Suspense fallback={<ProgressLoading />}>
-    <BookmarkProvider>
-      <Initial userConfig={userConfig.default}/>
-    </BookmarkProvider>
-  </Suspense>
-  , document.getElementById('root'));
+try{
+  ReactDOM.render(
+    <Suspense fallback={<ProgressLoading />}>
+      <BookmarkProvider>
+        <Initial userConfig={userConfig.default}/>
+      </BookmarkProvider>
+    </Suspense>
+    , document.getElementById('root'));
+}catch(err){
+  alert('浏览器太旧啦！更新下吧~')
+}
