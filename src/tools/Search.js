@@ -195,7 +195,7 @@ export default class SearchContainer extends React.Component {
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
     // console.timeEnd(2)
     // console.log(time)
-    if(patternValue.length===1 && result.length>15)return result.slice(0,15)
+    // if(patternValue.length===1 && result.length>15)return result.slice(0,17)
     return result
   }
 
@@ -222,7 +222,7 @@ export default class SearchContainer extends React.Component {
     }
   }
 
-  // throttling 500ms
+  // throttling 300ms
   onChangeHandle(ev, v) {
     const value = v || ev.target.value
     this.setState({
