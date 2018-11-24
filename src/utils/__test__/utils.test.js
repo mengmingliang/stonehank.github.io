@@ -1,4 +1,4 @@
-import {objSortBy, objGroupBy, refactor, deepEqual,withOutImgHTML,inHTMLTag,isMatchPrecision,getCookie,querySearch} from "../index"
+import {objSortBy, objGroupBy, refactor, deepEqual,withOutImgHTML,inHTMLTag,isMatchPrecision,getCookie,querySearch,searchPrecision} from "../index"
 
 test("sort by factorArr",function () {
   let obj={
@@ -385,10 +385,14 @@ test("判断是否精确匹配",function () {
   let cnMatch102="RBTree结构"
 
   let extra=`关于回溯算法(backtrack)的模板解析`
+  let extra2=`测试匹配特殊符号`
 
   let t='abc'
   let t2="算法"
   let t3="Tree结构"
+  let t4=`特()殊`
+  let t5=`()特殊`
+
   expect(isMatchPrecision(t,match1)).toBe(false)
   expect(isMatchPrecision(t,match2)).toBe(false)
   expect(isMatchPrecision(t,match3)).toBe(false)
@@ -414,6 +418,8 @@ test("判断是否精确匹配",function () {
 
 
   expect(isMatchPrecision('a',extra)).toBe(false)
+  expect(isMatchPrecision(t4,extra2)).toBe(false)
+  expect(isMatchPrecision(t5,extra2)).toBe(false)
 
 
 })
@@ -436,4 +442,14 @@ test("简易获取URL中search参数",function () {
 
   expect(querySearch(href)).toEqual({bookmark:'1327',a:'56',b:'12',c:'64'})
 
+})
+
+
+test('尝试精确查找',function () {
+  let content=`<p>使用4种方式：props传递，父组件公用，hoc，render-prop</p>`
+
+  let pattern="render()"
+
+
+  expect(searchPrecision(pattern,content)).toBe(-1)
 })

@@ -22,6 +22,7 @@ export default class SearchDrawerListLazyScroll extends React.Component {
       searchKeyword:null
     }
     this.windowHeight=window.innerHeight
+    this.rootNode=document.getElementsByClassName(props.wrapperClassName)[0]
     this.updateRenderNumber=this.updateRenderNumber.bind(this)
     this.scrollHandle=this.scrollHandle.bind(this)
   }
@@ -58,21 +59,30 @@ export default class SearchDrawerListLazyScroll extends React.Component {
   }
 
   shouldComponentUpdate(props,state){
-    return props.searchKeyword!==this.state.searchKeyword ||
-      this.state.renderIndex!==state.renderIndex
+    const {matchArticles,matchTags,searchKeyword}=this.props
+    // console.log(props.matchArticles,matchArticles.length )
+    return this.state.renderIndex!==state.renderIndex ||
+      this.state.renderArticles !== state.renderArticles ||
+      searchKeyword!==props.searchKeyword ||
+      matchArticles.length !== props.matchArticles.length  ||
+      matchTags.length !== props.matchTags.length
+
   }
 
 
-  componentDidUpdate(){
-    if(this.props.searchKeyword===this.state.searchKeyword)return
+  componentDidUpdate(props){
+    const {matchArticles,matchTags,searchKeyword}=this.props
+    if(matchArticles.length === props.matchArticles.length  &&
+      matchTags.length === props.matchTags.length &&
+      searchKeyword===this.state.searchKeyword)
+      return
     this.warpperEle.removeEventListener('scroll', this.scrollHandle)
     this.warpperEle.addEventListener('scroll', this.scrollHandle)
     this.updateRenderNumber(true)
-
   }
   componentDidMount() {
-    this.warpperEle=document.getElementsByClassName("ant-drawer-wrapper-body")[0]
-    this.contentEle=document.getElementsByClassName("ant-drawer-body")[0]
+    this.warpperEle=this.rootNode.getElementsByClassName("ant-drawer-wrapper-body")[0]
+    this.contentEle=this.rootNode.getElementsByClassName("ant-drawer-body")[0]
     this.updateRenderNumber(true)
     this.warpperEle.addEventListener('scroll', this.scrollHandle)
   }
@@ -82,7 +92,7 @@ export default class SearchDrawerListLazyScroll extends React.Component {
   }
 
   render() {
-    // console.log(this.props.searchKeyword)
+    // console.log(this.props.searchKeyword,this.state.searchKeyword)
     const {matchTags,clearSearchInput}=this.props
     const {renderArticles}=this.state
     return (

@@ -235,6 +235,7 @@ export function inHTMLTag(patternValue,content,preIdx){
   }
 }
 export function searchPrecision(patternValue,content,fromIndex=0){
+  patternValue=patternValue.replace(/(\(|\)|\[|\]|\\|\/|\+|\*|\.|\?|\^|\$|!|:)/g,"\\$1")
   let _content=content.substr(fromIndex),result,regPattern=''
   if(/^[\u4e00-\u9fa5]+$/.test(patternValue))regPattern= patternValue
   else if(/[\u4e00-\u9fa5]+$/.test(patternValue)) regPattern=`\\b${patternValue}`
@@ -249,9 +250,10 @@ export function searchPrecision(patternValue,content,fromIndex=0){
 }
 
 export function isMatchPrecision(patternValue,content){
-  if(/^[\u4e00-\u9fa5]+$/.test(patternValue))return new RegExp(`${patternValue}`).test(content)
-  else if(/[\u4e00-\u9fa5]+$/.test(patternValue)) return new RegExp(`\\b${patternValue}`).test(content)
-  else if(/^[\u4e00-\u9fa5]+/.test(patternValue))return new RegExp(`${patternValue}\\b`).test(content)
+  patternValue=patternValue.replace(/(\(|\)|\[|\]|\\|\/|\+|\*|\.|\?|\^|\$|!|:)/g,"\\$1")
+  if(/^[\u4e00-\u9fa5].*[\u4e00-\u9fa5]$/.test(patternValue))return new RegExp(`${patternValue}`).test(content)
+  else if(/.*[\u4e00-\u9fa5]$/.test(patternValue)) return new RegExp(`\\b${patternValue}`).test(content)
+  else if(/^[\u4e00-\u9fa5].*/.test(patternValue))return new RegExp(`${patternValue}\\b`).test(content)
   else if(/[\u4e00-\u9fa5]+/.test(patternValue))return new RegExp(`${patternValue}`).test(content)
   else return new RegExp(`\\b${patternValue}\\b`).test(content)
 }

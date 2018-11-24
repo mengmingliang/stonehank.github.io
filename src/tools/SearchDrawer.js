@@ -3,7 +3,7 @@ import { Drawer,Input } from 'antd';
 import SearchDrawerListLazyScroll from './SearchDrawerListLazyScroll'
 
 
-
+const wrapperClassName='search-drawer'
 
 export default class SearchDrawer extends React.Component {
 
@@ -31,11 +31,13 @@ export default class SearchDrawer extends React.Component {
         placement={"right"}
         onClose={handleDrawerClose}
         visible={drawShow}
+        wrapperClassName={wrapperClassName}
       >
         <SearchDrawerListLazyScroll matchArticles={matchArticles}
                                     matchTags={matchTags}
                                     searchKeyword={searchKeyword}
                                     clearSearchInput={clearSearchInput}
+                                    wrapperClassName={wrapperClassName}
                                     canShow={canShow} />
       </Drawer> :
         null

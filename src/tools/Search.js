@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, Badge, Modal, Spin} from 'antd';
+import {Input, Badge, Modal, Spin,message} from 'antd';
 import SearchDrawer from "./SearchDrawer";
 import {inHTMLTag,searchPrecision} from '../utils'
 import SlideCheckBox from "./SlideCheckBox";
@@ -33,8 +33,12 @@ export default class SearchContainer extends React.Component {
       globalSearch: false,
       globalFetching: false
     }
+    // 储存全局搜索结果
     this.globalMem = {}
+    // 储存局部搜索结果
     this.localMem = {}
+    // 记录上一次更新前是否全局状态
+    this.lastIsGlobal=false
     this.onChangeHandle = this.onChangeHandle.bind(this)
     this.onSearchHandle = this.onSearchHandle.bind(this)
     this.computeTagsMatch = this.computeTagsMatch.bind(this)
@@ -195,7 +199,6 @@ export default class SearchContainer extends React.Component {
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
     // console.timeEnd(2)
     // console.log(time)
-    // if(patternValue.length===1 && result.length>15)return result.slice(0,17)
     return result
   }
 
@@ -212,18 +215,28 @@ export default class SearchContainer extends React.Component {
 
   onSearchHandle() {
     // 如果有结果显示，没有则无
-    const {controlledValue, matchTags, matchArticles} = this.state
-    if ((matchArticles && matchArticles.length > 0) || (matchTags && matchTags.length > 0)) {
-      this.setState({
-        drawShow: true
-      })
-    } else if (controlledValue) {
+    const {controlledValue, matchTags, matchArticles,globalSearch} = this.state
+    if(matchArticles && matchTags && this.lastIsGlobal===globalSearch){
+      this.checkIfNeedShowNotFound(matchArticles,matchTags,controlledValue)
+      if(matchArticles.length > 0 ||  matchTags.length > 0){
+        this.setState({
+          drawShow: true
+        })
+      }
+    }else if (controlledValue) {
       this.onChangeHandle(null, controlledValue)
     }
   }
 
+  checkIfNeedShowNotFound(matchArticles,matchTags,searchWords){
+    if(matchArticles.length===0 && matchTags.length===0 && searchWords!=='')
+      message.info(`找不到 ${this.state.controlledValue} `,1)
+  }
+
   // throttling 300ms
   onChangeHandle(ev, v) {
+    // 每次查找时先改变上一次global状态
+    this.lastIsGlobal=this.state.globalSearch
     const value = v || ev.target.value
     this.setState({
       controlledValue: value,
@@ -233,6 +246,7 @@ export default class SearchContainer extends React.Component {
       const trimValue = value.trim().toLowerCase()
       let matchTags=this.computeTagsMatch(trimValue)
       let matchArticles = this.computeArticleMatch(trimValue)
+      this.checkIfNeedShowNotFound(matchArticles,matchTags,value)
       this.setState({
         matchTags: matchTags,
         matchArticles: matchArticles,
