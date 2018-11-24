@@ -21,7 +21,6 @@ export default class SearchDrawerListLazyScroll extends React.Component {
       hasMore: matchArticles.length > renderNumber,
       searchKeyword:null
     }
-    this.windowHeight=window.innerHeight
     this.rootNode=document.getElementsByClassName(props.wrapperClassName)[0]
     this.updateRenderNumber=this.updateRenderNumber.bind(this)
     this.scrollHandle=this.scrollHandle.bind(this)
@@ -53,9 +52,10 @@ export default class SearchDrawerListLazyScroll extends React.Component {
     clearTimeout(this.timer)
     this.timer=setTimeout(()=>{
       const scrollHeight=this.contentEle.scrollHeight || this.contentEle.clientHeight
-      if(scrollHeight -this.windowHeight-this.warpperEle.scrollTop <=200 )
+      if(scrollHeight -window.innerHeight-this.warpperEle.scrollTop <=250 )
         this.updateRenderNumber()
-    },100)
+      // alert(scrollHeight+'..'+this.warpperEle.scrollTop+'...'+window.innerHeight)
+    },300)
   }
 
   shouldComponentUpdate(props,state){
@@ -81,6 +81,7 @@ export default class SearchDrawerListLazyScroll extends React.Component {
     this.updateRenderNumber(true)
   }
   componentDidMount() {
+    // this.documentHeight= window.innerHeight ||document.documentElement.clientHeight || document.body.clientHeight
     this.warpperEle=this.rootNode.getElementsByClassName("ant-drawer-wrapper-body")[0]
     this.contentEle=this.rootNode.getElementsByClassName("ant-drawer-body")[0]
     this.updateRenderNumber(true)
