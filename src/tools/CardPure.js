@@ -12,7 +12,7 @@ export default class CardPure extends React.Component {
   }
   shouldComponentUpdate(props){
     const {summary,title,...curOtherProps}=this.props
-    const {summary:prevSummary,title:prevTitle,...prevOtherProps}=this.props
+    const {summary:prevSummary,title:prevTitle,...prevOtherProps}=props
     return !deepEqual(curOtherProps,prevOtherProps)
   }
   navigateToPath(path,e){
