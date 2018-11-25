@@ -51,11 +51,11 @@ export default class SearchDrawerListLazyScroll extends React.Component {
   scrollHandle(){
     clearTimeout(this.timer)
     this.timer=setTimeout(()=>{
-      const scrollHeight=this.contentEle.scrollHeight || this.contentEle.clientHeight
-      if(scrollHeight -window.innerHeight-this.warpperEle.scrollTop <=250 )
+      const scrollHeight=this.contentEle.scrollHeight
+      if(scrollHeight -this.warpperEle.clientHeight-this.warpperEle.scrollTop <=250 )
         this.updateRenderNumber()
-      // alert(scrollHeight+'..'+this.warpperEle.scrollTop+'...'+window.innerHeight)
-    },300)
+      // alert(window.innerHeight+'..'+this.warpperEle.clientHeight)
+    },0)
   }
 
   shouldComponentUpdate(props,state){
