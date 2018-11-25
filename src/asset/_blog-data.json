@@ -205,88 +205,6 @@
 		"summary": "<p>Generators函数的双向传递</p>\n<p>每次调用<code>answer()</code>，相当于在<code>generators</code>函数的next方法加入参数，这个参数会返回给<code>yield</code>的返回值</p>\n<p>在函数内部可以判断这个返回值，实现双向传递</p>\n<pre class=\"hljs\"><code>  <span class=\"hljs-keyword\">let</span> stepCount=<span class=\"hljs-number\">1</span>\n  <span class=\"hljs-keyword\">let</span> currentPoint=<span class=\"hljs-number\">1</span>\n  functi...</code></pre>\n",
 		"sha": "cacba9466975c15e93a9cba0db310bf12752a2c2"
 	},
-	"486e17cd17cf6034e71874e022bd9b11474cb15f": {
-		"label": null,
-		"createdTime": "9/17/2018",
-		"timeArr": [
-			2018,
-			8,
-			17,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "一段模拟尾调用的代码",
-		"titleSHA": "486e17cd17cf6034e71874e022bd9b11474cb15f",
-		"summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">tco</span>(<span class=\"hljs-params\">f</span>) </span>{\n            <span class=\"hljs-keyword\">var</span> value;\n            <span class=\"hljs-keyword\">var</span> active = <span class=\"hljs-literal\">false</span>;\n            <span class=\"hljs-keyword\">var</span> accumulated = [];\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">accumulator</span>(<span class=\"hljs-params\"></span>) </span>{\n   ...</code></pre>\n",
-		"sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27"
-	},
-	"ddc3d1d8d6334cc464eb634a0d813d48c0d48776": {
-		"label": [
-			"ast",
-			"正则",
-			"github",
-			"npm",
-			"es6"
-		],
-		"createdTime": "9/18/2018",
-		"timeArr": [
-			2018,
-			8,
-			18,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "如何通过AST树去获取函数参数名",
-		"titleSHA": "ddc3d1d8d6334cc464eb634a0d813d48c0d48776",
-		"summary": "<h4>写在最前</h4>\n<p>最近项目有个需求，获取函数参数名，听起来很简单，但有了ES6，参数和函数写法千奇百怪，在github上大概看了几个库，基本上都是正则，\n对通用的写法能够覆盖，稍微越过边界，往往无法正确匹配。</p>\n<p>于是就有了使用<code>AST</code>去进行覆盖查找的想法。#### 概念</p>\n<p>抽象语法树（abstract synta...</p>\n",
-		"sha": "a7854a9c9c9dd7722bb525311af632ee5752fe47"
-	},
-	"1fe9476aee8ec9e615a5ea77d64b322605aa28f8": {
-		"label": [
-			"babel",
-			"ast",
-			"es6"
-		],
-		"createdTime": "9/20/2018",
-		"timeArr": [
-			2018,
-			8,
-			20,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "从零开始构建babel插件",
-		"titleSHA": "1fe9476aee8ec9e615a5ea77d64b322605aa28f8",
-		"summary": "<h4>回顾</h4>\n<p>在这一片文章中，我构建一个获取函数参数名的工具，是通过<code>esprima</code>去解析<code>AST</code>并对其进行分析判断。</p>\n<p>通过对<code>AST</code>的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。#### 问题</p>\n<p>但使用的同时，也发现了3个问题，<strong>第1个是致命的</strong>。</p>\n<ol>\n<li>babel编译。</li>\n</ol>\n<p>...</p>\n",
-		"sha": "cdf0302d047802c4e95fcda08fe66f7972d39d9d"
-	},
-	"ca04d014d61ce50791c49363dae3a3d3ae3b1e54": {
-		"label": [
-			"babel",
-			"ast",
-			"性能"
-		],
-		"createdTime": "9/24/2018",
-		"timeArr": [
-			2018,
-			8,
-			24,
-			0,
-			0,
-			0,
-			0
-		],
-		"title": "babel插件的一些总结",
-		"titleSHA": "ca04d014d61ce50791c49363dae3a3d3ae3b1e54",
-		"summary": "<h4>BABLE插件编写一些总结</h4>\n<ol>\n<li>\n<p>babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\nrace模式。https://jamie.build/babel-plugin-ordering.html</p>\n<p>这么做是为...</p>\n</li>\n</ol>\n",
-		"sha": "35b77bbafb93c7b66d99747c168be81a28ee84aa"
-	},
 	"39277c1a6e1a6c2280d116793ed086ee2507fa7e": {
 		"label": [
 			"worker",
@@ -813,7 +731,7 @@
 		"title": "React.Children",
 		"titleSHA": "07cc2d304f96574c9995198fe6ff05e9fc342322",
 		"summary": "<p><code>React.Children</code>和<code>this.props.children</code>都是获取父组件的子元素(子组件)</p>\n<p>this.props.children:</p>\n<ol>\n<li>1个子元素  =&gt; {Object}(React元素(组件)对象)</li>\n<li>多个子元素 =&gt; [{Object},{Object}...]</li>\n<li>无子元素   =...</li>\n</ol>\n",
-		"sha": "1440a870a8ef487d085e89b8002a9e6e9c4f2f3d"
+		"sha": "30a4f1281825a6b1c904adf8abddc4b886ccbd1a"
 	},
 	"9fc02f51e144eb4dc14889a72398e5a21ee05145": {
 		"label": [
@@ -1399,7 +1317,7 @@
 		"title": "React v16.7 Hooks(1)",
 		"titleSHA": "f38c0d6abc75ce713d9bcd733aa66d5097d25e56",
 		"summary": "<h4>Hooks</h4>\n<ul>\n<li>useState:</li>\n</ul>\n<ol>\n<li>\n<p>可以在非class使用state</p>\n</li>\n<li>\n<p>返回一个数组</p>\n<p>arr[0]是具体的state</p>\n<p>arr[1]是改变state的方法</p>\n<p>`const [count, setCount] = useState(in...</p>\n</li>\n</ol>\n",
-		"sha": "7592784d02c2bac58c7ac782ae1efb07edaf2f20"
+		"sha": "fc32341fa1074291a622a829343b7b8a33955b7c"
 	},
 	"98dd615567b3aca2beb98ad1d65b71331760149b": {
 		"label": [
@@ -1419,7 +1337,7 @@
 		"title": "React v16.7 Hooks(2)",
 		"titleSHA": "98dd615567b3aca2beb98ad1d65b71331760149b",
 		"summary": "<ul>\n<li>\n<p>useCallback</p>\n</li>\n<li>\n<p>useMemo</p>\n</li>\n</ul>\n<p><code>useCallback(fn, inputs) is equivalent to useMemo(() =&gt; fn, inputs)</code></p>\n<p>根据inputs的内容判断是否执行缓存。</p>\n<p>待更新：</p>\n<p>与<code>shouldComponentUpdate</code>搭配</p>\n<ul>\n<li>useRef...</li>\n</ul>\n",
-		"sha": "c76766c24ec93918abe3a16107c74155bbddaae9"
+		"sha": "4f37e4ca6137a17d6454b46239f1712d981ecdc7"
 	},
 	"13253a7dee631700da97fcd58ea9765840ae7706": {
 		"label": null,
@@ -1551,7 +1469,7 @@
 		"title": "MYSQL常用命令记录",
 		"titleSHA": "b3f75a48780077e930c5409efefb6e27050a2057",
 		"summary": "<ul>\n<li>添加row</li>\n</ul>\n<p><code>INSERT INTO library VALUES (1,'javascript',8);</code></p>\n<ul>\n<li>条件排序order by</li>\n</ul>\n<p><code>SELECT * FROM movies WHERE release_year&gt;1999 ORDER BY release_year;</code></p>\n<ul>\n<li>SUM</li>\n</ul>\n<p>`SEL...</p>\n",
-		"sha": "3a8414077d4d20b0989f09332827e0c904ae7e2f"
+		"sha": "876bcd03410d0865b98212677e8ea1297deefb8a"
 	},
 	"c8b2b19bf52484de902c2d4d23a44ed8b158ab18": {
 		"label": [
@@ -2167,5 +2085,189 @@
 		"titleSHA": "9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da",
 		"summary": "<ul>\n<li>\n<p>为什么要实现一个<code>GraphQL</code>服务器</p>\n<p>通过自己实现，更深入了解<code>GraphQL</code>怎么构造，怎么获取，一些术语</p>\n</li>\n<li>\n<p>直接入正题，如何实现一个<code>GraphQL</code>服务器</p>\n<p>了解4种类型</p>\n<ul>\n<li>\n<p>Query</p>\n<p>执行内容查询</p>\n</li>\n<li>\n<p>Muta...</p>\n</li>\n</ul>\n</li>\n</ul>\n",
 		"sha": "2df708b7274da2278a0b10daebf16bf60e8a965f"
+	},
+	"cd67e255a685952b6e3ba3efb90befd0197d1fe4": {
+		"label": [
+			"笔记",
+			"缓存"
+		],
+		"createdTime": "11/14/2018",
+		"timeArr": [
+			2018,
+			10,
+			14,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "图解Http大纲笔记(1)",
+		"titleSHA": "cd67e255a685952b6e3ba3efb90befd0197d1fe4",
+		"summary": "<ul>\n<li>TCP/IP分为4个层</li>\n</ul>\n<p>|名称|代表|\n|::|:----:|\n|应用层| HTTP|\n|传输层|TCP|\n|网络层|IP|\n|链路层| |</p>\n<ul>\n<li>\n<p>HTTP协议</p>\n<ul>\n<li>生成请求提交(客户端)</li>\n<li>处理请求(服务端)</li>\n</ul>\n</li>\n<li>\n<p>DNS协议</p>\n<ul>\n<li>根据域名查找IP</li>\n</ul>\n</li>\n<li>\n<p>TCP...</p>\n</li>\n</ul>\n",
+		"sha": "a606cff58ed32d4564139956743675e9c438e11a"
+	},
+	"f559d47fb4cf8cfa9bfb2bd0d9bba58e079f66ec": {
+		"label": [
+			"笔记"
+		],
+		"createdTime": "11/17/2018",
+		"timeArr": [
+			2018,
+			10,
+			17,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "WeakMap理解笔记",
+		"titleSHA": "f559d47fb4cf8cfa9bfb2bd0d9bba58e079f66ec",
+		"summary": "<h4>WeakMap</h4>\n<ul>\n<li>\n<p>键是弱引用</p>\n<p>如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象是否还在该弱引用的结构中</p>\n</li>\n</ul>\n<p>因此，键一旦丢失，再也无法获取内容</p>\n<ol>\n<li>必须使用对象作为键，当对象引用消失，自动清除</li>\n<li>必须通过键去获取内容</li>\n</ol>\n<p>只要保管好 key ，它就是...</p>\n",
+		"sha": "200fdba2077d822ff14086c8249fb87383fb32dc"
+	},
+	"75b7a94b953a19ffc6d8a4b8352441ee521ee46e": {
+		"label": [
+			"react",
+			"redux",
+			"源码"
+		],
+		"createdTime": "11/18/2018",
+		"timeArr": [
+			2018,
+			10,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-react-redux-使用Hooks替换一处逻辑",
+		"titleSHA": "75b7a94b953a19ffc6d8a4b8352441ee521ee46e",
+		"summary": "<p>Provider组件中有2个生命周期函数：</p>\n<pre class=\"hljs\"><code>componentWillUnmount() {\n  if (this.unsubscribe) this.unsubscribe()\n  this._isMounted = false\n}\n\ncomponentDidUpdate(prevProps) {\n  //...</code></pre>\n",
+		"sha": "914eddfc21a7198b0e39080e62fc5cf7ec280993"
+	},
+	"42b4b2b7669e8fdbc1cd63d0eb42e60b98c48f8e": {
+		"label": [
+			"源码",
+			"react",
+			"redux"
+		],
+		"createdTime": "11/18/2018",
+		"timeArr": [
+			2018,
+			10,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-react-redux-参数为obj的默认参数写法",
+		"titleSHA": "42b4b2b7669e8fdbc1cd63d0eb42e60b98c48f8e",
+		"summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">myFunc</span>(<span class=\"hljs-params\">{x=<span class=\"hljs-number\">1</span>,y=<span class=\"hljs-number\">2</span>}</span>)</span>{\n  <span class=\"hljs-built_in\">console</span>.log(x,y)  \n  <span class=\"hljs-comment\">// ...</span>\n}\nmyFunc({})      <span class=\"hljs-comment\">// x:1,y:2</span>\nmyFunc()        <span class=\"hljs-comment\">// 报错</span>\nmyFunc(<span class=\"hljs-literal\">null</span>)    <span class=\"hljs-comment\">// 报错</span>\n</code></pre>\n<p>不传参数，则从<code>undefined</code>里...</p>\n",
+		"sha": "bca6508299954ec1022678e1f36b060954a8e990"
+	},
+	"e4ce5c4bef01302a0d060390b3bb12ae149f583f": {
+		"label": [
+			"源码",
+			"react",
+			"笔记"
+		],
+		"createdTime": "11/25/2018",
+		"timeArr": [
+			2018,
+			10,
+			25,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "源码阅读-react-infinite-scroller-笔记",
+		"titleSHA": "e4ce5c4bef01302a0d060390b3bb12ae149f583f",
+		"summary": "<ol>\n<li>\n<p><code>offsetParent</code></p>\n<p><code>offsetParent</code>返回一个指向最近的包含该元素的定位元素.</p>\n<p><code>offsetParent</code>很有用，因为计算<code>offsetTop</code>和<code>offsetLeft</code>都是相对于<code>offsetParent</code>边界的。</p>\n<p><code>offsetParent</code>...</p>\n</li>\n</ol>\n",
+		"sha": "ca1df5a51761dd3bb612a4ab486576a8102d2d1b"
+	},
+	"486e17cd17cf6034e71874e022bd9b11474cb15f": {
+		"label": null,
+		"createdTime": "9/17/2018",
+		"timeArr": [
+			2018,
+			8,
+			17,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "一段模拟尾调用的代码",
+		"titleSHA": "486e17cd17cf6034e71874e022bd9b11474cb15f",
+		"summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">tco</span>(<span class=\"hljs-params\">f</span>) </span>{\n            <span class=\"hljs-keyword\">var</span> value;\n            <span class=\"hljs-keyword\">var</span> active = <span class=\"hljs-literal\">false</span>;\n            <span class=\"hljs-keyword\">var</span> accumulated = [];\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">accumulator</span>(<span class=\"hljs-params\"></span>) </span>{\n   ...</code></pre>\n",
+		"sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27"
+	},
+	"ddc3d1d8d6334cc464eb634a0d813d48c0d48776": {
+		"label": [
+			"ast",
+			"正则",
+			"github",
+			"npm",
+			"es6"
+		],
+		"createdTime": "9/18/2018",
+		"timeArr": [
+			2018,
+			8,
+			18,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "如何通过AST树去获取函数参数名",
+		"titleSHA": "ddc3d1d8d6334cc464eb634a0d813d48c0d48776",
+		"summary": "<h4>写在最前</h4>\n<p>最近项目有个需求，获取函数参数名，听起来很简单，但有了ES6，参数和函数写法千奇百怪，在github上大概看了几个库，基本上都是正则，\n对通用的写法能够覆盖，稍微越过边界，往往无法正确匹配。</p>\n<p>于是就有了使用<code>AST</code>去进行覆盖查找的想法。#### 概念</p>\n<p>抽象语法树（abstract synta...</p>\n",
+		"sha": "a7854a9c9c9dd7722bb525311af632ee5752fe47"
+	},
+	"1fe9476aee8ec9e615a5ea77d64b322605aa28f8": {
+		"label": [
+			"babel",
+			"ast",
+			"es6"
+		],
+		"createdTime": "9/20/2018",
+		"timeArr": [
+			2018,
+			8,
+			20,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "从零开始构建babel插件",
+		"titleSHA": "1fe9476aee8ec9e615a5ea77d64b322605aa28f8",
+		"summary": "<h4>回顾</h4>\n<p>在这一片文章中，我构建一个获取函数参数名的工具，是通过<code>esprima</code>去解析<code>AST</code>并对其进行分析判断。</p>\n<p>通过对<code>AST</code>的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。#### 问题</p>\n<p>但使用的同时，也发现了3个问题，<strong>第1个是致命的</strong>。</p>\n<ol>\n<li>babel编译。</li>\n</ol>\n<p>...</p>\n",
+		"sha": "cdf0302d047802c4e95fcda08fe66f7972d39d9d"
+	},
+	"ca04d014d61ce50791c49363dae3a3d3ae3b1e54": {
+		"label": [
+			"babel",
+			"ast",
+			"性能"
+		],
+		"createdTime": "9/24/2018",
+		"timeArr": [
+			2018,
+			8,
+			24,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "babel插件的一些总结",
+		"titleSHA": "ca04d014d61ce50791c49363dae3a3d3ae3b1e54",
+		"summary": "<h4>BABLE插件编写一些总结</h4>\n<ol>\n<li>\n<p>babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\nrace模式。https://jamie.build/babel-plugin-ordering.html</p>\n<p>这么做是为...</p>\n</li>\n</ol>\n",
+		"sha": "35b77bbafb93c7b66d99747c168be81a28ee84aa"
 	}
 }

@@ -90,6 +90,7 @@ export default class SearchDrawerListLazyScroll extends React.Component {
 
   componentWillUnmount(){
     this.warpperEle.removeEventListener('scroll', this.scrollHandle)
+    clearTimeout(this.timer)
   }
 
   render() {
