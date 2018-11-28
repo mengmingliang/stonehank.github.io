@@ -1,3 +1,3 @@
 {
-  "content": "<h2>hyperapp-patch</h2>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>patch是hyperapp进行节点更新的核心，主要步骤：</p>\n<ul>\n<li>先判断node节点</li>\n<li>当节点相同---&gt;进行key判断---&gt;递归patch，直到指针到尾部</li>\n<li>最后判断是否需要删除节点</li>\n<li>返回更新的element</li>\n</ul>\n<p>思维导图：\n<img src=\"./img/hyperapp-patch%E5%AF%BC%E5%9B%BE.png\" alt=\"\"></p>\n"
+  "content": "<h2>hyperapp-patch</h2>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>patch是hyperapp进行节点更新的核心，主要步骤：</p>\n<ul>\n<li>先判断node节点</li>\n<li>当节点相同---&gt;进行key判断---&gt;递归patch，直到指针到尾部</li>\n<li>最后判断是否需要删除节点</li>\n<li>返回更新的element</li>\n</ul>\n<p>思维导图：\n<img src=\"https://stonehank.github.io/articles/img/hyperapp-patch%E5%AF%BC%E5%9B%BE.png\" alt=\"\"></p>\n"
 }

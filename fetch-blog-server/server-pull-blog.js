@@ -32,7 +32,7 @@ let globalSearchFileSize=0
 // 开始
 console.log("项目根目录为："+context,"正在通过github获取数据...")
 const {token}=token_json
-const {user,repository,branch,per_page,
+const {user,repository,branch,per_page,imgAbsPath,
   dataType,summaryLength,resource_dir_list,keywords,delRedundance,fetchExcludes,
   forceUpdate,ignoreSHA,retry_times,showDetail}=config
 // 判断blog是否完成，完成blog后才执行资源
@@ -163,6 +163,8 @@ let taskQueue=[
         user:user,
         repository:repository,
         fileWrittingQueue:new ProgressRemider("blog文件",showDetail),
+        needHref2Absolute:{abs:`${imgAbsPath}/articles/img/`,isImg:true}
+
       },
   },
   {
@@ -177,7 +179,7 @@ let taskQueue=[
         user:user,
         repository:`sourcecode-analysis`,
         fileWrittingQueue:new ProgressRemider("源码阅读",showDetail),
-        needHref2Absolute:'https://github.com/stonehank/sourcecode-analysis/blob/master/'
+        needHref2Absolute:{abs:'https://github.com/stonehank/sourcecode-analysis/blob/master/',isImg:false}
       },
   },
   {
@@ -435,7 +437,7 @@ function checkIfNeedUpdated(result,listData, listInfoPath, getContentInfoPath, f
             let content=base64Decode(obj["content"])
             // const content=Base64.decode(obj["content"])
 
-            if(needHref2Absolute)content=href2Absolute(content,needHref2Absolute)
+            if(needHref2Absolute)content=href2Absolute(content,needHref2Absolute.abs,needHref2Absolute.isImg)
             // 计算摘要开始未知
             // let tryStart=getHighDensity(content,0.3,summaryLength)
             // let summaryStart=content.substr(tryStart).match(/(\n+)[\u4E00-\u9FA5]/)

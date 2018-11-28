@@ -17,5 +17,6 @@
       "规范","npm","router","webpack","disqus","GraphQL","笔记"
    ],
    "fetchExcludes":["readme"],
-   "delRedundance":true
+   "delRedundance":true,
+   "imgAbsPath":"https://stonehank.github.io"
 }

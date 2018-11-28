@@ -183,7 +183,7 @@
 		],
 		"title": "解决disqus无法正确显示每一个comment count",
 		"titleSHA": "7a618f35d69b48cbdbef3e7285fffc03098e720a",
-		"summary": "<p>博客添加了<code>disqus</code>，并且在文章列表处每一篇标题边上添加一个评论计数器。</p>\n<p>它通过<code>identifier</code>去获取，<code>identifier</code>在文章详情页面提供配置。</p>\n<p>问题是：<strong>这个计数器并不是每一篇文章都能正确显示</strong>，有的列表能显示2个，有的列表一个都不显示，</p>\n<p>![](./img/comment_count...</p>\n",
+		"summary": "<p>博客添加了<code>disqus</code>，并且在文章列表处每一篇标题边上添加一个评论计数器。</p>\n<p>它通过<code>identifier</code>去获取，<code>identifier</code>在文章详情页面提供配置。</p>\n<p>问题是：<strong>这个计数器并不是每一篇文章都能正确显示</strong>，有的列表能显示2个，有的列表一个都不显示，</p>\n<p>![](https://stonehank.g...</p>\n",
 		"sha": "98bf8f985983e2f6583d7088efb409ef54dfaad5"
 	},
 	"a20bb2e8ea076042017b4a5a990e2aac82af6a1b": {
@@ -716,7 +716,8 @@
 	"07cc2d304f96574c9995198fe6ff05e9fc342322": {
 		"label": [
 			"react",
-			"es6"
+			"es6",
+			"redux"
 		],
 		"createdTime": "6/10/2018",
 		"timeArr": [
@@ -1049,7 +1050,7 @@
 		],
 		"title": "编码-加密-哈希-混淆不同点-文章翻译",
 		"titleSHA": "e3c935001e875147dac6c7b68d6d86f7cfb78754",
-		"summary": "<p><a href=\"https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/\">原文阅读</a></p>\n<p><img src=\"./img/js_obfuscation.png\" alt=\"js_obfuscation\"></p>\n<p><a href=\"#%E7%BC%96%E7%A0%81\">编码</a></p>\n<p><a href=\"#%E5%8A%A0%E5%AF%86\">加密</a></p>\n<p>[散列法](#散列法...</p>\n",
+		"summary": "<p><a href=\"https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/\">原文阅读</a></p>\n<p>![js_obfuscation](https://stonehank.github.io/articles/img/js_obfuscation.png...</p>\n",
 		"sha": "50f63075f5fedd74d4b1ace8fcce1bdfe2f93efa"
 	},
 	"c177754811a4f2e83d02b2906306ad34211a38a7": {
@@ -1153,7 +1154,7 @@
 		],
 		"title": "reach-router",
 		"titleSHA": "1478ca77fae5cf65527c2cf310fae0e530ea7496",
-		"summary": "<h4>reach/router</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md\">完整源码说明注释</a></p>\n<p>一张导图：</p>\n<p><img src=\"./img/reachRouter.png\" alt=\"\">\n...</p>\n",
+		"summary": "<h4>reach/router</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md\">完整源码说明注释</a></p>\n<p>一张导图：</p>\n<p>![](https://stonehank.githu...</p>\n",
 		"sha": "f167736adbb910529f25fa5bee12ce70bc54b509"
 	},
 	"a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44": {
@@ -1234,7 +1235,7 @@
 		],
 		"title": "2个JS缓存工具学习心得",
 		"titleSHA": "a6a06a76f20c9fd24c4954c100dbd016a75a5974",
-		"summary": "<h4>nano-memoize 和 fast-memoize</h4>\n<p>首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。</p>\n<p>fast-memoize导图：\n<img src=\"./img/fast-memoize.png\" alt=\"\"></p>\n<p>大概说说它们的实现思路：</p>\n<ol>\n<li>定义缓存结构，其中<code>fast</code>...</li>\n</ol>\n",
+		"summary": "<h4>nano-memoize 和 fast-memoize</h4>\n<p>首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。</p>\n<p>fast-memoize导图：\n![](https://stonehank.github.io/articles/img/fast-memoize.png...</p>\n",
 		"sha": "bf7ea8c78c4aac789cd19ecba2a5d49fc7cf4d9c"
 	},
 	"54ce9f8dc0d7064cd42d8c9ee6a7138966a00888": {
@@ -1316,7 +1317,7 @@
 		],
 		"title": "React v16.7 Hooks(1)",
 		"titleSHA": "f38c0d6abc75ce713d9bcd733aa66d5097d25e56",
-		"summary": "<h4>Hooks</h4>\n<ul>\n<li>useState:</li>\n</ul>\n<ol>\n<li>\n<p>可以在非class使用state</p>\n</li>\n<li>\n<p>返回一个数组</p>\n<p>arr[0]是具体的state</p>\n<p>arr[1]是改变state的方法</p>\n<p>`const [count, setCount] = useState(in...</p>\n</li>\n</ol>\n",
+		"summary": "<h4>Hooks</h4>\n<p><code>useState, useEffect, useContext</code></p>\n<ul>\n<li>useState:</li>\n</ul>\n<ol>\n<li>\n<p>可以在非class使用state</p>\n</li>\n<li>\n<p>返回一个数组</p>\n<p>arr[0]是具体的state</p>\n<p>arr[1]是改变state的方法</p>\n<p>`co...</p>\n</li>\n</ol>\n",
 		"sha": "fc32341fa1074291a622a829343b7b8a33955b7c"
 	},
 	"98dd615567b3aca2beb98ad1d65b71331760149b": {
@@ -1336,7 +1337,7 @@
 		],
 		"title": "React v16.7 Hooks(2)",
 		"titleSHA": "98dd615567b3aca2beb98ad1d65b71331760149b",
-		"summary": "<ul>\n<li>\n<p>useCallback</p>\n</li>\n<li>\n<p>useMemo</p>\n</li>\n</ul>\n<p><code>useCallback(fn, inputs) is equivalent to useMemo(() =&gt; fn, inputs)</code></p>\n<p>根据inputs的内容判断是否执行缓存。</p>\n<p>待更新：</p>\n<p>与<code>shouldComponentUpdate</code>搭配</p>\n<ul>\n<li>useRef...</li>\n</ul>\n",
+		"summary": "<p><code>useCallback, useMemo, useRef, useImperativeMethods, useMutationEffect, useLayoutEffect</code></p>\n<ul>\n<li>\n<p>useCallback</p>\n</li>\n<li>\n<p>useMemo</p>\n</li>\n</ul>\n<p>`useCallback(fn, inputs) is equivale...</p>\n",
 		"sha": "4f37e4ca6137a17d6454b46239f1712d981ecdc7"
 	},
 	"13253a7dee631700da97fcd58ea9765840ae7706": {
@@ -1468,7 +1469,7 @@
 		],
 		"title": "MYSQL常用命令记录",
 		"titleSHA": "b3f75a48780077e930c5409efefb6e27050a2057",
-		"summary": "<ul>\n<li>添加row</li>\n</ul>\n<p><code>INSERT INTO library VALUES (1,'javascript',8);</code></p>\n<ul>\n<li>条件排序order by</li>\n</ul>\n<p><code>SELECT * FROM movies WHERE release_year&gt;1999 ORDER BY release_year;</code></p>\n<ul>\n<li>SUM</li>\n</ul>\n<p>`SEL...</p>\n",
+		"summary": "<ul>\n<li>给表添加别名(M是movies的别名,T是title的输出名)</li>\n</ul>\n<p><code>SELECT title as T FROM movies M;</code></p>\n<ul>\n<li>添加row</li>\n</ul>\n<p><code>INSERT INTO library VALUES (1,'javascript',8);</code></p>\n<ul>\n<li>条件排序order by</li>\n</ul>\n<p>`SELECT *  F...</p>\n",
 		"sha": "876bcd03410d0865b98212677e8ea1297deefb8a"
 	},
 	"c8b2b19bf52484de902c2d4d23a44ed8b158ab18": {
@@ -2063,7 +2064,7 @@
 		],
 		"title": "源码阅读-reselect源码学习",
 		"titleSHA": "2cf2373f2fa9c28ce15661630048ac1848d2530f",
-		"summary": "<h4>reselect源码亮点介绍</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md\">完整源码说明注释</a></p>\n<p>导图：</p>\n<p><img src=\"./img/reselect.png\" alt=\"\">#### de...</p>\n",
+		"summary": "<h4>reselect源码亮点介绍</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md\">完整源码说明注释</a></p>\n<p>导图：</p>\n<p>![](https://stonehank.github.io...</p>\n",
 		"sha": "d9ad388a0614782724779268301e0b4a56701aac"
 	},
 	"9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da": {
@@ -2269,5 +2270,43 @@
 		"titleSHA": "ca04d014d61ce50791c49363dae3a3d3ae3b1e54",
 		"summary": "<h4>BABLE插件编写一些总结</h4>\n<ol>\n<li>\n<p>babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\nrace模式。https://jamie.build/babel-plugin-ordering.html</p>\n<p>这么做是为...</p>\n</li>\n</ol>\n",
 		"sha": "35b77bbafb93c7b66d99747c168be81a28ee84aa"
+	},
+	"6b947579be3958bc587abb5535d818129ff810da": {
+		"label": [
+			"笔记"
+		],
+		"createdTime": "11/26/2018",
+		"timeArr": [
+			2018,
+			10,
+			26,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "图解Http大纲笔记(2)",
+		"titleSHA": "6b947579be3958bc587abb5535d818129ff810da",
+		"summary": "<p>实体首部字段</p>\n<ul>\n<li>Content-Encoding：实体编码方式(gzip, compress, deflate, identity)</li>\n<li>Content-Location：报文主体返回资源对应的 URI(不一定是请求URI)。</li>\n<li>Content-Range：匹配部分。</li>\n<li>Content-Type：实体内对象的媒...</li>\n</ul>\n",
+		"sha": "a6f91b8346f09bc04f6bdfcf3304bfb4b11c4cc6"
+	},
+	"b1f5ca61aa11b54e8e854bd3c67096d01428d37b": {
+		"label": [
+			"react"
+		],
+		"createdTime": "11/28/2018",
+		"timeArr": [
+			2018,
+			10,
+			28,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "React-Fiber简述",
+		"titleSHA": "b1f5ca61aa11b54e8e854bd3c67096d01428d37b",
+		"summary": "<h4>Fiber的结构</h4>\n<p><code>Fiber</code>可以看成一种数据结构，它内部包含了对当前组件的行为，包括对组件行为的跟踪、安排、暂停和取消。</p>\n<p>不像<code>React</code>组件对象，<code>React</code>组件对象每次<code>render</code>的时候都会重新创建</p>\n<p><code>React</code>组件对象如下：</p>\n<pre class=\"hljs\"><code>{\n    $$typeof: Symbol(r...</code></pre>\n",
+		"sha": "0f170ab4a728d3b54abd272f24244f191f6815cf"
 	}
 }
