@@ -184,7 +184,7 @@
 		"title": "解决disqus无法正确显示每一个comment count",
 		"titleSHA": "7a618f35d69b48cbdbef3e7285fffc03098e720a",
 		"summary": "<p>博客添加了<code>disqus</code>，并且在文章列表处每一篇标题边上添加一个评论计数器。</p>\n<p>它通过<code>identifier</code>去获取，<code>identifier</code>在文章详情页面提供配置。</p>\n<p>问题是：<strong>这个计数器并不是每一篇文章都能正确显示</strong>，有的列表能显示2个，有的列表一个都不显示，</p>\n<p>![](https://stonehank.g...</p>\n",
-		"sha": "98bf8f985983e2f6583d7088efb409ef54dfaad5"
+		"sha": "901e43a8e9f1c5cf70956f7fb9139ccb541370fd"
 	},
 	"a20bb2e8ea076042017b4a5a990e2aac82af6a1b": {
 		"label": [
@@ -653,7 +653,7 @@
 		"title": "一个create-react-app项目构建体积的压缩",
 		"titleSHA": "f410e8013460016ef21db0425ddcc6ef131809a0",
 		"summary": "<p>这是一个个人博客，基于<code>antd</code>搭建，这个项目构建流程如下：</p>\n<ol>\n<li>先启动<code>fetch-blog-serve</code>，这是一个能将你的<code>repertory</code>的blog内容拉去到本地，并且写入<code>xxx.json</code>。</li>\n<li>在写入之前会生成一个列表，包含每一篇blog的标题、日期、标签、摘要、sha值(唯一性判断)。</li>\n<li>前...</li>\n</ol>\n",
-		"sha": "7cd2eb217f67d7f3988aa2e4eeffdf3e8a3dfc12"
+		"sha": "e0bc2c78310a534ecec19f96adac09f5c5cb835a"
 	},
 	"8fb9804dd71b929b0e5256563c63f9d6c48d95b2": {
 		"label": [
@@ -993,7 +993,7 @@
 		"title": "超简洁1kb框架-hyperapp",
 		"titleSHA": "041e14e2880378f2920fae48877b46694fbfc26d",
 		"summary": "<h4>hyperapp框架</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过...</p>\n",
-		"sha": "885ccb597d795a6915433872a0e45b118445951f"
+		"sha": "ec662a13e128b776e46f1ef9ec3fdaa63e0d7381"
 	},
 	"ab4d7fd4fc306830807768df35b00d9bc91c9d20": {
 		"label": [
@@ -1013,7 +1013,7 @@
 		"title": "hyperapp-patch",
 		"titleSHA": "ab4d7fd4fc306830807768df35b00d9bc91c9d20",
 		"summary": "<h4>hyperapp-patch</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>patch是hyperapp进行节点更新的核心，主要步骤：</p>\n<ul>\n<li>先判断n...</li>\n</ul>\n",
-		"sha": "bcf7fcff4b9e7073b08ad7c80986590462058756"
+		"sha": "59bb573e47697c7551bfe0191079a8772342b529"
 	},
 	"18afb8f32bc7fc0b2ce146673e4998010db08a12": {
 		"label": [
@@ -1051,7 +1051,7 @@
 		"title": "编码-加密-哈希-混淆不同点-文章翻译",
 		"titleSHA": "e3c935001e875147dac6c7b68d6d86f7cfb78754",
 		"summary": "<p><a href=\"https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/\">原文阅读</a></p>\n<p>![js_obfuscation](https://stonehank.github.io/articles/img/js_obfuscation.png...</p>\n",
-		"sha": "50f63075f5fedd74d4b1ace8fcce1bdfe2f93efa"
+		"sha": "e315fbb406b0f3100dfcf4ec5b7ebb7fc1f41a83"
 	},
 	"c177754811a4f2e83d02b2906306ad34211a38a7": {
 		"label": [
@@ -1133,7 +1133,7 @@
 		"title": "源码阅读-reach-router源码学习到的3",
 		"titleSHA": "94269872739a3bce7b949811a96155420826e1bd",
 		"summary": "<h4>关于Consumer的补充</h4>\n<p>官方（英文）：</p>\n<blockquote>\n<p>All Consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.\nThe propagation from Pro...</p>\n</blockquote>\n",
-		"sha": "6725479ff300e88bb4fedb1c5d5ac66abb602051"
+		"sha": "d91847cb95128b4df27dc580f59ae7f12b7a6af8"
 	},
 	"1478ca77fae5cf65527c2cf310fae0e530ea7496": {
 		"label": [
@@ -1155,7 +1155,7 @@
 		"title": "reach-router",
 		"titleSHA": "1478ca77fae5cf65527c2cf310fae0e530ea7496",
 		"summary": "<h4>reach/router</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md\">完整源码说明注释</a></p>\n<p>一张导图：</p>\n<p>![](https://stonehank.githu...</p>\n",
-		"sha": "f167736adbb910529f25fa5bee12ce70bc54b509"
+		"sha": "a479afc7ac0daaf4863905d74229db3658f16354"
 	},
 	"a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44": {
 		"label": [
@@ -1236,7 +1236,7 @@
 		"title": "2个JS缓存工具学习心得",
 		"titleSHA": "a6a06a76f20c9fd24c4954c100dbd016a75a5974",
 		"summary": "<h4>nano-memoize 和 fast-memoize</h4>\n<p>首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。</p>\n<p>fast-memoize导图：\n![](https://stonehank.github.io/articles/img/fast-memoize.png...</p>\n",
-		"sha": "bf7ea8c78c4aac789cd19ecba2a5d49fc7cf4d9c"
+		"sha": "4bdf87c5d346920df9247464ab6b24fdcc7791ab"
 	},
 	"54ce9f8dc0d7064cd42d8c9ee6a7138966a00888": {
 		"label": [
@@ -1258,7 +1258,7 @@
 		"title": "处理额外复杂任务的3种方式",
 		"titleSHA": "54ce9f8dc0d7064cd42d8c9ee6a7138966a00888",
 		"summary": "<h4>web worker VS idleRequestCallback VS setTimeout</h4>\n<p><em><strong>测试平台：FireFox</strong></em>(Chrome嵌套worker会有<a href=\"https://bugs.chromium.org/p/chromium/issues/detail?id=31666\">bug</a>)</p>\n<p>|*方法...</p>\n",
-		"sha": "b707535a293aa9a30b76763d846ad36d9b944fc1"
+		"sha": "f28cf454576cd104bf798125e2ecfc91945fc1cf"
 	},
 	"8e74b1491a2006b6a1642598cc517a267cfa577b": {
 		"label": [
@@ -1394,7 +1394,7 @@
 		"title": "canvas执行15万粒子的动画",
 		"titleSHA": "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49",
 		"summary": "<p>最近遇到的，目的是通过粒子动画渲染图片</p>\n<p>图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来</p>\n<p>最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...</p>\n<pre class=\"hljs\"><code> <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> py = <span class=\"hljs-number\">0</span>; py &lt; targetH; py ++) ...</code></pre>\n",
-		"sha": "13a7360e4102e7f5e47de276e5ec183f2ea9309f"
+		"sha": "742860bdc0a8dc633fd2c91feb13e60b00f46229"
 	},
 	"af105b2df12bc15528a731d149193b4aa9927533": {
 		"label": [
@@ -1871,7 +1871,7 @@
 		"title": "KMP回溯分析",
 		"titleSHA": "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b",
 		"summary": "<p>KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯</p>\n<p>一般写法是：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">calcNext</span>(<span class=\"hljs-params\">str,pat</span>)</span>{\n  <span class=\"hljs-comment\">/*...*/</span>\n  <span class=\"hljs-keyword\">if</span>(str[k]!==str[j]){\n    <span class=\"hljs-comment\">// 有些会写成k=next[k]，原理是一样的</span>\n    <span class=\"hljs-comment\">// 这里k表示，所对应当前正在进行对比的...</span></code></pre>\n",
-		"sha": "9b2f31a1afd83292746a2243626db26804af5fa3"
+		"sha": "dcb12fd298b9d963db9b1d4b12cbff7da94227bc"
 	},
 	"f616d21af7026eb71d6d96d1e0adfc13871af644": {
 		"label": [
@@ -2065,7 +2065,7 @@
 		"title": "源码阅读-reselect源码学习",
 		"titleSHA": "2cf2373f2fa9c28ce15661630048ac1848d2530f",
 		"summary": "<h4>reselect源码亮点介绍</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md\">完整源码说明注释</a></p>\n<p>导图：</p>\n<p>![](https://stonehank.github.io...</p>\n",
-		"sha": "d9ad388a0614782724779268301e0b4a56701aac"
+		"sha": "85d8aee7f13669499db1bd4d7c3233117665daea"
 	},
 	"9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da": {
 		"label": [
@@ -2248,7 +2248,7 @@
 		"title": "从零开始构建babel插件",
 		"titleSHA": "1fe9476aee8ec9e615a5ea77d64b322605aa28f8",
 		"summary": "<h4>回顾</h4>\n<p>在这一片文章中，我构建一个获取函数参数名的工具，是通过<code>esprima</code>去解析<code>AST</code>并对其进行分析判断。</p>\n<p>通过对<code>AST</code>的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。#### 问题</p>\n<p>但使用的同时，也发现了3个问题，<strong>第1个是致命的</strong>。</p>\n<ol>\n<li>babel编译。</li>\n</ol>\n<p>...</p>\n",
-		"sha": "cdf0302d047802c4e95fcda08fe66f7972d39d9d"
+		"sha": "c6aabf028612373f374ca39935fa4a385595f224"
 	},
 	"ca04d014d61ce50791c49363dae3a3d3ae3b1e54": {
 		"label": [
@@ -2288,7 +2288,7 @@
 		"title": "图解Http大纲笔记(2)",
 		"titleSHA": "6b947579be3958bc587abb5535d818129ff810da",
 		"summary": "<p>实体首部字段</p>\n<ul>\n<li>Content-Encoding：实体编码方式(gzip, compress, deflate, identity)</li>\n<li>Content-Location：报文主体返回资源对应的 URI(不一定是请求URI)。</li>\n<li>Content-Range：匹配部分。</li>\n<li>Content-Type：实体内对象的媒...</li>\n</ul>\n",
-		"sha": "a6f91b8346f09bc04f6bdfcf3304bfb4b11c4cc6"
+		"sha": "ad5b165bf43fc96f65189cf43aad4253aafc6b16"
 	},
 	"b1f5ca61aa11b54e8e854bd3c67096d01428d37b": {
 		"label": [
@@ -2307,6 +2307,25 @@
 		"title": "React-Fiber简述",
 		"titleSHA": "b1f5ca61aa11b54e8e854bd3c67096d01428d37b",
 		"summary": "<h4>Fiber的结构</h4>\n<p><code>Fiber</code>可以看成一种数据结构，它内部包含了对当前组件的行为，包括对组件行为的跟踪、安排、暂停和取消。</p>\n<p>不像<code>React</code>组件对象，<code>React</code>组件对象每次<code>render</code>的时候都会重新创建</p>\n<p><code>React</code>组件对象如下：</p>\n<pre class=\"hljs\"><code>{\n    $$typeof: Symbol(r...</code></pre>\n",
-		"sha": "0f170ab4a728d3b54abd272f24244f191f6815cf"
+		"sha": "e2eecade9c0b6f9b8e2456110c40320e06f51889"
+	},
+	"b0662d8a00fca2a154662ad07955d8c807636c91": {
+		"label": [
+			"笔记"
+		],
+		"createdTime": "11/29/2018",
+		"timeArr": [
+			2018,
+			10,
+			29,
+			0,
+			0,
+			0,
+			0
+		],
+		"title": "图解Http大纲笔记(3)",
+		"titleSHA": "b0662d8a00fca2a154662ad07955d8c807636c91",
+		"summary": "<p>HTTP的瓶颈</p>\n<ul>\n<li>一条连接上只可发送一个请求。</li>\n<li>请求只能从客户端开始。客户端不可以接收除响应以外的指令。</li>\n<li>请求 / 响应首部未经压缩就发送。首部信息越多延迟越大。</li>\n<li>发送冗长的首部。每次互相发送相同的首部造成的浪费较多。</li>\n<li>可任意选择数据压缩格式。非强制压缩发送。</li>\n</ul>\n<p>解决方法：</p>\n<ol>\n<li>Ajax (局部...</li>\n</ol>\n",
+		"sha": "9eee506791ddd8fea6cf6a883940e336911744a2"
 	}
 }
