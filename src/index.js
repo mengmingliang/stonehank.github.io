@@ -2,7 +2,7 @@ import React,{lazy,Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import * as userConfig from './user-config'
 import ProgressLoading from './ProgressWrapper/ProgressLoading'
-import BookmarkProvider from "./tools/BookmarkProvider";
+import BookmarkProvider from "./bookmark/BookmarkProvider";
 
 
 // const {registerObserver} = require('react-perf-devtool')

@@ -47,10 +47,12 @@ export default class ArticleList extends React.Component {
         <Content style={styles.defaultMargin}>
           <List split={false}
                 header={<strong>最新文章</strong>}
-                pagination={listPageSetting}
-          >
+                pagination={listPageSetting} >
             {articles.map((item,i)=>(
-              <CardPure key={i} hoverable bordered={false} style={styles.card}
+              <CardPure key={i}
+                        hoverable
+                        bordered={false}
+                        style={styles.card}
                         title={item.title}
                         statusBarItem={item}
                         summary={<div style={styles.summary}

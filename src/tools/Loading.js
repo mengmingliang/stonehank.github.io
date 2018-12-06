@@ -12,8 +12,14 @@ export default class Loading extends React.PureComponent{
     ske_para_style.rows=ske_para_rows
     ske_para_style.width=ske_para_width
     return(
-      Array(render_nums).fill(1).map((n,i)=>(
-        <Skeleton key={i} active loading={loading} title={ske_title_style} paragraph={ske_para_style} avatar={avatar}>
+      Array.from({length:render_nums}).map((n,i)=>(
+        <Skeleton key={i}
+                  active
+                  avatar={avatar}
+                  loading={loading}
+                  title={ske_title_style}
+                  paragraph={ske_para_style}
+        >
           {this.props.children}
         </Skeleton>
       ))

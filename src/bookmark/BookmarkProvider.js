@@ -1,5 +1,5 @@
 import React from "react";
-import BookmarkContext from "../tools/BookmarkContext";
+import BookmarkContext from "./BookmarkContext";
 
 export default class BookmarkProvider extends React.Component{
   constructor(){
@@ -27,7 +27,6 @@ export default class BookmarkProvider extends React.Component{
     // 不重复渲染的关键 {this.props.children}
     return (
       <BookmarkContext.Provider value={this.bookmarkData}>
-
         {this.props.children}
       </BookmarkContext.Provider>
     )

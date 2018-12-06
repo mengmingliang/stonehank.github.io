@@ -55,15 +55,17 @@ export default class NotFound extends React.Component {
   render() {
     return (
       <div className="spotLightWrap"
-           ref={this.spotLightWrap}
-      >
-        <div className="show"  >
+           ref={this.spotLightWrap}>
+        <div className="show">
           <div>Page</div>
           <div>Not</div>
           <div>Found</div>
         </div>
-        <div className="show" id="spotlight"  ref={this.spotLightRef}>
-          <div id="spotlightHelper"  ref={this.spotLightHelper}>
+        <div className="show"
+             id="spotlight"
+             ref={this.spotLightRef}>
+          <div id="spotlightHelper"
+               ref={this.spotLightHelper}>
             <div>Page</div>
             <div>Not</div>
             <div>Found</div>

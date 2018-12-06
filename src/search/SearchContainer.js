@@ -1,26 +1,13 @@
 import React from 'react';
-import {Input, Badge, Modal, Spin,message} from 'antd';
+import { Modal,message} from 'antd';
 import SearchDrawer from "./SearchDrawer";
-import {inHTMLTag,searchPrecision} from '../utils'
-import SlideCheckBox from "./SlideCheckBox";
+import {inHTMLTag,searchPrecision} from '../utils/index'
 import SearchConfirmSize from "./SearchConfirmSize";
-
-
-
+import SearchComponent from "./SearchComponent";
 
 const confirm = Modal.confirm;
-const {Search} = Input;
-const styles = {
-  search: {width: 256},
-  slideSize: {height: 30, width: 50},
-  spinWrap: {position: "absolute"},
-  badge: {backgroundColor: '#b8b8b8',color: '#fff', transform: "scale(0.7)", transformOrigin: "center", fontSize: "medium"},
-  searchAddon: {display: 'flex', flexFlow: 'row nowrap', alignItems: 'center', marginLeft: -11},
-  searchWrap: {display: "flex", alignSelf:"center"},
-  slideCheckBox:{marginRight: -11}
-}
 
-export default class SearchContainer extends React.Component {
+export default class Search extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -74,7 +61,6 @@ export default class SearchContainer extends React.Component {
     if (!globalSearch && this.localMem[patternValue]) {
       return this.localMem[patternValue]
     }
-    // let time=0
     let matchResultObj = {
       _first:[],_second:[],_third:[],_forth: [], _fifth: [], _sixth: []
     }
@@ -84,18 +70,14 @@ export default class SearchContainer extends React.Component {
         title:false,
         date:false
       }
-      // let contentIsPrec=false,titleIsPrec=false,dateIsPrec=false
-      // let x=performance.now()
+
       let markdownSummary = globalSearch ? data[i].content : data[i].summary
-      // let markdownSummary = md.render(globalSearch ? data[i].content : data[i].summary)
-      // time+=performance.now()-x
       let markdownTitle = data[i].title
       let markdownCreatedTime=data[i].createdTime
       let lowerCaseTitle=markdownTitle.toLowerCase()
       let lowerCaseSummary=markdownSummary.toLowerCase()
       let lowerCaseDate=markdownCreatedTime.toLowerCase()
 
-      // console.log(lowerCaseDate)
 
       function searchCore(pattern,content,isPrecName,fromIndex){
         let matchIndex,precisionIndex=searchPrecision(pattern,content,fromIndex)
@@ -104,23 +86,6 @@ export default class SearchContainer extends React.Component {
         else matchIndex = content.indexOf(patternValue,fromIndex)
         return matchIndex
       }
-
-      // function searchTitle(pattern,content,fromIndex){
-      //   let titleMatchIndex,titlePrecIndex=searchPrecision(pattern,content,fromIndex)
-      //   if(titlePrecIndex===null)titleMatchIndex= -1
-      //   else if(titlePrecIndex!==-1){titleIsPrec=true;titleMatchIndex=titlePrecIndex}
-      //   else titleMatchIndex = lowerCaseTitle.indexOf(patternValue,fromIndex)
-      //   return titleMatchIndex
-      // }
-      // function searchContent(pattern,content,fromIndex){
-      //     let contentMatchIndex,contentPrecIndex=searchPrecision(pattern,content,fromIndex)
-      //     if(contentPrecIndex===null)contentMatchIndex= -1
-      //     else if(contentPrecIndex!==-1){contentIsPrec=true;contentMatchIndex=contentPrecIndex}
-      //     else contentMatchIndex =  lowerCaseSummary.indexOf(patternValue,fromIndex)
-      //     return contentMatchIndex
-      // }
-      // let titleMatchIndex=searchTitle(patternValue,lowerCaseTitle),
-      //   contentMatchIndex=searchContent(patternValue,lowerCaseSummary)
 
       let titleMatchIndex=searchCore(patternValue,lowerCaseTitle,'title'),
         contentMatchIndex=searchCore(patternValue,lowerCaseSummary,'content'),
@@ -144,9 +109,7 @@ export default class SearchContainer extends React.Component {
         let contentMatchPart=lowerCaseSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
         // 去除tag内部内容
         while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo))){
-            // contentIsPrec=false
             isPrec['content']=false
-            // contentMatchIndex=searchContent(patternValue,lowerCaseSummary,contentMatchIndex+patternValue.length)
             contentMatchIndex=searchCore(patternValue,lowerCaseSummary,'content',contentMatchIndex+patternValue.length)
             if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
             else break
@@ -159,19 +122,26 @@ export default class SearchContainer extends React.Component {
       }
 
       // 添加颜色html
-
       function addMatchColor(prefix,match,affix){
         return `<span>${prefix}<span style="background:yellow">${match}</span>${affix}</span>`
       }
 
-      let finalMatchDate=dateMatchIndex===-1 ? data[i].createdTime : addMatchColor(datePrefix,dateFix,dateAffix)
-        // `<span>${datePrefix}<span style="background:yellow">${dateFix}</span>${dateAffix}</span>`
+      let finalMatchDate=
+        dateMatchIndex===-1
+          ? data[i].createdTime
+          : addMatchColor(datePrefix,dateFix,dateAffix)
 
-      let finalMatchTitle=titleMatchIndex===-1 ? data[i].title : addMatchColor(titlePrefix,titleFix,titleAffix)
-        // `<div>${titlePrefix}<span style="background:yellow">${titleFix}</span>${titleAffix}</div>`
 
-      let finalMatchContent=contentMatchIndex===-1 ? markdownSummary.substr(0, 100) : addMatchColor(contentPrefix,contentFix,contentAffix)
-        // `${contentPrefix}<span style="background:yellow">${contentFix}</span>${contentAffix}`
+      let finalMatchTitle=
+        titleMatchIndex===-1
+          ? data[i].title
+          : addMatchColor(titlePrefix,titleFix,titleAffix)
+
+      let finalMatchContent=
+        contentMatchIndex===-1
+          ? markdownSummary.substr(0, 100)
+          : addMatchColor(contentPrefix,contentFix,contentAffix)
+
       let resultObj={
         title:finalMatchTitle,
         matchContent:finalMatchContent,
@@ -303,8 +273,6 @@ export default class SearchContainer extends React.Component {
     })
   }
 
-
-
   showConfirm() {
     confirm({
       title: '确定使用全局搜索？',
@@ -337,46 +305,12 @@ export default class SearchContainer extends React.Component {
     const {controlledValue,searchKeyword, matchTags, matchArticles, drawShow, globalFetching, globalSearch} = this.state
     return (
       <React.Fragment>
-        <div style={styles.searchWrap}>
-          <Search
-            addonBefore={
-              <span style={styles.searchAddon}>
-              <Badge count={"?"}
-                     title={"局部搜索只搜素标签，标题和摘要，无额外加载.\n全局搜索搜索全部内容，会有额外加载."}
-                     style={styles.badge}/>
-              <SlideCheckBox
-                style={styles.slideCheckBox}
-                checkedChildren={
-                  <span>
-                    全局
-                    <span style={styles.spinWrap}>
-                      <Spin spinning={globalFetching}/>
-                    </span>
-                  </span>
-                }
-                unCheckedChildren={
-                  <span>
-                    <span style={styles.spinWrap}>
-                      <Spin spinning={globalFetching}/>
-                    </span>
-                    局部
-                  </span>
-                }
-                size={styles.slideSize}
-                checkBoxChange={this.toggleGlobalSearch}
-                isDisabled={globalFetching}
-                isChecked={globalSearch}
-                id={"slide-checkbox1"}/>
-              </span>
-            }
-            placeholder="tag/title/keywords"
-            onChange={this.onChangeHandle}
-            onSearch={this.onSearchHandle}
-            enterButton
-            value={controlledValue}
-            style={styles.search}
-          />
-        </div>
+        <SearchComponent globalFetching={globalFetching}
+                         globalSearch={globalSearch}
+                         controlledValue={controlledValue}
+                         onChangeHandle={this.onChangeHandle}
+                         onSearchHandle={this.onSearchHandle}
+                         toggleGlobalSearch={this.toggleGlobalSearch} />
         <SearchDrawer matchTags={matchTags}
                       controlledValue={controlledValue}
                       searchKeyword={searchKeyword}

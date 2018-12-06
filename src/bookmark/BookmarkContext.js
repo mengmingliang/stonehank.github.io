@@ -1,4 +1,4 @@
-import {getCookie} from "../utils";
+import {getCookie} from "../utils/index";
 import React from "react";
 
 let key="blog_bookmark"

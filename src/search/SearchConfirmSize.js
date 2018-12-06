@@ -23,7 +23,10 @@ export default class SearchConfirmSize extends React.Component{
     const {fileSize}=this.state
 
     return(
-      <span>全局搜索会一次性加载所有内容，将会消耗额外流量约 <b>{  fileSize ||deafultRender}</b> kb</span>
+      <span>
+        全局搜索会一次性加载所有内容，将会消耗额外流量约
+        <b>{  fileSize ||deafultRender}</b> kb
+      </span>
     )
   }
 }

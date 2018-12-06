@@ -192,7 +192,9 @@ export function deepEqual(obj1,obj2){
 export function parseHrefToNav(pathname){
   let selectedKeyMathch=pathname.match(/^.*?(\/\w+)\/?/) || []
   let selectedKey=selectedKeyMathch[1]
-  return pathEnum.includes(selectedKey)?selectedKey:pathEnum[0]
+  return pathEnum.includes(selectedKey)
+    ? selectedKey
+    : pathEnum[0]
 }
 
 

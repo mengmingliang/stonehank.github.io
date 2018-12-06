@@ -47,13 +47,20 @@ export default class SlideCheckBox extends React.PureComponent{
         <label className="slide-checkbox"
                style={customSize?{width:slideW,height:slideH}:null}
                htmlFor={id}  onClick={this.cancelBubble}>
-          {isChecked ?
-            checkedChildren ?
-              <span  style={{lineHeight:heightValue?slideH:null,fontSize:heightValue?heightValue/4:"1rem"}} className="checkbox-checked-caption">{checkedChildren}</span> :
-              null :
-            unCheckedChildren ?
-              <span  style={{lineHeight:heightValue?slideH:null,fontSize:heightValue?heightValue/4:"1rem"}} className="checkbox-unchecked-caption">{unCheckedChildren}</span> :
-              null
+          {
+            isChecked
+              ? checkedChildren
+                ? <span  style={{lineHeight:heightValue?slideH:null,fontSize:heightValue?heightValue/4:"1rem"}}
+                         className="checkbox-checked-caption">
+                    {checkedChildren}
+                  </span>
+                : null
+              : unCheckedChildren
+                ? <span  style={{lineHeight:heightValue?slideH:null,fontSize:heightValue?heightValue/4:"1rem"}}
+                         className="checkbox-unchecked-caption">
+                    {unCheckedChildren}
+                  </span>
+                : null
           }
         </label>
       </div>

@@ -7,7 +7,6 @@ const wrapperClassName='search-drawer'
 
 export default class SearchDrawer extends React.Component {
 
-
   shouldComponentUpdate(props){
     const {matchArticles,matchTags,drawShow,searchKeyword,controlledValue}=this.props
     return searchKeyword!==props.searchKeyword ||
@@ -24,23 +23,25 @@ export default class SearchDrawer extends React.Component {
     const {matchTags,matchArticles,drawShow,handleDrawerClose,onChange,clearSearchInput,controlledValue,searchKeyword}=this.props
     const canShow=matchArticles && handleDrawerClose
     return (
-      canShow ?
-      <Drawer
-        width={256}
-        title={<Input addonBefore="搜索" value={controlledValue} onChange={onChange}/>}
-        placement={"right"}
-        onClose={handleDrawerClose}
-        visible={drawShow}
-        wrapperClassName={wrapperClassName}
-      >
-        <SearchDrawerListLazyScroll matchArticles={matchArticles}
-                                    matchTags={matchTags}
-                                    searchKeyword={searchKeyword}
-                                    clearSearchInput={clearSearchInput}
-                                    wrapperClassName={wrapperClassName}
-                                    canShow={canShow} />
-      </Drawer> :
-        null
+      canShow
+        ? <Drawer width={256}
+                  title={
+                    <Input addonBefore="搜索"
+                           value={controlledValue}
+                           onChange={onChange}/>
+                  }
+                  placement={"right"}
+                  onClose={handleDrawerClose}
+                  visible={drawShow}
+                  wrapperClassName={wrapperClassName} >
+            <SearchDrawerListLazyScroll matchArticles={matchArticles}
+                                        matchTags={matchTags}
+                                        searchKeyword={searchKeyword}
+                                        clearSearchInput={clearSearchInput}
+                                        wrapperClassName={wrapperClassName}
+                                        canShow={canShow} />
+          </Drawer>
+        : null
     )
   }
 }

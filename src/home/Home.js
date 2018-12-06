@@ -38,10 +38,17 @@ export default class Home extends React.PureComponent {
     const {page}=this.props
     const renderArticles=articles?articles.slice((page-1)*pageSize,page*pageSize):null
     return(
-      contentLoading ?
-        <Loading loading={contentLoading} render_nums={3} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={3} /> :
+      contentLoading
+        ? <Loading loading={contentLoading}
+                 render_nums={3}
+                 ske_title_width={"30%"}
+                 ske_para_width={"50%"}
+                 ske_para_rows={3} />
 
-      <ArticleList articles={renderArticles} current={+page} pageSize={pageSize} total={articles.length} />
+        : <ArticleList articles={renderArticles}
+                       current={+page}
+                       pageSize={pageSize}
+                       total={articles.length} />
     )
   }
 }

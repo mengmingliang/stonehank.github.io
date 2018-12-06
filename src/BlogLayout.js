@@ -10,13 +10,13 @@ import About from "./about/About";
 import Home from "./home/Home";
 import ArticleDetail from "./article/ArticleDetail";
 import CategoryDetail from './category/CategoryDetail'
-import NavSiderContainer from "./nav/NavSiderContainer";
+import NavSiderWrapper from "./nav/NavSiderWrapper";
 import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
-import Search from "./tools/Search"
+import Search from "./search/SearchContainer"
 import HeaderPure from "./tools/HeaderPure"
-import {GetMark} from "./tools/Bookmark";
-import BookmarkContext from "./tools/BookmarkContext";
+import {GetMark} from "./bookmark/Bookmark";
+import BookmarkContext from "./bookmark/BookmarkContext";
 
 import './css/github.min.css'
 import './css/index.css';
@@ -65,11 +65,11 @@ export default class BlogLayout extends React.Component {
         `./asset/_blog-data`)
     }
 
-    fetchSourceCodeNav(){
-      return import(
-        /*webpackChunkName: "sourceCode-navList"*/
-        `./sourceCode-asset/_source-code-list.json`)
-    }
+  fetchSourceCodeNav(){
+    return import(
+      /*webpackChunkName: "sourceCode-navList"*/
+      `./sourceCode-asset/_source-code-list.json`)
+  }
 
   componentDidMount(){
     let promiseQueue=[]
@@ -135,14 +135,22 @@ export default class BlogLayout extends React.Component {
     * */
     return (
       <Layout>
-        <NavSiderContainer bio={bio} avatar={avatar} username={username}/>
+        <NavSiderWrapper bio={bio}
+                         avatar={avatar}
+                         username={username}/>
+
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <HeaderPure style={styles.layout_header} >
-            <Search data={initArticles} tagsList={categoryArticles && Object.keys(categoryArticles)}/>
+
+            <Search data={initArticles}
+                    tagsList={categoryArticles && Object.keys(categoryArticles)} />
+
             <BookmarkContext.Consumer>
               {({bookmark})=> <GetMark bookmark={bookmark} />}
             </BookmarkContext.Consumer>
+
             <a style={{marginLeft:"auto"}} href={github}><IconFont id="githubIcon" type="icon-github" /></a>
+
           </HeaderPure>
           <Location>
             {({location})=>{
@@ -151,25 +159,47 @@ export default class BlogLayout extends React.Component {
                 <TransitionGroup>
                   <CSSTransition key={location.key} classNames="slide" exit={false} timeout={500} >
                     <Router location={location}>
-                        <Home path="/" page={1} articles={initArticles}
+                        <Home path="/"
+                              page={1}
+                              articles={initArticles}
                               articlesEachPage={articlesEachPage}  />
-                        <Home path="page/:page" articles={initArticles}
+
+                        <Home path="page/:page"
+                              articles={initArticles}
                               articlesEachPage={articlesEachPage}  />
-                        <Archive path="archive" articles={archiveArticles}
-                                 defaultActiveArchive={defaultActiveArchive} archiveEachPage={archiveEachPage} />
-                        <Category path="category" page={1}
+
+                        <Archive path="archive"
+                                 articles={archiveArticles}
+                                 defaultActiveArchive={defaultActiveArchive}
+                                 archiveEachPage={archiveEachPage} />
+
+                        <Category path="category"
+                                  page={1}
                                   tagsRenderMode={tagsRenderMode}
                                   tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}  />
+
                         <Category path="category/page/:page"
                                   tagsRenderMode={tagsRenderMode}
                                   tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}   />
-                        <CategoryDetail path="category/:tag" categoryArticles={categoryArticles} />
-                        <SourceCode path="sourceCode"  sourceCodeNavSHA={sourceCodeNavSHA} />
-                        <About path="about" articles={categoryArticles} aboutMe={aboutMe}/>
-                        <ArticleDetail path="articles/:articleSha" blogList={initArticles} />
-                        <NotFound default changeBG={this.changeBackground} />
+
+                        <SourceCode path="sourceCode"
+                                    sourceCodeNavSHA={sourceCodeNavSHA} />
+
+                        <About path="about"
+                               articles={categoryArticles}
+                               aboutMe={aboutMe} />
+
+                        <ArticleDetail path="articles/:articleSha"
+                                       blogList={initArticles} />
+
+                        <CategoryDetail path="category/:tag"
+                                        categoryArticles={categoryArticles} />
+
+                        <NotFound default
+                                  changeBG={this.changeBackground} />
+
                       </Router>
                   </CSSTransition>
                 </TransitionGroup>

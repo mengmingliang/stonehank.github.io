@@ -5,8 +5,8 @@ import ArticleStatusBar from "../tools/ArticleStatusBar"
 import Loading from '../tools/Loading'
 import {linkTo} from "../routes/linkPathList";
 import CustomComment from "../tools/CustomComment";
-import BookmarkContext from '../tools/BookmarkContext'
-import {SetMark} from "../tools/Bookmark";
+import BookmarkContext from '../bookmark/BookmarkContext'
+import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
 
 

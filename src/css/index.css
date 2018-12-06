@@ -23,6 +23,19 @@ blockquote{
     font-weight: 400;
     font-style: italic;
 }
+hr{
+    margin: 3rem 20%;
+    border-top: 2px solid #eee;
+}
+code{
+    color:#c7254e;
+    background:#f8f8f8;
+}
+
+pre code{
+    color:initial;
+}
+
 .logo {
     height: 64px;
     display: flex;
