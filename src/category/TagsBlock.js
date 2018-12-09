@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row} from 'antd';
 
-import TagsCol from "../tools/TagsCol";
+import TagsCol from "../share-components/TagsCol";
 
 
 

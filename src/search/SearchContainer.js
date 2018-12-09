@@ -7,7 +7,7 @@ import SearchComponent from "./SearchComponent";
 
 const confirm = Modal.confirm;
 
-export default class Search extends React.Component {
+export default class SearchContainer extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -169,6 +169,7 @@ export default class Search extends React.Component {
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
     // console.timeEnd(2)
     // console.log(time)
+    // console.log(this.globalMem,this.localMem)
     return result
   }
 
@@ -247,6 +248,7 @@ export default class Search extends React.Component {
 
   fetchGlobal() {
     const {data} = this.state
+    const {read_blog_path}=this.props
     let fetchQueue = []
     for (let i = 0; i < data.length; i++) {
       fetchQueue[i] = import(
@@ -254,7 +256,7 @@ export default class Search extends React.Component {
         /* webpackInclude: /\.json$/ */
         /* webpackExclude: /_blog-data\.json$/ */
         /* webpackChunkName: "global-search" */
-        `../asset/${data[i].titleSHA}.json`)
+        `../${read_blog_path}/${data[i].titleSHA}.json`)
         .then(({default:obj}) => {
           data[i].content = obj.content
         })

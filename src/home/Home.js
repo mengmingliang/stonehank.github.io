@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleList from "./ArticleList";
-import Loading from "../tools/Loading";
+import Loading from "../share-components/Loading";
 
 
 

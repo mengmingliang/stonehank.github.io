@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from "../tools/Loading";
+import Loading from "../share-components/Loading";
 import YearCollapse from "./YearCollapse";
 
 export default class Archive extends React.Component {

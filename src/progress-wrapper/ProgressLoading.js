@@ -1,6 +1,6 @@
 import React from "react";
 import raf from 'raf'
-import Loading from "../tools/Loading";
+import Loading from "../share-components/Loading";
 
 
 const rootElement = document.getElementById("root");

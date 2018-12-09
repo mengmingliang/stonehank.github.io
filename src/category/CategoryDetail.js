@@ -2,9 +2,9 @@ import React from 'react';
 import {List} from 'antd';
 import {navigate} from "@reach/router"
 // import {linkTo} from '../routes/linkPathList'
-import Loading from "../tools/Loading";
+import Loading from "../share-components/Loading";
 import TagHeader from "./TagHeader";
-import CardPure from "../tools/CardPure";
+import CardPure from "../share-components/CardPure";
 
 
 const styles={

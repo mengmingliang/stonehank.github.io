@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import ArticleStatusBar from "./ArticleStatusBar";
 import {navigate} from "@reach/router";
 import {linkTo} from "../routes/linkPathList";
-import {deepEqual} from "../utils";
+import {deepEqual} from "../utils/index";
 
 export default class CardPure extends React.Component {
   constructor() {

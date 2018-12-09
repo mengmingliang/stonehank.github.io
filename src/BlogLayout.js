@@ -8,19 +8,20 @@ import Archive from "./archive/Archive";
 import Category from "./category/Category";
 import About from "./about/About";
 import Home from "./home/Home";
-import ArticleDetail from "./article/ArticleDetail";
+import ArticleDetail from "./share-components/ArticleDetail";
 import CategoryDetail from './category/CategoryDetail'
 import NavSiderWrapper from "./nav/NavSiderWrapper";
 import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
-import Search from "./search/SearchContainer"
+import SearchContainer from "./search/SearchContainer"
 import HeaderPure from "./tools/HeaderPure"
 import {GetMark} from "./bookmark/Bookmark";
 import BookmarkContext from "./bookmark/BookmarkContext";
+import {linkTo} from "./routes/linkPathList";
 
 import './css/github.min.css'
 import './css/index.css';
-import SourceCode from "./sourceCode/SourceCode";
+import SourceCode from "./source-code/SourceCode";
 
 
 const styles={
@@ -60,15 +61,17 @@ export default class BlogLayout extends React.Component {
   }
 
   fetchBlogContent(){
+    const {read_blog_path}=this.props.userConfig
       return import(
         /*webpackChunkName: "articles-list"*/
-        `./asset/_blog-data`)
+        `./${read_blog_path}/_blog-data`)
     }
 
   fetchSourceCodeNav(){
+    const {read_sourceCode_path}=this.props.userConfig
     return import(
       /*webpackChunkName: "sourceCode-navList"*/
-      `./sourceCode-asset/_source-code-list.json`)
+      `./${read_sourceCode_path}/_source-code-list.json`)
   }
 
   componentDidMount(){
@@ -94,8 +97,29 @@ export default class BlogLayout extends React.Component {
   }
   render() {
     const {userConfig}=this.props
-    const {bio,avatar,username,github,articlesEachPage,defaultActiveArchive,tagsEachPage,tagsRenderMode,archiveEachPage,aboutMe}=userConfig
-    const { wrapperBackground,archiveArticles, categoryArticles, initArticles,sourceCodeNavSHA}=this.state
+    const {
+      bio,
+      avatar,
+      username,
+      github,
+      articlesEachPage,
+      defaultActiveArchive,
+      tagsEachPage,
+      tagsRenderMode,
+      archiveEachPage,
+      aboutMe,
+      read_blog_path,
+      read_sourceCode_path
+    }=userConfig
+
+    const {
+      wrapperBackground,
+      archiveArticles,
+      categoryArticles,
+      initArticles,
+      sourceCodeNavSHA
+    }=this.state
+
     if(archiveArticles && !archiveArticles.activePanel){
       Object.defineProperty(archiveArticles,"activePanel",{value:null, writable:true})
     }
@@ -142,8 +166,9 @@ export default class BlogLayout extends React.Component {
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <HeaderPure style={styles.layout_header} >
 
-            <Search data={initArticles}
-                    tagsList={categoryArticles && Object.keys(categoryArticles)} />
+            <SearchContainer data={initArticles}
+                             read_blog_path={read_blog_path}
+                             tagsList={categoryArticles && Object.keys(categoryArticles)} />
 
             <BookmarkContext.Consumer>
               {({bookmark})=> <GetMark bookmark={bookmark} />}
@@ -164,37 +189,39 @@ export default class BlogLayout extends React.Component {
                               articles={initArticles}
                               articlesEachPage={articlesEachPage}  />
 
-                        <Home path="page/:page"
+                        <Home path="/page/:page"
                               articles={initArticles}
                               articlesEachPage={articlesEachPage}  />
 
-                        <Archive path="archive"
+                        <Archive path={linkTo.archive}
                                  articles={archiveArticles}
                                  defaultActiveArchive={defaultActiveArchive}
                                  archiveEachPage={archiveEachPage} />
 
-                        <Category path="category"
+                        <Category path={linkTo.category}
                                   page={1}
                                   tagsRenderMode={tagsRenderMode}
                                   tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}  />
 
-                        <Category path="category/page/:page"
+                        <Category path={`${linkTo.category}/page/:page`}
                                   tagsRenderMode={tagsRenderMode}
                                   tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}   />
 
-                        <SourceCode path="sourceCode"
+                        <SourceCode path={linkTo.sourceCode}
+                                    read_sourceCode_path={read_sourceCode_path}
                                     sourceCodeNavSHA={sourceCodeNavSHA} />
 
-                        <About path="about"
+                        <About path={linkTo.about}
                                articles={categoryArticles}
                                aboutMe={aboutMe} />
 
-                        <ArticleDetail path="articles/:articleSha"
-                                       blogList={initArticles} />
+                        <ArticleDetail path={`${linkTo.articles}/:articleSha`}
+                                       blogList={initArticles}
+                                       read_blog_path={read_blog_path} />
 
-                        <CategoryDetail path="category/:tag"
+                        <CategoryDetail path={`${linkTo.category}/:tag`}
                                         categoryArticles={categoryArticles} />
 
                         <NotFound default

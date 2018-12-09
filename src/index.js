@@ -1,7 +1,7 @@
 import React,{lazy,Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import * as userConfig from './user-config'
-import ProgressLoading from './ProgressWrapper/ProgressLoading'
+import ProgressLoading from './progress-wrapper/ProgressLoading'
 import BookmarkProvider from "./bookmark/BookmarkProvider";
 
 
@@ -26,7 +26,7 @@ function InitialComponentHOC(LazyComponent){
     }
   }
 }
-const Initial=InitialComponentHOC(lazy(() => import("./ProgressWrapper/WrappedProgressApp")))
+const Initial=InitialComponentHOC(lazy(() => import("./progress-wrapper/WrappedProgressApp")))
 
 try{
   ReactDOM.render(

@@ -4,7 +4,7 @@ import { navigate} from "@reach/router"
 import {Layout} from "antd";
 import TagsList from "./TagsList"
 import TagsBlock from "./TagsBlock"
-import Loading from "../tools/Loading";
+import Loading from "../share-components/Loading";
 
 
 const { Content} = Layout;

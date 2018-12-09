@@ -18,5 +18,8 @@
    ],
    "fetchExcludes":["readme"],
    "delRedundance":true,
-   "imgAbsPath":"https://stonehank.github.io"
+   "imgAbsPath":"https://stonehank.github.io",
+   "write_blog_path":"src/asset/blog",
+   "write_sourceCode_path":"src/asset/sourceCode",
+   "write_resource_path":"public/articles"
 }

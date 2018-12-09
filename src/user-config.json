@@ -8,5 +8,7 @@
   "defaultActiveArchive":["2018年",""],
   "tagsRenderMode":"list",
   "articlesEachPage":3,
-  "archiveEachPage":5
+  "archiveEachPage":5,
+  "read_blog_path":"asset/blog",
+  "read_sourceCode_path":"asset/sourceCode"
 }

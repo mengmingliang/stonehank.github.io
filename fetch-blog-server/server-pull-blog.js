@@ -32,7 +32,7 @@ let globalSearchFileSize=0
 // 开始
 console.log("项目根目录为："+context,"正在通过github获取数据...")
 const {token}=token_json
-const {user,repository,branch,per_page,imgAbsPath,
+const {user,repository,branch,per_page,imgAbsPath,write_blog_path,write_sourceCode_path,write_resource_path,
   dataType,summaryLength,resource_dir_list,keywords,delRedundance,fetchExcludes,
   forceUpdate,ignoreSHA,retry_times,showDetail}=config
 // 判断blog是否完成，完成blog后才执行资源
@@ -100,7 +100,7 @@ function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getConten
       }
       axios.all(pageList)
         .then(()=>{
-          if(showDetail)console.log("全部页面获取完毕")
+          console.log(`全部页面(${pageList.length})获取完毕`)
           checkANDwrite(allDataListArr,getListInfoPath,getContentInfoPath, options)
         })
     }
@@ -153,7 +153,7 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath, options) {
 let taskQueue=[
   {
     writeListInfoName:`_blog-data.json`,
-    writeDIRPath:`${context}/src/asset`,
+    writeDIRPath:`${context}/${write_blog_path}`,
     initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
     initComputeWriteContentInfoPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
     initComputeSearchCommand:(user,repository)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}&page=${page}`,
@@ -169,7 +169,7 @@ let taskQueue=[
   },
   {
     writeListInfoName:`_source-code-list.json`,
-    writeDIRPath:`${context}/src/sourceCode-asset`,
+    writeDIRPath:`${context}/${write_sourceCode_path}`,
     initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
     initComputeWriteContentInfoPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
     initComputeSearchCommand:(user,repository)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+filename:navigation&per_page=${per_page}&page=${page}`,
@@ -185,7 +185,7 @@ let taskQueue=[
   {
 
     writeListInfoName:`_resource_list.json`,
-    writeDIRPath:`${context}/public/articles`,
+    writeDIRPath:`${context}/${write_resource_path}`,
     initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName,restrictPath)=>()=>`${writeDIRPath}/${restrictPath}/${writeListInfoName}`,
     initComputeWriteContentInfoPath:(writeDIRPath,restrictPath)=>filename=>`${writeDIRPath}/${restrictPath}/${filename}`,
     initComputeSearchCommand:(user,repository,restrictPath)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${restrictPath}&page=${page}`,
@@ -202,7 +202,7 @@ fetchTaskQueue()
 function fetchTaskQueue(){
   if(taskQueue.length===0){
     // 写入globalSearchSize
-    const blog_contentInfoDIR=`${context}/src/asset`
+    const blog_contentInfoDIR=`${context}/${write_blog_path}`
     const sizeFilename="global-search-size.json"
     getGZipSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
     console.log('\n 已写入globalSearchSize')
@@ -236,45 +236,6 @@ function fetchTaskQueue(){
   }
 }
 
-// // 获取blog
-// const blog_list_name=`_blog-data.json`
-// const blog_listInfoPath=`${context}/src/asset/${blog_list_name}`
-// const blog_contentInfoDIR=`${context}/src/asset`
-// // 动态页码查询命令
-// const createBlogSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&per_page=${per_page}&page=${page}`
-//
-// let getBlogContentInfoPath=(filename)=>`${blog_contentInfoDIR}/${filename}`
-// let getBlogListInfoPath=()=>blog_listInfoPath
-//
-// getPagesAndConcatData(createBlogSearchCommand,getBlogListInfoPath,getBlogContentInfoPath,{cus_extension:'.json'})
-
-
-// 获取resource
-// function fetchResource(){
-//   if(hasFetchResource)return
-//   hasFetchResource=true
-//   const resource_DIR=`${context}/public`
-//   // 写入globalSearchSize
-//   const sizeFilename="global-search-size.json"
-//   getGZipSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
-//
-//   // blog全部获取完成后，获取资源
-//   for(let i=0;i<resource_dir_list.length;i++){
-//
-//
-//     // 动态页码查询命令
-//     const createResourceSearchCommand=(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}&page=${page}`
-//
-//     // const resoucre_searchCommand=`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${resource_dir_list[i]}`
-//     const resource_contentInfoDIR=resource_DIR+`/articles/${resource_dir_list[i]}`
-//     const resource_listInfoPath=`${resource_contentInfoDIR}/_${resource_dir_list[i]}-listInfo.json`
-//     const getResource_listInfoPath=()=>resource_listInfoPath
-//     const getResource_contentInfoPath=(filename)=>`${resource_contentInfoDIR}/${filename}`
-//
-//     getPagesAndConcatData(createResourceSearchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
-//     // checkANDwrite(resoucre_searchCommand,getResource_listInfoPath,getResource_contentInfoPath,{isResource:true})
-//   }
-// }
 
 
 // 写入list文件

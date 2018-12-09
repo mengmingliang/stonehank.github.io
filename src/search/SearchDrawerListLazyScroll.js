@@ -1,7 +1,7 @@
 import React from 'react'
 import {List, Divider, Row} from 'antd';
-import CardPure from "../tools/CardPure";
-import TagsCol from "../tools/TagsCol";
+import CardPure from "../share-components/CardPure";
+import TagsCol from "../share-components/TagsCol";
 
 const renderNumber = 3
 const styles = {

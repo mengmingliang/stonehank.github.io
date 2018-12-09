@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
-import ArticleStatusBar from "../tools/ArticleStatusBar"
-import Loading from '../tools/Loading'
+import ArticleStatusBar from "./ArticleStatusBar"
+import Loading from './Loading'
 import {linkTo} from "../routes/linkPathList";
 import CustomComment from "../tools/CustomComment";
 import BookmarkContext from '../bookmark/BookmarkContext'
@@ -49,7 +49,7 @@ export default class ArticleDetail extends React.Component{
     navigate(`${linkTo.articles}/${this.props.blogList[page-1].titleSHA}`)
   }
   fetchBlogContent(){
-    const {articleSha,blogList}=this.props
+    const {articleSha,blogList,read_blog_path}=this.props
 
     const curArticle=blogList.find((o,i)=>{
       if(o.titleSHA===articleSha){
@@ -60,7 +60,7 @@ export default class ArticleDetail extends React.Component{
     })
 
     return import(
-      `../asset/${articleSha}.json`)
+      `../${read_blog_path}/${articleSha}.json`)
       .then(({default:obj})=>({
         content:obj.content,
         title:curArticle.title,

@@ -2,7 +2,7 @@ const fs=require('fs-extra')
 
 test('check sha is unique',function () {
   let blogList
-  try{blogList=fs.readJsonSync('./src/asset/_blog-data.json')}
+  try{blogList=fs.readJsonSync('./src/asset/blog/_blog-data.json')}
   catch(e){throw new Error("Test read _blog-data.json wrong!"+"\n"+e)}
   let result=true,mem={}
   for(let k in blogList){

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, List} from 'antd';
 import {Link} from "@reach/router"
-import ArticleStatusBar from "../tools/ArticleStatusBar"
-import Loading from "../tools/Loading";
+import ArticleStatusBar from "../share-components/ArticleStatusBar"
+import Loading from "../share-components/Loading";
 import {linkTo} from "../routes/linkPathList";
 
 
