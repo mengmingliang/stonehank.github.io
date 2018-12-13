@@ -44,8 +44,8 @@ const {user,repository,branch,per_page,imgAbsPath,write_blog_path,write_sourceCo
 // let fetchRsourceDone
 // let hasFetchResource=false
 // 用于保存获取的github数据，用于发生错误重复执行
-let  githubData=null
-let retryTimes=retry_times
+// let  githubData=null
+let limitRetryTimes=retry_times
 
 
 
@@ -166,7 +166,7 @@ let taskQueue=[
       { cus_extension:'.json',
         user:user,
         repository:repository,
-        writeModuleWithLog:getWriteJsonWithLog("blog文件",showDetail),
+        writeModuleWithLog:getWriteJsonWithLog("blog文件",showDetail,limitRetryTimes),
         // fileWrittingQueue:new ProgressRemider("blog文件",showDetail),
         needHref2Absolute:{abs:`${imgAbsPath}/articles/img/`,isImg:true}
 
@@ -183,7 +183,7 @@ let taskQueue=[
       { cus_extension:'.json',
         user:user,
         repository:`sourcecode-analysis`,
-        writeModuleWithLog:getWriteJsonWithLog("源码阅读",showDetail),
+        writeModuleWithLog:getWriteJsonWithLog("源码阅读",showDetail,limitRetryTimes),
         // fileWrittingQueue:new ProgressRemider("源码阅读",showDetail),
         needHref2Absolute:{abs:'https://github.com/stonehank/sourcecode-analysis/blob/master/',isImg:false}
       },
@@ -200,26 +200,30 @@ let taskQueue=[
       { isResource:true,
         user:user,
         repository:repository,
-        writeModuleWithLog:getCreateWriteStreamWithLog("资源文件",showDetail),
+        writeModuleWithLog:getCreateWriteStreamWithLog("资源文件",showDetail,limitRetryTimes),
         // fileWrittingQueue:new ProgressRemider("资源文件",showDetail),
       },
   }
 ]
 
-// todo 传入错误次数限制
-function _writeListInfoJson(listInfoPath,listData){
+
+function writeListInfoJson(listInfoPath,listData,retryTimes=0){
   if(!listInfoPath || listData==null)throw new Error('Must be have path or data')
   let writeListWithLog=getWriteJsonWithLog("写入List",showDetail)
   return writeListWithLog(listInfoPath,listData)
     .then(hasDone=>{
       if(hasDone){
-        if(showDetail)console.log(`正在检查...`)
+        if(showDetail)console.log(`正在检查格式是否正确...`)
         try{
           fs.readJsonSync(listInfoPath)
           if(showDetail)console.log(`${listInfoPath} 检查成功！`)
         }catch(err) {
-          if(showDetail)console.log(`${listInfoPath} 检查失败，尝试重新创建！`)
-          _writeListInfoJson(listInfoPath,listData)
+          if(retryTimes===limitRetryTimes)throw new Error(`写入失败，超出重试次数，请删除${listInfoPath}再次尝试`)
+          else{
+            retryTimes++
+            if(showDetail)console.log(`${listInfoPath} 检查失败，尝试重新创建！`)
+            writeListInfoJson(listInfoPath,listData,retryTimes)
+          }
         }
       }
     })
@@ -285,7 +289,7 @@ function tryDelredundant(getContentInfoPath,isResource,listInfoPath,listData,git
     fs.readJson(listInfoPath)
       .then((obj)=>{
         deleteList.forEach(n=>delete(obj[n]))
-        _writeListInfoJson(listInfoPath,obj)
+        writeListInfoJson(listInfoPath,obj)
           .then(hasDone=>{
             if(hasDone) console.log("存在多余文件或者list并且已删除!")
           })
@@ -307,11 +311,11 @@ function tryDelredundant(getContentInfoPath,isResource,listInfoPath,listData,git
 }
 
 
-fetchTaskQueue(null,true)
+fetchTaskQueue()
 function fetchTaskQueue(writeListCheckRedundantOptions,isFirstLoad){
   if(!isFirstLoad && writeListCheckRedundantOptions){
     let {getContentInfoPath,isResource,listInfoPath,listData,githubResult}=writeListCheckRedundantOptions
-    _writeListInfoJson(listInfoPath,listData)
+    writeListInfoJson(listInfoPath,listData)
       .then(()=>{
         if(delRedundant)
           tryDelredundant(getContentInfoPath,isResource,listInfoPath,listData,githubResult)
@@ -356,27 +360,27 @@ function fetchTaskQueue(writeListCheckRedundantOptions,isFirstLoad){
 
 
 
-// 写入list文件
-function writelistInfoJson(listInfoPath,listData,githubResult,getContentInfoPath,finalOptions){
-  fs.writeJson(listInfoPath,listData,{spaces:'\t'})
-    .then(()=>{
-      if(showDetail)console.log(`${listInfoPath} 写入成功，检查...`)
-      fs.readJson(listInfoPath)
-        .then(()=>{
-          if(showDetail)console.log(`${listInfoPath} 检查成功！`)
-        })
-    })
-    .catch(err=>{
-      if(retryTimes===0){
-        console.log("超出重试次数，请尝试手动删除后再执行")
-      }
-      console.log(`写入${listInfoPath}失败或者格式错误，准备删除重新创建...`)
-      retryTimes--
-      fs.remove(listInfoPath)
-      // 重新创建
-      // checkIfNeedUpdated(githubResult,{},listInfoPath,getContentInfoPath,finalOptions)
-    })
-}
+// // 写入list文件
+// function writelistInfoJson(listInfoPath,listData,githubResult,getContentInfoPath,finalOptions){
+//   fs.writeJson(listInfoPath,listData,{spaces:'\t'})
+//     .then(()=>{
+//       if(showDetail)console.log(`${listInfoPath} 写入成功，检查...`)
+//       fs.readJson(listInfoPath)
+//         .then(()=>{
+//           if(showDetail)console.log(`${listInfoPath} 检查成功！`)
+//         })
+//     })
+//     .catch(err=>{
+//       if(limitRetryTimes===0){
+//         console.log("超出重试次数，请尝试手动删除后再执行")
+//       }
+//       console.log(`写入${listInfoPath}失败或者格式错误，准备删除重新创建...`)
+//       limitRetryTimes--
+//       fs.remove(listInfoPath)
+//       // 重新创建
+//       // checkIfNeedUpdated(githubResult,{},listInfoPath,getContentInfoPath,finalOptions)
+//     })
+// }
 
 
 

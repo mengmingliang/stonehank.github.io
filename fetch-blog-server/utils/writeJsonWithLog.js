@@ -1,29 +1,38 @@
 const fs = require('fs-extra')
 const ProgressReminder=require('./progress_remider')
 
-
-function getWriteJsonWithLog(description="当前任务",showDetail=false){
-  let fileWrittingQueue=new ProgressReminder(description,showDetail)
+/**
+ * 接受path和content
+ * @param description
+ * @param showDetail
+ * @param limitRetryTimes
+ * @returns {function(*=, *=, {spaces?: *, filename?: *, allTasksCount?: *}=): Promise<boolean>}
+ */
+function getWriteJsonWithLog(description="当前任务",showDetail=false,limitRetryTimes=2){
+  let fileWritingQueue=new ProgressReminder(description,showDetail)
   return function(path,content,{spaces=2,filename=null,allTasksCount=1,}={}){
     filename=filename===null ?path:filename
-    fileWrittingQueue.addTask(filename)
+    fileWritingQueue.addTask(filename)
     let writingHasDone
-    return fs.outputJson(path,content,{spaces:spaces})
-      .catch(err=>{
-        if(showDetail)console.log(`写入${filename}失败，尝试重新写入`)
-        try{
-          fs.outputJsonSync(path,content,{spaces:spaces})
-          writingHasDone=fileWrittingQueue.doneTask(filename,allTasksCount,1,1)
-        }
-        catch(e){console.warn(`写入${filename}失败！尝试手动添加`)}
-      })
+    return tryWriteFile(path,content,spaces,limitRetryTimes,showDetail)
       .then(()=>{
-        writingHasDone=fileWrittingQueue.doneTask(filename,allTasksCount,1,1)
+        writingHasDone=fileWritingQueue.doneTask(filename,allTasksCount,1,1)
         return writingHasDone
       })
   }
 }
 
+function tryWriteFile(path,content,spaces,limitRetryTimes,showDetail){
+  return fs.outputJson(path,content,{spaces:spaces})
+    .catch(err=>{
+      if(limitRetryTimes===0) console.warn(`写入${filename}失败！超出重试次数`)
+      else{
+        if(showDetail)console.log(`写入${filename}失败，尝试重新写入`)
+        limitRetryTimes--
+        return tryWriteFile(path,content,spaces,limitRetryTimes)
+      }
+    })
+}
 
 module.exports=getWriteJsonWithLog
 
