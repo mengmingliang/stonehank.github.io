@@ -10,15 +10,18 @@ function ProgressRemider(fileType,showDetail){
   }
 
   this.fetching=function (read,fullBytes,allTaskLen) {
-    log(`当前文件已完成${(read/fullBytes*100).toFixed(2)}%\n${fileType}已完成${hasDoneNum}/${allTaskLen}`)
+    let progress=fullBytes? `${(read/fullBytes*100).toFixed(2)}%` : `${Math.floor(read/1024)}kb`
+    log(`当前文件已完成${progress}\n${fileType}已完成${hasDoneNum}/${allTaskLen}`)
   }
 
   this.doneTask=function (pathOrFilename,allTaskLen,read,fullBytes) {
+    let progress=fullBytes? `${(read/fullBytes*100).toFixed(2)}%` : `${Math.floor(read/1024)}kb`
     hasDoneNum++
     delete(fileWritingList[pathOrFilename])
+    log(`${pathOrFilename}已完成${progress}，当前进度${hasDoneNum}/${allTaskLen}`)
     if(hasDoneNum===allTaskLen ){
-      if(showDetail)console.log(`${pathOrFilename}写入结束`)
-      log(`当前文件已完成${(read/fullBytes*100).toFixed(2)}%\n${fileType}已完成${hasDoneNum}/${allTaskLen}\n当前${fileType}已全部完成`)
+      if(showDetail)console.log(`\n${fileType}写入结束`)
+      log(`${fileType}已完成${hasDoneNum}/${allTaskLen}\n${fileType}已全部完成`)
       return true
     }
     return false
