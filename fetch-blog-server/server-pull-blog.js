@@ -1,17 +1,15 @@
 const axios = require('axios');
 const fs = require('fs-extra')
 const path=require("path")
-// const Base64 = require('js-base64').Base64;
 const moment = require("moment")
 const slash = require('slash');
 const appRoot = require('app-root-path');
-// const ProgressRemider=require('./utils/progress_remider')
 const filterExtract=require('./utils/filterExtract')
 const crypto = require('crypto');
 const md2Html= require('./utils/md2Html')
 const getGZipSize=require('./utils/getGZipSize')
 const {base64Decode}=require('./utils/base64-code')
-const getHighDensity=require('./utils/getSummaryByDensity')
+const getAppropriateSummary=require('./utils/getSummary')
 const href2Absolute=require('./utils/href2Absolute')
 const getWriteJsonWithLog=require('./utils/writeJsonWithLog')
 const getCreateWriteStreamWithLog=require('./utils/createWriteStreamWithLog')
@@ -31,20 +29,13 @@ try{
   console.log(`获取配置出现错误，确保fs-extra正确安装以及${config_json_path}和${token_json_path}存在`)
 }
 
-let globalSearchFileSize=0
-
 // 开始
 console.log("项目根目录为："+context,"正在通过github获取数据...")
 const {token}=token_json
 const {user,repository,branch,per_page,imgAbsPath,write_blog_path,write_sourceCode_path,write_resource_path,
-  dataType,summaryLength,resource_dir_list,keywords,delRedundant,fetchExcludes,
+  dataType,summaryMaxLen,summaryMinLen,resource_dir_list,keywords,delRedundant,fetchExcludes,
   forceUpdate,ignoreSHA,retry_times,showDetail}=config
-// 判断blog是否完成，完成blog后才执行资源
-// let fetchBlogHasDone
-// let fetchRsourceDone
-// let hasFetchResource=false
-// 用于保存获取的github数据，用于发生错误重复执行
-// let  githubData=null
+
 let limitRetryTimes=retry_times
 
 
@@ -66,10 +57,6 @@ for(let i=0;i<keywords.length;i++){
 }
 
 
-
-
-
-
 // 分页查询所有内容并且合并
 function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getContentInfoPath, options){
   let allDataListArr=[]
@@ -85,7 +72,7 @@ function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getConten
       })
       .then(obj=>allDataListArr=allDataListArr.concat(obj.items))
   }
-  // console.log(createBlogSearchCommand(1))
+
   axios.get(createBlogSearchCommand(1),check)
     .then(data=>{
       console.log("\n正在获取页数...")
@@ -150,9 +137,6 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath, options) {
     })
 
 }
-// // 创建写入列表，用于显示progress
-// let fileWritingList=new ProgressRemider("资源文件",showDetail)
-// let blogWritingList=new ProgressRemider("blog文件",showDetail)
 
 let taskQueue=[
   {
@@ -167,7 +151,6 @@ let taskQueue=[
         user:user,
         repository:repository,
         writeModuleWithLog:getWriteJsonWithLog("blog文件",showDetail,limitRetryTimes),
-        // fileWrittingQueue:new ProgressRemider("blog文件",showDetail),
         needHref2Absolute:{abs:`${imgAbsPath}/articles/img/`,isImg:true}
 
       },
@@ -184,7 +167,6 @@ let taskQueue=[
         user:user,
         repository:`sourcecode-analysis`,
         writeModuleWithLog:getWriteJsonWithLog("源码阅读",showDetail,limitRetryTimes),
-        // fileWrittingQueue:new ProgressRemider("源码阅读",showDetail),
         needHref2Absolute:{abs:'https://github.com/stonehank/sourcecode-analysis/blob/master/',isImg:false}
       },
   },
@@ -194,14 +176,13 @@ let taskQueue=[
     writeDIRPath:`${context}/${write_resource_path}`,
     initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName,restrictPath)=>()=>`${writeDIRPath}/${restrictPath}/${writeListInfoName}`,
     initComputeWriteContentInfoPath:(writeDIRPath,restrictPath)=>filename=>`${writeDIRPath}/${restrictPath}/${filename}`,
-    initComputeSearchCommand:(user,repository,restrictPath)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${restrictPath}&page=${page}`,
+    initComputeSearchCommand:(user,repository,restrictPath)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${restrictPath}&per_page=${per_page}&page=${page}`,
     read_restrictDIRList:resource_dir_list,
     checkANDwriteOptions:
       { isResource:true,
         user:user,
         repository:repository,
         writeModuleWithLog:getCreateWriteStreamWithLog("资源文件",showDetail,limitRetryTimes),
-        // fileWrittingQueue:new ProgressRemider("资源文件",showDetail),
       },
   }
 ]
@@ -293,15 +274,6 @@ function tryDelredundant(getContentInfoPath,isResource,listInfoPath,listData,git
           .then(hasDone=>{
             if(hasDone) console.log("存在多余文件或者list并且已删除!")
           })
-        // let reWrite=getWriteJsonWithLog('重写list',showDetail)
-        // reWrite(listInfoPath,obj)
-        //   .then(hasDone=>{
-        //     if(hasDone) console.log("存在多余文件或者list并且已删除!")
-        //   })
-        // fs.outputJson(listInfoPath,obj,{spaces:'\t'})
-        //   .then(()=>{
-        //     console.log("存在多余文件或者list并且已删除!")
-        //   })
       })
       .catch((e)=>{
         console.log("已删除多余文件，但读取list失败！")
@@ -321,7 +293,7 @@ function fetchTaskQueue(writeListCheckRedundantOptions,isFirstLoad){
           tryDelredundant(getContentInfoPath,isResource,listInfoPath,listData,githubResult)
       })
   }
-  // if(taskQueue)
+
   if(taskQueue.length===0){
     // 写入globalSearchSize
     const blog_contentInfoDIR=`${context}/${write_blog_path}`
@@ -359,40 +331,6 @@ function fetchTaskQueue(writeListCheckRedundantOptions,isFirstLoad){
 }
 
 
-
-// // 写入list文件
-// function writelistInfoJson(listInfoPath,listData,githubResult,getContentInfoPath,finalOptions){
-//   fs.writeJson(listInfoPath,listData,{spaces:'\t'})
-//     .then(()=>{
-//       if(showDetail)console.log(`${listInfoPath} 写入成功，检查...`)
-//       fs.readJson(listInfoPath)
-//         .then(()=>{
-//           if(showDetail)console.log(`${listInfoPath} 检查成功！`)
-//         })
-//     })
-//     .catch(err=>{
-//       if(limitRetryTimes===0){
-//         console.log("超出重试次数，请尝试手动删除后再执行")
-//       }
-//       console.log(`写入${listInfoPath}失败或者格式错误，准备删除重新创建...`)
-//       limitRetryTimes--
-//       fs.remove(listInfoPath)
-//       // 重新创建
-//       // checkIfNeedUpdated(githubResult,{},listInfoPath,getContentInfoPath,finalOptions)
-//     })
-// }
-
-
-
-
-
-
-
-
-
-
-
-
 // 执行listInfo和contentInfo的更新，需要先确定文件存在，读取文件内容(用来判断是否可以不更新一些key)
 function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoPath, finalOptions) {
   const {  cus_extension,customListKeys,isResource,user,repository,needHref2Absolute,writeModuleWithLog}=finalOptions
@@ -428,7 +366,7 @@ function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoP
 
     let appropriateKey
 
-    if(finalOptions.isResource)appropriateKey=cur_remote_filename
+    if(isResource)appropriateKey=cur_remote_filename
     else appropriateKey=titleSHA
 
 
@@ -480,21 +418,7 @@ function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoP
             }).then(hasDone=>{
               if(hasDone)fetchTaskQueue({getContentInfoPath,isResource,listInfoPath,listData,githubResult})
             })
-            // response.data.pipe(resorceWriteStream=fs.createWriteStream(contentPath_filename))
-            // if(showDetail)console.log(`${resorceWriteStream.path}正在写入...`)
-            // fileWrittingQueue.addTask(resorceWriteStream.path)
-            // let read=0
-            // let fullBytes=+response.headers["content-length"]
-            // response.data.on("data",function(data){
-            //   read+=data.length
-            //   fileWrittingQueue.fetching(read,fullBytes,fetchQueue.length)
-            // })
-            // resorceWriteStream.close=function(){
-            //   fetchRsourceDone=fileWrittingQueue.doneTask(resorceWriteStream.path,fetchQueue.length,read,fullBytes)
-            //   if(fetchRsourceDone){
-            //     fetchTaskQueue()
-            //   }
-            // }
+
           })
           .catch(err=>{
             console.error("当前请求发生错误，配置ignoreSHA设置false，然后重试")
@@ -529,7 +453,7 @@ function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoP
 
             if(needHref2Absolute)content=href2Absolute(content,needHref2Absolute.abs,needHref2Absolute.isImg)
             // 计算摘要开始未知
-            // let tryStart=getHighDensity(content,0.3,summaryLength)
+            // let tryStart=getHighDensity(content,0.3,summaryMaxLen)
             // let summaryStart=content.substr(tryStart).match(/(\n+)[\u4E00-\u9FA5]/)
             // if(summaryStart)summaryStart=summaryStart.index+tryStart
 
@@ -546,14 +470,17 @@ function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoP
             let filteredLabels=filterExtract(lowercaseKeyWords,obj["content"],cur_remote_filename)
 
 
+            let htmlContent=md2Html(content)
+            let htmlSummary=getAppropriateSummary(content,[summaryMinLen,summaryMaxLen])
+
+
 
             let getLabel=()=>checkIfNeedForceUpdated("label",filteredLabels)
             let getCreatedTime=()=>checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
             let getTimeArr=()=>checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
             let getTitle=()=>checkIfNeedForceUpdated("title",cur_remote_filename)
             let getTitleSHA=()=>checkIfNeedForceUpdated("titleSHA",titleSHA)
-            let getSummary=()=>checkIfNeedForceUpdated("summary",md2Html(content.substr(summaryStart,summaryLength)
-              .replace(/-{3,}/,'').replace(/(^|\n|\s)+#{1,3}\s/g,"#### ")+"..."))
+            let getSummary=()=>checkIfNeedForceUpdated("summary",htmlSummary)
 
 
             if(Array.isArray(customListKeys)){
@@ -569,7 +496,7 @@ function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoP
                 listData[appropriateKey][curKey]=listValue[curKey]()
               }
             }else{
-              console.error("customListKeys必须是Array")
+              throw new Error("customListKeys必须是Array")
             }
 
 
@@ -577,124 +504,22 @@ function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoP
             listData[appropriateKey].sha=cur_remote_sha
 
 
-            writeModuleWithLog(contentPath_sha,{content:md2Html(content)},{
+            writeModuleWithLog(contentPath_sha,{content:htmlContent},{
               allTasksCount:fetchQueue.length
             })
               .then(hasDone=>{
                 if(hasDone)fetchTaskQueue({getContentInfoPath,isResource,listInfoPath,listData,githubResult})
               })
 
-
-
-
-
-            // fileWrittingQueue.addTask(contentPath_sha)
-            // fs.outputJson(contentPath_sha,{content:md2Html(content)},{spaces:2},function(err){
-            //   if(err){
-            //     console.log(`写入${cur_remote_filename}失败，尝试重新写入`)
-            //     try{
-            //       fs.outputJsonSync(contentPath_sha,{content:md2Html(content)},{spaces:2})
-            //       fetchBlogHasDone=fileWrittingQueue.doneTask(contentPath_sha,fetchQueue.length,1,1)
-            //     }
-            //     catch(e){console.log(`写入${cur_remote_filename}失败！尝试手动添加`)}
-            //   }
-            //   else{
-            //     fetchBlogHasDone=fileWrittingQueue.doneTask(contentPath_sha,fetchQueue.length,1,1)
-            //   }
-            //   if(fetchBlogHasDone){
-            //     fetchTaskQueue()
-            //     // fetchResource()
-            //   }
-            // })
           })
       }
       fetchQueue.push(curFetch)
     }
   }
-  // // 所有list数据准备完成后，再一次性写入
-  // axios.all(fetchQueue).then(()=>writelistInfoJson(listInfoPath,listData,githubResult,getContentInfoPath,finalOptions))
-  //   .then(()=>{
-  //     if(showDetail)console.log("list全部写入完成！")
-  //     if(!delRedundant)return
-  //     // setTimeout(function(){
-  //       // 检查asset目录，删除多余文件
-  //       let contentInfoDIR=getContentInfoPath('')
-  //       // 读取文件夹中存在的内容
-  //       fs.readdir(contentInfoDIR,function(e,fileData){
-  //         if(e)console.error(e)
-  //         let set=new Set()
-  //         // 将当前github结果 hash化
-  //         for(let i=0;i<githubResult.length;i++){
-  //           let  parse=path.parse(githubResult[i].name)
-  //           let rawname=parse.name
-  //           let githubTitle
-  //           if(finalOptions.isResource)githubTitle=rawname
-  //           else{
-  //             const sha1 = crypto.createHash('sha1');
-  //             sha1.update(rawname);
-  //             githubTitle=sha1.digest('hex')
-  //           }
-  //           set.add(githubTitle)
-  //         }
-  //         // 忽略的文件
-  //         let not_delete_list_name=path.parse(listInfoPath).base
-  //         let deleteList=new Set()
-  //
-  //         // 检测文件夹中list是否有多余
-  //         for(let key in listData){
-  //           if(!set.has(key)){
-  //             deleteList.add(key)
-  //           }
-  //         }
-  //
-  //         // 检测文件夹中文件是否有多余
-  //         for(let i=0;i<fileData.length;i++){
-  //           if(fileData[i]===not_delete_list_name)continue
-  //           let parse=path.parse(fileData[i])
-  //           let rawname=parse.name
-  //
-  //           if(!set.has(rawname)){
-  //             deleteList.add(rawname)
-  //             fs.remove(contentInfoDIR+'/'+fileData[i])
-  //               .then(() => {
-  //                 if(showDetail)console.log('成功删除'+fileData[i])
-  //               })
-  //               .catch(err => {
-  //                 console.error(err)
-  //               })
-  //           }
-  //         }
-  //         // size为0，不存在多余文件
-  //         if(deleteList.size===0)return
-  //         if(showDetail)console.log("多余的文件和list有："+deleteList)
-  //         // 重写list
-  //         fs.readJson(listInfoPath)
-  //           .then((obj)=>{
-  //             deleteList.forEach(n=>delete(obj[n]))
-  //             let reWrite=getWriteJsonWithLog('重写list',showDetail)
-  //             reWrite(listInfoPath,obj)
-  //               .then(hasDone=>{
-  //                 if(hasDone) console.log("存在多余文件或者list并且已删除!")
-  //               })
-  //             // fs.outputJson(listInfoPath,obj,{spaces:'\t'})
-  //             //   .then(()=>{
-  //             //     console.log("存在多余文件或者list并且已删除!")
-  //             //   })
-  //           })
-  //           .catch((e)=>{
-  //             console.log("已删除多余文件，但读取list失败！")
-  //           })
-  //       })
-  //     // },1000)
-  //   })
 
   if(pristine){
     console.log("未发现变化，无须更新")
-    // if(!fetchBlogHasDone){
-    //   fetchBlogHasDone=true
       fetchTaskQueue()
-    //   fetchResource()
-    // }
   }
   if(ignoreSHA){
     console.log("\n强制更新开启\n")

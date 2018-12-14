@@ -154,7 +154,7 @@ export default class ArticleDetail extends React.Component{
             <ArticleStatusBar justify={"center"} article={curArticleData} articleSha={articleSha}/>
           </header>
           {/*<div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>*/}
-          <div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curArticleData.content}}/>
+          <div className="markdown-body" style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curArticleData.content}}/>
           <Divider />
           {disqusRender ?
             <CustomComment.Detail title={curArticleData.title} sha={articleSha} locationOrigin={location.origin}/>:

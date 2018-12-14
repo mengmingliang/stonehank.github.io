@@ -44,7 +44,7 @@ export default class CardPure extends React.Component {
         }
         {
           summary
-            ? <div>{summary}</div>
+            ? <div className="markdown-body">{summary}</div>
             : null
         }
       </Card>

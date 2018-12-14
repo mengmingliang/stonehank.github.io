@@ -111,6 +111,14 @@
     "title": "rainwater_empty",
     "sha": "3cf4fb470d371d6261fe9d211b6f9b2bdba369d2"
   },
+  "rainwater_fill": {
+    "title": "rainwater_fill",
+    "sha": "7fa21e93a8c13bc008148c9b529ee443bfc5dd17"
+  },
+  "rainwatertrap": {
+    "title": "rainwatertrap",
+    "sha": "578e81ebe9f90a0ba3687aecceb6c5add917d9f1"
+  },
   "红黑树-插入基本操作": {
     "title": "红黑树-插入基本操作",
     "sha": "f11e4d89cd45d42bac2492b26cac5c7c1ca3bcfb"
