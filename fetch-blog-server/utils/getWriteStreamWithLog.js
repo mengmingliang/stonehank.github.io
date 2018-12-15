@@ -31,7 +31,7 @@ function tryWriteStream(path,data,filename,showDetail,fileWritingQueue,fullBytes
     filename=filename===null ?path:resourceWriteStream.path
     data.on("data",function(data){
       read+=data.length
-      fileWritingQueue.fetching(read,fullBytes,allTasksCount)
+      fileWritingQueue.runningTask(read,fullBytes,allTasksCount)
     })
     resourceWriteStream.error=function(err){
       rej()

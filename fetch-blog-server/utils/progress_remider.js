@@ -9,7 +9,7 @@ function ProgressRemider(fileType,showDetail){
     fileWritingList[pathOrFilename]=1
   }
 
-  this.fetching=function (read,fullBytes,allTaskLen) {
+  this.runningTask=function (read,fullBytes,allTaskLen) {
     let progress=fullBytes? `${(read/fullBytes*100).toFixed(2)}%` : `${Math.floor(read/1024)}kb`
     log(`当前文件已完成${progress}\n${fileType}已完成${hasDoneNum}/${allTaskLen}`)
   }
@@ -26,20 +26,9 @@ function ProgressRemider(fileType,showDetail){
     }
     return false
   }
-  this.showNoEmpty=function(pathOrFilename,allTaskLen){
-    if(showDetail)console.log(`${pathOrFilename}写入结束`)
-    log(`\n${fileType}已完成${hasDoneNum}/${allTaskLen}`)
-    if(showDetail)extraShowDetail(fileType,fileWritingList)
-  }
 
 }
-function extraShowDetail(fileType,fileWritingList){
-  console.log(`${fileType}还剩下：`)
-  Object.keys(fileWritingList).forEach(path=>{
-    console.log(path)
-  })
-  console.log("-------------------------------------")
-}
+
 
 
 module.exports=ProgressRemider

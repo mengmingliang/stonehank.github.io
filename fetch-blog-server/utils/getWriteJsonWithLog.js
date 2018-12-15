@@ -14,7 +14,7 @@ function getWriteJsonWithLog(description="当前任务",showDetail=false,limitRe
     filename=filename===null ?path:filename
     fileWritingQueue.addTask(filename)
     let writingHasDone
-    return tryWriteFile(path,content,spaces,limitRetryTimes,showDetail)
+    return tryWriteFile(path,content,spaces,limitRetryTimes,filename,showDetail)
       .then(()=>{
         writingHasDone=fileWritingQueue.doneTask(filename,allTasksCount,1,1)
         return writingHasDone
@@ -22,7 +22,7 @@ function getWriteJsonWithLog(description="当前任务",showDetail=false,limitRe
   }
 }
 
-function tryWriteFile(path,content,spaces,limitRetryTimes,showDetail){
+function tryWriteFile(path,content,spaces,limitRetryTimes,filename,showDetail){
   return fs.outputJson(path,content,{spaces:spaces})
     .catch(err=>{
       if(limitRetryTimes===0) console.warn(`写入${filename}失败！超出重试次数`)

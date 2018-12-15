@@ -12,7 +12,7 @@ const {base64Decode}=require('./utils/base64-code')
 const getAppropriateSummary=require('./utils/getSummary')
 const href2Absolute=require('./utils/href2Absolute')
 const getWriteJsonWithLog=require('./utils/getWriteJsonWithLog')
-const getCreateWriteStreamWithLog=require('./utils/createWriteStreamWithLog')
+const getCreateWriteStreamWithLog=require('./utils/getWriteStreamWithLog')
 // const checkFileIsExist=require('./utils/checkFileIsExist')
 const getCustomFunctions=require('./utils/getCustomFunctions')
 const shouldContentUpdate=require('./utils/shouldContentUpdate')
@@ -130,102 +130,6 @@ let taskQueue=[
       },
   }
 ]
-
-
-// function writeListInfoJson(listInfoPath,listData,retryTimes=0){
-//   if(!listInfoPath || listData==null)throw new Error('Must be have path or data')
-//   let writeListWithLog=getWriteJsonWithLog("写入List",showDetail)
-//   return writeListWithLog(listInfoPath,listData)
-//     .then(hasDone=>{
-//       if(hasDone){
-//         if(showDetail)console.log(`正在检查格式是否正确...`)
-//         try{
-//           fs.readJsonSync(listInfoPath)
-//           if(showDetail)console.log(`${listInfoPath} 检查成功！`)
-//         }catch(err) {
-//           if(retryTimes===limitRetryTimes)throw new Error(`写入失败，超出重试次数，请删除${listInfoPath}再次尝试`)
-//           else{
-//             retryTimes++
-//             if(showDetail)console.log(`${listInfoPath} 检查失败，尝试重新创建！`)
-//             writeListInfoJson(listInfoPath,listData,retryTimes)
-//           }
-//         }
-//       }
-//     })
-//     .catch(err=>{
-//       throw new Error('something wrong on write-list?')
-//     })
-// }
-
-
-// function tryDelredundant(getContentInfoPath,isResource,listInfoPath,listData,githubResult){
-//   // 检查asset目录，删除多余文件
-//   let contentInfoDIR=getContentInfoPath('')
-//   // 读取文件夹中存在的内容
-//   fs.readdir(contentInfoDIR,function(e,fileData){
-//     if(e)console.error(e)
-//     let set=new Set()
-//     // 将当前github结果 hash化
-//     for(let i=0;i<githubResult.length;i++){
-//       let  parse=path.parse(githubResult[i].name)
-//       let rawname=parse.name
-//       let githubTitle
-//       // if(finalOptions.isResource)githubTitle=rawname
-//       if(isResource)githubTitle=rawname
-//       else{
-//         const sha1 = crypto.createHash('sha1');
-//         sha1.update(rawname);
-//         githubTitle=sha1.digest('hex')
-//       }
-//       set.add(githubTitle)
-//     }
-//     // 忽略的文件
-//     let not_delete_list_name=path.parse(listInfoPath).base
-//     let deleteList=new Set()
-//
-//     // 检测文件夹中list是否有多余
-//     for(let key in listData){
-//       if(!set.has(key)){
-//         deleteList.add(key)
-//       }
-//     }
-//
-//     // 检测文件夹中文件是否有多余
-//     for(let i=0;i<fileData.length;i++){
-//       if(fileData[i]===not_delete_list_name)continue
-//       let parse=path.parse(fileData[i])
-//       let rawname=parse.name
-//
-//       if(!set.has(rawname)){
-//         deleteList.add(rawname)
-//         fs.remove(contentInfoDIR+'/'+fileData[i])
-//           .then(() => {
-//             if(showDetail)console.log('成功删除'+fileData[i])
-//           })
-//           .catch(err => {
-//             console.error(err)
-//           })
-//       }
-//     }
-//     // size为0，不存在多余文件
-//     if(deleteList.size===0)return
-//     if(showDetail)console.log("多余的文件和list有："+deleteList)
-//     // 重写list
-//     fs.readJson(listInfoPath)
-//       .then((obj)=>{
-//         deleteList.forEach(n=>delete(obj[n]))
-//         writeListInfoJson(listInfoPath,obj)
-//           .then(hasDone=>{
-//             if(hasDone) console.log("存在多余文件或者list并且已删除!")
-//           })
-//       })
-//       .catch((e)=>{
-//         console.log("已删除多余文件，但读取list失败！")
-//       })
-//   })
-//
-// }
-
 
 fetchTaskQueue()
 function fetchTaskQueue(writeListCheckRedundantOptions,isFirstLoad){
@@ -406,61 +310,6 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath, options,up
 }
 
 
-// function shouldContentUpdate(githubResult,listData, listInfoPath, getContentInfoPath, options){
-//   const {  cus_extension,isResource}=options
-//   let pristine=true
-//   let needUpdateData=[]
-//   for(let i=0;i<githubResult.length;i++){
-//     // 解析path和name和ext等
-//     let parse=path.parse(githubResult[i].path)
-//     let initExtension=parse.ext
-//     let rawname=parse.name
-//
-//     // titleSHA 用于blog_list的key，url和disqus的identify
-//     const sha1 = crypto.createHash('sha1');
-//     sha1.update(rawname);
-//     let titleSHA=sha1.digest('hex')
-//
-//     // 排除
-//     if(fetchExcludes.includes(rawname))continue
-//
-//     let cur_remote_filename=rawname,
-//       cur_remote_sha=githubResult[i].sha;
-//
-//
-//     // 当前文件使用的key
-//     let appropriateKey
-//
-//     if(isResource)appropriateKey=cur_remote_filename
-//     else appropriateKey=titleSHA
-//
-//
-//     // blog用sha做名称
-//     let contentPath_sha=getContentInfoPath(cus_extension?titleSHA+cus_extension:titleSHA+initExtension)
-//     // 资源用原名，因为文件内部可能有引用资源原名
-//     let contentPath_filename=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
-//
-//
-//     let checkPaths=[contentPath_sha,contentPath_filename]
-//
-//     if(ignoreSHA || !listData[appropriateKey] || listData[appropriateKey].sha!==cur_remote_sha || !checkFileIsExist(checkPaths)){
-//       pristine=false
-//       if(showDetail)if(!ignoreSHA)console.log("找到不存在/不匹配的，name为"+cur_remote_filename)
-//       if(!listData[appropriateKey]) listData[appropriateKey]={}
-//       needUpdateData.push({latestDataIdx:i,curDataKey:appropriateKey,contentPath_sha,contentPath_filename})
-//     }
-//   }
-//   if(pristine){
-//     console.log("未发现变化，无须更新")
-//     return fetchTaskQueue()
-//   }
-//   if(ignoreSHA){
-//     console.log("\n强制更新开启\n")
-//   }
-//   updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,getContentInfoPath,options)
-// }
-
-
 function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,getContentInfoPath,options){
   const {  customListKeys,isResource,user,repository,needHref2Absolute,writeModuleWithLog}=options
   if(!writeModuleWithLog)throw new Error('writeModuleWithLog must be set in options')
@@ -487,7 +336,6 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
       listData[curDataKey].title=cur_remote_filename
       listData[curDataKey].sha=cur_remote_sha
       let encodeBasename=encodeURIComponent(cur_remote_basename)
-
 
       // 此处 user 和 repository 可能和config不一致
       axios({
@@ -538,24 +386,20 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
 
           if(needHref2Absolute)content=href2Absolute(content,needHref2Absolute.abs,needHref2Absolute.isImg)
 
-
           if(showDetail)console.log('正在判断是否需要更新具体标签...')
           function checkIfNeedForceUpdated(key,defaultValue){
             return (!(forceUpdate===true || forceUpdate[key]===true) && listData[curDataKey][key]) || defaultValue
           }
-
 
           // 计算关键词
           if(showDetail)console.log("正在分析关键词...")
           let filteredLabels=filterExtract(lowercaseKeyWords,obj["content"],cur_remote_filename)
 
 
-
           let summaryStartIdx=0,boundaryLimitIdx=300
 
           let htmlContent=md2Html(content)
           let htmlSummary=getAppropriateSummary(content,[summaryMinLen,summaryMaxLen],summaryStartIdx,boundaryLimitIdx)
-
 
 
           let getLabel=()=>checkIfNeedForceUpdated("label",filteredLabels)
@@ -582,10 +426,7 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
             throw new Error("customListKeys必须是Array")
           }
 
-
-
           listData[curDataKey].sha=cur_remote_sha
-
 
           writeModuleWithLog(contentPath,{content:htmlContent},{
             allTasksCount:needUpdateData.length
@@ -598,203 +439,3 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
     }
   }
 }
-
-// 执行listInfo和contentInfo的更新，需要先确定文件存在，读取文件内容(用来判断是否可以不更新一些key)
-// function checkIfNeedUpdated(githubResult,listData, listInfoPath, getContentInfoPath, finalOptions) {
-//   const {  cus_extension,customListKeys,isResource,user,repository,needHref2Absolute,writeModuleWithLog}=finalOptions
-//
-//   if(!writeModuleWithLog)throw new Error('writeModuleWithLog must be set in options')
-//   let pristine=true
-//   let fetchQueue=[]
-//   for(let i=0;i<githubResult.length;i++){
-//     // 解析path和name和ext等
-//     // let cur=githubResult[i];
-//     let parse=path.parse(githubResult[i].path)
-//     let initExtension=parse.ext
-//     let basename=parse.base
-//     let resourcedir=parse.dir
-//     let rawname=parse.name
-//
-//
-//     // titleSHA 用于blog_list的key，url和disqus的identify
-//     const sha1 = crypto.createHash('sha1');
-//     sha1.update(rawname);
-//     let titleSHA=sha1.digest('hex')
-//
-//     // 排除
-//     if(fetchExcludes.includes(rawname))continue
-//
-//     let cur_remote_filename=rawname,
-//         cur_remote_sha=githubResult[i].sha,
-//         cur_remote_basename=basename,
-//         // 以下在非resource中处理
-//         cur_remote_timeArr,
-//         cur_remote_createdTime
-//
-//
-//     let appropriateKey
-//
-//     if(isResource)appropriateKey=cur_remote_filename
-//     else appropriateKey=titleSHA
-//
-//
-//     // blog用sha做名称
-//     let contentPath_sha=getContentInfoPath(cus_extension?titleSHA+cus_extension:titleSHA+initExtension)
-//     // 资源用原名，因为文件内部可能有引用资源原名
-//     let contentPath_filename=getContentInfoPath(cus_extension?cur_remote_filename+cus_extension:cur_remote_filename+initExtension)
-//
-//     function checkFile(){
-//       let noExist=false
-//       try{
-//         fs.accessSync(contentPath_sha, fs.constants.F_OK)
-//       }catch(err){
-//         try{
-//           fs.accessSync(contentPath_filename, fs.constants.F_OK)
-//         }catch (e) {
-//           noExist=true
-//         }
-//       }
-//       return noExist
-//     }
-//
-//
-//     if(ignoreSHA || !listData[appropriateKey] || listData[appropriateKey].sha!==cur_remote_sha || checkFile()){
-//       pristine=false
-//       if(!listData[appropriateKey]) listData[appropriateKey]={}
-//       if(showDetail)if(!ignoreSHA)console.log("找到不存在/不匹配的，name为"+cur_remote_filename)
-//
-//       let curFetch
-//
-//       // 写入resource 或者 blog的content，listInfo在最后统一axios.all()写入，确保不会有漏
-//       if(isResource){
-//         listData[appropriateKey].title=cur_remote_filename
-//         listData[appropriateKey].sha=cur_remote_sha
-//         let encodeBasename=encodeURIComponent(cur_remote_basename)
-//
-//         // let resorceWriteStream
-//         curFetch=axios({
-//           method:'get',
-//           url:`https://raw.githubusercontent.com/${user}/${repository}/${branch}/${resourcedir}/${encodeBasename}`,
-//           responseType:'stream',
-//           timeout:5000,
-//           maxRedirects:3,
-//         })
-//           .then(response=>{
-//             writeModuleWithLog(contentPath_filename,response.data,{
-//               fullBytes:+response.headers["content-length"],
-//               allTasksCount:fetchQueue.length
-//             }).then(hasDone=>{
-//               if(hasDone)fetchTaskQueue({getContentInfoPath,isResource,listInfoPath,listData,githubResult})
-//             })
-//
-//           })
-//           .catch(err=>{
-//             console.error("当前请求发生错误，配置ignoreSHA设置false，然后重试")
-//           })
-//       }
-//       else{
-//         // 获取时间
-//         let dataString=rawname.substr(0,dataType.length)
-//         let parseDataStr=moment(dataString,dataType,true)
-//         let isDataValid=parseDataStr.isValid();
-//
-//         if(isDataValid){
-//           cur_remote_timeArr=parseDataStr.toArray()
-//           cur_remote_createdTime=parseDataStr.format("l")
-//           cur_remote_filename=rawname.substr(dataType.length).replace(/^-/,'')
-//         }else{
-//           cur_remote_createdTime="未知日期"
-//           cur_remote_filename=rawname
-//           cur_remote_timeArr=[]
-//         }
-//
-//         curFetch= axios.get(`https://api.github.com/repos/${user}/${repository}/git/blobs/${cur_remote_sha}`,check)
-//           .then(data=>data.data)
-//           .catch(function (error) {
-//             console.log("获取"+cur_remote_filename+"文件失败")
-//             console.log(error);
-//           })
-//           .then(obj=>{
-//             if(showDetail)console.log("获取"+cur_remote_filename+"文件成功，正在写入...")
-//             let content=base64Decode(obj["content"])
-//
-//             if(needHref2Absolute)content=href2Absolute(content,needHref2Absolute.abs,needHref2Absolute.isImg)
-//
-//
-//             if(showDetail)console.log('正在判断是否需要更新具体标签...')
-//             function checkIfNeedForceUpdated(key,defaultValue){
-//               return (!(forceUpdate===true || forceUpdate[key]===true) && listData[appropriateKey][key]) || defaultValue
-//             }
-//
-//
-//             // 计算关键词
-//             if(showDetail)console.log("正在分析关键词...")
-//             let filteredLabels=filterExtract(lowercaseKeyWords,obj["content"],cur_remote_filename)
-//
-//
-//
-//
-//             // 计算摘要开始未知
-//             // let tryStart=getHighDensity(content,0.3,summaryMaxLen)
-//             // let summaryStart=content.substr(tryStart).match(/(\n+)[\u4E00-\u9FA5]/)
-//             // if(summaryStart)summaryStart=summaryStart.index+tryStart
-//
-//             let summaryStartIdx=0,boundaryLimitIdx=300
-//
-//             let htmlContent=md2Html(content)
-//             let htmlSummary=getAppropriateSummary(content,[summaryMinLen,summaryMaxLen],summaryStartIdx,boundaryLimitIdx)
-//
-//
-//
-//             let getLabel=()=>checkIfNeedForceUpdated("label",filteredLabels)
-//             let getCreatedTime=()=>checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
-//             let getTimeArr=()=>checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
-//             let getTitle=()=>checkIfNeedForceUpdated("title",cur_remote_filename)
-//             let getTitleSHA=()=>checkIfNeedForceUpdated("titleSHA",titleSHA)
-//             let getSummary=()=>checkIfNeedForceUpdated("summary",htmlSummary)
-//
-//
-//             if(Array.isArray(customListKeys)){
-//               let listValue={
-//                 label:getLabel,
-//                 createdTime:getCreatedTime,
-//                 timeArr:getTimeArr,
-//                 title:getTitle,
-//                 titleSHA:getTitleSHA,
-//                 summary:getSummary}
-//               for(let i=0;i<customListKeys.length;i++){
-//                 let curKey=customListKeys[i]
-//                 listData[appropriateKey][curKey]=listValue[curKey]()
-//               }
-//             }else{
-//               throw new Error("customListKeys必须是Array")
-//             }
-//
-//
-//
-//             listData[appropriateKey].sha=cur_remote_sha
-//
-//
-//             writeModuleWithLog(contentPath_sha,{content:htmlContent},{
-//               allTasksCount:fetchQueue.length
-//             })
-//               .then(hasDone=>{
-//                 if(hasDone)fetchTaskQueue({getContentInfoPath,isResource,listInfoPath,listData,githubResult})
-//               })
-//
-//           })
-//       }
-//       fetchQueue.push(curFetch)
-//     }
-//   }
-//
-//   if(pristine){
-//     console.log("未发现变化，无须更新")
-//       fetchTaskQueue()
-//   }
-//   if(ignoreSHA){
-//     console.log("\n强制更新开启\n")
-//   }
-// }
-
-
