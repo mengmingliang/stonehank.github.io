@@ -1,7 +1,6 @@
 const checkFileIsExist=require('./checkFileIsExist')
 
-let ignoreSHA=false,
-  showDetail=false
+
 
 
 
@@ -12,7 +11,7 @@ function shouldContentUpdate(fetchResults,
                               getFileName,
                               getAppropriateKey,
                               getDetailSearchAPI,
-                              {compareProps=[],otherProps={}}={})
+                              {compareProps=[],otherProps={},ignoreSHA=false,showDetail=false}={})
 {
 
   let pristine=true
@@ -33,8 +32,8 @@ function shouldContentUpdate(fetchResults,
     let shouldUpdate=false
     if(!ignoreSHA && listData[appropriateKey]){
       // list中需要对比的属性,例如sha等
-      for(let i=0;i<compareProps.length;i++){
-        if(listData[appropriateKey][compareProps[i]]!==fetchResults[i][compareProps[i]]){
+      for(let j=0;j<compareProps.length;j++){
+        if(listData[appropriateKey][compareProps[j]]!==fetchResults[i][compareProps[j]]){
           shouldUpdate=true
           break
         }
@@ -62,8 +61,8 @@ function shouldContentUpdate(fetchResults,
     console.log("\n强制更新开启\n")
   }
 
-  return needUpdateData
-  // updateListAndContent(needUpdateData,fetchResults,listData,listInfoPath,getContentInfoPath,options)
+  return [needUpdateData,listData]
+
 }
 
 module.exports=shouldContentUpdate
