@@ -286,14 +286,14 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath, options,up
         .then(listData=>{
           if(showDetail)console.log(`${listInfoPath} 读取成功，开始检测sha值`)
           if(Object.prototype.toString.call(listData)!=="[object Object]")listData={}
-          // shouldContentUpdate(githubData,listData,listInfoPath,getContentInfoPath,finalOptions)
-          let [needUpdateData,newListData]= shouldContentUpdate(githubData,listData,listInfoPath,getContentInfoPath,getFileName,getAppropriateKey,getDetailSearchAPI,{compareProps:['sha'],ignoreSHA,showDetail})
-          // console.log(needUpdateData.length)
+
+          let [needUpdateData,newListData]= shouldContentUpdate(githubData,listData,listInfoPath,getContentInfoPath,getFileName,getAppropriateKey,getDetailSearchAPI,{fetchExcludes,compareProps:['sha'],ignoreSHA,showDetail})
+
           return [needUpdateData,newListData]
         })
         .catch(err=>{
           console.log(`${listInfoPath}读取失败，尝试重新创建`)
-          let [needUpdateData,newListData]=  shouldContentUpdate(githubData,{},listInfoPath,getContentInfoPath,getFileName,getAppropriateKey,getDetailSearchAPI,{compareProps:['sha'],ignoreSHA,showDetail})
+          let [needUpdateData,newListData]=  shouldContentUpdate(githubData,{},listInfoPath,getContentInfoPath,getFileName,getAppropriateKey,getDetailSearchAPI,{fetchExcludes,compareProps:['sha'],ignoreSHA,showDetail})
           return [needUpdateData,newListData]
         })
         .then(arr=>{
@@ -360,7 +360,7 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
     }
     else{
       // 获取时间
-      let dataString=rawname.substr(0,dataType.length)
+      let dataString=rawname.trim().substr(0,dataType.length)
       let parseDataStr=moment(dataString,dataType,true)
       let isDataValid=parseDataStr.isValid();
 

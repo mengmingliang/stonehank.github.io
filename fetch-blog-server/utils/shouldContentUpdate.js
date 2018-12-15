@@ -11,7 +11,7 @@ function shouldContentUpdate(fetchResults,
                               getFileName,
                               getAppropriateKey,
                               getDetailSearchAPI,
-                              {compareProps=[],otherProps={},ignoreSHA=false,showDetail=false}={})
+                              {fetchExcludes=[],compareProps=[],otherProps={},ignoreSHA=false,showDetail=false}={})
 {
 
   let pristine=true
@@ -23,7 +23,8 @@ function shouldContentUpdate(fetchResults,
 
 
     // 找到实际文件名
-    let contentFilename=getFileName(fetchResults[i],otherProps)
+    let contentFilename=getFileName(fetchResults[i],fetchExcludes,otherProps)
+    if(contentFilename==null)continue
     // 找到实际文件路径
     let contentPath=getContentInfoPath(contentFilename)
 

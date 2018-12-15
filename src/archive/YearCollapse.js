@@ -1,6 +1,7 @@
 import React from 'react';
 import {Collapse} from 'antd';
 import MonthCollapse from "./MonthCollapse";
+import ArchiveList from "./ArchiveList";
 
 const Panel = Collapse.Panel;
 
@@ -44,27 +45,29 @@ export default class YearCollapse extends React.Component {
 
   render() {
     const {monthList,activePanel,year,changeActiveYear,changeActiveMonth,archiveEachPage}=this.props
+    console.log(year,!year)
     return (
       <Collapse style={styles.defaultMargin} accordion
                 bordered={false}
                 activeKey={activePanel[0]}
                 onChange={changeActiveYear}
       >
-        { year ?
-          <Panel header={year + "年"} key={year + "年"} style={styles.yearStyle}>
-            {monthList.map((dayList, j) => {
-              if (dayList && dayList.length > 0) {
-                return <MonthCollapse key={j + 1 + "月"} dayList={dayList}
-                                      month={j + 1}
-                                      archiveEachPage={archiveEachPage}
-                                      activePanel={activePanel}
-                                      changeActiveMonth={changeActiveMonth}/>
-              }
-              return null
-            })}
-
-          </Panel> :
-          <Panel header={"无时间归档"} style={styles.yearStyle} disabled/>
+        { year!=="noDate"
+          ? <Panel header={year + "年"} key={year + "年"} style={styles.yearStyle}>
+              {monthList.map((dayList, j) => {
+                if (dayList && dayList.length > 0) {
+                  return <MonthCollapse key={j + 1 + "月"} dayList={dayList}
+                                        month={j + 1}
+                                        archiveEachPage={archiveEachPage}
+                                        activePanel={activePanel}
+                                        changeActiveMonth={changeActiveMonth}/>
+                }
+                return null
+              })}
+            </Panel>
+          : <Panel header={"无时间归档"} style={styles.yearStyle} >
+              <ArchiveList dayList={monthList} archiveEachPage={archiveEachPage}/>
+            </Panel>
         }
       </Collapse>
 

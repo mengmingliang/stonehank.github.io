@@ -64,7 +64,7 @@ function getRedundantList(githubResult, listData, listInfoPath, getContentInfoPa
         })
     }
   }
-  console.warn("需要删除的个数：",deleteList.size)
+  if(deleteList.size>0)console.warn("需要删除的个数：",deleteList.size)
   return deleteList
 
 }

@@ -14,15 +14,7 @@ const styles={
 
 
 export default class TagsList extends React.Component {
-  // constructor() {
-  //   super()
-  //   this.navigateToPath=this.navigateToPath.bind(this)
-  // }
 
-  // navigateToPath(path,e){
-  //   if(e.target.className.includes('tag'))return
-  //   navigate(path)
-  // }
   render() {
     const {articles, pageSize, page,handlePageChange,totalPage,renderArticles} = this.props
     return (

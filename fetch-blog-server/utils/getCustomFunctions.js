@@ -16,9 +16,10 @@ function getCustomFunctions(user,repository,branch){
     return sha1.digest('hex')
   }
 
-  function getFileName_blog(fetchResult){
+  function getFileName_blog(fetchResult,fetchExcludes){
     let parse=path.parse(fetchResult.path)
     let rawname=parse.name
+    if(fetchExcludes.includes(rawname))return null
     const sha1 = crypto.createHash('sha1');
     sha1.update(rawname);
     let titleSHA=sha1.digest('hex')
