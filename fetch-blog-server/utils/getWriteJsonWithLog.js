@@ -9,7 +9,7 @@ const ProgressReminder=require('./progress_remider')
  * @returns {function(*=, *=, {spaces?: *, filename?: *, allTasksCount?: *}=): Promise<boolean>}
  */
 function getWriteJsonWithLog(description="当前任务",showDetail=false,limitRetryTimes=2){
-  let fileWritingQueue=new ProgressReminder(description,showDetail)
+  let fileWritingQueue=new ProgressReminder(description)
   return function(path,content,{spaces=2,filename=null,allTasksCount=1,}={}){
     filename=filename===null ?path:filename
     fileWritingQueue.addTask(filename)

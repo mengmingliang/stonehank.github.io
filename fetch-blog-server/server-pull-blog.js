@@ -2,8 +2,6 @@ const axios = require('axios');
 const fs = require('fs-extra')
 const path=require("path")
 const moment = require("moment")
-const slash = require('slash');
-const appRoot = require('app-root-path');
 const filterExtract=require('./utils/filterExtract')
 const crypto = require('crypto');
 const md2Html= require('./utils/md2Html')
@@ -11,41 +9,21 @@ const getGZipSize=require('./utils/getGZipSize')
 const {base64Decode}=require('./utils/base64-code')
 const getAppropriateSummary=require('./utils/getSummary')
 const href2Absolute=require('./utils/href2Absolute')
-const getWriteJsonWithLog=require('./utils/getWriteJsonWithLog')
-const getCreateWriteStreamWithLog=require('./utils/getWriteStreamWithLog')
-// const checkFileIsExist=require('./utils/checkFileIsExist')
-const getCustomFunctions=require('./utils/getCustomFunctions')
+
 const shouldContentUpdate=require('./utils/shouldContentUpdate')
 const getRedundantList=require('./utils/getRedundantList')
 const writeListInfoJson=require('./utils/writeListInfoJson')
+const {user,repository,branch,per_page,
+  dataType,summaryMaxLen,summaryMinLen,keywords,delRedundant,fetchExcludes,
+  forceUpdate,ignoreSHA,limitRetryTimes,showDetail}=require('./basic.config')
 
-// 获取根目录
-const context=slash(appRoot.path)
-
-// 获取配置信息
-const config_json_path=`${context}/fetch-blog-server/blog-config.json`
-const token_json_path=`${context}/fetch-blog-server/blog-token.json`
-let config,token_json
-try{
-  token_json=fs.readJsonSync(token_json_path)
-  config=fs.readJsonSync(config_json_path)
-}catch(err){
-  console.log(`获取配置出现错误，确保fs-extra正确安装以及${config_json_path}和${token_json_path}存在`)
-}
+const {taskQueue,context,token}=require('./advance.config')
 
 // 开始
 console.log("项目根目录为："+context,"正在通过github获取数据...")
-const {token}=token_json
-const {user,repository,branch,per_page,imgAbsPath,write_blog_path,write_sourceCode_path,write_resource_path,
-  dataType,summaryMaxLen,summaryMinLen,resource_dir_list,keywords,delRedundant,fetchExcludes,
-  forceUpdate,ignoreSHA,retry_times,showDetail}=config
-
-let limitRetryTimes=retry_times
-
-
 
 // 定义github search的header
-let check = {
+const authorizationHeader = {
   headers: {
     'Accept': 'application/vnd.github.squirrel-girl-preview+json',
     Authorization:`token ${token}  `
@@ -57,96 +35,26 @@ let lowercaseKeyWords={}
 // 填充valid的tags(keyword)
 for(let i=0;i<keywords.length;i++){
   let cur=keywords[i].toLowerCase()
-  lowercaseKeyWords[cur]=1
+  lowercaseKeyWords[cur]=true
 }
 
-
-
-
-
-let {
-  getAppropriateKey_blog,
-  getDetailSearchAPI_blog,
-  getFileName_blog,
-  getAppropriateKey_resource,
-  getDetailSearchAPI_resource,
-  getFileName_resource
-}=getCustomFunctions(user,repository,branch)
-
-let taskQueue=[
-  {
-    writeListInfoName:`_blog-data.json`,
-    writeDIRPath:`${context}/${write_blog_path}`,
-    initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
-    initComputeWriteContentInfoPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
-    initComputeSearchCommand:(user,repository)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+extension:md&sort=indexed&per_page=${per_page}&page=${page}`,
-    read_restrictDIRList:null,
-    getAppropriateKey:getAppropriateKey_blog,
-    getDetailSearchAPI:getDetailSearchAPI_blog,
-    getFileName:getFileName_blog,
-    checkANDwriteOptions:
-      {
-        user:user,
-        repository:repository,
-        writeModuleWithLog:getWriteJsonWithLog("blog文件",showDetail,limitRetryTimes),
-        needHref2Absolute:{abs:`${imgAbsPath}/articles/img/`,isImg:true}
-      },
-  },
-  {
-    writeListInfoName:`_source-code-list.json`,
-    writeDIRPath:`${context}/${write_sourceCode_path}`,
-    initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
-    initComputeWriteContentInfoPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
-    initComputeSearchCommand:(user,repository)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+filename:navigation&sort=indexed&per_page=${per_page}&page=${page}`,
-    read_restrictDIRList:null,
-    getAppropriateKey:getAppropriateKey_blog,
-    getDetailSearchAPI:getDetailSearchAPI_blog,
-    getFileName:getFileName_blog,
-    checkANDwriteOptions:
-      {
-        user:user,
-        repository:`sourcecode-analysis`,
-        writeModuleWithLog:getWriteJsonWithLog("源码阅读",showDetail,limitRetryTimes),
-        needHref2Absolute:{abs:'https://github.com/stonehank/sourcecode-analysis/blob/master/',isImg:false}
-      },
-  },
-  {
-
-    writeListInfoName:`_resource_list.json`,
-    writeDIRPath:`${context}/${write_resource_path}`,
-    initComputeWriteListInfoPath:(writeDIRPath,writeListInfoName,restrictPath)=>()=>`${writeDIRPath}/${restrictPath}/${writeListInfoName}`,
-    initComputeWriteContentInfoPath:(writeDIRPath,restrictPath)=>filename=>`${writeDIRPath}/${restrictPath}/${filename}`,
-    initComputeSearchCommand:(user,repository,restrictPath)=>(page)=>`https://api.github.com/search/code?q=repo:${user}/${repository}+path:${restrictPath}&sort=indexed&per_page=${per_page}&page=${page}`,
-    read_restrictDIRList:resource_dir_list,
-    getAppropriateKey:getAppropriateKey_resource,
-    getDetailSearchAPI:getDetailSearchAPI_resource,
-    getFileName:getFileName_resource,
-    checkANDwriteOptions:
-      {
-        isResource:true,
-        user:user,
-        repository:repository,
-        writeModuleWithLog:getCreateWriteStreamWithLog("资源文件",showDetail,limitRetryTimes),
-      },
-  }
-]
 
 fetchTaskQueue()
 function fetchTaskQueue(writeListCheckRedundantOptions,isFirstLoad){
   if(!isFirstLoad && writeListCheckRedundantOptions){
-    let {getContentInfoPath,isResource,listInfoPath,listData,githubResult}=writeListCheckRedundantOptions
-    writeListInfoJson(listInfoPath,listData,{showDetail,limitRetryTimes})
+    let {getWriteContentPath,isResource,writeListPath,listData,fetchResults}=writeListCheckRedundantOptions
+    writeListInfoJson(writeListPath,listData,{showDetail,limitRetryTimes})
       .then(()=>{
         if(delRedundant) {
-          let deleteList=getRedundantList(githubResult,listData,listInfoPath,getContentInfoPath,{isResource,showDetail})
+          let deleteList=getRedundantList(fetchResults,listData,writeListPath,getWriteContentPath,{isResource,showDetail})
           // size为0，不存在多余文件
           if(deleteList.size===0)return
           if(showDetail)console.log("多余的文件和list有："+deleteList)
           // 重写list
-          fs.readJson(listInfoPath)
+          fs.readJson(writeListPath)
             .then((obj)=>{
               deleteList.forEach(n=>delete(obj[n]))
-              writeListInfoJson(listInfoPath,obj,{showDetail,limitRetryTimes})
+              writeListInfoJson(writeListPath,obj,{showDetail,limitRetryTimes})
                 .then(hasDone=>{
                   if(hasDone) console.log("存在多余文件或者list并且已删除!")
                 })
@@ -161,68 +69,69 @@ function fetchTaskQueue(writeListCheckRedundantOptions,isFirstLoad){
 
   if(taskQueue.length===0){
     // 写入globalSearchSize
-    const blog_contentInfoDIR=`${context}/${write_blog_path}`
+    const blog_contentInfoDIR=`${context}/src/asset/blog`
     const sizeFilename="global-search-size.json"
     getGZipSize(blog_contentInfoDIR,`${context}/src/${sizeFilename}`,0)
     console.log('\n 已写入globalSearchSize')
     return
   }
-  // console.log("start check update -----")
+
   let curTask=taskQueue.shift()
   let {
     writeListInfoName,
     writeDIRPath,
-    checkANDwriteOptions,
-    initComputeWriteListInfoPath,
-    initComputeWriteContentInfoPath,
-    initComputeSearchCommand,
+    checkAndWriteOptions,
+    initGetWriteListPath,
+    initGetWriteContentPath,
+    initGetFetchResultsAPI,
     read_restrictDIRList,
     getAppropriateKey,
-    getDetailSearchAPI,
+    initGetDetailSearchAPI,
     getFileName,
   } = curTask
   const updateNecessaryOptions={
     getAppropriateKey,
-    getDetailSearchAPI,
     getFileName,
   }
-  const {user,repository,}=checkANDwriteOptions
+  // 此处有可能不是config里面的
+  const {user,repository}=checkAndWriteOptions
   if(!read_restrictDIRList)read_restrictDIRList=[null]
-  let computeWriteListInfoPath,computeWriteContentInfoPath,computeSearchCommand
+  let getWriteListPath,getWriteContentPath,getFetchResultsAPI
+  const getDetailSearchAPI=initGetDetailSearchAPI(user,repository,branch)
   for(let i=0;i<read_restrictDIRList.length;i++){
     if(read_restrictDIRList[i]){
-      computeWriteListInfoPath = initComputeWriteListInfoPath(writeDIRPath,writeListInfoName,read_restrictDIRList[i])
-      computeWriteContentInfoPath = initComputeWriteContentInfoPath(writeDIRPath,read_restrictDIRList[i])
-      computeSearchCommand = initComputeSearchCommand(user,repository,read_restrictDIRList[i])
+      getWriteListPath = initGetWriteListPath(writeDIRPath,writeListInfoName,read_restrictDIRList[i])
+      getWriteContentPath = initGetWriteContentPath(writeDIRPath,read_restrictDIRList[i])
+      getFetchResultsAPI = initGetFetchResultsAPI(user,repository,per_page,read_restrictDIRList[i])
     }else{
-      computeWriteListInfoPath=initComputeWriteListInfoPath(writeDIRPath,writeListInfoName)
-      computeWriteContentInfoPath=initComputeWriteContentInfoPath(writeDIRPath)
-      computeSearchCommand=initComputeSearchCommand(user,repository)
+      getWriteListPath=initGetWriteListPath(writeDIRPath,writeListInfoName)
+      getWriteContentPath=initGetWriteContentPath(writeDIRPath)
+      getFetchResultsAPI=initGetFetchResultsAPI(user,repository,per_page)
     }
-    getPagesAndConcatData(computeSearchCommand,computeWriteListInfoPath,computeWriteContentInfoPath,checkANDwriteOptions,updateNecessaryOptions)
+    getPagesAndConcatData(getFetchResultsAPI,getDetailSearchAPI,getWriteListPath,getWriteContentPath,checkAndWriteOptions,updateNecessaryOptions)
   }
 }
 
 
 // 分页查询所有内容并且合并
-function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getContentInfoPath, options,updateNecessaryOptions){
-  let allDataListArr=[]
+function getPagesAndConcatData(getFetchResultsAPI,getDetailSearchAPI,getListWritePath,getWriteContentPath,options,updateNecessaryOptions){
+  let fetchResults=[]
   let pageList=[]
   let dataList=[]
   // 查询分页
-  function pagination(searchCommand,curPage){
+  function pagination(getFetchResultsAPI,curPage){
     dataList.push(
-      axios.get(searchCommand,check)
+      axios.get(getFetchResultsAPI,authorizationHeader)
       .then(data=>data.data)
       .catch(function (error) {
         console.log(`第${curPage}页获取失败`);
         console.error(error);
       })
-      .then(obj=>allDataListArr=allDataListArr.concat(obj.items))
+      .then(obj=>fetchResults=fetchResults.concat(obj.items))
     )
   }
 
-  axios.get(createBlogSearchCommand(1),check)
+  axios.get(getFetchResultsAPI(1),authorizationHeader)
     .then(data=>{
       console.log("\n正在获取页数...")
       return data.data
@@ -237,18 +146,15 @@ function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getConten
       if(totleCounts<=1000 ){
         for(let i=0;i<Math.ceil(totleCounts/per_page);i++){
           if(showDetail)console.log("正在获取第"+(i+1)+"页")
-          pageList.push(pagination(createBlogSearchCommand(i+1),i+1))
+          pageList.push(pagination(getFetchResultsAPI(i+1),i+1))
         }
         axios.all(pageList)
           .then(()=>{
             console.log(`全部页面(${pageList.length})获取完毕`)
             axios.all(dataList)
               .then(()=>{
-                // console.warn('实际添加个数：',allDataListArr.length)
-                // allDataListArr.forEach(o=>{
-                //   console.warn('初始每一个github name：',o.name)
-                // })
-                checkANDwrite(allDataListArr,getListInfoPath,getContentInfoPath, options,updateNecessaryOptions)
+
+                checkAndWrite(fetchResults,getListWritePath,getWriteContentPath,getDetailSearchAPI,options,updateNecessaryOptions)
               })
           })
       }
@@ -260,7 +166,7 @@ function getPagesAndConcatData(createBlogSearchCommand,getListInfoPath,getConten
 
 
 // 检查/创建list文件并且判断是否需要更新
-function checkANDwrite(githubData,getListInfoPath,getContentInfoPath, options,updateNecessaryOptions) {
+function checkAndWrite(fetchResults,getListWritePath,getWriteContentPath,getDetailSearchAPI,options,updateNecessaryOptions) {
   let defaultOptions= {
     customListKeys:["label","createdTime","timeArr","title","titleSHA","summary"],
     isResource:false,
@@ -272,51 +178,68 @@ function checkANDwrite(githubData,getListInfoPath,getContentInfoPath, options,up
 
   const {
     getAppropriateKey,
-    getDetailSearchAPI,
     getFileName,
   }=updateNecessaryOptions
 
   let finalOptions=Object.assign(defaultOptions,options)
-  let listInfoPath=getListInfoPath()
+  let writeListPath=getListWritePath()
   if(showDetail)console.log("github search成功，开始检查json")
-  fs.ensureFile(listInfoPath)
+  fs.ensureFile(writeListPath)
     .then(() => {
-      if(showDetail)console.log(`检查成功，开始读取${listInfoPath}`)
-      fs.readJson(listInfoPath)
+      if(showDetail)console.log(`检查成功，开始读取${writeListPath}`)
+      fs.readJson(writeListPath)
         .then(listData=>{
-          if(showDetail)console.log(`${listInfoPath} 读取成功，开始检测sha值`)
+          if(showDetail)console.log(`${writeListPath} 读取成功，开始检测sha值`)
           if(Object.prototype.toString.call(listData)!=="[object Object]")listData={}
 
-          let [needUpdateData,newListData]= shouldContentUpdate(githubData,listData,listInfoPath,getContentInfoPath,getFileName,getAppropriateKey,getDetailSearchAPI,{fetchExcludes,compareProps:['sha'],ignoreSHA,showDetail})
+          let [needUpdateData,newListData]=
+            shouldContentUpdate(
+              fetchResults,
+              listData,
+              getWriteContentPath,
+              getFileName,
+              getAppropriateKey,
+              {fetchExcludes,compareProps:['sha'],ignoreSHA,showDetail}
+              )
 
           return [needUpdateData,newListData]
         })
         .catch(err=>{
-          console.log(`${listInfoPath}读取失败，尝试重新创建`)
-          let [needUpdateData,newListData]=  shouldContentUpdate(githubData,{},listInfoPath,getContentInfoPath,getFileName,getAppropriateKey,getDetailSearchAPI,{fetchExcludes,compareProps:['sha'],ignoreSHA,showDetail})
+          console.log(`${writeListPath}读取失败，尝试重新创建`)
+
+          let [needUpdateData,newListData]=
+            shouldContentUpdate(
+              fetchResults,
+              {},
+              getWriteContentPath,
+              getFileName,
+              getAppropriateKey,
+              {fetchExcludes,compareProps:['sha'],ignoreSHA,showDetail}
+              )
+
           return [needUpdateData,newListData]
         })
         .then(arr=>{
           const [needUpdateData,listData]=arr
           if(needUpdateData.length===0)return fetchTaskQueue()
-          updateListAndContent(needUpdateData,githubData,listData,listInfoPath,getContentInfoPath,finalOptions)
+          updateListAndContent(needUpdateData,fetchResults,listData,writeListPath,getWriteContentPath,getDetailSearchAPI,finalOptions)
         })
     })
     .catch(err => {
-      console.log(`检查${listInfoPath}出现错误，确保fs-extra正确安装！`)
+      console.log(`检查${writeListPath}出现错误，确保fs-extra正确安装！`)
       console.error(err)
     })
 
 }
 
 
-function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,getContentInfoPath,options){
+function updateListAndContent(needUpdateData,fetchResults,listData,writeListPath,getWriteContentPath,getDetailSearchAPI,options){
   const {  customListKeys,isResource,user,repository,needHref2Absolute,writeModuleWithLog}=options
   if(!writeModuleWithLog)throw new Error('writeModuleWithLog must be set in options')
   for(let i=0;i<needUpdateData.length;i++){
     const {latestDataIdx,curDataKey,contentPath}=needUpdateData[i]
 
-    let parse=path.parse(githubResult[latestDataIdx].path)
+    let parse=path.parse(fetchResults[latestDataIdx].path)
     let basename=parse.base
     let resourcedir=parse.dir
     let rawname=parse.name
@@ -326,7 +249,7 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
     let titleSHA=sha1.digest('hex')
 
     let cur_remote_filename=rawname,
-      cur_remote_sha=githubResult[latestDataIdx].sha,
+      cur_remote_sha=fetchResults[latestDataIdx].sha,
       cur_remote_basename=basename,
       // 以下在非resource中处理
       cur_remote_timeArr,
@@ -350,7 +273,7 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
             fullBytes:+response.headers["content-length"],
             allTasksCount:needUpdateData.length
           }).then(hasDone=>{
-            if(hasDone)fetchTaskQueue({getContentInfoPath,isResource,listInfoPath,listData,githubResult})
+            if(hasDone)fetchTaskQueue({getWriteContentPath,isResource,writeListPath,listData,fetchResults})
           })
 
         })
@@ -374,7 +297,7 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
         cur_remote_timeArr=[]
       }
 
-      axios.get(`https://api.github.com/repos/${user}/${repository}/git/blobs/${cur_remote_sha}`,check)
+      axios.get(`https://api.github.com/repos/${user}/${repository}/git/blobs/${cur_remote_sha}`,authorizationHeader)
         .then(data=>data.data)
         .catch(function (error) {
           console.log("获取"+cur_remote_filename+"文件失败")
@@ -432,7 +355,7 @@ function updateListAndContent(needUpdateData,githubResult,listData,listInfoPath,
             allTasksCount:needUpdateData.length
           })
             .then(hasDone=>{
-              if(hasDone)fetchTaskQueue({getContentInfoPath,isResource,listInfoPath,listData,githubResult})
+              if(hasDone)fetchTaskQueue({getWriteContentPath,isResource,writeListPath,listData,fetchResults})
             })
 
         })

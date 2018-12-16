@@ -8,8 +8,8 @@ const ProgressReminder=require('./progress_remider')
  * @param limitRetryTimes
  * @returns {function(<String>, <ReadableStream>, {filename?: *, allTasksCount?: *, fullBytes?: *}=): Promise<any>}
  */
-function getCreateWriteStreamWithLog(description="当前任务",showDetail=false,limitRetryTimes=2){
-  let fileWritingQueue=new ProgressReminder(description,showDetail)
+function getWriteStreamWithLog(description="当前任务",showDetail=false,limitRetryTimes=2){
+  let fileWritingQueue=new ProgressReminder(description)
   return function(path,data,{filename=null,allTasksCount=1,fullBytes=null}={}){
     let writingHasDone
     if(showDetail)console.log(`${filename}正在写入...`)
@@ -51,4 +51,4 @@ function tryWriteStream(path,data,filename,showDetail,fileWritingQueue,fullBytes
 }
 
 
-module.exports=getCreateWriteStreamWithLog
+module.exports=getWriteStreamWithLog

@@ -2,7 +2,7 @@ const log = require('single-line-log').stdout;
 
 // 进度提示
 
-function ProgressRemider(fileType,showDetail){
+function ProgressRemider(fileType){
   let hasDoneNum=0
   let fileWritingList={}
   this.addTask=function (pathOrFilename) {
@@ -20,7 +20,6 @@ function ProgressRemider(fileType,showDetail){
     delete(fileWritingList[pathOrFilename])
     log(`${pathOrFilename}已完成${progress}，当前进度${hasDoneNum}/${allTaskLen}`)
     if(hasDoneNum===allTaskLen ){
-      if(showDetail)console.log(`\n${fileType}写入结束`)
       log(`${fileType}已完成${hasDoneNum}/${allTaskLen}\n${fileType}已全部完成`)
       return true
     }

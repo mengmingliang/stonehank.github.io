@@ -6,11 +6,9 @@ const checkFileIsExist=require('./checkFileIsExist')
 
 function shouldContentUpdate(fetchResults,
                               listData,
-                              listInfoPath,
                               getContentInfoPath,
                               getFileName,
                               getAppropriateKey,
-                              getDetailSearchAPI,
                               {fetchExcludes=[],compareProps=[],otherProps={},ignoreSHA=false,showDetail=false}={})
 {
 
@@ -47,11 +45,10 @@ function shouldContentUpdate(fetchResults,
     }
 
     if(shouldUpdate){
-      let detailSearchAPI=getDetailSearchAPI(fetchResults[i],otherProps)
       pristine=false
       if(showDetail)if(!ignoreSHA)console.log("找到不存在/不匹配的，name为"+contentFilename)
       if(!listData[appropriateKey]) listData[appropriateKey]={}
-      needUpdateData.push({latestDataIdx:i,curDataKey:appropriateKey,contentPath,detailSearchAPI})
+      needUpdateData.push({latestDataIdx:i,curDataKey:appropriateKey,contentPath})
     }
   }
   if(pristine){
