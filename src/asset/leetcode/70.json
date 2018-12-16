@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number} n\n * @return {number}\n */\nvar climbStairs = function(n) {\n    let mem=[]\n    function getSteps(n){\n        if(mem[n])return mem[n]\n        if(n===1)return 1\n        if(n===2)return 2\n        let steps=getSteps(n-1)+getSteps(n-2)\n        mem[n]=steps\n        return steps\n    }\n    return getSteps(n)\n};"
+  ],
+  "titleSlug": "climbing-stairs",
+  "content": "<p>You are climbing a stair case. It takes <em>n</em> steps to reach to the top.</p>\r\n\r\n<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>\r\n\r\n<p><strong>Note:</strong> Given <em>n</em> will be a positive integer.</p>\r\n\r\n<p><strong>Example 1:</strong></p>\r\n\r\n<pre>\r\n<strong>Input:</strong> 2\r\n<strong>Output:</strong> 2\r\n<strong>Explanation:</strong> There are two ways to climb to the top.\r\n1. 1 step + 1 step\r\n2. 2 steps\r\n</pre>\r\n\r\n<p><strong>Example 2:</strong></p>\r\n\r\n<pre>\r\n<strong>Input:</strong> 3\r\n<strong>Output:</strong> 3\r\n<strong>Explanation:</strong> There are three ways to climb to the top.\r\n1. 1 step + 1 step + 1 step\r\n2. 1 step + 2 steps\r\n3. 2 steps + 1 step\r\n</pre>\r\n",
+  "translatedContent": "<p>假设你正在爬楼梯。需要 <em>n</em>&nbsp;阶你才能到达楼顶。</p>\n\n<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>\n\n<p><strong>注意：</strong>给定 <em>n</em> 是一个正整数。</p>\n\n<p><strong>示例 1：</strong></p>\n\n<pre><strong>输入：</strong> 2\n<strong>输出：</strong> 2\n<strong>解释：</strong> 有两种方法可以爬到楼顶。\n1.  1 阶 + 1 阶\n2.  2 阶</pre>\n\n<p><strong>示例 2：</strong></p>\n\n<pre><strong>输入：</strong> 3\n<strong>输出：</strong> 3\n<strong>解释：</strong> 有三种方法可以爬到楼顶。\n1.  1 阶 + 1 阶 + 1 阶\n2.  1 阶 + 2 阶\n3.  2 阶 + 1 阶\n</pre>\n"
+}

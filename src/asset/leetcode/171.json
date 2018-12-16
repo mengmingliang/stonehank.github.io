@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {string} s\n * @return {number}\n */\nvar titleToNumber = function(s) {\n    let gap=\"A\".charCodeAt()-1\n    let len=s.length\n    let sum=0;\n    for(let i=0;i<len;i++){\n        sum+=(s.charCodeAt(i)-gap)*Math.pow(26,len-i-1)\n    }\n    return sum\n};"
+  ],
+  "titleSlug": "excel-sheet-column-number",
+  "content": "<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>\r\n\r\n<p>For example:</p>\r\n\r\n<pre>\r\n    A -&gt; 1\r\n    B -&gt; 2\r\n    C -&gt; 3\r\n    ...\r\n    Z -&gt; 26\r\n    AA -&gt; 27\r\n    AB -&gt; 28 \r\n    ...\r\n</pre>\r\n\r\n<p><strong>Example 1:</strong></p>\r\n\r\n<pre>\r\n<strong>Input:</strong> &quot;A&quot;\r\n<strong>Output:</strong> 1\r\n</pre>\r\n\r\n<p><strong>Example 2:</strong></p>\r\n\r\n<pre>\r\n<strong>Input: </strong>&quot;AB&quot;\r\n<strong>Output:</strong> 28\r\n</pre>\r\n\r\n<p><strong>Example 3:</strong></p>\r\n\r\n<pre>\r\n<strong>Input: </strong>&quot;ZY&quot;\r\n<strong>Output:</strong> 701\r\n</pre>",
+  "translatedContent": "<p>给定一个Excel表格中的列名称，返回其相应的列序号。</p>\n\n<p>例如，</p>\n\n<pre>    A -&gt; 1\n    B -&gt; 2\n    C -&gt; 3\n    ...\n    Z -&gt; 26\n    AA -&gt; 27\n    AB -&gt; 28 \n    ...\n</pre>\n\n<p><strong>示例 1:</strong></p>\n\n<pre><strong>输入:</strong> &quot;A&quot;\n<strong>输出:</strong> 1\n</pre>\n\n<p><strong>示例&nbsp;2:</strong></p>\n\n<pre><strong>输入: </strong>&quot;AB&quot;\n<strong>输出:</strong> 28\n</pre>\n\n<p><strong>示例&nbsp;3:</strong></p>\n\n<pre><strong>输入: </strong>&quot;ZY&quot;\n<strong>输出:</strong> 701</pre>\n\n<p><strong>致谢：</strong><br>\n特别感谢&nbsp;<a href=\"http://leetcode.com/discuss/user/ts\">@ts</a>&nbsp;添加此问题并创建所有测试用例。</p>\n"
+}

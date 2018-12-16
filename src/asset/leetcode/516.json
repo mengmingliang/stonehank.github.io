@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {string} s\n * @return {number}\n */\nvar longestPalindromeSubseq = function(s) {\n   let mem=[]\n   for(let i=0;i<s.length;i++) mem[i]=[]\n   return lps(s,0,s.length-1)\n   function lps(str,start,end){\n       if(start>end)return 0\n       if(start===end)return 1\n       if(mem[start][end])return mem[start][end]\n       let res\n       if(str[start]===str[end]) res= lps(str,start+1,end-1)+2\n       else res=Math.max(lps(str,start+1,end),lps(str,start,end-1))\n       mem[start][end]=res\n       return res\n   }\n};"
+  ],
+  "titleSlug": "longest-palindromic-subsequence",
+  "content": "<p>\r\nGiven a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.\r\n</p>\r\n\r\n<p><b>Example 1:</b><br>\r\nInput: \r\n<pre>\r\n\"bbbab\"\r\n</pre>\r\nOutput: \r\n<pre>\r\n4\r\n</pre>\r\nOne possible longest palindromic subsequence is \"bbbb\".\r\n</p>\r\n\r\n<p><b>Example 2:</b><br>\r\nInput:\r\n<pre>\r\n\"cbbd\"\r\n</pre>\r\nOutput:\r\n<pre>\r\n2\r\n</pre>\r\nOne possible longest palindromic subsequence is \"bb\".\r\n</p>",
+  "translatedContent": "<p>给定一个字符串<code>s</code>，找到其中最长的回文子序列。可以假设<code>s</code>的最大长度为<code>1000</code>。</p>\n\n<p><strong>示例 1:</strong><br />\n输入:</p>\n\n<pre>\n&quot;bbbab&quot;\n</pre>\n\n<p>输出:</p>\n\n<pre>\n4\n</pre>\n\n<p>一个可能的最长回文子序列为 &quot;bbbb&quot;。</p>\n\n<p><strong>示例 2:</strong><br />\n输入:</p>\n\n<pre>\n&quot;cbbd&quot;\n</pre>\n\n<p>输出:</p>\n\n<pre>\n2\n</pre>\n\n<p>一个可能的最长回文子序列为 &quot;bb&quot;。</p>\n"
+}

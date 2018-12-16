@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number[]} nums\n * @return {number[][]}\n */\nvar subsetsWithDup = function(nums) {\n    let result=[],temp=[]\n    nums.sort()\n    backtrack(result,0,temp,nums)\n    return result\n    function backtrack(result,start,temp,nums){\n        result.push(temp.slice())\n        for(let i=start;i<nums.length;i++){\n            if(i>start && nums[i]===nums[i-1])continue\n            temp.push(nums[i])\n            backtrack(result,i+1,temp,nums)\n            temp.pop()\n        }\n    }\n};"
+  ],
+  "titleSlug": "subsets-ii",
+  "content": "<p>Given a collection of integers that might contain duplicates, <strong><em>nums</em></strong>, return all possible subsets (the power set).</p>\r\n\r\n<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>\r\n\r\n<p><strong>Example:</strong></p>\r\n\r\n<pre>\r\n<strong>Input:</strong> [1,2,2]\r\n<strong>Output:</strong>\r\n[\r\n  [2],\r\n  [1],\r\n  [1,2,2],\r\n  [2,2],\r\n  [1,2],\r\n  []\r\n]\r\n</pre>\r\n",
+  "translatedContent": "<p>给定一个可能包含重复元素的整数数组 <em><strong>nums</strong></em>，返回该数组所有可能的子集（幂集）。</p>\n\n<p><strong>说明：</strong>解集不能包含重复的子集。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong> [1,2,2]\n<strong>输出:</strong>\n[\n  [2],\n  [1],\n  [1,2,2],\n  [2,2],\n  [1,2],\n  []\n]</pre>\n"
+}

@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {string} word1\n * @param {string} word2\n * @return {number}\n */\nvar minDistance = function(a, b) {\n  let aL=a.length,bL=b.length;\n  let arr=[]\n  for(let i=0;i<=aL;i++){\n    arr[i]=[]\n    for(let j=0;j<=bL;j++){\n      arr[i][j]=0\n    }\n  }\n  for(let i=1;i<=aL;i++){\n    for(let j=1;j<=bL;j++){\n      if(a[i-1]===b[j-1]){\n        arr[i][j]=arr[i-1][j-1]+1\n      }else{\n        arr[i][j]=Math.max(arr[i-1][j],arr[i][j-1])\n      }\n    }\n  }\n \n  return aL+bL-2*arr[aL][bL]\n};"
+  ],
+  "titleSlug": "delete-operation-for-two-strings",
+  "content": "<p>\r\nGiven two words <i>word1</i> and <i>word2</i>, find the minimum number of steps required to make <i>word1</i> and <i>word2</i> the same, where in each step you can delete one character in either string.\r\n</p>\r\n\r\n<p><b>Example 1:</b><br />\r\n<pre>\r\n<b>Input:</b> \"sea\", \"eat\"\r\n<b>Output:</b> 2\r\n<b>Explanation:</b> You need one step to make \"sea\" to \"ea\" and another step to make \"eat\" to \"ea\".\r\n</pre>\r\n</p>\r\n\r\n<p><b>Note:</b><br>\r\n<ol>\r\n<li>The length of given words won't exceed 500.</li>\r\n<li>Characters in given words can only be lower-case letters.</li>\r\n</ol>\r\n</p>",
+  "translatedContent": "<p>给定两个单词&nbsp;<em>word1&nbsp;</em>和&nbsp;<em>word2</em>，找到使得&nbsp;<em>word1&nbsp;</em>和&nbsp;<em>word2&nbsp;</em>相同所需的最小步数，每步可以删除任意一个字符串中的一个字符。</p>\n\n<p><strong>示例 1:</strong></p>\n\n<pre>\n<strong>输入:</strong> &quot;sea&quot;, &quot;eat&quot;\n<strong>输出:</strong> 2\n<strong>解释:</strong> 第一步将&quot;sea&quot;变为&quot;ea&quot;，第二步将&quot;eat&quot;变为&quot;ea&quot;\n</pre>\n\n<p><strong>说明:</strong></p>\n\n<ol>\n\t<li>给定单词的长度不超过500。</li>\n\t<li>给定单词中的字符只含有小写字母。</li>\n</ol>\n"
+}

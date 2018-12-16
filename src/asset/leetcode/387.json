@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {string} s\n * @return {number}\n */\nvar firstUniqChar = function(s) {\n    let c={},sequen=0\n    for(let i=0;i<s.length;i++){\n        let cur=s[i]\n        if(c[cur]!==undefined){\n            sequen++\n            c[cur]=false\n            continue;\n        }\n        if(c[cur]!==false)c[cur]=sequen++\n        else sequen++\n    }\n    let min=Number.MAX_SAFE_INTEGER,letter\n    for(let k in c){\n        if(c[k]!==false && c[k]<min){\n            min=c[k]\n            letter=k\n        }\n    }\n    if(min===Number.MAX_SAFE_INTEGER)return -1\n    else return min\n};"
+  ],
+  "titleSlug": "first-unique-character-in-a-string",
+  "content": "<p>\r\nGiven a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.\r\n</p>\r\n<p><b>Examples:</b>\r\n<pre>\r\ns = \"leetcode\"\r\nreturn 0.\r\n\r\ns = \"loveleetcode\",\r\nreturn 2.\r\n</pre>\r\n</p>\r\n\r\n<p>\r\n<b>Note:</b> You may assume the string contain only lowercase letters.\r\n</p>",
+  "translatedContent": "<p>给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。</p>\n\n<p><strong>案例:</strong></p>\n\n<pre>\ns = &quot;leetcode&quot;\n返回 0.\n\ns = &quot;loveleetcode&quot;,\n返回 2.\n</pre>\n\n<p>&nbsp;</p>\n\n<p><strong>注意事项：</strong>您可以假定该字符串只包含小写字母。</p>\n"
+}

@@ -28,6 +28,7 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "fs-extra": "^7.0.0",
+    "graphql-request": "^1.8.2",
     "gzip-size": "^5.0.0",
     "highlight.js": "^9.13.1",
     "html-loader": "^0.5.5",

@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * Definition for a binary tree node.\n * function TreeNode(val) {\n *     this.val = val;\n *     this.left = this.right = null;\n * }\n */\n/**\n * @param {TreeNode} root\n * @return {TreeNode[]}\n */\nvar findDuplicateSubtrees = function(root) {\n  let hash=new Map(),result=[]\n  function stringify(node){\n    if(!node)return 'N'\n    let str= node.val+'-'+stringify(node.left)+'-'+stringify(node.right)\n    if(!hash.has(str))hash.set(str,1)\n    else hash.set(str,hash.get(str)+1)\n    if(hash.get(str)===2)result.push(node)\n    return str\n  }\n  stringify(root)\n  return result\n};"
+  ],
+  "titleSlug": "find-duplicate-subtrees",
+  "content": "<p>Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any <b>one</b> of them.</p>\r\n\r\n<p>Two trees are duplicate if they have the same structure with same node values.</p>\r\n\r\n<p><b>Example 1: </b></p>\r\n\r\n<pre>\r\n        1\r\n       / \\\r\n      2   3\r\n     /   / \\\r\n    4   2   4\r\n       /\r\n      4\r\n</pre>\r\n\r\n<p>The following are two duplicate subtrees:</p>\r\n\r\n<pre>\r\n      2\r\n     /\r\n    4\r\n</pre>\r\n\r\n<p>and</p>\r\n\r\n<pre>\r\n    4\r\n</pre>\r\nTherefore, you need to return above trees&#39; root in the form of a list.",
+  "translatedContent": "<p>给定一棵二叉树，返回所有重复的子树。对于同一类的重复子树，你只需要返回其中任意<strong>一棵</strong>的根结点即可。</p>\n\n<p>两棵树重复是指它们具有相同的结构以及相同的结点值。</p>\n\n<p><strong>示例 1：</strong></p>\n\n<pre>        1\n       / \\\n      2   3\n     /   / \\\n    4   2   4\n       /\n      4\n</pre>\n\n<p>下面是两个重复的子树：</p>\n\n<pre>      2\n     /\n    4\n</pre>\n\n<p>和</p>\n\n<pre>    4\n</pre>\n\n<p>因此，你需要以列表的形式返回上述重复子树的根结点。</p>\n"
+}

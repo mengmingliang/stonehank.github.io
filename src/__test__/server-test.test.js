@@ -1,5 +1,5 @@
-const href2Absolute=require('../../fetch-blog-server/utils/href2Absolute')
-const getAppropriateSummary=require('../../fetch-blog-server/utils/getSummary')
+const href2Absolute=require('../../fetch-server/utils/href2Absolute')
+const getAppropriateSummary=require('../../fetch-server/utils/getSummary')
 
 test("将相对路径（任意）转换为绝对路径",function () {
 

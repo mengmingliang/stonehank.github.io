@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number} x\n * @param {number} y\n * @return {number}\n */\nvar hammingDistance = function(x, y) {\n    let diff = (x^y).toString(2).match(/1/g)\n    return diff?diff.length:0\n};"
+  ],
+  "titleSlug": "hamming-distance",
+  "content": "<p>The <a href=\"https://en.wikipedia.org/wiki/Hamming_distance\" target=\"_blank\">Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>\r\n\r\n<p>Given two integers <code>x</code> and <code>y</code>, calculate the Hamming distance.</p>\r\n\r\n<p><b>Note:</b><br />\r\n0 &le; <code>x</code>, <code>y</code> &lt; 2<sup>31</sup>.\r\n</p>\r\n\r\n<p><b>Example:</b>\r\n<pre>\r\n<b>Input:</b> x = 1, y = 4\r\n\r\n<b>Output:</b> 2\r\n\r\n<b>Explanation:</b>\r\n1   (0 0 0 1)\r\n4   (0 1 0 0)\r\n       &uarr;   &uarr;\r\n\r\nThe above arrows point to positions where the corresponding bits are different.\r\n</pre>\r\n</p>",
+  "translatedContent": "<p>两个整数之间的<a href=\"https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB\">汉明距离</a>指的是这两个数字对应二进制位不同的位置的数目。</p>\n\n<p>给出两个整数 <code>x</code> 和 <code>y</code>，计算它们之间的汉明距离。</p>\n\n<p><strong>注意：</strong><br />\n0 &le; <code>x</code>, <code>y</code> &lt; 2<sup>31</sup>.</p>\n\n<p><strong>示例:</strong></p>\n\n<pre>\n<strong>输入:</strong> x = 1, y = 4\n\n<strong>输出:</strong> 2\n\n<strong>解释:</strong>\n1   (0 0 0 1)\n4   (0 1 0 0)\n       &uarr;   &uarr;\n\n上面的箭头指出了对应二进制位不同的位置。\n</pre>\n"
+}

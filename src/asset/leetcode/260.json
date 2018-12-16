@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number[]} nums\n * @return {number[]}\n */\nvar singleNumber = function(nums) {\n    let cache={}\n    for(let i=0;i<nums.length;i++){\n        if(cache[nums[i]]){\n            delete(cache[nums[i]])\n        }else{\n            cache[nums[i]]=1\n        }\n    }\n    return Object.keys(cache).map(n=>parseInt(n,10))\n};"
+  ],
+  "titleSlug": "single-number-iii",
+  "content": "<p>Given an array of numbers <code>nums</code>, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</p>\r\n\r\n<p><strong>Example:</strong></p>\r\n\r\n<pre>\r\n<strong>Input:</strong>  <code>[1,2,1,3,2,5]</code>\r\n<strong>Output:</strong> <code>[3,5]</code></pre>\r\n\r\n<p><b>Note</b>:</p>\r\n\r\n<ol>\r\n\t<li>The order of the result is not important. So in the above example, <code>[5, 3]</code> is also correct.</li>\r\n\t<li>Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?</li>\r\n</ol>",
+  "translatedContent": "<p>给定一个整数数组&nbsp;<code>nums</code>，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。</p>\n\n<p><strong>示例 :</strong></p>\n\n<pre><strong>输入:</strong> <code>[1,2,1,3,2,5]</code>\n<strong>输出:</strong> <code>[3,5]</code></pre>\n\n<p><strong>注意：</strong></p>\n\n<ol>\n\t<li>结果输出的顺序并不重要，对于上面的例子，&nbsp;<code>[5, 3]</code>&nbsp;也是正确答案。</li>\n\t<li>你的算法应该具有线性时间复杂度。你能否仅使用常数空间复杂度来实现？</li>\n</ol>\n"
+}

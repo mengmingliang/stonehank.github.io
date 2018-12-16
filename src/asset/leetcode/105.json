@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * Definition for a binary tree node.\n * function TreeNode(val) {\n *     this.val = val;\n *     this.left = this.right = null;\n * }\n */\n/**\n * @param {number[]} preorder\n * @param {number[]} inorder\n * @return {TreeNode}\n */\nvar buildTree = function(preorder, inorder) {\n    let preIdx=0\n    // let root=new TreeNode(preorder[0])    \n    function createTree(inorder,lo,hi){\n        if(lo>hi)return null\n        // console.log(lo,hi)\n        let val=preorder[preIdx++]\n        let idx=inorder.indexOf(val)\n        let node=new TreeNode(val)\n        // console.log(val)\n        node.left=createTree(inorder,lo,idx-1)\n        node.right=createTree(inorder,idx+1,hi)\n        // console.log(node)\n        return node\n    }\n    \n    return createTree(inorder,0,inorder.length-1)\n    // console.log(root)\n    // return root\n};"
+  ],
+  "titleSlug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+  "content": "<p>Given preorder and inorder traversal of a tree, construct the binary tree.</p>\r\n\r\n<p><strong>Note:</strong><br />\r\nYou may assume that duplicates do not exist in the tree.</p>\r\n\r\n<p>For example, given</p>\r\n\r\n<pre>\r\npreorder =&nbsp;[3,9,20,15,7]\r\ninorder = [9,3,15,20,7]</pre>\r\n\r\n<p>Return the following binary tree:</p>\r\n\r\n<pre>\r\n    3\r\n   / \\\r\n  9  20\r\n    /  \\\r\n   15   7</pre>\r\n",
+  "translatedContent": "<p>根据一棵树的前序遍历与中序遍历构造二叉树。</p>\n\n<p><strong>注意:</strong><br>\n你可以假设树中没有重复的元素。</p>\n\n<p>例如，给出</p>\n\n<pre>前序遍历 preorder =&nbsp;[3,9,20,15,7]\n中序遍历 inorder = [9,3,15,20,7]</pre>\n\n<p>返回如下的二叉树：</p>\n\n<pre>    3\n   / \\\n  9  20\n    /  \\\n   15   7</pre>\n"
+}

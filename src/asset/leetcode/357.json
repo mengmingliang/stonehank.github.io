@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number} n\n * @return {number}\n */\nvar countNumbersWithUniqueDigits = function(n) {\n\n    if (n === 0) return 1;\n    let res = 10;\n    let uniqueDigits = 9;\n    let availableNumber = 9;\n    while (n-- > 1 && availableNumber > 0) {\n        uniqueDigits = uniqueDigits * availableNumber;\n        res += uniqueDigits;\n        availableNumber--;\n    }\n    return res;\n};"
+  ],
+  "titleSlug": "count-numbers-with-unique-digits",
+  "content": "<p>Given a <b>non-negative</b> integer n, count all numbers with unique digits, x, where 0 &le; x &lt; 10<sup>n</sup>.</p>\r\n\r\n<div>\r\n<p><strong>Example:</strong></p>\r\n\r\n<pre>\r\n<strong>Input: </strong><span id=\"example-input-1-1\">2</span>\r\n<strong>Output: </strong><span id=\"example-output-1\">91 \r\n<strong>Explanation: </strong></span>The answer should be the total numbers in the range of 0 &le; x &lt; 100, \r\n&nbsp;            excluding <code>11,22,33,44,55,66,77,88,99</code>\r\n</pre>\r\n</div>",
+  "translatedContent": "<p>给定一个<strong>非负</strong>整数 n，计算各位数字都不同的数字 x 的个数，其中 0 &le; x &lt; 10<sup>n&nbsp;</sup>。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入: </strong>2\n<strong>输出: </strong>91 \n<strong>解释: </strong>答案应为除去 <code>11,22,33,44,55,66,77,88,99 </code>外，在 [0,100) 区间内的所有数字。\n</pre>\n"
+}

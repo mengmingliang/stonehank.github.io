@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar maxSubArray = function(nums) {\n  // let max=nums[0],before=nums[0]\n  // for(let i=1;i<nums.length;i++){\n  //   before=Math.max(before+nums[i],nums[i])\n  //   max=Math.max(before,max)\n  // }\n  // return max\n  \n  let sum=nums[0],max=nums[0]\n  for(let i=1;i<nums.length;i++){\n    sum+=nums[i]\n    max=Math.max(max,sum)\n    if(sum<0)sum=0\n  }\n  return max\n};"
+  ],
+  "titleSlug": "maximum-subarray",
+  "content": "<p>Given an integer array <code>nums</code>, find the contiguous subarray&nbsp;(containing at least one number) which has the largest sum and return its sum.</p>\r\n\r\n<p><strong>Example:</strong></p>\r\n\r\n<pre>\r\n<strong>Input:</strong> [-2,1,-3,4,-1,2,1,-5,4],\r\n<strong>Output:</strong> 6\r\n<strong>Explanation:</strong>&nbsp;[4,-1,2,1] has the largest sum = 6.\r\n</pre>\r\n\r\n<p><strong>Follow up:</strong></p>\r\n\r\n<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>\r\n",
+  "translatedContent": "<p>给定一个整数数组 <code>nums</code>&nbsp;，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong> [-2,1,-3,4,-1,2,1,-5,4],\n<strong>输出:</strong> 6\n<strong>解释:</strong>&nbsp;连续子数组&nbsp;[4,-1,2,1] 的和最大，为&nbsp;6。\n</pre>\n\n<p><strong>进阶:</strong></p>\n\n<p>如果你已经实现复杂度为 O(<em>n</em>) 的解法，尝试使用更为精妙的分治法求解。</p>\n"
+}

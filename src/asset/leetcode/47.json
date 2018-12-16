@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number[]} nums\n * @return {number[][]}\n */\nvar permuteUnique = function(nums) {\n    let result=[],temp=[],aux=[]\n    nums.sort()\n    backtrack(result,temp,nums,aux)\n    return result\n    function backtrack(result,temp,nums,aux){\n        if(aux.length===nums.length){\n            result.push(aux.slice())\n        }\n        for(let i=0;i<nums.length;i++){\n            if(temp[i] || (i>0 && nums[i]===nums[i-1] && !temp[i-1] ))continue\n            temp[i]=true\n            aux.push(nums[i])\n            backtrack(result,temp,nums,aux)\n            temp[i]=false\n            aux.pop()\n        }\n    }\n};"
+  ],
+  "titleSlug": "permutations-ii",
+  "content": "<p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>\r\n\r\n<p><strong>Example:</strong></p>\r\n\r\n<pre>\r\n<strong>Input:</strong> [1,1,2]\r\n<strong>Output:</strong>\r\n[\r\n  [1,1,2],\r\n  [1,2,1],\r\n  [2,1,1]\r\n]\r\n</pre>\r\n",
+  "translatedContent": "<p>给定一个可包含重复数字的序列，返回所有不重复的全排列。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong> [1,1,2]\n<strong>输出:</strong>\n[\n  [1,1,2],\n  [1,2,1],\n  [2,1,1]\n]</pre>\n"
+}

@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number} n\n * @return {string[]}\n */\nvar generateParenthesis = function(n) {\n    let s=''\n    let l=\"(\",r=\")\"\n    let lN=0,rN=0\n    let res=[]\n    function dfs(s,n,lN,rN){\n        if(lN>n || lN<rN)return\n        if(lN===n && rN===n)res.push(s)\n        dfs(s+l,n,lN+1,rN)\n        dfs(s+r,n,lN,rN+1)\n    }\n    dfs(s,n,lN,rN)\n    return res\n};"
+  ],
+  "titleSlug": "generate-parentheses",
+  "content": "<p>\r\nGiven <i>n</i> pairs of parentheses, write a function to generate all combinations of well-formed parentheses.\r\n</p>\r\n\r\n<p>\r\nFor example, given <i>n</i> = 3, a solution set is:\r\n</p>\r\n<pre>\r\n[\r\n  \"((()))\",\r\n  \"(()())\",\r\n  \"(())()\",\r\n  \"()(())\",\r\n  \"()()()\"\r\n]\r\n</pre>",
+  "translatedContent": "<p>给出&nbsp;<em>n</em>&nbsp;代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且<strong>有效的</strong>括号组合。</p>\n\n<p>例如，给出&nbsp;<em>n </em>=<em> </em>3，生成结果为：</p>\n\n<pre>[\n  &quot;((()))&quot;,\n  &quot;(()())&quot;,\n  &quot;(())()&quot;,\n  &quot;()(())&quot;,\n  &quot;()()()&quot;\n]\n</pre>\n"
+}

@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {number[]} nums\n * @return {number[]}\n */\nvar findErrorNums = function(nums) {\n  let mem=Array(nums.length).fill(false),err,right\n  for(let i=0;i<nums.length;i++){\n    if(mem[nums[i]-1])err=nums[i]\n    mem[nums[i]-1]=true\n  }\n  for(let i=0;i<mem.length;i++){\n    if(!mem[i])return [err,i+1]\n  }\n};"
+  ],
+  "titleSlug": "set-mismatch",
+  "content": "<p>\r\nThe set <code>S</code> originally contains numbers from 1 to <code>n</code>. But unfortunately, due to the data error, one of the numbers in the set got duplicated to <b>another</b> number in the set, which results in repetition of one number and loss of another number. \r\n</p>\r\n\r\n<p>\r\nGiven an array <code>nums</code> representing the data status of this set after the error. Your task is to firstly find the number occurs twice and then find the number that is missing. Return them in the form of an array.\r\n</p>\r\n\r\n\r\n<p><b>Example 1:</b><br />\r\n<pre>\r\n<b>Input:</b> nums = [1,2,2,4]\r\n<b>Output:</b> [2,3]\r\n</pre>\r\n</p>\r\n\r\n<p><b>Note:</b><br>\r\n<ol>\r\n<li>The given array size will in the range [2, 10000].</li>\r\n<li>The given array's numbers won't have any order.</li>\r\n</ol>\r\n</p>",
+  "translatedContent": "<p>集合 <code>S</code> 包含从1到&nbsp;<code>n</code>&nbsp;的整数。不幸的是，因为数据错误，导致集合里面某一个元素复制了成了集合里面的另外一个元素的值，导致集合丢失了一个整数并且有一个元素重复。</p>\n\n<p>给定一个数组 <code>nums</code> 代表了集合 <code>S</code> 发生错误后的结果。你的任务是首先寻找到重复出现的整数，再找到丢失的整数，将它们以数组的形式返回。</p>\n\n<p><strong>示例 1:</strong></p>\n\n<pre>\n<strong>输入:</strong> nums = [1,2,2,4]\n<strong>输出:</strong> [2,3]\n</pre>\n\n<p><strong>注意:</strong></p>\n\n<ol>\n\t<li>给定数组的长度范围是&nbsp;[2, 10000]。</li>\n\t<li>给定的数组是无序的。</li>\n</ol>\n"
+}

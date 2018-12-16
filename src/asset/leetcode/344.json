@@ -1,0 +1,8 @@
+{
+  "code": [
+    "/**\n * @param {string} s\n * @return {string}\n */\nvar reverseString = function(s) {\n    let res=''\n    for(let i=s.length-1;i>=0;i--){\n        res+=s[i]\n    }\n    return res\n};"
+  ],
+  "titleSlug": "reverse-string",
+  "content": "<p>Write a function that takes a string as input and returns the string reversed.</p>\r\n\r\n<p><strong>Example 1:</strong></p>\r\n\r\n<div>\r\n<pre>\r\n<strong>Input: </strong><span id=\"example-input-1-1\">&quot;hello&quot;</span>\r\n<strong>Output: </strong><span id=\"example-output-1\">&quot;olleh&quot;</span>\r\n</pre>\r\n\r\n<div>\r\n<p><strong>Example 2:</strong></p>\r\n\r\n<pre>\r\n<strong>Input: </strong><span id=\"example-input-2-1\">&quot;A man, a plan, a canal: Panama&quot;</span>\r\n<strong>Output: </strong><span id=\"example-output-2\">&quot;amanaP :lanac a ,nalp a ,nam A&quot;</span>\r\n</pre>\r\n</div>\r\n</div>\r\n",
+  "translatedContent": "<p>编写一个函数，其作用是将输入的字符串反转过来。</p>\n\n<p><strong>示例&nbsp;1:</strong></p>\n\n<pre><strong>输入: </strong>&quot;hello&quot;\n<strong>输出: </strong>&quot;olleh&quot;\n</pre>\n\n<p><strong>示例 2:</strong></p>\n\n<pre><strong>输入: </strong>&quot;A man, a plan, a canal: Panama&quot;\n<strong>输出: </strong>&quot;amanaP :lanac a ,nalp a ,nam A&quot;</pre>\n"
+}
