@@ -3,7 +3,7 @@ import {Button, Icon} from 'antd';
 import { navigate} from "@reach/router"
 import {Layout} from "antd";
 import TagsList from "./TagsList"
-import TagsBlock from "./TagsBlock"
+import TagsBlock from "../share-components/TagsBlock"
 import Loading from "../share-components/Loading";
 
 
@@ -20,7 +20,6 @@ export default class Category extends React.Component {
     super(props)
     const {articles,tagsEachPage,tagsRenderMode}=props
     this.state = {
-      // todo 5是默认加载标签数量，可转换为配置
       pageSize: tagsEachPage,
       contentLoading: true,
       articles: null,
@@ -36,7 +35,7 @@ export default class Category extends React.Component {
 
   toggleTagRender(){
     const {articles}=this.props
-    let newTagsMode=this.state.tagsRenderMode === "block" ? "list" : "block"
+    let newTagsMode=this.state.tagsRenderMode === "card" ? "list" : "card"
     articles.tagsRenderMode=newTagsMode
     this.setState({
       tagsRenderMode: newTagsMode
@@ -44,7 +43,6 @@ export default class Category extends React.Component {
   }
 
   handlePageChange(page) {
-    // console.log(page,this.props)
     navigate(`/category/page/${page}`)
   }
 
@@ -76,29 +74,34 @@ export default class Category extends React.Component {
     } else {
       renderArticles = null
     }
-    return contentLoading ?
-      <Loading loading={contentLoading} render_nums={3} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={3} /> :
+    return contentLoading
+      ? <Loading loading={contentLoading}
+                 render_nums={3}
+                 ske_title_width={"30%"}
+                 ske_para_width={"50%"}
+                 ske_para_rows={3} />
+      : <Content style={styles.defaultMargin}>
+          <div className="clearfix">
+            <Button style={styles.toggleRenderButton}
+                    onClick={this.toggleTagRender}>
+              <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={styles.toggleRenderIcon}/>
+            </Button>
+          </div>
+          {tagsRenderMode === "list"
+            ? <React.Fragment>
+                <TagsBlock articles={articles} linkToProps={"category"} />
+                <TagsList articles={articles}
+                          pageSize={pageSize}
+                          page={page}
+                          handlePageChange={this.handlePageChange}
+                          totalPage={this.totalPage}
+                          renderArticles={renderArticles} />
+              </React.Fragment>
+             : <TagsBlock articles={articles} linkToProps={"category"} renderType={'card'}/>
+            }
+        </Content>
 
-      <Content style={styles.defaultMargin}>
-        <div className="clearfix">
-          <Button style={styles.toggleRenderButton}
-                  onClick={this.toggleTagRender}>
-            <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={styles.toggleRenderIcon}/>
-          </Button>
-        </div>
-        {tagsRenderMode === "list" ?
-          <React.Fragment>
-            <TagsBlock articles={articles}/>,
-            <TagsList articles={articles}
-                      pageSize={pageSize} page={page}
-                      handlePageChange={this.handlePageChange}
-                      totalPage={this.totalPage}
-                      renderArticles={renderArticles}
-            />
-          </React.Fragment> :
-          <TagsBlock articles={articles}/>
-        }
-      </Content>
+
   }
 }
 

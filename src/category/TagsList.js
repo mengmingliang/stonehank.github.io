@@ -1,8 +1,6 @@
 import React from 'react';
 import { List} from 'antd';
-// import { navigate} from "@reach/router"
-// import {linkTo} from '../routes/linkPathList'
-import CardPure from "../share-components/CardPure";
+import ArticleListCard from "../home-article/ArticleListCard";
 import TagHeader from "./TagHeader";
 
 
@@ -17,6 +15,7 @@ export default class TagsList extends React.Component {
 
   render() {
     const {articles, pageSize, page,handlePageChange,totalPage,renderArticles} = this.props
+    // console.log(articles,renderArticles)
     return (
             <List split={false}
                   pagination={{
@@ -38,13 +37,12 @@ export default class TagsList extends React.Component {
                             }
                             dataSource={tagList}
                             renderItem={item => (
-                              <CardPure hoverable bordered={false}
-                                        bodyStyle={styles.card_pure_body}
-                                        style={styles.card}
-                                        title={item.title}
-                                        statusBarItem={item}
-
-                              />
+                              <ArticleListCard hoverable
+                                               bordered={false}
+                                               bodyStyle={styles.card_pure_body}
+                                               style={styles.card}
+                                               title={item.title}
+                                               statusBarItem={item} />
                             )}
                       />
                     )

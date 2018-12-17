@@ -1,6 +1,6 @@
 import React from 'react';
 import {linkTo} from "../routes/linkPathList";
-import {Col} from 'antd';
+import {Col,Card} from 'antd';
 import {Link} from "@reach/router"
 import TagLight from "./TagLight";
 
@@ -12,11 +12,21 @@ const styles={
 export default class TagsCol extends React.PureComponent {
 
   render() {
-    const {tag}=this.props
+    const {tag,linkToProps,tagStyle,renderType,count}=this.props
     return (
       <Col style={styles.col}>
-        <Link to={`${linkTo.category}/${tag}`}>
-          <TagLight>{tag}</TagLight>
+        <Link to={`${linkTo[linkToProps]}/${tag}`}>
+          {
+            renderType==="card"
+              ?  <Card hoverable>
+                   <span>{tag}</span>
+                   <p>{count?`共有${count}`:null}</p>
+                 </Card>
+              :  <TagLight tagStyle={tagStyle}>
+                   <span>{tag}</span>
+                   <p>{count?`共有${count}`:null}</p>
+                 </TagLight>
+          }
         </Link>
       </Col>
     )

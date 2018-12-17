@@ -1,8 +1,9 @@
 import React from 'react';
 import {List,  Layout} from 'antd';
 import {navigate} from "@reach/router";
-import CardPure from "../share-components/CardPure";
+import ArticleListCard from "./ArticleListCard";
 import {deepEqual} from "../utils/index";
+import {linkTo} from "../routes/linkPathList";
 
 
 const styles={
@@ -49,16 +50,15 @@ export default class ArticleList extends React.Component {
                 header={<strong>最新文章</strong>}
                 pagination={listPageSetting} >
             {articles.map((item,i)=>(
-              <CardPure key={i}
-                        hoverable
-                        bordered={false}
-                        style={styles.card}
-                        title={item.title}
-                        statusBarItem={item}
-                        summary={<div style={styles.summary}
-                                      // dangerouslySetInnerHTML={{__html: md.render(item.summary || '')}}/>}
-                                      dangerouslySetInnerHTML={{__html: item.summary || ''}}/>}
-              />
+              <ArticleListCard key={i}
+                               hoverable
+                               bordered={false}
+                               linkToPath={linkTo.articles+"/"+item.titleSHA}
+                               style={styles.card}
+                               title={item.title}
+                               statusBarItem={item}
+                               summary={<div style={styles.summary}
+                                      dangerouslySetInnerHTML={{__html: item.summary || ''}}/>} />
             ))}
           </List>
 

@@ -10,5 +10,6 @@
   "articlesEachPage":3,
   "archiveEachPage":5,
   "read_blog_path":"asset/blog",
-  "read_sourceCode_path":"asset/sourceCode"
+  "read_sourceCode_path":"asset/sourceCode",
+  "read_leetcode_path":"asset/leetcode"
 }

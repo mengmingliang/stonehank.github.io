@@ -5,7 +5,7 @@ import {navigate} from "@reach/router";
 import {linkTo} from "../routes/linkPathList";
 import {deepEqual} from "../utils/index";
 
-export default class CardPure extends React.Component {
+export default class ArticleListCard extends React.Component {
   constructor() {
     super()
     this.navigateToPath=this.navigateToPath.bind(this)
@@ -26,9 +26,13 @@ export default class CardPure extends React.Component {
 
   render() {
     // console.log(1)
-    const {title,statusBarItem,summary,beforeNavigate,noCount,...otherProps}=this.props
+    const {title,statusBarItem,summary,beforeNavigate,noCount,linkToPath,createdTime,label,labelLinkToProp,...otherProps}=this.props
+    let _linkToPath
+    if(linkToPath==null)_linkToPath=linkTo.articles+"/"+statusBarItem.titleSHA
+    else _linkToPath=linkToPath
+    // console.log(statusBarItem)
     return (
-      <Card onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+statusBarItem.titleSHA)} {...otherProps}>
+      <Card onClick={this.navigateToPath.bind(this,_linkToPath)} {...otherProps}>
         {
           title
             ? <div>{title}</div>
@@ -38,6 +42,9 @@ export default class CardPure extends React.Component {
           statusBarItem
           ? <div>
               <ArticleStatusBar noCount={noCount}
+                                createdTime={createdTime==null?"createdTime":createdTime}
+                                label={label==null?"label":label}
+                                labelLinkToProp={labelLinkToProp==null?"category":labelLinkToProp}
                                 article={statusBarItem}/>
             </div>
           : null

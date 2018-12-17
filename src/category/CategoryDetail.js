@@ -1,10 +1,9 @@
 import React from 'react';
 import {List} from 'antd';
 import {navigate} from "@reach/router"
-// import {linkTo} from '../routes/linkPathList'
 import Loading from "../share-components/Loading";
 import TagHeader from "./TagHeader";
-import CardPure from "../share-components/CardPure";
+import ArticleListCard from "../home-article/ArticleListCard";
 
 
 const styles={
@@ -68,11 +67,11 @@ export default class CategoryDetail extends React.Component {
              }
          dataSource={tagList}
          renderItem={item => (
-           <CardPure hoverable bordered={false}
-                     bodyStyle={styles.card_pure_body}
-                     style={styles.card}
-                     title={item.title}
-                     statusBarItem={item}
+           <ArticleListCard hoverable bordered={false}
+                            bodyStyle={styles.card_pure_body}
+                            style={styles.card}
+                            title={item.title}
+                            statusBarItem={item}
                      // onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
            />
          )}

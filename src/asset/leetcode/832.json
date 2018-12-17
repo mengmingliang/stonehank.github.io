@@ -1,6 +1,5 @@
 {
   "code": [
-    "/**\n * @param {number[][]} A\n * @return {number[][]}\n */\nvar flipAndInvertImage = function(A) {\n    for(let i=0;i<A.length;i++){\n        let len=A[i].length\n        for(let j=0;j<len;j++){\n            if(j<len/2){\n                let temp=A[i][j];\n                A[i][j]=A[i][len-j-1]\n                A[i][len-j-1]=temp;\n            }\n            A[i][j]=A[i][j]?0:1\n        }\n    }\n    return A\n};",
     "class Solution {\n    public int[][] flipAndInvertImage(int[][] A) {\n        int invertedImage[][] = new int[A.length][];\n        for(int i = 0; i < A.length; i++)\n        {\n           int rev[] = reverseNum(A[i]);\n           int inv[] = inverseNum(rev);\n           invertedImage[i] = inv;  \n        }\n        return invertedImage;\n    }\n    \n    private int[] reverseNum(int num[])\n    {\n        for(int i = 0; i < (num.length)/2; i++)\n        {\n            int temp = num[i];\n            num[i]  = num[num.length - i - 1];\n            num[num.length - i - 1] = temp;\n        }\n        return num;\n    }\n    \n    private int[] inverseNum(int num[])\n    {\n        for(int i = 0; i < num.length; i++)\n        {\n             num[i] = num[i]^1;\n        }\n        return num;\n    }\n    \n}"
   ],
   "titleSlug": "flipping-an-image",

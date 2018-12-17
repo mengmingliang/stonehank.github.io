@@ -1,7 +1,7 @@
 import React from 'react'
 import {Row,Col} from 'antd';
 import {Link} from "@reach/router"
-import TagLight from "./TagLight"
+import TagLight from "../share-components/TagLight"
 import {linkTo} from '../routes/linkPathList'
 import CustomComment from "../tools/CustomComment";
 
@@ -14,16 +14,21 @@ const styles={
 export default class ArticleStatusBar extends React.Component{
 
   render(){
-    const {article,articleSha,noCount,...props}=this.props
+    const {article,articleSha,createdTime,label,labelLinkToProp,noCount,...props}=this.props
+    // console.log(labelLinkToProp)
     return (
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
-        <Col>{<div dangerouslySetInnerHTML={{__html:article.createdTime || "未知日期"}} />}</Col>
+        {createdTime
+          ?  <Col>{<div dangerouslySetInnerHTML={{__html:article[createdTime] || "未知日期"}} />}</Col>
+          :  null
+        }
+
         <Col>
           {
-            article.label
-              ? article.label.map((t,i) => {
+            article[label]
+              ? article[label].map((t,i) => {
                 return (
-                  <Link key={i} to={`${linkTo.category}/${t}`}>
+                  <Link key={i} to={`${linkTo[labelLinkToProp]}/${t}`}>
                     <TagLight>{t}</TagLight>
                   </Link>
                 )})

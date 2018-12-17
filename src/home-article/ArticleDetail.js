@@ -2,7 +2,7 @@ import React from 'react';
 import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import ArticleStatusBar from "./ArticleStatusBar"
-import Loading from './Loading'
+import Loading from '../share-components/Loading'
 import {linkTo} from "../routes/linkPathList";
 import CustomComment from "../tools/CustomComment";
 import BookmarkContext from '../bookmark/BookmarkContext'
@@ -151,7 +151,12 @@ export default class ArticleDetail extends React.Component{
         <article style={styles.article}>
           <header>
             <h1 style={styles.articleTitle}>{curArticleData.title}</h1>
-            <ArticleStatusBar justify={"center"} article={curArticleData} articleSha={articleSha}/>
+            <ArticleStatusBar justify={"center"}
+                              article={curArticleData}
+                              articleSha={articleSha}
+                              createdTime={"createdTime"}
+                              label={"label"}
+                              labelLinkToProp={"category"} />
           </header>
           {/*<div style={styles.contentDiv} dangerouslySetInnerHTML={{__html: md.render(curArticleData.content)}}/>*/}
           <div className="markdown-body" style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curArticleData.content}}/>

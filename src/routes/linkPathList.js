@@ -8,14 +8,15 @@
  路径：'/category/xxx'
  对应的侧边栏：'category'
 */
-const pathEnum=["/home","/archive","/category","/about","/sourceCode"]
+const pathEnum=["/home","/archive","/category","/about","/sourcecode","/myleetcode"]
 
 const linkTo={
   category:`/category`,
   articles:`/articles`,
   home: "/home",
   archive:"/archive",
-  sourceCode:'/sourceCode',
+  sourcecode:'/sourcecode',
+  myleetcode:'/myleetcode',
   about:"/about"
 }
 

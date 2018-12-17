@@ -7,8 +7,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Archive from "./archive/Archive";
 import Category from "./category/Category";
 import About from "./about/About";
-import Home from "./home/Home";
-import ArticleDetail from "./share-components/ArticleDetail";
+import Home from "./home-article/Home";
+import ArticleDetail from "./home-article/ArticleDetail";
 import CategoryDetail from './category/CategoryDetail'
 import NavSiderWrapper from "./nav/NavSiderWrapper";
 import {refactor,objSortBy,objGroupBy} from './utils'
@@ -24,6 +24,7 @@ import './css/github.min.css'
 import './css/index.css';
 
 import SourceCode from "./source-code/SourceCode";
+import MyLeetcode from "./leetcode-problem/MyLeetcodeContainer";
 
 
 const styles={
@@ -49,12 +50,19 @@ export default class BlogLayout extends React.Component {
       initArticles:null,
       blog_jsonObj:null,
       sourceCodeNavSHA:null,
+      leetcodeRenderMode:'list'
     }
-    this.fetchBlogContent=this.fetchBlogContent.bind(this)
-    this.fetchSourceCodeNav=this.fetchSourceCodeNav.bind(this)
+    this.fetchBlogList=this.fetchBlogList.bind(this)
+    this.fetchSourceCodeList=this.fetchSourceCodeList.bind(this)
     this.changeBackground=this.changeBackground.bind(this)
+    this.toggleRenderMode=this.toggleRenderMode.bind(this)
   }
 
+  toggleRenderMode(prop){
+    this.setState(prevState=>({
+      [prop]:prevState[prop]==="list"?'card':"list"
+    }))
+  }
 
   changeBackground(color){
     this.setState({
@@ -62,24 +70,24 @@ export default class BlogLayout extends React.Component {
     })
   }
 
-  fetchBlogContent(){
+  fetchBlogList(){
     const {read_blog_path}=this.props.userConfig
       return import(
         /*webpackChunkName: "articles-list"*/
-        `./${read_blog_path}/_blog-data`)
+        `./${read_blog_path}/_blog-list.json`)
     }
 
-  fetchSourceCodeNav(){
+  fetchSourceCodeList(){
     const {read_sourceCode_path}=this.props.userConfig
     return import(
       /*webpackChunkName: "sourceCode-navList"*/
-      `./${read_sourceCode_path}/_source-code-list.json`)
+      `./${read_sourceCode_path}/_sourceCode-list.json`)
   }
 
   componentDidMount(){
     let promiseQueue=[]
-    promiseQueue.push(this.fetchBlogContent())
-    promiseQueue.push(this.fetchSourceCodeNav())
+    promiseQueue.push(this.fetchBlogList())
+    promiseQueue.push(this.fetchSourceCodeList())
     Promise.all(promiseQueue)
       .then(modules=>{
         let blog_jsonObj=modules[0].default
@@ -111,7 +119,8 @@ export default class BlogLayout extends React.Component {
       archiveEachPage,
       aboutMe,
       read_blog_path,
-      read_sourceCode_path
+      read_sourceCode_path,
+      read_leetcode_path
     }=userConfig
 
     const {
@@ -119,16 +128,19 @@ export default class BlogLayout extends React.Component {
       archiveArticles,
       categoryArticles,
       initArticles,
-      sourceCodeNavSHA
+      sourceCodeNavSHA,
+      leetcodeRenderMode
     }=this.state
 
     if(archiveArticles && !archiveArticles.activePanel){
       Object.defineProperty(archiveArticles,"activePanel",{value:null, writable:true})
     }
-    if(categoryArticles && !categoryArticles.tagsRenderMode && !categoryArticles.tagsBlockLoaded){
+    if(categoryArticles && !categoryArticles.tagsRenderMode
+      // && !categoryArticles.tagsBlockLoaded
+    ){
       Object.defineProperties(categoryArticles,{
         "tagsRenderMode":{value:null, writable:true},
-        "tagsBlockLoaded":{value:null, writable:true}
+        // "tagsBlockLoaded":{value:null, writable:true}
       })
     }
     /* archiveArticles数据结构
@@ -211,9 +223,14 @@ export default class BlogLayout extends React.Component {
                                   tagsEachPage={tagsEachPage}
                                   articles={categoryArticles}   />
 
-                        <SourceCode path={linkTo.sourceCode}
+                        <SourceCode path={linkTo.sourcecode}
                                     read_sourceCode_path={read_sourceCode_path}
                                     sourceCodeNavSHA={sourceCodeNavSHA} />
+
+                        <MyLeetcode path={linkTo.myleetcode}
+                                    leetcodeRenderMode={leetcodeRenderMode}
+                                    toggleRenderMode={this.toggleRenderMode}
+                                    read_leetcode_path={read_leetcode_path} />
 
                         <About path={linkTo.about}
                                articles={categoryArticles}

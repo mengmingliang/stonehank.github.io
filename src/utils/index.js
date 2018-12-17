@@ -116,7 +116,8 @@ export function objSortBy(obj,sortKey,asc){
   return result
 }
 
-export function objGroupBy(obj,key){
+// 第三个参数，优先分组，如果发现不存在的，将不存在的单独分组
+export function objGroupBy(obj,key,priorityProps=null){
   let os=Object.prototype.toString
   if(os.call(obj)!=="[object Object]")throw Error("obj must be Object")
   let result={}
@@ -128,17 +129,23 @@ export function objGroupBy(obj,key){
     function _group(data,result){
       let typeData=os.call(data)
       if(typeData==="[object Array]") {
-        for (let i = 0; i < data.length; i++) {
-          _group(data[i],result)
-          // if (!result[data[i]]) result[data[i]] = [objValue]
-          // else result[data[i]].push(objValue)
+        if(priorityProps && data[priorityProps]!=null){
+          _group(data[priorityProps],result)
+        }else{
+          for (let i = 0; i < data.length; i++) {
+            if(data[i]==null)continue
+            _group(data[i],result)
+          }
         }
       }else if(typeData==="[object Object]"){
-        for(let _k in data){
-          if(!data.hasOwnProperty(_k))continue
-          _group(data[_k],result)
-          // if (!result[data[_k]]) result[data[_k]] = [objValue]
-          // else result[data[_k]].push(objValue)
+        if(priorityProps && data[priorityProps]!=null){
+          _group(data[priorityProps],result)
+        } else{
+          for(let _k in data){
+            if(!data.hasOwnProperty(_k))continue
+            if(data[_k]==null)continue
+            _group(data[_k],result)
+          }
         }
       }else{
         if (!result[data]) result[data] = [objValue]

@@ -1,6 +1,6 @@
 import React from 'react'
 import {List, Divider, Row} from 'antd';
-import CardPure from "../share-components/CardPure";
+import ArticleListCard from "../home-article/ArticleListCard";
 import TagsCol from "../share-components/TagsCol";
 
 const renderNumber = 3
@@ -106,22 +106,23 @@ export default class SearchDrawerListLazyScroll extends React.Component {
              gutter={6}>
           {matchTags.map((tag, i) => {
             return (
-              <TagsCol key={i} tag={tag}/>
+              <TagsCol key={i} tag={tag} linkToProps={"category"}/>
             )
           })}
         </Row>
         <Divider orientation={"left"} style={styles.divider}>文章</Divider>
         {renderArticles.map((item, i) => (
-          <CardPure key={i} hoverable
-                    bordered={false}
-                    style={styles.card}
-                    bodyStyle={styles.card_pure_body}
-                    statusBarItem={item}
-                    noCount={true}
-                    title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
-                    summary={<div style={styles.summary}
-                                  dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
-                    beforeNavigate={clearSearchInput}/>
+          <ArticleListCard key={i}
+                           hoverable
+                           bordered={false}
+                           style={styles.card}
+                           bodyStyle={styles.card_pure_body}
+                           statusBarItem={item}
+                           noCount={true}
+                           title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
+                           summary={<div style={styles.summary}
+                                         dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
+                           beforeNavigate={clearSearchInput}/>
         ))}
       </List>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, List} from 'antd';
 import {Link} from "@reach/router"
-import ArticleStatusBar from "../share-components/ArticleStatusBar"
+import ArticleStatusBar from "../home-article/ArticleStatusBar"
 import Loading from "../share-components/Loading";
 import {linkTo} from "../routes/linkPathList";
 
@@ -95,7 +95,10 @@ export default class ArchiveList extends React.Component {
                   <div>{day.title}</div>
                 </Link>}
                 description={
-                  <ArticleStatusBar article={day}/>
+                  <ArticleStatusBar createdTime={"createdTime"}
+                                    label={"label"}
+                                    labelLinkPath={"category"}
+                                    article={day}/>
                 }
               />
             </List.Item>
