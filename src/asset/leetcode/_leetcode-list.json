@@ -1,7478 +1,5287 @@
 {
   "1": {
-    "title": "Two Sum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 1,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两数之和",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "数组",
+      "哈希表"
     ]
   },
   "2": {
-    "title": "Add Two Numbers",
     "lang": [
       "javascript"
     ],
     "frontEndId": 2,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "两数相加",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "链表",
+      "数学"
     ]
   },
   "5": {
-    "title": "Longest Palindromic Substring",
     "lang": [
       "javascript"
     ],
     "frontEndId": 5,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最长回文子串",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "字符串",
+      "动态规划"
     ]
   },
   "7": {
-    "title": "Reverse Integer",
     "lang": [
       "javascript"
     ],
     "frontEndId": 7,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "整数反转",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "9": {
-    "title": "Palindrome Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 9,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "回文数",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "11": {
-    "title": "Container With Most Water",
     "lang": [
       "javascript"
     ],
     "frontEndId": 11,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "盛最多水的容器",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "数组",
+      "双指针"
     ]
   },
   "12": {
-    "title": "Integer to Roman",
     "lang": [
       "javascript"
     ],
     "frontEndId": 12,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "整数转罗马数字",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "数学",
+      "字符串"
     ]
   },
   "13": {
-    "title": "Roman to Integer",
     "lang": [
       "javascript"
     ],
     "frontEndId": 13,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "罗马数字转整数",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "数学",
+      "字符串"
     ]
   },
   "15": {
-    "title": "3Sum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 15,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "三数之和",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "数组",
+      "双指针"
     ]
   },
   "17": {
-    "title": "Letter Combinations of a Phone Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 17,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "电话号码的字母组合",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "字符串",
+      "回溯算法"
     ]
   },
   "21": {
-    "title": "Merge Two Sorted Lists",
     "lang": [
       "javascript"
     ],
     "frontEndId": 21,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "合并两个有序链表",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "22": {
-    "title": "Generate Parentheses",
     "lang": [
       "javascript"
     ],
     "frontEndId": 22,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "括号生成",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "字符串",
+      "回溯算法"
     ]
   },
   "24": {
-    "title": "Swap Nodes in Pairs",
     "lang": [
       "javascript"
     ],
     "frontEndId": 24,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "两两交换链表中的节点",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "26": {
-    "title": "Remove Duplicates from Sorted Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 26,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "删除排序数组中的重复项",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "数组",
+      "双指针"
     ]
   },
   "27": {
-    "title": "Remove Element",
     "lang": [
       "javascript"
     ],
     "frontEndId": 27,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "移除元素",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "数组",
+      "双指针"
     ]
   },
   "28": {
-    "title": "Implement strStr()",
     "lang": [
       "javascript"
     ],
     "frontEndId": 28,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "实现strStr()",
     "topicTags": [
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "双指针",
+      "字符串"
     ]
   },
   "35": {
-    "title": "Search Insert Position",
     "lang": [
       "javascript"
     ],
     "frontEndId": 35,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "搜索插入位置",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "数组",
+      "二分查找"
     ]
   },
   "36": {
-    "title": "Valid Sudoku",
     "lang": [
       "javascript"
     ],
     "frontEndId": 36,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "有效的数独",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "38": {
-    "title": "Count and Say",
     "lang": [
       "javascript"
     ],
     "frontEndId": 38,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "报数",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "39": {
-    "title": "Combination Sum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 39,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "组合总和",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "数组",
+      "回溯算法"
     ]
   },
   "40": {
-    "title": "Combination Sum II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 40,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "组合总和 II",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "数组",
+      "回溯算法"
     ]
   },
   "42": {
-    "title": "Trapping Rain Water",
     "lang": [
       "javascript"
     ],
     "frontEndId": 42,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "接雨水",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "栈",
+      "数组",
+      "双指针"
     ]
   },
   "46": {
-    "title": "Permutations",
     "lang": [
       "javascript"
     ],
     "frontEndId": 46,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "全排列",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "47": {
-    "title": "Permutations II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 47,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "全排列 II",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "48": {
-    "title": "Rotate Image",
     "lang": [
       "javascript"
     ],
     "frontEndId": 48,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "旋转图像",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "49": {
-    "title": "Group Anagrams",
     "lang": [
       "javascript"
     ],
     "frontEndId": 49,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "字母异位词分组",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "哈希表",
+      "字符串"
     ]
   },
   "51": {
-    "title": "N-Queens",
     "lang": [
       "javascript"
     ],
     "frontEndId": 51,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "N皇后",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "52": {
-    "title": "N-Queens II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 52,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "N皇后 II",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "53": {
-    "title": "Maximum Subarray",
     "lang": [
       "javascript"
     ],
     "frontEndId": 53,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最大子序和",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Divide and Conquer",
-        "translatedName": "分治算法"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "分治算法",
+      "动态规划"
     ]
   },
   "59": {
-    "title": "Spiral Matrix II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 59,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "螺旋矩阵 II",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "62": {
-    "title": "Unique Paths",
     "lang": [
       "javascript"
     ],
     "frontEndId": 62,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "不同路径",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "64": {
-    "title": "Minimum Path Sum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 64,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最小路径和",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "66": {
-    "title": "Plus One",
     "lang": [
       "javascript"
     ],
     "frontEndId": 66,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "加一",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数组",
+      "数学"
     ]
   },
   "70": {
-    "title": "Climbing Stairs",
     "lang": [
       "javascript"
     ],
     "frontEndId": 70,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "爬楼梯",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "73": {
-    "title": "Set Matrix Zeroes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 73,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "矩阵置零",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "75": {
-    "title": "Sort Colors",
     "lang": [
       "javascript"
     ],
     "frontEndId": 75,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "颜色分类",
     "topicTags": [
-      {
-        "name": "Sort",
-        "translatedName": "排序"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "排序",
+      "数组",
+      "双指针"
     ]
   },
   "77": {
-    "title": "Combinations",
     "lang": [
       "javascript"
     ],
     "frontEndId": 77,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "组合",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "78": {
-    "title": "Subsets",
     "lang": [
       "javascript"
     ],
     "frontEndId": 78,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "子集",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "位运算",
+      "数组",
+      "回溯算法"
     ]
   },
   "80": {
-    "title": "Remove Duplicates from Sorted Array II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 80,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "删除排序数组中的重复项 II",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "数组",
+      "双指针"
     ]
   },
   "83": {
-    "title": "Remove Duplicates from Sorted List",
     "lang": [
       "javascript"
     ],
     "frontEndId": 83,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "删除排序链表中的重复元素",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "89": {
-    "title": "Gray Code",
     "lang": [
       "javascript"
     ],
     "frontEndId": 89,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "格雷编码",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "90": {
-    "title": "Subsets II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 90,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "子集 II",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "数组",
+      "回溯算法"
     ]
   },
   "94": {
-    "title": "Binary Tree Inorder Traversal",
     "lang": [
       "javascript"
     ],
     "frontEndId": 94,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树的中序遍历",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "栈",
+      "树",
+      "哈希表"
     ]
   },
   "96": {
-    "title": "Unique Binary Search Trees",
     "lang": [
       "javascript"
     ],
     "frontEndId": 96,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "不同的二叉搜索树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "树",
+      "动态规划"
     ]
   },
   "100": {
-    "title": "Same Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 100,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "相同的树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "101": {
-    "title": "Symmetric Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 101,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "对称二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "102": {
-    "title": "Binary Tree Level Order Traversal",
     "lang": [
       "javascript"
     ],
     "frontEndId": 102,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树的层次遍历",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "广度优先搜索"
     ]
   },
   "103": {
-    "title": "Binary Tree Zigzag Level Order Traversal",
     "lang": [
       "javascript"
     ],
     "frontEndId": 103,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树的锯齿形层次遍历",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "栈",
+      "树",
+      "广度优先搜索"
     ]
   },
   "104": {
-    "title": "Maximum Depth of Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 104,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉树的最大深度",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "105": {
-    "title": "Construct Binary Tree from Preorder and Inorder Traversal",
     "lang": [
       "javascript"
     ],
     "frontEndId": 105,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "从前序与中序遍历序列构造二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "树",
+      "深度优先搜索",
+      "数组"
     ]
   },
   "107": {
-    "title": "Binary Tree Level Order Traversal II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 107,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉树的层次遍历 II",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "广度优先搜索"
     ]
   },
   "108": {
-    "title": "Convert Sorted Array to Binary Search Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 108,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "将有序数组转换为二叉搜索树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "109": {
-    "title": "Convert Sorted List to Binary Search Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 109,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "有序链表转换二叉搜索树",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "深度优先搜索",
+      "链表"
     ]
   },
   "110": {
-    "title": "Balanced Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 110,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "平衡二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "113": {
-    "title": "Path Sum II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 113,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "路径总和 II",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "114": {
-    "title": "Flatten Binary Tree to Linked List",
     "lang": [
       "javascript"
     ],
     "frontEndId": 114,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树展开为链表",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "118": {
-    "title": "Pascal's Triangle",
     "lang": [
       "javascript"
     ],
     "frontEndId": 118,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "杨辉三角",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "119": {
-    "title": "Pascal's Triangle II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 119,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "杨辉三角 II",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "120": {
-    "title": "Triangle",
     "lang": [
       "javascript"
     ],
     "frontEndId": 120,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "三角形最小路径和",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "121": {
-    "title": "Best Time to Buy and Sell Stock",
     "lang": [
       "javascript"
     ],
     "frontEndId": 121,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "买卖股票的最佳时机",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "122": {
-    "title": "Best Time to Buy and Sell Stock II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 122,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "买卖股票的最佳时机 II",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "贪心算法",
+      "数组"
     ]
   },
   "123": {
-    "title": "Best Time to Buy and Sell Stock III",
     "lang": [
       "javascript"
     ],
     "frontEndId": 123,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "买卖股票的最佳时机 III",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "128": {
-    "title": "Longest Consecutive Sequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 128,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "最长连续序列",
     "topicTags": [
-      {
-        "name": "Union Find",
-        "translatedName": "并查集"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "并查集",
+      "数组"
     ]
   },
   "129": {
-    "title": "Sum Root to Leaf Numbers",
     "lang": [
       "javascript"
     ],
     "frontEndId": 129,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "求根到叶子节点数字之和",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "131": {
-    "title": "Palindrome Partitioning",
     "lang": [
       "javascript"
     ],
     "frontEndId": 131,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "分割回文串",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "136": {
-    "title": "Single Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 136,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "只出现一次的数字",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "位运算",
+      "哈希表"
     ]
   },
   "137": {
-    "title": "Single Number II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 137,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "只出现一次的数字 II",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "144": {
-    "title": "Binary Tree Preorder Traversal",
     "lang": [
       "javascript"
     ],
     "frontEndId": 144,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树的前序遍历",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "栈",
+      "树"
     ]
   },
   "153": {
-    "title": "Find Minimum in Rotated Sorted Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 153,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "寻找旋转排序数组中的最小值",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "数组",
+      "二分查找"
     ]
   },
   "162": {
-    "title": "Find Peak Element",
     "lang": [
       "javascript"
     ],
     "frontEndId": 162,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "寻找峰值",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "数组",
+      "二分查找"
     ]
   },
   "167": {
-    "title": "Two Sum II - Input array is sorted",
     "lang": [
       "javascript"
     ],
     "frontEndId": 167,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两数之和 II - 输入有序数组",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "数组",
+      "双指针",
+      "二分查找"
     ]
   },
   "169": {
-    "title": "Majority Element",
     "lang": [
       "javascript"
     ],
     "frontEndId": 169,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "求众数",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Divide and Conquer",
-        "translatedName": "分治算法"
-      }
+      "位运算",
+      "数组",
+      "分治算法"
     ]
   },
   "171": {
-    "title": "Excel Sheet Column Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 171,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "Excel表列序号",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
+    ]
+  },
+  "172": {
+    "lang": [
+      "javascript"
+    ],
+    "frontEndId": 172,
+    "status": "ac",
+    "difficult": "Easy",
+    "translatedTitle": "阶乘后的零",
+    "topicTags": [
+      "数学"
     ]
   },
   "173": {
-    "title": "Binary Search Tree Iterator",
     "lang": [
       "javascript"
     ],
     "frontEndId": 173,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉搜索树迭代器",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Design",
-        "translatedName": "设计"
-      }
+      "栈",
+      "树",
+      "设计"
     ]
   },
   "175": {
-    "title": "Combine Two Tables",
     "lang": [
       "mysql"
     ],
     "frontEndId": 175,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "组合两个表",
     "topicTags": []
   },
   "181": {
-    "title": "Employees Earning More Than Their Managers",
     "lang": [
       "mysql"
     ],
     "frontEndId": 181,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "超过经理收入的员工",
     "topicTags": []
   },
   "182": {
-    "title": "Duplicate Emails",
     "lang": [
       "mysql"
     ],
     "frontEndId": 182,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "查找重复的电子邮箱",
     "topicTags": []
   },
   "183": {
-    "title": "Customers Who Never Order",
     "lang": [
       "mysql"
     ],
     "frontEndId": 183,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "从不订购的客户",
     "topicTags": []
   },
   "187": {
-    "title": "Repeated DNA Sequences",
     "lang": [
       "javascript"
     ],
     "frontEndId": 187,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "重复的DNA序列",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "位运算",
+      "哈希表"
     ]
   },
   "191": {
-    "title": "Number of 1 Bits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 191,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "位1的个数",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "198": {
-    "title": "House Robber",
     "lang": [
       "javascript"
     ],
     "frontEndId": 198,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "打家劫舍",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "199": {
-    "title": "Binary Tree Right Side View",
     "lang": [
       "javascript"
     ],
     "frontEndId": 199,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树的右视图",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "200": {
-    "title": "Number of Islands",
     "lang": [
       "javascript"
     ],
     "frontEndId": 200,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "岛屿的个数",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      },
-      {
-        "name": "Union Find",
-        "translatedName": "并查集"
-      }
+      "深度优先搜索",
+      "广度优先搜索",
+      "并查集"
     ]
   },
   "202": {
-    "title": "Happy Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 202,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "快乐数",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "哈希表",
+      "数学"
     ]
   },
   "206": {
-    "title": "Reverse Linked List",
     "lang": [
       "javascript"
     ],
     "frontEndId": 206,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "反转链表",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "210": {
-    "title": "Course Schedule II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 210,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "课程表 II",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      },
-      {
-        "name": "Graph",
-        "translatedName": "图"
-      },
-      {
-        "name": "Topological Sort",
-        "translatedName": "拓扑排序"
-      }
+      "深度优先搜索",
+      "广度优先搜索",
+      "图",
+      "拓扑排序"
     ]
   },
   "211": {
-    "title": "Add and Search Word - Data structure design",
     "lang": [
       "javascript"
     ],
     "frontEndId": 211,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "添加与搜索单词 - 数据结构设计",
     "topicTags": [
-      {
-        "name": "Design",
-        "translatedName": "设计"
-      },
-      {
-        "name": "Trie",
-        "translatedName": "字典树"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "设计",
+      "字典树",
+      "回溯算法"
     ]
   },
   "215": {
-    "title": "Kth Largest Element in an Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 215,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "数组中的第K个最大元素",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Divide and Conquer",
-        "translatedName": "分治算法"
-      }
+      "堆",
+      "分治算法"
     ]
   },
   "216": {
-    "title": "Combination Sum III",
     "lang": [
       "javascript"
     ],
     "frontEndId": 216,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "组合总和 III",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "数组",
+      "回溯算法"
     ]
   },
   "217": {
-    "title": "Contains Duplicate",
     "lang": [
       "javascript"
     ],
     "frontEndId": 217,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "存在重复元素",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "数组",
+      "哈希表"
     ]
   },
   "226": {
-    "title": "Invert Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 226,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "翻转二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "230": {
-    "title": "Kth Smallest Element in a BST",
     "lang": [
       "javascript"
     ],
     "frontEndId": 230,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉搜索树中第K小的元素",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "树",
+      "二分查找"
     ]
   },
   "231": {
-    "title": "Power of Two",
     "lang": [
       "javascript"
     ],
     "frontEndId": 231,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "2的幂",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "位运算",
+      "数学"
     ]
   },
   "232": {
-    "title": "Implement Queue using Stacks",
     "lang": [
       "javascript"
     ],
     "frontEndId": 232,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "用栈实现队列",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Design",
-        "translatedName": "设计"
-      }
+      "栈",
+      "设计"
     ]
   },
   "235": {
-    "title": "Lowest Common Ancestor of a Binary Search Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 235,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉搜索树的最近公共祖先",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "236": {
-    "title": "Lowest Common Ancestor of a Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 236,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树的最近公共祖先",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "237": {
-    "title": "Delete Node in a Linked List",
     "lang": [
       "javascript"
     ],
     "frontEndId": 237,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "删除链表中的节点",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "238": {
-    "title": "Product of Array Except Self",
     "lang": [
       "javascript"
     ],
     "frontEndId": 238,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "除自身以外数组的乘积",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "239": {
-    "title": "Sliding Window Maximum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 239,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "滑动窗口最大值",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      }
+      "堆"
     ]
   },
   "240": {
-    "title": "Search a 2D Matrix II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 240,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "搜索二维矩阵 II",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      },
-      {
-        "name": "Divide and Conquer",
-        "translatedName": "分治算法"
-      }
+      "二分查找",
+      "分治算法"
     ]
   },
   "242": {
-    "title": "Valid Anagram",
     "lang": [
       "javascript"
     ],
     "frontEndId": 242,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "有效的字母异位词",
     "topicTags": [
-      {
-        "name": "Sort",
-        "translatedName": "排序"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "排序",
+      "哈希表"
     ]
   },
   "257": {
-    "title": "Binary Tree Paths",
     "lang": [
       "javascript"
     ],
     "frontEndId": 257,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉树的所有路径",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "258": {
-    "title": "Add Digits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 258,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "各位相加",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "260": {
-    "title": "Single Number III",
     "lang": [
       "javascript"
     ],
     "frontEndId": 260,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "只出现一次的数字 III",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "263": {
-    "title": "Ugly Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 263,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "丑数",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "268": {
-    "title": "Missing Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 268,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "缺失数字",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "位运算",
+      "数组",
+      "数学"
     ]
   },
   "279": {
-    "title": "Perfect Squares",
     "lang": [
       "javascript"
     ],
     "frontEndId": 279,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "完全平方数",
     "topicTags": [
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "广度优先搜索",
+      "数学",
+      "动态规划"
     ]
   },
   "283": {
-    "title": "Move Zeroes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 283,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "移动零",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "数组",
+      "双指针"
     ]
   },
   "287": {
-    "title": "Find the Duplicate Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 287,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "寻找重复数",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "数组",
+      "双指针",
+      "二分查找"
     ]
   },
   "289": {
-    "title": "Game of Life",
     "lang": [
       "javascript"
     ],
     "frontEndId": 289,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "生命游戏",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "292": {
-    "title": "Nim Game",
     "lang": [
       "javascript"
     ],
     "frontEndId": 292,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "Nim游戏",
     "topicTags": [
-      {
-        "name": "Brainteaser",
-        "translatedName": "脑筋急转弯"
-      }
+      "脑筋急转弯"
     ]
   },
   "299": {
-    "title": "Bulls and Cows",
     "lang": [
       "javascript"
     ],
     "frontEndId": 299,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "猜数字游戏",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "300": {
-    "title": "Longest Increasing Subsequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 300,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最长上升子序列",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "二分查找",
+      "动态规划"
     ]
   },
   "301": {
-    "title": "Remove Invalid Parentheses",
     "lang": [
       "javascript"
     ],
     "frontEndId": 301,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "删除无效的括号",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "309": {
-    "title": "Best Time to Buy and Sell Stock with Cooldown",
     "lang": [
+      "javascript",
       "java"
     ],
     "frontEndId": 309,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最佳买卖股票时机含冷冻期",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "313": {
-    "title": "Super Ugly Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 313,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "超级丑数",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "堆",
+      "数学"
     ]
   },
   "318": {
-    "title": "Maximum Product of Word Lengths",
     "lang": [
       "javascript"
     ],
     "frontEndId": 318,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最大单词长度乘积",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "319": {
-    "title": "Bulb Switcher",
     "lang": [
       "javascript"
     ],
     "frontEndId": 319,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "灯泡开关",
     "topicTags": [
-      {
-        "name": "Brainteaser",
-        "translatedName": "脑筋急转弯"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "脑筋急转弯",
+      "数学"
     ]
   },
   "326": {
-    "title": "Power of Three",
     "lang": [
       "javascript"
     ],
     "frontEndId": 326,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "3的幂",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "328": {
-    "title": "Odd Even Linked List",
     "lang": [
       "javascript"
     ],
     "frontEndId": 328,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "奇偶链表",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "329": {
-    "title": "Longest Increasing Path in a Matrix",
     "lang": [
       "javascript"
     ],
     "frontEndId": 329,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "矩阵中的最长递增路径",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Topological Sort",
-        "translatedName": "拓扑排序"
-      },
-      {
-        "name": "Memoization",
-        "translatedName": "记忆化"
-      }
+      "深度优先搜索",
+      "拓扑排序",
+      "记忆化"
     ]
   },
   "331": {
-    "title": "Verify Preorder Serialization of a Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 331,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "验证二叉树的前序序列化",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "334": {
-    "title": "Increasing Triplet Subsequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 334,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "递增的三元子序列",
     "topicTags": []
   },
   "337": {
-    "title": "House Robber III",
     "lang": [
       "javascript"
     ],
     "frontEndId": 337,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "打家劫舍 III",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "338": {
-    "title": "Counting Bits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 338,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "比特位计数",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "位运算",
+      "动态规划"
     ]
   },
   "341": {
-    "title": "Flatten Nested List Iterator",
     "lang": [
       "javascript"
     ],
     "frontEndId": 341,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "扁平化嵌套列表迭代器",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Design",
-        "translatedName": "设计"
-      }
+      "栈",
+      "设计"
     ]
   },
   "342": {
-    "title": "Power of Four",
     "lang": [
       "javascript"
     ],
     "frontEndId": 342,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "4的幂",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "343": {
-    "title": "Integer Break",
     "lang": [
       "javascript"
     ],
     "frontEndId": 343,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "整数拆分",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数学",
+      "动态规划"
     ]
   },
   "344": {
-    "title": "Reverse String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 344,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "反转字符串",
     "topicTags": [
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "双指针",
+      "字符串"
     ]
   },
   "345": {
-    "title": "Reverse Vowels of a String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 345,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "反转字符串中的元音字母",
     "topicTags": [
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "双指针",
+      "字符串"
     ]
   },
   "347": {
-    "title": "Top K Frequent Elements",
     "lang": [
       "javascript"
     ],
     "frontEndId": 347,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "前K个高频元素",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "堆",
+      "哈希表"
     ]
   },
   "349": {
-    "title": "Intersection of Two Arrays",
     "lang": [
       "javascript"
     ],
     "frontEndId": 349,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两个数组的交集",
     "topicTags": [
-      {
-        "name": "Sort",
-        "translatedName": "排序"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "排序",
+      "哈希表",
+      "双指针",
+      "二分查找"
     ]
   },
   "350": {
-    "title": "Intersection of Two Arrays II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 350,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两个数组的交集 II",
     "topicTags": [
-      {
-        "name": "Sort",
-        "translatedName": "排序"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "排序",
+      "哈希表",
+      "双指针",
+      "二分查找"
     ]
   },
   "357": {
-    "title": "Count Numbers with Unique Digits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 357,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "计算各个位数不同的数字个数",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "数学",
+      "动态规划",
+      "回溯算法"
     ]
   },
   "367": {
-    "title": "Valid Perfect Square",
     "lang": [
       "javascript"
     ],
     "frontEndId": 367,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "有效的完全平方数",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "数学",
+      "二分查找"
     ]
   },
   "371": {
-    "title": "Sum of Two Integers",
     "lang": [
       "javascript"
     ],
     "frontEndId": 371,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两整数之和",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "374": {
-    "title": "Guess Number Higher or Lower",
     "lang": [
       "java"
     ],
     "frontEndId": 374,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "猜数字大小",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "377": {
-    "title": "Combination Sum IV",
     "lang": [
       "javascript"
     ],
     "frontEndId": 377,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "组合总和 Ⅳ",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "378": {
-    "title": "Kth Smallest Element in a Sorted Matrix",
     "lang": [
       "javascript"
     ],
     "frontEndId": 378,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "有序矩阵中第K小的元素",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "堆",
+      "二分查找"
     ]
   },
   "380": {
-    "title": "Insert Delete GetRandom O(1)",
     "lang": [
       "javascript"
     ],
     "frontEndId": 380,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "常数时间插入、删除和获取随机元素",
     "topicTags": [
-      {
-        "name": "Design",
-        "translatedName": "设计"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "设计",
+      "数组",
+      "哈希表"
     ]
   },
   "382": {
-    "title": "Linked List Random Node",
     "lang": [
       "javascript"
     ],
     "frontEndId": 382,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "链表随机节点",
     "topicTags": [
-      {
-        "name": "Reservoir Sampling",
-        "translatedName": "蓄水池抽样"
-      }
+      "蓄水池抽样"
     ]
   },
   "383": {
-    "title": "Ransom Note",
     "lang": [
       "javascript"
     ],
     "frontEndId": 383,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "赎金信",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "384": {
-    "title": "Shuffle an Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 384,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "打乱数组",
     "topicTags": []
   },
   "385": {
-    "title": "Mini Parser",
     "lang": [
       "javascript"
     ],
     "frontEndId": 385,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "迷你语法分析器",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "栈",
+      "字符串"
     ]
   },
   "386": {
-    "title": "Lexicographical Numbers",
     "lang": [
       "javascript"
     ],
     "frontEndId": 386,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "字典序排数",
     "topicTags": []
   },
   "387": {
-    "title": "First Unique Character in a String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 387,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "字符串中的第一个唯一字符",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "哈希表",
+      "字符串"
     ]
   },
   "388": {
-    "title": "Longest Absolute File Path",
     "lang": [
       "javascript"
     ],
     "frontEndId": 388,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "文件的最长绝对路径",
     "topicTags": []
   },
   "389": {
-    "title": "Find the Difference",
     "lang": [
       "javascript"
     ],
     "frontEndId": 389,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "找不同",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "位运算",
+      "哈希表"
     ]
   },
   "390": {
-    "title": "Elimination Game",
     "lang": [
       "javascript"
     ],
     "frontEndId": 390,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "消除游戏",
     "topicTags": []
   },
   "392": {
-    "title": "Is Subsequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 392,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "判断子序列",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "贪心算法",
+      "二分查找",
+      "动态规划"
     ]
   },
   "394": {
-    "title": "Decode String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 394,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "字符串解码",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "栈",
+      "深度优先搜索"
     ]
   },
   "395": {
-    "title": "Longest Substring with At Least K Repeating Characters",
     "lang": [
       "javascript"
     ],
     "frontEndId": 395,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "至少有K个重复字符的最长子串",
     "topicTags": []
   },
   "398": {
-    "title": "Random Pick Index",
     "lang": [
       "javascript"
     ],
     "frontEndId": 398,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "随机数索引",
     "topicTags": [
-      {
-        "name": "Reservoir Sampling",
-        "translatedName": "蓄水池抽样"
-      }
+      "蓄水池抽样"
     ]
   },
   "399": {
-    "title": "Evaluate Division",
     "lang": [
       "javascript"
     ],
     "frontEndId": 399,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "除法求值",
     "topicTags": [
-      {
-        "name": "Graph",
-        "translatedName": "图"
-      }
+      "图"
     ]
   },
   "401": {
-    "title": "Binary Watch",
     "lang": [
       "javascript"
     ],
     "frontEndId": 401,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二进制手表",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "位运算",
+      "回溯算法"
     ]
   },
   "404": {
-    "title": "Sum of Left Leaves",
     "lang": [
       "javascript"
     ],
     "frontEndId": 404,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "左叶子之和",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "405": {
-    "title": "Convert a Number to Hexadecimal",
     "lang": [
       "javascript"
     ],
     "frontEndId": 405,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "数字转换为十六进制数",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "406": {
-    "title": "Queue Reconstruction by Height",
     "lang": [
       "javascript"
     ],
     "frontEndId": 406,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "根据身高重建队列",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "407": {
-    "title": "Trapping Rain Water II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 407,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "接雨水 II",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "堆",
+      "广度优先搜索"
     ]
   },
   "409": {
-    "title": "Longest Palindrome",
     "lang": [
       "javascript"
     ],
     "frontEndId": 409,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最长回文串",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "412": {
-    "title": "Fizz Buzz",
     "lang": [
       "javascript"
     ],
     "frontEndId": 412,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "Fizz Buzz",
     "topicTags": []
   },
   "413": {
-    "title": "Arithmetic Slices",
     "lang": [
       "javascript"
     ],
     "frontEndId": 413,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "等差数列划分",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数学",
+      "动态规划"
     ]
   },
   "415": {
-    "title": "Add Strings",
     "lang": [
       "javascript"
     ],
     "frontEndId": 415,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "字符串相加",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "416": {
-    "title": "Partition Equal Subset Sum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 416,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "分割等和子集",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "419": {
-    "title": "Battleships in a Board",
     "lang": [
       "javascript"
     ],
     "frontEndId": 419,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "甲板上的战舰",
     "topicTags": []
   },
   "421": {
-    "title": "Maximum XOR of Two Numbers in an Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 421,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "数组中两个数的最大异或值",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Trie",
-        "translatedName": "字典树"
-      }
+      "位运算",
+      "字典树"
     ]
   },
   "423": {
-    "title": "Reconstruct Original Digits from English",
     "lang": [
       "javascript"
     ],
     "frontEndId": 423,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "从英文中重建数字",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "424": {
-    "title": "Longest Repeating Character Replacement",
     "lang": [
       "javascript"
     ],
     "frontEndId": 424,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "替换后的最长重复字符",
     "topicTags": []
   },
   "435": {
-    "title": "Non-overlapping Intervals",
     "lang": [
       "javascript"
     ],
     "frontEndId": 435,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "无重叠区间",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "436": {
-    "title": "Find Right Interval",
     "lang": [
       "javascript"
     ],
     "frontEndId": 436,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "寻找右区间",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "437": {
-    "title": "Path Sum III",
     "lang": [
       "javascript"
     ],
     "frontEndId": 437,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "路径总和 III",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "442": {
-    "title": "Find All Duplicates in an Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 442,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "数组中重复的数据",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "445": {
-    "title": "Add Two Numbers II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 445,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "两数相加 II",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "447": {
-    "title": "Number of Boomerangs",
     "lang": [
       "javascript"
     ],
     "frontEndId": 447,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "回旋镖的数量",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "448": {
-    "title": "Find All Numbers Disappeared in an Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 448,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "找到所有数组中消失的数字",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "450": {
-    "title": "Delete Node in a BST",
     "lang": [
       "javascript"
     ],
     "frontEndId": 450,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "删除二叉搜索树中的节点",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "451": {
-    "title": "Sort Characters By Frequency",
     "lang": [
       "javascript"
     ],
     "frontEndId": 451,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "根据字符出现频率排序",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "堆",
+      "哈希表"
     ]
   },
   "452": {
-    "title": "Minimum Number of Arrows to Burst Balloons",
     "lang": [
       "javascript"
     ],
     "frontEndId": 452,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "用最少数量的箭引爆气球",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "453": {
-    "title": "Minimum Moves to Equal Array Elements",
     "lang": [
       "javascript"
     ],
     "frontEndId": 453,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最小移动次数使数组元素相等",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "454": {
-    "title": "4Sum II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 454,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "四数相加 II",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "哈希表",
+      "二分查找"
     ]
   },
   "455": {
-    "title": "Assign Cookies",
     "lang": [
       "javascript"
     ],
     "frontEndId": 455,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "分发饼干",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "458": {
-    "title": "Poor Pigs",
     "lang": [
       "javascript"
     ],
     "frontEndId": 458,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "可怜的小猪",
     "topicTags": []
   },
   "459": {
-    "title": "Repeated Substring Pattern",
     "lang": [
       "javascript"
     ],
     "frontEndId": 459,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "重复的子字符串",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "461": {
-    "title": "Hamming Distance",
     "lang": [
       "javascript"
     ],
     "frontEndId": 461,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "汉明距离",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "462": {
-    "title": "Minimum Moves to Equal Array Elements II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 462,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最少移动次数使数组元素相等 II",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "463": {
-    "title": "Island Perimeter",
     "lang": [
       "javascript"
     ],
     "frontEndId": 463,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "岛屿的周长",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "470": {
-    "title": "Implement Rand10() Using Rand7()",
     "lang": [
       "javascript"
     ],
     "frontEndId": 470,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "用 Rand7() 实现 Rand10()",
     "topicTags": [
-      {
-        "name": "Random",
-        "translatedName": null
-      },
-      {
-        "name": "Rejection Sampling",
-        "translatedName": null
-      }
+      "Random",
+      "Rejection Sampling"
     ]
   },
   "474": {
-    "title": "Ones and Zeroes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 474,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "一和零",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "476": {
-    "title": "Number Complement",
     "lang": [
       "javascript"
     ],
     "frontEndId": 476,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "数字的补数",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "477": {
-    "title": "Total Hamming Distance",
     "lang": [
       "javascript"
     ],
     "frontEndId": 477,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "汉明距离总和",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "481": {
-    "title": "Magical String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 481,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "神奇字符串",
     "topicTags": []
   },
   "482": {
-    "title": "License Key Formatting",
     "lang": [
       "javascript"
     ],
     "frontEndId": 482,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "密钥格式化",
     "topicTags": []
   },
   "485": {
-    "title": "Max Consecutive Ones",
     "lang": [
       "javascript"
     ],
     "frontEndId": 485,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最大连续1的个数",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "486": {
-    "title": "Predict the Winner",
     "lang": [
       "javascript"
     ],
     "frontEndId": 486,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "预测赢家",
     "topicTags": [
-      {
-        "name": "Minimax",
-        "translatedName": "极小化极大"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "极小化极大",
+      "动态规划"
     ]
   },
   "491": {
-    "title": "Increasing Subsequences",
     "lang": [
       "javascript"
     ],
     "frontEndId": 491,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "递增子序列",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "深度优先搜索"
     ]
   },
   "492": {
-    "title": "Construct the Rectangle",
     "lang": [
       "javascript"
     ],
     "frontEndId": 492,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "构造矩形",
     "topicTags": []
   },
   "494": {
-    "title": "Target Sum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 494,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "目标和",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "深度优先搜索",
+      "动态规划"
     ]
   },
   "495": {
-    "title": "Teemo Attacking",
     "lang": [
       "javascript"
     ],
     "frontEndId": 495,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "提莫攻击",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "496": {
-    "title": "Next Greater Element I",
     "lang": [
       "javascript"
     ],
     "frontEndId": 496,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "下一个更大元素 I",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "498": {
-    "title": "Diagonal Traverse",
     "lang": [
       "javascript"
     ],
     "frontEndId": 498,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "对角线遍历",
     "topicTags": []
   },
   "500": {
-    "title": "Keyboard Row",
     "lang": [
       "javascript"
     ],
     "frontEndId": 500,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "键盘行",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "501": {
-    "title": "Find Mode in Binary Search Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 501,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉搜索树中的众数",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "503": {
-    "title": "Next Greater Element II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 503,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "下一个更大元素 II",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "504": {
-    "title": "Base 7",
     "lang": [
       "javascript"
     ],
     "frontEndId": 504,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "七进制数",
     "topicTags": []
   },
   "506": {
-    "title": "Relative Ranks",
     "lang": [
       "javascript"
     ],
     "frontEndId": 506,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "相对名次",
     "topicTags": []
   },
   "508": {
-    "title": "Most Frequent Subtree Sum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 508,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "出现次数最多的子树元素和",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "树",
+      "哈希表"
     ]
   },
   "513": {
-    "title": "Find Bottom Left Tree Value",
     "lang": [
       "javascript"
     ],
     "frontEndId": 513,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "找树左下角的值",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "515": {
-    "title": "Find Largest Value in Each Tree Row",
     "lang": [
       "javascript"
     ],
     "frontEndId": 515,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "在每个树行中找最大值",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "516": {
-    "title": "Longest Palindromic Subsequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 516,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最长回文子序列",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "518": {
-    "title": "Coin Change 2",
     "lang": [
       "javascript"
     ],
     "frontEndId": 518,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "零钱兑换 II",
     "topicTags": []
   },
   "520": {
-    "title": "Detect Capital",
     "lang": [
       "javascript"
     ],
     "frontEndId": 520,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "检测大写字母",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "521": {
-    "title": "Longest Uncommon Subsequence I ",
     "lang": [
       "javascript"
     ],
     "frontEndId": 521,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最长特殊序列 Ⅰ",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "524": {
-    "title": "Longest Word in Dictionary through Deleting",
     "lang": [
       "javascript"
     ],
     "frontEndId": 524,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "通过删除字母匹配到字典里最长单词",
     "topicTags": [
-      {
-        "name": "Sort",
-        "translatedName": "排序"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "排序",
+      "双指针"
     ]
   },
   "525": {
-    "title": "Contiguous Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 525,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "连续数组",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "526": {
-    "title": "Beautiful Arrangement",
     "lang": [
       "javascript"
     ],
     "frontEndId": 526,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "优美的排列",
     "topicTags": [
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "回溯算法"
     ]
   },
   "528": {
-    "title": "Random Pick with Weight",
     "lang": [
       "javascript"
     ],
     "frontEndId": 528,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "按权重随机选择",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      },
-      {
-        "name": "Random",
-        "translatedName": null
-      }
+      "二分查找",
+      "Random"
     ]
   },
   "529": {
-    "title": "Minesweeper",
     "lang": [
       "javascript"
     ],
     "frontEndId": 529,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "扫雷游戏",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "530": {
-    "title": "Minimum Absolute Difference in BST",
     "lang": [
       "javascript"
     ],
     "frontEndId": 530,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉搜索树的最小绝对差",
     "topicTags": [
-      {
-        "name": "Binary Search Tree",
-        "translatedName": "二叉搜索树"
-      }
+      "二叉搜索树"
     ]
   },
   "535": {
-    "title": "Encode and Decode TinyURL",
     "lang": [
       "javascript"
     ],
     "frontEndId": 535,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "TinyURL 的加密与解密",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "哈希表",
+      "数学"
     ]
   },
   "537": {
-    "title": "Complex Number Multiplication",
     "lang": [
       "javascript"
     ],
     "frontEndId": 537,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "复数乘法",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "数学",
+      "字符串"
     ]
   },
   "538": {
-    "title": "Convert BST to Greater Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 538,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "把二叉搜索树转换为累加树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "539": {
-    "title": "Minimum Time Difference",
     "lang": [
       "javascript"
     ],
     "frontEndId": 539,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最小时间差",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "540": {
-    "title": "Single Element in a Sorted Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 540,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "有序数组中的单一元素",
     "topicTags": []
   },
   "541": {
-    "title": "Reverse String II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 541,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "反转字符串 II",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "543": {
-    "title": "Diameter of Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 543,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉树的直径",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "547": {
-    "title": "Friend Circles",
     "lang": [
       "javascript"
     ],
     "frontEndId": 547,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "朋友圈",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Union Find",
-        "translatedName": "并查集"
-      }
+      "深度优先搜索",
+      "并查集"
     ]
   },
   "551": {
-    "title": "Student Attendance Record I",
     "lang": [
       "javascript"
     ],
     "frontEndId": 551,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "学生出勤记录 I",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "553": {
-    "title": "Optimal Division",
     "lang": [
       "javascript"
     ],
     "frontEndId": 553,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最优除法",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "数学",
+      "字符串"
     ]
   },
   "554": {
-    "title": "Brick Wall",
     "lang": [
       "javascript"
     ],
     "frontEndId": 554,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "砖墙",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "557": {
-    "title": "Reverse Words in a String III",
     "lang": [
       "javascript"
     ],
     "frontEndId": 557,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "反转字符串中的单词 III",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "559": {
-    "title": "Maximum Depth of N-ary Tree",
     "lang": [
       "java"
     ],
     "frontEndId": 559,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "N叉树的最大深度",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "560": {
-    "title": "Subarray Sum Equals K",
     "lang": [
       "javascript"
     ],
     "frontEndId": 560,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "和为K的子数组",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "数组",
+      "哈希表"
     ]
   },
   "561": {
-    "title": "Array Partition I",
     "lang": [
       "javascript"
     ],
     "frontEndId": 561,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "数组拆分 I",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "563": {
-    "title": "Binary Tree Tilt",
     "lang": [
       "javascript"
     ],
     "frontEndId": 563,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉树的坡度",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "565": {
-    "title": "Array Nesting",
     "lang": [
       "javascript"
     ],
     "frontEndId": 565,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "数组嵌套",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "566": {
-    "title": "Reshape the Matrix",
     "lang": [
       "javascript"
     ],
     "frontEndId": 566,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "重塑矩阵",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "572": {
-    "title": "Subtree of Another Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 572,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "另一个树的子树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "575": {
-    "title": "Distribute Candies",
     "lang": [
       "javascript"
     ],
     "frontEndId": 575,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "分糖果",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "583": {
-    "title": "Delete Operation for Two Strings",
     "lang": [
       "javascript"
     ],
     "frontEndId": 583,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "两个字符串的删除操作",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "589": {
-    "title": "N-ary Tree Preorder Traversal",
     "lang": [
       "java"
     ],
     "frontEndId": 589,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "N叉树的前序遍历",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "592": {
-    "title": "Fraction Addition and Subtraction",
     "lang": [
       "javascript"
     ],
     "frontEndId": 592,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "分数加减运算",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "593": {
-    "title": "Valid Square",
     "lang": [
       "javascript"
     ],
     "frontEndId": 593,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "有效的正方形",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "594": {
-    "title": "Longest Harmonious Subsequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 594,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最长和谐子序列",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "595": {
-    "title": "Big Countries",
     "lang": [
       "mysql"
     ],
     "frontEndId": 595,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "大的国家",
     "topicTags": []
   },
   "598": {
-    "title": "Range Addition II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 598,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "范围求和 II",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "599": {
-    "title": "Minimum Index Sum of Two Lists",
     "lang": [
       "javascript"
     ],
     "frontEndId": 599,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两个列表的最小索引总和",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "606": {
-    "title": "Construct String from Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 606,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "根据二叉树创建字符串",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "树",
+      "字符串"
     ]
   },
   "609": {
-    "title": "Find Duplicate File in System",
     "lang": [
       "javascript"
     ],
     "frontEndId": 609,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "在系统中查找重复文件",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "哈希表",
+      "字符串"
     ]
   },
   "611": {
-    "title": "Valid Triangle Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 611,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "有效三角形的个数",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "617": {
-    "title": "Merge Two Binary Trees",
     "lang": [
       "javascript"
     ],
     "frontEndId": 617,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "合并二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "620": {
-    "title": "Not Boring Movies",
     "lang": [
       "mysql"
     ],
     "frontEndId": 620,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "有趣的电影",
     "topicTags": []
   },
   "621": {
-    "title": "Task Scheduler",
     "lang": [
       "javascript"
     ],
     "frontEndId": 621,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "任务调度器",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Queue",
-        "translatedName": "队列"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "贪心算法",
+      "队列",
+      "数组"
+    ]
+  },
+  "622": {
+    "lang": [
+      "javascript"
+    ],
+    "frontEndId": 622,
+    "status": "ac",
+    "difficult": "Middle",
+    "translatedTitle": "设计循环队列",
+    "topicTags": [
+      "设计",
+      "队列"
     ]
   },
   "623": {
-    "title": "Add One Row to Tree",
     "lang": [
+      "javascript",
       "java"
     ],
     "frontEndId": 623,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "在二叉树中增加一行",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "627": {
-    "title": "Swap Salary",
     "lang": [
       "mysql"
     ],
     "frontEndId": 627,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "交换工资",
     "topicTags": []
   },
   "628": {
-    "title": "Maximum Product of Three Numbers",
     "lang": [
       "javascript"
     ],
     "frontEndId": 628,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "三个数的最大乘积",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数组",
+      "数学"
     ]
   },
   "636": {
-    "title": "Exclusive Time of Functions",
     "lang": [
       "javascript"
     ],
     "frontEndId": 636,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "函数的独占时间",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "637": {
-    "title": "Average of Levels in Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 637,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉树的层平均值",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "638": {
-    "title": "Shopping Offers",
     "lang": [
       "javascript"
     ],
     "frontEndId": 638,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "大礼包",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "深度优先搜索",
+      "动态规划"
     ]
   },
   "640": {
-    "title": "Solve the Equation",
     "lang": [
       "javascript"
     ],
     "frontEndId": 640,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "求解方程",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "643": {
-    "title": "Maximum Average Subarray I",
     "lang": [
       "javascript"
     ],
     "frontEndId": 643,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "子数组最大平均数 I",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "645": {
-    "title": "Set Mismatch",
     "lang": [
       "javascript"
     ],
     "frontEndId": 645,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "错误的集合",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "哈希表",
+      "数学"
     ]
   },
   "646": {
-    "title": "Maximum Length of Pair Chain",
     "lang": [
       "javascript"
     ],
     "frontEndId": 646,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最长数对链",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "647": {
-    "title": "Palindromic Substrings",
     "lang": [
       "javascript"
     ],
     "frontEndId": 647,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "回文子串",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "字符串",
+      "动态规划"
     ]
   },
   "648": {
-    "title": "Replace Words",
     "lang": [
       "javascript"
     ],
     "frontEndId": 648,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "单词替换",
     "topicTags": [
-      {
-        "name": "Trie",
-        "translatedName": "字典树"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "字典树",
+      "哈希表"
     ]
   },
   "650": {
-    "title": "2 Keys Keyboard",
     "lang": [
       "javascript"
     ],
     "frontEndId": 650,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "只有两个键的键盘",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "652": {
-    "title": "Find Duplicate Subtrees",
     "lang": [
       "javascript"
     ],
     "frontEndId": 652,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "寻找重复的子树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "653": {
-    "title": "Two Sum IV - Input is a BST",
     "lang": [
       "javascript"
     ],
     "frontEndId": 653,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两数之和 IV - 输入 BST",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "654": {
-    "title": "Maximum Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 654,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最大二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "655": {
-    "title": "Print Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 655,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "输出二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "657": {
-    "title": "Robot Return to Origin",
     "lang": [
       "javascript"
     ],
     "frontEndId": 657,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "机器人能否返回原点",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "659": {
-    "title": "Split Array into Consecutive Subsequences",
     "lang": [
       "javascript"
     ],
     "frontEndId": 659,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "分割数组为连续子序列",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "堆",
+      "贪心算法"
     ]
   },
   "661": {
-    "title": "Image Smoother",
     "lang": [
       "javascript"
     ],
     "frontEndId": 661,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "图片平滑器",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "662": {
-    "title": "Maximum Width of Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 662,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树最大宽度",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "667": {
-    "title": "Beautiful Arrangement II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 667,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "优美的排列 II",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "668": {
-    "title": "Kth Smallest Number in Multiplication Table",
     "lang": [
       "javascript"
     ],
     "frontEndId": 668,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "乘法表中第k小的数",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "669": {
-    "title": "Trim a Binary Search Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 669,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "修剪二叉搜索树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "670": {
-    "title": "Maximum Swap",
     "lang": [
       "javascript"
     ],
     "frontEndId": 670,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最大交换",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数组",
+      "数学"
     ]
   },
   "671": {
-    "title": "Second Minimum Node In a Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 671,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉树中第二小的节点",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "672": {
-    "title": "Bulb Switcher II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 672,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "灯泡开关 Ⅱ",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "674": {
-    "title": "Longest Continuous Increasing Subsequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 674,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最长连续递增序列",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "676": {
-    "title": "Implement Magic Dictionary",
     "lang": [
       "javascript"
     ],
     "frontEndId": 676,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "实现一个魔法字典",
     "topicTags": [
-      {
-        "name": "Trie",
-        "translatedName": "字典树"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "字典树",
+      "哈希表"
     ]
   },
   "677": {
-    "title": "Map Sum Pairs",
     "lang": [
       "javascript"
     ],
     "frontEndId": 677,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "键值映射",
     "topicTags": [
-      {
-        "name": "Trie",
-        "translatedName": "字典树"
-      }
+      "字典树"
     ]
   },
   "679": {
-    "title": "24 Game",
     "lang": [
       "javascript"
     ],
     "frontEndId": 679,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "24点游戏",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "深度优先搜索"
     ]
   },
   "682": {
-    "title": "Baseball Game",
     "lang": [
       "javascript"
     ],
     "frontEndId": 682,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "棒球比赛",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "684": {
-    "title": "Redundant Connection",
     "lang": [
       "javascript"
     ],
     "frontEndId": 684,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "冗余连接",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Union Find",
-        "translatedName": "并查集"
-      },
-      {
-        "name": "Graph",
-        "translatedName": "图"
-      }
+      "树",
+      "并查集",
+      "图"
     ]
   },
   "688": {
-    "title": "Knight Probability in Chessboard",
     "lang": [
       "javascript"
     ],
     "frontEndId": 688,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "“马”在棋盘上的概率",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "689": {
-    "title": "Maximum Sum of 3 Non-Overlapping Subarrays",
     "lang": [
       "javascript"
     ],
     "frontEndId": 689,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "三个无重叠子数组的最大和",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "690": {
-    "title": "Employee Importance",
     "lang": [
       "java"
     ],
     "frontEndId": 690,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "员工的重要性",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "深度优先搜索",
+      "广度优先搜索",
+      "哈希表"
     ]
   },
   "692": {
-    "title": "Top K Frequent Words",
     "lang": [
       "javascript"
     ],
     "frontEndId": 692,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "前K个高频单词",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Trie",
-        "translatedName": "字典树"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "堆",
+      "字典树",
+      "哈希表"
     ]
   },
   "693": {
-    "title": "Binary Number with Alternating Bits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 693,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "交替位二进制数",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "695": {
-    "title": "Max Area of Island",
     "lang": [
       "javascript"
     ],
     "frontEndId": 695,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "岛屿的最大面积",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "深度优先搜索",
+      "数组"
     ]
   },
   "696": {
-    "title": "Count Binary Substrings",
     "lang": [
       "javascript"
     ],
     "frontEndId": 696,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "计数二进制子串",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "697": {
-    "title": "Degree of an Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 697,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "数组的度",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "698": {
-    "title": "Partition to K Equal Sum Subsets",
     "lang": [
       "javascript"
     ],
     "frontEndId": 698,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "划分为k个相等的子集",
     "topicTags": [
-      {
-        "name": "Recursion",
-        "translatedName": "递归"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "递归",
+      "动态规划"
     ]
   },
   "699": {
-    "title": "Falling Squares",
     "lang": [
       "javascript"
     ],
     "frontEndId": 699,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "掉落的方块",
     "topicTags": [
-      {
-        "name": "Segment Tree",
-        "translatedName": "线段树"
-      },
-      {
-        "name": "Binary Search Tree",
-        "translatedName": "二叉搜索树"
-      }
+      "线段树",
+      "二叉搜索树"
     ]
   },
   "700": {
-    "title": "Search in a Binary Search Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 700,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉搜索树中的搜索",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "703": {
-    "title": "Kth Largest Element in a Stream",
     "lang": [
       "javascript"
     ],
     "frontEndId": 703,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "数据流中的第K大元素",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      }
+      "堆"
     ]
   },
   "704": {
-    "title": "Binary Search",
     "lang": [
       "javascript"
     ],
     "frontEndId": 704,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二分查找",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "705": {
-    "title": "Design HashSet",
     "lang": [
       "javascript"
     ],
     "frontEndId": 705,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "设计哈希集合",
     "topicTags": [
-      {
-        "name": "Design",
-        "translatedName": "设计"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "设计",
+      "哈希表"
     ]
   },
   "712": {
-    "title": "Minimum ASCII Delete Sum for Two Strings",
     "lang": [
       "javascript"
     ],
     "frontEndId": 712,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "两个字符串的最小ASCII删除和",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "714": {
-    "title": "Best Time to Buy and Sell Stock with Transaction Fee",
     "lang": [
       "javascript"
     ],
     "frontEndId": 714,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "买卖股票的最佳时机含手续费",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "贪心算法",
+      "数组",
+      "动态规划"
     ]
   },
   "717": {
-    "title": "1-bit and 2-bit Characters",
     "lang": [
       "javascript"
     ],
     "frontEndId": 717,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "1比特与2比特字符",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "718": {
-    "title": "Maximum Length of Repeated Subarray",
     "lang": [
       "javascript"
     ],
     "frontEndId": 718,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最长重复子数组",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "哈希表",
+      "二分查找",
+      "动态规划"
     ]
   },
   "720": {
-    "title": "Longest Word in Dictionary",
     "lang": [
       "javascript"
     ],
     "frontEndId": 720,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "词典中最长的单词",
     "topicTags": [
-      {
-        "name": "Trie",
-        "translatedName": "字典树"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "字典树",
+      "哈希表"
     ]
   },
   "721": {
-    "title": "Accounts Merge",
     "lang": [
       "javascript"
     ],
     "frontEndId": 721,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "账户合并",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Union Find",
-        "translatedName": "并查集"
-      }
+      "深度优先搜索",
+      "并查集"
     ]
   },
   "724": {
-    "title": "Find Pivot Index",
     "lang": [
       "javascript"
     ],
     "frontEndId": 724,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "寻找数组的中心索引",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "725": {
-    "title": "Split Linked List in Parts",
     "lang": [
       "javascript"
     ],
     "frontEndId": 725,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "分隔链表",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "728": {
-    "title": "Self Dividing Numbers",
     "lang": [
       "javascript"
     ],
     "frontEndId": 728,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "自除数",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "729": {
-    "title": "My Calendar I",
     "lang": [
       "javascript"
     ],
     "frontEndId": 729,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "我的日程安排表 I",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "731": {
-    "title": "My Calendar II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 731,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "我的日程安排表 II",
     "topicTags": [
-      {
-        "name": "Binary Search Tree",
-        "translatedName": "二叉搜索树"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "二叉搜索树",
+      "数组"
     ]
   },
   "732": {
-    "title": "My Calendar III",
     "lang": [
       "javascript"
     ],
     "frontEndId": 732,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "我的日程安排表 III",
     "topicTags": [
-      {
-        "name": "Segment Tree",
-        "translatedName": "线段树"
-      },
-      {
-        "name": "Binary Search Tree",
-        "translatedName": "二叉搜索树"
-      }
+      "线段树",
+      "二叉搜索树"
     ]
   },
   "733": {
-    "title": "Flood Fill",
     "lang": [
       "javascript"
     ],
     "frontEndId": 733,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "图像渲染",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "深度优先搜索"
+    ]
+  },
+  "735": {
+    "lang": [
+      "javascript"
+    ],
+    "frontEndId": 735,
+    "status": "ac",
+    "difficult": "Middle",
+    "translatedTitle": "行星碰撞",
+    "topicTags": [
+      "栈"
     ]
   },
   "738": {
-    "title": "Monotone Increasing Digits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 738,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "单调递增的数字",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "739": {
-    "title": "Daily Temperatures",
     "lang": [
       "javascript"
     ],
     "frontEndId": 739,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "每日温度",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "栈",
+      "哈希表"
     ]
   },
   "740": {
-    "title": "Delete and Earn",
     "lang": [
       "javascript"
     ],
     "frontEndId": 740,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "删除与获得点数",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "743": {
-    "title": "Network Delay Time",
     "lang": [
       "javascript"
     ],
     "frontEndId": 743,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "网络延迟时间",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      },
-      {
-        "name": "Graph",
-        "translatedName": "图"
-      }
+      "堆",
+      "深度优先搜索",
+      "广度优先搜索",
+      "图"
     ]
   },
   "744": {
-    "title": "Find Smallest Letter Greater Than Target",
     "lang": [
       "javascript"
     ],
     "frontEndId": 744,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "寻找比目标字母大的最小字母",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "746": {
-    "title": "Min Cost Climbing Stairs",
     "lang": [
       "javascript"
     ],
     "frontEndId": 746,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "使用最小花费爬楼梯",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "747": {
-    "title": "Largest Number At Least Twice of Others",
     "lang": [
       "javascript"
     ],
     "frontEndId": 747,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "至少是其他数字两倍的最大数",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "748": {
-    "title": "Shortest Completing Word",
     "lang": [
       "javascript"
     ],
     "frontEndId": 748,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最短完整词",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "752": {
-    "title": "Open the Lock",
     "lang": [
       "javascript"
     ],
     "frontEndId": 752,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "打开转盘锁",
     "topicTags": [
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "广度优先搜索"
     ]
   },
   "756": {
-    "title": "Pyramid Transition Matrix",
     "lang": [
       "javascript"
     ],
     "frontEndId": 756,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "金字塔转换矩阵",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "位运算",
+      "深度优先搜索"
     ]
   },
   "762": {
-    "title": "Prime Number of Set Bits in Binary Representation",
     "lang": [
       "javascript"
     ],
     "frontEndId": 762,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二进制表示中质数个计算置位",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      }
+      "位运算"
     ]
   },
   "763": {
-    "title": "Partition Labels",
     "lang": [
       "javascript"
     ],
     "frontEndId": 763,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "划分字母区间",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "贪心算法",
+      "双指针"
     ]
   },
   "766": {
-    "title": "Toeplitz Matrix",
     "lang": [
       "javascript"
     ],
     "frontEndId": 766,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "托普利茨矩阵",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "767": {
-    "title": "Reorganize String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 767,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "重构字符串",
     "topicTags": [
-      {
-        "name": "Heap",
-        "translatedName": "堆"
-      },
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Sort",
-        "translatedName": "排序"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "堆",
+      "贪心算法",
+      "排序",
+      "字符串"
     ]
   },
   "769": {
-    "title": "Max Chunks To Make Sorted",
     "lang": [
       "javascript"
     ],
     "frontEndId": 769,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最多能完成排序的块",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "771": {
-    "title": "Jewels and Stones",
     "lang": [
       "javascript"
     ],
     "frontEndId": 771,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "宝石与石头",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "779": {
-    "title": "K-th Symbol in Grammar",
     "lang": [
       "javascript"
     ],
     "frontEndId": 779,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "第K个语法符号",
     "topicTags": [
-      {
-        "name": "Recursion",
-        "translatedName": "递归"
-      }
+      "递归"
     ]
   },
   "781": {
-    "title": "Rabbits in Forest",
     "lang": [
       "javascript"
     ],
     "frontEndId": 781,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "森林中的兔子",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "哈希表",
+      "数学"
     ]
   },
   "783": {
-    "title": "Minimum Distance Between BST Nodes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 783,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二叉搜索树结点最小距离",
     "topicTags": [
-      {
-        "name": "Binary Search Tree",
-        "translatedName": "二叉搜索树"
-      }
+      "二叉搜索树"
     ]
   },
   "784": {
-    "title": "Letter Case Permutation",
     "lang": [
       "javascript"
     ],
     "frontEndId": 784,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "字母大小写全排列",
     "topicTags": [
-      {
-        "name": "Bit Manipulation",
-        "translatedName": "位运算"
-      },
-      {
-        "name": "Backtracking",
-        "translatedName": "回溯算法"
-      }
+      "位运算",
+      "回溯算法"
     ]
   },
   "785": {
-    "title": "Is Graph Bipartite?",
     "lang": [
       "javascript"
     ],
     "frontEndId": 785,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "判断二分图",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      },
-      {
-        "name": "Graph",
-        "translatedName": "图"
-      }
+      "深度优先搜索",
+      "广度优先搜索",
+      "图"
     ]
   },
   "788": {
-    "title": "Rotated Digits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 788,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "旋转数字",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "789": {
-    "title": "Escape The Ghosts",
     "lang": [
       "javascript"
     ],
     "frontEndId": 789,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "逃脱阻碍者",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "791": {
-    "title": "Custom Sort String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 791,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "自定义字符串排序",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "792": {
-    "title": "Number of Matching Subsequences",
     "lang": [
       "javascript"
     ],
     "frontEndId": 792,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "匹配子序列的单词数",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "795": {
-    "title": "Number of Subarrays with Bounded Maximum",
     "lang": [
       "javascript"
     ],
     "frontEndId": 795,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "区间子数组个数",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "796": {
-    "title": "Rotate String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 796,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "旋转字符串",
     "topicTags": []
   },
   "797": {
-    "title": "All Paths From Source to Target",
     "lang": [
       "javascript"
     ],
     "frontEndId": 797,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "所有可能的路径",
     "topicTags": []
   },
   "802": {
-    "title": "Find Eventual Safe States",
     "lang": [
       "javascript"
     ],
     "frontEndId": 802,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "找到最终的安全状态",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Graph",
-        "translatedName": "图"
-      }
+      "深度优先搜索",
+      "图"
     ]
   },
   "804": {
-    "title": "Unique Morse Code Words",
     "lang": [
       "javascript"
     ],
     "frontEndId": 804,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "唯一摩尔斯密码词",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "806": {
-    "title": "Number of Lines To Write String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 806,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "写字符串需要的行数",
     "topicTags": []
   },
   "807": {
-    "title": "Max Increase to Keep City Skyline",
     "lang": [
       "javascript"
     ],
     "frontEndId": 807,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "保持城市天际线",
     "topicTags": []
   },
   "808": {
-    "title": "Soup Servings",
     "lang": [
       "javascript"
     ],
     "frontEndId": 808,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "分汤",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "809": {
-    "title": "Expressive Words",
     "lang": [
       "javascript"
     ],
     "frontEndId": 809,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "情感丰富的文字",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "811": {
-    "title": "Subdomain Visit Count",
     "lang": [
       "javascript"
     ],
     "frontEndId": 811,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "子域名访问计数",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "812": {
-    "title": "Largest Triangle Area",
     "lang": [
       "javascript"
     ],
     "frontEndId": 812,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最大三角形面积",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "813": {
-    "title": "Largest Sum of Averages",
     "lang": [
       "javascript"
     ],
     "frontEndId": 813,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最大平均值和的分组",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "814": {
-    "title": "Binary Tree Pruning",
     "lang": [
       "javascript"
     ],
     "frontEndId": 814,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树剪枝",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "817": {
-    "title": "Linked List Components",
     "lang": [
       "javascript"
     ],
     "frontEndId": 817,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "链表组件",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "819": {
-    "title": "Most Common Word",
     "lang": [
       "javascript"
     ],
     "frontEndId": 819,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最常见的单词",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "820": {
-    "title": "Short Encoding of Words",
     "lang": [
       "javascript"
     ],
     "frontEndId": 820,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "单词的压缩编码",
     "topicTags": []
   },
   "821": {
-    "title": "Shortest Distance to a Character",
     "lang": [
       "javascript"
     ],
     "frontEndId": 821,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "字符的最短距离",
     "topicTags": []
   },
   "822": {
-    "title": "Card Flipping Game",
     "lang": [
       "javascript"
     ],
     "frontEndId": 822,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "翻转卡片游戏",
     "topicTags": []
   },
   "824": {
-    "title": "Goat Latin",
     "lang": [
       "javascript"
     ],
     "frontEndId": 824,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "山羊拉丁文",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "827": {
-    "title": "Making A Large Island",
     "lang": [
       "javascript"
     ],
     "frontEndId": 827,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "最大人工岛",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "深度优先搜索"
     ]
   },
   "830": {
-    "title": "Positions of Large Groups",
     "lang": [
       "javascript"
     ],
     "frontEndId": 830,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "较大分组的位置",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "831": {
-    "title": "Masking Personal Information",
     "lang": [
       "javascript"
     ],
     "frontEndId": 831,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "隐藏个人信息",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "832": {
-    "title": "Flipping an Image",
     "lang": [
+      "javascript",
       "java"
     ],
     "frontEndId": 832,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "翻转图像",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "833": {
-    "title": "Find And Replace in String",
     "lang": [
       "javascript"
     ],
     "frontEndId": 833,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "字符串中的查找与替换",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "835": {
-    "title": "Image Overlap",
     "lang": [
       "javascript"
     ],
     "frontEndId": 835,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "图像重叠",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "836": {
-    "title": "Rectangle Overlap",
     "lang": [
       "javascript"
     ],
     "frontEndId": 836,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "矩形重叠",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "838": {
-    "title": "Push Dominoes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 838,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "推多米诺",
     "topicTags": [
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "双指针",
+      "动态规划"
     ]
   },
   "841": {
-    "title": "Keys and Rooms",
     "lang": [
       "javascript"
     ],
     "frontEndId": 841,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "钥匙和房间",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Graph",
-        "translatedName": "图"
-      }
+      "深度优先搜索",
+      "图"
     ]
   },
   "844": {
-    "title": "Backspace String Compare",
     "lang": [
       "javascript"
     ],
     "frontEndId": 844,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "比较含退格的字符串",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "栈",
+      "双指针"
     ]
   },
   "846": {
-    "title": "Hand of Straights",
     "lang": [
       "javascript"
     ],
     "frontEndId": 846,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "一手顺子",
     "topicTags": [
-      {
-        "name": "Map",
-        "translatedName": null
-      }
+      "Map"
     ]
   },
   "848": {
-    "title": "Shifting Letters",
     "lang": [
       "javascript"
     ],
     "frontEndId": 848,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "字母移位",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "849": {
-    "title": "Maximize Distance to Closest Person",
     "lang": [
       "javascript"
     ],
     "frontEndId": 849,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "到最近的人的最大距离",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "850": {
-    "title": "Rectangle Area II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 850,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "矩形面积 II",
     "topicTags": [
-      {
-        "name": "Segment Tree",
-        "translatedName": "线段树"
-      }
+      "线段树"
     ]
   },
   "851": {
-    "title": "Loud and Rich",
     "lang": [
       "javascript"
     ],
     "frontEndId": 851,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "喧闹和富有",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "深度优先搜索"
     ]
   },
   "852": {
-    "title": "Peak Index in a Mountain Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 852,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "山脉数组的峰顶索引",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "853": {
-    "title": "Car Fleet",
     "lang": [
       "javascript"
     ],
     "frontEndId": 853,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "车队",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "856": {
-    "title": "Score of Parentheses",
     "lang": [
       "javascript"
     ],
     "frontEndId": 856,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "括号的分数",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "栈",
+      "字符串"
     ]
   },
   "858": {
-    "title": "Mirror Reflection",
     "lang": [
       "javascript"
     ],
     "frontEndId": 858,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "镜面反射",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "859": {
-    "title": "Buddy Strings",
     "lang": [
       "javascript"
     ],
     "frontEndId": 859,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "亲密字符串",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "860": {
-    "title": "Lemonade Change",
     "lang": [
       "javascript"
     ],
     "frontEndId": 860,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "柠檬水找零",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "861": {
-    "title": "Score After Flipping Matrix",
     "lang": [
       "javascript"
     ],
     "frontEndId": 861,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "翻转矩阵后的得分",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "863": {
-    "title": "All Nodes Distance K in Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 863,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树中所有距离为 K 的结点",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "树",
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "865": {
-    "title": "Smallest Subtree with all the Deepest Nodes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 865,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "具有所有最深结点的最小子树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "867": {
-    "title": "Transpose Matrix",
     "lang": [
       "javascript"
     ],
     "frontEndId": 867,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "转置矩阵",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "868": {
-    "title": "Binary Gap",
     "lang": [
       "javascript"
     ],
     "frontEndId": 868,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "二进制间距",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "869": {
-    "title": "Reordered Power of 2",
     "lang": [
       "javascript"
     ],
     "frontEndId": 869,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "重新排序得到 2 的幂",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "870": {
-    "title": "Advantage Shuffle",
     "lang": [
       "javascript"
     ],
     "frontEndId": 870,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "优势洗牌",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "贪心算法",
+      "数组"
     ]
   },
   "873": {
-    "title": "Length of Longest Fibonacci Subsequence",
     "lang": [
       "javascript"
     ],
     "frontEndId": 873,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最长的斐波那契子序列的长度",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "数组",
+      "动态规划"
     ]
   },
   "875": {
-    "title": "Koko Eating Bananas",
     "lang": [
       "javascript"
     ],
     "frontEndId": 875,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "爱吃香蕉的珂珂",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "876": {
-    "title": "Middle of the Linked List",
     "lang": [
       "javascript"
     ],
     "frontEndId": 876,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "链表的中间结点",
     "topicTags": [
-      {
-        "name": "Linked List",
-        "translatedName": "链表"
-      }
+      "链表"
     ]
   },
   "878": {
-    "title": "Nth Magical Number",
     "lang": [
       "javascript"
     ],
     "frontEndId": 878,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "第 N 个神奇数字",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      },
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "数学",
+      "二分查找"
     ]
   },
   "881": {
-    "title": "Boats to Save People",
     "lang": [
       "javascript"
     ],
     "frontEndId": 881,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "救生艇",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "贪心算法",
+      "双指针"
     ]
   },
   "883": {
-    "title": "Projection Area of 3D Shapes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 883,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "三维形体投影面积",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "884": {
-    "title": "Uncommon Words from Two Sentences",
     "lang": [
       "javascript"
     ],
     "frontEndId": 884,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "两句话中的不常见单词",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "886": {
-    "title": "Possible Bipartition",
     "lang": [
       "javascript"
     ],
     "frontEndId": 886,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "可能的二分法",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "深度优先搜索"
     ]
   },
   "888": {
-    "title": "Fair Candy Swap",
     "lang": [
       "javascript"
     ],
     "frontEndId": 888,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "公平的糖果交换",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "889": {
-    "title": "Construct Binary Tree from Preorder and Postorder Traversal",
     "lang": [
       "javascript"
     ],
     "frontEndId": 889,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "根据前序和后序遍历构造二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "890": {
-    "title": "Find and Replace Pattern",
     "lang": [
       "javascript"
     ],
     "frontEndId": 890,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "查找和替换模式",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "892": {
-    "title": "Surface Area of 3D Shapes",
     "lang": [
       "javascript"
     ],
     "frontEndId": 892,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "三维形体的表面积",
     "topicTags": [
-      {
-        "name": "Geometry",
-        "translatedName": "几何"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "几何",
+      "数学"
     ]
   },
   "896": {
-    "title": "Monotonic Array",
     "lang": [
       "javascript"
     ],
     "frontEndId": 896,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "单调数列",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "897": {
-    "title": "Increasing Order Search Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 897,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "递增顺序查找树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      },
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      }
+      "树",
+      "深度优先搜索"
     ]
   },
   "900": {
-    "title": "RLE Iterator",
     "lang": [
       "javascript"
     ],
     "frontEndId": 900,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "RLE 迭代器",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "901": {
-    "title": "Online Stock Span",
     "lang": [
       "javascript"
     ],
     "frontEndId": 901,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "股票价格跨度",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "904": {
-    "title": "Fruit Into Baskets",
     "lang": [
       "javascript"
     ],
     "frontEndId": 904,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "水果成篮",
     "topicTags": [
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      }
+      "双指针"
     ]
   },
   "905": {
-    "title": "Sort Array By Parity",
     "lang": [
       "javascript"
     ],
     "frontEndId": 905,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "按奇偶排序数组",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "908": {
-    "title": "Smallest Range I",
     "lang": [
       "javascript"
     ],
     "frontEndId": 908,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "最小差值 I",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "910": {
-    "title": "Smallest Range II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 910,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最小差值 II",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "贪心算法",
+      "数学"
     ]
   },
   "911": {
-    "title": "Online Election",
     "lang": [
       "javascript"
     ],
     "frontEndId": 911,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "在线选举",
     "topicTags": [
-      {
-        "name": "Binary Search",
-        "translatedName": "二分查找"
-      }
+      "二分查找"
     ]
   },
   "914": {
-    "title": "X of a Kind in a Deck of Cards",
     "lang": [
       "javascript"
     ],
     "frontEndId": 914,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "卡牌分组",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数组",
+      "数学"
     ]
   },
   "915": {
-    "title": "Partition Array into Disjoint Intervals",
     "lang": [
       "javascript"
     ],
     "frontEndId": 915,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "分割数组",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "916": {
-    "title": "Word Subsets",
     "lang": [
       "javascript"
     ],
     "frontEndId": 916,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "单词子集",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "917": {
-    "title": "Reverse Only Letters",
     "lang": [
       "javascript"
     ],
     "frontEndId": 917,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "仅仅反转字母",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "925": {
-    "title": "Long Pressed Name",
     "lang": [
       "javascript"
     ],
     "frontEndId": 925,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "长按键入",
     "topicTags": [
-      {
-        "name": "Two Pointers",
-        "translatedName": "双指针"
-      },
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "双指针",
+      "字符串"
     ]
   },
   "926": {
-    "title": "Flip String to Monotone Increasing",
     "lang": [
       "javascript"
     ],
     "frontEndId": 926,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "将字符串翻转到单调递增",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "934": {
-    "title": "Shortest Bridge",
     "lang": [
       "javascript"
     ],
     "frontEndId": 934,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最短的桥",
     "topicTags": [
-      {
-        "name": "Depth-first Search",
-        "translatedName": "深度优先搜索"
-      },
-      {
-        "name": "Breadth-first Search",
-        "translatedName": "广度优先搜索"
-      }
+      "深度优先搜索",
+      "广度优先搜索"
     ]
   },
   "937": {
-    "title": "Reorder Log Files",
     "lang": [
       "javascript"
     ],
     "frontEndId": 937,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "重新排列日志文件",
     "topicTags": [
-      {
-        "name": "String",
-        "translatedName": "字符串"
-      }
+      "字符串"
     ]
   },
   "938": {
-    "title": "Range Sum of BST",
     "lang": [
       "javascript"
     ],
     "frontEndId": 938,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉搜索树的范围和",
     "topicTags": [
-      {
-        "name": "Binary Search Tree",
-        "translatedName": "二叉搜索树"
-      }
+      "二叉搜索树"
     ]
   },
   "939": {
-    "title": "Minimum Area Rectangle",
     "lang": [
       "javascript"
     ],
     "frontEndId": 939,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "最小面积矩形",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "940": {
-    "title": "Distinct Subsequences II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 940,
     "status": "ac",
-    "difficult": 3,
+    "difficult": "Hard",
     "translatedTitle": "不同的子序列 II",
     "topicTags": [
-      {
-        "name": "Dynamic Programming",
-        "translatedName": "动态规划"
-      }
+      "动态规划"
     ]
   },
   "945": {
-    "title": "Minimum Increment to Make Array Unique",
     "lang": [
       "javascript"
     ],
     "frontEndId": 945,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "使数组唯一的最小增量",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      }
+      "数组"
     ]
   },
   "946": {
-    "title": "Validate Stack Sequences",
     "lang": [
       "javascript"
     ],
     "frontEndId": 946,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "验证栈序列",
     "topicTags": [
-      {
-        "name": "Stack",
-        "translatedName": "栈"
-      }
+      "栈"
     ]
   },
   "948": {
-    "title": "Bag of Tokens",
     "lang": [
       "javascript"
     ],
     "frontEndId": 948,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "令牌放置",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "949": {
-    "title": "Largest Time for Given Digits",
     "lang": [
       "javascript"
     ],
     "frontEndId": 949,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "给定数字能组成的最大时间",
     "topicTags": [
-      {
-        "name": "Math",
-        "translatedName": "数学"
-      }
+      "数学"
     ]
   },
   "951": {
-    "title": "Flip Equivalent Binary Trees",
     "lang": [
       "javascript"
     ],
     "frontEndId": 951,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "翻转等价二叉树",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   },
   "953": {
-    "title": "Verifying an Alien Dictionary",
     "lang": [
       "javascript"
     ],
     "frontEndId": 953,
     "status": "ac",
-    "difficult": 1,
+    "difficult": "Easy",
     "translatedTitle": "验证外星语词典",
     "topicTags": [
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "哈希表"
     ]
   },
   "954": {
-    "title": "Array of Doubled Pairs",
     "lang": [
       "javascript"
     ],
     "frontEndId": 954,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二倍数对数组",
     "topicTags": [
-      {
-        "name": "Array",
-        "translatedName": "数组"
-      },
-      {
-        "name": "Hash Table",
-        "translatedName": "哈希表"
-      }
+      "数组",
+      "哈希表"
     ]
   },
   "955": {
-    "title": "Delete Columns to Make Sorted II",
     "lang": [
       "javascript"
     ],
     "frontEndId": 955,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "删列造序 ||",
     "topicTags": [
-      {
-        "name": "Greedy",
-        "translatedName": "贪心算法"
-      }
+      "贪心算法"
     ]
   },
   "958": {
-    "title": "Check Completeness of a Binary Tree",
     "lang": [
       "javascript"
     ],
     "frontEndId": 958,
     "status": "ac",
-    "difficult": 2,
+    "difficult": "Middle",
     "translatedTitle": "二叉树的完全性检验",
     "topicTags": [
-      {
-        "name": "Tree",
-        "translatedName": "树"
-      }
+      "树"
     ]
   }
 }

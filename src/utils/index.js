@@ -194,6 +194,16 @@ export function deepEqual(obj1,obj2){
   return true
 }
 
+export function shallowEqual(obj1,obj2){
+  for(let key in obj1){
+    if(obj1.hasOwnProperty(key)){
+      if(obj1[key]!==obj2[key]){
+        return false;
+      }
+    }
+  }
+  return true;
+}
 
 /*
 * 获取第一个路径

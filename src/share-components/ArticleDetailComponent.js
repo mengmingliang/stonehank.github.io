@@ -1,0 +1,202 @@
+import React from 'react'
+import fetchLazyContent from '../leetcode-problem/fetchLazyContent'
+import {Button,Divider, Pagination} from 'antd';
+import {navigate} from "@reach/router";
+import Loading from './Loading'
+import {linkTo} from '../routes/linkPathList'
+import CustomComment from "../tools/CustomComment";
+import BookmarkContext from '../bookmark/BookmarkContext'
+import {SetMark} from "../bookmark/Bookmark";
+import {querySearch} from "../utils/index";
+import ArticleHeaderProps from '../home-article/ArticleHeaderProps'
+
+
+const styles={
+  article:{margin:"24px 36px", background: '#fff', minHeight: 360},
+  articleTitle:{textAlign:"center"},
+  contentDiv:{marginTop:24},
+  footer:{margin: "0 auto"},
+  disqusButton:{display:"block",margin:"20px auto"}
+}
+
+
+export default class FetchLazyDetail extends React.Component{
+  constructor(){
+    super()
+    this.state={
+      curContentData:null,
+      contentLoading:true,
+      curContentKey:null,
+      renderContentList:null,
+      disqusRender:false
+    }
+    this.curContentIndex=null
+
+    this.handlePageChange=this.handlePageChange.bind(this)
+    this.pageItemRender=this.pageItemRender.bind(this)
+    this.showDisqus=this.showDisqus.bind(this)
+    this.bookmarkScroll=this.bookmarkScroll.bind(this)
+  }
+  pageItemRender(current, type,originalElement) {
+    const {renderContentList,titleProp}=this.props
+    if (type === 'prev') {
+      return <span>上一篇：<strong>{current<1 ? "无" : renderContentList[current-1][titleProp]}</strong></span>
+    }
+    if (type === 'next') {
+      return <span>下一篇：<strong>{this.curContentIndex === renderContentList.length ? "无" :renderContentList[current-1][titleProp]}</strong></span>;
+    }
+    return originalElement;
+  }
+  handlePageChange(page) {
+    const {fetchKeyProp,renderContentList,path}=this.props
+    let pathname=path.split('/:fetchKey')[0]
+    navigate(`${pathname}/${renderContentList[page-1][fetchKeyProp]}`)
+  }
+
+  showDisqus(){
+    this.setState({
+      disqusRender:true
+    })
+  }
+  bookmarkScroll(){
+    const {location}=this.props
+    const {search}=location
+    if(/bookmark/.test(search)){
+      let data=querySearch(search)
+      this.timer=setTimeout(()=>{
+        window.scrollTo({
+          top: +data.bookmark,
+          behavior: 'smooth'
+        });
+      },200)
+    }
+  }
+
+  static getDerivedStateFromProps(props,state){
+    if(props["fetchKey"]===state.curContentKey)return null
+    return {
+      curContentKey:null,
+      curContentData:null,
+      contentLoading:true
+    }
+  }
+  componentDidUpdate(){
+    const {fetchKey,read_content_path,renderContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
+    const {curContentKey}=this.state
+    if(!renderContentList)return
+    if(fetchKey!==curContentKey){
+      const curContentListProps=renderContentList.find((o,i)=>{
+        if(o[fetchKeyProp]==fetchKey){
+          this.curContentIndex=i+1
+          return true
+        }
+        return false
+      })
+      // console.log(curContentListProps,fetchKey,fetchKeyProp,renderContentList)
+      fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wangtedPropsFromContent)
+        .then(obj=>{
+          this.bookmarkScroll()
+          this.setState({
+            curContentKey:fetchKey,
+            curContentData:obj,
+            contentLoading:false
+          })
+        })
+        .catch(err=>{
+          // todo 此处可以用全局提示
+          console.log(err)
+          navigate("/NoThisPage", { replace: true })
+        })
+    }
+  }
+
+  componentDidMount(){
+    const {fetchKey,read_content_path,renderContentList,fetchContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
+    if(!renderContentList) fetchContentList()
+    else {
+      console.log(renderContentList)
+      const curContentListProps=renderContentList.find((o,i)=>{
+        if(o[fetchKeyProp]==fetchKey){
+          this.curContentIndex=i+1
+          return true
+        }
+        return false
+      })
+      // console.log(curContentListProps,fetchKey,fetchKeyProp,renderContentList)
+      fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wangtedPropsFromContent)
+        .then(contentData => {
+          this.bookmarkScroll()
+          this.setState({
+            curContentKey: fetchKey,
+            curContentData: contentData,
+            contentLoading: false
+          })
+        })
+        .catch(err => {
+          // todo 此处可以用全局提示
+          console.log(err)
+          navigate("/NoThisPage", {replace: true})
+        })
+    }
+  }
+  componentWillUnmount(){
+    clearTimeout(this.timer)
+  }
+  render(){
+    // console.log('article')
+    const {curContentData,contentLoading,disqusRender}=this.state
+    // console.log(curContentData)
+    const {renderContentList,fetchKey,location,titleProp,showComment,wangtedPropsFromContent}=this.props
+    return(
+      contentLoading ?
+        <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
+        <article style={styles.article}>
+          <header>
+            <h1 style={styles.articleTitle}>{curContentData[titleProp]}</h1>
+            <ArticleHeaderProps curContentData={curContentData}
+                                singleRenderProps={[{
+                                    val:'difficult',
+                                    tagStyle:{},
+                                    ele:'tag',
+                                    getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
+                                  }]}
+                                multiRenderProps={[
+                                  {val:'topicTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
+                                  {val:'lang',ele:'tag'}
+                                ]}
+                                showComment={false} />
+            {/*<ArticleStatusBar justify={"center"}*/}
+                              {/*article={curContentData}*/}
+                              {/*fetchKey={fetchKey}*/}
+                              {/*createdTime={"createdTime"}*/}
+                              {/*label={"label"}*/}
+                              {/*labelLinkToProp={"category"} />*/}
+          </header>
+          {
+            wangtedPropsFromContent.map((prop,i)=>{
+              return <div className="markdown-body" key={i} style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curContentData[prop]}}/>
+            })
+          }
+          <Divider />
+          {showComment
+            ? disqusRender
+              ? <CustomComment.Detail title={curContentData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
+              : <Button onClick={this.showDisqus} style={styles.disqusButton}>
+                  加载评论 (<CustomComment.Count title={curContentData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)
+                </Button>
+            : null
+          }
+
+          <footer style={styles.footer}>
+            <Pagination simple  pageSize={1} total={renderContentList.length}
+                        current={this.curContentIndex}
+                        itemRender={this.pageItemRender}
+                        onChange={this.handlePageChange}/>
+          </footer>
+          <BookmarkContext.Consumer>
+            {({setBookmark})=><SetMark sha={fetchKey} setBookmark={setBookmark}/>}
+          </BookmarkContext.Consumer>
+        </article>
+    )
+  }
+}

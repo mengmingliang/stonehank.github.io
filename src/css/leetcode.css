@@ -1,0 +1,15 @@
+
+.leetcode-difficult-tags{
+    font-weight: 700;
+    line-height: 1rem;
+    color: #fff;
+}
+.leetcode-Easy{
+    background:#5cb85c
+}
+.leetcode-Middle{
+    background:#f0ad4e
+}
+.leetcode-Hard{
+    background:#d9534f
+}

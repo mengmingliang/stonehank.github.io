@@ -1,7 +1,10 @@
 const  hljs =require('highlight.js/lib/highlight');
 const javascript = require('highlight.js/lib/languages/javascript');
+const java = require('highlight.js/lib/languages/java');
+
 
 hljs.registerLanguage('javascript', javascript); // https://highlightjs.org/
+hljs.registerLanguage('java', java); // https://highlightjs.org/
 
 // 转换 markdown 为 html
 

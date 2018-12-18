@@ -1,8 +1,7 @@
 {
   "code": [
-    "# Write your MySQL query statement below\nUPDATE salary SET sex= CASE WHEN sex='m' THEN 'f' ELSE 'm' END"
+    "<pre class=\"hljs\"><code># Write your MySQL query statement below\nUPDATE salary SET sex= CASE WHEN sex='m' THEN 'f' ELSE 'm' END\n</code></pre>\n"
   ],
   "titleSlug": "swap-salary",
-  "content": "Given a table <code>salary</code>, such as the one below, that has m=male and  f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a single update query and no intermediate temp table.</p>\r\n \r\nFor example:</p>\r\n \r\n<pre>\r\n| id | name | sex | salary |\r\n|----|------|-----|--------|\r\n| 1  | A    | m   | 2500   |\r\n| 2  | B    | f   | 1500   |\r\n| 3  | C    | m   | 5500   |\r\n| 4  | D    | f   | 500    |\r\n</pre>\r\nAfter running your query, the above salary table should have the following rows:\r\n<pre>\r\n| id | name | sex | salary |\r\n|----|------|-----|--------|\r\n| 1  | A    | f   | 2500   |\r\n| 2  | B    | m   | 1500   |\r\n| 3  | C    | f   | 5500   |\r\n| 4  | D    | m   | 500    |\r\n</pre>\r\n",
   "translatedContent": "<p>给定一个&nbsp;<code>salary</code>表，如下所示，有m=男性 和 f=女性的值 。交换所有的 f 和 m 值(例如，将所有 f 值更改为 m，反之亦然)。要求使用一个更新查询，并且没有中间临时表。</p>\n\n<p>例如:</p>\n\n<pre>| id | name | sex | salary |\n|----|------|-----|--------|\n| 1  | A    | m   | 2500   |\n| 2  | B    | f   | 1500   |\n| 3  | C    | m   | 5500   |\n| 4  | D    | f   | 500    |\n</pre>\n\n<p>运行你所编写的查询语句之后，将会得到以下表:</p>\n\n<pre>| id | name | sex | salary |\n|----|------|-----|--------|\n| 1  | A    | f   | 2500   |\n| 2  | B    | m   | 1500   |\n| 3  | C    | f   | 5500   |\n| 4  | D    | m   | 500    |\n</pre>\n"
 }

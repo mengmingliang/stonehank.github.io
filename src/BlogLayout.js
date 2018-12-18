@@ -25,6 +25,7 @@ import './css/index.css';
 
 import SourceCode from "./source-code/SourceCode";
 import MyLeetcode from "./leetcode-problem/MyLeetcodeContainer";
+import MyLeetcodeDetail from "./share-components/ArticleDetailComponent";
 
 
 const styles={
@@ -50,18 +51,38 @@ export default class BlogLayout extends React.Component {
       initArticles:null,
       blog_jsonObj:null,
       sourceCodeNavSHA:null,
-      leetcodeRenderMode:'list'
+      leetcodeRenderMode:'list',
+      leetcodeData:null,
+      leetcodeList:null
     }
     this.fetchBlogList=this.fetchBlogList.bind(this)
     this.fetchSourceCodeList=this.fetchSourceCodeList.bind(this)
     this.changeBackground=this.changeBackground.bind(this)
     this.toggleRenderMode=this.toggleRenderMode.bind(this)
+    this.fetchLeetcodeList=this.fetchLeetcodeList.bind(this)
   }
 
   toggleRenderMode(prop){
     this.setState(prevState=>({
       [prop]:prevState[prop]==="list"?'card':"list"
     }))
+  }
+
+  fetchLeetcodeList(){
+    const {read_leetcode_path}=this.props.userConfig
+    import(
+      /* webpackChunkName: "leetcode-list" */
+      `./${read_leetcode_path}/_leetcode-list.json`
+      )
+      .then((module)=>{
+        let leetcodeData=module.default
+        // console.log(leetcodeData)
+        let leetcodeList=objSortBy(leetcodeData,'frontEndId',true)
+        this.setState({
+          leetcodeData,
+          leetcodeList
+        })
+      })
   }
 
   changeBackground(color){
@@ -129,7 +150,9 @@ export default class BlogLayout extends React.Component {
       categoryArticles,
       initArticles,
       sourceCodeNavSHA,
-      leetcodeRenderMode
+      leetcodeRenderMode,
+      leetcodeData,
+      leetcodeList
     }=this.state
 
     if(archiveArticles && !archiveArticles.activePanel){
@@ -227,21 +250,44 @@ export default class BlogLayout extends React.Component {
                                     read_sourceCode_path={read_sourceCode_path}
                                     sourceCodeNavSHA={sourceCodeNavSHA} />
 
-                        <MyLeetcode path={linkTo.myleetcode}
+                        <MyLeetcode path={`${linkTo.myleetcode}`}
+                                    leetcodeData={leetcodeData}
                                     leetcodeRenderMode={leetcodeRenderMode}
-                                    toggleRenderMode={this.toggleRenderMode}
-                                    read_leetcode_path={read_leetcode_path} />
+                                    fetchLeetcodeList={this.fetchLeetcodeList}
+                                    toggleRenderMode={this.toggleRenderMode}/>
+
+                        <MyLeetcodeDetail path={`${linkTo.myleetcode}/problems/:fetchKey`}
+                                          titleProp={"translatedTitle"}
+                                          fetchKeyProp={"frontEndId"}
+                                          wantedPropsFromList={['translatedTitle','frontEndId','topicTags','difficult','lang']}
+                                          wangtedPropsFromContent={['translatedContent','code']}
+                                          read_content_path={read_leetcode_path}
+                                          renderContentList={leetcodeList}
+                                          fetchContentList={this.fetchLeetcodeList}/>
 
                         <About path={linkTo.about}
                                articles={categoryArticles}
                                aboutMe={aboutMe} />
 
-                        <ArticleDetail path={`${linkTo.articles}/:articleSha`}
-                                       blogList={initArticles}
-                                       read_blog_path={read_blog_path} />
+                        <MyLeetcodeDetail path={`${linkTo.articles}/:fetchKey`}
+                                          titleProp={"title"}
+                                          fetchKeyProp={"titleSHA"}
+                                          showComment={true}
+                                          wantedPropsFromList={['title','createdTime','label']}
+                                          wangtedPropsFromContent={['content']}
+                                          read_content_path={read_blog_path}
+                                          renderContentList={initArticles}
+                                          fetchContentList={this.fetchBlogList}/>
+
+                        {/*<ArticleDetail path={`${linkTo.articles}/:articleSha`}*/}
+                                       {/*blogList={initArticles}*/}
+                                       {/*read_blog_path={read_blog_path} />*/}
 
                         <CategoryDetail path={`${linkTo.category}/:tag`}
                                         categoryArticles={categoryArticles} />
+
+
+
 
                         <NotFound default
                                   changeBG={this.changeBackground} />

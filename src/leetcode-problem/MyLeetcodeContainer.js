@@ -1,9 +1,10 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import Loading from "../share-components/Loading";
 import {objSortBy,objGroupBy} from '../utils'
 import MyLeetcodeComponent from "./MyLeetcodeComponent";
-// import {navigate} from "@reach/router/index";
+import {shallowEqual} from '../utils'
 
+import '../css/leetcode.css'
 
 const styles={
   defaultMargin:{margin: '24px 36px'},
@@ -16,25 +17,23 @@ export default class MyLeetcodeContainer extends React.Component{
       pageSize: 20,
       // 初始页数
       page: 1,
-      renderContent:null,
-      initState:null
+      renderContent:null
     }
     this.sortData=this.sortData.bind(this)
-    this.fetchResource=this.fetchResource.bind(this)
     this.handlePageChange=this.handlePageChange.bind(this)
     this.toggleModeDataStructure=this.toggleModeDataStructure.bind(this)
   }
   groupData(groupKey,priorityProps){
-    const {initData}=this.state
-    let renderContent= objGroupBy(initData,groupKey,priorityProps)
+    const {leetcodeData}=this.props
+    let renderContent= objGroupBy(leetcodeData,groupKey,priorityProps)
     this.setState({
       renderContent
     })
   }
 
   sortData(sortKey,ascend){
-    const {initData}=this.state
-    let renderContent= objSortBy(initData,sortKey,ascend)
+    const {leetcodeData}=this.props
+    let renderContent= objSortBy(leetcodeData,sortKey,ascend)
     this.setState({
       renderContent
     })
@@ -47,38 +46,70 @@ export default class MyLeetcodeContainer extends React.Component{
   toggleModeDataStructure(rendermodeProp){
     const {toggleRenderMode,leetcodeRenderMode}=this.props
     if(leetcodeRenderMode==="list"){
-      this.groupData('topicTags','translatedName')
+      this.groupData('topicTags')
     }else{
       this.sortData('frontEndId',true)
     }
     toggleRenderMode(rendermodeProp)
   }
 
-  fetchResource(){
-    const {read_leetcode_path}=this.props
-    return import(
-      /* webpackChunkName: "leetcode-list" */
-      `../${read_leetcode_path}/_leetcode-list.json`
-      )
+
+  shouldComponentUpdate(prevProps,prevState){
+    return prevProps.leetcodeRenderMode!==this.props.leetcodeRenderMode
+      || !this.state.renderContent
+      || this.state.page!==prevState.page
   }
+
+  componentDidUpdate(){
+    const {leetcodeRenderMode,leetcodeData}=this.props
+    if(!leetcodeData)return
+    if(!leetcodeRenderMode)return
+    if(this.state.renderContent)return
+    let renderContent
+    if(leetcodeRenderMode==="list")
+      renderContent =objSortBy(leetcodeData,['frontEndId'],true)
+    else
+      renderContent=objGroupBy(leetcodeData,'topicTags')
+    this.totalPage=renderContent.length
+    this.setState({
+      renderContent
+    })
+
+  }
+
+
   componentDidMount(){
-    const {leetcodeRenderMode}=this.props
-    this.fetchResource().then((module)=>{
-      let data=module.default
+    const {leetcodeRenderMode,leetcodeData,fetchLeetcodeList}=this.props
+    if(!leetcodeData){
+      fetchLeetcodeList()
+    }else{
       let renderContent
       if(leetcodeRenderMode==="list")
-        renderContent =objSortBy(data,['frontEndId'],true)
+        renderContent =objSortBy(leetcodeData,['frontEndId'],true)
       else
-        renderContent=objGroupBy(data,'topicTags','translatedName')
+        renderContent=objGroupBy(leetcodeData,'topicTags')
       this.totalPage=renderContent.length
       this.setState({
-        renderContent,
-        initData:data
+        renderContent
       })
-    })
+    }
+    // this.fetchResource().then((module)=>{
+    //   let data=module.default
+    //   let renderContent
+    //   if(leetcodeRenderMode==="list")
+    //     renderContent =objSortBy(data,['frontEndId'],true)
+    //   else
+    //     renderContent=objGroupBy(data,'topicTags','translatedName')
+    //   this.totalPage=renderContent.length
+    //   this.setState({
+    //     renderContent,
+    //     initData:data
+    //   })
+    // })
   }
   render(){
     const {renderContent,page,pageSize,initData}=this.state
+    const {leetcodeData}=this.props
     const {leetcodeRenderMode}=this.props
     // console.log(renderContent)
     return(
@@ -87,7 +118,8 @@ export default class MyLeetcodeContainer extends React.Component{
           renderContent
             ? <MyLeetcodeComponent page={page}
                                    pageSize={pageSize}
-                                   initData={initData}
+                                   // leetcodeData={leetcodeData}
+                                   initData={leetcodeData}
                                    totalPage={this.totalPage}
                                    leetcodeRenderMode={leetcodeRenderMode}
                                    handlePageChange={this.handlePageChange}

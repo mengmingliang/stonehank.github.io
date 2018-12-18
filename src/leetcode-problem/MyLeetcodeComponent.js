@@ -1,17 +1,18 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import TagsBlock from "../share-components/TagsBlock";
-import TagsList from "../category/TagsList";
 import {Button, Icon,Layout,List} from 'antd';
 import {linkTo} from "../routes/linkPathList";
 import ArticleListCard from "../home-article/ArticleListCard";
-
-
+import TagLight from "../share-components/TagLight";
+import { Router,Location } from "@reach/router";
+import MyLeetcodeDetail from '../share-components/ArticleDetailComponent'
 
 const { Content} = Layout;
 const styles={
   tagStyle:{width:50},
-  card:{margin:"15px 0"},
+  card:{margin:"0"},
   list_pagi_style:{textAlign: 'center',marginBottom:"1rem"},
+  tag:{ lineHeight: '1rem'}
 }
 
 export default class MyLeetcodeComponent extends React.Component{
@@ -33,7 +34,6 @@ export default class MyLeetcodeComponent extends React.Component{
       total:totalPage,
       onChange:handlePageChange
     }
-    const curRenderContent=renderContent.slice((page-1)*pageSize,page*pageSize)
     return (
       <Content style={styles.defaultMargin}>
         <div className="clearfix">
@@ -43,9 +43,9 @@ export default class MyLeetcodeComponent extends React.Component{
         </div>
         { leetcodeRenderMode === "list"
           ? <List split={false}
-                  header={<strong>My-Leetcode</strong>}
+                  header={<div><button>id</button><button>language</button><button>difficult</button></div>}
                   pagination={listPageSetting} >
-              { curRenderContent.map((item,i)=>(
+              { renderContent.slice((page-1)*pageSize,page*pageSize).map((item,i)=>(
                 <ArticleListCard key={i}
                                  hoverable
                                  bordered={false}
@@ -54,11 +54,19 @@ export default class MyLeetcodeComponent extends React.Component{
                                  linkToPath={linkTo.myleetcode+"/problems/"+item.frontEndId}
                                  style={styles.card}
                                  title={
-                                   <div>
-                                     <span>{item.frontEndId}、{item.title}</span>
-                                     <span>{item.lang}</span>
-                                     <span>{item.difficult}</span>
-                                     <span>{item.topicTags.translatedName}</span>
+                                   <div style={{display:"flex"}}>
+                                     <span>{item.frontEndId}、{item.translatedTitle}</span>
+                                     <div  style={{display:'flex',justifyContent:'start',flex:1}}>
+                                       {item.topicTags.map((tag,i)=>
+                                           <TagLight key={i} tagStyle={styles.tag}>{tag}</TagLight>
+                                       )}
+                                      </div>
+                                     {item.lang.map((lang,i)=>
+                                       <TagLight key={i} tagStyle={styles.tag}>{lang}</TagLight>
+                                     )}
+                                     <div style={{flexBasis:"7rem",textAlign:"center"}}>
+                                       <TagLight className={`leetcode-difficult-tags leetcode-${item.difficult}`}>{item.difficult}</TagLight>
+                                     </div>
                                    </div>
                                  }
                                  noCount={true}
