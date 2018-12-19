@@ -4,6 +4,7 @@ import {navigate} from "@reach/router"
 import Loading from "../share-components/Loading";
 import TagHeader from "./TagHeader";
 import ArticleListCard from "../home-article/ArticleListCard";
+// import {linkTo} from "../routes/linkPathList";
 
 
 const styles={
@@ -67,12 +68,9 @@ export default class CategoryDetail extends React.Component {
              }
          dataSource={tagList}
          renderItem={item => (
-           <ArticleListCard hoverable bordered={false}
-                            bodyStyle={styles.card_pure_body}
-                            style={styles.card}
-                            title={item.title}
-                            statusBarItem={item}
-                     // onClick={this.navigateToPath.bind(this,linkTo.articles+"/"+item.sha)}
+           <ArticleListCard bodyStyle={styles.card_pure_body}
+                            cardStyle={styles.card}
+                            curPropsData={item}
            />
          )}
        />

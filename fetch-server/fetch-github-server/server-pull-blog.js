@@ -168,7 +168,7 @@ function getPagesAndConcatData(getFetchResultsAPI,getDetailSearchAPI,getListWrit
 // 检查/创建list文件并且判断是否需要更新
 function checkAndWrite(fetchResults,getListWritePath,getWriteContentPath,getDetailSearchAPI,options,updateNecessaryOptions) {
   let defaultOptions= {
-    customListKeys:["label","createdTime","timeArr","title","titleSHA","summary"],
+    customListKeys:["relatedTags","createdTime","timeArr","title","uniqueID","summary"],
     isResource:false,
     user,
     repository,
@@ -246,7 +246,7 @@ function updateListAndContent(needUpdateData,fetchResults,listData,writeListPath
 
     const sha1 = crypto.createHash('sha1');
     sha1.update(rawname);
-    let titleSHA=sha1.digest('hex')
+    let uniqueID=sha1.digest('hex')
 
     let cur_remote_filename=rawname,
       cur_remote_sha=fetchResults[latestDataIdx].sha,
@@ -325,21 +325,21 @@ function updateListAndContent(needUpdateData,fetchResults,listData,writeListPath
           let htmlSummary=getAppropriateSummary(content,[summaryMinLen,summaryMaxLen],summaryStartIdx,boundaryLimitIdx)
 
 
-          let getLabel=()=>checkIfNeedForceUpdated("label",filteredLabels)
+          let getLabel=()=>checkIfNeedForceUpdated("relatedTags",filteredLabels)
           let getCreatedTime=()=>checkIfNeedForceUpdated("createdTime",cur_remote_createdTime)
           let getTimeArr=()=>checkIfNeedForceUpdated("timeArr",cur_remote_timeArr)
           let getTitle=()=>checkIfNeedForceUpdated("title",cur_remote_filename)
-          let getTitleSHA=()=>checkIfNeedForceUpdated("titleSHA",titleSHA)
+          let getUniqueID=()=>checkIfNeedForceUpdated("uniqueID",uniqueID)
           let getSummary=()=>checkIfNeedForceUpdated("summary",htmlSummary)
 
 
           if(Array.isArray(customListKeys)){
             let listValue={
-              label:getLabel,
+              relatedTags:getLabel,
               createdTime:getCreatedTime,
               timeArr:getTimeArr,
               title:getTitle,
-              titleSHA:getTitleSHA,
+              uniqueID:getUniqueID,
               summary:getSummary}
             for(let i=0;i<customListKeys.length;i++){
               let curKey=customListKeys[i]

@@ -2,6 +2,7 @@ import React from 'react';
 import { List} from 'antd';
 import ArticleListCard from "../home-article/ArticleListCard";
 import TagHeader from "./TagHeader";
+import {linkTo} from "../routes/linkPathList";
 
 
 const styles={
@@ -37,12 +38,9 @@ export default class TagsList extends React.Component {
                             }
                             dataSource={tagList}
                             renderItem={item => (
-                              <ArticleListCard hoverable
-                                               bordered={false}
-                                               bodyStyle={styles.card_pure_body}
-                                               style={styles.card}
-                                               title={item.title}
-                                               statusBarItem={item} />
+                              <ArticleListCard bodyStyle={styles.card_pure_body}
+                                               cardStyle={styles.card}
+                                               curPropsData={item}/>
                             )}
                       />
                     )

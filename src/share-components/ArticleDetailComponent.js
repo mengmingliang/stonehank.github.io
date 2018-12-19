@@ -24,9 +24,9 @@ export default class FetchLazyDetail extends React.Component{
   constructor(){
     super()
     this.state={
-      curContentData:null,
+      curPropsData:null,
       contentLoading:true,
-      curContentKey:null,
+      curFetchKey:null,
       renderContentList:null,
       disqusRender:false
     }
@@ -73,18 +73,18 @@ export default class FetchLazyDetail extends React.Component{
   }
 
   static getDerivedStateFromProps(props,state){
-    if(props["fetchKey"]===state.curContentKey)return null
+    if(props["fetchKey"]===state.curFetchKey)return null
     return {
-      curContentKey:null,
-      curContentData:null,
+      curFetchKey:null,
+      curPropsData:null,
       contentLoading:true
     }
   }
   componentDidUpdate(){
     const {fetchKey,read_content_path,renderContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
-    const {curContentKey}=this.state
+    const {curFetchKey}=this.state
     if(!renderContentList)return
-    if(fetchKey!==curContentKey){
+    if(fetchKey!==curFetchKey){
       const curContentListProps=renderContentList.find((o,i)=>{
         if(o[fetchKeyProp]===fetchKey){
           this.curContentIndex=i+1
@@ -97,8 +97,8 @@ export default class FetchLazyDetail extends React.Component{
         .then(obj=>{
           this.bookmarkScroll()
           this.setState({
-            curContentKey:fetchKey,
-            curContentData:obj,
+            curFetchKey:fetchKey,
+            curPropsData:obj,
             contentLoading:false
           })
         })
@@ -127,8 +127,8 @@ export default class FetchLazyDetail extends React.Component{
         .then(contentData => {
           this.bookmarkScroll()
           this.setState({
-            curContentKey: fetchKey,
-            curContentData: contentData,
+            curFetchKey: fetchKey,
+            curPropsData: contentData,
             contentLoading: false
           })
         })
@@ -144,8 +144,8 @@ export default class FetchLazyDetail extends React.Component{
   }
   render(){
     // console.log('article')
-    const {curContentData,contentLoading,disqusRender}=this.state
-    // console.log(curContentData)
+    const {curPropsData,contentLoading,disqusRender}=this.state
+    // console.log(curPropsData)
     const {
       renderContentList,
       fetchKey,
@@ -155,35 +155,32 @@ export default class FetchLazyDetail extends React.Component{
       wangtedPropsFromContent,
       singleRenderPropsOnHeader,
       multiRenderPropsOnHeader,
-      fetchContentList,
-      fetchKeyProp,
-      wantedPropsFromList,
-      navigate,
-      ...otherProps}=this.props
+      justify}=this.props
 
     return(
       contentLoading ?
         <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
         <article style={styles.article}>
           <header>
-            <h1 style={styles.articleTitle}>{curContentData[titleProp]}</h1>
-            <ArticleHeaderProps curContentData={curContentData}
+            <h1 style={styles.articleTitle}>{curPropsData[titleProp]}</h1>
+            <ArticleHeaderProps curContentData={curPropsData}
                                 singleRenderPropsOnHeader={singleRenderPropsOnHeader}
                                 multiRenderPropsOnHeader={multiRenderPropsOnHeader}
                                 showComment={showComment}
-                                {...otherProps}/>
+                                justify={justify}
+            />
           </header>
           {
             wangtedPropsFromContent.map((prop,i)=>{
-              return <div className="markdown-body" key={i} style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curContentData[prop]}}/>
+              return <div className="markdown-body" key={i} style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curPropsData[prop]}}/>
             })
           }
           <Divider />
           {showComment
             ? disqusRender
-              ? <CustomComment.Detail title={curContentData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
+              ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
               : <Button onClick={this.showDisqus} style={styles.disqusButton}>
-                  加载评论 (<CustomComment.Count title={curContentData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)
+                  加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)
                 </Button>
             : null
           }

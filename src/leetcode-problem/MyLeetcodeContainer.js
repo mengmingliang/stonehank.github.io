@@ -17,59 +17,75 @@ export default class MyLeetcodeContainer extends React.Component{
       pageSize: 20,
       // 初始页数
       page: 1,
-      renderContent:null
+      renderContent:null,
+      curSortedKey:'uniqueID',
+      curSortedAsc:true
     }
     this.sortData=this.sortData.bind(this)
     this.handlePageChange=this.handlePageChange.bind(this)
+    this.toggleSorted=this.toggleSorted.bind(this)
     this.toggleModeDataStructure=this.toggleModeDataStructure.bind(this)
   }
   groupData(groupKey,priorityProps){
-    const {leetcodeData}=this.props
-    let renderContent= objGroupBy(leetcodeData,groupKey,priorityProps)
+    const {initLeetcodeData}=this.props
+    let renderContent= objGroupBy(initLeetcodeData,groupKey,priorityProps)
     this.setState({
       renderContent
     })
   }
 
-  sortData(sortKey,ascend){
-    const {leetcodeData}=this.props
-    let renderContent= objSortBy(leetcodeData,sortKey,ascend)
+  toggleSorted(nextSortedKey){
+    const {curSortedKey,curSortedAsc}=this.state
+    let nextAsc=true
+    if(curSortedKey===nextSortedKey )nextAsc=!curSortedAsc
+    this.sortData(nextSortedKey,nextAsc)
+  }
+
+  sortData(nextSortedKey,nextAscend){
+    const {initLeetcodeData}=this.props
+    let renderContent= objSortBy(initLeetcodeData,nextSortedKey,nextAscend)
     this.setState({
-      renderContent
+      renderContent,
+      curSortedKey:nextSortedKey,
+      curSortedAsc:nextAscend
     })
   }
   handlePageChange(page) {
     this.setState({page})
-    // navigate(`/myleetcode/page/${page}`)
   }
 
   toggleModeDataStructure(rendermodeProp){
     const {toggleRenderMode,leetcodeRenderMode}=this.props
+    const {curSortedKey,sortedAsc}=this.props
     if(leetcodeRenderMode==="list"){
-      this.groupData('topicTags')
+      this.groupData('relatedTags')
     }else{
-      this.sortData('frontEndId',true)
+      this.sortData(curSortedKey,sortedAsc)
     }
     toggleRenderMode(rendermodeProp)
   }
 
 
   shouldComponentUpdate(prevProps,prevState){
+    const {curSortedKey,renderContent,page,curSortedAsc}=this.state
     return prevProps.leetcodeRenderMode!==this.props.leetcodeRenderMode
-      || !this.state.renderContent
-      || this.state.page!==prevState.page
+      || !renderContent
+      || page!==prevState.page
+      || curSortedAsc!==prevState.curSortedAsc
+      || curSortedKey!==prevState.curSortedKey
+
   }
 
   componentDidUpdate(){
-    const {leetcodeRenderMode,leetcodeData}=this.props
-    if(!leetcodeData)return
+    const {leetcodeRenderMode,initLeetcodeData}=this.props
+    if(!initLeetcodeData)return
     if(!leetcodeRenderMode)return
     if(this.state.renderContent)return
     let renderContent
     if(leetcodeRenderMode==="list")
-      renderContent =objSortBy(leetcodeData,['frontEndId'],true)
+      renderContent =objSortBy(initLeetcodeData,['uniqueID'],true)
     else
-      renderContent=objGroupBy(leetcodeData,'topicTags')
+      renderContent=objGroupBy(initLeetcodeData,'relatedTags')
     this.totalPage=renderContent.length
     this.setState({
       renderContent
@@ -79,38 +95,26 @@ export default class MyLeetcodeContainer extends React.Component{
 
 
   componentDidMount(){
-    const {leetcodeRenderMode,leetcodeData,fetchLeetcodeList}=this.props
-    if(!leetcodeData){
+    const {leetcodeRenderMode,initLeetcodeData,fetchLeetcodeList}=this.props
+    if(!initLeetcodeData){
       fetchLeetcodeList()
     }else{
       let renderContent
       if(leetcodeRenderMode==="list")
-        renderContent =objSortBy(leetcodeData,['frontEndId'],true)
+        renderContent =objSortBy(initLeetcodeData,['uniqueID'],true)
       else
-        renderContent=objGroupBy(leetcodeData,'topicTags')
+        renderContent=objGroupBy(initLeetcodeData,'relatedTags')
       this.totalPage=renderContent.length
       this.setState({
         renderContent
       })
     }
-    // this.fetchResource().then((module)=>{
-    //   let data=module.default
-    //   let renderContent
-    //   if(leetcodeRenderMode==="list")
-    //     renderContent =objSortBy(data,['frontEndId'],true)
-    //   else
-    //     renderContent=objGroupBy(data,'topicTags','translatedName')
-    //   this.totalPage=renderContent.length
-    //   this.setState({
-    //     renderContent,
-    //     initData:data
-    //   })
-    // })
+
   }
   render(){
     const {renderContent,page,pageSize}=this.state
-    const {leetcodeData}=this.props
-    const {leetcodeRenderMode}=this.props
+    const {initLeetcodeData,leetcodeRenderMode}=this.props
+
     // console.log(renderContent)
     return(
       <div style={styles.defaultMargin}>
@@ -118,8 +122,8 @@ export default class MyLeetcodeContainer extends React.Component{
           renderContent
             ? <MyLeetcodeComponent page={page}
                                    pageSize={pageSize}
-                                   // leetcodeData={leetcodeData}
-                                   initData={leetcodeData}
+                                   initData={initLeetcodeData}
+                                   toggleSorted={this.toggleSorted}
                                    totalPage={this.totalPage}
                                    leetcodeRenderMode={leetcodeRenderMode}
                                    handlePageChange={this.handlePageChange}
@@ -137,38 +141,3 @@ export default class MyLeetcodeContainer extends React.Component{
 }
 
 
-// export default function MyLeetcodeContainer(props){
-//   const [renderContent,setRenderContent]=useState(null)
-//   const [initData,setData]=useState(null)
-//
-//   useEffect(()=>{
-//     fetchResource().then((module)=>{
-//       let data=module.default
-//       let renderContent=objGroupBy(data,'topicTags','translatedName')
-//       setData(data)
-//       setRenderContent(renderContent)
-//     })
-//   },[])
-//   function sortData(sortKey,ascend){
-//     let renderContent= objSortBy(initData,sortKey,ascend)
-//     setRenderContent(renderContent)
-//   }
-//
-//   function fetchResource(){
-//     const {read_leetcode_path}=props
-//     return import(
-//       /* webpackChunkName: "leetcode-list" */
-//       `../${read_leetcode_path}/_leetcode-list.json`
-//       )
-//   }
-//   console.log(renderContent)
-//   return (
-//     renderContent
-//       ? <MyLeetcodeComponent renderContent={renderContent}/>
-//       : <Loading loading={true}
-//                  render_nums={1}
-//                  ske_title_width={"30%"}
-//                  ske_para_width={"50%"}
-//                  ske_para_rows={8} />
-//   )
-// }

@@ -10,7 +10,7 @@ const context=slash(appRoot.path)
 
 let taskQueue=[
   {
-    writeListInfoName:`_blog-data.json`,
+    writeListInfoName:`_blog-list.json`,
     writeDIRPath:`${context}/src/asset/blog`,
     initGetWriteListPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
     initGetWriteContentPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
@@ -28,7 +28,7 @@ let taskQueue=[
       },
   },
   {
-    writeListInfoName:`_source-code-list.json`,
+    writeListInfoName:`_sourceCode-list.json`,
     writeDIRPath:`${context}/src/asset/sourceCode`,
     initGetWriteListPath:(writeDIRPath,writeListInfoName)=>()=>`${writeDIRPath}/${writeListInfoName}`,
     initGetWriteContentPath:(writeDIRPath)=>(filename)=>`${writeDIRPath}/${filename}`,
@@ -46,7 +46,7 @@ let taskQueue=[
       },
   },
   {
-    writeListInfoName:`_resource_list.json`,
+    writeListInfoName:`_resource-list.json`,
     writeDIRPath:`${context}/public/articles`,
     initGetWriteListPath:(writeDIRPath,writeListInfoName,restrictPath)=>()=>`${writeDIRPath}/${restrictPath}/${writeListInfoName}`,
     initGetWriteContentPath:(writeDIRPath,restrictPath)=>filename=>`${writeDIRPath}/${restrictPath}/${filename}`,

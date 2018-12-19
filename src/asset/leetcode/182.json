@@ -3,5 +3,5 @@
     "<pre class=\"hljs\"><code># Write your MySQL query statement below\nSELECT Email from Person group by Email having count(Email)&gt;1\n</code></pre>\n"
   ],
   "titleSlug": "duplicate-emails",
-  "translatedContent": "<p>编写一个 SQL 查询，查找&nbsp;<code>Person</code> 表中所有重复的电子邮箱。</p>\n\n<p><strong>示例：</strong></p>\n\n<pre>+----+---------+\n| Id | Email   |\n+----+---------+\n| 1  | a@b.com |\n| 2  | c@d.com |\n| 3  | a@b.com |\n+----+---------+\n</pre>\n\n<p>根据以上输入，你的查询应返回以下结果：</p>\n\n<pre>+---------+\n| Email   |\n+---------+\n| a@b.com |\n+---------+\n</pre>\n\n<p><strong>说明：</strong>所有电子邮箱都是小写字母。</p>\n"
+  "content": "<p>编写一个 SQL 查询，查找&nbsp;<code>Person</code> 表中所有重复的电子邮箱。</p>\n\n<p><strong>示例：</strong></p>\n\n<pre>+----+---------+\n| Id | Email   |\n+----+---------+\n| 1  | a@b.com |\n| 2  | c@d.com |\n| 3  | a@b.com |\n+----+---------+\n</pre>\n\n<p>根据以上输入，你的查询应返回以下结果：</p>\n\n<pre>+---------+\n| Email   |\n+---------+\n| a@b.com |\n+---------+\n</pre>\n\n<p><strong>说明：</strong>所有电子邮箱都是小写字母。</p>\n"
 }

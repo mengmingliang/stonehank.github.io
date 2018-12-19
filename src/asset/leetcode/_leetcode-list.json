@@ -3,11 +3,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "1",
-    "status": "ac",
+    "uniqueID": "1",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两数之和",
-    "topicTags": [
+    "title": "两数之和",
+    "relatedTags": [
       "数组",
       "哈希表"
     ]
@@ -16,11 +16,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "2",
-    "status": "ac",
+    "uniqueID": "2",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "两数相加",
-    "topicTags": [
+    "title": "两数相加",
+    "relatedTags": [
       "链表",
       "数学"
     ]
@@ -29,11 +29,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "5",
-    "status": "ac",
+    "uniqueID": "5",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最长回文子串",
-    "topicTags": [
+    "title": "最长回文子串",
+    "relatedTags": [
       "字符串",
       "动态规划"
     ]
@@ -42,11 +42,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "7",
-    "status": "ac",
+    "uniqueID": "7",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "整数反转",
-    "topicTags": [
+    "title": "整数反转",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -54,11 +54,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "9",
-    "status": "ac",
+    "uniqueID": "9",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "回文数",
-    "topicTags": [
+    "title": "回文数",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -66,11 +66,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "11",
-    "status": "ac",
+    "uniqueID": "11",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "盛最多水的容器",
-    "topicTags": [
+    "title": "盛最多水的容器",
+    "relatedTags": [
       "数组",
       "双指针"
     ]
@@ -79,11 +79,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "12",
-    "status": "ac",
+    "uniqueID": "12",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "整数转罗马数字",
-    "topicTags": [
+    "title": "整数转罗马数字",
+    "relatedTags": [
       "数学",
       "字符串"
     ]
@@ -92,11 +92,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "13",
-    "status": "ac",
+    "uniqueID": "13",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "罗马数字转整数",
-    "topicTags": [
+    "title": "罗马数字转整数",
+    "relatedTags": [
       "数学",
       "字符串"
     ]
@@ -105,11 +105,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "15",
-    "status": "ac",
+    "uniqueID": "15",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "三数之和",
-    "topicTags": [
+    "title": "三数之和",
+    "relatedTags": [
       "数组",
       "双指针"
     ]
@@ -118,11 +118,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "17",
-    "status": "ac",
+    "uniqueID": "17",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "电话号码的字母组合",
-    "topicTags": [
+    "title": "电话号码的字母组合",
+    "relatedTags": [
       "字符串",
       "回溯算法"
     ]
@@ -131,11 +131,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "21",
-    "status": "ac",
+    "uniqueID": "21",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "合并两个有序链表",
-    "topicTags": [
+    "title": "合并两个有序链表",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -143,11 +143,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "22",
-    "status": "ac",
+    "uniqueID": "22",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "括号生成",
-    "topicTags": [
+    "title": "括号生成",
+    "relatedTags": [
       "字符串",
       "回溯算法"
     ]
@@ -156,11 +156,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "24",
-    "status": "ac",
+    "uniqueID": "24",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "两两交换链表中的节点",
-    "topicTags": [
+    "title": "两两交换链表中的节点",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -168,11 +168,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "26",
-    "status": "ac",
+    "uniqueID": "26",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "删除排序数组中的重复项",
-    "topicTags": [
+    "title": "删除排序数组中的重复项",
+    "relatedTags": [
       "数组",
       "双指针"
     ]
@@ -181,11 +181,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "27",
-    "status": "ac",
+    "uniqueID": "27",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "移除元素",
-    "topicTags": [
+    "title": "移除元素",
+    "relatedTags": [
       "数组",
       "双指针"
     ]
@@ -194,11 +194,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "28",
-    "status": "ac",
+    "uniqueID": "28",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "实现strStr()",
-    "topicTags": [
+    "title": "实现strStr()",
+    "relatedTags": [
       "双指针",
       "字符串"
     ]
@@ -207,11 +207,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "35",
-    "status": "ac",
+    "uniqueID": "35",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "搜索插入位置",
-    "topicTags": [
+    "title": "搜索插入位置",
+    "relatedTags": [
       "数组",
       "二分查找"
     ]
@@ -220,11 +220,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "36",
-    "status": "ac",
+    "uniqueID": "36",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "有效的数独",
-    "topicTags": [
+    "title": "有效的数独",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -232,11 +232,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "38",
-    "status": "ac",
+    "uniqueID": "38",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "报数",
-    "topicTags": [
+    "title": "报数",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -244,11 +244,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "39",
-    "status": "ac",
+    "uniqueID": "39",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "组合总和",
-    "topicTags": [
+    "title": "组合总和",
+    "relatedTags": [
       "数组",
       "回溯算法"
     ]
@@ -257,11 +257,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "40",
-    "status": "ac",
+    "uniqueID": "40",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "组合总和 II",
-    "topicTags": [
+    "title": "组合总和 II",
+    "relatedTags": [
       "数组",
       "回溯算法"
     ]
@@ -270,11 +270,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "42",
-    "status": "ac",
+    "uniqueID": "42",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "接雨水",
-    "topicTags": [
+    "title": "接雨水",
+    "relatedTags": [
       "栈",
       "数组",
       "双指针"
@@ -284,11 +284,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "46",
-    "status": "ac",
+    "uniqueID": "46",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "全排列",
-    "topicTags": [
+    "title": "全排列",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -296,11 +296,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "47",
-    "status": "ac",
+    "uniqueID": "47",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "全排列 II",
-    "topicTags": [
+    "title": "全排列 II",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -308,11 +308,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "48",
-    "status": "ac",
+    "uniqueID": "48",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "旋转图像",
-    "topicTags": [
+    "title": "旋转图像",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -320,11 +320,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "49",
-    "status": "ac",
+    "uniqueID": "49",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "字母异位词分组",
-    "topicTags": [
+    "title": "字母异位词分组",
+    "relatedTags": [
       "哈希表",
       "字符串"
     ]
@@ -333,11 +333,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "51",
-    "status": "ac",
+    "uniqueID": "51",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "N皇后",
-    "topicTags": [
+    "title": "N皇后",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -345,11 +345,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "52",
-    "status": "ac",
+    "uniqueID": "52",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "N皇后 II",
-    "topicTags": [
+    "title": "N皇后 II",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -357,11 +357,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "53",
-    "status": "ac",
+    "uniqueID": "53",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最大子序和",
-    "topicTags": [
+    "title": "最大子序和",
+    "relatedTags": [
       "数组",
       "分治算法",
       "动态规划"
@@ -371,11 +371,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "59",
-    "status": "ac",
+    "uniqueID": "59",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "螺旋矩阵 II",
-    "topicTags": [
+    "title": "螺旋矩阵 II",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -383,11 +383,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "62",
-    "status": "ac",
+    "uniqueID": "62",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "不同路径",
-    "topicTags": [
+    "title": "不同路径",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -396,11 +396,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "64",
-    "status": "ac",
+    "uniqueID": "64",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最小路径和",
-    "topicTags": [
+    "title": "最小路径和",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -409,11 +409,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "66",
-    "status": "ac",
+    "uniqueID": "66",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "加一",
-    "topicTags": [
+    "title": "加一",
+    "relatedTags": [
       "数组",
       "数学"
     ]
@@ -422,11 +422,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "70",
-    "status": "ac",
+    "uniqueID": "70",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "爬楼梯",
-    "topicTags": [
+    "title": "爬楼梯",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -434,11 +434,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "73",
-    "status": "ac",
+    "uniqueID": "73",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "矩阵置零",
-    "topicTags": [
+    "title": "矩阵置零",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -446,11 +446,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "75",
-    "status": "ac",
+    "uniqueID": "75",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "颜色分类",
-    "topicTags": [
+    "title": "颜色分类",
+    "relatedTags": [
       "排序",
       "数组",
       "双指针"
@@ -460,11 +460,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "77",
-    "status": "ac",
+    "uniqueID": "77",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "组合",
-    "topicTags": [
+    "title": "组合",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -472,11 +472,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "78",
-    "status": "ac",
+    "uniqueID": "78",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "子集",
-    "topicTags": [
+    "title": "子集",
+    "relatedTags": [
       "位运算",
       "数组",
       "回溯算法"
@@ -486,11 +486,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "80",
-    "status": "ac",
+    "uniqueID": "80",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "删除排序数组中的重复项 II",
-    "topicTags": [
+    "title": "删除排序数组中的重复项 II",
+    "relatedTags": [
       "数组",
       "双指针"
     ]
@@ -499,11 +499,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "83",
-    "status": "ac",
+    "uniqueID": "83",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "删除排序链表中的重复元素",
-    "topicTags": [
+    "title": "删除排序链表中的重复元素",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -511,11 +511,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "89",
-    "status": "ac",
+    "uniqueID": "89",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "格雷编码",
-    "topicTags": [
+    "title": "格雷编码",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -523,11 +523,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "90",
-    "status": "ac",
+    "uniqueID": "90",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "子集 II",
-    "topicTags": [
+    "title": "子集 II",
+    "relatedTags": [
       "数组",
       "回溯算法"
     ]
@@ -536,11 +536,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "94",
-    "status": "ac",
+    "uniqueID": "94",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树的中序遍历",
-    "topicTags": [
+    "title": "二叉树的中序遍历",
+    "relatedTags": [
       "栈",
       "树",
       "哈希表"
@@ -550,11 +550,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "96",
-    "status": "ac",
+    "uniqueID": "96",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "不同的二叉搜索树",
-    "topicTags": [
+    "title": "不同的二叉搜索树",
+    "relatedTags": [
       "树",
       "动态规划"
     ]
@@ -563,11 +563,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "100",
-    "status": "ac",
+    "uniqueID": "100",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "相同的树",
-    "topicTags": [
+    "title": "相同的树",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -576,11 +576,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "101",
-    "status": "ac",
+    "uniqueID": "101",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "对称二叉树",
-    "topicTags": [
+    "title": "对称二叉树",
+    "relatedTags": [
       "树",
       "深度优先搜索",
       "广度优先搜索"
@@ -590,11 +590,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "102",
-    "status": "ac",
+    "uniqueID": "102",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树的层次遍历",
-    "topicTags": [
+    "title": "二叉树的层次遍历",
+    "relatedTags": [
       "树",
       "广度优先搜索"
     ]
@@ -603,11 +603,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "103",
-    "status": "ac",
+    "uniqueID": "103",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树的锯齿形层次遍历",
-    "topicTags": [
+    "title": "二叉树的锯齿形层次遍历",
+    "relatedTags": [
       "栈",
       "树",
       "广度优先搜索"
@@ -617,11 +617,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "104",
-    "status": "ac",
+    "uniqueID": "104",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉树的最大深度",
-    "topicTags": [
+    "title": "二叉树的最大深度",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -630,11 +630,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "105",
-    "status": "ac",
+    "uniqueID": "105",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "从前序与中序遍历序列构造二叉树",
-    "topicTags": [
+    "title": "从前序与中序遍历序列构造二叉树",
+    "relatedTags": [
       "树",
       "深度优先搜索",
       "数组"
@@ -644,11 +644,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "107",
-    "status": "ac",
+    "uniqueID": "107",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉树的层次遍历 II",
-    "topicTags": [
+    "title": "二叉树的层次遍历 II",
+    "relatedTags": [
       "树",
       "广度优先搜索"
     ]
@@ -657,11 +657,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "108",
-    "status": "ac",
+    "uniqueID": "108",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "将有序数组转换为二叉搜索树",
-    "topicTags": [
+    "title": "将有序数组转换为二叉搜索树",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -670,11 +670,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "109",
-    "status": "ac",
+    "uniqueID": "109",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "有序链表转换二叉搜索树",
-    "topicTags": [
+    "title": "有序链表转换二叉搜索树",
+    "relatedTags": [
       "深度优先搜索",
       "链表"
     ]
@@ -683,11 +683,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "110",
-    "status": "ac",
+    "uniqueID": "110",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "平衡二叉树",
-    "topicTags": [
+    "title": "平衡二叉树",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -696,11 +696,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "113",
-    "status": "ac",
+    "uniqueID": "113",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "路径总和 II",
-    "topicTags": [
+    "title": "路径总和 II",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -709,11 +709,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "114",
-    "status": "ac",
+    "uniqueID": "114",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树展开为链表",
-    "topicTags": [
+    "title": "二叉树展开为链表",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -722,11 +722,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "118",
-    "status": "ac",
+    "uniqueID": "118",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "杨辉三角",
-    "topicTags": [
+    "title": "杨辉三角",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -734,11 +734,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "119",
-    "status": "ac",
+    "uniqueID": "119",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "杨辉三角 II",
-    "topicTags": [
+    "title": "杨辉三角 II",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -746,11 +746,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "120",
-    "status": "ac",
+    "uniqueID": "120",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "三角形最小路径和",
-    "topicTags": [
+    "title": "三角形最小路径和",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -759,11 +759,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "121",
-    "status": "ac",
+    "uniqueID": "121",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "买卖股票的最佳时机",
-    "topicTags": [
+    "title": "买卖股票的最佳时机",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -772,11 +772,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "122",
-    "status": "ac",
+    "uniqueID": "122",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "买卖股票的最佳时机 II",
-    "topicTags": [
+    "title": "买卖股票的最佳时机 II",
+    "relatedTags": [
       "贪心算法",
       "数组"
     ]
@@ -785,11 +785,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "123",
-    "status": "ac",
+    "uniqueID": "123",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "买卖股票的最佳时机 III",
-    "topicTags": [
+    "title": "买卖股票的最佳时机 III",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -798,11 +798,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "128",
-    "status": "ac",
+    "uniqueID": "128",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "最长连续序列",
-    "topicTags": [
+    "title": "最长连续序列",
+    "relatedTags": [
       "并查集",
       "数组"
     ]
@@ -811,11 +811,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "129",
-    "status": "ac",
+    "uniqueID": "129",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "求根到叶子节点数字之和",
-    "topicTags": [
+    "title": "求根到叶子节点数字之和",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -824,11 +824,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "131",
-    "status": "ac",
+    "uniqueID": "131",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "分割回文串",
-    "topicTags": [
+    "title": "分割回文串",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -836,11 +836,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "136",
-    "status": "ac",
+    "uniqueID": "136",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "只出现一次的数字",
-    "topicTags": [
+    "title": "只出现一次的数字",
+    "relatedTags": [
       "位运算",
       "哈希表"
     ]
@@ -849,11 +849,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "137",
-    "status": "ac",
+    "uniqueID": "137",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "只出现一次的数字 II",
-    "topicTags": [
+    "title": "只出现一次的数字 II",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -861,11 +861,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "144",
-    "status": "ac",
+    "uniqueID": "144",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树的前序遍历",
-    "topicTags": [
+    "title": "二叉树的前序遍历",
+    "relatedTags": [
       "栈",
       "树"
     ]
@@ -874,11 +874,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "153",
-    "status": "ac",
+    "uniqueID": "153",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "寻找旋转排序数组中的最小值",
-    "topicTags": [
+    "title": "寻找旋转排序数组中的最小值",
+    "relatedTags": [
       "数组",
       "二分查找"
     ]
@@ -887,11 +887,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "162",
-    "status": "ac",
+    "uniqueID": "162",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "寻找峰值",
-    "topicTags": [
+    "title": "寻找峰值",
+    "relatedTags": [
       "数组",
       "二分查找"
     ]
@@ -900,11 +900,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "167",
-    "status": "ac",
+    "uniqueID": "167",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两数之和 II - 输入有序数组",
-    "topicTags": [
+    "title": "两数之和 II - 输入有序数组",
+    "relatedTags": [
       "数组",
       "双指针",
       "二分查找"
@@ -914,11 +914,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "169",
-    "status": "ac",
+    "uniqueID": "169",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "求众数",
-    "topicTags": [
+    "title": "求众数",
+    "relatedTags": [
       "位运算",
       "数组",
       "分治算法"
@@ -928,11 +928,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "171",
-    "status": "ac",
+    "uniqueID": "171",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "Excel表列序号",
-    "topicTags": [
+    "title": "Excel表列序号",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -940,11 +940,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "172",
-    "status": "ac",
+    "uniqueID": "172",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "阶乘后的零",
-    "topicTags": [
+    "title": "阶乘后的零",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -952,11 +952,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "173",
-    "status": "ac",
+    "uniqueID": "173",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉搜索树迭代器",
-    "topicTags": [
+    "title": "二叉搜索树迭代器",
+    "relatedTags": [
       "栈",
       "树",
       "设计"
@@ -966,51 +966,51 @@
     "lang": [
       "mysql"
     ],
-    "frontEndId": "175",
-    "status": "ac",
+    "uniqueID": "175",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "组合两个表",
-    "topicTags": []
+    "title": "组合两个表",
+    "relatedTags": []
   },
   "181": {
     "lang": [
       "mysql"
     ],
-    "frontEndId": "181",
-    "status": "ac",
+    "uniqueID": "181",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "超过经理收入的员工",
-    "topicTags": []
+    "title": "超过经理收入的员工",
+    "relatedTags": []
   },
   "182": {
     "lang": [
       "mysql"
     ],
-    "frontEndId": "182",
-    "status": "ac",
+    "uniqueID": "182",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "查找重复的电子邮箱",
-    "topicTags": []
+    "title": "查找重复的电子邮箱",
+    "relatedTags": []
   },
   "183": {
     "lang": [
       "mysql"
     ],
-    "frontEndId": "183",
-    "status": "ac",
+    "uniqueID": "183",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "从不订购的客户",
-    "topicTags": []
+    "title": "从不订购的客户",
+    "relatedTags": []
   },
   "187": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "187",
-    "status": "ac",
+    "uniqueID": "187",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "重复的DNA序列",
-    "topicTags": [
+    "title": "重复的DNA序列",
+    "relatedTags": [
       "位运算",
       "哈希表"
     ]
@@ -1019,11 +1019,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "191",
-    "status": "ac",
+    "uniqueID": "191",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "位1的个数",
-    "topicTags": [
+    "title": "位1的个数",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -1031,11 +1031,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "198",
-    "status": "ac",
+    "uniqueID": "198",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "打家劫舍",
-    "topicTags": [
+    "title": "打家劫舍",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -1043,11 +1043,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "199",
-    "status": "ac",
+    "uniqueID": "199",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树的右视图",
-    "topicTags": [
+    "title": "二叉树的右视图",
+    "relatedTags": [
       "树",
       "深度优先搜索",
       "广度优先搜索"
@@ -1057,11 +1057,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "200",
-    "status": "ac",
+    "uniqueID": "200",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "岛屿的个数",
-    "topicTags": [
+    "title": "岛屿的个数",
+    "relatedTags": [
       "深度优先搜索",
       "广度优先搜索",
       "并查集"
@@ -1071,11 +1071,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "202",
-    "status": "ac",
+    "uniqueID": "202",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "快乐数",
-    "topicTags": [
+    "title": "快乐数",
+    "relatedTags": [
       "哈希表",
       "数学"
     ]
@@ -1084,11 +1084,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "206",
-    "status": "ac",
+    "uniqueID": "206",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "反转链表",
-    "topicTags": [
+    "title": "反转链表",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -1096,11 +1096,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "210",
-    "status": "ac",
+    "uniqueID": "210",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "课程表 II",
-    "topicTags": [
+    "title": "课程表 II",
+    "relatedTags": [
       "深度优先搜索",
       "广度优先搜索",
       "图",
@@ -1111,11 +1111,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "211",
-    "status": "ac",
+    "uniqueID": "211",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "添加与搜索单词 - 数据结构设计",
-    "topicTags": [
+    "title": "添加与搜索单词 - 数据结构设计",
+    "relatedTags": [
       "设计",
       "字典树",
       "回溯算法"
@@ -1125,11 +1125,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "215",
-    "status": "ac",
+    "uniqueID": "215",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "数组中的第K个最大元素",
-    "topicTags": [
+    "title": "数组中的第K个最大元素",
+    "relatedTags": [
       "堆",
       "分治算法"
     ]
@@ -1138,11 +1138,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "216",
-    "status": "ac",
+    "uniqueID": "216",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "组合总和 III",
-    "topicTags": [
+    "title": "组合总和 III",
+    "relatedTags": [
       "数组",
       "回溯算法"
     ]
@@ -1151,24 +1151,37 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "217",
-    "status": "ac",
+    "uniqueID": "217",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "存在重复元素",
-    "topicTags": [
+    "title": "存在重复元素",
+    "relatedTags": [
       "数组",
       "哈希表"
+    ]
+  },
+  "225": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "225",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "title": "用队列实现栈",
+    "relatedTags": [
+      "栈",
+      "设计"
     ]
   },
   "226": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "226",
-    "status": "ac",
+    "uniqueID": "226",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "翻转二叉树",
-    "topicTags": [
+    "title": "翻转二叉树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -1176,11 +1189,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "230",
-    "status": "ac",
+    "uniqueID": "230",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉搜索树中第K小的元素",
-    "topicTags": [
+    "title": "二叉搜索树中第K小的元素",
+    "relatedTags": [
       "树",
       "二分查找"
     ]
@@ -1189,11 +1202,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "231",
-    "status": "ac",
+    "uniqueID": "231",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "2的幂",
-    "topicTags": [
+    "title": "2的幂",
+    "relatedTags": [
       "位运算",
       "数学"
     ]
@@ -1202,11 +1215,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "232",
-    "status": "ac",
+    "uniqueID": "232",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "用栈实现队列",
-    "topicTags": [
+    "title": "用栈实现队列",
+    "relatedTags": [
       "栈",
       "设计"
     ]
@@ -1215,11 +1228,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "235",
-    "status": "ac",
+    "uniqueID": "235",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉搜索树的最近公共祖先",
-    "topicTags": [
+    "title": "二叉搜索树的最近公共祖先",
+    "relatedTags": [
       "树"
     ]
   },
@@ -1227,11 +1240,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "236",
-    "status": "ac",
+    "uniqueID": "236",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树的最近公共祖先",
-    "topicTags": [
+    "title": "二叉树的最近公共祖先",
+    "relatedTags": [
       "树"
     ]
   },
@@ -1239,11 +1252,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "237",
-    "status": "ac",
+    "uniqueID": "237",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "删除链表中的节点",
-    "topicTags": [
+    "title": "删除链表中的节点",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -1251,11 +1264,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "238",
-    "status": "ac",
+    "uniqueID": "238",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "除自身以外数组的乘积",
-    "topicTags": [
+    "title": "除自身以外数组的乘积",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -1263,11 +1276,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "239",
-    "status": "ac",
+    "uniqueID": "239",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "滑动窗口最大值",
-    "topicTags": [
+    "title": "滑动窗口最大值",
+    "relatedTags": [
       "堆"
     ]
   },
@@ -1275,11 +1288,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "240",
-    "status": "ac",
+    "uniqueID": "240",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "搜索二维矩阵 II",
-    "topicTags": [
+    "title": "搜索二维矩阵 II",
+    "relatedTags": [
       "二分查找",
       "分治算法"
     ]
@@ -1288,11 +1301,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "242",
-    "status": "ac",
+    "uniqueID": "242",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "有效的字母异位词",
-    "topicTags": [
+    "title": "有效的字母异位词",
+    "relatedTags": [
       "排序",
       "哈希表"
     ]
@@ -1301,11 +1314,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "257",
-    "status": "ac",
+    "uniqueID": "257",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉树的所有路径",
-    "topicTags": [
+    "title": "二叉树的所有路径",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -1314,11 +1327,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "258",
-    "status": "ac",
+    "uniqueID": "258",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "各位相加",
-    "topicTags": [
+    "title": "各位相加",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -1326,11 +1339,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "260",
-    "status": "ac",
+    "uniqueID": "260",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "只出现一次的数字 III",
-    "topicTags": [
+    "title": "只出现一次的数字 III",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -1338,11 +1351,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "263",
-    "status": "ac",
+    "uniqueID": "263",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "丑数",
-    "topicTags": [
+    "title": "丑数",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -1350,11 +1363,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "268",
-    "status": "ac",
+    "uniqueID": "268",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "缺失数字",
-    "topicTags": [
+    "title": "缺失数字",
+    "relatedTags": [
       "位运算",
       "数组",
       "数学"
@@ -1364,11 +1377,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "279",
-    "status": "ac",
+    "uniqueID": "279",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "完全平方数",
-    "topicTags": [
+    "title": "完全平方数",
+    "relatedTags": [
       "广度优先搜索",
       "数学",
       "动态规划"
@@ -1378,11 +1391,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "283",
-    "status": "ac",
+    "uniqueID": "283",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "移动零",
-    "topicTags": [
+    "title": "移动零",
+    "relatedTags": [
       "数组",
       "双指针"
     ]
@@ -1391,11 +1404,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "287",
-    "status": "ac",
+    "uniqueID": "287",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "寻找重复数",
-    "topicTags": [
+    "title": "寻找重复数",
+    "relatedTags": [
       "数组",
       "双指针",
       "二分查找"
@@ -1405,11 +1418,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "289",
-    "status": "ac",
+    "uniqueID": "289",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "生命游戏",
-    "topicTags": [
+    "title": "生命游戏",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -1417,11 +1430,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "292",
-    "status": "ac",
+    "uniqueID": "292",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "Nim游戏",
-    "topicTags": [
+    "title": "Nim游戏",
+    "relatedTags": [
       "脑筋急转弯"
     ]
   },
@@ -1429,11 +1442,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "299",
-    "status": "ac",
+    "uniqueID": "299",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "猜数字游戏",
-    "topicTags": [
+    "title": "猜数字游戏",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -1441,11 +1454,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "300",
-    "status": "ac",
+    "uniqueID": "300",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最长上升子序列",
-    "topicTags": [
+    "title": "最长上升子序列",
+    "relatedTags": [
       "二分查找",
       "动态规划"
     ]
@@ -1454,11 +1467,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "301",
-    "status": "ac",
+    "uniqueID": "301",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "删除无效的括号",
-    "topicTags": [
+    "title": "删除无效的括号",
+    "relatedTags": [
       "深度优先搜索",
       "广度优先搜索"
     ]
@@ -1468,11 +1481,11 @@
       "javascript",
       "java"
     ],
-    "frontEndId": "309",
-    "status": "ac",
+    "uniqueID": "309",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最佳买卖股票时机含冷冻期",
-    "topicTags": [
+    "title": "最佳买卖股票时机含冷冻期",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -1480,11 +1493,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "313",
-    "status": "ac",
+    "uniqueID": "313",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "超级丑数",
-    "topicTags": [
+    "title": "超级丑数",
+    "relatedTags": [
       "堆",
       "数学"
     ]
@@ -1493,11 +1506,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "318",
-    "status": "ac",
+    "uniqueID": "318",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最大单词长度乘积",
-    "topicTags": [
+    "title": "最大单词长度乘积",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -1505,11 +1518,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "319",
-    "status": "ac",
+    "uniqueID": "319",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "灯泡开关",
-    "topicTags": [
+    "title": "灯泡开关",
+    "relatedTags": [
       "脑筋急转弯",
       "数学"
     ]
@@ -1518,11 +1531,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "326",
-    "status": "ac",
+    "uniqueID": "326",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "3的幂",
-    "topicTags": [
+    "title": "3的幂",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -1530,11 +1543,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "328",
-    "status": "ac",
+    "uniqueID": "328",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "奇偶链表",
-    "topicTags": [
+    "title": "奇偶链表",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -1542,11 +1555,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "329",
-    "status": "ac",
+    "uniqueID": "329",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "矩阵中的最长递增路径",
-    "topicTags": [
+    "title": "矩阵中的最长递增路径",
+    "relatedTags": [
       "深度优先搜索",
       "拓扑排序",
       "记忆化"
@@ -1556,11 +1569,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "331",
-    "status": "ac",
+    "uniqueID": "331",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "验证二叉树的前序序列化",
-    "topicTags": [
+    "title": "验证二叉树的前序序列化",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -1568,21 +1581,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "334",
-    "status": "ac",
+    "uniqueID": "334",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "递增的三元子序列",
-    "topicTags": []
+    "title": "递增的三元子序列",
+    "relatedTags": []
   },
   "337": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "337",
-    "status": "ac",
+    "uniqueID": "337",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "打家劫舍 III",
-    "topicTags": [
+    "title": "打家劫舍 III",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -1591,11 +1604,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "338",
-    "status": "ac",
+    "uniqueID": "338",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "比特位计数",
-    "topicTags": [
+    "title": "比特位计数",
+    "relatedTags": [
       "位运算",
       "动态规划"
     ]
@@ -1604,11 +1617,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "341",
-    "status": "ac",
+    "uniqueID": "341",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "扁平化嵌套列表迭代器",
-    "topicTags": [
+    "title": "扁平化嵌套列表迭代器",
+    "relatedTags": [
       "栈",
       "设计"
     ]
@@ -1617,11 +1630,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "342",
-    "status": "ac",
+    "uniqueID": "342",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "4的幂",
-    "topicTags": [
+    "title": "4的幂",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -1629,11 +1642,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "343",
-    "status": "ac",
+    "uniqueID": "343",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "整数拆分",
-    "topicTags": [
+    "title": "整数拆分",
+    "relatedTags": [
       "数学",
       "动态规划"
     ]
@@ -1642,11 +1655,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "344",
-    "status": "ac",
+    "uniqueID": "344",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "反转字符串",
-    "topicTags": [
+    "title": "反转字符串",
+    "relatedTags": [
       "双指针",
       "字符串"
     ]
@@ -1655,11 +1668,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "345",
-    "status": "ac",
+    "uniqueID": "345",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "反转字符串中的元音字母",
-    "topicTags": [
+    "title": "反转字符串中的元音字母",
+    "relatedTags": [
       "双指针",
       "字符串"
     ]
@@ -1668,11 +1681,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "347",
-    "status": "ac",
+    "uniqueID": "347",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "前K个高频元素",
-    "topicTags": [
+    "title": "前K个高频元素",
+    "relatedTags": [
       "堆",
       "哈希表"
     ]
@@ -1681,11 +1694,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "349",
-    "status": "ac",
+    "uniqueID": "349",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两个数组的交集",
-    "topicTags": [
+    "title": "两个数组的交集",
+    "relatedTags": [
       "排序",
       "哈希表",
       "双指针",
@@ -1696,11 +1709,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "350",
-    "status": "ac",
+    "uniqueID": "350",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两个数组的交集 II",
-    "topicTags": [
+    "title": "两个数组的交集 II",
+    "relatedTags": [
       "排序",
       "哈希表",
       "双指针",
@@ -1711,11 +1724,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "357",
-    "status": "ac",
+    "uniqueID": "357",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "计算各个位数不同的数字个数",
-    "topicTags": [
+    "title": "计算各个位数不同的数字个数",
+    "relatedTags": [
       "数学",
       "动态规划",
       "回溯算法"
@@ -1725,11 +1738,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "367",
-    "status": "ac",
+    "uniqueID": "367",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "有效的完全平方数",
-    "topicTags": [
+    "title": "有效的完全平方数",
+    "relatedTags": [
       "数学",
       "二分查找"
     ]
@@ -1738,11 +1751,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "371",
-    "status": "ac",
+    "uniqueID": "371",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两整数之和",
-    "topicTags": [
+    "title": "两整数之和",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -1750,11 +1763,11 @@
     "lang": [
       "java"
     ],
-    "frontEndId": "374",
-    "status": "ac",
+    "uniqueID": "374",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "猜数字大小",
-    "topicTags": [
+    "title": "猜数字大小",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -1762,11 +1775,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "377",
-    "status": "ac",
+    "uniqueID": "377",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "组合总和 Ⅳ",
-    "topicTags": [
+    "title": "组合总和 Ⅳ",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -1774,11 +1787,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "378",
-    "status": "ac",
+    "uniqueID": "378",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "有序矩阵中第K小的元素",
-    "topicTags": [
+    "title": "有序矩阵中第K小的元素",
+    "relatedTags": [
       "堆",
       "二分查找"
     ]
@@ -1787,11 +1800,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "380",
-    "status": "ac",
+    "uniqueID": "380",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "常数时间插入、删除和获取随机元素",
-    "topicTags": [
+    "title": "常数时间插入、删除和获取随机元素",
+    "relatedTags": [
       "设计",
       "数组",
       "哈希表"
@@ -1801,11 +1814,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "382",
-    "status": "ac",
+    "uniqueID": "382",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "链表随机节点",
-    "topicTags": [
+    "title": "链表随机节点",
+    "relatedTags": [
       "蓄水池抽样"
     ]
   },
@@ -1813,11 +1826,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "383",
-    "status": "ac",
+    "uniqueID": "383",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "赎金信",
-    "topicTags": [
+    "title": "赎金信",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -1825,21 +1838,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "384",
-    "status": "ac",
+    "uniqueID": "384",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "打乱数组",
-    "topicTags": []
+    "title": "打乱数组",
+    "relatedTags": []
   },
   "385": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "385",
-    "status": "ac",
+    "uniqueID": "385",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "迷你语法分析器",
-    "topicTags": [
+    "title": "迷你语法分析器",
+    "relatedTags": [
       "栈",
       "字符串"
     ]
@@ -1848,21 +1861,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "386",
-    "status": "ac",
+    "uniqueID": "386",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "字典序排数",
-    "topicTags": []
+    "title": "字典序排数",
+    "relatedTags": []
   },
   "387": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "387",
-    "status": "ac",
+    "uniqueID": "387",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "字符串中的第一个唯一字符",
-    "topicTags": [
+    "title": "字符串中的第一个唯一字符",
+    "relatedTags": [
       "哈希表",
       "字符串"
     ]
@@ -1871,21 +1884,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "388",
-    "status": "ac",
+    "uniqueID": "388",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "文件的最长绝对路径",
-    "topicTags": []
+    "title": "文件的最长绝对路径",
+    "relatedTags": []
   },
   "389": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "389",
-    "status": "ac",
+    "uniqueID": "389",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "找不同",
-    "topicTags": [
+    "title": "找不同",
+    "relatedTags": [
       "位运算",
       "哈希表"
     ]
@@ -1894,21 +1907,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "390",
-    "status": "ac",
+    "uniqueID": "390",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "消除游戏",
-    "topicTags": []
+    "title": "消除游戏",
+    "relatedTags": []
   },
   "392": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "392",
-    "status": "ac",
+    "uniqueID": "392",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "判断子序列",
-    "topicTags": [
+    "title": "判断子序列",
+    "relatedTags": [
       "贪心算法",
       "二分查找",
       "动态规划"
@@ -1918,11 +1931,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "394",
-    "status": "ac",
+    "uniqueID": "394",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "字符串解码",
-    "topicTags": [
+    "title": "字符串解码",
+    "relatedTags": [
       "栈",
       "深度优先搜索"
     ]
@@ -1931,21 +1944,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "395",
-    "status": "ac",
+    "uniqueID": "395",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "至少有K个重复字符的最长子串",
-    "topicTags": []
+    "title": "至少有K个重复字符的最长子串",
+    "relatedTags": []
   },
   "398": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "398",
-    "status": "ac",
+    "uniqueID": "398",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "随机数索引",
-    "topicTags": [
+    "title": "随机数索引",
+    "relatedTags": [
       "蓄水池抽样"
     ]
   },
@@ -1953,11 +1966,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "399",
-    "status": "ac",
+    "uniqueID": "399",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "除法求值",
-    "topicTags": [
+    "title": "除法求值",
+    "relatedTags": [
       "图"
     ]
   },
@@ -1965,11 +1978,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "401",
-    "status": "ac",
+    "uniqueID": "401",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二进制手表",
-    "topicTags": [
+    "title": "二进制手表",
+    "relatedTags": [
       "位运算",
       "回溯算法"
     ]
@@ -1978,11 +1991,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "404",
-    "status": "ac",
+    "uniqueID": "404",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "左叶子之和",
-    "topicTags": [
+    "title": "左叶子之和",
+    "relatedTags": [
       "树"
     ]
   },
@@ -1990,11 +2003,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "405",
-    "status": "ac",
+    "uniqueID": "405",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "数字转换为十六进制数",
-    "topicTags": [
+    "title": "数字转换为十六进制数",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -2002,11 +2015,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "406",
-    "status": "ac",
+    "uniqueID": "406",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "根据身高重建队列",
-    "topicTags": [
+    "title": "根据身高重建队列",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -2014,11 +2027,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "407",
-    "status": "ac",
+    "uniqueID": "407",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "接雨水 II",
-    "topicTags": [
+    "title": "接雨水 II",
+    "relatedTags": [
       "堆",
       "广度优先搜索"
     ]
@@ -2027,11 +2040,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "409",
-    "status": "ac",
+    "uniqueID": "409",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最长回文串",
-    "topicTags": [
+    "title": "最长回文串",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -2039,21 +2052,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "412",
-    "status": "ac",
+    "uniqueID": "412",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "Fizz Buzz",
-    "topicTags": []
+    "title": "Fizz Buzz",
+    "relatedTags": []
   },
   "413": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "413",
-    "status": "ac",
+    "uniqueID": "413",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "等差数列划分",
-    "topicTags": [
+    "title": "等差数列划分",
+    "relatedTags": [
       "数学",
       "动态规划"
     ]
@@ -2062,11 +2075,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "415",
-    "status": "ac",
+    "uniqueID": "415",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "字符串相加",
-    "topicTags": [
+    "title": "字符串相加",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -2074,11 +2087,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "416",
-    "status": "ac",
+    "uniqueID": "416",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "分割等和子集",
-    "topicTags": [
+    "title": "分割等和子集",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -2086,21 +2099,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "419",
-    "status": "ac",
+    "uniqueID": "419",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "甲板上的战舰",
-    "topicTags": []
+    "title": "甲板上的战舰",
+    "relatedTags": []
   },
   "421": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "421",
-    "status": "ac",
+    "uniqueID": "421",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "数组中两个数的最大异或值",
-    "topicTags": [
+    "title": "数组中两个数的最大异或值",
+    "relatedTags": [
       "位运算",
       "字典树"
     ]
@@ -2109,11 +2122,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "423",
-    "status": "ac",
+    "uniqueID": "423",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "从英文中重建数字",
-    "topicTags": [
+    "title": "从英文中重建数字",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -2121,21 +2134,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "424",
-    "status": "ac",
+    "uniqueID": "424",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "替换后的最长重复字符",
-    "topicTags": []
+    "title": "替换后的最长重复字符",
+    "relatedTags": []
   },
   "435": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "435",
-    "status": "ac",
+    "uniqueID": "435",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "无重叠区间",
-    "topicTags": [
+    "title": "无重叠区间",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -2143,11 +2156,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "436",
-    "status": "ac",
+    "uniqueID": "436",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "寻找右区间",
-    "topicTags": [
+    "title": "寻找右区间",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -2155,23 +2168,36 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "437",
-    "status": "ac",
+    "uniqueID": "437",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "路径总和 III",
-    "topicTags": [
+    "title": "路径总和 III",
+    "relatedTags": [
       "树"
+    ]
+  },
+  "441": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "441",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "title": "排列硬币",
+    "relatedTags": [
+      "数学",
+      "二分查找"
     ]
   },
   "442": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "442",
-    "status": "ac",
+    "uniqueID": "442",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "数组中重复的数据",
-    "topicTags": [
+    "title": "数组中重复的数据",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -2179,11 +2205,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "445",
-    "status": "ac",
+    "uniqueID": "445",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "两数相加 II",
-    "topicTags": [
+    "title": "两数相加 II",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -2191,11 +2217,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "447",
-    "status": "ac",
+    "uniqueID": "447",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "回旋镖的数量",
-    "topicTags": [
+    "title": "回旋镖的数量",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -2203,11 +2229,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "448",
-    "status": "ac",
+    "uniqueID": "448",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "找到所有数组中消失的数字",
-    "topicTags": [
+    "title": "找到所有数组中消失的数字",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -2215,11 +2241,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "450",
-    "status": "ac",
+    "uniqueID": "450",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "删除二叉搜索树中的节点",
-    "topicTags": [
+    "title": "删除二叉搜索树中的节点",
+    "relatedTags": [
       "树"
     ]
   },
@@ -2227,11 +2253,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "451",
-    "status": "ac",
+    "uniqueID": "451",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "根据字符出现频率排序",
-    "topicTags": [
+    "title": "根据字符出现频率排序",
+    "relatedTags": [
       "堆",
       "哈希表"
     ]
@@ -2240,11 +2266,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "452",
-    "status": "ac",
+    "uniqueID": "452",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "用最少数量的箭引爆气球",
-    "topicTags": [
+    "title": "用最少数量的箭引爆气球",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -2252,11 +2278,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "453",
-    "status": "ac",
+    "uniqueID": "453",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最小移动次数使数组元素相等",
-    "topicTags": [
+    "title": "最小移动次数使数组元素相等",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -2264,11 +2290,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "454",
-    "status": "ac",
+    "uniqueID": "454",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "四数相加 II",
-    "topicTags": [
+    "title": "四数相加 II",
+    "relatedTags": [
       "哈希表",
       "二分查找"
     ]
@@ -2277,11 +2303,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "455",
-    "status": "ac",
+    "uniqueID": "455",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "分发饼干",
-    "topicTags": [
+    "title": "分发饼干",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -2289,21 +2315,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "458",
-    "status": "ac",
+    "uniqueID": "458",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "可怜的小猪",
-    "topicTags": []
+    "title": "可怜的小猪",
+    "relatedTags": []
   },
   "459": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "459",
-    "status": "ac",
+    "uniqueID": "459",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "重复的子字符串",
-    "topicTags": [
+    "title": "重复的子字符串",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2311,11 +2337,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "461",
-    "status": "ac",
+    "uniqueID": "461",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "汉明距离",
-    "topicTags": [
+    "title": "汉明距离",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -2323,11 +2349,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "462",
-    "status": "ac",
+    "uniqueID": "462",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最少移动次数使数组元素相等 II",
-    "topicTags": [
+    "title": "最少移动次数使数组元素相等 II",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -2335,11 +2361,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "463",
-    "status": "ac",
+    "uniqueID": "463",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "岛屿的周长",
-    "topicTags": [
+    "title": "岛屿的周长",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -2347,11 +2373,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "470",
-    "status": "ac",
+    "uniqueID": "470",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "用 Rand7() 实现 Rand10()",
-    "topicTags": [
+    "title": "用 Rand7() 实现 Rand10()",
+    "relatedTags": [
       "Random",
       "Rejection Sampling"
     ]
@@ -2360,11 +2386,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "474",
-    "status": "ac",
+    "uniqueID": "474",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "一和零",
-    "topicTags": [
+    "title": "一和零",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -2372,11 +2398,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "476",
-    "status": "ac",
+    "uniqueID": "476",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "数字的补数",
-    "topicTags": [
+    "title": "数字的补数",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -2384,11 +2410,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "477",
-    "status": "ac",
+    "uniqueID": "477",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "汉明距离总和",
-    "topicTags": [
+    "title": "汉明距离总和",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -2396,31 +2422,31 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "481",
-    "status": "ac",
+    "uniqueID": "481",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "神奇字符串",
-    "topicTags": []
+    "title": "神奇字符串",
+    "relatedTags": []
   },
   "482": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "482",
-    "status": "ac",
+    "uniqueID": "482",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "密钥格式化",
-    "topicTags": []
+    "title": "密钥格式化",
+    "relatedTags": []
   },
   "485": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "485",
-    "status": "ac",
+    "uniqueID": "485",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最大连续1的个数",
-    "topicTags": [
+    "title": "最大连续1的个数",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -2428,11 +2454,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "486",
-    "status": "ac",
+    "uniqueID": "486",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "预测赢家",
-    "topicTags": [
+    "title": "预测赢家",
+    "relatedTags": [
       "极小化极大",
       "动态规划"
     ]
@@ -2441,11 +2467,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "491",
-    "status": "ac",
+    "uniqueID": "491",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "递增子序列",
-    "topicTags": [
+    "title": "递增子序列",
+    "relatedTags": [
       "深度优先搜索"
     ]
   },
@@ -2453,21 +2479,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "492",
-    "status": "ac",
+    "uniqueID": "492",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "构造矩形",
-    "topicTags": []
+    "title": "构造矩形",
+    "relatedTags": []
   },
   "494": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "494",
-    "status": "ac",
+    "uniqueID": "494",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "目标和",
-    "topicTags": [
+    "title": "目标和",
+    "relatedTags": [
       "深度优先搜索",
       "动态规划"
     ]
@@ -2476,11 +2502,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "495",
-    "status": "ac",
+    "uniqueID": "495",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "提莫攻击",
-    "topicTags": [
+    "title": "提莫攻击",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -2488,11 +2514,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "496",
-    "status": "ac",
+    "uniqueID": "496",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "下一个更大元素 I",
-    "topicTags": [
+    "title": "下一个更大元素 I",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -2500,21 +2526,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "498",
-    "status": "ac",
+    "uniqueID": "498",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "对角线遍历",
-    "topicTags": []
+    "title": "对角线遍历",
+    "relatedTags": []
   },
   "500": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "500",
-    "status": "ac",
+    "uniqueID": "500",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "键盘行",
-    "topicTags": [
+    "title": "键盘行",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -2522,11 +2548,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "501",
-    "status": "ac",
+    "uniqueID": "501",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉搜索树中的众数",
-    "topicTags": [
+    "title": "二叉搜索树中的众数",
+    "relatedTags": [
       "树"
     ]
   },
@@ -2534,11 +2560,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "503",
-    "status": "ac",
+    "uniqueID": "503",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "下一个更大元素 II",
-    "topicTags": [
+    "title": "下一个更大元素 II",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -2546,31 +2572,31 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "504",
-    "status": "ac",
+    "uniqueID": "504",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "七进制数",
-    "topicTags": []
+    "title": "七进制数",
+    "relatedTags": []
   },
   "506": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "506",
-    "status": "ac",
+    "uniqueID": "506",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "相对名次",
-    "topicTags": []
+    "title": "相对名次",
+    "relatedTags": []
   },
   "508": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "508",
-    "status": "ac",
+    "uniqueID": "508",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "出现次数最多的子树元素和",
-    "topicTags": [
+    "title": "出现次数最多的子树元素和",
+    "relatedTags": [
       "树",
       "哈希表"
     ]
@@ -2579,11 +2605,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "513",
-    "status": "ac",
+    "uniqueID": "513",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "找树左下角的值",
-    "topicTags": [
+    "title": "找树左下角的值",
+    "relatedTags": [
       "树",
       "深度优先搜索",
       "广度优先搜索"
@@ -2593,11 +2619,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "515",
-    "status": "ac",
+    "uniqueID": "515",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "在每个树行中找最大值",
-    "topicTags": [
+    "title": "在每个树行中找最大值",
+    "relatedTags": [
       "树",
       "深度优先搜索",
       "广度优先搜索"
@@ -2607,11 +2633,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "516",
-    "status": "ac",
+    "uniqueID": "516",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最长回文子序列",
-    "topicTags": [
+    "title": "最长回文子序列",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -2619,21 +2645,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "518",
-    "status": "ac",
+    "uniqueID": "518",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "零钱兑换 II",
-    "topicTags": []
+    "title": "零钱兑换 II",
+    "relatedTags": []
   },
   "520": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "520",
-    "status": "ac",
+    "uniqueID": "520",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "检测大写字母",
-    "topicTags": [
+    "title": "检测大写字母",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2641,11 +2667,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "521",
-    "status": "ac",
+    "uniqueID": "521",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最长特殊序列 Ⅰ",
-    "topicTags": [
+    "title": "最长特殊序列 Ⅰ",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2653,11 +2679,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "524",
-    "status": "ac",
+    "uniqueID": "524",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "通过删除字母匹配到字典里最长单词",
-    "topicTags": [
+    "title": "通过删除字母匹配到字典里最长单词",
+    "relatedTags": [
       "排序",
       "双指针"
     ]
@@ -2666,11 +2692,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "525",
-    "status": "ac",
+    "uniqueID": "525",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "连续数组",
-    "topicTags": [
+    "title": "连续数组",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -2678,11 +2704,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "526",
-    "status": "ac",
+    "uniqueID": "526",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "优美的排列",
-    "topicTags": [
+    "title": "优美的排列",
+    "relatedTags": [
       "回溯算法"
     ]
   },
@@ -2690,11 +2716,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "528",
-    "status": "ac",
+    "uniqueID": "528",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "按权重随机选择",
-    "topicTags": [
+    "title": "按权重随机选择",
+    "relatedTags": [
       "二分查找",
       "Random"
     ]
@@ -2703,11 +2729,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "529",
-    "status": "ac",
+    "uniqueID": "529",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "扫雷游戏",
-    "topicTags": [
+    "title": "扫雷游戏",
+    "relatedTags": [
       "深度优先搜索",
       "广度优先搜索"
     ]
@@ -2716,11 +2742,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "530",
-    "status": "ac",
+    "uniqueID": "530",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉搜索树的最小绝对差",
-    "topicTags": [
+    "title": "二叉搜索树的最小绝对差",
+    "relatedTags": [
       "二叉搜索树"
     ]
   },
@@ -2728,11 +2754,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "535",
-    "status": "ac",
+    "uniqueID": "535",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "TinyURL 的加密与解密",
-    "topicTags": [
+    "title": "TinyURL 的加密与解密",
+    "relatedTags": [
       "哈希表",
       "数学"
     ]
@@ -2741,11 +2767,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "537",
-    "status": "ac",
+    "uniqueID": "537",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "复数乘法",
-    "topicTags": [
+    "title": "复数乘法",
+    "relatedTags": [
       "数学",
       "字符串"
     ]
@@ -2754,11 +2780,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "538",
-    "status": "ac",
+    "uniqueID": "538",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "把二叉搜索树转换为累加树",
-    "topicTags": [
+    "title": "把二叉搜索树转换为累加树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -2766,11 +2792,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "539",
-    "status": "ac",
+    "uniqueID": "539",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最小时间差",
-    "topicTags": [
+    "title": "最小时间差",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2778,21 +2804,21 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "540",
-    "status": "ac",
+    "uniqueID": "540",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "有序数组中的单一元素",
-    "topicTags": []
+    "title": "有序数组中的单一元素",
+    "relatedTags": []
   },
   "541": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "541",
-    "status": "ac",
+    "uniqueID": "541",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "反转字符串 II",
-    "topicTags": [
+    "title": "反转字符串 II",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2800,11 +2826,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "543",
-    "status": "ac",
+    "uniqueID": "543",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉树的直径",
-    "topicTags": [
+    "title": "二叉树的直径",
+    "relatedTags": [
       "树"
     ]
   },
@@ -2812,11 +2838,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "547",
-    "status": "ac",
+    "uniqueID": "547",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "朋友圈",
-    "topicTags": [
+    "title": "朋友圈",
+    "relatedTags": [
       "深度优先搜索",
       "并查集"
     ]
@@ -2825,11 +2851,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "551",
-    "status": "ac",
+    "uniqueID": "551",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "学生出勤记录 I",
-    "topicTags": [
+    "title": "学生出勤记录 I",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2837,11 +2863,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "553",
-    "status": "ac",
+    "uniqueID": "553",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最优除法",
-    "topicTags": [
+    "title": "最优除法",
+    "relatedTags": [
       "数学",
       "字符串"
     ]
@@ -2850,11 +2876,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "554",
-    "status": "ac",
+    "uniqueID": "554",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "砖墙",
-    "topicTags": [
+    "title": "砖墙",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -2862,11 +2888,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "557",
-    "status": "ac",
+    "uniqueID": "557",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "反转字符串中的单词 III",
-    "topicTags": [
+    "title": "反转字符串中的单词 III",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2874,11 +2900,11 @@
     "lang": [
       "java"
     ],
-    "frontEndId": "559",
-    "status": "ac",
+    "uniqueID": "559",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "N叉树的最大深度",
-    "topicTags": [
+    "title": "N叉树的最大深度",
+    "relatedTags": [
       "树",
       "深度优先搜索",
       "广度优先搜索"
@@ -2888,11 +2914,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "560",
-    "status": "ac",
+    "uniqueID": "560",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "和为K的子数组",
-    "topicTags": [
+    "title": "和为K的子数组",
+    "relatedTags": [
       "数组",
       "哈希表"
     ]
@@ -2901,11 +2927,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "561",
-    "status": "ac",
+    "uniqueID": "561",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "数组拆分 I",
-    "topicTags": [
+    "title": "数组拆分 I",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -2913,11 +2939,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "563",
-    "status": "ac",
+    "uniqueID": "563",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉树的坡度",
-    "topicTags": [
+    "title": "二叉树的坡度",
+    "relatedTags": [
       "树"
     ]
   },
@@ -2925,11 +2951,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "565",
-    "status": "ac",
+    "uniqueID": "565",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "数组嵌套",
-    "topicTags": [
+    "title": "数组嵌套",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -2937,23 +2963,35 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "566",
-    "status": "ac",
+    "uniqueID": "566",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "重塑矩阵",
-    "topicTags": [
+    "title": "重塑矩阵",
+    "relatedTags": [
       "数组"
+    ]
+  },
+  "567": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "567",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "title": "字符串的排列",
+    "relatedTags": [
+      "双指针"
     ]
   },
   "572": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "572",
-    "status": "ac",
+    "uniqueID": "572",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "另一个树的子树",
-    "topicTags": [
+    "title": "另一个树的子树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -2961,11 +2999,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "575",
-    "status": "ac",
+    "uniqueID": "575",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "分糖果",
-    "topicTags": [
+    "title": "分糖果",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -2973,11 +3011,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "583",
-    "status": "ac",
+    "uniqueID": "583",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "两个字符串的删除操作",
-    "topicTags": [
+    "title": "两个字符串的删除操作",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -2985,11 +3023,11 @@
     "lang": [
       "java"
     ],
-    "frontEndId": "589",
-    "status": "ac",
+    "uniqueID": "589",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "N叉树的前序遍历",
-    "topicTags": [
+    "title": "N叉树的前序遍历",
+    "relatedTags": [
       "树"
     ]
   },
@@ -2997,11 +3035,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "592",
-    "status": "ac",
+    "uniqueID": "592",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "分数加减运算",
-    "topicTags": [
+    "title": "分数加减运算",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -3009,11 +3047,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "593",
-    "status": "ac",
+    "uniqueID": "593",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "有效的正方形",
-    "topicTags": [
+    "title": "有效的正方形",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -3021,11 +3059,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "594",
-    "status": "ac",
+    "uniqueID": "594",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最长和谐子序列",
-    "topicTags": [
+    "title": "最长和谐子序列",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -3033,21 +3071,21 @@
     "lang": [
       "mysql"
     ],
-    "frontEndId": "595",
-    "status": "ac",
+    "uniqueID": "595",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "大的国家",
-    "topicTags": []
+    "title": "大的国家",
+    "relatedTags": []
   },
   "598": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "598",
-    "status": "ac",
+    "uniqueID": "598",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "范围求和 II",
-    "topicTags": [
+    "title": "范围求和 II",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -3055,11 +3093,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "599",
-    "status": "ac",
+    "uniqueID": "599",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两个列表的最小索引总和",
-    "topicTags": [
+    "title": "两个列表的最小索引总和",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -3067,11 +3105,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "606",
-    "status": "ac",
+    "uniqueID": "606",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "根据二叉树创建字符串",
-    "topicTags": [
+    "title": "根据二叉树创建字符串",
+    "relatedTags": [
       "树",
       "字符串"
     ]
@@ -3080,11 +3118,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "609",
-    "status": "ac",
+    "uniqueID": "609",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "在系统中查找重复文件",
-    "topicTags": [
+    "title": "在系统中查找重复文件",
+    "relatedTags": [
       "哈希表",
       "字符串"
     ]
@@ -3093,11 +3131,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "611",
-    "status": "ac",
+    "uniqueID": "611",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "有效三角形的个数",
-    "topicTags": [
+    "title": "有效三角形的个数",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3105,11 +3143,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "617",
-    "status": "ac",
+    "uniqueID": "617",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "合并二叉树",
-    "topicTags": [
+    "title": "合并二叉树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3117,21 +3155,21 @@
     "lang": [
       "mysql"
     ],
-    "frontEndId": "620",
-    "status": "ac",
+    "uniqueID": "620",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "有趣的电影",
-    "topicTags": []
+    "title": "有趣的电影",
+    "relatedTags": []
   },
   "621": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "621",
-    "status": "ac",
+    "uniqueID": "621",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "任务调度器",
-    "topicTags": [
+    "title": "任务调度器",
+    "relatedTags": [
       "贪心算法",
       "队列",
       "数组"
@@ -3141,11 +3179,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "622",
-    "status": "ac",
+    "uniqueID": "622",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "设计循环队列",
-    "topicTags": [
+    "title": "设计循环队列",
+    "relatedTags": [
       "设计",
       "队列"
     ]
@@ -3155,11 +3193,11 @@
       "javascript",
       "java"
     ],
-    "frontEndId": "623",
-    "status": "ac",
+    "uniqueID": "623",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "在二叉树中增加一行",
-    "topicTags": [
+    "title": "在二叉树中增加一行",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3167,21 +3205,21 @@
     "lang": [
       "mysql"
     ],
-    "frontEndId": "627",
-    "status": "ac",
+    "uniqueID": "627",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "交换工资",
-    "topicTags": []
+    "title": "交换工资",
+    "relatedTags": []
   },
   "628": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "628",
-    "status": "ac",
+    "uniqueID": "628",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "三个数的最大乘积",
-    "topicTags": [
+    "title": "三个数的最大乘积",
+    "relatedTags": [
       "数组",
       "数学"
     ]
@@ -3190,11 +3228,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "636",
-    "status": "ac",
+    "uniqueID": "636",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "函数的独占时间",
-    "topicTags": [
+    "title": "函数的独占时间",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -3202,11 +3240,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "637",
-    "status": "ac",
+    "uniqueID": "637",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉树的层平均值",
-    "topicTags": [
+    "title": "二叉树的层平均值",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3214,11 +3252,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "638",
-    "status": "ac",
+    "uniqueID": "638",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "大礼包",
-    "topicTags": [
+    "title": "大礼包",
+    "relatedTags": [
       "深度优先搜索",
       "动态规划"
     ]
@@ -3227,11 +3265,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "640",
-    "status": "ac",
+    "uniqueID": "640",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "求解方程",
-    "topicTags": [
+    "title": "求解方程",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -3239,11 +3277,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "643",
-    "status": "ac",
+    "uniqueID": "643",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "子数组最大平均数 I",
-    "topicTags": [
+    "title": "子数组最大平均数 I",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3251,11 +3289,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "645",
-    "status": "ac",
+    "uniqueID": "645",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "错误的集合",
-    "topicTags": [
+    "title": "错误的集合",
+    "relatedTags": [
       "哈希表",
       "数学"
     ]
@@ -3264,11 +3302,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "646",
-    "status": "ac",
+    "uniqueID": "646",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最长数对链",
-    "topicTags": [
+    "title": "最长数对链",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -3276,11 +3314,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "647",
-    "status": "ac",
+    "uniqueID": "647",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "回文子串",
-    "topicTags": [
+    "title": "回文子串",
+    "relatedTags": [
       "字符串",
       "动态规划"
     ]
@@ -3289,11 +3327,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "648",
-    "status": "ac",
+    "uniqueID": "648",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "单词替换",
-    "topicTags": [
+    "title": "单词替换",
+    "relatedTags": [
       "字典树",
       "哈希表"
     ]
@@ -3302,11 +3340,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "650",
-    "status": "ac",
+    "uniqueID": "650",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "只有两个键的键盘",
-    "topicTags": [
+    "title": "只有两个键的键盘",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -3314,11 +3352,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "652",
-    "status": "ac",
+    "uniqueID": "652",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "寻找重复的子树",
-    "topicTags": [
+    "title": "寻找重复的子树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3326,11 +3364,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "653",
-    "status": "ac",
+    "uniqueID": "653",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两数之和 IV - 输入 BST",
-    "topicTags": [
+    "title": "两数之和 IV - 输入 BST",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3338,11 +3376,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "654",
-    "status": "ac",
+    "uniqueID": "654",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最大二叉树",
-    "topicTags": [
+    "title": "最大二叉树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3350,11 +3388,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "655",
-    "status": "ac",
+    "uniqueID": "655",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "输出二叉树",
-    "topicTags": [
+    "title": "输出二叉树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3362,11 +3400,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "657",
-    "status": "ac",
+    "uniqueID": "657",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "机器人能否返回原点",
-    "topicTags": [
+    "title": "机器人能否返回原点",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -3374,11 +3412,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "659",
-    "status": "ac",
+    "uniqueID": "659",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "分割数组为连续子序列",
-    "topicTags": [
+    "title": "分割数组为连续子序列",
+    "relatedTags": [
       "堆",
       "贪心算法"
     ]
@@ -3387,11 +3425,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "661",
-    "status": "ac",
+    "uniqueID": "661",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "图片平滑器",
-    "topicTags": [
+    "title": "图片平滑器",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3399,11 +3437,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "662",
-    "status": "ac",
+    "uniqueID": "662",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树最大宽度",
-    "topicTags": [
+    "title": "二叉树最大宽度",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3411,11 +3449,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "667",
-    "status": "ac",
+    "uniqueID": "667",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "优美的排列 II",
-    "topicTags": [
+    "title": "优美的排列 II",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3423,11 +3461,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "668",
-    "status": "ac",
+    "uniqueID": "668",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "乘法表中第k小的数",
-    "topicTags": [
+    "title": "乘法表中第k小的数",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -3435,11 +3473,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "669",
-    "status": "ac",
+    "uniqueID": "669",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "修剪二叉搜索树",
-    "topicTags": [
+    "title": "修剪二叉搜索树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3447,11 +3485,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "670",
-    "status": "ac",
+    "uniqueID": "670",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最大交换",
-    "topicTags": [
+    "title": "最大交换",
+    "relatedTags": [
       "数组",
       "数学"
     ]
@@ -3460,11 +3498,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "671",
-    "status": "ac",
+    "uniqueID": "671",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉树中第二小的节点",
-    "topicTags": [
+    "title": "二叉树中第二小的节点",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3472,11 +3510,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "672",
-    "status": "ac",
+    "uniqueID": "672",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "灯泡开关 Ⅱ",
-    "topicTags": [
+    "title": "灯泡开关 Ⅱ",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -3484,11 +3522,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "674",
-    "status": "ac",
+    "uniqueID": "674",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最长连续递增序列",
-    "topicTags": [
+    "title": "最长连续递增序列",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3496,11 +3534,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "676",
-    "status": "ac",
+    "uniqueID": "676",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "实现一个魔法字典",
-    "topicTags": [
+    "title": "实现一个魔法字典",
+    "relatedTags": [
       "字典树",
       "哈希表"
     ]
@@ -3509,11 +3547,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "677",
-    "status": "ac",
+    "uniqueID": "677",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "键值映射",
-    "topicTags": [
+    "title": "键值映射",
+    "relatedTags": [
       "字典树"
     ]
   },
@@ -3521,11 +3559,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "679",
-    "status": "ac",
+    "uniqueID": "679",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "24点游戏",
-    "topicTags": [
+    "title": "24点游戏",
+    "relatedTags": [
       "深度优先搜索"
     ]
   },
@@ -3533,11 +3571,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "682",
-    "status": "ac",
+    "uniqueID": "682",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "棒球比赛",
-    "topicTags": [
+    "title": "棒球比赛",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -3545,11 +3583,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "684",
-    "status": "ac",
+    "uniqueID": "684",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "冗余连接",
-    "topicTags": [
+    "title": "冗余连接",
+    "relatedTags": [
       "树",
       "并查集",
       "图"
@@ -3559,11 +3597,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "688",
-    "status": "ac",
+    "uniqueID": "688",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "“马”在棋盘上的概率",
-    "topicTags": [
+    "title": "“马”在棋盘上的概率",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -3571,11 +3609,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "689",
-    "status": "ac",
+    "uniqueID": "689",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "三个无重叠子数组的最大和",
-    "topicTags": [
+    "title": "三个无重叠子数组的最大和",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -3584,11 +3622,11 @@
     "lang": [
       "java"
     ],
-    "frontEndId": "690",
-    "status": "ac",
+    "uniqueID": "690",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "员工的重要性",
-    "topicTags": [
+    "title": "员工的重要性",
+    "relatedTags": [
       "深度优先搜索",
       "广度优先搜索",
       "哈希表"
@@ -3598,11 +3636,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "692",
-    "status": "ac",
+    "uniqueID": "692",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "前K个高频单词",
-    "topicTags": [
+    "title": "前K个高频单词",
+    "relatedTags": [
       "堆",
       "字典树",
       "哈希表"
@@ -3612,11 +3650,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "693",
-    "status": "ac",
+    "uniqueID": "693",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "交替位二进制数",
-    "topicTags": [
+    "title": "交替位二进制数",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -3624,11 +3662,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "695",
-    "status": "ac",
+    "uniqueID": "695",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "岛屿的最大面积",
-    "topicTags": [
+    "title": "岛屿的最大面积",
+    "relatedTags": [
       "深度优先搜索",
       "数组"
     ]
@@ -3637,11 +3675,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "696",
-    "status": "ac",
+    "uniqueID": "696",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "计数二进制子串",
-    "topicTags": [
+    "title": "计数二进制子串",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -3649,11 +3687,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "697",
-    "status": "ac",
+    "uniqueID": "697",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "数组的度",
-    "topicTags": [
+    "title": "数组的度",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3661,11 +3699,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "698",
-    "status": "ac",
+    "uniqueID": "698",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "划分为k个相等的子集",
-    "topicTags": [
+    "title": "划分为k个相等的子集",
+    "relatedTags": [
       "递归",
       "动态规划"
     ]
@@ -3674,11 +3712,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "699",
-    "status": "ac",
+    "uniqueID": "699",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "掉落的方块",
-    "topicTags": [
+    "title": "掉落的方块",
+    "relatedTags": [
       "线段树",
       "二叉搜索树"
     ]
@@ -3687,11 +3725,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "700",
-    "status": "ac",
+    "uniqueID": "700",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉搜索树中的搜索",
-    "topicTags": [
+    "title": "二叉搜索树中的搜索",
+    "relatedTags": [
       "树"
     ]
   },
@@ -3699,11 +3737,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "703",
-    "status": "ac",
+    "uniqueID": "703",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "数据流中的第K大元素",
-    "topicTags": [
+    "title": "数据流中的第K大元素",
+    "relatedTags": [
       "堆"
     ]
   },
@@ -3711,11 +3749,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "704",
-    "status": "ac",
+    "uniqueID": "704",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二分查找",
-    "topicTags": [
+    "title": "二分查找",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -3723,11 +3761,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "705",
-    "status": "ac",
+    "uniqueID": "705",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "设计哈希集合",
-    "topicTags": [
+    "title": "设计哈希集合",
+    "relatedTags": [
       "设计",
       "哈希表"
     ]
@@ -3736,11 +3774,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "712",
-    "status": "ac",
+    "uniqueID": "712",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "两个字符串的最小ASCII删除和",
-    "topicTags": [
+    "title": "两个字符串的最小ASCII删除和",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -3748,11 +3786,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "714",
-    "status": "ac",
+    "uniqueID": "714",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "买卖股票的最佳时机含手续费",
-    "topicTags": [
+    "title": "买卖股票的最佳时机含手续费",
+    "relatedTags": [
       "贪心算法",
       "数组",
       "动态规划"
@@ -3762,11 +3800,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "717",
-    "status": "ac",
+    "uniqueID": "717",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "1比特与2比特字符",
-    "topicTags": [
+    "title": "1比特与2比特字符",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3774,11 +3812,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "718",
-    "status": "ac",
+    "uniqueID": "718",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最长重复子数组",
-    "topicTags": [
+    "title": "最长重复子数组",
+    "relatedTags": [
       "数组",
       "哈希表",
       "二分查找",
@@ -3789,11 +3827,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "720",
-    "status": "ac",
+    "uniqueID": "720",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "词典中最长的单词",
-    "topicTags": [
+    "title": "词典中最长的单词",
+    "relatedTags": [
       "字典树",
       "哈希表"
     ]
@@ -3802,11 +3840,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "721",
-    "status": "ac",
+    "uniqueID": "721",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "账户合并",
-    "topicTags": [
+    "title": "账户合并",
+    "relatedTags": [
       "深度优先搜索",
       "并查集"
     ]
@@ -3815,11 +3853,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "724",
-    "status": "ac",
+    "uniqueID": "724",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "寻找数组的中心索引",
-    "topicTags": [
+    "title": "寻找数组的中心索引",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3827,11 +3865,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "725",
-    "status": "ac",
+    "uniqueID": "725",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "分隔链表",
-    "topicTags": [
+    "title": "分隔链表",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -3839,11 +3877,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "728",
-    "status": "ac",
+    "uniqueID": "728",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "自除数",
-    "topicTags": [
+    "title": "自除数",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -3851,11 +3889,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "729",
-    "status": "ac",
+    "uniqueID": "729",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "我的日程安排表 I",
-    "topicTags": [
+    "title": "我的日程安排表 I",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -3863,11 +3901,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "731",
-    "status": "ac",
+    "uniqueID": "731",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "我的日程安排表 II",
-    "topicTags": [
+    "title": "我的日程安排表 II",
+    "relatedTags": [
       "二叉搜索树",
       "数组"
     ]
@@ -3876,11 +3914,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "732",
-    "status": "ac",
+    "uniqueID": "732",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "我的日程安排表 III",
-    "topicTags": [
+    "title": "我的日程安排表 III",
+    "relatedTags": [
       "线段树",
       "二叉搜索树"
     ]
@@ -3889,11 +3927,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "733",
-    "status": "ac",
+    "uniqueID": "733",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "图像渲染",
-    "topicTags": [
+    "title": "图像渲染",
+    "relatedTags": [
       "深度优先搜索"
     ]
   },
@@ -3901,11 +3939,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "735",
-    "status": "ac",
+    "uniqueID": "735",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "行星碰撞",
-    "topicTags": [
+    "title": "行星碰撞",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -3913,11 +3951,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "738",
-    "status": "ac",
+    "uniqueID": "738",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "单调递增的数字",
-    "topicTags": [
+    "title": "单调递增的数字",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -3925,11 +3963,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "739",
-    "status": "ac",
+    "uniqueID": "739",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "每日温度",
-    "topicTags": [
+    "title": "每日温度",
+    "relatedTags": [
       "栈",
       "哈希表"
     ]
@@ -3938,11 +3976,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "740",
-    "status": "ac",
+    "uniqueID": "740",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "删除与获得点数",
-    "topicTags": [
+    "title": "删除与获得点数",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -3950,11 +3988,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "743",
-    "status": "ac",
+    "uniqueID": "743",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "网络延迟时间",
-    "topicTags": [
+    "title": "网络延迟时间",
+    "relatedTags": [
       "堆",
       "深度优先搜索",
       "广度优先搜索",
@@ -3965,11 +4003,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "744",
-    "status": "ac",
+    "uniqueID": "744",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "寻找比目标字母大的最小字母",
-    "topicTags": [
+    "title": "寻找比目标字母大的最小字母",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -3977,11 +4015,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "746",
-    "status": "ac",
+    "uniqueID": "746",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "使用最小花费爬楼梯",
-    "topicTags": [
+    "title": "使用最小花费爬楼梯",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -3990,11 +4028,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "747",
-    "status": "ac",
+    "uniqueID": "747",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "至少是其他数字两倍的最大数",
-    "topicTags": [
+    "title": "至少是其他数字两倍的最大数",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4002,11 +4040,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "748",
-    "status": "ac",
+    "uniqueID": "748",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最短完整词",
-    "topicTags": [
+    "title": "最短完整词",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -4014,11 +4052,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "752",
-    "status": "ac",
+    "uniqueID": "752",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "打开转盘锁",
-    "topicTags": [
+    "title": "打开转盘锁",
+    "relatedTags": [
       "广度优先搜索"
     ]
   },
@@ -4026,11 +4064,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "756",
-    "status": "ac",
+    "uniqueID": "756",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "金字塔转换矩阵",
-    "topicTags": [
+    "title": "金字塔转换矩阵",
+    "relatedTags": [
       "位运算",
       "深度优先搜索"
     ]
@@ -4039,11 +4077,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "762",
-    "status": "ac",
+    "uniqueID": "762",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二进制表示中质数个计算置位",
-    "topicTags": [
+    "title": "二进制表示中质数个计算置位",
+    "relatedTags": [
       "位运算"
     ]
   },
@@ -4051,11 +4089,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "763",
-    "status": "ac",
+    "uniqueID": "763",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "划分字母区间",
-    "topicTags": [
+    "title": "划分字母区间",
+    "relatedTags": [
       "贪心算法",
       "双指针"
     ]
@@ -4064,11 +4102,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "766",
-    "status": "ac",
+    "uniqueID": "766",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "托普利茨矩阵",
-    "topicTags": [
+    "title": "托普利茨矩阵",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4076,11 +4114,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "767",
-    "status": "ac",
+    "uniqueID": "767",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "重构字符串",
-    "topicTags": [
+    "title": "重构字符串",
+    "relatedTags": [
       "堆",
       "贪心算法",
       "排序",
@@ -4091,11 +4129,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "769",
-    "status": "ac",
+    "uniqueID": "769",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最多能完成排序的块",
-    "topicTags": [
+    "title": "最多能完成排序的块",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4103,11 +4141,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "771",
-    "status": "ac",
+    "uniqueID": "771",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "宝石与石头",
-    "topicTags": [
+    "title": "宝石与石头",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -4115,11 +4153,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "779",
-    "status": "ac",
+    "uniqueID": "779",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "第K个语法符号",
-    "topicTags": [
+    "title": "第K个语法符号",
+    "relatedTags": [
       "递归"
     ]
   },
@@ -4127,11 +4165,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "781",
-    "status": "ac",
+    "uniqueID": "781",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "森林中的兔子",
-    "topicTags": [
+    "title": "森林中的兔子",
+    "relatedTags": [
       "哈希表",
       "数学"
     ]
@@ -4140,11 +4178,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "783",
-    "status": "ac",
+    "uniqueID": "783",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二叉搜索树结点最小距离",
-    "topicTags": [
+    "title": "二叉搜索树结点最小距离",
+    "relatedTags": [
       "二叉搜索树"
     ]
   },
@@ -4152,11 +4190,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "784",
-    "status": "ac",
+    "uniqueID": "784",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "字母大小写全排列",
-    "topicTags": [
+    "title": "字母大小写全排列",
+    "relatedTags": [
       "位运算",
       "回溯算法"
     ]
@@ -4165,11 +4203,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "785",
-    "status": "ac",
+    "uniqueID": "785",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "判断二分图",
-    "topicTags": [
+    "title": "判断二分图",
+    "relatedTags": [
       "深度优先搜索",
       "广度优先搜索",
       "图"
@@ -4179,11 +4217,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "788",
-    "status": "ac",
+    "uniqueID": "788",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "旋转数字",
-    "topicTags": [
+    "title": "旋转数字",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4191,11 +4229,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "789",
-    "status": "ac",
+    "uniqueID": "789",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "逃脱阻碍者",
-    "topicTags": [
+    "title": "逃脱阻碍者",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -4203,11 +4241,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "791",
-    "status": "ac",
+    "uniqueID": "791",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "自定义字符串排序",
-    "topicTags": [
+    "title": "自定义字符串排序",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4215,11 +4253,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "792",
-    "status": "ac",
+    "uniqueID": "792",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "匹配子序列的单词数",
-    "topicTags": [
+    "title": "匹配子序列的单词数",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4227,11 +4265,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "795",
-    "status": "ac",
+    "uniqueID": "795",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "区间子数组个数",
-    "topicTags": [
+    "title": "区间子数组个数",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4239,31 +4277,31 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "796",
-    "status": "ac",
+    "uniqueID": "796",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "旋转字符串",
-    "topicTags": []
+    "title": "旋转字符串",
+    "relatedTags": []
   },
   "797": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "797",
-    "status": "ac",
+    "uniqueID": "797",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "所有可能的路径",
-    "topicTags": []
+    "title": "所有可能的路径",
+    "relatedTags": []
   },
   "802": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "802",
-    "status": "ac",
+    "uniqueID": "802",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "找到最终的安全状态",
-    "topicTags": [
+    "title": "找到最终的安全状态",
+    "relatedTags": [
       "深度优先搜索",
       "图"
     ]
@@ -4272,11 +4310,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "804",
-    "status": "ac",
+    "uniqueID": "804",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "唯一摩尔斯密码词",
-    "topicTags": [
+    "title": "唯一摩尔斯密码词",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4284,31 +4322,31 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "806",
-    "status": "ac",
+    "uniqueID": "806",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "写字符串需要的行数",
-    "topicTags": []
+    "title": "写字符串需要的行数",
+    "relatedTags": []
   },
   "807": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "807",
-    "status": "ac",
+    "uniqueID": "807",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "保持城市天际线",
-    "topicTags": []
+    "title": "保持城市天际线",
+    "relatedTags": []
   },
   "808": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "808",
-    "status": "ac",
+    "uniqueID": "808",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "分汤",
-    "topicTags": [
+    "title": "分汤",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -4316,11 +4354,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "809",
-    "status": "ac",
+    "uniqueID": "809",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "情感丰富的文字",
-    "topicTags": [
+    "title": "情感丰富的文字",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4328,11 +4366,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "811",
-    "status": "ac",
+    "uniqueID": "811",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "子域名访问计数",
-    "topicTags": [
+    "title": "子域名访问计数",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -4340,11 +4378,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "812",
-    "status": "ac",
+    "uniqueID": "812",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最大三角形面积",
-    "topicTags": [
+    "title": "最大三角形面积",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -4352,11 +4390,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "813",
-    "status": "ac",
+    "uniqueID": "813",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最大平均值和的分组",
-    "topicTags": [
+    "title": "最大平均值和的分组",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -4364,11 +4402,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "814",
-    "status": "ac",
+    "uniqueID": "814",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树剪枝",
-    "topicTags": [
+    "title": "二叉树剪枝",
+    "relatedTags": [
       "树"
     ]
   },
@@ -4376,11 +4414,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "817",
-    "status": "ac",
+    "uniqueID": "817",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "链表组件",
-    "topicTags": [
+    "title": "链表组件",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -4388,11 +4426,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "819",
-    "status": "ac",
+    "uniqueID": "819",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最常见的单词",
-    "topicTags": [
+    "title": "最常见的单词",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4400,41 +4438,41 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "820",
-    "status": "ac",
+    "uniqueID": "820",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "单词的压缩编码",
-    "topicTags": []
+    "title": "单词的压缩编码",
+    "relatedTags": []
   },
   "821": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "821",
-    "status": "ac",
+    "uniqueID": "821",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "字符的最短距离",
-    "topicTags": []
+    "title": "字符的最短距离",
+    "relatedTags": []
   },
   "822": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "822",
-    "status": "ac",
+    "uniqueID": "822",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "翻转卡片游戏",
-    "topicTags": []
+    "title": "翻转卡片游戏",
+    "relatedTags": []
   },
   "824": {
     "lang": [
       "javascript"
     ],
-    "frontEndId": "824",
-    "status": "ac",
+    "uniqueID": "824",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "山羊拉丁文",
-    "topicTags": [
+    "title": "山羊拉丁文",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4442,11 +4480,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "827",
-    "status": "ac",
+    "uniqueID": "827",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "最大人工岛",
-    "topicTags": [
+    "title": "最大人工岛",
+    "relatedTags": [
       "深度优先搜索"
     ]
   },
@@ -4454,11 +4492,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "830",
-    "status": "ac",
+    "uniqueID": "830",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "较大分组的位置",
-    "topicTags": [
+    "title": "较大分组的位置",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4466,11 +4504,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "831",
-    "status": "ac",
+    "uniqueID": "831",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "隐藏个人信息",
-    "topicTags": [
+    "title": "隐藏个人信息",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4479,11 +4517,11 @@
       "javascript",
       "java"
     ],
-    "frontEndId": "832",
-    "status": "ac",
+    "uniqueID": "832",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "翻转图像",
-    "topicTags": [
+    "title": "翻转图像",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4491,11 +4529,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "833",
-    "status": "ac",
+    "uniqueID": "833",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "字符串中的查找与替换",
-    "topicTags": [
+    "title": "字符串中的查找与替换",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4503,11 +4541,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "835",
-    "status": "ac",
+    "uniqueID": "835",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "图像重叠",
-    "topicTags": [
+    "title": "图像重叠",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4515,11 +4553,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "836",
-    "status": "ac",
+    "uniqueID": "836",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "矩形重叠",
-    "topicTags": [
+    "title": "矩形重叠",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -4527,11 +4565,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "838",
-    "status": "ac",
+    "uniqueID": "838",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "推多米诺",
-    "topicTags": [
+    "title": "推多米诺",
+    "relatedTags": [
       "双指针",
       "动态规划"
     ]
@@ -4540,11 +4578,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "841",
-    "status": "ac",
+    "uniqueID": "841",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "钥匙和房间",
-    "topicTags": [
+    "title": "钥匙和房间",
+    "relatedTags": [
       "深度优先搜索",
       "图"
     ]
@@ -4553,11 +4591,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "844",
-    "status": "ac",
+    "uniqueID": "844",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "比较含退格的字符串",
-    "topicTags": [
+    "title": "比较含退格的字符串",
+    "relatedTags": [
       "栈",
       "双指针"
     ]
@@ -4566,11 +4604,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "846",
-    "status": "ac",
+    "uniqueID": "846",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "一手顺子",
-    "topicTags": [
+    "title": "一手顺子",
+    "relatedTags": [
       "Map"
     ]
   },
@@ -4578,11 +4616,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "848",
-    "status": "ac",
+    "uniqueID": "848",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "字母移位",
-    "topicTags": [
+    "title": "字母移位",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4590,11 +4628,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "849",
-    "status": "ac",
+    "uniqueID": "849",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "到最近的人的最大距离",
-    "topicTags": [
+    "title": "到最近的人的最大距离",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4602,11 +4640,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "850",
-    "status": "ac",
+    "uniqueID": "850",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "矩形面积 II",
-    "topicTags": [
+    "title": "矩形面积 II",
+    "relatedTags": [
       "线段树"
     ]
   },
@@ -4614,11 +4652,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "851",
-    "status": "ac",
+    "uniqueID": "851",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "喧闹和富有",
-    "topicTags": [
+    "title": "喧闹和富有",
+    "relatedTags": [
       "深度优先搜索"
     ]
   },
@@ -4626,11 +4664,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "852",
-    "status": "ac",
+    "uniqueID": "852",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "山脉数组的峰顶索引",
-    "topicTags": [
+    "title": "山脉数组的峰顶索引",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -4638,11 +4676,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "853",
-    "status": "ac",
+    "uniqueID": "853",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "车队",
-    "topicTags": [
+    "title": "车队",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -4650,11 +4688,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "856",
-    "status": "ac",
+    "uniqueID": "856",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "括号的分数",
-    "topicTags": [
+    "title": "括号的分数",
+    "relatedTags": [
       "栈",
       "字符串"
     ]
@@ -4663,11 +4701,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "858",
-    "status": "ac",
+    "uniqueID": "858",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "镜面反射",
-    "topicTags": [
+    "title": "镜面反射",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -4675,11 +4713,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "859",
-    "status": "ac",
+    "uniqueID": "859",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "亲密字符串",
-    "topicTags": [
+    "title": "亲密字符串",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4687,11 +4725,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "860",
-    "status": "ac",
+    "uniqueID": "860",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "柠檬水找零",
-    "topicTags": [
+    "title": "柠檬水找零",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -4699,11 +4737,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "861",
-    "status": "ac",
+    "uniqueID": "861",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "翻转矩阵后的得分",
-    "topicTags": [
+    "title": "翻转矩阵后的得分",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -4711,11 +4749,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "863",
-    "status": "ac",
+    "uniqueID": "863",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树中所有距离为 K 的结点",
-    "topicTags": [
+    "title": "二叉树中所有距离为 K 的结点",
+    "relatedTags": [
       "树",
       "深度优先搜索",
       "广度优先搜索"
@@ -4725,11 +4763,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "865",
-    "status": "ac",
+    "uniqueID": "865",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "具有所有最深结点的最小子树",
-    "topicTags": [
+    "title": "具有所有最深结点的最小子树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -4737,11 +4775,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "867",
-    "status": "ac",
+    "uniqueID": "867",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "转置矩阵",
-    "topicTags": [
+    "title": "转置矩阵",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4749,11 +4787,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "868",
-    "status": "ac",
+    "uniqueID": "868",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "二进制间距",
-    "topicTags": [
+    "title": "二进制间距",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -4761,11 +4799,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "869",
-    "status": "ac",
+    "uniqueID": "869",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "重新排序得到 2 的幂",
-    "topicTags": [
+    "title": "重新排序得到 2 的幂",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -4773,11 +4811,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "870",
-    "status": "ac",
+    "uniqueID": "870",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "优势洗牌",
-    "topicTags": [
+    "title": "优势洗牌",
+    "relatedTags": [
       "贪心算法",
       "数组"
     ]
@@ -4786,11 +4824,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "873",
-    "status": "ac",
+    "uniqueID": "873",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最长的斐波那契子序列的长度",
-    "topicTags": [
+    "title": "最长的斐波那契子序列的长度",
+    "relatedTags": [
       "数组",
       "动态规划"
     ]
@@ -4799,11 +4837,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "875",
-    "status": "ac",
+    "uniqueID": "875",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "爱吃香蕉的珂珂",
-    "topicTags": [
+    "title": "爱吃香蕉的珂珂",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -4811,11 +4849,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "876",
-    "status": "ac",
+    "uniqueID": "876",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "链表的中间结点",
-    "topicTags": [
+    "title": "链表的中间结点",
+    "relatedTags": [
       "链表"
     ]
   },
@@ -4823,11 +4861,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "878",
-    "status": "ac",
+    "uniqueID": "878",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "第 N 个神奇数字",
-    "topicTags": [
+    "title": "第 N 个神奇数字",
+    "relatedTags": [
       "数学",
       "二分查找"
     ]
@@ -4836,11 +4874,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "881",
-    "status": "ac",
+    "uniqueID": "881",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "救生艇",
-    "topicTags": [
+    "title": "救生艇",
+    "relatedTags": [
       "贪心算法",
       "双指针"
     ]
@@ -4849,11 +4887,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "883",
-    "status": "ac",
+    "uniqueID": "883",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "三维形体投影面积",
-    "topicTags": [
+    "title": "三维形体投影面积",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -4861,11 +4899,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "884",
-    "status": "ac",
+    "uniqueID": "884",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "两句话中的不常见单词",
-    "topicTags": [
+    "title": "两句话中的不常见单词",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -4873,11 +4911,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "886",
-    "status": "ac",
+    "uniqueID": "886",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "可能的二分法",
-    "topicTags": [
+    "title": "可能的二分法",
+    "relatedTags": [
       "深度优先搜索"
     ]
   },
@@ -4885,11 +4923,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "888",
-    "status": "ac",
+    "uniqueID": "888",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "公平的糖果交换",
-    "topicTags": [
+    "title": "公平的糖果交换",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4897,11 +4935,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "889",
-    "status": "ac",
+    "uniqueID": "889",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "根据前序和后序遍历构造二叉树",
-    "topicTags": [
+    "title": "根据前序和后序遍历构造二叉树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -4909,11 +4947,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "890",
-    "status": "ac",
+    "uniqueID": "890",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "查找和替换模式",
-    "topicTags": [
+    "title": "查找和替换模式",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -4921,11 +4959,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "892",
-    "status": "ac",
+    "uniqueID": "892",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "三维形体的表面积",
-    "topicTags": [
+    "title": "三维形体的表面积",
+    "relatedTags": [
       "几何",
       "数学"
     ]
@@ -4934,11 +4972,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "896",
-    "status": "ac",
+    "uniqueID": "896",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "单调数列",
-    "topicTags": [
+    "title": "单调数列",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4946,11 +4984,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "897",
-    "status": "ac",
+    "uniqueID": "897",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "递增顺序查找树",
-    "topicTags": [
+    "title": "递增顺序查找树",
+    "relatedTags": [
       "树",
       "深度优先搜索"
     ]
@@ -4959,11 +4997,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "900",
-    "status": "ac",
+    "uniqueID": "900",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "RLE 迭代器",
-    "topicTags": [
+    "title": "RLE 迭代器",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -4971,11 +5009,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "901",
-    "status": "ac",
+    "uniqueID": "901",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "股票价格跨度",
-    "topicTags": [
+    "title": "股票价格跨度",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -4983,11 +5021,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "904",
-    "status": "ac",
+    "uniqueID": "904",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "水果成篮",
-    "topicTags": [
+    "title": "水果成篮",
+    "relatedTags": [
       "双指针"
     ]
   },
@@ -4995,11 +5033,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "905",
-    "status": "ac",
+    "uniqueID": "905",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "按奇偶排序数组",
-    "topicTags": [
+    "title": "按奇偶排序数组",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -5007,11 +5045,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "908",
-    "status": "ac",
+    "uniqueID": "908",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "最小差值 I",
-    "topicTags": [
+    "title": "最小差值 I",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -5019,11 +5057,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "910",
-    "status": "ac",
+    "uniqueID": "910",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最小差值 II",
-    "topicTags": [
+    "title": "最小差值 II",
+    "relatedTags": [
       "贪心算法",
       "数学"
     ]
@@ -5032,11 +5070,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "911",
-    "status": "ac",
+    "uniqueID": "911",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "在线选举",
-    "topicTags": [
+    "title": "在线选举",
+    "relatedTags": [
       "二分查找"
     ]
   },
@@ -5044,11 +5082,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "914",
-    "status": "ac",
+    "uniqueID": "914",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "卡牌分组",
-    "topicTags": [
+    "title": "卡牌分组",
+    "relatedTags": [
       "数组",
       "数学"
     ]
@@ -5057,11 +5095,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "915",
-    "status": "ac",
+    "uniqueID": "915",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "分割数组",
-    "topicTags": [
+    "title": "分割数组",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -5069,11 +5107,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "916",
-    "status": "ac",
+    "uniqueID": "916",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "单词子集",
-    "topicTags": [
+    "title": "单词子集",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -5081,11 +5119,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "917",
-    "status": "ac",
+    "uniqueID": "917",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "仅仅反转字母",
-    "topicTags": [
+    "title": "仅仅反转字母",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -5093,11 +5131,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "925",
-    "status": "ac",
+    "uniqueID": "925",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "长按键入",
-    "topicTags": [
+    "title": "长按键入",
+    "relatedTags": [
       "双指针",
       "字符串"
     ]
@@ -5106,11 +5144,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "926",
-    "status": "ac",
+    "uniqueID": "926",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "将字符串翻转到单调递增",
-    "topicTags": [
+    "title": "将字符串翻转到单调递增",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -5118,11 +5156,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "934",
-    "status": "ac",
+    "uniqueID": "934",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最短的桥",
-    "topicTags": [
+    "title": "最短的桥",
+    "relatedTags": [
       "深度优先搜索",
       "广度优先搜索"
     ]
@@ -5131,11 +5169,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "937",
-    "status": "ac",
+    "uniqueID": "937",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "重新排列日志文件",
-    "topicTags": [
+    "title": "重新排列日志文件",
+    "relatedTags": [
       "字符串"
     ]
   },
@@ -5143,11 +5181,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "938",
-    "status": "ac",
+    "uniqueID": "938",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉搜索树的范围和",
-    "topicTags": [
+    "title": "二叉搜索树的范围和",
+    "relatedTags": [
       "二叉搜索树"
     ]
   },
@@ -5155,11 +5193,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "939",
-    "status": "ac",
+    "uniqueID": "939",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "最小面积矩形",
-    "topicTags": [
+    "title": "最小面积矩形",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -5167,11 +5205,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "940",
-    "status": "ac",
+    "uniqueID": "940",
+    "difficultNum": 3,
     "difficult": "Hard",
-    "translatedTitle": "不同的子序列 II",
-    "topicTags": [
+    "title": "不同的子序列 II",
+    "relatedTags": [
       "动态规划"
     ]
   },
@@ -5179,11 +5217,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "945",
-    "status": "ac",
+    "uniqueID": "945",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "使数组唯一的最小增量",
-    "topicTags": [
+    "title": "使数组唯一的最小增量",
+    "relatedTags": [
       "数组"
     ]
   },
@@ -5191,11 +5229,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "946",
-    "status": "ac",
+    "uniqueID": "946",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "验证栈序列",
-    "topicTags": [
+    "title": "验证栈序列",
+    "relatedTags": [
       "栈"
     ]
   },
@@ -5203,11 +5241,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "948",
-    "status": "ac",
+    "uniqueID": "948",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "令牌放置",
-    "topicTags": [
+    "title": "令牌放置",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -5215,11 +5253,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "949",
-    "status": "ac",
+    "uniqueID": "949",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "给定数字能组成的最大时间",
-    "topicTags": [
+    "title": "给定数字能组成的最大时间",
+    "relatedTags": [
       "数学"
     ]
   },
@@ -5227,11 +5265,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "951",
-    "status": "ac",
+    "uniqueID": "951",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "翻转等价二叉树",
-    "topicTags": [
+    "title": "翻转等价二叉树",
+    "relatedTags": [
       "树"
     ]
   },
@@ -5239,11 +5277,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "953",
-    "status": "ac",
+    "uniqueID": "953",
+    "difficultNum": 1,
     "difficult": "Easy",
-    "translatedTitle": "验证外星语词典",
-    "topicTags": [
+    "title": "验证外星语词典",
+    "relatedTags": [
       "哈希表"
     ]
   },
@@ -5251,11 +5289,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "954",
-    "status": "ac",
+    "uniqueID": "954",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二倍数对数组",
-    "topicTags": [
+    "title": "二倍数对数组",
+    "relatedTags": [
       "数组",
       "哈希表"
     ]
@@ -5264,11 +5302,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "955",
-    "status": "ac",
+    "uniqueID": "955",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "删列造序 ||",
-    "topicTags": [
+    "title": "删列造序 ||",
+    "relatedTags": [
       "贪心算法"
     ]
   },
@@ -5276,11 +5314,11 @@
     "lang": [
       "javascript"
     ],
-    "frontEndId": "958",
-    "status": "ac",
+    "uniqueID": "958",
+    "difficultNum": 2,
     "difficult": "Middle",
-    "translatedTitle": "二叉树的完全性检验",
-    "topicTags": [
+    "title": "二叉树的完全性检验",
+    "relatedTags": [
       "树"
     ]
   }

@@ -5,6 +5,15 @@ import {navigate} from "@reach/router";
 import {linkTo} from "../routes/linkPathList";
 import {deepEqual} from "../utils/index";
 import ArticleHeaderProps from "../share-components/ArticleHeaderProps";
+import {ArticleListCardDefaultProps} from '../defaultProps'
+
+const {
+  titlePropDefault,
+  singleRenderPropsOnHeaderDefault,
+  multiRenderPropsOnHeaderDefault,
+  showCommentDefault,
+  getContentDetailPathDefault
+}=ArticleListCardDefaultProps
 
 export default class ArticleListCard extends React.Component {
   constructor() {
@@ -26,46 +35,40 @@ export default class ArticleListCard extends React.Component {
   }
 
   render() {
-    // console.log(1)
-    const {title,
-      statusBarItem,
+
+    const {
+      titleProp,
+      curPropsData,
       summary,
-      beforeNavigate,
-      noCount,
-      linkToPath,
-      createdTime,
-      label,
-      labelLinkToProp,
+      getContentDetailPath,
       singleRenderPropsOnHeader,
       multiRenderPropsOnHeader,
       showComment,
-      onOneRow,
-      ...otherProps}=this.props
-    let _linkToPath
-    if(linkToPath==null)_linkToPath=linkTo.articles+"/"+statusBarItem.titleSHA
-    else _linkToPath=linkToPath
-    // console.log(statusBarItem)
+      cardStyle,
+      bodyStyle
+    }=this.props
+
+    let _getPath=getContentDetailPath
+      ? getContentDetailPath(curPropsData)
+      : getContentDetailPathDefault(curPropsData)
     return (
-      <Card onClick={this.navigateToPath.bind(this,_linkToPath)} {...otherProps}>
+      <Card hoverable
+            bordered={false}
+            style={cardStyle}
+            bodyStyle={bodyStyle}
+            onClick={
+        this.navigateToPath.bind(this,_getPath)
+      } >
         <div>
+          <div>{curPropsData[titleProp || titlePropDefault]}</div>
           {
-            title
-              ? <div>{title}</div>
-              : null
-          }
-          {
-            statusBarItem
+            curPropsData
               ? <div>
-                <ArticleHeaderProps curContentData={statusBarItem}
-                                    singleRenderPropsOnHeader={singleRenderPropsOnHeader}
-                                    multiRenderPropsOnHeader={multiRenderPropsOnHeader}
-                                    showComment={showComment}/>
-                {/*<ArticleStatusBar noCount={noCount}*/}
-                {/*createdTime={createdTime==null?"createdTime":createdTime}*/}
-                {/*label={label==null?"label":label}*/}
-                {/*labelLinkToProp={labelLinkToProp==null?"category":labelLinkToProp}*/}
-                {/*article={statusBarItem}/>*/}
-              </div>
+                  <ArticleHeaderProps curContentData={curPropsData}
+                                      singleRenderPropsOnHeader={singleRenderPropsOnHeader || singleRenderPropsOnHeaderDefault}
+                                      multiRenderPropsOnHeader={multiRenderPropsOnHeader || multiRenderPropsOnHeaderDefault}
+                                      showComment={showComment==null ? showCommentDefault :showComment }/>
+                </div>
               : null
           }
           {

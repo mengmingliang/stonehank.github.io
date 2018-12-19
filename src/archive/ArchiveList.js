@@ -92,7 +92,7 @@ export default class ArchiveList extends React.Component {
             >
             <List.Item >
               <List.Item.Meta
-                title={<Link to={`${linkTo.articles}/${day.titleSHA}`}>
+                title={<Link to={`${linkTo.articles}/${day.uniqueID}`}>
                   <div>{day.title}</div>
                 </Link>}
                 description={
@@ -101,9 +101,9 @@ export default class ArchiveList extends React.Component {
                                         {val:'createdTime'}
                                         ]}
                                       multiRenderPropsOnHeader={[
-                                        {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
+                                        {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
                                       ]}
-                                      showComment={{title:'title',sha:'titleSHA'}} />
+                                      showComment={{title:'title',sha:'uniqueID'}} />
                   // <ArticleStatusBar createdTime={"createdTime"}
                   //                   label={"label"}
                   //                   labelLinkPath={"category"}

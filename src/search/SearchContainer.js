@@ -8,8 +8,8 @@ import SearchComponent from "./SearchComponent";
 const confirm = Modal.confirm;
 
 export default class SearchContainer extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       controlledValue: '',
       searchKeyword:'',
@@ -145,7 +145,7 @@ export default class SearchContainer extends React.Component {
       let resultObj={
         title:finalMatchTitle,
         matchContent:finalMatchContent,
-        titleSHA:data[i].titleSHA,
+        uniqueID:data[i].uniqueID,
         createdTime:finalMatchDate
       }
       // 搜索优先度
@@ -256,7 +256,7 @@ export default class SearchContainer extends React.Component {
         /* webpackInclude: /\.json$/ */
         /* webpackExclude: /_blog-data\.json$/ */
         /* webpackChunkName: "global-search" */
-        `../${read_blog_path}/${data[i].titleSHA}.json`)
+        `../${read_blog_path}/${data[i].uniqueID}.json`)
         .then(({default:obj}) => {
           data[i].content = obj.content
         })

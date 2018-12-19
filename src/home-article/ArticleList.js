@@ -3,7 +3,7 @@ import {List,  Layout} from 'antd';
 import {navigate} from "@reach/router";
 import ArticleListCard from "./ArticleListCard";
 import {deepEqual} from "../utils/index";
-import {linkTo} from "../routes/linkPathList";
+// import {linkTo} from "../routes/linkPathList";
 
 
 const styles={
@@ -51,21 +51,11 @@ export default class ArticleList extends React.Component {
                 pagination={listPageSetting} >
             {articles.map((item,i)=>(
               <ArticleListCard key={i}
-                               hoverable
-                               bordered={false}
-                               linkToPath={linkTo.articles+"/"+item.titleSHA}
-                               style={styles.card}
-                               title={item.title}
-                               statusBarItem={item}
-                               singleRenderPropsOnHeader={[{
-                                 val:'createdTime',
-                               }]}
-                               multiRenderPropsOnHeader={[
-                                 {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
-                               ]}
-                               showComment={{title:'title',sha:'titleSHA'}}
+                               cardStyle={styles.card}
+                               curPropsData={item}
                                summary={<div style={styles.summary}
-                                      dangerouslySetInnerHTML={{__html: item.summary || ''}}/>} />
+                                      dangerouslySetInnerHTML={{__html: item.summary || ''}}/>}
+              />
             ))}
           </List>
         </Content>

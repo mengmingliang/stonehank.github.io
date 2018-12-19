@@ -16,8 +16,8 @@ const crypto = require('crypto');
     if(fetchExcludes.includes(rawname))return null
     const sha1 = crypto.createHash('sha1');
     sha1.update(rawname);
-    let titleSHA=sha1.digest('hex')
-    return titleSHA+'.json'
+    let uniqueID=sha1.digest('hex')
+    return uniqueID+'.json'
   }
 
   function getAppropriateKey_resource(fetchResult){

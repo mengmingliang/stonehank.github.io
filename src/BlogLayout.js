@@ -77,7 +77,7 @@ export default class BlogLayout extends React.Component {
       .then((module)=>{
         let leetcodeData=module.default
         // console.log(leetcodeData)
-        let leetcodeList=objSortBy(leetcodeData,'frontEndId',true)
+        let leetcodeList=objSortBy(leetcodeData,'uniqueID',true)
         this.setState({
           leetcodeData,
           leetcodeList
@@ -115,10 +115,10 @@ export default class BlogLayout extends React.Component {
         let source_jsonObj=modules[1].default
         this.setState({
           archiveArticles:refactor(blog_jsonObj,"time"),
-          categoryArticles:objGroupBy(blog_jsonObj,"label"),
+          categoryArticles:objGroupBy(blog_jsonObj,"relatedTags"),
           initArticles:objSortBy(blog_jsonObj,"timeArr").filter(item=>item.title),
           blog_jsonObj,
-          sourceCodeNavSHA:objSortBy(source_jsonObj,"titleSHA").filter(item=>item.title)[0].titleSHA,
+          sourceCodeNavSHA:objSortBy(source_jsonObj,"uniqueID").filter(item=>item.title)[0].uniqueID,
         })
       })
       .catch(err=>{
@@ -251,16 +251,16 @@ export default class BlogLayout extends React.Component {
                                     sourceCodeNavSHA={sourceCodeNavSHA} />
 
                         <MyLeetcode path={`${linkTo.myleetcode}`}
-                                    leetcodeData={leetcodeData}
+                                    initLeetcodeData={leetcodeData}
                                     leetcodeRenderMode={leetcodeRenderMode}
                                     fetchLeetcodeList={this.fetchLeetcodeList}
                                     toggleRenderMode={this.toggleRenderMode}/>
 
                         <ArticleDetailComponent path={`${linkTo.myleetcode}/problems/:fetchKey`}
-                                          titleProp={"translatedTitle"}
-                                          fetchKeyProp={"frontEndId"}
-                                          wantedPropsFromList={['translatedTitle','frontEndId','topicTags','difficult','lang']}
-                                          wangtedPropsFromContent={['translatedContent','code']}
+                                          titleProp={"title"}
+                                          fetchKeyProp={"uniqueID"}
+                                          wantedPropsFromList={['title','uniqueID','relatedTags','difficult','lang']}
+                                          wangtedPropsFromContent={['content','code']}
                                           showComment={false}
                                           read_content_path={read_leetcode_path}
                                           renderContentList={leetcodeList}
@@ -272,7 +272,7 @@ export default class BlogLayout extends React.Component {
                                             getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
                                           }]}
                                           multiRenderPropsOnHeader={[
-                                            {val:'topicTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
+                                            {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
                                             {val:'lang',ele:'tag'}
                                           ]}
                         />
@@ -283,8 +283,8 @@ export default class BlogLayout extends React.Component {
 
                         <ArticleDetailComponent path={`${linkTo.articles}/:fetchKey`}
                                           titleProp={"title"}
-                                          fetchKeyProp={"titleSHA"}
-                                          wantedPropsFromList={['title','createdTime','label','titleSHA']}
+                                          fetchKeyProp={"uniqueID"}
+                                          wantedPropsFromList={['title','createdTime','relatedTags','uniqueID']}
                                           wangtedPropsFromContent={['content']}
                                           read_content_path={read_blog_path}
                                           renderContentList={initArticles}
@@ -294,9 +294,9 @@ export default class BlogLayout extends React.Component {
                                             val:'createdTime',
                                           }]}
                                           multiRenderPropsOnHeader={[
-                                            {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
+                                            {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
                                           ]}
-                                          showComment={{title:'title',sha:'titleSHA'}}
+                                          showComment={{title:'title',sha:'uniqueID'}}
                         />
 
                         <CategoryDetail path={`${linkTo.category}/:tag`}

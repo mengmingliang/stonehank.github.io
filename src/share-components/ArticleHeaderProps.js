@@ -49,6 +49,7 @@ export default class ArticleHeaderProps extends React.Component{
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
         { singleRenderPropsOnHeader
           ? singleRenderPropsOnHeader.map((prop,i)=>{
+            // console.log(singleRenderPropsOnHeader)
             let link=prop.link,eleMode=prop.ele,tagStyle=prop.tagStyle,propVal=curContentData[prop.val],getClassName=prop.getClassName
             return (
               <Col key={i}>

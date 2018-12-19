@@ -2,6 +2,7 @@ import React from 'react'
 import {List, Divider, Row} from 'antd';
 import ArticleListCard from "../home-article/ArticleListCard";
 import TagsCol from "../share-components/TagsCol";
+import {linkTo} from "../routes/linkPathList";
 
 const renderNumber = 3
 const styles = {
@@ -112,17 +113,24 @@ export default class SearchDrawerListLazyScroll extends React.Component {
         </Row>
         <Divider orientation={"left"} style={styles.divider}>文章</Divider>
         {renderArticles.map((item, i) => (
-          <ArticleListCard key={i}
-                           hoverable
+          <ArticleListCard hoverable
                            bordered={false}
-                           style={styles.card}
+                           linkToPath={linkTo.articles+"/"+item.uniqueID}
                            bodyStyle={styles.card_pure_body}
-                           statusBarItem={item}
-                           noCount={true}
+                           style={styles.card}
                            title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
                            summary={<div style={styles.summary}
                                          dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
-                           beforeNavigate={clearSearchInput}/>
+                           beforeNavigate={clearSearchInput}
+                           curPropsData={item}
+                           singleRenderPropsOnHeader={[{
+                             val:'createdTime',
+                           }]}
+                           multiRenderPropsOnHeader={[
+                             {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
+                           ]}
+                           showComment={false}
+          />
         ))}
       </List>
     );
