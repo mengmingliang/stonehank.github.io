@@ -33,6 +33,40 @@ test("sort by factorArr",function () {
   )
 })
 
+test("sort by number(String type)",function () {
+  let obj={
+    o1:{a:'1',b:'2',c:'3'},
+    o2:{a:'2',b:'2',c:'5'},
+    o3:{a:'4',b:'5',c:'1'},
+    o4:{a:'2',b:'3',c:'6'},
+    o5:{a:'3',b:'5',c:'4'},
+    o6:{a:'4',b:'5',c:'2'},
+    o7:{a:undefined,b:null,c:null},
+    o8:{a:undefined,b:'1',c:null},
+    o9:{a:undefined,b:null,c:'3'},
+    o10:{a:'0',b:'0',c:'1'},
+    o11:{a:'0',b:'1',c:'3'},
+    o12:{a:'1',b:'0',c:'5'},
+  }
+  expect(objSortBy(obj,['a','b','c'],false)).toEqual(
+    [
+      {"a": "4", "b": "5", "c": "2"},
+      {"a": "4", "b": "5", "c": "1"},
+      {"a": "3", "b": "5", "c": "4"},
+      {"a": "2", "b": "3", "c": "6"},
+      {"a": "2", "b": "2", "c": "5"},
+      {"a": "1", "b": "2", "c": "3"},
+      {"a": "1", "b": "0", "c": "5"},
+      {"a": "0", "b": "1", "c": "3"}, {
+      "a": "0", "b": "0", "c": "1"},
+      {"a": undefined, "b": "1", "c": null},
+      {"a": undefined, "b": null, "c": "3"},
+      {"a": undefined, "b": null, "c": null}
+      ]
+  )
+})
+
+
 test("sort by factorArr(String)",function () {
   let obj={
     o1:{a:"abc",b:2,c:3},

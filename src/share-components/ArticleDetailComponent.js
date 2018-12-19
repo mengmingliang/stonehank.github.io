@@ -3,12 +3,12 @@ import fetchLazyContent from '../leetcode-problem/fetchLazyContent'
 import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import Loading from './Loading'
-import {linkTo} from '../routes/linkPathList'
+// import {linkTo} from '../routes/linkPathList'
 import CustomComment from "../tools/CustomComment";
 import BookmarkContext from '../bookmark/BookmarkContext'
 import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
-import ArticleHeaderProps from '../home-article/ArticleHeaderProps'
+import ArticleHeaderProps from './ArticleHeaderProps'
 
 
 const styles={
@@ -86,7 +86,7 @@ export default class FetchLazyDetail extends React.Component{
     if(!renderContentList)return
     if(fetchKey!==curContentKey){
       const curContentListProps=renderContentList.find((o,i)=>{
-        if(o[fetchKeyProp]==fetchKey){
+        if(o[fetchKeyProp]===fetchKey){
           this.curContentIndex=i+1
           return true
         }
@@ -114,9 +114,9 @@ export default class FetchLazyDetail extends React.Component{
     const {fetchKey,read_content_path,renderContentList,fetchContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
     if(!renderContentList) fetchContentList()
     else {
-      console.log(renderContentList)
+      // console.log(renderContentList)
       const curContentListProps=renderContentList.find((o,i)=>{
-        if(o[fetchKeyProp]==fetchKey){
+        if(o[fetchKeyProp]===fetchKey){
           this.curContentIndex=i+1
           return true
         }
@@ -146,7 +146,21 @@ export default class FetchLazyDetail extends React.Component{
     // console.log('article')
     const {curContentData,contentLoading,disqusRender}=this.state
     // console.log(curContentData)
-    const {renderContentList,fetchKey,location,titleProp,showComment,wangtedPropsFromContent}=this.props
+    const {
+      renderContentList,
+      fetchKey,
+      location,
+      titleProp,
+      showComment,
+      wangtedPropsFromContent,
+      singleRenderPropsOnHeader,
+      multiRenderPropsOnHeader,
+      fetchContentList,
+      fetchKeyProp,
+      wantedPropsFromList,
+      navigate,
+      ...otherProps}=this.props
+
     return(
       contentLoading ?
         <Loading loading={contentLoading} render_nums={1} ske_title_width={"30%"} ske_para_width={"50%"} ske_para_rows={9} /> :
@@ -154,23 +168,10 @@ export default class FetchLazyDetail extends React.Component{
           <header>
             <h1 style={styles.articleTitle}>{curContentData[titleProp]}</h1>
             <ArticleHeaderProps curContentData={curContentData}
-                                singleRenderProps={[{
-                                    val:'difficult',
-                                    tagStyle:{},
-                                    ele:'tag',
-                                    getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
-                                  }]}
-                                multiRenderProps={[
-                                  {val:'topicTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-                                  {val:'lang',ele:'tag'}
-                                ]}
-                                showComment={false} />
-            {/*<ArticleStatusBar justify={"center"}*/}
-                              {/*article={curContentData}*/}
-                              {/*fetchKey={fetchKey}*/}
-                              {/*createdTime={"createdTime"}*/}
-                              {/*label={"label"}*/}
-                              {/*labelLinkToProp={"category"} />*/}
+                                singleRenderPropsOnHeader={singleRenderPropsOnHeader}
+                                multiRenderPropsOnHeader={multiRenderPropsOnHeader}
+                                showComment={showComment}
+                                {...otherProps}/>
           </header>
           {
             wangtedPropsFromContent.map((prop,i)=>{

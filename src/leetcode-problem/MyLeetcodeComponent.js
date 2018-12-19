@@ -3,9 +3,9 @@ import TagsBlock from "../share-components/TagsBlock";
 import {Button, Icon,Layout,List} from 'antd';
 import {linkTo} from "../routes/linkPathList";
 import ArticleListCard from "../home-article/ArticleListCard";
-import TagLight from "../share-components/TagLight";
-import { Router,Location } from "@reach/router";
-import MyLeetcodeDetail from '../share-components/ArticleDetailComponent'
+// import TagLight from "../share-components/TagLight";
+// import { Router,Location } from "@reach/router";
+// import MyLeetcodeDetail from '../share-components/ArticleDetailComponent'
 
 const { Content} = Layout;
 const styles={
@@ -56,21 +56,31 @@ export default class MyLeetcodeComponent extends React.Component{
                                  title={
                                    <div style={{display:"flex"}}>
                                      <span>{item.frontEndId}、{item.translatedTitle}</span>
-                                     <div  style={{display:'flex',justifyContent:'start',flex:1}}>
-                                       {item.topicTags.map((tag,i)=>
-                                           <TagLight key={i} tagStyle={styles.tag}>{tag}</TagLight>
-                                       )}
-                                      </div>
-                                     {item.lang.map((lang,i)=>
-                                       <TagLight key={i} tagStyle={styles.tag}>{lang}</TagLight>
-                                     )}
-                                     <div style={{flexBasis:"7rem",textAlign:"center"}}>
-                                       <TagLight className={`leetcode-difficult-tags leetcode-${item.difficult}`}>{item.difficult}</TagLight>
-                                     </div>
-                                   </div>
+                                     {/*<div  style={{display:'flex',justifyContent:'start',flex:1}}>*/}
+                                       {/*{item.topicTags.map((tag,i)=>*/}
+                                           {/*<TagLight key={i} tagStyle={styles.tag}>{tag}</TagLight>*/}
+                                       {/*)}*/}
+                                      {/*</div>*/}
+                                     {/*{item.lang.map((lang,i)=>*/}
+                                       {/*<TagLight key={i} tagStyle={styles.tag}>{lang}</TagLight>*/}
+                                     {/*)}*/}
+                                     {/*<div style={{flexBasis:"7rem",textAlign:"center"}}>*/}
+                                       {/*<TagLight className={`leetcode-difficult-tags leetcode-${item.difficult}`}>{item.difficult}</TagLight>*/}
+                                     {/*</div>*/}
+                                    </div>
                                  }
                                  noCount={true}
-                                 statusBarItem={item}/>
+                                 statusBarItem={item}
+                                 singleRenderPropsOnHeader={[{
+                                   val:'difficult',
+                                   ele:'tag',
+                                   getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
+                                 }]}
+                                 multiRenderPropsOnHeader={[
+                                   {val:'topicTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
+                                   {val:'lang',ele:'tag'}
+                                 ]}
+                />
                 ))}
             </List>
           : <TagsBlock articles={renderContent}

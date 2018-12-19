@@ -8,7 +8,7 @@ import Archive from "./archive/Archive";
 import Category from "./category/Category";
 import About from "./about/About";
 import Home from "./home-article/Home";
-import ArticleDetail from "./home-article/ArticleDetail";
+// import ArticleDetail from "./home-article/ArticleDetail";
 import CategoryDetail from './category/CategoryDetail'
 import NavSiderWrapper from "./nav/NavSiderWrapper";
 import {refactor,objSortBy,objGroupBy} from './utils'
@@ -25,7 +25,7 @@ import './css/index.css';
 
 import SourceCode from "./source-code/SourceCode";
 import MyLeetcode from "./leetcode-problem/MyLeetcodeContainer";
-import MyLeetcodeDetail from "./share-components/ArticleDetailComponent";
+import ArticleDetailComponent from "./share-components/ArticleDetailComponent";
 
 
 const styles={
@@ -256,32 +256,48 @@ export default class BlogLayout extends React.Component {
                                     fetchLeetcodeList={this.fetchLeetcodeList}
                                     toggleRenderMode={this.toggleRenderMode}/>
 
-                        <MyLeetcodeDetail path={`${linkTo.myleetcode}/problems/:fetchKey`}
+                        <ArticleDetailComponent path={`${linkTo.myleetcode}/problems/:fetchKey`}
                                           titleProp={"translatedTitle"}
                                           fetchKeyProp={"frontEndId"}
                                           wantedPropsFromList={['translatedTitle','frontEndId','topicTags','difficult','lang']}
                                           wangtedPropsFromContent={['translatedContent','code']}
+                                          showComment={false}
                                           read_content_path={read_leetcode_path}
                                           renderContentList={leetcodeList}
-                                          fetchContentList={this.fetchLeetcodeList}/>
+                                          fetchContentList={this.fetchLeetcodeList}
+                                          justify={"center"}
+                                          singleRenderPropsOnHeader={[{
+                                            val:'difficult',
+                                            ele:'tag',
+                                            getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
+                                          }]}
+                                          multiRenderPropsOnHeader={[
+                                            {val:'topicTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
+                                            {val:'lang',ele:'tag'}
+                                          ]}
+                        />
 
                         <About path={linkTo.about}
                                articles={categoryArticles}
                                aboutMe={aboutMe} />
 
-                        <MyLeetcodeDetail path={`${linkTo.articles}/:fetchKey`}
+                        <ArticleDetailComponent path={`${linkTo.articles}/:fetchKey`}
                                           titleProp={"title"}
                                           fetchKeyProp={"titleSHA"}
-                                          showComment={true}
-                                          wantedPropsFromList={['title','createdTime','label']}
+                                          wantedPropsFromList={['title','createdTime','label','titleSHA']}
                                           wangtedPropsFromContent={['content']}
                                           read_content_path={read_blog_path}
                                           renderContentList={initArticles}
-                                          fetchContentList={this.fetchBlogList}/>
-
-                        {/*<ArticleDetail path={`${linkTo.articles}/:articleSha`}*/}
-                                       {/*blogList={initArticles}*/}
-                                       {/*read_blog_path={read_blog_path} />*/}
+                                          fetchContentList={this.fetchBlogList}
+                                          justify={"center"}
+                                          singleRenderPropsOnHeader={[{
+                                            val:'createdTime',
+                                          }]}
+                                          multiRenderPropsOnHeader={[
+                                            {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
+                                          ]}
+                                          showComment={{title:'title',sha:'titleSHA'}}
+                        />
 
                         <CategoryDetail path={`${linkTo.category}/:tag`}
                                         categoryArticles={categoryArticles} />

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, List} from 'antd';
 import {Link} from "@reach/router"
-import ArticleStatusBar from "../home-article/ArticleStatusBar"
+// import ArticleStatusBar from "../home-article/ArticleStatusBar"
 import Loading from "../share-components/Loading";
 import {linkTo} from "../routes/linkPathList";
+import ArticleHeaderProps from "../share-components/ArticleHeaderProps";
 
 
 
@@ -95,10 +96,18 @@ export default class ArchiveList extends React.Component {
                   <div>{day.title}</div>
                 </Link>}
                 description={
-                  <ArticleStatusBar createdTime={"createdTime"}
-                                    label={"label"}
-                                    labelLinkPath={"category"}
-                                    article={day}/>
+                  <ArticleHeaderProps curContentData={day}
+                                      singleRenderPropsOnHeader={[
+                                        {val:'createdTime'}
+                                        ]}
+                                      multiRenderPropsOnHeader={[
+                                        {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
+                                      ]}
+                                      showComment={{title:'title',sha:'titleSHA'}} />
+                  // <ArticleStatusBar createdTime={"createdTime"}
+                  //                   label={"label"}
+                  //                   labelLinkPath={"category"}
+                  //                   article={day}/>
                 }
               />
             </List.Item>

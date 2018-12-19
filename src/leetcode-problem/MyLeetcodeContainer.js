@@ -2,7 +2,7 @@ import React from 'react'
 import Loading from "../share-components/Loading";
 import {objSortBy,objGroupBy} from '../utils'
 import MyLeetcodeComponent from "./MyLeetcodeComponent";
-import {shallowEqual} from '../utils'
+// import {shallowEqual} from '../utils'
 
 import '../css/leetcode.css'
 
@@ -108,7 +108,7 @@ export default class MyLeetcodeContainer extends React.Component{
     // })
   }
   render(){
-    const {renderContent,page,pageSize,initData}=this.state
+    const {renderContent,page,pageSize}=this.state
     const {leetcodeData}=this.props
     const {leetcodeRenderMode}=this.props
     // console.log(renderContent)

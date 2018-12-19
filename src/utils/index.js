@@ -105,6 +105,7 @@ export function objSortBy(obj,sortKey,asc){
       }
     }else if(typeA!=="[object Array]" && typeB!=="[object Array]"){
       if(typeof a!==typeof b){a=a.toString();b=b.toString()}
+      if(!isNaN(a) && !isNaN(b)){a=Number(a);b=Number(b)}
       if(a<b)return -1
       else if(a>b)return 1
     }else{

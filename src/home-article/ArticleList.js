@@ -57,11 +57,17 @@ export default class ArticleList extends React.Component {
                                style={styles.card}
                                title={item.title}
                                statusBarItem={item}
+                               singleRenderPropsOnHeader={[{
+                                 val:'createdTime',
+                               }]}
+                               multiRenderPropsOnHeader={[
+                                 {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
+                               ]}
+                               showComment={{title:'title',sha:'titleSHA'}}
                                summary={<div style={styles.summary}
                                       dangerouslySetInnerHTML={{__html: item.summary || ''}}/>} />
             ))}
           </List>
-
         </Content>
       </React.Fragment>
     )
