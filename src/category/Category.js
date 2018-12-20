@@ -65,7 +65,7 @@ export default class Category extends React.Component {
 
   render() {
     const {articles, contentLoading, pageSize, page,tagsRenderMode} = this.state
-
+    const {twoRenderMode}=this.props
     let renderArticles
     if (articles) {
       let keysArr = Object.keys(articles)
@@ -81,13 +81,18 @@ export default class Category extends React.Component {
                  ske_para_width={"50%"}
                  ske_para_rows={3} />
       : <Content style={styles.defaultMargin}>
-          <div className="clearfix">
-            <Button style={styles.toggleRenderButton}
-                    onClick={this.toggleTagRender}>
-              <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={styles.toggleRenderIcon}/>
-            </Button>
-          </div>
-          {tagsRenderMode === "list"
+        {
+          twoRenderMode
+            ? <div className="clearfix">
+                <Button style={styles.toggleRenderButton}
+                        onClick={this.toggleTagRender}>
+                  <Icon type={tagsRenderMode === "list" ? "table" : "profile"} style={styles.toggleRenderIcon}/>
+                </Button>
+              </div>
+            : null
+        }
+        {
+          twoRenderMode && tagsRenderMode === "list"
             ? <React.Fragment>
                 <TagsBlock articles={articles} linkToProps={"category"} />
                 <TagsList articles={articles}
@@ -97,8 +102,11 @@ export default class Category extends React.Component {
                           totalPage={this.totalPage}
                           renderArticles={renderArticles} />
               </React.Fragment>
-             : <TagsBlock articles={articles} linkToProps={"category"} renderType={'card'}/>
-            }
+            : <TagsBlock articles={articles}
+                         linkToProps={"category"}
+                         renderType={'card'}
+                         showCount={true}/>
+          }
         </Content>
 
 

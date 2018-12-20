@@ -19,12 +19,11 @@ export default class TagsCol extends React.PureComponent {
           {
             renderType==="card"
               ?  <Card hoverable>
-                   <span>{tag}</span>
-                   <p>{count?`共有${count}`:null}</p>
+                   <span style={{fontWeight:600}}>{tag}</span>
+                   <p style={{fontWeight:200}}>{count?`共有${count}`:null}</p>
                  </Card>
               :  <TagLight tagStyle={tagStyle}>
                    <span>{tag}</span>
-                   <p>{count?`共有${count}`:null}</p>
                  </TagLight>
           }
         </Link>

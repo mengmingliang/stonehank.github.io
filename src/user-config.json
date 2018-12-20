@@ -6,7 +6,7 @@
   "aboutMe":"热爱技术探讨，也会搜寻一些有价值的技术文章作为分享，最近一直刷算法，有愿意一起学习的的可以交流下。",
   "tagsEachPage":1,
   "defaultActiveArchive":["2018年",""],
-  "tagsRenderMode":"list",
+  "tagsRenderMode":"card",
   "articlesEachPage":3,
   "archiveEachPage":5,
   "read_blog_path":"asset/blog",

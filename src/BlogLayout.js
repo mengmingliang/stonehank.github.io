@@ -26,6 +26,8 @@ import './css/index.css';
 import SourceCode from "./source-code/SourceCode";
 import MyLeetcode from "./leetcode-problem/MyLeetcodeContainer";
 import ArticleDetailComponent from "./share-components/ArticleDetailComponent";
+import LeetcodeDetailComponent from "./share-components/ArticleDetailComponent";
+import LeetcodeCategoryDetail from "./leetcode-problem/LeetcodeCategoryDetail";
 
 
 const styles={
@@ -53,7 +55,8 @@ export default class BlogLayout extends React.Component {
       sourceCodeNavSHA:null,
       leetcodeRenderMode:'list',
       leetcodeData:null,
-      leetcodeList:null
+      leetcodeList:null,
+      leetcodeCategory:null,
     }
     this.fetchBlogList=this.fetchBlogList.bind(this)
     this.fetchSourceCodeList=this.fetchSourceCodeList.bind(this)
@@ -78,9 +81,11 @@ export default class BlogLayout extends React.Component {
         let leetcodeData=module.default
         // console.log(leetcodeData)
         let leetcodeList=objSortBy(leetcodeData,'uniqueID',true)
+        let leetcodeCategory=objGroupBy(leetcodeData,"relatedTags")
         this.setState({
           leetcodeData,
-          leetcodeList
+          leetcodeList,
+          leetcodeCategory
         })
       })
   }
@@ -152,7 +157,8 @@ export default class BlogLayout extends React.Component {
       sourceCodeNavSHA,
       leetcodeRenderMode,
       leetcodeData,
-      leetcodeList
+      leetcodeList,
+      leetcodeCategory
     }=this.state
 
     if(archiveArticles && !archiveArticles.activePanel){
@@ -216,7 +222,6 @@ export default class BlogLayout extends React.Component {
           </HeaderPure>
           <Location>
             {({location})=>{
-              // console.log(location)
               return (
                 <TransitionGroup>
                   <CSSTransition key={location.key} classNames="slide" exit={false} timeout={500} >
@@ -256,54 +261,43 @@ export default class BlogLayout extends React.Component {
                                     fetchLeetcodeList={this.fetchLeetcodeList}
                                     toggleRenderMode={this.toggleRenderMode}/>
 
-                        <ArticleDetailComponent path={`${linkTo.myleetcode}/problems/:fetchKey`}
-                                          titleProp={"title"}
-                                          fetchKeyProp={"uniqueID"}
-                                          wantedPropsFromList={['title','uniqueID','relatedTags','difficult','lang']}
-                                          wangtedPropsFromContent={['content','code']}
-                                          showComment={false}
-                                          read_content_path={read_leetcode_path}
-                                          renderContentList={leetcodeList}
-                                          fetchContentList={this.fetchLeetcodeList}
-                                          justify={"center"}
-                                          singleRenderPropsOnHeader={[{
-                                            val:'difficult',
-                                            ele:'tag',
-                                            getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
-                                          }]}
-                                          multiRenderPropsOnHeader={[
-                                            {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-                                            {val:'lang',ele:'tag'}
-                                          ]}
-                        />
+                        <LeetcodeDetailComponent path={`${linkTo.myleetcode}/problems/:fetchKey`}
+                                                 titleProp={"title"}
+                                                 fetchKeyProp={"uniqueID"}
+                                                 wantedPropsFromList={['title','uniqueID','relatedTags','difficult','lang']}
+                                                 wangtedPropsFromContent={['content','code']}
+                                                 showComment={false}
+                                                 read_content_path={read_leetcode_path}
+                                                 renderData={leetcodeList}
+                                                 fetchContentList={this.fetchLeetcodeList}
+                                                 // justify={"center"}
+                                                 singleRenderPropsOnHeader={[{
+                                                   val:'difficult',
+                                                   ele:'tag',
+                                                   getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
+                                                 }]}
+                                                 multiRenderPropsOnHeader={[
+                                                   {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
+                                                   {val:'lang',ele:'tag'}
+                                                   ]} />
+
+                        <LeetcodeCategoryDetail path={`${linkTo.myleetcode}/:tag`}
+                                                renderData={leetcodeCategory}
+                                                fetchLeetcodeList={this.fetchLeetcodeList}/>
 
                         <About path={linkTo.about}
                                articles={categoryArticles}
                                aboutMe={aboutMe} />
 
                         <ArticleDetailComponent path={`${linkTo.articles}/:fetchKey`}
-                                          titleProp={"title"}
-                                          fetchKeyProp={"uniqueID"}
-                                          wantedPropsFromList={['title','createdTime','relatedTags','uniqueID']}
-                                          wangtedPropsFromContent={['content']}
-                                          read_content_path={read_blog_path}
-                                          renderContentList={initArticles}
-                                          fetchContentList={this.fetchBlogList}
-                                          justify={"center"}
-                                          singleRenderPropsOnHeader={[{
-                                            val:'createdTime',
-                                          }]}
-                                          multiRenderPropsOnHeader={[
-                                            {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
-                                          ]}
-                                          showComment={{title:'title',sha:'uniqueID'}}
-                        />
+                                                wantedPropsFromList={['title','createdTime','relatedTags','uniqueID']}
+                                                wangtedPropsFromContent={['content']}
+                                                read_content_path={read_blog_path}
+                                                renderData={initArticles}
+                                                fetchContentList={this.fetchBlogList} />
 
                         <CategoryDetail path={`${linkTo.category}/:tag`}
                                         categoryArticles={categoryArticles} />
-
-
-
 
                         <NotFound default
                                   changeBG={this.changeBackground} />

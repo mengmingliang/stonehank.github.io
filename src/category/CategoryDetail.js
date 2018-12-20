@@ -1,33 +1,26 @@
 import React from 'react';
-import {List} from 'antd';
+
 import {navigate} from "@reach/router"
 import Loading from "../share-components/Loading";
-import TagHeader from "./TagHeader";
-import ArticleListCard from "../home-article/ArticleListCard";
-// import {linkTo} from "../routes/linkPathList";
+
+import ListLazyScrollHOC from "../share-components/ListLazyScrollHOC";
+
+import CategoryDetailList from "./CategoryDetailList";
 
 
-const styles={
-  card_pure_body:{padding:12},
-  card:{margin:"8px 0"},
-  list:{margin: '24px 36px'},
-  icon:{color: "#46a6ff",marginRight:4},
-}
-
+const LazyScrollCategoryDetail=ListLazyScrollHOC(CategoryDetailList)
 
 export default class CategoryDetail extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state={
       contentLoading:true,
       tagList:null,
       tagName:null,
     }
+    this.detailListContent=React.createRef()
   }
-  // navigateToPath(path,e){
-  //   if(e.target.className.includes('tag'))return
-  //   navigate(path)
-  // }
+
 
   static getDerivedStateFromProps(nextProps,prevState){
     const {location,categoryArticles}=nextProps
@@ -40,7 +33,6 @@ export default class CategoryDetail extends React.Component {
       navigate("/NoThisPage",{replace:true})
     }
     if(!activeData)return null
-    // console.log(basename,prevState.tagName,activeData)
     return {
       tagList:activeData,
       tagName:basename,
@@ -58,22 +50,14 @@ export default class CategoryDetail extends React.Component {
     // console.log("render")
     const {tagList,contentLoading,tagName}=this.state
    return (
-     contentLoading ?
-       <Loading loading={contentLoading} render_nums={1} ske_title_width={"15%"}  ske_para_rows={6} /> :
-       <List size="small"
-             split={false}
-             style={styles.list}
-             header={
-               <TagHeader tag={tagName} />
-             }
-         dataSource={tagList}
-         renderItem={item => (
-           <ArticleListCard bodyStyle={styles.card_pure_body}
-                            cardStyle={styles.card}
-                            curPropsData={item}
-           />
-         )}
-       />
+     contentLoading
+       ? <Loading loading={contentLoading} render_nums={1} ske_title_width={"15%"}  ske_para_rows={6} />
+       : <div ref={this.detailListContent} id={'categoryList'} >
+           <LazyScrollCategoryDetail allData={tagList}
+                                     useWindow={true}
+                                     contentEle={()=>this.detailListContent.current}
+                                     tagName={tagName} />
+         </div>
    )
   }
 }

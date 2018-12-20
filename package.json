@@ -18,7 +18,7 @@
     "test": "react-app-rewired test --env=jsdom --coverage",
     "analyze": "source-map-explorer build/static/js/114.chunk.js ",
     "eject": "react-scripts eject",
-    "fetch": "node ./fetch-blog-server/server-pull-blog.js &&  npm run test"
+    "fetch": "node ./fetch-server/fetch-github-server/server-pull-blog.js &&  npm run test"
   },
   "pre-commit": "test",
   "devDependencies": {

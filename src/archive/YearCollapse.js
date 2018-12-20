@@ -45,7 +45,7 @@ export default class YearCollapse extends React.Component {
 
   render() {
     const {monthList,activePanel,year,changeActiveYear,changeActiveMonth,archiveEachPage}=this.props
-    console.log(year,!year)
+    // console.log(year,!year)
     return (
       <Collapse style={styles.defaultMargin} accordion
                 bordered={false}

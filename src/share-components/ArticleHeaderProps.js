@@ -55,7 +55,8 @@ export default class ArticleHeaderProps extends React.Component{
               <Col key={i}>
                 <CheckLinkWrap link={link} propVal={propVal}>
                   <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={propVal}>
-                    <div dangerouslySetInnerHTML={{__html:propVal || "未知"}} />
+                    {/*<div dangerouslySetInnerHTML={{__html:propVal || "未知"}} />*/}
+                    {propVal || "未知"}
                   </CheckTagWrap>
                 </CheckLinkWrap>
               </Col>
@@ -72,7 +73,8 @@ export default class ArticleHeaderProps extends React.Component{
                       return (
                         <CheckLinkWrap key={j} link={link} propVal={prop}>
                           <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={prop}>
-                            <div dangerouslySetInnerHTML={{__html:prop || "未知"}} />
+                            {/*<div dangerouslySetInnerHTML={{__html:prop || "未知"}} />*/}
+                            {prop || "未知"}
                           </CheckTagWrap>
                         </CheckLinkWrap>
                        )

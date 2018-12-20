@@ -1,7 +1,7 @@
 import React from 'react';
 import {List,  Layout} from 'antd';
 import {navigate} from "@reach/router";
-import ArticleListCard from "./ArticleListCard";
+import ArticleListCard from "../share-components/ArticleListCard";
 import {deepEqual} from "../utils/index";
 // import {linkTo} from "../routes/linkPathList";
 

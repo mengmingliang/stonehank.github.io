@@ -3,12 +3,12 @@ import fetchLazyContent from '../leetcode-problem/fetchLazyContent'
 import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import Loading from './Loading'
-// import {linkTo} from '../routes/linkPathList'
 import CustomComment from "../tools/CustomComment";
 import BookmarkContext from '../bookmark/BookmarkContext'
 import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
 import ArticleHeaderProps from './ArticleHeaderProps'
+import {linkTo} from "../routes/linkPathList";
 
 
 const styles={
@@ -19,38 +19,45 @@ const styles={
   disqusButton:{display:"block",margin:"20px auto"}
 }
 
+export default class ArticleDetailComponent extends React.Component{
 
-export default class FetchLazyDetail extends React.Component{
+  static defaultProps={
+    titleProp:"title",
+    fetchKeyProp:"uniqueID",
+    justify:"center",
+    showComment:{title:'title',sha:'uniqueID'},
+    singleRenderPropsOnHeader:[{val:'createdTime'}],
+    multiRenderPropsOnHeader:[{val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`}]
+  }
   constructor(){
     super()
     this.state={
       curPropsData:null,
       contentLoading:true,
       curFetchKey:null,
-      renderContentList:null,
+      renderData:null,
       disqusRender:false
     }
     this.curContentIndex=null
-
     this.handlePageChange=this.handlePageChange.bind(this)
     this.pageItemRender=this.pageItemRender.bind(this)
     this.showDisqus=this.showDisqus.bind(this)
     this.bookmarkScroll=this.bookmarkScroll.bind(this)
   }
   pageItemRender(current, type,originalElement) {
-    const {renderContentList,titleProp}=this.props
+    const {renderData,titleProp}=this.props
     if (type === 'prev') {
-      return <span>上一篇：<strong>{current<1 ? "无" : renderContentList[current-1][titleProp]}</strong></span>
+      return <span>上一篇：<strong>{current<1 ? "无" : renderData[current-1][titleProp]}</strong></span>
     }
     if (type === 'next') {
-      return <span>下一篇：<strong>{this.curContentIndex === renderContentList.length ? "无" :renderContentList[current-1][titleProp]}</strong></span>;
+      return <span>下一篇：<strong>{this.curContentIndex === renderData.length ? "无" :renderData[current-1][titleProp]}</strong></span>;
     }
     return originalElement;
   }
   handlePageChange(page) {
-    const {fetchKeyProp,renderContentList,path}=this.props
+    const {fetchKeyProp,renderData,path}=this.props
     let pathname=path.split('/:fetchKey')[0]
-    navigate(`${pathname}/${renderContentList[page-1][fetchKeyProp]}`)
+    navigate(`${pathname}/${renderData[page-1][fetchKeyProp]}`)
   }
 
   showDisqus(){
@@ -81,18 +88,19 @@ export default class FetchLazyDetail extends React.Component{
     }
   }
   componentDidUpdate(){
-    const {fetchKey,read_content_path,renderContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
+    const {fetchKey,read_content_path,renderData,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
     const {curFetchKey}=this.state
-    if(!renderContentList)return
+    if(!renderData)return
     if(fetchKey!==curFetchKey){
-      const curContentListProps=renderContentList.find((o,i)=>{
+      const curContentListProps=renderData.find((o,i)=>{
+
         if(o[fetchKeyProp]===fetchKey){
           this.curContentIndex=i+1
           return true
         }
         return false
       })
-      // console.log(curContentListProps,fetchKey,fetchKeyProp,renderContentList)
+      // console.log(curContentListProps,fetchKey,fetchKeyProp,renderData)
       fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wangtedPropsFromContent)
         .then(obj=>{
           this.bookmarkScroll()
@@ -111,18 +119,18 @@ export default class FetchLazyDetail extends React.Component{
   }
 
   componentDidMount(){
-    const {fetchKey,read_content_path,renderContentList,fetchContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
-    if(!renderContentList) fetchContentList()
+    const {fetchKey,read_content_path,renderData,fetchContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
+    if(!renderData) fetchContentList()
     else {
-      // console.log(renderContentList)
-      const curContentListProps=renderContentList.find((o,i)=>{
+      // console.log(renderData)
+      const curContentListProps=renderData.find((o,i)=>{
         if(o[fetchKeyProp]===fetchKey){
           this.curContentIndex=i+1
           return true
         }
         return false
       })
-      // console.log(curContentListProps,fetchKey,fetchKeyProp,renderContentList)
+      // console.log(curContentListProps,fetchKey,fetchKeyProp,renderData)
       fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wangtedPropsFromContent)
         .then(contentData => {
           this.bookmarkScroll()
@@ -147,7 +155,7 @@ export default class FetchLazyDetail extends React.Component{
     const {curPropsData,contentLoading,disqusRender}=this.state
     // console.log(curPropsData)
     const {
-      renderContentList,
+      renderData,
       fetchKey,
       location,
       titleProp,
@@ -186,13 +194,17 @@ export default class FetchLazyDetail extends React.Component{
           }
 
           <footer style={styles.footer}>
-            <Pagination simple  pageSize={1} total={renderContentList.length}
+            <Pagination simple  pageSize={1} total={renderData.length}
                         current={this.curContentIndex}
                         itemRender={this.pageItemRender}
                         onChange={this.handlePageChange}/>
           </footer>
           <BookmarkContext.Consumer>
-            {({setBookmark})=><SetMark sha={fetchKey} setBookmark={setBookmark}/>}
+            {({setBookmark})=>{
+              const {path}=this.props
+              let pathname=path.split('/:fetchKey')[0]
+              return <SetMark pathname={pathname} sha={fetchKey} setBookmark={setBookmark}/>
+            }}
           </BookmarkContext.Consumer>
         </article>
     )

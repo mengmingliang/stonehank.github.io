@@ -1,8 +1,7 @@
 import React from 'react';
 import { List} from 'antd';
-import ArticleListCard from "../home-article/ArticleListCard";
+import ArticleListCard from "../share-components/ArticleListCard";
 import TagHeader from "./TagHeader";
-import {linkTo} from "../routes/linkPathList";
 
 
 const styles={

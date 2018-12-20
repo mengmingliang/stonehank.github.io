@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react"
 import {navigate} from "@reach/router";
-import {linkTo} from "../routes/linkPathList";
 import {Icon, Affix, message} from 'antd';
 
 const styles = {
@@ -15,9 +14,9 @@ const IconBookmark = Icon.createFromIconfontCN({
 
 export function GetMark({bookmark}) {
   function getMark() {
-    const [articleSha, scrollHeight] = bookmark.split('-') || []
-    if (!articleSha) return
-    navigate(`${linkTo.articles}/${articleSha}/?bookmark=${scrollHeight}`)
+    const [pathname, uniqueID, scrollHeight] = bookmark.split('-') || []
+    if (!uniqueID) return
+    navigate(`${pathname}/${uniqueID}/?bookmark=${scrollHeight}`)
   }
 
   return bookmark ?
@@ -29,7 +28,7 @@ export function GetMark({bookmark}) {
     []
 }
 
-export function SetMark({sha, setBookmark}) {
+export function SetMark({pathname,sha, setBookmark}) {
   const [ready, setStatus] = useState(false)
   useEffect(() => {
     if (sha) setStatus(true)
@@ -38,8 +37,8 @@ export function SetMark({sha, setBookmark}) {
   function setMark() {
     if (!sha) return message.error("添加书签失败");
     let scrollHeight = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop
-    document.cookie = `blog_bookmark=${sha}-${scrollHeight};max-age=31536000 ; path=/`
-    setBookmark(`${sha}-${scrollHeight}`)
+    document.cookie = `blog_bookmark=${pathname}-${sha}-${scrollHeight};max-age=31536000 ; path=/`
+    setBookmark(`${pathname}-${sha}-${scrollHeight}`)
     message.success("成功添加书签");
   }
 

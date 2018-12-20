@@ -1,6 +1,6 @@
 import React from 'react'
 import {List, Divider, Row} from 'antd';
-import ArticleListCard from "../home-article/ArticleListCard";
+import ArticleListCard from "../share-components/ArticleListCard";
 import TagsCol from "../share-components/TagsCol";
 import {linkTo} from "../routes/linkPathList";
 
@@ -113,7 +113,8 @@ export default class SearchDrawerListLazyScroll extends React.Component {
         </Row>
         <Divider orientation={"left"} style={styles.divider}>文章</Divider>
         {renderArticles.map((item, i) => (
-          <ArticleListCard hoverable
+          <ArticleListCard key={i}
+                           hoverable
                            bordered={false}
                            linkToPath={linkTo.articles+"/"+item.uniqueID}
                            bodyStyle={styles.card_pure_body}

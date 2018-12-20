@@ -2,20 +2,27 @@ import React from 'react';
 import { Card } from 'antd';
 // import ArticleStatusBar from "./ArticleStatusBar";
 import {navigate} from "@reach/router";
-import {linkTo} from "../routes/linkPathList";
+// import {linkTo} from "../routes/linkPathList";
 import {deepEqual} from "../utils/index";
-import ArticleHeaderProps from "../share-components/ArticleHeaderProps";
-import {ArticleListCardDefaultProps} from '../defaultProps'
+import ArticleHeaderProps from "./ArticleHeaderProps";
+// import {ArticleListCardDefaultProps} from '../defaultProps'
+import {linkTo} from "../routes/linkPathList";
 
-const {
-  titlePropDefault,
-  singleRenderPropsOnHeaderDefault,
-  multiRenderPropsOnHeaderDefault,
-  showCommentDefault,
-  getContentDetailPathDefault
-}=ArticleListCardDefaultProps
+// const {
+//   singleRenderPropsOnHeaderDefault,
+//   multiRenderPropsOnHeaderDefault,
+//   showCommentDefault,
+//   getContentDetailPathDefault
+// }=ArticleListCardDefaultProps
 
 export default class ArticleListCard extends React.Component {
+  static defaultProps={
+    getContentDetailPath:curPropsData=>linkTo.articles+"/"+curPropsData.uniqueID,
+    singleRenderPropsOnHeader:[{val:'createdTime'}],
+    multiRenderPropsOnHeader:[{val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`}],
+    showCommentDefault:{title:'title',sha:'uniqueID'}
+  }
+
   constructor() {
     super()
     this.navigateToPath=this.navigateToPath.bind(this)
@@ -29,6 +36,7 @@ export default class ArticleListCard extends React.Component {
 
   navigateToPath(path,e){
     const {beforeNavigate}=this.props
+    // console.log(e.target)
     if(e.target.className.includes('tag'))return
     if(beforeNavigate)beforeNavigate()
     navigate(path)
@@ -37,7 +45,7 @@ export default class ArticleListCard extends React.Component {
   render() {
 
     const {
-      titleProp,
+      title,
       curPropsData,
       summary,
       getContentDetailPath,
@@ -48,26 +56,24 @@ export default class ArticleListCard extends React.Component {
       bodyStyle
     }=this.props
 
-    let _getPath=getContentDetailPath
-      ? getContentDetailPath(curPropsData)
-      : getContentDetailPathDefault(curPropsData)
+
     return (
       <Card hoverable
             bordered={false}
             style={cardStyle}
             bodyStyle={bodyStyle}
             onClick={
-        this.navigateToPath.bind(this,_getPath)
+        this.navigateToPath.bind(this,getContentDetailPath(curPropsData))
       } >
         <div>
-          <div>{curPropsData[titleProp || titlePropDefault]}</div>
+          <div>{title|| curPropsData['title']}</div>
           {
             curPropsData
               ? <div>
                   <ArticleHeaderProps curContentData={curPropsData}
-                                      singleRenderPropsOnHeader={singleRenderPropsOnHeader || singleRenderPropsOnHeaderDefault}
-                                      multiRenderPropsOnHeader={multiRenderPropsOnHeader || multiRenderPropsOnHeaderDefault}
-                                      showComment={showComment==null ? showCommentDefault :showComment }/>
+                                      singleRenderPropsOnHeader={singleRenderPropsOnHeader }
+                                      multiRenderPropsOnHeader={multiRenderPropsOnHeader }
+                                      showComment={showComment}/>
                 </div>
               : null
           }
