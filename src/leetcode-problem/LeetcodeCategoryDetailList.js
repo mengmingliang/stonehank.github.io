@@ -3,7 +3,7 @@ import {List} from 'antd';
 
 import TagHeader from "../category/TagHeader";
 import ArticleListCard from "../share-components/ArticleListCard";
-import {linkTo} from "../routes/linkPathList";
+import defaultProps from "./listCardDefaultProps";
 
 
 
@@ -37,20 +37,13 @@ export default class LeetcodeCategoryDetailList extends React.Component {
                                    cardStyle={styles.card}
                                    title={
                                      <div style={{display:"flex"}}>
-                                       <span>{item.uniqueID}、{item.title}</span>
+                                       <b>{item.uniqueID}、{item.title}</b>
                                      </div>
                                    }
                                    curPropsData={item}
-                                   getContentDetailPath={(curPropsData)=>linkTo.myleetcode+"/problems/"+curPropsData.uniqueID}
-                                   singleRenderPropsOnHeader={[{
-                                     val:'difficult',
-                                     ele:'tag',
-                                     getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
-                                   }]}
-                                   multiRenderPropsOnHeader={[
-                                     {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-                                     {val:'lang'}
-                                   ]}
+                                   getContentDetailPath={defaultProps.getContentDetailPath}
+                                   singleRenderPropsOnHeader={defaultProps.singleRenderPropsOnHeader}
+                                   multiRenderPropsOnHeader={defaultProps.multiRenderPropsOnHeader}
                                    showComment={false} />
                 )} />
     )

@@ -19,16 +19,17 @@ import HeaderPure from "./tools/HeaderPure"
 import {GetMark} from "./bookmark/Bookmark";
 import BookmarkContext from "./bookmark/BookmarkContext";
 import {linkTo} from "./routes/linkPathList";
-
-import './css/github-markdown-css.css'
-import './css/github.min.css'
-import './css/index.css';
-
 import SourceCode from "./source-code/SourceCode";
 import MyLeetcode from "./leetcode-problem/MyLeetcodeContainer";
 import ArticleDetailComponent from "./share-components/ArticleDetailComponent";
 import LeetcodeDetailComponent from "./share-components/ArticleDetailComponent";
 import LeetcodeCategoryDetail from "./leetcode-problem/LeetcodeCategoryDetail";
+import defaultProps from "./leetcode-problem/listCardDefaultProps";
+
+import './css/github-markdown-css.css'
+import './css/github.min.css'
+import './css/index.css';
+
 
 
 const styles={
@@ -212,7 +213,6 @@ export default class BlogLayout extends React.Component {
 
             <SearchContainerBeat data={initArticles}
                                  id={"slide-checkbox1"}
-                                 detailPathname={linkTo.articles}
                                  simpleSearchProps={['title','createdTime']}
                                  complicateSearchProps={[{prop:'summary',globalProp:'content'}]}
                                  read_content_path={read_blog_path}
@@ -271,21 +271,13 @@ export default class BlogLayout extends React.Component {
                                                  titleProp={"title"}
                                                  fetchKeyProp={"uniqueID"}
                                                  wantedPropsFromList={['title','uniqueID','relatedTags','difficult','lang']}
-                                                 wangtedPropsFromContent={['content','code']}
+                                                 wantedPropsFromContent={['content','code']}
                                                  showComment={false}
                                                  read_content_path={read_leetcode_path}
                                                  renderData={leetcodeList}
                                                  fetchContentList={this.fetchLeetcodeList}
-                                                 // justify={"center"}
-                                                 singleRenderPropsOnHeader={[{
-                                                   val:'difficult',
-                                                   ele:'tag',
-                                                   getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
-                                                 }]}
-                                                 multiRenderPropsOnHeader={[
-                                                   {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-                                                   {val:'lang'}
-                                                   ]} />
+                                                 singleRenderPropsOnHeader={defaultProps.singleRenderPropsOnHeader}
+                                                 multiRenderPropsOnHeader={defaultProps.multiRenderPropsOnHeader}/>
 
                         <LeetcodeCategoryDetail path={`${linkTo.myleetcode}/:tag`}
                                                 renderData={leetcodeCategory}
@@ -297,7 +289,7 @@ export default class BlogLayout extends React.Component {
 
                         <ArticleDetailComponent path={`${linkTo.articles}/:fetchKey`}
                                                 wantedPropsFromList={['title','createdTime','relatedTags','uniqueID']}
-                                                wangtedPropsFromContent={['content']}
+                                                wantedPropsFromContent={['content']}
                                                 read_content_path={read_blog_path}
                                                 renderData={initArticles}
                                                 fetchContentList={this.fetchBlogList} />

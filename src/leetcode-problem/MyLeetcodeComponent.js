@@ -1,13 +1,9 @@
 import React from 'react'
 import TagsBlock from "../share-components/TagsBlock";
 import {Button, Icon,Layout,List} from 'antd';
-import {linkTo} from "../routes/linkPathList";
 import ArticleListCard from "../share-components/ArticleListCard";
-// import SearchContainer from "../search/SearchContainer";
 import SearchContainerBeat from "../search/SearchContainerBeat";
-// import TagLight from "../share-components/TagLight";
-// import { Router,Location } from "@reach/router";
-// import MyLeetcodeDetail from '../share-components/ArticleDetailComponent'
+import defaultProps from "./listCardDefaultProps";
 
 const { Content} = Layout;
 const styles={
@@ -45,7 +41,7 @@ export default class MyLeetcodeComponent extends React.Component{
           ? <div>
             <SearchContainerBeat data={renderContent}
                                  id={"slide-checkbox2"}
-                                 detailPathname={`${linkTo.myleetcode}/problems`}
+                                 getContentDetailPath={defaultProps.getContentDetailPath}
                                  simpleSearchProps={['title']}
                                  complicateSearchProps={[{globalProp:'content'}]}
                                  read_content_path={read_content_path}
@@ -64,20 +60,13 @@ export default class MyLeetcodeComponent extends React.Component{
                                  cardStyle={styles.card}
                                  title={
                                    <div style={{display:"flex"}}>
-                                     <span>{item.uniqueID}、{item.title}</span>
+                                     <b>{item.uniqueID}、{item.title}</b>
                                    </div>
                                  }
                                  curPropsData={item}
-                                 getContentDetailPath={(curPropsData)=>linkTo.myleetcode+"/problems/"+curPropsData.uniqueID}
-                                 singleRenderPropsOnHeader={[{
-                                   val:'difficult',
-                                   ele:'tag',
-                                   getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
-                                 }]}
-                                 multiRenderPropsOnHeader={[
-                                   {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-                                   {val:'lang'}
-                                 ]}
+                                 getContentDetailPath={defaultProps.getContentDetailPath}
+                                 singleRenderPropsOnHeader={defaultProps.singleRenderPropsOnHeader}
+                                 multiRenderPropsOnHeader={defaultProps.multiRenderPropsOnHeader}
                                  showComment={false}
                   />
                 ))}

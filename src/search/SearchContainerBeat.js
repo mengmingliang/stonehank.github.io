@@ -347,7 +347,7 @@ export default class SearchContainerBeat extends React.Component {
 
   render() {
     const {controlledValue,searchKeyword, matchTags, matchArticles, drawShow, globalFetching, globalSearch} = this.state
-    const {detailPathname,simpleSearchProps}=this.props
+    const {simpleSearchProps,getContentDetailPath}=this.props
     return (
       <React.Fragment>
         <SearchComponent globalFetching={globalFetching}
@@ -362,7 +362,7 @@ export default class SearchContainerBeat extends React.Component {
                       searchKeyword={searchKeyword}
                       matchArticles={matchArticles}
                       drawShow={drawShow}
-                      detailPathname={detailPathname}
+                      getContentDetailPath={getContentDetailPath}
                       simpleSearchProps={simpleSearchProps}
                       onChange={this.onChangeHandle}
                       clearSearchInput={this.clearSearchInput}

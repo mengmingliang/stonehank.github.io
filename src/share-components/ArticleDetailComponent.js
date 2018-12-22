@@ -88,7 +88,7 @@ export default class ArticleDetailComponent extends React.Component{
     }
   }
   componentDidUpdate(){
-    const {fetchKey,read_content_path,renderData,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
+    const {fetchKey,read_content_path,renderData,fetchKeyProp,wantedPropsFromList,wantedPropsFromContent}=this.props
     const {curFetchKey}=this.state
     if(!renderData)return
     if(fetchKey!==curFetchKey){
@@ -101,7 +101,7 @@ export default class ArticleDetailComponent extends React.Component{
         return false
       })
       // console.log(curContentListProps,fetchKey,fetchKeyProp,renderData)
-      fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wangtedPropsFromContent)
+      fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wantedPropsFromContent)
         .then(obj=>{
           this.bookmarkScroll()
           this.setState({
@@ -119,7 +119,7 @@ export default class ArticleDetailComponent extends React.Component{
   }
 
   componentDidMount(){
-    const {fetchKey,read_content_path,renderData,fetchContentList,fetchKeyProp,wantedPropsFromList,wangtedPropsFromContent}=this.props
+    const {fetchKey,read_content_path,renderData,fetchContentList,fetchKeyProp,wantedPropsFromList,wantedPropsFromContent}=this.props
     if(!renderData) fetchContentList()
     else {
       // console.log(renderData)
@@ -131,7 +131,7 @@ export default class ArticleDetailComponent extends React.Component{
         return false
       })
       // console.log(curContentListProps,fetchKey,fetchKeyProp,renderData)
-      fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wangtedPropsFromContent)
+      fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wantedPropsFromContent)
         .then(contentData => {
           this.bookmarkScroll()
           this.setState({
@@ -160,7 +160,7 @@ export default class ArticleDetailComponent extends React.Component{
       location,
       titleProp,
       showComment,
-      wangtedPropsFromContent,
+      wantedPropsFromContent,
       singleRenderPropsOnHeader,
       multiRenderPropsOnHeader,
       justify}=this.props
@@ -179,7 +179,7 @@ export default class ArticleDetailComponent extends React.Component{
             />
           </header>
           {
-            wangtedPropsFromContent.map((prop,i)=>{
+            wantedPropsFromContent.map((prop,i)=>{
               return <div className="markdown-body" key={i} style={styles.contentDiv} dangerouslySetInnerHTML={{__html: curPropsData[prop]}}/>
             })
           }

@@ -20,7 +20,7 @@ export default class SearchDrawerComponent extends React.Component {
 
   render() {
 
-    const {matchTags, clearSearchInput,lazyRenderData,detailPathname,simpleSearchProps} = this.props
+    const {matchTags, clearSearchInput,lazyRenderData,getContentDetailPath,simpleSearchProps} = this.props
 
     let newSingleRenderPropsOnHeader=[]
     for(let i=0;i<simpleSearchProps.length;i++){
@@ -47,7 +47,7 @@ export default class SearchDrawerComponent extends React.Component {
         <Divider orientation={"left"} style={styles.divider}>文章</Divider>
         {lazyRenderData.map((item, i) => (
           <ArticleListCard key={i}
-                           getContentDetailPath={(item)=>detailPathname+"/"+item.uniqueID}
+                           getContentDetailPath={getContentDetailPath}
                            bodyStyle={styles.card_pure_body}
                            style={styles.card}
                            title={<b dangerouslySetInnerHTML={{__html: item.title}}/>}
