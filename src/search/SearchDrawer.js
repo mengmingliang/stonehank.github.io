@@ -22,7 +22,7 @@ export default class SearchDrawer extends React.Component {
 
   render() {
     // console.log("searchDrawer render")
-    const {matchTags,matchArticles,drawShow,handleDrawerClose,onChange,clearSearchInput,controlledValue,searchKeyword}=this.props
+    const {matchTags,matchArticles,drawShow,handleDrawerClose,onChange,clearSearchInput,controlledValue,searchKeyword,detailPathname,simpleSearchProps}=this.props
     const canShow=matchArticles && handleDrawerClose
     return (
       canShow
@@ -37,6 +37,8 @@ export default class SearchDrawer extends React.Component {
                   visible={drawShow}
                   wrapperClassName={wrapperClassName} >
             <SearchScrollComponentLazyScroll allData={matchArticles}
+                                             detailPathname={detailPathname}
+                                             simpleSearchProps={simpleSearchProps}
                                              wrapperEle={()=>document.getElementsByClassName(wrapperClassName)[0].getElementsByClassName("ant-drawer-wrapper-body")[0]}
                                              contentEle={()=>document.getElementsByClassName(wrapperClassName)[0].getElementsByClassName("ant-drawer-body")[0]}
                                              matchTags={matchTags}

@@ -13,7 +13,8 @@ import CategoryDetail from './category/CategoryDetail'
 import NavSiderWrapper from "./nav/NavSiderWrapper";
 import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
-import SearchContainer from "./search/SearchContainer"
+// import SearchContainer from "./search/SearchContainer"
+import SearchContainerBeat from "./search/SearchContainerBeat"
 import HeaderPure from "./tools/HeaderPure"
 import {GetMark} from "./bookmark/Bookmark";
 import BookmarkContext from "./bookmark/BookmarkContext";
@@ -209,9 +210,13 @@ export default class BlogLayout extends React.Component {
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <HeaderPure style={styles.layout_header} >
 
-            <SearchContainer data={initArticles}
-                             read_blog_path={read_blog_path}
-                             tagsList={categoryArticles && Object.keys(categoryArticles)} />
+            <SearchContainerBeat data={initArticles}
+                                 id={"slide-checkbox1"}
+                                 detailPathname={linkTo.articles}
+                                 simpleSearchProps={['title','createdTime']}
+                                 complicateSearchProps={[{prop:'summary',globalProp:'content'}]}
+                                 read_content_path={read_blog_path}
+                                 tagsList={categoryArticles && Object.keys(categoryArticles)} />
 
             <BookmarkContext.Consumer>
               {({bookmark})=> <GetMark bookmark={bookmark} />}
@@ -258,6 +263,7 @@ export default class BlogLayout extends React.Component {
                         <MyLeetcode path={`${linkTo.myleetcode}`}
                                     initLeetcodeData={leetcodeData}
                                     leetcodeRenderMode={leetcodeRenderMode}
+                                    read_content_path={read_leetcode_path}
                                     fetchLeetcodeList={this.fetchLeetcodeList}
                                     toggleRenderMode={this.toggleRenderMode}/>
 
@@ -278,7 +284,7 @@ export default class BlogLayout extends React.Component {
                                                  }]}
                                                  multiRenderPropsOnHeader={[
                                                    {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-                                                   {val:'lang',ele:'tag'}
+                                                   {val:'lang'}
                                                    ]} />
 
                         <LeetcodeCategoryDetail path={`${linkTo.myleetcode}/:tag`}

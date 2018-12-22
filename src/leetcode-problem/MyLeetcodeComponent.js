@@ -3,6 +3,8 @@ import TagsBlock from "../share-components/TagsBlock";
 import {Button, Icon,Layout,List} from 'antd';
 import {linkTo} from "../routes/linkPathList";
 import ArticleListCard from "../share-components/ArticleListCard";
+// import SearchContainer from "../search/SearchContainer";
+import SearchContainerBeat from "../search/SearchContainerBeat";
 // import TagLight from "../share-components/TagLight";
 // import { Router,Location } from "@reach/router";
 // import MyLeetcodeDetail from '../share-components/ArticleDetailComponent'
@@ -24,7 +26,7 @@ export default class MyLeetcodeComponent extends React.Component{
 
   }
   render(){
-    const {leetcodeRenderMode,toggleModeDataStructure,renderContent,page,pageSize,handlePageChange,totalPage,toggleSorted}=this.props
+    const {leetcodeRenderMode,read_content_path,toggleModeDataStructure,renderContent,page,pageSize,handlePageChange,totalPage,toggleSorted}=this.props
     const listPageSetting={
       style:styles.list_pagi_style,
       current:page,
@@ -40,7 +42,15 @@ export default class MyLeetcodeComponent extends React.Component{
           </Button>
         </div>
         { leetcodeRenderMode === "list"
-          ? <List split={false}
+          ? <div>
+            <SearchContainerBeat data={renderContent}
+                                 id={"slide-checkbox2"}
+                                 detailPathname={`${linkTo.myleetcode}/problems`}
+                                 simpleSearchProps={['title']}
+                                 complicateSearchProps={[{globalProp:'content'}]}
+                                 read_content_path={read_content_path}
+                                  />
+            <List split={false}
                   header={
                     <div>
                       <Button onClick={()=>{toggleSorted('uniqueID')}}>id</Button>
@@ -55,7 +65,7 @@ export default class MyLeetcodeComponent extends React.Component{
                                  title={
                                    <div style={{display:"flex"}}>
                                      <span>{item.uniqueID}、{item.title}</span>
-                                    </div>
+                                   </div>
                                  }
                                  curPropsData={item}
                                  getContentDetailPath={(curPropsData)=>linkTo.myleetcode+"/problems/"+curPropsData.uniqueID}
@@ -69,9 +79,10 @@ export default class MyLeetcodeComponent extends React.Component{
                                    {val:'lang'}
                                  ]}
                                  showComment={false}
-                />
+                  />
                 ))}
-            </List>
+              </List>
+            </div>
           : <TagsBlock articles={renderContent}
                        linkToProps={"myleetcode"}
                        showCount={true}

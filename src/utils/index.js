@@ -259,6 +259,17 @@ export function inHTMLTag(patternValue,content,preIdx){
     return true
   }
 }
+
+export function ignoreInterceptTags(str){
+  let newStr=str
+  let result= str.match(/^[^<.]*>/)
+  if(result){
+    let idx=result.index,len=result[0].length
+    newStr=str.substring(0,idx)+str.substring(idx+len)
+  }
+  return newStr
+}
+
 export function searchPrecision(patternValue,content,fromIndex=0){
   patternValue=patternValue.replace(/(\(|\)|\[|\]|\\|\/|\+|\*|\.|\?|\^|\$|!|:)/g,"\\$1")
   let _content=content.substr(fromIndex),result,regPattern=''

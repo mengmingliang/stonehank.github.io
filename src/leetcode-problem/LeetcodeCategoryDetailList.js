@@ -49,7 +49,7 @@ export default class LeetcodeCategoryDetailList extends React.Component {
                                    }]}
                                    multiRenderPropsOnHeader={[
                                      {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-                                     {val:'lang',ele:'tag'}
+                                     {val:'lang'}
                                    ]}
                                    showComment={false} />
                 )} />

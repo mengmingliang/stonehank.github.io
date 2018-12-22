@@ -2,7 +2,6 @@ import React from 'react'
 import {List, Divider, Row} from 'antd';
 import ArticleListCard from "../share-components/ArticleListCard";
 import TagsCol from "../share-components/TagsCol";
-import {linkTo} from "../routes/linkPathList";
 
 
 const styles = {
@@ -21,7 +20,17 @@ export default class SearchDrawerComponent extends React.Component {
 
   render() {
 
-    const {matchTags, clearSearchInput,lazyRenderData} = this.props
+    const {matchTags, clearSearchInput,lazyRenderData,detailPathname,simpleSearchProps} = this.props
+
+    let newSingleRenderPropsOnHeader=[]
+    for(let i=0;i<simpleSearchProps.length;i++){
+      let cur=simpleSearchProps[i]
+      let val
+      if(typeof cur==="string")val=cur
+      else val=cur.prop
+      if(val==="title")continue
+      newSingleRenderPropsOnHeader.push({val:val})
+    }
     return (
       <List
         size="small">
@@ -38,22 +47,18 @@ export default class SearchDrawerComponent extends React.Component {
         <Divider orientation={"left"} style={styles.divider}>文章</Divider>
         {lazyRenderData.map((item, i) => (
           <ArticleListCard key={i}
-                           hoverable
-                           bordered={false}
-                           linkToPath={linkTo.articles+"/"+item.uniqueID}
+                           getContentDetailPath={(item)=>detailPathname+"/"+item.uniqueID}
                            bodyStyle={styles.card_pure_body}
                            style={styles.card}
-                           title={<div dangerouslySetInnerHTML={{__html: item.title}}/>}
+                           title={<b dangerouslySetInnerHTML={{__html: item.title}}/>}
                            summary={<div style={styles.summary}
                                          dangerouslySetInnerHTML={{__html: item.matchContent}}/>}
                            beforeNavigate={clearSearchInput}
                            curPropsData={item}
-                           singleRenderPropsOnHeader={[{
-                             val:'createdTime',
-                           }]}
-                           multiRenderPropsOnHeader={[
-                             {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
-                           ]}
+                           singleRenderPropsOnHeader={newSingleRenderPropsOnHeader}
+                           // multiRenderPropsOnHeader={[
+                           //   {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
+                           // ]}
                            showComment={false}
           />
         ))}

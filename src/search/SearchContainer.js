@@ -3,7 +3,7 @@ import { Modal,message} from 'antd';
 import SearchDrawer from "./SearchDrawer";
 import {inHTMLTag,searchPrecision} from '../utils/index'
 import SearchConfirmSize from "./SearchConfirmSize";
-import SearchComponent from "./SearchComponent";
+import SearchComponent from "./SearchComponentHOC";
 
 const confirm = Modal.confirm;
 
