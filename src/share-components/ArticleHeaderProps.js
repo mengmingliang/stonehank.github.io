@@ -41,59 +41,69 @@ export default class ArticleHeaderProps extends React.Component{
 
 
   render(){
-    const {curContentData,singleRenderPropsOnHeader,multiRenderPropsOnHeader,showComment,...props}=this.props
-    // let _singleRenderPropsOnHeader
-    // if(!singleRenderPropsOnHeader)
-    // console.log(showComment,curContentData)
+    const {curContentData,oneRow,singleRenderPropsOnHeader,multiRenderPropsOnHeader,showComment,...props}=this.props
+
     return (
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
         { singleRenderPropsOnHeader
-          ? singleRenderPropsOnHeader.map((prop,i)=>{
-            // console.log(singleRenderPropsOnHeader)
-            let link=prop.link,eleMode=prop.ele,tagStyle=prop.tagStyle,propVal=curContentData[prop.val],getClassName=prop.getClassName
-            return (
-              <Col key={i}>
-                <CheckLinkWrap link={link} propVal={propVal}>
-                  <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={propVal}>
-                    {/*<div dangerouslySetInnerHTML={{__html:propVal || "未知"}} />*/}
-                    {propVal || "未知"}
-                  </CheckTagWrap>
-                </CheckLinkWrap>
-              </Col>
-            )})
+          ? <div style={oneRow ? {display:'flex',flexBasis:100} : {display:'flex',flexFlow:'row'}}>
+            {
+              singleRenderPropsOnHeader.map((prop,i)=>{
+                let link=prop.link,eleMode=prop.ele,tagStyle=prop.tagStyle,propVal=curContentData[prop.val],getClassName=prop.getClassName
+                return (
+                  <Col key={i}>
+                    <CheckLinkWrap link={link} propVal={propVal}>
+                      <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={propVal}>
+                        {/*<div dangerouslySetInnerHTML={{__html:propVal || "未知"}} />*/}
+                        {propVal || "未知"}
+                      </CheckTagWrap>
+                    </CheckLinkWrap>
+                  </Col>
+                )})
+            }
+            </div>
           : null
         }
         { multiRenderPropsOnHeader
-          ? multiRenderPropsOnHeader.map((props,i)=>{
-            let link=props.link,eleMode=props.ele,tagStyle=props.tagStyle,propVal=props.val,getClassName=props.getClassName
-            return (
-              <Col key={i} >
-                { curContentData[propVal]
-                  ? curContentData[propVal].map((prop,j)=>{
-                      return (
-                        <CheckLinkWrap key={j} link={link} propVal={prop}>
-                          <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={prop}>
-                            {/*<div dangerouslySetInnerHTML={{__html:prop || "未知"}} />*/}
-                            {prop || "未知"}
-                          </CheckTagWrap>
-                        </CheckLinkWrap>
-                       )
+          ? <div style={ oneRow
+            ?{display:'flex',flex:3,justifyContent:'space-between'}
+            :{display:'flex',flexFlow:'row',justifyContent:'start'}
+          }>
+            {
+              multiRenderPropsOnHeader.map((props,i)=>{
+                let link=props.link,eleMode=props.ele,tagStyle=props.tagStyle,propVal=props.val,getClassName=props.getClassName
+                // console.log(propVal,curContentData[propVal])
+                return (
+                  <Col key={i} style={oneRow ?{flex:1} : null}>
+                    { curContentData[propVal]
+                      ? curContentData[propVal].map((prop,j)=>{
+                        return (
+                          <CheckLinkWrap key={j} link={link} propVal={prop}>
+                            <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={prop}>
+                              {/*<div dangerouslySetInnerHTML={{__html:prop || "未知"}} />*/}
+                              {prop || "未知"}
+                            </CheckTagWrap>
+                          </CheckLinkWrap>
+                        )
                       })
-                  : null
-                }
-              </Col>
-             )
-            })
+                      : null
+                    }
+                  </Col>
+                )
+              })
+            }
+            </div>
           : null
         }
-        <Col>
-          {showComment
-            ? <CustomComment.Count title={curContentData[showComment.title]}
+        { showComment
+          ? <Col>
+              <CustomComment.Count title={curContentData[showComment.title]}
                                    sha={curContentData[showComment.sha]}
                                    locationOrigin={window.location.origin} />
-            : null
-          }
-        </Col>
+            </Col>
+          : null
+        }
+
       </Row>
     )
   }

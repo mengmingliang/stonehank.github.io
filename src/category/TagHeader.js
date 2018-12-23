@@ -7,13 +7,15 @@ const styles={
   icon:{color: "#46a6ff",marginRight:4}
 }
 export default class TagHeader extends React.PureComponent {
-
+  static defaultProps={
+    linkToProp:'category'
+  }
   render() {
-    const {tag}=this.props
+    const {tag,linkToProp}=this.props
     return (
       <strong>
         <Icon type="tag" style={styles.icon} />
-        <Link to={`${linkTo.category}/${tag}`}>
+        <Link to={`${linkTo[linkToProp]}/${tag}`}>
           <Tag color="blue">{tag}</Tag>
         </Link>
       </strong>

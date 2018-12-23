@@ -14,7 +14,7 @@ import NavSiderWrapper from "./nav/NavSiderWrapper";
 import {refactor,objSortBy,objGroupBy} from './utils'
 import NotFound from "./tools/NotFound";
 // import SearchContainer from "./search/SearchContainer"
-import SearchContainerBeat from "./search/SearchContainerBeat"
+import SearchContainer from "./search/SearchContainer"
 import HeaderPure from "./tools/HeaderPure"
 import {GetMark} from "./bookmark/Bookmark";
 import BookmarkContext from "./bookmark/BookmarkContext";
@@ -211,12 +211,13 @@ export default class BlogLayout extends React.Component {
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
           <HeaderPure style={styles.layout_header} >
 
-            <SearchContainerBeat data={initArticles}
-                                 id={"slide-checkbox1"}
-                                 simpleSearchProps={['title','createdTime']}
-                                 complicateSearchProps={[{prop:'summary',globalProp:'content'}]}
-                                 read_content_path={read_blog_path}
-                                 tagsList={categoryArticles && Object.keys(categoryArticles)} />
+            <SearchContainer data={initArticles}
+                             id={"slide-checkbox1"}
+                             needGlobalMode={true}
+                             simpleSearchProps={['title','createdTime']}
+                             complicateSearchProps={[{prop:'summary',globalProp:'content'}]}
+                             read_content_path={read_blog_path}
+                             tagsList={categoryArticles && Object.keys(categoryArticles)} />
 
             <BookmarkContext.Consumer>
               {({bookmark})=> <GetMark bookmark={bookmark} />}

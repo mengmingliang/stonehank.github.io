@@ -1,9 +1,12 @@
 import React from 'react';
 import { Modal,message} from 'antd';
 import SearchDrawer from "./SearchDrawer";
-import {inHTMLTag,searchPrecision} from '../utils/index'
+import {inHTMLTag,searchPrecision,ignoreInterceptTags} from '../utils/index'
 import SearchConfirmSize from "./SearchConfirmSize";
-import SearchComponent from "./SearchComponentHOC";
+import SearchInputComponent from "./SearchInputComponent";
+// import SlideCheckBox from "../tools/SlideCheckBox";
+
+// const SearchComponent=SearchComponentHOC(SlideCheckBox)
 
 const confirm = Modal.confirm;
 
@@ -55,121 +58,148 @@ export default class SearchContainer extends React.Component {
     // console.time(2)
     if (patternValue === "") return []
     const {data, globalSearch} = this.state
+    const {simpleSearchProps,complicateSearchProps}=this.props
     if (globalSearch && this.globalMem[patternValue]) {
       return this.globalMem[patternValue]
     }
     if (!globalSearch && this.localMem[patternValue]) {
       return this.localMem[patternValue]
     }
-    let matchResultObj = {
-      _first:[],_second:[],_third:[],_forth: [], _fifth: [], _sixth: []
+
+    let finalMathResultArr=[]
+    function searchCore(pattern,content,precisionMatchArr,propIdx,fromIndex){
+      let matchIndex,precisionIndex=searchPrecision(pattern,content,fromIndex)
+      if(precisionIndex===null)matchIndex= -1
+      else if(precisionIndex!==-1){precisionMatchArr[propIdx]=1;matchIndex=precisionIndex}
+      else matchIndex = content.indexOf(patternValue,fromIndex)
+      return matchIndex
     }
-    for (let i = 0; i < data.length; i++) {
-      let isPrec={
-        content:false,
-        title:false,
-        date:false
-      }
 
-      let markdownSummary = globalSearch ? data[i].content : data[i].summary
-      let markdownTitle = data[i].title
-      let markdownCreatedTime=data[i].createdTime
-      let lowerCaseTitle=markdownTitle.toLowerCase()
-      let lowerCaseSummary=markdownSummary.toLowerCase()
-      let lowerCaseDate=markdownCreatedTime.toLowerCase()
-
-
-      function searchCore(pattern,content,isPrecName,fromIndex){
-        let matchIndex,precisionIndex=searchPrecision(pattern,content,fromIndex)
-        if(precisionIndex===null)matchIndex= -1
-        else if(precisionIndex!==-1){isPrec[isPrecName]=true;matchIndex=precisionIndex}
-        else matchIndex = content.indexOf(patternValue,fromIndex)
-        return matchIndex
-      }
-
-      let titleMatchIndex=searchCore(patternValue,lowerCaseTitle,'title'),
-        contentMatchIndex=searchCore(patternValue,lowerCaseSummary,'content'),
-        dateMatchIndex=searchCore(patternValue,lowerCaseDate,'date')
-
-      let titlePrefix, titleAffix, titleFix, contentPrefix, contentAffix, contentFix, datePrefix, dateAffix, dateFix
-      // 存在关键字，分割(为了添加背景色)
-      if(dateMatchIndex !== -1){
-        datePrefix = data[i].createdTime.substr(0, dateMatchIndex)
-        dateFix = data[i].createdTime.substr(dateMatchIndex, patternValue.length)
-        dateAffix = data[i].createdTime.substr(dateMatchIndex + patternValue.length)
-      }
-
-      if (titleMatchIndex !== -1) {
-        titlePrefix = data[i].title.substr(0, titleMatchIndex)
-        titleFix = data[i].title.substr(titleMatchIndex, patternValue.length)
-        titleAffix = data[i].title.substr(titleMatchIndex + patternValue.length)
-      }
-      if (contentMatchIndex !== -1) {
+    function simpleSplit(obj,curProp,matchIdx,patternValue){
+      let prefix=null,match=null,affix=null
+      if (matchIdx === -1) return [prefix,match,affix]
+      prefix = obj[curProp].substr(0, matchIdx)
+      match = obj[curProp].substr(matchIdx, patternValue.length)
+      affix = obj[curProp].substr(matchIdx + patternValue.length)
+      return [prefix,match,affix]
+    }
+    function complicateSplit(obj,curProp,precisionMatchArr,propIdx,matchIdx,patternValue){
+      let prefix=null,match=null,affix=null
+      if (matchIdx !== -1) {
         const lo = 50, hi = 100
-        let contentMatchPart=lowerCaseSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
+        let contentMatchPart=obj[curProp].toLowerCase().substring(matchIdx - lo, matchIdx + hi)
         // 去除tag内部内容
-        while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(contentMatchIndex,lo))){
-            isPrec['content']=false
-            contentMatchIndex=searchCore(patternValue,lowerCaseSummary,'content',contentMatchIndex+patternValue.length)
-            if(contentMatchIndex!==-1)contentMatchPart=markdownSummary.substring(contentMatchIndex - lo, contentMatchIndex + hi)
-            else break
+        while(inHTMLTag(patternValue,contentMatchPart.toLowerCase(),Math.min(matchIdx,lo))){
+          precisionMatchArr[propIdx]=0
+          matchIdx=searchCore(patternValue,obj[curProp].toLowerCase(),precisionMatchArr,propIdx,matchIdx+patternValue.length)
+          if(matchIdx!==-1)contentMatchPart=obj[curProp].substring(matchIdx - lo, matchIdx + hi)
+          else break
         }
-        if(contentMatchIndex===-1){continue}
-
-        contentPrefix = markdownSummary.substring(contentMatchIndex-lo, contentMatchIndex)
-        contentFix = markdownSummary.substr(contentMatchIndex, patternValue.length)
-        contentAffix = markdownSummary.substr(contentMatchIndex + patternValue.length,hi)
+        // console.log(matchIdx,obj[curProp])
+        if(matchIdx===-1)return [prefix,match,affix,matchIdx]
+        // console.log(matchIdx,lo)
+        prefix = obj[curProp].substring(matchIdx-lo, matchIdx)
+        match = obj[curProp].substr(matchIdx, patternValue.length)
+        affix = obj[curProp].substr(matchIdx + patternValue.length,hi)
       }
-
-      // 添加颜色html
-      function addMatchColor(prefix,match,affix){
-        return `<span>${prefix}<span style="background:yellow">${match}</span>${affix}</span>`
-      }
-
-      let finalMatchDate=
-        dateMatchIndex===-1
-          ? data[i].createdTime
-          : addMatchColor(datePrefix,dateFix,dateAffix)
-
-
-      let finalMatchTitle=
-        titleMatchIndex===-1
-          ? data[i].title
-          : addMatchColor(titlePrefix,titleFix,titleAffix)
-
-      let finalMatchContent=
-        contentMatchIndex===-1
-          ? markdownSummary.substr(0, 100)
-          : addMatchColor(contentPrefix,contentFix,contentAffix)
-
-      let resultObj={
-        title:finalMatchTitle,
-        matchContent:finalMatchContent,
-        uniqueID:data[i].uniqueID,
-        createdTime:finalMatchDate
-      }
-      // 搜索优先度
-      // 1. titlePre && contentPre && datePre
-      // 2. titlePre || datePre
-      // 3. contentPre
-      // 4. title && summary && date
-      // 5. title || date
-      // 6. summary
-
-      let titleIsPrec=isPrec.title,contentIsPrec=isPrec.content,dateIsPrec=isPrec.date
-
-      if(titleIsPrec && contentIsPrec && dateIsPrec) matchResultObj._first.push(resultObj)
-      else if(titleIsPrec || dateIsPrec) matchResultObj._second.push(resultObj)
-      else if(contentIsPrec) matchResultObj._third.push(resultObj)
-      else if (titleMatchIndex !== -1 && contentMatchIndex !== -1 && dateMatchIndex !== -1) matchResultObj._forth.push(resultObj)
-      else if (titleMatchIndex !== -1 || dateMatchIndex !== -1) matchResultObj._fifth.push(resultObj)
-      else if (contentMatchIndex !== -1) matchResultObj._sixth.push(resultObj)
+      return [prefix,match,affix,matchIdx]
     }
-    let result = matchResultObj._first.concat(matchResultObj._second,matchResultObj._third,matchResultObj._forth,matchResultObj._fifth, matchResultObj._sixth)
+
+    // 添加颜色html
+    function addMatchColor(prefix,match,affix){
+      // console.log(prefix,match,affix)
+      prefix=ignoreInterceptTags(prefix)
+      return `<span>${prefix}<span style="background:yellow">${match}</span>${affix}</span>`
+    }
+
+
+    for (let index = 0; index < data.length; index++) {
+
+      let curData=data[index]
+      let precisionMatchArr=Array(simpleSearchProps?simpleSearchProps.length:0 +
+        complicateSearchProps?complicateSearchProps.length:0).fill(0)
+      let weightPoint=0
+      let curResultObj={uniqueID:curData['uniqueID']}
+      let normalMatchArr=[]
+      if(simpleSearchProps){
+        for(let i=0;i<simpleSearchProps.length;i++){
+          let curProp,initProp
+          let curProps=simpleSearchProps[i]
+          if(typeof curProps==="string"){
+            curProp=curProps
+            initProp=curProps
+          }
+          else{
+            let {prop,globalProp}=curProps
+            if(globalProp && globalSearch)curProp=globalProp
+            else curProp=prop
+            initProp=prop
+          }
+          let lowerCase=curData[curProp].toLowerCase()
+          let matchIdx=searchCore(patternValue,lowerCase,precisionMatchArr,i)
+          let [prefix,match,affix]=simpleSplit(curData,curProp,matchIdx,patternValue)
+          let finalMatchDate= matchIdx===-1
+            ? curData[curProp]
+            : addMatchColor(prefix,match,affix)
+          if(matchIdx!==-1){
+            normalMatchArr[i]=1
+          }else{
+            normalMatchArr[i]=0
+          }
+          curResultObj=Object.assign(curResultObj,{[initProp]:finalMatchDate})
+        }
+      }
+      if(complicateSearchProps){
+        for(let j=0;j<complicateSearchProps.length;j++){
+          let complicateProp
+          let complicateProps=complicateSearchProps[j]
+          if(typeof complicateProps==="string")complicateProp=complicateProps
+          else{
+            let {prop,globalProp}=complicateProps
+            if(globalProp && globalSearch)complicateProp=globalProp
+            else complicateProp=prop
+          }
+          if(!complicateProp)continue
+          let lowerCase=curData[complicateProp].toLowerCase()
+          let matchIdx=searchCore(patternValue,lowerCase,precisionMatchArr,simpleSearchProps.length+j)
+
+          let [prefix,match,affix,newMatchIdx]=complicateSplit(curData,complicateProp,precisionMatchArr,simpleSearchProps.length+j,matchIdx,patternValue)
+
+          let finalMatchDate= newMatchIdx===-1
+            ? curData[complicateProp].substring(0,100)
+            : addMatchColor(prefix,match,affix)
+
+
+          if(newMatchIdx!==-1){
+            normalMatchArr[simpleSearchProps.length+j]=1
+          }else{
+            normalMatchArr[simpleSearchProps.length+j]=0
+          }
+          curResultObj=Object.assign(curResultObj,{matchContent:finalMatchDate})
+        }
+      }
+
+      let curWeight=10000
+      let normalWeight=500
+      // console.log(precisionMatchArr)
+      for(let i=0;i<precisionMatchArr.length;i++){
+        if(precisionMatchArr[i]===1){
+          weightPoint+=curWeight/Math.pow(2,i)
+        }
+      }
+      for(let i=0;i<normalMatchArr.length;i++){
+        if(normalMatchArr[i]===1){
+          weightPoint+=normalWeight/Math.pow(2,i)
+        }
+      }
+      if(weightPoint!==0) finalMathResultArr.push([weightPoint,curResultObj])
+
+
+    }
+    let result=finalMathResultArr.sort((a,b)=>b[0]-a[0]).map(arr=>arr[1])
     globalSearch ? this.globalMem[patternValue] = result : this.localMem[patternValue] = result
     // console.timeEnd(2)
-    // console.log(time)
-    // console.log(this.globalMem,this.localMem)
+    // console.log(result,finalMathResultArr)
     return result
   }
 
@@ -177,6 +207,7 @@ export default class SearchContainer extends React.Component {
     if (patternValue === "") return []
     const {tagsList} = this.props
     let matchResult = []
+    if(!Array.isArray(tagsList))return matchResult
     for (let i = 0; i < tagsList.length; i++) {
       let isMatch = tagsList[i].includes(patternValue)
       if (isMatch) matchResult.push(tagsList[i])
@@ -248,18 +279,31 @@ export default class SearchContainer extends React.Component {
 
   fetchGlobal() {
     const {data} = this.state
-    const {read_blog_path}=this.props
+    const {read_content_path}=this.props
     let fetchQueue = []
+
     for (let i = 0; i < data.length; i++) {
-      fetchQueue[i] = import(
-        /* webpackMode: "lazy-once" */
-        /* webpackInclude: /\.json$/ */
-        /* webpackExclude: /_blog-data\.json$/ */
-        /* webpackChunkName: "global-search" */
-        `../${read_blog_path}/${data[i].uniqueID}.json`)
-        .then(({default:obj}) => {
-          data[i].content = obj.content
-        })
+      if(read_content_path.includes('leetcode')){
+        fetchQueue[i] = import(
+          /* webpackMode: "lazy-once" */
+          /* webpackInclude: /\.json$/ */
+          /* webpackExclude: /_.*-list\.json$/ */
+          /* webpackChunkName: "leetcode-global-search" */
+          `../asset/leetcode/${data[i].uniqueID}.json`)
+          .then(({default:obj}) => {
+            data[i].content = obj.content
+          })
+      }else if(read_content_path.includes("blog")){
+        fetchQueue[i] = import(
+          /* webpackMode: "lazy-once" */
+          /* webpackInclude: /\.json$/ */
+          /* webpackExclude: /_.*-list\.json$/ */
+          /* webpackChunkName: "blog-global-search" */
+          `../asset/blog/${data[i].uniqueID}.json`)
+          .then(({default:obj}) => {
+            data[i].content = obj.content
+          })
+      }
     }
     Promise.all(fetchQueue).then(() => {
       this.setState({
@@ -305,19 +349,25 @@ export default class SearchContainer extends React.Component {
 
   render() {
     const {controlledValue,searchKeyword, matchTags, matchArticles, drawShow, globalFetching, globalSearch} = this.state
+    const {simpleSearchProps,getContentDetailPath,id,needGlobalMode,placeholder}=this.props
     return (
       <React.Fragment>
-        <SearchComponent globalFetching={globalFetching}
-                         globalSearch={globalSearch}
-                         controlledValue={controlledValue}
-                         onChangeHandle={this.onChangeHandle}
-                         onSearchHandle={this.onSearchHandle}
-                         toggleGlobalSearch={this.toggleGlobalSearch} />
+        <SearchInputComponent globalFetching={globalFetching}
+                              globalSearch={globalSearch}
+                              id={id}
+                              needGlobalMode={needGlobalMode}
+                              placeholder={placeholder}
+                              controlledValue={controlledValue}
+                              onChangeHandle={this.onChangeHandle}
+                              onSearchHandle={this.onSearchHandle}
+                              toggleGlobalSearch={this.toggleGlobalSearch} />
         <SearchDrawer matchTags={matchTags}
                       controlledValue={controlledValue}
                       searchKeyword={searchKeyword}
                       matchArticles={matchArticles}
                       drawShow={drawShow}
+                      getContentDetailPath={getContentDetailPath}
+                      simpleSearchProps={simpleSearchProps}
                       onChange={this.onChangeHandle}
                       clearSearchInput={this.clearSearchInput}
                       handleDrawerClose={this.handleDrawerClose}/>

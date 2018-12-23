@@ -29,7 +29,7 @@ export default class LeetcodeCategoryDetailList extends React.Component {
                 split={false}
                 style={styles.list}
                 header={
-                  <TagHeader tag={tagName} />
+                  <TagHeader tag={tagName} linkToProp={'myleetcode'}/>
                 }
                 dataSource={lazyRenderData}
                 renderItem={item => (

@@ -1,26 +1,18 @@
 import React from 'react';
 import { Card } from 'antd';
-// import ArticleStatusBar from "./ArticleStatusBar";
 import {navigate} from "@reach/router";
-// import {linkTo} from "../routes/linkPathList";
 import {deepEqual} from "../utils/index";
 import ArticleHeaderProps from "./ArticleHeaderProps";
-// import {ArticleListCardDefaultProps} from '../defaultProps'
 import {linkTo} from "../routes/linkPathList";
 
-// const {
-//   singleRenderPropsOnHeaderDefault,
-//   multiRenderPropsOnHeaderDefault,
-//   showCommentDefault,
-//   getContentDetailPathDefault
-// }=ArticleListCardDefaultProps
+
 
 export default class ArticleListCard extends React.Component {
   static defaultProps={
     getContentDetailPath:curPropsData=>linkTo.articles+"/"+curPropsData.uniqueID,
     singleRenderPropsOnHeader:[{val:'createdTime'}],
     multiRenderPropsOnHeader:[{val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`}],
-    showCommentDefault:{title:'title',sha:'uniqueID'}
+    showComment:{title:'title',sha:'uniqueID'}
   }
 
   constructor() {
@@ -53,7 +45,8 @@ export default class ArticleListCard extends React.Component {
       multiRenderPropsOnHeader,
       showComment,
       cardStyle,
-      bodyStyle
+      bodyStyle,
+      oneRow
     }=this.props
 
 
@@ -62,27 +55,26 @@ export default class ArticleListCard extends React.Component {
             bordered={false}
             style={cardStyle}
             bodyStyle={bodyStyle}
-            onClick={
-        this.navigateToPath.bind(this,getContentDetailPath(curPropsData))
-      } >
-        <div>
-          <div>{title|| curPropsData['title']}</div>
+            onClick={this.navigateToPath.bind(this,getContentDetailPath(curPropsData))} >
+        <div style={oneRow ? {display:'flex'} : null}>
+          <div style={{flex:3}}>{title|| curPropsData['title']}</div>
           {
             curPropsData
-              ? <div>
+              ? <div style={{flex:5}}>
                   <ArticleHeaderProps curContentData={curPropsData}
+                                      oneRow={oneRow}
                                       singleRenderPropsOnHeader={singleRenderPropsOnHeader }
                                       multiRenderPropsOnHeader={multiRenderPropsOnHeader }
                                       showComment={showComment}/>
                 </div>
               : null
           }
-          {
-            summary
-              ? <div className="markdown-body">{summary}</div>
-              : null
-          }
         </div>
+        {
+          summary
+            ? <div className="markdown-body">{summary}</div>
+            : null
+        }
       </Card>
     )
   }

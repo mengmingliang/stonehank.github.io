@@ -2,7 +2,7 @@ import React from 'react'
 import TagsBlock from "../share-components/TagsBlock";
 import {Button, Icon,Layout,List} from 'antd';
 import ArticleListCard from "../share-components/ArticleListCard";
-import SearchContainerBeat from "../search/SearchContainerBeat";
+import SearchContainer from "../search/SearchContainer";
 import defaultProps from "./listCardDefaultProps";
 
 const { Content} = Layout;
@@ -39,12 +39,13 @@ export default class MyLeetcodeComponent extends React.Component{
         </div>
         { leetcodeRenderMode === "list"
           ? <div>
-            <SearchContainerBeat data={renderContent}
-                                 id={"slide-checkbox2"}
-                                 getContentDetailPath={defaultProps.getContentDetailPath}
-                                 simpleSearchProps={['title']}
-                                 complicateSearchProps={[{globalProp:'content'}]}
-                                 read_content_path={read_content_path}
+            <SearchContainer data={renderContent}
+                             id={"slide-checkbox2"}
+                             getContentDetailPath={defaultProps.getContentDetailPath}
+                             simpleSearchProps={['title']}
+                             placeholder={"leetcode题目查询"}
+                             // complicateSearchProps={[{globalProp:'content'}]}
+                             read_content_path={read_content_path}
                                   />
             <List split={false}
                   header={
@@ -64,6 +65,7 @@ export default class MyLeetcodeComponent extends React.Component{
                                    </div>
                                  }
                                  curPropsData={item}
+                                 oneRow={true}
                                  getContentDetailPath={defaultProps.getContentDetailPath}
                                  singleRenderPropsOnHeader={defaultProps.singleRenderPropsOnHeader}
                                  multiRenderPropsOnHeader={defaultProps.multiRenderPropsOnHeader}
