@@ -108,9 +108,11 @@ export default function ListLazyScrollHOC(Component) {
 
     componentWillUnmount() {
       if(this.scroller ) this.scroller.removeEventListener('scroll', this.scrollHandle)
+      clearTimeout(this.timer)
+      this.scroller = null
       this.wrapperEle = null
       this.contentEle = null
-      clearTimeout(this.timer)
+      this.timer=null
     }
     render(){
       // console.log('render')

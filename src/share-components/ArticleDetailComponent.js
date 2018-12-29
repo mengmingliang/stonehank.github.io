@@ -149,6 +149,7 @@ export default class ArticleDetailComponent extends React.Component{
   }
   componentWillUnmount(){
     clearTimeout(this.timer)
+    this.timer=null
   }
   render(){
     // console.log('article')

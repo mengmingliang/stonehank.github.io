@@ -2,7 +2,6 @@ import React from 'react'
 import {Row,Col} from 'antd';
 import {Link} from "@reach/router"
 import TagLight from "./TagLight"
-// import {linkTo} from '../routes/linkPathList'
 import CustomComment from "../tools/CustomComment";
 
 

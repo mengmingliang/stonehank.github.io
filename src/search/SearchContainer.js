@@ -38,7 +38,6 @@ export default class SearchContainer extends React.Component {
     this.toggleGlobalSearch = this.toggleGlobalSearch.bind(this)
     this.fetchGlobal = this.fetchGlobal.bind(this)
     this.showConfirm = this.showConfirm.bind(this)
-
   }
 
   handleDrawerClose() {
@@ -345,6 +344,9 @@ export default class SearchContainer extends React.Component {
 
   componentWillUnmount(){
     clearTimeout(this.timer)
+    this.timer=null
+    this.globalMem = null
+    this.localMem = null
   }
 
   render() {
