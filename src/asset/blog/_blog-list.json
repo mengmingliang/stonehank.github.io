@@ -174,7 +174,7 @@
     "title": "获取数组中和为某个值的组合数量的算法",
     "uniqueID": "d8cf763cd33c2883caf30f5d6f247da84af3cf8f",
     "summary": "<p>记录一个算法，要求获取数组中的和为<code>sum</code>的组合的数量</p>\n<ul>\n<li>不要求连续，不要求重复</li>\n</ul>\n<p>例如<code>arr=[1,2,3,4,5]</code>，那么和为5的组合数量为3，分别是<code>2,3</code>、<code>1,4</code>、<code>5</code></p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">computeSubset</span>(<span class=\"hljs-params\">arr,sum</span>)</span>{\n  <span class=\"hljs-comment\">// 创建数组，用于记录从1到sum每一个...</span></code></pre>",
-    "sha": "f45688622d38eb43b2f78d728ffed49c0a07f078"
+    "sha": "ccf5cf75d3f663c8c143ed75e3d46b5a2f8aa576"
   },
   "1fe9476aee8ec9e615a5ea77d64b322605aa28f8": {
     "relatedTags": [
@@ -846,7 +846,7 @@
     "title": "二分查找的range方法",
     "uniqueID": "5ba1422eb5748f36ae6b36980b06e537d336b746",
     "summary": "<p>通常二分查找算法是根据index进行查找，并且要求数据结构是已排序的。</p>\n<p>这里记录一个未排序的二分查找</p>\n<p>题目：在一个数组arr中，找出从小到大第n个的数字</p>\n<p>例如：<code>[6,3,8,1,4,7]</code>，找出第3位，结果是4</p>\n<p>使用排序也可以解决，当空间有限制时，时间复杂度是<code>O(N*lgN)</code>，但二分查找的范围法可以控制到...</p>",
-    "sha": "53ccfb734ad70ac02e1be60b9a6733ef41596999"
+    "sha": "bcaa51d3db66e9c67d11b14a85afe0fed30faf07"
   },
   "1ce699882ae4c19377061e00fa95e2bc41b3f185": {
     "relatedTags": [
@@ -2507,5 +2507,178 @@
     "uniqueID": "eef7e96833e36dd1982a065c2bf4658180ae9581",
     "summary": "<p>调用<code>import()</code>执行动态加载时，如果使用变量模板进行请求，会潜在的请求当前确定的路径下的<strong>所有文件</strong>！</p>\n<p>例如：</p>\n<p>现在有如下文件结构：</p>\n<pre class=\"hljs\"><code>|---asset\n  |---blog\n    |---tech\n      |---001.json\n      |---002.json\n      |-...</code></pre>",
     "sha": "4edeb6d395d6a622ada753d259d16102786a87f9"
+  },
+  "a090233d8340e01b45b3a3948a69ca03a6a4e546": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "1/23/2019",
+    "timeArr": [
+      2019,
+      0,
+      23,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-741-摘樱桃",
+    "uniqueID": "a090233d8340e01b45b3a3948a69ca03a6a4e546",
+    "summary": "<p>题目给定一个网格，遇见<code>1</code>表示能摘取1个樱桃，遇到<code>0</code>表示空地，遇到<code>-1</code>表示荆棘不能走。</p>\n<p>要求从左上走到右下，再从右下走回左上，樱桃摘掉就会从<code>1</code>变<code>0</code>，问能摘取的最大樱桃数。</p>\n<p>这道题初一看有点像<code>路径最大和</code>问题，但细想不能这么做，因为走完第一次，摘取的樱桃会消失，\n因此子问题互相有影响。</p>\n<p>思路：...</p>",
+    "sha": "ae8f7e43cb0d2c7a7a022c7c699f539ceca5c7e3"
+  },
+  "21dc47405efb4d703fbfade3e8c91ad9fc56e0d2": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "1/20/2019",
+    "timeArr": [
+      2019,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-927-三等分",
+    "uniqueID": "21dc47405efb4d703fbfade3e8c91ad9fc56e0d2",
+    "summary": "<p>给定一个数组，只由<code>0</code>和<code>1</code>组成。要求三等分，使得他们的对应的十进制的值相等。</p>\n<p>这道题我最初思路是<code>window slide</code>，通过设定2个指针，<code>left</code>和<code>right</code>，每次移动判断当前应该<code>left</code>增减还是<code>right</code>增加。</p>\n<p>结果是<code>TLE</code>，给定的数组范围是<code>[3,30000]</code>，这道题是存在`O...</p>",
+    "sha": "b2c64ba6da12789bc878b5878bbf6be62e4ae14c"
+  },
+  "57b4753d3157977259c332676f0a0c872cc4291d": {
+    "relatedTags": [
+      "性能"
+    ],
+    "createdTime": "1/19/2019",
+    "timeArr": [
+      2019,
+      0,
+      19,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "两段k个数叠加的代码比较",
+    "uniqueID": "57b4753d3157977259c332676f0a0c872cc4291d",
+    "summary": "<p>给出一个数组和一个<code>k</code>值，要求对数组进行处理，使得每个<code>index</code>的值为它和它之后<code>k</code>个数的和。</p>\n<p>很简单的一道题，最直接的思路就是对每一个<code>index</code>，再次循环k次，求和，时间是<code>O(k*n)</code></p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> k=<span class=\"hljs-number\">2</span>,nums=[<span class=\"hljs-number\">1</span>,<span class=\"hljs-number\">2</span>,<span class=\"hljs-number\">1</span>,<span class=\"hljs-number\">2</span>,<span class=\"hljs-number\">6</span>,<span class=\"hljs-number\">7</span>,<span class=\"hljs-number\">5</span>,<span class=\"hljs-number\">1</span>],sums=[]\n<span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> i=<span class=\"hljs-number\">0.</span>..</code></pre>",
+    "sha": "a1b1ebd5635549f5567fa7d174ace71823c8a8ca"
+  },
+  "5323d2bb0a305fd9d5d8c9d32bcf1d5d31c96901": {
+    "relatedTags": [
+      "leetcode",
+      "算法"
+    ],
+    "createdTime": "1/18/2019",
+    "timeArr": [
+      2019,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-215-找到数组中第K大的值",
+    "uniqueID": "5323d2bb0a305fd9d5d8c9d32bcf1d5d31c96901",
+    "summary": "<p>在之前的文章<code>9-11-二分查找的range方法</code>，使用了<code>二分查找</code>解决这道题，但实际上还是<code>O(nlgn)</code>，相比起排序，并不是一个特别\n有效的优化，这次使用<code>快速选择</code>，<code>快速排序</code>算法的一个变体。</p>\n<p>思路：</p>\n<ol>\n<li>快速排序我们都很清楚，每一次选中一个<code>pivot</code>，将小于它的放左边，大于它的放右边，执行`lgN...</li>\n</ol>",
+    "sha": "820c182198e97bae1466efb81c1f42049e8d9a61"
+  },
+  "4d2a8760fce3d273f21d9b340020f28d30a83ca1": {
+    "relatedTags": [
+      "算法",
+      "leetcode"
+    ],
+    "createdTime": "1/14/2019",
+    "timeArr": [
+      2019,
+      0,
+      14,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-229-筛选多数算法",
+    "uniqueID": "4d2a8760fce3d273f21d9b340020f28d30a83ca1",
+    "summary": "<p>这道题要求使用时间<code>O(N)</code>和空间<code>O(1)</code>筛选出数量大于(不包括等于)三分一的值。</p>\n<p>一般想到的是时间<code>O(N)</code>，空间<code>O(N)</code>的hash记录，或者时间<code>O(NlogN)</code>，空间<code>O(1)</code>的排序。</p>\n<p>但这里使用了<code>Majority Vote algorithm</code>(多数投票算法)。</p>",
+    "sha": "55a04893b89d7ca33565a79d3b0c44ba6bc10b30"
+  },
+  "a7fdfb2de02b86a76f903ef54b0c94d41acea716": {
+    "relatedTags": [
+      "leetcode",
+      "算法"
+    ],
+    "createdTime": "1/13/2019",
+    "timeArr": [
+      2019,
+      0,
+      13,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-974-子数组和能被K整除的算法",
+    "uniqueID": "a7fdfb2de02b86a76f903ef54b0c94d41acea716",
+    "summary": "<p>首先是子数组和为某个值的计算。</p>\n<p>当计算子数组和为某一个值的数量，我们需要使用一个<code>hash</code>保存当前的和。</p>\n<p>这样当下一次计算<code>hash[sum-target]</code>的时候，可以快速找出以前保存过的子数组的数量，</p>\n<p>例如<code>[1,2,3,4,5]</code></p>\n<p>遍历一遍后<code>hash</code>为`{1:1, 3:1, 6:1, 10:1, 1...</p>",
+    "sha": "f019609e838bb6d5e76a874bd1eb725d7b50fed3"
+  },
+  "5b5bb11c26338e8f7fd42bee81806d7b778518dc": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "1/13/2019",
+    "timeArr": [
+      2019,
+      0,
+      13,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-678-有效括号的判定",
+    "uniqueID": "5b5bb11c26338e8f7fd42bee81806d7b778518dc",
+    "summary": "<p>题目是当给定一个字符串，只包含<code>(</code>,<code>)</code>, <code>*</code>这三种符号，其中<code>*</code>既可以当成<code>(</code>或者<code>)</code>，问题是判断给定的字符串是否有效。</p>\n<p>这道题刚拿到的时候，第一反应是认为<code>*</code>可以当成任意值，其实并不是。</p>\n<p><code>*</code>也有限制，例如：<code>**()(</code>，这里<code>*</code>并不能修复最后的<code>(</code>。</p>\n<p>因此需要考虑一下4点：</p>\n<p>1....</p>",
+    "sha": "41cf7ca5ef99ef15b16f02b7876c651846d11d33"
+  },
+  "6bb049b1a078a0b78387fb4624933c478107281e": {
+    "relatedTags": null,
+    "createdTime": "1/9/2019",
+    "timeArr": [
+      2019,
+      0,
+      9,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "BST的Morris Traversal-O(1)遍历",
+    "uniqueID": "6bb049b1a078a0b78387fb4624933c478107281e",
+    "summary": "<p>关于二叉树的遍历，使用栈递归或者仿栈循环都是需要<code>O(N)</code>的空间，<code>Morris Traversal</code>保证了空间为<code>O(1)</code>，时间还是<code>O(N)</code>（比原来多了一遍）。</p>\n<p>这里只介绍<code>inOrder</code>顺序。</p>\n<p>思路：</p>\n<p>对每一个<code>cur</code>节点，优先找到一个<code>pre</code>节点，这个<code>pre</code>节点的作用是，当后续<code>cur</code>节...</p>",
+    "sha": "58cf220aadf082c27c39c6bf0db303d77f20ea86"
+  },
+  "ce97b7857cc71bc6e1c685cf0922355c7dbd176e": {
+    "relatedTags": [
+      "算法",
+      "leetcode"
+    ],
+    "createdTime": "1/1/2019",
+    "timeArr": [
+      2019,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "关于隔项相加的DP算法",
+    "uniqueID": "ce97b7857cc71bc6e1c685cf0922355c7dbd176e",
+    "summary": "<p>这个<code>DP</code>算法用于解决一个抽象问题，关于一个数组中至少隔一个项目相加的最大和</p>\n<p>实际能解决的问题包括</p>\n<p><code>House Rubber</code>问题，例如<a href=\"https://leetcode.com/problems/house-robber-ii/\">House RubberⅡ</a></p>\n<p><code>Sell Stock</code>问题，例如[Sell...</p>",
+    "sha": "7503161f586be17eb0ccec24788a566d2593b09c"
   }
 }
