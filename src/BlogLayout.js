@@ -272,7 +272,7 @@ export default class BlogLayout extends React.Component {
                                                  titleProp={"title"}
                                                  fetchKeyProp={"uniqueID"}
                                                  wantedPropsFromList={['title','uniqueID','relatedTags','difficult','lang']}
-                                                 wantedPropsFromContent={['content','code']}
+                                                 wantedPropsFromContent={['content','thinking','code']}
                                                  showComment={false}
                                                  read_content_path={read_leetcode_path}
                                                  renderData={leetcodeList}

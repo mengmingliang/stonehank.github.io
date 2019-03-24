@@ -51,7 +51,7 @@ export default class MyLeetcodeComponent extends React.Component{
                   header={
                     <div>
                       <Button onClick={()=>{toggleSorted('uniqueID')}}>id</Button>
-                      <Button onClick={()=>{toggleSorted('lang')}}>language</Button>
+                      {/*<Button onClick={()=>{toggleSorted('lang')}}>language</Button>*/}
                       <Button onClick={()=>{toggleSorted('difficultNum')}}>difficult</Button>
                     </div>
                   }

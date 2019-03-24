@@ -2680,5 +2680,252 @@
     "uniqueID": "ce97b7857cc71bc6e1c685cf0922355c7dbd176e",
     "summary": "<p>这个<code>DP</code>算法用于解决一个抽象问题，关于一个数组中至少隔一个项目相加的最大和</p>\n<p>实际能解决的问题包括</p>\n<p><code>House Rubber</code>问题，例如<a href=\"https://leetcode.com/problems/house-robber-ii/\">House RubberⅡ</a></p>\n<p><code>Sell Stock</code>问题，例如[Sell...</p>",
     "sha": "7503161f586be17eb0ccec24788a566d2593b09c"
+  },
+  "b3024f0032f24f1b69394e3a191c736292f47073": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/26/2019",
+    "timeArr": [
+      2019,
+      1,
+      26,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-658-找到K个最接近的数",
+    "uniqueID": "b3024f0032f24f1b69394e3a191c736292f47073",
+    "summary": "<p>给定一个排序好的数组，两个整数<code>k</code> 和<code>x</code>，从数组中找到最靠近<code>x</code>（两数之差最小）的 <code>k</code>个数。返回的结果必须要是按升序排好的。\n如果有两个数与 <code>x</code> 的差值一样，优先选择数值较小的那个数。</p>\n<pre class=\"hljs\"><code>示例 1:\n输入: [1,2,3,4,5], k=4, x=3\n输出: [1,2,3,4]\n</code></pre>\n<p>``...</p>",
+    "sha": "55b83db1e8ca209bd9f490115496fbff9403d81f"
+  },
+  "b1be002bc0a6386103e02133cb4a1c269993be8e": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/25/2019",
+    "timeArr": [
+      2019,
+      1,
+      25,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-300-最长上升子序列",
+    "uniqueID": "b1be002bc0a6386103e02133cb4a1c269993be8e",
+    "summary": "<p>给定一个无序的整数数组，找到其中最长上升子序列的长度。</p>\n<p>示例:</p>\n<pre class=\"hljs\"><code>输入: [10,9,2,5,3,7,101,18]\n输出: 4 \n解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。\n</code></pre>\n<p>这道题用<code>DP</code>解就是<code>O(n^2)</code>时间复杂度。</p>\n<p>思路：\n创建一个<code>dp数组</code>，用来储存每个`i...</p>",
+    "sha": "527b97f49236da2c88ff6dd8bfb1884f2db69a77"
+  },
+  "e7df1973c399a06c3d5320c0d70f8b576f252f80": {
+    "relatedTags": null,
+    "createdTime": "2/22/2019",
+    "timeArr": [
+      2019,
+      1,
+      22,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "计算当前数字的下一个回文数字",
+    "uniqueID": "e7df1973c399a06c3d5320c0d70f8b576f252f80",
+    "summary": "<p>例如：当前给出的数字为 <code>123456</code>，那么下一个回文数字就是 <code>124421</code></p>\n<p>思路：</p>\n<p>当前数字转换为字符串后，不需要判断长度为奇数偶数</p>\n<p>分割成3段，分别为回文头部，回文中部(长度为奇数则存在，偶数则不存在)，回文尾部(头部的反转)</p>\n<p>这里尾部需要进行一个判断，如果原始的尾部比头部反转更小，那么回文头部不变，...</p>",
+    "sha": "0aa07479be82d87fe846955405e78869a4a83e4b"
+  },
+  "df16c41ae22c3fbfb600b475686c3a9e6bc97e99": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/21/2019",
+    "timeArr": [
+      2019,
+      1,
+      21,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-600-不含连续1的非负整数",
+    "uniqueID": "df16c41ae22c3fbfb600b475686c3a9e6bc97e99",
+    "summary": "<p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 连续的1 的个数。</p>\n<pre class=\"hljs\"><code>示例 1:\n输入: 5\n输出: 5\n解释: \n下面是带有相应二进制表示的非负整数&lt;= 5：\n0 : 0\n1 : 1\n2 : 10\n3 : 11\n4 : 100\n5 : 101\n其中，只有整数3违反规则（有两个连续的1...</code></pre>",
+    "sha": "91257a1550afda464916d30be86d1adecaf6df03"
+  },
+  "be79fe65525d8482cc7163394cc9426e1850c201": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/20/2019",
+    "timeArr": [
+      2019,
+      1,
+      20,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-330-按要求补齐数组",
+    "uniqueID": "be79fe65525d8482cc7163394cc9426e1850c201",
+    "summary": "<p>给定一个已排序的正整数数组 <code>nums</code>，和一个正整数 <code>n</code> 。</p>\n<p>从<code>[1, n]</code>区间内选取任意个数字补充到 <code>nums</code> 中，使得<code>[1, n]</code>区间内的任何数字都可以用<code>nums</code>中某几个数字的和来表示。</p>\n<p>请输出满足上述要求的最少需要补充的数字个数。</p>\n<pre class=\"hljs\"><code>输入: nums = [1,3], n = 6...</code></pre>",
+    "sha": "e563d48568ee5bfc07092230aa1e78537d7369ee"
+  },
+  "b06bdfb7b628ea62292ade13e2e7c263b67f99bf": {
+    "relatedTags": [
+      "leetcode",
+      "算法"
+    ],
+    "createdTime": "2/18/2019",
+    "timeArr": [
+      2019,
+      1,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-715-Range模块",
+    "uniqueID": "b06bdfb7b628ea62292ade13e2e7c263b67f99bf",
+    "summary": "<p>Range 模块是跟踪数字范围的模块。你的任务是以一种有效的方式设计和实现以下接口。</p>\n<ul>\n<li>addRange(int left, int right) 添加半开区间 [left, right)，跟踪该区间中的每个实数。添加与当前跟踪的数字部分重叠的区间时，应当添加在区间 [left, right) 中尚未跟踪的任何数字...</li>\n</ul>",
+    "sha": "0add872ca781ae37ae95570bd7d63045df637ada"
+  },
+  "1945b3cbf3c1d113d7fe5cca16000b60bb4f590b": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/14/2019",
+    "timeArr": [
+      2019,
+      1,
+      14,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-730-统计不同回文子序列",
+    "uniqueID": "1945b3cbf3c1d113d7fe5cca16000b60bb4f590b",
+    "summary": "<p>题目给定一个字符串 S，找出 S 中不同的非空回文子序列个数，并返回该数字与 10^9 + 7的模，计数结果不相同。</p>\n<p>示例：</p>\n<pre class=\"hljs\"><code>输入：\nS = 'bccb'\n输出：6\n解释：\n6 个不同的非空回文子字符序列分别为：'b', 'c', 'bb', 'cc', 'bcb', 'bccb'。\n注意：'bcb' 虽然出...</code></pre>",
+    "sha": "2fb5636ba1519a77bba5d63c3421c774fdba2082"
+  },
+  "91b1826635fda5785314c25e6c4c113779da6071": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/11/2019",
+    "timeArr": [
+      2019,
+      1,
+      11,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-782-棋盘转换",
+    "uniqueID": "91b1826635fda5785314c25e6c4c113779da6071",
+    "summary": "<p>题目给出一个<code>N*N</code>矩阵，要求计算出转换为棋盘的最小步数，每次转换只能交换两行或者两列，不能转换则输出<code>-1</code></p>\n<p>棋盘格式：</p>\n<pre class=\"hljs\"><code>1 0 1 0 1\n0 1 0 1 0\n1 0 1 0 1\n0 1 0 1 0\n1 0 1 0 1\n</code></pre>\n<p>思路：</p>\n<ol>\n<li>能转换为棋盘的矩阵符合2个特征：\n<ol>\n<li>抽取某一行...</li>\n</ol>\n</li>\n</ol>",
+    "sha": "d580b8e033ea6686c20eeef0681ccabb93ae583b"
+  },
+  "5d6fe8b4380c08038c26fdf27e431bfff07921b3": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/4/2019",
+    "timeArr": [
+      2019,
+      1,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-975-奇偶跳",
+    "uniqueID": "5d6fe8b4380c08038c26fdf27e431bfff07921b3",
+    "summary": "<p>题目给定一个数组<code>A</code>，并且定义从<code>i</code>点的奇数跳为<code>i</code>点之后<code>&gt;=A[i]</code>的最小值，从<code>i</code>点的偶数跳为<code>i</code>点之后的<code>&lt;=A[i]</code>的最大值。</p>\n<p>求能跳到终点的<code>i</code>的数量。</p>\n<p>思路：</p>\n<p>这道题暴力解是<code>O(N^2)</code>，从每一个点，模拟是否能跳到终点。</p>\n<p>但如果逆序遍历，则会发现当前点<code>i</code>需要找的值就在已经遍...</p>",
+    "sha": "bf460be222fb5cac8b9197e2f21e9d189d1d3946"
+  },
+  "aab7fc0150d48de838401778028617fa5700bb8d": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "2/1/2019",
+    "timeArr": [
+      2019,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-862-和至少为K的子数组",
+    "uniqueID": "aab7fc0150d48de838401778028617fa5700bb8d",
+    "summary": "<p>给定一个数组<code>A</code>和一个<code>K</code>，算出和至少为<code>K</code>的子数组。</p>\n<p>刚开始处理这个问题，我使用的是处理和为<code>K</code>的子数组的方法，再通过一个<code>window slide</code>不断处理内部的值，当其大于等于<code>K</code>的时候，\n记录一下<code>slide</code>的长度。</p>\n<p>但这个方法的问题就是一旦需要的子数组在<code>slide</code>中间，则无法获取</p>\n<p>例如：...</p>",
+    "sha": "aa9cfbcc2ff22b8f1babf90e45aff43585b66082"
+  },
+  "0a24008239b75d80ee857ee436d4a08ba4ada330": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "1/28/2019",
+    "timeArr": [
+      2019,
+      0,
+      28,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-最大有效括号",
+    "uniqueID": "0a24008239b75d80ee857ee436d4a08ba4ada330",
+    "summary": "<p>题目给出一个字符串只包括<code>(</code>和<code>)</code>，要求算出最大有效长度。</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>Input: &quot;)()(()()&quot;\nOutput: 4\nExplanation: The longest valid parentheses substring is &quot;()()&quot;\n</code></pre>\n<p>思路：</p>\n<p>一般来说，遇到括号问题，首先会想到...</p>",
+    "sha": "029c45caf73d2ded724e62d69798b4fb890ba463"
+  },
+  "c9f59be3caa0bdf7de785d67830ac5abfce876b8": {
+    "relatedTags": [
+      "算法",
+      "leetcode"
+    ],
+    "createdTime": "1/27/2019",
+    "timeArr": [
+      2019,
+      0,
+      27,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-从2个数组中创建最大数字",
+    "uniqueID": "c9f59be3caa0bdf7de785d67830ac5abfce876b8",
+    "summary": "<p>题目给出了2个无序数组，要求给出一个指定<code>k</code>位数的最大数的数组。</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>nums1 = [3, 4, 6, 5]\nnums2 = [9, 1, 2, 5, 8, 3]\nk = 5\nOutput:\n[9, 8, 6, 5, 3]\n</code></pre>\n<p>这道题题意很好理解，但是需要使用到2个小算法。</p>\n<p>算法一，计算一个数...</p>",
+    "sha": "a33b29e6c86d43ed9073bb267adb59086a08d896"
+  },
+  "880139580b62ad012ac9b50ca708b5bad28b0021": {
+    "relatedTags": [
+      "leetcode"
+    ],
+    "createdTime": "1/25/2019",
+    "timeArr": [
+      2019,
+      0,
+      25,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "Leetcode-464-CanIWin双方最优解递归",
+    "uniqueID": "880139580b62ad012ac9b50ca708b5bad28b0021",
+    "summary": "<p>两个玩家可以轮流从公共整数池中抽取从<code>1</code>到<code>M</code>的整数（不放回），直到累计整数和&gt;=<code>T</code>。</p>\n<p>思路：</p>\n<ol>\n<li>由于双方都是最佳表现，因此可以使用同一个递归公式。</li>\n<li>当前玩家获胜的前提有2个：一是当前回合我能凑齐整数<code>T</code>，二是下一回合对手会输。</li>\n<li>如果当前玩家未获胜，到了下一回合对手玩家的胜利也同样是以上两点...</li>\n</ol>",
+    "sha": "509d7188a78b3cf42cd6113d85909305b84e57f4"
   }
 }

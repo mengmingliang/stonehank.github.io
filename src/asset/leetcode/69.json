@@ -1,0 +1,7 @@
+{
+  "code": [
+    "<pre class=\"hljs\"><code><span class=\"hljs-comment\">/**\n * @param {number} x\n * @return {number}\n */</span>\n<span class=\"hljs-keyword\">var</span> mySqrt = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\">x</span>) </span>{\n  <span class=\"hljs-keyword\">if</span>(x===<span class=\"hljs-number\">1</span>)<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\n  <span class=\"hljs-keyword\">let</span> l=<span class=\"hljs-number\">0</span>,h=<span class=\"hljs-built_in\">Math</span>.floor(x/<span class=\"hljs-number\">2</span>)\n  <span class=\"hljs-keyword\">while</span>(l&lt;h){\n    <span class=\"hljs-keyword\">let</span> mid=<span class=\"hljs-built_in\">Math</span>.floor((l+h)/<span class=\"hljs-number\">2</span>)+<span class=\"hljs-number\">1</span>\n    <span class=\"hljs-keyword\">if</span>(mid*mid&gt;x)h=mid<span class=\"hljs-number\">-1</span>\n    <span class=\"hljs-keyword\">else</span> l=mid\n  }\n  <span class=\"hljs-keyword\">return</span> l\n};\n</code></pre>\n"
+  ],
+  "titleSlug": "sqrtx",
+  "content": "<p>实现&nbsp;<code>int sqrt(int x)</code>&nbsp;函数。</p>\n\n<p>计算并返回&nbsp;<em>x</em>&nbsp;的平方根，其中&nbsp;<em>x </em>是非负整数。</p>\n\n<p>由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p>\n\n<p><strong>示例 1:</strong></p>\n\n<pre><strong>输入:</strong> 4\n<strong>输出:</strong> 2\n</pre>\n\n<p><strong>示例 2:</strong></p>\n\n<pre><strong>输入:</strong> 8\n<strong>输出:</strong> 2\n<strong>说明:</strong> 8 的平方根是 2.82842..., \n&nbsp;    由于返回类型是整数，小数部分将被舍去。\n</pre>\n"
+}

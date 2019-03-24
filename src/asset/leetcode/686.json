@@ -1,0 +1,7 @@
+{
+  "code": [
+    "<pre class=\"hljs\"><code><span class=\"hljs-comment\">/**\n * @param {string} A\n * @param {string} B\n * @return {number}\n */</span>\n<span class=\"hljs-keyword\">var</span> repeatedStringMatch = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\">A, B</span>) </span>{\n\t<span class=\"hljs-keyword\">let</span> str = <span class=\"hljs-string\">''</span>\n\t<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">1</span>; str.length &lt;= (A.length + B.length); i++) {\n\t\tstr += A\n        <span class=\"hljs-keyword\">if</span>(str.includes(B)) <span class=\"hljs-keyword\">return</span> i\n\t}\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>\n};\n</code></pre>\n"
+  ],
+  "titleSlug": "repeated-string-match",
+  "content": "<p>给定两个字符串 A 和 B, 寻找重复叠加字符串A的最小次数，使得字符串B成为叠加后的字符串A的子串，如果不存在则返回 -1。</p>\n\n<p>举个例子，A = &quot;abcd&quot;，B = &quot;cdabcdab&quot;。</p>\n\n<p>答案为 3，&nbsp;因为 A 重复叠加三遍后为&nbsp;&ldquo;abcdabcdabcd&rdquo;，此时 B 是其子串；A 重复叠加两遍后为&quot;abcdabcd&quot;，B 并不是其子串。</p>\n\n<p><strong>注意:</strong></p>\n\n<p>&nbsp;<code>A</code>&nbsp;与&nbsp;<code>B</code>&nbsp;字符串的长度在1和10000区间范围内。</p>\n"
+}
