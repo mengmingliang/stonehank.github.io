@@ -42,6 +42,7 @@ export default class ArticleHeaderProps extends React.Component{
   render(){
     const {curContentData,oneRow,singleRenderPropsOnHeader,multiRenderPropsOnHeader,showComment,...props}=this.props
 
+    // console.log(curContentData)
     return (
       <Row type="flex" {...props} gutter={styles.row_gutter}  style={styles.row_style}>
         { singleRenderPropsOnHeader
@@ -72,10 +73,16 @@ export default class ArticleHeaderProps extends React.Component{
               multiRenderPropsOnHeader.map((props,i)=>{
                 let link=props.link,eleMode=props.ele,tagStyle=props.tagStyle,propVal=props.val,getClassName=props.getClassName
                 // console.log(propVal,curContentData[propVal])
+                let contentDataProp=curContentData[propVal]
+                contentDataProp=contentDataProp
+                  ? Array.isArray(contentDataProp)
+                    ? contentDataProp
+                    : [contentDataProp]
+                  : null
                 return (
                   <Col key={i} style={oneRow ?{flex:1} : null}>
-                    { curContentData[propVal]
-                      ? curContentData[propVal].map((prop,j)=>{
+                    { contentDataProp
+                      ? contentDataProp.map((prop,j)=>{
                         return (
                           <CheckLinkWrap key={j} link={link} propVal={prop}>
                             <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={prop}>

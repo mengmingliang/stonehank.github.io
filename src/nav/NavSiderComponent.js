@@ -74,7 +74,7 @@ export default class NavSiderComponent extends React.PureComponent {
           </Menu.Item>
           <Menu.Item key={linkTo.myleetcode}>
             <Icon type="file-text" />
-            <span>我的Leetcode解题</span>
+            <span>Leetcode(JS解题)</span>
             <Link to={linkTo.myleetcode} />
           </Menu.Item>
           <Menu.Item key={linkTo.about}>

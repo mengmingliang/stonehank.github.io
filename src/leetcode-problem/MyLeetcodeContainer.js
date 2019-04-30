@@ -115,7 +115,7 @@ export default class MyLeetcodeContainer extends React.Component{
     const {renderContent,page,pageSize}=this.state
     const {initLeetcodeData,leetcodeRenderMode,read_content_path}=this.props
 
-    // console.log(renderContent)
+    console.log(initLeetcodeData,renderContent)
     return(
       <div style={styles.defaultMargin}>
         {

@@ -8,6 +8,7 @@ import defaultProps from "./listCardDefaultProps";
 const { Content} = Layout;
 const styles={
   card:{margin:"0"},
+  cardBody:{padding:"10px"},
   list_pagi_style:{textAlign: 'center',marginBottom:"1rem"},
   tag:{ lineHeight: '1rem'}
 }
@@ -53,15 +54,23 @@ export default class MyLeetcodeComponent extends React.Component{
                       <Button onClick={()=>{toggleSorted('uniqueID')}}>id</Button>
                       {/*<Button onClick={()=>{toggleSorted('lang')}}>language</Button>*/}
                       <Button onClick={()=>{toggleSorted('difficultNum')}}>difficult</Button>
+                      {/*<div>*/}
+                        {/*<span>题名</span>*/}
+                        {/*<span>难度</span>*/}
+                        {/*<span>分类</span>*/}
+                        {/*<span>语言</span>*/}
+                      {/*</div>*/}
                     </div>
+
                   }
                   pagination={listPageSetting} >
               { renderContent.slice((page-1)*pageSize,page*pageSize).map((item,i)=>(
                 <ArticleListCard key={i}
                                  cardStyle={styles.card}
+                                 bodyStyle={styles.cardBody}
                                  title={
                                    <div style={{display:"flex"}}>
-                                     <b>{item.uniqueID}、{item.title}</b>
+                                     <b>{item.title}</b>
                                    </div>
                                  }
                                  curPropsData={item}

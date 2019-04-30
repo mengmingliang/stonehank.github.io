@@ -6,10 +6,13 @@ import {linkTo} from "../routes/linkPathList";
       val:'difficult',
       ele:'tag',
       getClassName:difficult=>`leetcode-difficult-tags leetcode-${difficult}`
-    }],
+    }
+    // {val:'hasThinking'}
+  ],
   multiRenderPropsOnHeader:[
     {val:'relatedTags',ele:'tag',link:(tag)=>`${linkTo.myleetcode}/${tag}`},
-    {val:'lang'}
+    {val:'lang'},
+    // {val:'hasThinking'}
 ]
 }
 

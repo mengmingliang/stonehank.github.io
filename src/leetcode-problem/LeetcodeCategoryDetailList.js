@@ -37,7 +37,7 @@ export default class LeetcodeCategoryDetailList extends React.Component {
                                    cardStyle={styles.card}
                                    title={
                                      <div style={{display:"flex"}}>
-                                       <b>{item.uniqueID}、{item.title}</b>
+                                       <b>{item.title}</b>
                                      </div>
                                    }
                                    curPropsData={item}

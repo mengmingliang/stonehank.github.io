@@ -49,7 +49,7 @@ export default class ArticleListCard extends React.Component {
       oneRow
     }=this.props
 
-
+// console.log(curPropsData)
     return (
       <Card hoverable
             bordered={false}

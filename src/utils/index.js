@@ -114,6 +114,7 @@ export function objSortBy(obj,sortKey,asc){
     }
     return 0
   }
+  // console.log(obj,result)
   return result
 }
 
