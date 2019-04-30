@@ -38,7 +38,7 @@
     "jsdom-global": "3.0.2",
     "markdown-it": "^8.4.2",
     "moment": "^2.22.2",
-    "nodejieba": "^2.2.6",
+    "nodejieba": "^2.3.0",
     "parse-filepath": "^1.0.2",
     "pre-commit": "^1.2.2",
     "progress": "^2.0.0",
