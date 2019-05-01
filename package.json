@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reach/router": "^1.2.1",
+    "@reach/router": "1.2.1",
     "antd": "^3.10.1",
-    "disqus-react": "^1.0.5",
-    "raf": "^3.4.1",
+    "disqus-react": "1.0.5",
+    "raf": "3.4.1",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-scripts": "^2.1.1",

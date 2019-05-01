@@ -27,12 +27,14 @@ export default class About extends React.Component {
 
         this.start({
           willAnimate:()=>{
-            this.textRef.current.style.color="black"
+            if(this.textRef.current)
+              this.textRef.current.style.color="black"
           },
         })
         }catch(err){
+          if(this.textRef.current)
             this.textRef.current.style.color="black"
-            import('../css/svg-animate.css')
+          import('../css/svg-animate.css')
         }
       },150)
   }
