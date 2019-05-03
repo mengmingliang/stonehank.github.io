@@ -4,48 +4,107 @@ function html2Md(htmlStr){
   let orderNum=0
   let tag2MdHash={
     'p':['','\n\n'],
-    'em':[' *','* '],
-    'i':[' *','* '],
+    'em':['*','* '],
+    'i':['*','* '],
     'code':[' `','` '],
-    'pre':['\n\n```\n','\n```'],
-    'strong':[' **','** '],
-    'b':[` **`,`** `],
+    'pre':['\n\n```\n','\n```\n'],
+    'strong':['**','** '],
+    'b':[`**`,`** `],
     'a':['',''],
     'img':['',''],
-    'ul':['\n','\n\n'],
+    'ul':['','\n\n'],
     'uli':['* ','\n'],
-    'ol':['\n','\n\n'],
-    'oli':[1+'. ','\n'],
+    'ol':['','\n\n'],
+    'oli':['','\n'],
+    'olli':['','\n'],
     'blockquote':['\n> ','\n'],
     'tr':['\n|',''],
     'th':['','|'],
     'td':['','|'],
     'table':['','\n'],
-    'thead':['','']
+    'thead':['',''],
+    'h1':['\n# ','\n'],
+    'h2':['\n## ','\n'],
+    'h3':['\n### ','\n'],
+    'h4':['\n#### ','\n'],
+    'h5':['\n##### ','\n'],
+    'h6':['\n###### ','\n'],
+    's':['~~','~~']
+  }
+  let checkNotNewLine={
+    'em':true,
+    'i':true,
+    'code':true,
+    'strong':true,
+    'b':true,
+    'uli':true,
+    'oli':true,
+    'blockquote':true,
+    'tr':true,
+    'th':true,
+    'td':true,
+    'h1':true,
+    'h2':true,
+    'h3':true,
+    'h4':true,
+    'h5':true,
+    'h6':true,
+    's':true,
   }
   let skipTag={
     'br':true
   }
   // 替换特殊字符
 
-  htmlStr=htmlStr.replace(/\&nbsp\;/g,'').replace(/\&quot\;/g,'"').replace(/\r\n/g,'')
+  // let curS='',inPre=false
+  // for(let i=0;i<htmlStr.length;i++){
+  //   if(curS.endsWith("<pre>")){
+  //     inPre=true
+  //   }else if(curS.endsWith("</pre>")){
+  //     inPre=false
+  //   }
+  //   if(inPre){
+  //     curS+=htmlStr[i]
+  //   }else{
+  //     if(htmlStr[i]==="\n")continue
+  //     curS+=htmlStr[i]
+  //   }
+  // }
 
+  // htmlStr=curS
+  htmlStr=htmlStr.replace(/\r\n/g,'')
+
+
+  // let ignore=false
   let codeClassName=''
-  return resolve(htmlStr,[null])[1]
+  let result= resolve(htmlStr,[null])[1]
+  result=result.replace(/\&lt\;/g,'<')
+  result=result.replace(/\&gt\;/g,'>')
+  result=result.replace(/\&nbsp\;/g,'')
+  result=result.replace(/\&quot\;/g,'"')
+  return result
   function resolve(str,parentStack){
     let tagName='',content=''
     for(let i=0;i<str.length;i++){
-      if(str[i]==='<' && str[i+1]==='/'){
+      if( str[i]==='<' && str[i+1]==='/'){
         let id=i+2
         while(str[id]!==">"){
           tagName+=str[id++]
         }
 
-        if(tagName!==parentStack[parentStack.length-1]){
-          parentStack.pop()
-          i=id
-          continue
-        }
+        // if(ignore){
+        //   if(tagName!==parentStack[parentStack.length-1]){
+        //     content+=str[i]
+        //     continue
+        //   }
+        // }
+
+
+        // if(tagName!==parentStack[parentStack.length-1]){
+        //   parentStack.pop()
+        //   i=id
+        //   continue
+        // }
 
         // 处理叠加
         let parentTag=parentStack[parentStack.length-2]
@@ -53,7 +112,7 @@ function html2Md(htmlStr){
           if(parentTag==='ol'){
             tagName='oli'
             orderNum++
-            tag2MdHash[tagName][0]=orderNum+'. '
+            tag2MdHash[tagName][0]=tag2MdHash['olli'][0]+orderNum+'. '
           }else{
             tagName='uli'
           }
@@ -61,25 +120,38 @@ function html2Md(htmlStr){
         if(tagName==='code' && parentTag==='pre'){
           tagName='p'
         }
-        if(tag2MdHash[tagName] && tag2MdHash[tagName][0].includes('*') && (parentTag==='pre' || parentTag==='code')){
-          tagName='p'
+        if(tag2MdHash[tagName] && tag2MdHash[tagName][0].includes('*')){
+          if(parentTag==='pre' || parentTag==='code')tagName='p'
+          content=content.trim()
         }
+
+
         // content=content.trim()
         let matchMD=tag2MdHash[tagName]
         if(matchMD==null){
-          // if(tagName!=='span' && tagName!=='sub' && tagName!=='sup' && tagName!=='small'){
-            // console.warn(tagName+'未匹配!')
 
-          // }
           matchMD=['','']
         }
         let combineContent=''
         let language=codeClassName.match(/js|java|python/)
-        if(tagName==='pre' && language){
 
+
+
+        if(tagName==='pre'){
+
+          let id=content.length-1
+          while(content[id]==='\n')id--
+          content=content.substring(0,id+1)
+          if(!language)language=['']
           combineContent="```"+language[0]+"\n"+content+matchMD[1]
         }else{
 
+          if(checkNotNewLine[tagName]){
+            let id=0
+            while(content[id]==='\n')id++
+            content=content.substring(id)
+
+          }
           combineContent=matchMD[0]+content+matchMD[1]
 
         }
@@ -114,10 +186,32 @@ function html2Md(htmlStr){
         }
         let s='',nxtId=null
         let resolveRes=null
+
+        if(tagName==='ol' || tagName==='ul'){
+          if(parentStack[parentStack.length-1]==='li'){
+            tag2MdHash["uli"][0]='\t* '
+            tag2MdHash["olli"][0]='\t'
+          }
+        }
         if(!selfClose){
           parentStack.push(tagName)
+
+
           resolveRes=resolve(str.substring(id+1),parentStack)
+
+          let pTag=parentStack.pop()
+          if(tagName==='ol' || tagName==='ul'){
+            if(parentStack[parentStack.length-1]==='li'){
+              tag2MdHash["uli"][0]='* '
+              tag2MdHash["olli"][0]=''
+            }
+          }
+          if(pTag==='ol')orderNum=0
+          // ignore=false
         }
+
+
+
 
         if(tagName==='table' || tagName==='thead'){
           let existHead=str.substring(i).includes('thead')
@@ -167,11 +261,9 @@ function html2Md(htmlStr){
             content+=s
           }
         }
-        let pTag=parentStack.pop()
-        if(pTag==='ol')orderNum=0
         i=id+nxtId+1
       }else{
-        if(str[i]==='\t')continue
+        if(!parentStack.includes('pre') && str[i]==='\t')continue
         if(parentStack.includes('table')){
           if(str[i]==='\r' || str[i]==='\n')continue
         }
@@ -179,6 +271,7 @@ function html2Md(htmlStr){
         content+=str[i]
       }
     }
+
     return [str.length-1,content]
   }
   function countTdNum(str){
@@ -189,7 +282,7 @@ function html2Md(htmlStr){
       }
       trStr+=str[i]
     }
-    return Math.max(trStr.split('<td>').length-1,trStr.split('<th>').length-1)
+    return Math.max(trStr.split('</td>').length-1,trStr.split('</th>').length-1)
   }
 
 }
