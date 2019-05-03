@@ -4,6 +4,6 @@
   ],
   "titleSlug": "rotate-list",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>首先这个<code>k</code>是循环旋转的，因此，先找出实际需要旋转的次数<code>realK=k % len</code>。</p>\n<p>接着就是和<code>NO.19</code>相似了，找出倒数第<code>realK</code>个节点，并且将它连接头部。</p>\n<h2>定义<code>双指针</code>，其中<code>指针2</code>比<code>指针1</code>慢<code>n</code>，等到<code>指针1</code>到达最后的时候，需要旋转的就是<code>指针2.next</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>首先这个<code>k</code>是循环旋转的，因此，先找出实际需要旋转的次数<code>realK=k % len</code>。</p>\n<p>接着就是和<code>NO.19</code>相似了，找出倒数第<code>realK</code>个节点，并且将它连接头部。</p>\n<p>定义<code>双指针</code>，其中<code>指针2</code>比<code>指针1</code>慢<code>n</code>，等到<code>指针1</code>到达最后的时候，需要旋转的就是<code>指针2.next</code>。</p>\n",
   "content": "<p>给定一个链表，旋转链表，将链表每个节点向右移动&nbsp;<em>k&nbsp;</em>个位置，其中&nbsp;<em>k&nbsp;</em>是非负数。</p>\n\n<p><strong>示例&nbsp;1:</strong></p>\n\n<pre><strong>输入:</strong> 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2\n<strong>输出:</strong> 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL\n<strong>解释:</strong>\n向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL\n向右旋转 2 步: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL\n</pre>\n\n<p><strong>示例&nbsp;2:</strong></p>\n\n<pre><strong>输入:</strong> 0-&gt;1-&gt;2-&gt;NULL, k = 4\n<strong>输出:</strong> <code>2-&gt;0-&gt;1-&gt;NULL</code>\n<strong>解释:</strong>\n向右旋转 1 步: 2-&gt;0-&gt;1-&gt;NULL\n向右旋转 2 步: 1-&gt;2-&gt;0-&gt;NULL\n向右旋转 3 步:&nbsp;<code>0-&gt;1-&gt;2-&gt;NULL</code>\n向右旋转 4 步:&nbsp;<code>2-&gt;0-&gt;1-&gt;NULL</code></pre>\n"
 }

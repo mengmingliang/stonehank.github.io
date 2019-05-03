@@ -4,6 +4,6 @@
   ],
   "titleSlug": "keyboard-row",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<h2>对每一行键盘的字母构建<code>hash</code>，然后逐个对<code>words</code>内部的字母转换成小写后，在检查是否在同一行，发现不在同一行就直接<code>break</code></h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>对每一行键盘的字母构建<code>hash</code>，然后逐个对<code>words</code>内部的字母转换成小写后，在检查是否在同一行，发现不在同一行就直接<code>break</code></p>\n",
   "content": "<p>给定一个单词列表，只返回可以使用在键盘同一行的字母打印出来的单词。键盘如下图所示。</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"American keyboard\" src=\"https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/keyboard.png\" style=\"width: 100%; max-width: 600px\"></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>示例：</strong></p>\r\n\r\n<pre><strong>输入:</strong> [&quot;Hello&quot;, &quot;Alaska&quot;, &quot;Dad&quot;, &quot;Peace&quot;]\r\n<strong>输出:</strong> [&quot;Alaska&quot;, &quot;Dad&quot;]\r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>注意：</strong></p>\r\n\r\n<ol>\r\n\t<li>你可以重复使用键盘上同一字符。</li>\r\n\t<li>你可以假设输入的字符串将只包含字母。</li>\r\n</ol>"
 }

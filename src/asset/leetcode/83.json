@@ -4,6 +4,6 @@
   ],
   "titleSlug": "remove-duplicates-from-sorted-list",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<h2>只要每次遍历节点时检查下一个节点的<code>val</code>和当前节点的<code>val</code>是否相等，相等则将<code>node.next</code>连接到下一个节点的<code>next</code>上(架空下一个节点)。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>只要每次遍历节点时检查下一个节点的<code>val</code>和当前节点的<code>val</code>是否相等，相等则将<code>node.next</code>连接到下一个节点的<code>next</code>上(架空下一个节点)。</p>\n",
   "content": "<p>给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。</p>\n\n<p><strong>示例&nbsp;1:</strong></p>\n\n<pre><strong>输入:</strong> 1-&gt;1-&gt;2\n<strong>输出:</strong> 1-&gt;2\n</pre>\n\n<p><strong>示例&nbsp;2:</strong></p>\n\n<pre><strong>输入:</strong> 1-&gt;1-&gt;2-&gt;3-&gt;3\n<strong>输出:</strong> 1-&gt;2-&gt;3</pre>\n"
 }

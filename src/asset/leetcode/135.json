@@ -4,6 +4,6 @@
   ],
   "titleSlug": "candy",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>如果想用一边扫描，可以先排序，再从小到大扫描，否则如果遇到<strong>两头小中间大</strong>的情况，容易顾头不顾尾。</p>\n<p>另外<code>O(N)</code>的解法是2遍扫描，一次前扫，一次后扫，前扫只顾当前<code>i</code>的后面那一个，后扫只顾当前<code>i</code>前面那一个。</p>\n<h2>遇到<code>ratings[i+1]&gt;ratings[i]</code>的情况，应该将<code>res[i+1]</code>(<code>res</code>为记录糖果数量的数组)设置为<code>Math.max(res[i+1],res[i]+1)</code>，因为至少需要<code>res[i]+1</code>，但如果\n<code>res[i+1]</code>更大，则选择更大的。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>如果想用一边扫描，可以先排序，再从小到大扫描，否则如果遇到<strong>两头小中间大</strong>的情况，容易顾头不顾尾。</p>\n<p>另外<code>O(N)</code>的解法是2遍扫描，一次前扫，一次后扫，前扫只顾当前<code>i</code>的后面那一个，后扫只顾当前<code>i</code>前面那一个。</p>\n<p>遇到<code>ratings[i+1]&gt;ratings[i]</code>的情况，应该将<code>res[i+1]</code>(<code>res</code>为记录糖果数量的数组)设置为<code>Math.max(res[i+1],res[i]+1)</code>，因为至少需要<code>res[i]+1</code>，但如果\n<code>res[i+1]</code>更大，则选择更大的。</p>\n",
   "content": "<p>老师想给孩子们分发糖果，有 <em>N</em>&nbsp;个孩子站成了一条直线，老师会根据每个孩子的表现，预先给他们评分。</p>\n\n<p>你需要按照以下要求，帮助老师给这些孩子分发糖果：</p>\n\n<ul>\n\t<li>每个孩子至少分配到 1 个糖果。</li>\n\t<li>相邻的孩子中，评分高的孩子必须获得更多的糖果。</li>\n</ul>\n\n<p>那么这样下来，老师至少需要准备多少颗糖果呢？</p>\n\n<p><strong>示例&nbsp;1:</strong></p>\n\n<pre><strong>输入:</strong> [1,0,2]\n<strong>输出:</strong> 5\n<strong>解释:</strong> 你可以分别给这三个孩子分发 2、1、2 颗糖果。\n</pre>\n\n<p><strong>示例&nbsp;2:</strong></p>\n\n<pre><strong>输入:</strong> [1,2,2]\n<strong>输出:</strong> 4\n<strong>解释:</strong> 你可以分别给这三个孩子分发 1、2、1 颗糖果。\n     第三个孩子只得到 1 颗糖果，这已满足上述两个条件。</pre>\n"
 }

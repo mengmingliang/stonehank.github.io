@@ -4,6 +4,6 @@
   ],
   "titleSlug": "longest-palindrome",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>回文串的特点，出现频率为奇数的最多出现1次。</p>\n<p>使用<code>hash</code>计算出每一个字母的频率，再算出存在多少个<code>奇数频率</code>的数。</p>\n<p>最后返回<code>Math.min(s.length,s.length-odd+1)</code>。</p>\n<h2>例如一个<code>s</code>有12个字母，其中频率分布为<code>1,3,3,5</code>，4个奇数，结果就是<code>12-4+1</code>，如果不存在奇数，则返回<code>s.length</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>回文串的特点，出现频率为奇数的最多出现1次。</p>\n<p>使用<code>hash</code>计算出每一个字母的频率，再算出存在多少个<code>奇数频率</code>的数。</p>\n<p>最后返回<code>Math.min(s.length,s.length-odd+1)</code>。</p>\n<p>例如一个<code>s</code>有12个字母，其中频率分布为<code>1,3,3,5</code>，4个奇数，结果就是<code>12-4+1</code>，如果不存在奇数，则返回<code>s.length</code>。</p>\n",
   "content": "<p>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。</p>\n\n<p>在构造过程中，请注意区分大小写。比如&nbsp;<code>&quot;Aa&quot;</code>&nbsp;不能当做一个回文字符串。</p>\n\n<p><strong>注意:</strong><br />\n假设字符串的长度不会超过 1010。</p>\n\n<p><strong>示例 1: </strong></p>\n\n<pre>\n输入:\n&quot;abccccdd&quot;\n\n输出:\n7\n\n解释:\n我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。\n</pre>\n"
 }

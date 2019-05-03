@@ -4,6 +4,6 @@
   ],
   "titleSlug": "count-primes",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>厄拉多塞筛法，比<code>Math.sqrt</code>+<code>for in primes</code>加起来还快。</p>\n<p>它是定义一个数组<code>notPrime</code>，表示非质数的数，<code>0</code>和<code>1</code>不是质数。</p>\n<p>接着<code>2</code>是第一个质数，然后把范围内所有2的倍数在<code>notPrime[2的倍数]=true</code>，</p>\n<p>接着<code>3</code>不在<code>notPrime</code>范围内，因此是下一个质数，然后把3所有的倍数设置为<code>true</code></p>\n<h2>以此类推...</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>厄拉多塞筛法，比<code>Math.sqrt</code>+<code>for in primes</code>加起来还快。</p>\n<p>它是定义一个数组<code>notPrime</code>，表示非质数的数，<code>0</code>和<code>1</code>不是质数。</p>\n<p>接着<code>2</code>是第一个质数，然后把范围内所有2的倍数在<code>notPrime[2的倍数]=true</code>，</p>\n<p>接着<code>3</code>不在<code>notPrime</code>范围内，因此是下一个质数，然后把3所有的倍数设置为<code>true</code></p>\n<p>以此类推...</p>\n",
   "content": "<p>统计所有小于非负整数&nbsp;<em>n&nbsp;</em>的质数的数量。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong> 10\n<strong>输出:</strong> 4\n<strong>解释:</strong> 小于 10 的质数一共有 4 个, 它们是 2, 3, 5, 7 。\n</pre>\n"
 }

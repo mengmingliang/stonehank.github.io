@@ -4,6 +4,6 @@
   ],
   "titleSlug": "remove-linked-list-elements",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>只需要时刻跟踪当前<code>node</code>和当前<code>node</code>的上一个节点<code>lastNode</code>。</p>\n<h2>遇到<code>node.val===val</code>，那么就改变<code>lastNode.next</code>为<code>node.next</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>只需要时刻跟踪当前<code>node</code>和当前<code>node</code>的上一个节点<code>lastNode</code>。</p>\n<p>遇到<code>node.val===val</code>，那么就改变<code>lastNode.next</code>为<code>node.next</code>。</p>\n",
   "content": "<p>删除链表中等于给定值&nbsp;<strong><em>val&nbsp;</em></strong>的所有节点。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong> 1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, <em><strong>val</strong></em> = 6\n<strong>输出:</strong> 1-&gt;2-&gt;3-&gt;4-&gt;5\n</pre>\n"
 }

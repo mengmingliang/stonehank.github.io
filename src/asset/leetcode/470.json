@@ -4,6 +4,6 @@
   ],
   "titleSlug": "implement-rand10-using-rand7",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<h2>用两个<code>rand7</code>构造出49以内的一个随机数，如果这个随机数大于40，不符合要求，继续构造，在40以内，可以通过<code>/4</code>构造出10以内的一个数。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>用两个<code>rand7</code>构造出49以内的一个随机数，如果这个随机数大于40，不符合要求，继续构造，在40以内，可以通过<code>/4</code>构造出10以内的一个数。</p>\n",
   "content": "<p>已有方法&nbsp;<code>rand7</code>&nbsp;可生成 1 到 7 范围内的均匀随机整数，试写一个方法&nbsp;<code>rand10</code>&nbsp;生成 1 到 10 范围内的均匀随机整数。</p>\n\n<p>不要使用系统的&nbsp;<code>Math.random()</code>&nbsp;方法。</p>\n\n<ol>\n</ol>\n\n<p>&nbsp;</p>\n\n<p><strong>示例 1:</strong></p>\n\n<pre>\n<strong>输入: </strong>1\n<strong>输出: </strong>[7]\n</pre>\n\n<p><strong>示例 2:</strong></p>\n\n<pre>\n<strong>输入: </strong>2\n<strong>输出: </strong>[8,4]\n</pre>\n\n<p><strong>示例 3:</strong></p>\n\n<pre>\n<strong>输入: </strong>3\n<strong>输出: </strong>[8,1,10]\n</pre>\n\n<p>&nbsp;</p>\n\n<p><strong>提示:</strong></p>\n\n<ol>\n\t<li><code>rand7</code>&nbsp;已定义。</li>\n\t<li>传入参数:&nbsp;<code>n</code>&nbsp;表示&nbsp;<code>rand10</code>&nbsp;的调用次数。</li>\n</ol>\n\n<p>&nbsp;</p>\n\n<p><strong>进阶:</strong></p>\n\n<ol>\n\t<li><code>rand7()</code>调用次数的&nbsp;<a href=\"https://en.wikipedia.org/wiki/Expected_value\" target=\"_blank\">期望值</a>&nbsp;是多少&nbsp;?</li>\n\t<li>你能否尽量少调用 <code>rand7()</code> ?</li>\n</ol>\n"
 }

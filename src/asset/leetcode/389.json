@@ -4,6 +4,6 @@
   ],
   "titleSlug": "find-the-difference",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>一个空间复杂度<code>O(1)</code>的方法。</p>\n<p>对<code>s</code>遍历，将它所有字母的<code>ascii</code>值相加为<code>sSum</code>；</p>\n<p>对<code>t</code>遍历，将它所有字母的<code>ascii</code>值相加为<code>tSum</code>；</p>\n<h2>最后返回<code>String.fromCharCode(tSum-sSum)</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>一个空间复杂度<code>O(1)</code>的方法。</p>\n<p>对<code>s</code>遍历，将它所有字母的<code>ascii</code>值相加为<code>sSum</code>；</p>\n<p>对<code>t</code>遍历，将它所有字母的<code>ascii</code>值相加为<code>tSum</code>；</p>\n<p>最后返回<code>String.fromCharCode(tSum-sSum)</code>。</p>\n",
   "content": "<p>给定两个字符串 <em><strong>s</strong></em> 和 <em><strong>t</strong></em>，它们只包含小写字母。</p>\n\n<p>字符串&nbsp;<strong><em>t</em></strong>&nbsp;由字符串&nbsp;<strong><em>s</em></strong>&nbsp;随机重排，然后在随机位置添加一个字母。</p>\n\n<p>请找出在 <em><strong>t</strong></em> 中被添加的字母。</p>\n\n<p>&nbsp;</p>\n\n<p><strong>示例:</strong></p>\n\n<pre>输入：\ns = &quot;abcd&quot;\nt = &quot;abcde&quot;\n\n输出：\ne\n\n解释：\n&#39;e&#39; 是那个被添加的字母。\n</pre>\n"
 }

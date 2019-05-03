@@ -4,6 +4,6 @@
   ],
   "titleSlug": "single-number-iii",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>2次遍历，第一次遍历计算所有数的<code>xor</code>，计算<code>xor</code>的原因是因为只要找到<code>xor</code>二进制中最后一位<code>1</code>的位置，\n那么说明那<code>2</code>个独立的数这个位置上的数字是不同的(这样它们才有可能异或<code>1</code>)。</p>\n<h2>第二次遍历，如果当前数的那个位置是<code>1</code>，单独计算异或值；如果是<code>0</code>，也单独计算异或值，最终得到2个不同的独立值。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>2次遍历，第一次遍历计算所有数的<code>xor</code>，计算<code>xor</code>的原因是因为只要找到<code>xor</code>二进制中最后一位<code>1</code>的位置，\n那么说明那<code>2</code>个独立的数这个位置上的数字是不同的(这样它们才有可能异或<code>1</code>)。</p>\n<p>第二次遍历，如果当前数的那个位置是<code>1</code>，单独计算异或值；如果是<code>0</code>，也单独计算异或值，最终得到2个不同的独立值。</p>\n",
   "content": "<p>给定一个整数数组&nbsp;<code>nums</code>，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。</p>\n\n<p><strong>示例 :</strong></p>\n\n<pre><strong>输入:</strong> <code>[1,2,1,3,2,5]</code>\n<strong>输出:</strong> <code>[3,5]</code></pre>\n\n<p><strong>注意：</strong></p>\n\n<ol>\n\t<li>结果输出的顺序并不重要，对于上面的例子，&nbsp;<code>[5, 3]</code>&nbsp;也是正确答案。</li>\n\t<li>你的算法应该具有线性时间复杂度。你能否仅使用常数空间复杂度来实现？</li>\n</ol>\n"
 }

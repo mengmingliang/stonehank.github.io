@@ -4,6 +4,6 @@
   ],
   "titleSlug": "elimination-game",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>通过一个变量<code>head</code>始终表示当前序列的第一个数字，这个<code>head</code>在<code>从左往右</code>或者<code>当前序列是奇数</code>时会发生变化。</p>\n<p>例如：序列<code>[2,4,6,8,10]</code>，从左往右时，<code>2</code>一定会被删除，因此<code>head</code>从<code>2</code>变为<code>4</code>；</p>\n<p>如果当前状态是从右向左，但是这个序列长度为<code>5</code>，是奇数，因此<code>head</code>也会变为<code>4</code>。</p>\n<p>另外一个变量是<code>step</code>，表示当前数字的间隔，初始为1，每消除一次就<code>step*=2</code>。</p>\n<h2><code>ramaining</code>表示剩下的数字个数，初始为<code>n</code>，每消除一次<code>remaining = Math.floor(remaining / 2)</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>通过一个变量<code>head</code>始终表示当前序列的第一个数字，这个<code>head</code>在<code>从左往右</code>或者<code>当前序列是奇数</code>时会发生变化。</p>\n<p>例如：序列<code>[2,4,6,8,10]</code>，从左往右时，<code>2</code>一定会被删除，因此<code>head</code>从<code>2</code>变为<code>4</code>；</p>\n<p>如果当前状态是从右向左，但是这个序列长度为<code>5</code>，是奇数，因此<code>head</code>也会变为<code>4</code>。</p>\n<p>另外一个变量是<code>step</code>，表示当前数字的间隔，初始为1，每消除一次就<code>step*=2</code>。</p>\n<p><code>ramaining</code>表示剩下的数字个数，初始为<code>n</code>，每消除一次<code>remaining = Math.floor(remaining / 2)</code>。</p>\n",
   "content": "<p>给定一个从1 到 n 排序的整数列表。<br />\n首先，从左到右，从第一个数字开始，每隔一个数字进行删除，直到列表的末尾。<br />\n第二步，在剩下的数字中，从右到左，从倒数第一个数字开始，每隔一个数字进行删除，直到列表开头。<br />\n我们不断重复这两步，从左到右和从右到左交替进行，直到只剩下一个数字。<br />\n返回长度为 n 的列表中，最后剩下的数字。</p>\n\n<p><strong>示例：</strong></p>\n\n<pre>\n<strong>输入:</strong>\nn = 9,\n<u>1</u> 2 <u>3</u> 4 <u>5</u> 6 <u>7</u> 8 <u>9</u>\n2 <u>4</u> 6 <u>8</u>\n<u>2</u> 6\n6\n\n<strong>输出:</strong>\n6</pre>\n"
 }

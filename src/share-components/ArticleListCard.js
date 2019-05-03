@@ -57,7 +57,7 @@ export default class ArticleListCard extends React.Component {
             bodyStyle={bodyStyle}
             onClick={this.navigateToPath.bind(this,getContentDetailPath(curPropsData))} >
         <div style={oneRow ? {display:'flex'} : null}>
-          <div style={{flex:3}}>{title|| curPropsData['title']}</div>
+          <div style={{flex:2}}>{title|| curPropsData['title']}</div>
           {
             curPropsData
               ? <div style={{flex:5}}>

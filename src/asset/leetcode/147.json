@@ -4,6 +4,6 @@
   ],
   "titleSlug": "insertion-sort-list",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>定义一个空节点<code>root</code>，我们要做的就是维护这个空节点之后的所有节点都是有序的。</p>\n<p>对<code>head</code>中每一个节点遍历检查，检查这个节点应该在<code>root</code>中的位置，并且将它插入位置中。</p>\n<h2>当检查完毕，<code>root</code>后面的节点就是一个有序节点。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>定义一个空节点<code>root</code>，我们要做的就是维护这个空节点之后的所有节点都是有序的。</p>\n<p>对<code>head</code>中每一个节点遍历检查，检查这个节点应该在<code>root</code>中的位置，并且将它插入位置中。</p>\n<p>当检查完毕，<code>root</code>后面的节点就是一个有序节点。</p>\n",
   "content": "<p>对链表进行插入排序。</p>\n\n<p><img alt=\"\" src=\"https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif\"><br>\n<small>插入排序的动画演示如上。从第一个元素开始，该链表可以被认为已经部分排序（用黑色表示）。<br>\n每次迭代时，从输入数据中移除一个元素（用红色表示），并原地将其插入到已排好序的链表中。</small></p>\n\n<p>&nbsp;</p>\n\n<p><strong>插入排序算法：</strong></p>\n\n<ol>\n\t<li>插入排序是迭代的，每次只移动一个元素，直到所有元素可以形成一个有序的输出列表。</li>\n\t<li>每次迭代中，插入排序只从输入数据中移除一个待排序的元素，找到它在序列中适当的位置，并将其插入。</li>\n\t<li>重复直到所有输入数据插入完为止。</li>\n</ol>\n\n<p>&nbsp;</p>\n\n<p><strong>示例 1：</strong></p>\n\n<pre><strong>输入:</strong> 4-&gt;2-&gt;1-&gt;3\n<strong>输出:</strong> 1-&gt;2-&gt;3-&gt;4\n</pre>\n\n<p><strong>示例&nbsp;2：</strong></p>\n\n<pre><strong>输入:</strong> -1-&gt;5-&gt;3-&gt;4-&gt;0\n<strong>输出:</strong> -1-&gt;0-&gt;3-&gt;4-&gt;5\n</pre>\n"
 }

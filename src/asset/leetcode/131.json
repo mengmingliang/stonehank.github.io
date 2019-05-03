@@ -4,6 +4,6 @@
   ],
   "titleSlug": "palindrome-partitioning",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<h2>回溯，<code>start</code>为从当前哪个索引开始，检测以<code>start</code>为开头的每一个子字符串，如果存在回文字符串，就添加到<code>arr</code>中，直到<code>start===s.length</code>，\n说明当前<code>arr</code>为其中一个解，添加到结果<code>result</code>中。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>回溯，<code>start</code>为从当前哪个索引开始，检测以<code>start</code>为开头的每一个子字符串，如果存在回文字符串，就添加到<code>arr</code>中，直到<code>start===s.length</code>，\n说明当前<code>arr</code>为其中一个解，添加到结果<code>result</code>中。</p>\n",
   "content": "<p>给定一个字符串 <em>s</em>，将<em> s </em>分割成一些子串，使每个子串都是回文串。</p>\n\n<p>返回 <em>s</em> 所有可能的分割方案。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong>&nbsp;&quot;aab&quot;\n<strong>输出:</strong>\n[\n  [&quot;aa&quot;,&quot;b&quot;],\n  [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;]\n]</pre>\n"
 }

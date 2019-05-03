@@ -4,6 +4,6 @@
   ],
   "titleSlug": "surrounded-regions",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>题目也给了提示，只需要对边上的<code>O</code>进行<code>dfs</code>遍历，找出所有和它相连的<code>O</code>，改变为<code>S</code>。</p>\n<h2>最后再将所有的<code>O</code>改变为<code>X</code>，将所有的<code>S</code>改变为<code>O</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>题目也给了提示，只需要对边上的<code>O</code>进行<code>dfs</code>遍历，找出所有和它相连的<code>O</code>，改变为<code>S</code>。</p>\n<p>最后再将所有的<code>O</code>改变为<code>X</code>，将所有的<code>S</code>改变为<code>O</code>。</p>\n",
   "content": "<p>给定一个二维的矩阵，包含&nbsp;<code>&#39;X&#39;</code>&nbsp;和&nbsp;<code>&#39;O&#39;</code>（<strong>字母 O</strong>）。</p>\n\n<p>找到所有被 <code>&#39;X&#39;</code> 围绕的区域，并将这些区域里所有的&nbsp;<code>&#39;O&#39;</code> 用 <code>&#39;X&#39;</code> 填充。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre>X X X X\nX O O X\nX X O X\nX O X X\n</pre>\n\n<p>运行你的函数后，矩阵变为：</p>\n\n<pre>X X X X\nX X X X\nX X X X\nX O X X\n</pre>\n\n<p><strong>解释:</strong></p>\n\n<p>被围绕的区间不会存在于边界上，换句话说，任何边界上的&nbsp;<code>&#39;O&#39;</code>&nbsp;都不会被填充为&nbsp;<code>&#39;X&#39;</code>。 任何不在边界上，或不与边界上的&nbsp;<code>&#39;O&#39;</code>&nbsp;相连的&nbsp;<code>&#39;O&#39;</code>&nbsp;最终都会被填充为&nbsp;<code>&#39;X&#39;</code>。如果两个元素在水平或垂直方向相邻，则称它们是&ldquo;相连&rdquo;的。</p>\n"
 }

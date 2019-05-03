@@ -4,6 +4,6 @@
   ],
   "titleSlug": "merge-k-sorted-lists",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>好几种方法能解决，</p>\n<ol>\n<li>\n<p>直接排序，将每一个<code>node.val</code>添加到数组，然后排序后重新生成链表。</p>\n</li>\n<li>\n<p>优先队列，将每一个<code>node</code>加入<code>Priority Queue</code>，然后再从小到大导出即可。</p>\n</li>\n<li>\n<p>归并排序(见代码)。</p>\n</li>\n<li>\n<p>多指针(比较慢)，每一次都找出当前每一个<code>list[i]</code>中的最小值，找到的那个节点执行<code>list[i]=list[i].next</code>。</p>\n</li>\n</ol>\n<hr>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>好几种方法能解决，</p>\n<ol>\n<li>\n<p>直接排序，将每一个<code>node.val</code>添加到数组，然后排序后重新生成链表。</p>\n</li>\n<li>\n<p>优先队列，将每一个<code>node</code>加入<code>Priority Queue</code>，然后再从小到大导出即可。</p>\n</li>\n<li>\n<p>归并排序(见代码)。</p>\n</li>\n<li>\n<p>多指针(比较慢)，每一次都找出当前每一个<code>list[i]</code>中的最小值，找到的那个节点执行<code>list[i]=list[i].next</code>。</p>\n</li>\n</ol>\n",
   "content": "<p>合并&nbsp;<em>k&nbsp;</em>个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong>\n[\n&nbsp; 1-&gt;4-&gt;5,\n&nbsp; 1-&gt;3-&gt;4,\n&nbsp; 2-&gt;6\n]\n<strong>输出:</strong> 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</pre>\n"
 }

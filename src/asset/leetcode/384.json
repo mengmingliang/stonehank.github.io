@@ -4,6 +4,6 @@
   ],
   "titleSlug": "shuffle-an-array",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<h2><code>Fisher Yates</code>洗牌算法，对于一个数组，长度为<code>N</code>，首先随机从<code>N</code>中抽取1个，将它与最后一个交换；接着从<code>N-1</code>随机抽取一个，与倒数第二个交换....</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p><code>Fisher Yates</code>洗牌算法，对于一个数组，长度为<code>N</code>，首先随机从<code>N</code>中抽取1个，将它与最后一个交换；接着从<code>N-1</code>随机抽取一个，与倒数第二个交换....</p>\n",
   "content": "<p>打乱一个没有重复元素的数组。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre>\n// 以数字集合 1, 2 和 3 初始化数组。\nint[] nums = {1,2,3};\nSolution solution = new Solution(nums);\n\n// 打乱数组 [1,2,3] 并返回结果。任何 [1,2,3]的排列返回的概率应该相同。\nsolution.shuffle();\n\n// 重设数组到它的初始状态[1,2,3]。\nsolution.reset();\n\n// 随机返回数组[1,2,3]打乱后的结果。\nsolution.shuffle();\n</pre>\n"
 }

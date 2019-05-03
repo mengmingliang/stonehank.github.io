@@ -112,7 +112,7 @@ export default class MyLeetcodeContainer extends React.Component{
 
   }
   render(){
-    const {renderContent,page,pageSize}=this.state
+    const {renderContent,page,pageSize,curSortedKey,curSortedAsc}=this.state
     const {initLeetcodeData,leetcodeRenderMode,read_content_path}=this.props
 
     // console.log(initLeetcodeData,renderContent)
@@ -126,6 +126,8 @@ export default class MyLeetcodeContainer extends React.Component{
                                    read_content_path={read_content_path}
                                    toggleSorted={this.toggleSorted}
                                    totalPage={this.totalPage}
+                                   curSortedKey={curSortedKey}
+                                   curSortedAsc={curSortedAsc}
                                    leetcodeRenderMode={leetcodeRenderMode}
                                    handlePageChange={this.handlePageChange}
                                    toggleModeDataStructure={this.toggleModeDataStructure}

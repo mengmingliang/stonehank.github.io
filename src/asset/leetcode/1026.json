@@ -4,6 +4,6 @@
   ],
   "titleSlug": "maximum-difference-between-node-and-ancestor",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>题目的意思就是找<code>树</code>中每一条路径的最大和最小值差值最大的值。</p>\n<h2>我们只需要保存当前路径上的最大值和最小值，然后通过<code>dfs</code>不断筛选出最大差距。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>题目的意思就是找<code>树</code>中每一条路径的最大和最小值差值最大的值。</p>\n<p>我们只需要保存当前路径上的最大值和最小值，然后通过<code>dfs</code>不断筛选出最大差距。</p>\n",
   "content": "<p>给定二叉树的根节点&nbsp;<code>root</code>，找出存在于不同节点&nbsp;<code>A</code> 和&nbsp;<code>B</code>&nbsp;之间的最大值 <code>V</code>，其中&nbsp;<code>V = |A.val - B.val|</code>，且&nbsp;<code>A</code>&nbsp;是&nbsp;<code>B</code>&nbsp;的祖先。</p>\n\n<p>（如果 A 的任何子节点之一为 B，或者 A 的任何子节点是 B 的祖先，那么我们认为 A 是 B 的祖先）</p>\n\n<p>&nbsp;</p>\n\n<p><strong>示例：</strong></p>\n\n<p><img alt=\"\" src=\"https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/12/2whqcep.jpg\" style=\"height: 230px; width: 300px;\"></p>\n\n<pre><strong>输入：</strong>[8,3,10,1,6,null,14,null,null,4,7,13]\n<strong>输出：</strong>7\n<strong>解释： </strong>\n我们有大量的节点与其祖先的差值，其中一些如下：\n|8 - 3| = 5\n|3 - 7| = 4\n|8 - 1| = 7\n|10 - 13| = 3\n在所有可能的差值中，最大值 7 由 |8 - 1| = 7 得出。\n</pre>\n\n<p>&nbsp;</p>\n\n<p><strong>提示：</strong></p>\n\n<ol>\n\t<li>树中的节点数在&nbsp;<code>2</code>&nbsp;到&nbsp;<code>5000</code>&nbsp;之间。</li>\n\t<li>每个节点的值介于&nbsp;<code>0</code>&nbsp;到&nbsp;<code>100000</code>&nbsp;之间。</li>\n</ol>\n"
 }

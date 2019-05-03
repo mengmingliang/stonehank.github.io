@@ -4,6 +4,6 @@
   ],
   "titleSlug": "swap-nodes-in-pairs",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>假设一组内含有2个节点，定义一个<code>startNode</code>为每一组的前一个节点(方便两两交换)，初始为一个空节点<code>new ListNode(null)</code>。</p>\n<p>每次检查<code>node</code>和<code>node.next</code>都存在，说明当前组有效的，是不缺少节点的。</p>\n<p>例如<code>[1,2,3]</code>，初始<code>startNode</code>为额外空节点，第一次检查<code>Node(1)</code>和<code>Node(2)</code>都存在，只需要将两个交换后得到<code>[2,1,3]</code>；</p>\n<h2>接着，更新<code>startNode</code>为<code>Node(2)</code>，第二次检查只有<code>Node(3)</code>存在，当前组只有1个节点，退出循环。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>假设一组内含有2个节点，定义一个<code>startNode</code>为每一组的前一个节点(方便两两交换)，初始为一个空节点<code>new ListNode(null)</code>。</p>\n<p>每次检查<code>node</code>和<code>node.next</code>都存在，说明当前组有效的，是不缺少节点的。</p>\n<p>例如<code>[1,2,3]</code>，初始<code>startNode</code>为额外空节点，第一次检查<code>Node(1)</code>和<code>Node(2)</code>都存在，只需要将两个交换后得到<code>[2,1,3]</code>；</p>\n<p>接着，更新<code>startNode</code>为<code>Node(2)</code>，第二次检查只有<code>Node(3)</code>存在，当前组只有1个节点，退出循环。</p>\n",
   "content": "<p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>\n\n<p><strong>你不能只是单纯的改变节点内部的值</strong>，而是需要实际的进行节点交换。</p>\n\n<p>&nbsp;</p>\n\n<p><strong>示例:</strong></p>\n\n<pre>给定 <code>1-&gt;2-&gt;3-&gt;4</code>, 你应该返回 <code>2-&gt;1-&gt;4-&gt;3</code>.\n</pre>\n"
 }

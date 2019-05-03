@@ -10,8 +10,13 @@ const styles={
   card:{margin:"0"},
   cardBody:{padding:"10px"},
   list_pagi_style:{textAlign: 'center',marginBottom:"1rem"},
-  tag:{ lineHeight: '1rem'}
+  tag:{ lineHeight: '1rem'},
+  sortIcon:{flex:1,textAlign:"right",fontSize: '1.2rem'}
 }
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_866706_ebkjjbarabt.js',
+});
+
 
 export default class MyLeetcodeComponent extends React.Component{
 
@@ -23,7 +28,8 @@ export default class MyLeetcodeComponent extends React.Component{
 
   }
   render(){
-    const {leetcodeRenderMode,read_content_path,toggleModeDataStructure,renderContent,page,pageSize,handlePageChange,totalPage,toggleSorted}=this.props
+    const {leetcodeRenderMode,read_content_path,toggleModeDataStructure,renderContent,
+      page,pageSize,handlePageChange,totalPage,toggleSorted,curSortedKey,curSortedAsc}=this.props
     const listPageSetting={
       style:styles.list_pagi_style,
       current:page,
@@ -51,15 +57,37 @@ export default class MyLeetcodeComponent extends React.Component{
             <List split={false}
                   header={
                     <div>
-                      <Button onClick={()=>{toggleSorted('uniqueID')}}>id</Button>
-                      {/*<Button onClick={()=>{toggleSorted('lang')}}>language</Button>*/}
-                      <Button onClick={()=>{toggleSorted('difficultNum')}}>difficult</Button>
-                      {/*<div>*/}
-                        {/*<span>题名</span>*/}
-                        {/*<span>难度</span>*/}
-                        {/*<span>分类</span>*/}
-                        {/*<span>语言</span>*/}
-                      {/*</div>*/}
+                      <div style={{display:'flex',justifyContent:'space-between',padding:"0 5px"}}>
+                        <Button style={{flex:2,padding:0}} size={"small"} onClick={()=>{toggleSorted('uniqueID')}}>
+                          <div style={{ display:'flex',padding:"0 2px"}}>
+                            <span style={{flex:1,textAlign:"left"}}>序号</span>
+                            <IconFont type={(curSortedKey==="uniqueID" && curSortedAsc)
+                              ? "icon-sort-invertedorder-copy" : (curSortedKey==="uniqueID" && !curSortedAsc)
+                                ? "icon-sort-invertedorder" : "icon-sort-invertedorder1"} style={styles.sortIcon}/>
+                          </div>
+                        </Button>
+                        <div style={{flex:5,display:'flex'}}>
+                          <Button style={{flexBasis: 100,padding:0}} size={"small"} onClick={()=>{toggleSorted('difficultNum')}}>
+                            <div style={{ display:'flex',padding:"0 2px"}}>
+                              <span style={{flex:1,textAlign:"left"}}>难度</span>
+                              <IconFont type={(curSortedKey==="difficultNum" && curSortedAsc)
+                                ? "icon-sort-invertedorder-copy" : (curSortedKey==="difficultNum" && !curSortedAsc)
+                                  ? "icon-sort-invertedorder" : "icon-sort-invertedorder1"} style={styles.sortIcon}/>
+                            </div>
+                          </Button>
+                          <div style={{flex:3,display:'flex'}}>
+                            <Button style={{flex:1,padding:0}} size={"small"} onClick={()=>{toggleSorted('relatedTags')}}>
+                              <div style={{ display:'flex',padding:"0 2px"}}>
+                                <span style={{flex:1,textAlign:"left"}}>话题</span>
+                                <IconFont type={(curSortedKey==="relatedTags" && curSortedAsc)
+                                  ? "icon-sort-invertedorder-copy" : (curSortedKey==="relatedTags" && !curSortedAsc)
+                                    ? "icon-sort-invertedorder" : "icon-sort-invertedorder1"} style={styles.sortIcon}/>
+                              </div>
+                            </Button>
+                            <span style={{flex:1}}>语言</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                   }

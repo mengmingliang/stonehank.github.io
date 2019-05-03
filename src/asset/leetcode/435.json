@@ -4,6 +4,6 @@
   ],
   "titleSlug": "non-overlapping-intervals",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>首先对<code>end</code>升序排序。</p>\n<p>之所以只对<code>end</code>排序，因为<code>start</code>一定小于<code>end</code>，因此一个<code>intervals[i].end</code>决定了它前面所有区间的最右端。</p>\n<h2>遍历<code>intervals</code>，如果发现当前和之前一个重叠了(即当前的<code>start</code>小于之前区间的<code>end</code>)，那么直接跳过当前区间即可，也就是删除当前区间，因为2个区间留一个，肯定留<code>end</code>更小的区间。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>首先对<code>end</code>升序排序。</p>\n<p>之所以只对<code>end</code>排序，因为<code>start</code>一定小于<code>end</code>，因此一个<code>intervals[i].end</code>决定了它前面所有区间的最右端。</p>\n<p>遍历<code>intervals</code>，如果发现当前和之前一个重叠了(即当前的<code>start</code>小于之前区间的<code>end</code>)，那么直接跳过当前区间即可，也就是删除当前区间，因为2个区间留一个，肯定留<code>end</code>更小的区间。</p>\n",
   "content": "<p>给定一个区间的集合，找到需要移除区间的最小数量，使剩余区间互不重叠。</p>\n\n<p><strong>注意:</strong></p>\n\n<ol>\n\t<li>可以认为区间的终点总是大于它的起点。</li>\n\t<li>区间 [1,2] 和 [2,3] 的边界相互&ldquo;接触&rdquo;，但没有相互重叠。</li>\n</ol>\n\n<p><strong>示例 1:</strong></p>\n\n<pre>\n<strong>输入:</strong> [ [1,2], [2,3], [3,4], [1,3] ]\n\n<strong>输出:</strong> 1\n\n<strong>解释:</strong> 移除 [1,3] 后，剩下的区间没有重叠。\n</pre>\n\n<p><strong>示例 2:</strong></p>\n\n<pre>\n<strong>输入:</strong> [ [1,2], [1,2], [1,2] ]\n\n<strong>输出:</strong> 2\n\n<strong>解释:</strong> 你需要移除两个 [1,2] 来使剩下的区间没有重叠。\n</pre>\n\n<p><strong>示例 3:</strong></p>\n\n<pre>\n<strong>输入:</strong> [ [1,2], [2,3] ]\n\n<strong>输出:</strong> 0\n\n<strong>解释:</strong> 你不需要移除任何区间，因为它们已经是无重叠的了。\n</pre>\n"
 }

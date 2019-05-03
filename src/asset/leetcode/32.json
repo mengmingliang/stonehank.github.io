@@ -4,6 +4,6 @@
   ],
   "titleSlug": "longest-valid-parentheses",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>一般来说，遇到括号问题，首先会想到用<code>stack</code>，这道题也同样，用<code>stack</code>保存每一个括号的索引值，每次<code>pop</code>的时候，\n记录最大值。</p>\n<h2>另外这道题也可以用<code>DP</code>，<code>DP</code>的思路是当存在<code>()</code>，需要<code>+2</code>，当存在<code>(()())</code>，需要<code>+2</code>后再加上第一个<code>(</code>上的值。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>一般来说，遇到括号问题，首先会想到用<code>stack</code>，这道题也同样，用<code>stack</code>保存每一个括号的索引值，每次<code>pop</code>的时候，\n记录最大值。</p>\n<p>另外这道题也可以用<code>DP</code>，<code>DP</code>的思路是当存在<code>()</code>，需要<code>+2</code>，当存在<code>(()())</code>，需要<code>+2</code>后再加上第一个<code>(</code>上的值。</p>\n",
   "content": "<p>给定一个只包含 <code>&#39;(&#39;</code>&nbsp;和 <code>&#39;)&#39;</code>&nbsp;的字符串，找出最长的包含有效括号的子串的长度。</p>\n\n<p><strong>示例&nbsp;1:</strong></p>\n\n<pre><strong>输入:</strong> &quot;(()&quot;\n<strong>输出:</strong> 2\n<strong>解释:</strong> 最长有效括号子串为 <code>&quot;()&quot;</code>\n</pre>\n\n<p><strong>示例 2:</strong></p>\n\n<pre><strong>输入:</strong> &quot;<code>)()())</code>&quot;\n<strong>输出:</strong> 4\n<strong>解释:</strong> 最长有效括号子串为 <code>&quot;()()&quot;</code>\n</pre>\n"
 }

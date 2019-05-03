@@ -4,6 +4,6 @@
   ],
   "titleSlug": "insert-interval",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>一种最简单的想法就是，先添加<code>newIntervals</code>，然后重新按照起始端点排序，最后再处理重叠区间，就相当于<code>Leetcode 56</code>一模一样。</p>\n<p>时间复杂度是<code>O(nlgn)</code>。</p>\n<p>另外是时间复杂度<code>O(n)</code>的方法。</p>\n<p>思路比较简洁的是重新构建区间，</p>\n<p>检查每一段区间，如果<code>当前区间.end &lt; 新区间.start</code>，那么当前区间肯定是在新区间前面且不重叠的，直接添加当前区间进结果就好。</p>\n<p>如果<code>当前区间.start &gt; 新区间.end</code>，那么当前区间肯定是在新区间后面且不重叠的，并且说明新区间已经处理完毕，直接添加新区间到结果。</p>\n<h2>其他情况，说明存在重叠区域，更新新区间的开始点和结束点。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>一种最简单的想法就是，先添加<code>newIntervals</code>，然后重新按照起始端点排序，最后再处理重叠区间，就相当于<code>Leetcode 56</code>一模一样。</p>\n<p>时间复杂度是<code>O(nlgn)</code>。</p>\n<p>另外是时间复杂度<code>O(n)</code>的方法。</p>\n<p>思路比较简洁的是重新构建区间，</p>\n<p>检查每一段区间，如果<code>当前区间.end &lt; 新区间.start</code>，那么当前区间肯定是在新区间前面且不重叠的，直接添加当前区间进结果就好。</p>\n<p>如果<code>当前区间.start &gt; 新区间.end</code>，那么当前区间肯定是在新区间后面且不重叠的，并且说明新区间已经处理完毕，直接添加新区间到结果。</p>\n<p>其他情况，说明存在重叠区域，更新新区间的开始点和结束点。</p>\n",
   "content": "<p>给出一个<em>无重叠的 ，</em>按照区间起始端点排序的区间列表。</p>\n\n<p>在列表中插入一个新的区间，你需要确保列表中的区间仍然有序且不重叠（如果有必要的话，可以合并区间）。</p>\n\n<p><strong>示例&nbsp;1:</strong></p>\n\n<pre><strong>输入:</strong> intervals = [[1,3],[6,9]], newInterval = [2,5]\n<strong>输出:</strong> [[1,5],[6,9]]\n</pre>\n\n<p><strong>示例&nbsp;2:</strong></p>\n\n<pre><strong>输入:</strong> intervals = <code>[[1,2],[3,5],[6,7],[8,10],[12,16]]</code>, newInterval = <code>[4,8]</code>\n<strong>输出:</strong> [[1,2],[3,10],[12,16]]\n<strong>解释:</strong> 这是因为新的区间 <code>[4,8]</code> 与 <code>[3,5],[6,7],[8,10]</code>&nbsp;重叠。\n</pre>\n"
 }

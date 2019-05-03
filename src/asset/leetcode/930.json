@@ -4,6 +4,6 @@
   ],
   "titleSlug": "binary-subarrays-with-sum",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<h2>遍历数组<code>A</code>，不断求出当前位置之前的和<code>preSum</code>，并且保存进<code>hash</code>，如果发现<code>preSum&gt;=S</code>，\n说明有可能存在一组连续的子数组的和为<code>S</code>，这时检查<code>hash[preSum-S]</code>，如果发现存在，\n说明之前存在<code>hash[preSum-S]</code>个位置，与当前位置的差值为<code>S</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>遍历数组<code>A</code>，不断求出当前位置之前的和<code>preSum</code>，并且保存进<code>hash</code>，如果发现<code>preSum&gt;=S</code>，\n说明有可能存在一组连续的子数组的和为<code>S</code>，这时检查<code>hash[preSum-S]</code>，如果发现存在，\n说明之前存在<code>hash[preSum-S]</code>个位置，与当前位置的差值为<code>S</code>。</p>\n",
   "content": "<p>在由若干&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp; 组成的数组&nbsp;<code>A</code>&nbsp;中，有多少个和为 <code>S</code>&nbsp;的<strong>非空</strong>子数组。</p>\n\n<p>&nbsp;</p>\n\n<p><strong>示例：</strong></p>\n\n<pre><strong>输入：</strong>A = [1,0,1,0,1], S = 2\n<strong>输出：</strong>4\n<strong>解释：</strong>\n如下面黑体所示，有 4 个满足题目要求的子数组：\n[<strong>1,0,1</strong>,0,1]\n[<strong>1,0,1,0</strong>,1]\n[1,<strong>0,1,0,1</strong>]\n[1,0,<strong>1,0,1</strong>]\n</pre>\n\n<p>&nbsp;</p>\n\n<p><strong>提示：</strong></p>\n\n<ol>\n\t<li><code>A.length &lt;= 30000</code></li>\n\t<li><code>0 &lt;= S &lt;= A.length</code></li>\n\t<li><code>A[i]</code>&nbsp;为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code></li>\n</ol>\n"
 }

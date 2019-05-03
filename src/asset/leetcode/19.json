@@ -4,6 +4,6 @@
   ],
   "titleSlug": "remove-nth-node-from-end-of-list",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>定义<code>双指针</code>，其中<code>指针2</code>比<code>指针1</code>慢<code>n</code>，等到<code>指针1</code>到达最后的时候，需要删除的就是<code>指针2.next</code>。</p>\n<p>注意：</p>\n<h2>如果定义时<code>指针1</code>已经为<code>null</code>，说明要删除的就是头一个，直接返回<code>head.next</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>定义<code>双指针</code>，其中<code>指针2</code>比<code>指针1</code>慢<code>n</code>，等到<code>指针1</code>到达最后的时候，需要删除的就是<code>指针2.next</code>。</p>\n<p>注意：</p>\n<p>如果定义时<code>指针1</code>已经为<code>null</code>，说明要删除的就是头一个，直接返回<code>head.next</code>。</p>\n",
   "content": "<p>给定一个链表，删除链表的倒数第&nbsp;<em>n&nbsp;</em>个节点，并且返回链表的头结点。</p>\n\n<p><strong>示例：</strong></p>\n\n<pre>给定一个链表: <strong>1-&gt;2-&gt;3-&gt;4-&gt;5</strong>, 和 <strong><em>n</em> = 2</strong>.\n\n当删除了倒数第二个节点后，链表变为 <strong>1-&gt;2-&gt;3-&gt;5</strong>.\n</pre>\n\n<p><strong>说明：</strong></p>\n\n<p>给定的 <em>n</em>&nbsp;保证是有效的。</p>\n\n<p><strong>进阶：</strong></p>\n\n<p>你能尝试使用一趟扫描实现吗？</p>\n"
 }

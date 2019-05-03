@@ -4,6 +4,6 @@
   ],
   "titleSlug": "minimum-time-difference",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>两个时间的差值可以为<code>它们之间的差值G</code>和<code>1440(24小时)-它们之间的差值</code>。</p>\n<p>这里<code>Brute Force</code>就是对每两个时间，分别求出它们之间的2个差值，但是时间复杂度<code>O(N^2)</code>不符合要求。</p>\n<h2>我们可以用一个数组<code>aux</code>保存每个时间相对于<code>00:00</code>的分钟差值，再进行排序，因此我们只需要计算邻近的两个时间的差值，\n最后再比较<code>1440-头尾的差值</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>两个时间的差值可以为<code>它们之间的差值G</code>和<code>1440(24小时)-它们之间的差值</code>。</p>\n<p>这里<code>Brute Force</code>就是对每两个时间，分别求出它们之间的2个差值，但是时间复杂度<code>O(N^2)</code>不符合要求。</p>\n<p>我们可以用一个数组<code>aux</code>保存每个时间相对于<code>00:00</code>的分钟差值，再进行排序，因此我们只需要计算邻近的两个时间的差值，\n最后再比较<code>1440-头尾的差值</code>。</p>\n",
   "content": "<p>给定一个 24 小时制（小时:分钟）的时间列表，找出列表中任意两个时间的最小时间差并已分钟数表示。</p>\n\n<p><br />\n<strong>示例 1：</strong></p>\n\n<pre>\n<strong>输入:</strong> [&quot;23:59&quot;,&quot;00:00&quot;]\n<strong>输出:</strong> 1\n</pre>\n\n<p><br />\n<strong>备注:</strong></p>\n\n<ol>\n\t<li>列表中时间数在 2~20000 之间。</li>\n\t<li>每个时间取值在 00:00~23:59 之间。</li>\n</ol>\n"
 }

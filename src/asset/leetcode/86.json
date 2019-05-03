@@ -4,6 +4,6 @@
   ],
   "titleSlug": "partition-list",
   "hasThinking": true,
-  "thinking": "<hr>\n<p>思路：</p>\n<p>建立一个链表头<code>less</code>和链表头<code>greater</code>，遍历链表<code>head</code>，如果<code>head.val&lt;x</code>，放入<code>less</code>中，如果<code>head.val&gt;=x</code>放入<code>greater</code>中。</p>\n<h2>最后合并<code>less</code>和<code>greater</code>。</h2>\n",
+  "thinking": "<hr>\n<p>思路：</p>\n<p>建立一个链表头<code>less</code>和链表头<code>greater</code>，遍历链表<code>head</code>，如果<code>head.val&lt;x</code>，放入<code>less</code>中，如果<code>head.val&gt;=x</code>放入<code>greater</code>中。</p>\n<p>最后合并<code>less</code>和<code>greater</code>。</p>\n",
   "content": "<p>给定一个链表和一个特定值<em> x</em>，对链表进行分隔，使得所有小于 <em>x</em> 的节点都在大于或等于 <em>x</em> 的节点之前。</p>\n\n<p>你应当保留两个分区中每个节点的初始相对位置。</p>\n\n<p><strong>示例:</strong></p>\n\n<pre><strong>输入:</strong> head = 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, <em>x</em> = 3\n<strong>输出:</strong> 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5\n</pre>\n"
 }
