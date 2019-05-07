@@ -426,7 +426,7 @@
     "uniqueID": "31",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "31. 下一个排列",
     "relatedTags": [
       "数组"
@@ -453,7 +453,7 @@
     "uniqueID": "33",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "33. 搜索旋转排序数组",
     "relatedTags": [
       "数组",
@@ -467,7 +467,7 @@
     "uniqueID": "34",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "34. 在排序数组中查找元素的第一个和最后一个位置",
     "relatedTags": [
       "数组",
@@ -522,7 +522,7 @@
     "uniqueID": "38",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "38. 报数",
     "relatedTags": [
       "字符串"
@@ -535,7 +535,7 @@
     "uniqueID": "39",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "39. 组合总和",
     "relatedTags": [
       "数组",
@@ -549,7 +549,7 @@
     "uniqueID": "40",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "40. 组合总和 II",
     "relatedTags": [
       "数组",
@@ -563,7 +563,7 @@
     "uniqueID": "41",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "41. 缺失的第一个正数",
     "relatedTags": [
       "数组"
@@ -591,7 +591,7 @@
     "uniqueID": "43",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "43. 字符串相乘",
     "relatedTags": [
       "数学",
@@ -605,7 +605,7 @@
     "uniqueID": "44",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "44. 通配符匹配",
     "relatedTags": [
       "贪心算法",
@@ -621,7 +621,7 @@
     "uniqueID": "45",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "45. 跳跃游戏 II",
     "relatedTags": [
       "贪心算法",
@@ -674,7 +674,7 @@
     "uniqueID": "49",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "49. 字母异位词分组",
     "relatedTags": [
       "哈希表",
@@ -688,7 +688,7 @@
     "uniqueID": "50",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "50. Pow(x, n)",
     "relatedTags": [
       "数学",
@@ -728,7 +728,7 @@
     "uniqueID": "53",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "53. 最大子序和",
     "relatedTags": [
       "数组",
@@ -743,7 +743,7 @@
     "uniqueID": "54",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "54. 螺旋矩阵",
     "relatedTags": [
       "数组"
@@ -756,7 +756,7 @@
     "uniqueID": "55",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "55. 跳跃游戏",
     "relatedTags": [
       "贪心算法",
@@ -798,7 +798,7 @@
     "uniqueID": "58",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "58. 最后一个单词的长度",
     "relatedTags": [
       "字符串"
@@ -811,7 +811,7 @@
     "uniqueID": "59",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "59. 螺旋矩阵 II",
     "relatedTags": [
       "数组"
@@ -852,7 +852,7 @@
     "uniqueID": "62",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "62. 不同路径",
     "relatedTags": [
       "数组",
@@ -866,7 +866,7 @@
     "uniqueID": "63",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "63. 不同路径 II",
     "relatedTags": [
       "数组",
@@ -880,7 +880,7 @@
     "uniqueID": "64",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "64. 最小路径和",
     "relatedTags": [
       "数组",
@@ -894,7 +894,7 @@
     "uniqueID": "65",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "65. 有效数字",
     "relatedTags": [
       "数学",
@@ -908,7 +908,7 @@
     "uniqueID": "66",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "66. 加一",
     "relatedTags": [
       "数组"
@@ -921,7 +921,7 @@
     "uniqueID": "67",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "67. 二进制求和",
     "relatedTags": [
       "数学",
@@ -935,7 +935,7 @@
     "uniqueID": "68",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "68. 文本左右对齐",
     "relatedTags": [
       "字符串"
@@ -948,7 +948,7 @@
     "uniqueID": "69",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "69. x 的平方根",
     "relatedTags": [
       "数学",
@@ -962,7 +962,7 @@
     "uniqueID": "70",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "70. 爬楼梯",
     "relatedTags": [
       "动态规划"
@@ -975,7 +975,7 @@
     "uniqueID": "71",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "71. 简化路径",
     "relatedTags": [
       "栈",
@@ -2693,7 +2693,8 @@
       "堆",
       "树状数组",
       "线段树",
-      "分治算法"
+      "分治算法",
+      "Line Sweep"
     ]
   },
   "219": {
@@ -2894,7 +2895,7 @@
     "difficultNum": 3,
     "difficult": "Hard",
     "hasThinking": false,
-    "title": "233. 数字1的个数",
+    "title": "233. 数字 1 的个数",
     "relatedTags": [
       "数学"
     ]
@@ -4168,7 +4169,9 @@
     "difficult": "Hard",
     "hasThinking": true,
     "title": "391. 完美矩形",
-    "relatedTags": []
+    "relatedTags": [
+      "Line Sweep"
+    ]
   },
   "392": {
     "lang": [
@@ -8879,7 +8882,8 @@
     "hasThinking": true,
     "title": "850. 矩形面积 II",
     "relatedTags": [
-      "线段树"
+      "线段树",
+      "Line Sweep"
     ]
   },
   "851": {
@@ -11383,6 +11387,59 @@
     "title": "1036. 逃离大迷宫",
     "relatedTags": [
       "广度优先搜索"
+    ]
+  },
+  "1037": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1037",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1037. 有效的回旋镖",
+    "relatedTags": [
+      "数学"
+    ]
+  },
+  "1038": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1038",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": true,
+    "title": "1038. 从二叉搜索树到更大和树",
+    "relatedTags": [
+      "二叉搜索树"
+    ]
+  },
+  "1039": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1039",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": true,
+    "title": "1039. 多边形三角剖分的最低得分",
+    "relatedTags": [
+      "动态规划"
+    ]
+  },
+  "1040": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1040",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": true,
+    "title": "1040. 移动石子直到连续 II",
+    "relatedTags": [
+      "数组",
+      "Sliding Window"
     ]
   }
 }

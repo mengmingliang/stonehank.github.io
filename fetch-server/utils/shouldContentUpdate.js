@@ -11,7 +11,7 @@ function shouldContentUpdate(fetchResults,
                               getAppropriateKey,
                               {fetchExcludes=[],compareProps=[],otherProps={},ignoreSHA=false,showDetail=false}={})
 {
-
+// console.log(fetchExcludes,listData)
   let pristine=true
   let needUpdateData=[]
   for(let i=0;i<fetchResults.length;i++){
