@@ -1,8 +1,9 @@
-
+const escape2Html=require('./escape2Html')
 
 function html2Md(htmlStr){
   let orderNum=0
   let tag2MdHash={
+    'empty':['',''],
     'p':['','\n\n'],
     'em':['*','* '],
     'i':['*','* '],
@@ -78,10 +79,7 @@ function html2Md(htmlStr){
   // let ignore=false
   let codeClassName=''
   let result= resolve(htmlStr,[null])[1]
-  result=result.replace(/\&lt\;/g,'<')
-  result=result.replace(/\&gt\;/g,'>')
-  result=result.replace(/\&nbsp\;/g,'')
-  result=result.replace(/\&quot\;/g,'"')
+  result=escape2Html(result)
   return result
   function resolve(str,parentStack){
     let tagName='',content=''
@@ -118,10 +116,11 @@ function html2Md(htmlStr){
           }
         }
         if(tagName==='code' && parentTag==='pre'){
-          tagName='p'
+          tagName='empty'
         }
         if(tag2MdHash[tagName] && tag2MdHash[tagName][0].includes('*')){
-          if(parentTag==='pre' || parentTag==='code')tagName='p'
+          if(parentTag==='pre' || parentTag==='code')
+            tagName='empty'
           content=content.trim()
         }
 
@@ -232,7 +231,13 @@ function html2Md(htmlStr){
             }
           }
         }else if(tagName==='a'){
-          let hrefContent=attrs.match(/href\s*=\s*('|")(.*?)\1/)[2]
+          let matchHref=attrs.match(/href\s*=\s*('|")(.*?)\1/)
+          let hrefContent
+          if(!matchHref){
+            hrefContent=''
+          }else{
+            hrefContent=matchHref[2]
+          }
           if(selfClose){
             nxtId=-1
             content+='[]('+hrefContent+')\n'
