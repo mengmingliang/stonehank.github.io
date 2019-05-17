@@ -989,7 +989,7 @@
     "uniqueID": "72",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "72. 编辑距离",
     "relatedTags": [
       "字符串",
@@ -1016,7 +1016,7 @@
     "uniqueID": "74",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "74. 搜索二维矩阵",
     "relatedTags": [
       "数组",
@@ -1045,7 +1045,7 @@
     "uniqueID": "76",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "76. 最小覆盖子串",
     "relatedTags": [
       "哈希表",
@@ -1074,7 +1074,7 @@
     "uniqueID": "78",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "78. 子集",
     "relatedTags": [
       "位运算",
@@ -1089,7 +1089,7 @@
     "uniqueID": "79",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "79. 单词搜索",
     "relatedTags": [
       "数组",
@@ -1103,7 +1103,7 @@
     "uniqueID": "80",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "80. 删除排序数组中的重复项 II",
     "relatedTags": [
       "数组",
@@ -1117,7 +1117,7 @@
     "uniqueID": "81",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "81. 搜索旋转排序数组 II",
     "relatedTags": [
       "数组",
@@ -1157,7 +1157,7 @@
     "uniqueID": "84",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "84. 柱状图中最大的矩形",
     "relatedTags": [
       "栈",
@@ -1171,7 +1171,7 @@
     "uniqueID": "85",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "85. 最大矩形",
     "relatedTags": [
       "栈",
@@ -1201,7 +1201,7 @@
     "uniqueID": "87",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "87. 扰乱字符串",
     "relatedTags": [
       "字符串",
@@ -1215,7 +1215,7 @@
     "uniqueID": "88",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "88. 合并两个有序数组",
     "relatedTags": [
       "数组",
@@ -1242,7 +1242,7 @@
     "uniqueID": "90",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "90. 子集 II",
     "relatedTags": [
       "数组",
@@ -1256,7 +1256,7 @@
     "uniqueID": "91",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "91. 解码方法",
     "relatedTags": [
       "字符串",
@@ -1283,7 +1283,7 @@
     "uniqueID": "93",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "93. 复原IP地址",
     "relatedTags": [
       "字符串",
@@ -1297,7 +1297,7 @@
     "uniqueID": "94",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "94. 二叉树的中序遍历",
     "relatedTags": [
       "栈",
@@ -1312,7 +1312,7 @@
     "uniqueID": "95",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "95. 不同的二叉搜索树 II",
     "relatedTags": [
       "树",
@@ -1326,7 +1326,7 @@
     "uniqueID": "96",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "96. 不同的二叉搜索树",
     "relatedTags": [
       "树",
@@ -1340,7 +1340,7 @@
     "uniqueID": "97",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "97. 交错字符串",
     "relatedTags": [
       "字符串",
@@ -1354,7 +1354,7 @@
     "uniqueID": "98",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "98. 验证二叉搜索树",
     "relatedTags": [
       "树",
@@ -1396,7 +1396,7 @@
     "uniqueID": "101",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "101. 对称二叉树",
     "relatedTags": [
       "树",
@@ -1411,7 +1411,7 @@
     "uniqueID": "102",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "102. 二叉树的层次遍历",
     "relatedTags": [
       "树",
@@ -1454,7 +1454,7 @@
     "uniqueID": "105",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "105. 从前序与中序遍历序列构造二叉树",
     "relatedTags": [
       "树",
@@ -1469,7 +1469,7 @@
     "uniqueID": "106",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "106. 从中序与后序遍历序列构造二叉树",
     "relatedTags": [
       "树",
@@ -1484,7 +1484,7 @@
     "uniqueID": "107",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "107. 二叉树的层次遍历 II",
     "relatedTags": [
       "树",
@@ -11441,5 +11441,49 @@
       "数组",
       "Sliding Window"
     ]
+  },
+  "1041": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1041",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1041. 困于环中的机器人",
+    "relatedTags": []
+  },
+  "1042": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1042",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1042. 不邻接植花",
+    "relatedTags": []
+  },
+  "1043": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1043",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": true,
+    "title": "1043. 分隔数组以得到最大和",
+    "relatedTags": []
+  },
+  "1044": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1044",
+    "difficultNum": 3,
+    "difficult": "Hard",
+    "hasThinking": true,
+    "title": "1044. 最长重复子串",
+    "relatedTags": []
   }
 }
