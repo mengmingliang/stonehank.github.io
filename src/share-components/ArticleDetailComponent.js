@@ -4,12 +4,14 @@ import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import Loading from './Loading'
 import CustomComment from "../tools/CustomComment";
+// import ValineComment from "../tools/ValineReact";
 import BookmarkContext from '../bookmark/BookmarkContext'
 import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
 import ArticleHeaderProps from './ArticleHeaderProps'
 import {linkTo} from "../routes/linkPathList";
-
+import ValineContainer from "../tools/valine-react/ValineContainer";
+window.AV = require('leancloud-storage');
 
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
@@ -185,21 +187,25 @@ export default class ArticleDetailComponent extends React.Component{
             })
           }
           <Divider />
-          {showComment
-            ? disqusRender
-              ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
-              : <Button onClick={this.showDisqus} style={styles.disqusButton}>
-                  加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)
-                </Button>
-            : null
-          }
-
           <footer style={styles.footer}>
             <Pagination simple  pageSize={1} total={renderData.length}
                         current={this.curContentIndex}
                         itemRender={this.pageItemRender}
                         onChange={this.handlePageChange}/>
           </footer>
+
+          {showComment
+            ? disqusRender
+                ? <ValineContainer av={window.AV} appId={"I5DAxOhp2kPXkbj9VXPyKoEB-gzGzoHsz"} appKey={"lGPcHd7GL9nYKqBbNEkgXKjX"}/>
+              // ? <ValineComment />
+              // ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
+              : <Button onClick={this.showDisqus} style={styles.disqusButton}>
+                  加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)
+                </Button>
+            : null
+          }
+
+
           <BookmarkContext.Consumer>
             {({setBookmark})=>{
               const {path}=this.props

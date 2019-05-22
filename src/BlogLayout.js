@@ -230,7 +230,7 @@ export default class BlogLayout extends React.Component {
             {({location})=>{
               return (
                 <TransitionGroup>
-                  <CSSTransition key={location.key} classNames="slide" exit={false} timeout={500} >
+                  <CSSTransition key={location.pathname} classNames="slide" exit={false} timeout={500} >
                     <Router location={location}>
                         <Home path="/"
                               page={1}

@@ -1526,7 +1526,7 @@
     "uniqueID": "110",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "110. 平衡二叉树",
     "relatedTags": [
       "树",
@@ -1540,7 +1540,7 @@
     "uniqueID": "111",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "111. 二叉树的最小深度",
     "relatedTags": [
       "树",
@@ -1569,7 +1569,7 @@
     "uniqueID": "113",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "113. 路径总和 II",
     "relatedTags": [
       "树",
@@ -1583,7 +1583,7 @@
     "uniqueID": "114",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "114. 二叉树展开为链表",
     "relatedTags": [
       "树",
@@ -1597,7 +1597,7 @@
     "uniqueID": "115",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "115. 不同的子序列",
     "relatedTags": [
       "字符串",
@@ -1625,7 +1625,7 @@
     "uniqueID": "117",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "117. 填充每个节点的下一个右侧节点指针 II",
     "relatedTags": [
       "树",
@@ -1639,7 +1639,7 @@
     "uniqueID": "118",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "118. 杨辉三角",
     "relatedTags": [
       "数组"
@@ -1652,7 +1652,7 @@
     "uniqueID": "119",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "119. 杨辉三角 II",
     "relatedTags": [
       "数组"
@@ -1665,7 +1665,7 @@
     "uniqueID": "120",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "120. 三角形最小路径和",
     "relatedTags": [
       "数组",
@@ -1679,7 +1679,7 @@
     "uniqueID": "121",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "121. 买卖股票的最佳时机",
     "relatedTags": [
       "数组",
@@ -1693,7 +1693,7 @@
     "uniqueID": "122",
     "difficultNum": 1,
     "difficult": "Easy",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "122. 买卖股票的最佳时机 II",
     "relatedTags": [
       "贪心算法",
@@ -1707,7 +1707,7 @@
     "uniqueID": "123",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "123. 买卖股票的最佳时机 III",
     "relatedTags": [
       "数组",
@@ -1721,7 +1721,7 @@
     "uniqueID": "124",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "124. 二叉树中的最大路径和",
     "relatedTags": [
       "树",
@@ -1778,7 +1778,7 @@
     "uniqueID": "128",
     "difficultNum": 3,
     "difficult": "Hard",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "128. 最长连续序列",
     "relatedTags": [
       "并查集",
@@ -1792,7 +1792,7 @@
     "uniqueID": "129",
     "difficultNum": 2,
     "difficult": "Middle",
-    "hasThinking": false,
+    "hasThinking": true,
     "title": "129. 求根到叶子节点数字之和",
     "relatedTags": [
       "树",
@@ -3236,7 +3236,7 @@
     "difficultNum": 1,
     "difficult": "Easy",
     "hasThinking": true,
-    "title": "290. 单词模式",
+    "title": "290. 单词规律",
     "relatedTags": [
       "哈希表"
     ]
@@ -11451,7 +11451,9 @@
     "difficult": "Easy",
     "hasThinking": false,
     "title": "1041. 困于环中的机器人",
-    "relatedTags": []
+    "relatedTags": [
+      "数学"
+    ]
   },
   "1042": {
     "lang": [
@@ -11462,7 +11464,9 @@
     "difficult": "Easy",
     "hasThinking": false,
     "title": "1042. 不邻接植花",
-    "relatedTags": []
+    "relatedTags": [
+      "图"
+    ]
   },
   "1043": {
     "lang": [
@@ -11473,7 +11477,9 @@
     "difficult": "Middle",
     "hasThinking": true,
     "title": "1043. 分隔数组以得到最大和",
-    "relatedTags": []
+    "relatedTags": [
+      "图"
+    ]
   },
   "1044": {
     "lang": [
@@ -11484,6 +11490,53 @@
     "difficult": "Hard",
     "hasThinking": true,
     "title": "1044. 最长重复子串",
+    "relatedTags": [
+      "哈希表",
+      "二分查找"
+    ]
+  },
+  "1046": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1046",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1046. 最后一块石头的重量",
+    "relatedTags": []
+  },
+  "1047": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1047",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1047. 删除字符串中的所有相邻重复项",
+    "relatedTags": []
+  },
+  "1048": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1048",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1048. 最长字符串链",
+    "relatedTags": []
+  },
+  "1049": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1049",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": true,
+    "title": "1049. 最后一块石头的重量 II",
     "relatedTags": []
   }
 }
