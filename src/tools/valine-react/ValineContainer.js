@@ -13,9 +13,9 @@ export default class ValineContainer extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      requireName:props.requireName || true,
-      requireEmail:props.requireEmail || false,
-      placeholder:props.placeholder || '',
+      requireName:props.requireName==null ? true : props.requireName,
+      requireEmail:props.requireEmail==null ? false : props.requireEmail,
+      placeholder:props.placeholder==null ? '' : props.placeholder,
       AV:props.av,
       commentList:[],
       path:props.path ? decodeURI(props.path) : decodeURI(window.location.origin+window.location.pathname),
@@ -23,15 +23,16 @@ export default class ValineContainer extends React.Component{
       curPage:1,
       commentCounts:0,
       query:null,
-      emptyTxt:props.emptyText || "还没有评论哦，快来抢沙发吧!",
+      emptyTxt:props.emptyTxt==null ? "还没有评论哦，快来抢沙发吧!" : props.emptyTxt,
       commentContent:'',
       toggleTextAreaFocus:false,
-      previewShow:props.preview || true,
+      previewShow:props.previewShow==null ? true : props.previewShow,
       submitBtnDisable:false,
       submitLoading:false,
       fetchInitLoading:false,
       fetchMoreLoading:false,
       submitErrorLog:null,
+      nestShow:props.nestShow==null ? true : props.nestShow
     }
     // console.log(props.path ? decodeURI(props.path) : decodeURI(window.location.href))
     this.initQuery=this.initQuery.bind(this)
@@ -40,6 +41,7 @@ export default class ValineContainer extends React.Component{
     this.createNewObj=this.createNewObj.bind(this)
     this.submitComment=this.submitComment.bind(this)
     this.togglePreviewShow=this.togglePreviewShow.bind(this)
+    this.checkIfToggleNest=this.checkIfToggleNest.bind(this)
     this.resetDefaultComment=this.resetDefaultComment.bind(this)
     this.fetchNxtCommentList=this.fetchNxtCommentList.bind(this)
     this.commentContentOnChange=this.commentContentOnChange.bind(this)
@@ -85,14 +87,17 @@ export default class ValineContainer extends React.Component{
       console.log(this.defaultComment.url)
       comment.setACL(acl);
       comment.save().then((commentItem) => {
+        let commentList=this.checkIfToggleNest([commentItem])
         localStorage && localStorage.setItem('ValineCache', JSON.stringify({
           nick: this.defaultComment['nick'],
           link: this.defaultComment['link'],
           mail: this.defaultComment['mail'],
           avatarSrc:this.defaultComment['avatarSrc']
         }));
+        // console.log(commentSimply)
         this.setState((prevState, props)=>({
-          commentList:[commentItem].concat(prevState.commentList),
+          // commentList:commentSimply.concat(prevState.commentList),
+          commentList,
           commentCounts:prevState.commentCounts+1,
           submitBtnDisable:false,
           commentContent:'',
@@ -211,9 +216,11 @@ export default class ValineContainer extends React.Component{
       .limit(pageSize)
       .skip(curPage*pageSize)
       .find()
-      .then(newList=>{
+      .then(commentArr=>{
+        let commentList=this.checkIfToggleNest(commentArr)
         this.setState((prevState)=>({
-          commentList:prevState.commentList.concat(newList),
+          // commentList:prevState.commentList.concat(newList),
+          commentList,
           curPage:prevState.curPage+1,
           fetchMoreLoading:false
         }))
@@ -230,13 +237,17 @@ export default class ValineContainer extends React.Component{
     return query.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
       .count()
       .then(counts=>{
+        // console.log(counts)
         commentCounts=counts
         query.notEqualTo('isSpam', true)
           .select(['nick', 'comment', 'link', 'rid', 'avatarSrc'])
           .addDescending('createdAt')
           .limit(pageSize)
           .find()
-          .then(commentList=>{
+          .then(commentArr=>{
+            console.log(commentArr)
+            let commentList=this.checkIfToggleNest(commentArr)
+            console.log(commentList)
             this.setState({
               query,
               commentList,
@@ -247,6 +258,12 @@ export default class ValineContainer extends React.Component{
       })
   }
 
+  checkIfToggleNest(insertArr){
+    let {nestShow}=this.state
+    let commentList=nestComment(insertArr,nestShow)
+    console.log(commentList)
+    return commentList
+  }
 
   componentDidMount(){
     try{
@@ -265,7 +282,7 @@ export default class ValineContainer extends React.Component{
 
 
   render(){
-    const {commentCounts, commentList, requireName,requireEmail,placeholder, emptyTxt,fetchInitLoading,fetchMoreLoading,submitErrorLog, commentContent,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
+    const {commentCounts, commentList, nestShow,requireName,requireEmail,placeholder, emptyTxt,fetchInitLoading,fetchMoreLoading,submitErrorLog, commentContent,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
     return (
       <div ref={this.wrapRef} className="v">
         <ValineComponent commentCounts={commentCounts}
@@ -274,6 +291,7 @@ export default class ValineContainer extends React.Component{
                          emptyTxt={emptyTxt}
                          requireName={requireName}
                          requireEmail={requireEmail}
+                         nestShow={nestShow}
                          commentContent={commentContent}
                          toggleTextAreaFocus={toggleTextAreaFocus}
                          previewShow={previewShow}

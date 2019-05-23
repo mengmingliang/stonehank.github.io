@@ -9,7 +9,7 @@ export default class ValineComponent extends React.Component{
 
 
   render(){
-    const {commentCounts, commentList, placeholder, emptyTxt, toggleTextAreaFocus, submitLoading,fetchMoreLoading,fetchInitLoading,
+    const {commentCounts, commentList, placeholder, emptyTxt, toggleTextAreaFocus, submitLoading,fetchMoreLoading,fetchInitLoading,nestShow,
       requireName,requireEmail,submitErrorLog, submitBtnDisable,previewShow,commentContent, submitComment,handleReply,togglePreviewShow,
       commentContentOnChange,fetchNxtCommentList}=this.props
     return (
@@ -38,6 +38,7 @@ export default class ValineComponent extends React.Component{
                               commentCounts={commentCounts}
                               commentList={commentList}
                               emptyTxt={emptyTxt}
+                              nestShow={nestShow}
                               submitLoading={submitLoading}
                               fetchMoreLoading={fetchMoreLoading}
                               fetchInitLoading={fetchInitLoading}

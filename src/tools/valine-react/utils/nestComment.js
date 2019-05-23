@@ -1,39 +1,68 @@
+import deepClone from './deepClone'
 
 
-let checkLater=[]
-export default function nestComment(commentArr){
-  let commentList=simplyObj(commentArr)
-  let hash={}
-  for(let i=0;i<commentList.length;i++){
-    let cur=commentList[i],id=cur['id']
-    hash[id]=cur
-  }
-  commentList=checkLater.concat(commentList)
-  checkLater=[]
-  let res=[]
-  for(let i=0;i<commentList.length;i++){
-    let {rid,id}=commentList[i]
-    if(rid===''){
-      res.push(hash[id])
-      continue
+
+
+
+function createNestComment(){
+  let checkLater=[]
+  let allCommentMap=new Map()
+  let orderList=[]
+  return function(insertArr,nest,fetchNxt){
+    let insertList=simplyList(insertArr)
+    for(let i=0;i<insertList.length;i++){
+      let cur=insertList[i],id=cur['id']
+      if(allCommentMap.has(id))continue
+      allCommentMap.set(id,cur)
     }
-    let parent=hash[rid]
-    if(!parent){
-      checkLater.push(hash[id])
-      continue
+    if(insertList.length===1){
+      orderList.unshift(insertList[0].id)
+    }else{
+      for(let {id} of insertList){
+        orderList.push(id)
+      }
     }
-    parent['child'].push(hash[id])
-  }
-  return res
-}
+    checkLater=[]
+    let res=[]
+    for(let id of orderList){
+      let obj=allCommentMap.get(id),rid=obj.rid
+      if(!nest || rid===''){
+        res.push(deepClone(obj))
+        continue
+      }
+      if(!allCommentMap.has(rid)){
+        checkLater.push(obj)
+        continue
+      }
+      let parent=allCommentMap.get(rid)
+      let duplic=false
+      for(let j=0;j<parent['child'].length;j++){
+        if(parent['child'][j].id===id){
+          duplic=true
+          break
+        }
+      }
+      if(!duplic){
+        // let cloneParent=deepClone(parent)
+        parent['child'].push(obj)
+        // allCommentMap.set(rid,cloneParent)
+      }
+    }
 
-function simplyObj(commentArr){
-  let commentList=[]
-  for(let i=0;i<commentArr.length;i++){
-    let cur=commentArr[i],id=cur.id,curAttrs=cur.attributes
-    // 此处不需要深拷贝
-    let newObj=Object.assign({id,child:[]},curAttrs)
-    commentList.push(newObj)
+    return res
   }
-  return commentList
+  function simplyList(insertArr){
+    let insertList=[]
+    for(let i=0;i<insertArr.length;i++){
+      let cur=insertArr[i],id=cur.id,curAttrs=cur.attributes,createdAt=cur.get('createdAt')
+      let newObj=Object.assign({id,createdAt,child:[]},curAttrs)
+      insertList.push(newObj)
+    }
+    return insertList
+  }
 }
+let nestComment=createNestComment()
+
+
+
+export {nestComment}

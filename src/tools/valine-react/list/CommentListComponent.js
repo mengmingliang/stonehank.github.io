@@ -8,7 +8,7 @@ import {xssMarkdown} from '../utils'
 export default class CommentListComponent extends React.Component{
 
   render(){
-    const {commentList, commentCounts, emptyTxt, handleReply,submitLoading,fetchInitLoading,fetchMoreLoading, GRAVATAR_URL,fetchNxtCommentList}=this.props
+    const {commentList, commentCounts, emptyTxt,nestShow, handleReply,submitLoading,fetchInitLoading,fetchMoreLoading, GRAVATAR_URL,fetchNxtCommentList}=this.props
     console.log(commentList)
     return (
 
@@ -27,15 +27,18 @@ export default class CommentListComponent extends React.Component{
                   commentCounts===0
                     ? <div className={"vempty"}>{emptyTxt}</div>
                     : commentList.map(commentObj=>{
-                      let avatarSrc = commentObj.get('avatarSrc'),
-                        nickName=commentObj.get("nick"),
-                        link=commentObj.get("link"),
-                        createdAt=commentObj.get('createdAt'),
-                        commentContent=xssMarkdown(commentObj.get('comment')),
-                        curId=commentObj.id
+                      let avatarSrc = commentObj['avatarSrc'],
+                        nickName=commentObj["nick"],
+                        link=commentObj["link"],
+                        createdAt=commentObj['createdAt'],
+                        commentContent=xssMarkdown(commentObj['comment']),
+                        curId=commentObj['id']
+                      let child=nestShow ? commentObj['child'] : null
 
                       return <CommentCardComponent curId={curId}
                                                    key={curId}
+                                                   nestShow={nestShow}
+                                                   child={child}
                                                    GRAVATAR_URL={GRAVATAR_URL}
                                                    avatarSrc={avatarSrc}
                                                    link={link}
@@ -47,7 +50,7 @@ export default class CommentListComponent extends React.Component{
                     })
                 }
               </div>
-              <PageComponent commentList={commentList} commentCounts={commentCounts}  fetchNxtCommentList={fetchNxtCommentList}/>
+              <PageComponent commentListLen={commentList.length} nestShow={nestShow} commentCounts={commentCounts}  fetchNxtCommentList={fetchNxtCommentList}/>
               {
                 fetchMoreLoading
                   ? <Loading />
