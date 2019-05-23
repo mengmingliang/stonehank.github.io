@@ -8,8 +8,8 @@ import {xssMarkdown} from '../utils'
 export default class CommentListComponent extends React.Component{
 
   render(){
-    const {commentList, commentCounts, emptyTxt,nestShow, handleReply,submitLoading,fetchInitLoading,fetchMoreLoading, GRAVATAR_URL,fetchNxtCommentList}=this.props
-    console.log(commentList)
+    const {commentList, commentCounts,currentCounts, emptyTxt,nestShow, handleReply,submitLoading,fetchInitLoading,fetchMoreLoading, GRAVATAR_URL,fillNxtCommentList}=this.props
+    // console.log(commentList)
     return (
 
       <React.Fragment>
@@ -50,7 +50,7 @@ export default class CommentListComponent extends React.Component{
                     })
                 }
               </div>
-              <PageComponent commentListLen={commentList.length} nestShow={nestShow} commentCounts={commentCounts}  fetchNxtCommentList={fetchNxtCommentList}/>
+              <PageComponent  commentCounts={commentCounts} currentCounts={currentCounts}  fillNxtCommentList={fillNxtCommentList}/>
               {
                 fetchMoreLoading
                   ? <Loading />

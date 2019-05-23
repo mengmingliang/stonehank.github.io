@@ -434,6 +434,25 @@
         overflow: hidden;
         padding-bottom: .5rem;
         border-bottom: 1px dashed #f5f5f5;
+
+        .showchild-button-on{
+          cursor: pointer;
+          width: 100%;
+          border: 2px solid #ccc;
+          background: #8de0ff;
+          color: #747474;
+          border-radius: 4px;
+          padding: 2px;
+        }
+        .showchild-button-off{
+          cursor: pointer;
+          width: 100%;
+          border: 2px solid #ccc;
+          background: rgba(215, 215, 215, 1);
+          color: #898989;
+          border-radius: 4px;
+          padding: 2px;
+        }
         .vtime {
           color: #b3b3b3;
           font-size: .75rem;

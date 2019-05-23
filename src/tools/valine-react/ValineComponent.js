@@ -9,9 +9,9 @@ export default class ValineComponent extends React.Component{
 
 
   render(){
-    const {commentCounts, commentList, placeholder, emptyTxt, toggleTextAreaFocus, submitLoading,fetchMoreLoading,fetchInitLoading,nestShow,
+    const {commentCounts,currentCounts, commentList, placeholder, emptyTxt, toggleTextAreaFocus, submitLoading,fetchMoreLoading,fetchInitLoading,nestShow,
       requireName,requireEmail,submitErrorLog, submitBtnDisable,previewShow,commentContent, submitComment,handleReply,togglePreviewShow,
-      commentContentOnChange,fetchNxtCommentList}=this.props
+      commentContentOnChange,fillNxtCommentList}=this.props
     return (
       <React.Fragment>
         <div className="vwrap">
@@ -36,6 +36,7 @@ export default class ValineComponent extends React.Component{
         <InfoComponent commentCounts={commentCounts}/>
         <CommentListComponent GRAVATAR_URL={GRAVATAR_URL}
                               commentCounts={commentCounts}
+                              currentCounts={currentCounts}
                               commentList={commentList}
                               emptyTxt={emptyTxt}
                               nestShow={nestShow}
@@ -43,7 +44,7 @@ export default class ValineComponent extends React.Component{
                               fetchMoreLoading={fetchMoreLoading}
                               fetchInitLoading={fetchInitLoading}
                               handleReply={handleReply}
-                              fetchNxtCommentList={fetchNxtCommentList}
+                              fillNxtCommentList={fillNxtCommentList}
         />
       </React.Fragment>
     )

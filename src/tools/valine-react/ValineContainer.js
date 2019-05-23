@@ -22,6 +22,7 @@ export default class ValineContainer extends React.Component{
       pageSize:props.pageSize || 10,
       curPage:1,
       commentCounts:0,
+      currentCounts:0,
       query:null,
       emptyTxt:props.emptyTxt==null ? "还没有评论哦，快来抢沙发吧!" : props.emptyTxt,
       commentContent:'',
@@ -42,6 +43,7 @@ export default class ValineContainer extends React.Component{
     this.submitComment=this.submitComment.bind(this)
     this.togglePreviewShow=this.togglePreviewShow.bind(this)
     this.checkIfToggleNest=this.checkIfToggleNest.bind(this)
+    this.fillNxtCommentList=this.fillNxtCommentList.bind(this)
     this.resetDefaultComment=this.resetDefaultComment.bind(this)
     this.fetchNxtCommentList=this.fetchNxtCommentList.bind(this)
     this.commentContentOnChange=this.commentContentOnChange.bind(this)
@@ -84,7 +86,7 @@ export default class ValineContainer extends React.Component{
       let acl = new AV.ACL();
       acl.setPublicReadAccess(true);
       acl.setPublicWriteAccess(false);
-      console.log(this.defaultComment.url)
+      // console.log(this.defaultComment.url)
       comment.setACL(acl);
       comment.save().then((commentItem) => {
         let commentList=this.checkIfToggleNest([commentItem])
@@ -203,8 +205,31 @@ export default class ValineContainer extends React.Component{
     })
   }
 
-  fetchNxtCommentList(){
-    let {query,pageSize,curPage}=this.state
+  fillNxtCommentList(){
+    this.fetchNxtCommentList()
+      .then(commentArr=>{
+        if(commentArr.length===0){
+          this.setState({
+            fetchMoreLoading:false
+          })
+        }else{
+          let commentList=this.checkIfToggleNest(commentArr)
+          this.setState((prevState)=>({
+            // commentList:prevState.commentList.concat(newList),
+            commentList,
+            currentCounts:prevState.currentCounts+prevState.pageSize,
+            curPage:prevState.curPage+1,
+            fetchMoreLoading:false
+          }))
+        }
+      })
+
+  }
+
+  fetchNxtCommentList(pageSize,currentCounts,query){
+    if(!pageSize)pageSize=this.state.pageSize
+    if(!currentCounts)currentCounts=this.state.currentCounts
+    if(!query)query=this.state.query
     if(!query)throw new Error('Something Wrong with initQuery!')
     this.setState({
       fetchMoreLoading:true
@@ -214,17 +239,8 @@ export default class ValineContainer extends React.Component{
       .addDescending('createdAt')
       .addDescending('createdAt')
       .limit(pageSize)
-      .skip(curPage*pageSize)
+      .skip(currentCounts)
       .find()
-      .then(commentArr=>{
-        let commentList=this.checkIfToggleNest(commentArr)
-        this.setState((prevState)=>({
-          // commentList:prevState.commentList.concat(newList),
-          commentList,
-          curPage:prevState.curPage+1,
-          fetchMoreLoading:false
-        }))
-      })
   }
 
   initQuery(){
@@ -245,15 +261,45 @@ export default class ValineContainer extends React.Component{
           .limit(pageSize)
           .find()
           .then(commentArr=>{
-            console.log(commentArr)
-            let commentList=this.checkIfToggleNest(commentArr)
-            console.log(commentList)
-            this.setState({
-              query,
-              commentList,
-              commentCounts,
-              fetchInitLoading:false
-            })
+            // console.log(commentArr)
+            let curCounts=pageSize
+            let commentList=this.checkIfToggleNest(commentArr),
+              listLen=commentList.length
+
+            let  needFetchMore=()=>{
+              return new Promise((resolve)=>{
+                let fetchMore=listLen < pageSize
+                if(fetchMore){
+                  // console.log(pageSize-listLen,curCounts,this.fetchNxtCommentList)
+                  this.fetchNxtCommentList(pageSize-listLen,curCounts,query)
+                    .then(nxtArr=>{
+                      console.log(nxtArr)
+                      if(nxtArr.length===0)return resolve()
+                      commentList=this.checkIfToggleNest(nxtArr)
+                      console.log(commentList)
+                      curCounts+=pageSize - listLen
+                      if(listLen<pageSize){
+                        return needFetchMore().then(()=>{
+                          resolve()
+                        })
+                      }
+                    })
+                }else{
+                  resolve()
+                }
+              })
+            }
+            needFetchMore()
+              .then(()=>{
+                this.setState({
+                  query,
+                  commentList,
+                  commentCounts,
+                  currentCounts:curCounts,
+                  fetchInitLoading:false,
+                  fetchMoreLoading:false
+                })
+              })
           })
       })
   }
@@ -261,7 +307,7 @@ export default class ValineContainer extends React.Component{
   checkIfToggleNest(insertArr){
     let {nestShow}=this.state
     let commentList=nestComment(insertArr,nestShow)
-    console.log(commentList)
+    // console.log(commentList)
     return commentList
   }
 
@@ -282,10 +328,11 @@ export default class ValineContainer extends React.Component{
 
 
   render(){
-    const {commentCounts, commentList, nestShow,requireName,requireEmail,placeholder, emptyTxt,fetchInitLoading,fetchMoreLoading,submitErrorLog, commentContent,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
+    const {commentCounts,currentCounts, commentList, nestShow,requireName,requireEmail,placeholder, emptyTxt,fetchInitLoading,fetchMoreLoading,submitErrorLog, commentContent,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
     return (
       <div ref={this.wrapRef} className="v">
         <ValineComponent commentCounts={commentCounts}
+                         currentCounts={currentCounts}
                          commentList={commentList}
                          placeholder={placeholder}
                          emptyTxt={emptyTxt}
@@ -304,7 +351,7 @@ export default class ValineContainer extends React.Component{
                          submitComment={this.submitComment}
                          handleReply={this.handleReply}
                          commentContentOnChange={this.commentContentOnChange}
-                         fetchNxtCommentList={this.fetchNxtCommentList}
+                         fillNxtCommentList={this.fillNxtCommentList}
         />
       </div>
     )
