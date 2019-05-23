@@ -32,13 +32,15 @@ export default class CommentListComponent extends React.Component{
                         link=commentObj["link"],
                         createdAt=commentObj['createdAt'],
                         commentContent=xssMarkdown(commentObj['comment']),
-                        curId=commentObj['id']
+                        curId=commentObj['id'],
+                        rootId=commentObj['rootId']
                       let child=nestShow ? commentObj['child'] : null
 
                       return <CommentCardComponent curId={curId}
                                                    key={curId}
                                                    nestShow={nestShow}
                                                    child={child}
+                                                   rootId={rootId}
                                                    GRAVATAR_URL={GRAVATAR_URL}
                                                    avatarSrc={avatarSrc}
                                                    link={link}

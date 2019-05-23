@@ -6,7 +6,7 @@ export default class AvatarComponent extends React.PureComponent{
 
   render(){
     const {GRAVATAR_URL,showList,showMark,emailHash,avatarSrc,avatarOnChange,toggleShowList,turnOnMark,turnOffMark}=this.props
-    console.log(avatarSrc)
+    // console.log(avatarSrc)
     return (
       <React.Fragment>
         <div className={"vavatars-select-button"} onClick={toggleShowList} onMouseEnter={turnOnMark} onMouseLeave={turnOffMark}>

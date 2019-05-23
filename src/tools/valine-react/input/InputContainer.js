@@ -72,7 +72,7 @@ export default class InputContainer extends React.Component {
       let item=localStorage.getItem("ValineCache")
       if(!item)return
       let obj=JSON.parse(item)
-      console.log(obj)
+      // console.log(obj)
       this.setState({
         link:obj.link,
         nickName:obj.nick,

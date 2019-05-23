@@ -4,7 +4,7 @@ const emojiData=require('./emoji.json');
 export default class EmojiComponentShow extends React.PureComponent {
 
   render() {
-    console.log(1)
+    // console.log(1)
     const {show,contentOnChange}=this.props
     return (
       show
