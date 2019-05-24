@@ -1,4 +1,3 @@
-'use strict';
 
 // Method that will return the data type for any structure passed to it
 function getType (data) {
@@ -82,6 +81,8 @@ export default  function deepClone(data) {
         copiedArray.push(deepClone(data[i]));
       }
       cloneData = copiedArray
+      break;
+    default:
       break;
   }
   return cloneData

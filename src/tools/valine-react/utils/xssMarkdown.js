@@ -1,4 +1,5 @@
 import marked from 'marked';
+import {unescape} from './escape'
 // const xss=require('xss')
 
 
@@ -27,7 +28,11 @@ let xssFilter = (content) => {
         n.parentNode.removeChild(n)
       }
     }
-    if (n.nodeName === 'A') __replaceVal(n, 'href')
+    if (n.nodeName === 'A'){
+      __replaceVal(n, 'href')
+      // console.log(n)
+      // if(n.className==="at")n.innerText=unescape(n.innerText)
+    }
     clearAttr(n)
   })
   let res=node.innerHTML
@@ -90,9 +95,8 @@ function clearAttr(el) {
 }
 
 export default function xssMarkdown(content){
-  let res= xssFilter(marked(content))
-  // console.log(marked(content),res)
-  return res
+  return xssFilter(marked(content))
+
 }
 
 

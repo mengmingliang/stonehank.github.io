@@ -7,11 +7,31 @@ const GRAVATAR_URL='https://gravatar.loli.net/avatar'
 
 export default class ValineComponent extends React.Component{
 
-
   render(){
-    const {commentCounts,currentCounts, commentList, placeholder, emptyTxt, toggleTextAreaFocus, submitLoading,fetchMoreLoading,fetchInitLoading,nestShow,
-      requireName,requireEmail,submitErrorLog, submitBtnDisable,previewShow,commentContent, submitComment,handleReply,togglePreviewShow,
-      commentContentOnChange,fillNxtCommentList}=this.props
+    const {
+      commentCounts,
+      currentCounts,
+      commentList,
+      placeholder,
+      emptyTxt,
+      toggleTextAreaFocus,
+      submitLoading,
+      fetchMoreLoading,
+      fetchInitLoading,
+      nest,
+      requireName,
+      requireEmail,
+      submitErrorLog,
+      submitBtnDisable,
+      previewShow,
+      commentContent,
+      submitComment,
+      handleReply,
+      togglePreviewShow,
+      commentContentOnChange,
+      fillNxtCommentList
+    }=this.props
+
     return (
       <React.Fragment>
         <div className="vwrap">
@@ -39,7 +59,7 @@ export default class ValineComponent extends React.Component{
                               currentCounts={currentCounts}
                               commentList={commentList}
                               emptyTxt={emptyTxt}
-                              nestShow={nestShow}
+                              nest={nest}
                               submitLoading={submitLoading}
                               fetchMoreLoading={fetchMoreLoading}
                               fetchInitLoading={fetchInitLoading}

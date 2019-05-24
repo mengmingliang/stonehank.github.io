@@ -1,9 +1,12 @@
 import React from 'react'
-import CreatedTimeComponent from "./CreatedTimeComponent";
 import {xssMarkdown} from "../utils";
+import CardAvatar from "./card/CardAvatar";
+import CardHead from "./card/CardHead";
+import CardMeta from "./card/CardMeta";
+import CardContent from "./card/CardContent";
 
 
-export default class CommentCardComponent extends React.Component{
+export default class CommentCardContainer extends React.PureComponent{
   constructor(props){
     super(props)
     this.state={
@@ -18,49 +21,57 @@ export default class CommentCardComponent extends React.Component{
     }))
   }
 
+  // shouldComponentUpdate(nextProps,nextState){
+  //   let {child:nxtChild,...nxtOtherProps}=nextProps,
+  //     {child:curChild,...curOtherPorps}=this.props
+  //   // console.log(nxtChild,curChild)
+  //   return !(deepEqual(nxtChild,curChild) &&
+  //     shallowEqual(nxtOtherProps,curOtherPorps) &&
+  //     this.state.showChild===nextState.showChild)
+  // }
+
   render(){
     const {showChild}=this.state
-    const {GRAVATAR_URL,curId,nestShow,child,avatarSrc,rootId, link, handleReply,nickName, commentContent,createdAt}=this.props
+    const {
+      GRAVATAR_URL,
+      curId,
+      nest,
+      child,
+      avatarSrc,
+      rootId,
+      link,
+      handleReply,
+      nickName,
+      commentContent,
+      createdAt
+    }=this.props
+    console.log(2)
     return (
       <div id={curId} className={'vcard'} >
-        <img className={"vimg"} src={avatarSrc || `${GRAVATAR_URL}/?d=mp&size=50`}/>
+        <CardAvatar avatarSrc={avatarSrc} GRAVATAR_URL={GRAVATAR_URL}/>
         <div className={'vh'}>
-          <div className={"vhead"}>
-                          <span className={"vnick"}>
-                            {link
-                              ? <a  href={ link } target="_blank" rel="nofollow" > {nickName}</a>
-                              : <span>{nickName}</span>
-                            }
-                          </span>
-            {/*<span className={"vsys"}></span>*/}
-            {/*<span className={"vsys"}></span>*/}
-          </div>
-          <div className={"vmeta"}>
-            <CreatedTimeComponent oldTime={createdAt} />
-            <span className={"vat"} onClick={handleReply.bind(this,curId,nickName,rootId)}>回复</span>
-          </div>
-          <div className={"vcontent"}>
-            <div dangerouslySetInnerHTML={{__html:commentContent}} />
-          </div>
+          <CardHead link={link} nickName={nickName}/>
+          <CardMeta curId={curId} rootId={rootId} nickName={nickName} createdAt={createdAt} handleReply={handleReply}/>
+          <CardContent commentContent={commentContent}/>
           {
-            nestShow && child.length>0
+            nest && child.length>0
             ? showChild
               ? <React.Fragment>
-                <div className={"vquote"}>
-                  {
-                    child.map(commentObj=>{
+                  <div className={"vquote"}>
+                    {
+                      child.map(commentObj=>{
                       let avatarSrc = commentObj['avatarSrc'],
                         nickName=commentObj["nick"],
                         link=commentObj["link"],
                         createdAt=commentObj['createdAt'],
                         commentContent=xssMarkdown(commentObj['comment']),
                         curId=commentObj['id']
-                      let child=nestShow ? commentObj['child'] : null
+                      let child=nest ? commentObj['child'] : null
 
-                      return <CommentCardComponent curId={curId}
+                      return <CommentCardContainer curId={curId}
                                                    key={curId}
                                                    rootId={rootId}
-                                                   nestShow={nestShow}
+                                                   nest={nest}
                                                    child={child}
                                                    GRAVATAR_URL={GRAVATAR_URL}
                                                    avatarSrc={avatarSrc}
@@ -70,11 +81,11 @@ export default class CommentCardComponent extends React.Component{
                                                    commentContent={commentContent}
                                                    createdAt={createdAt}
                       />
-                    })
-                  }
-                </div>
-                <span className={"showchild-button-off"} onClick={this.toggleShowChild}>收起回复</span>
-              </React.Fragment>
+                      })
+                    }
+                    </div>
+                  <span className={"showchild-button-off"} onClick={this.toggleShowChild}>收起回复</span>
+                </React.Fragment>
               : <span className={"showchild-button-on"} onClick={this.toggleShowChild}>展开回复</span>
             : null
           }

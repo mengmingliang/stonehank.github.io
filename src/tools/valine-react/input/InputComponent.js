@@ -1,24 +1,34 @@
 import React from 'react';
 import EditAreaComponent from "./edit-components/EditAreaComponent";
 import ButtonContainer from "./button-components/ButtonContainer";
+import TextAreaComponent from "./edit-components/TextAreaComponent";
 
 
-export default class InputComponent extends React.Component {
-  constructor(props){
-    super(props)
-    this.ref=React.createRef()
-  }
-  componentDidUpdate(prevProps){
-    if(this.props.toggleTextAreaFocus!==prevProps.toggleTextAreaFocus){
-      this.ref.current.focus()
-    }
-  }
+export default class InputComponent extends React.PureComponent {
+
 
   render() {
-    const { link,email,nickName,commentContent,emailOnChange,avatarSrc,requireName,requireEmail,
-      GRAVATAR_URL, placeholder,submitBtnDisable,toggleTextAreaFocus,
-      previewShow, linkOnChange,contentOnChange,nameOnChange,handleOnSubmit,
-      togglePreviewShow,avatarOnChange} = this.props;
+    const {
+      link,
+      email,
+      nickName,
+      commentContent,
+      emailOnChange,
+      avatarSrc,
+      requireName,
+      requireEmail,
+      GRAVATAR_URL,
+      placeholder,
+      submitBtnDisable,
+      toggleTextAreaFocus,
+      previewShow,
+      linkOnChange,
+      contentOnChange,
+      nameOnChange,
+      handleOnSubmit,
+      togglePreviewShow,
+      avatarOnChange
+    } = this.props;
     return (
       <React.Fragment>
         <EditAreaComponent link={link}
@@ -28,14 +38,17 @@ export default class InputComponent extends React.Component {
                            requireName={requireName}
                            requireEmail={requireEmail}
                            GRAVATAR_URL={GRAVATAR_URL}
-                           toggleTextAreaFocus={toggleTextAreaFocus}
                            emailOnChange={emailOnChange}
                            linkOnChange={linkOnChange}
                            nameOnChange={nameOnChange}
                            avatarOnChange={avatarOnChange}
         />
         <div className="vedit">
-          <textarea ref={this.ref} id="veditor" className={"veditor vinput"} placeholder={placeholder} onChange={contentOnChange} value={commentContent}/>
+          <TextAreaComponent toggleTextAreaFocus={toggleTextAreaFocus}
+                             commentContent={commentContent}
+                             placeholder={placeholder}
+                             contentOnChange={contentOnChange}
+          />
           <ButtonContainer contentOnChange={contentOnChange}
                            previewShow={previewShow}
                            commentContent={commentContent}

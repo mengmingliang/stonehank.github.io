@@ -1,32 +1,80 @@
-import deepClone from './deepClone'
+// import deepClone from './deepClone'
 
-
+function dfsClone(list,item){
+  let res=[],hasInserted=false
+  let {rootId,rid}=item
+  for(let i=0;i<list.length;i++){
+    if(!hasInserted && list[i].rootId===rootId){
+      let obj=Object.assign({},list[i])
+      if(list[i].id===rid){
+        obj.child=list[i].child.slice()
+        obj.child.push(item)
+        hasInserted=true
+      }else{
+        let [child,state]=dfsClone(obj.child,item)
+        obj.child=child
+        hasInserted=hasInserted||state
+      }
+      res[i]=obj
+    }else{
+      res[i]=list[i]
+    }
+  }
+  if(!hasInserted)return [list,false]
+  // if(!hasInserted)res.push(item)
+  return [res,true]
+}
 
 function createNestComments(){
-  let map=new Map()
+  // let map=new Map()
   return function(list,arr){
-    let res=[]
-    for(let i=0;i<list.length;i++){
-      let item=list[i]
-      if(map.has(item.id)){
-        res[i]=map.get(item.id)
-        continue
-      }
-      let cloneItem=deepClone(item)
-      map.set(item.id,cloneItem)
-      res[i]=cloneItem
-    }
-    for(let obj of arr){
-      let id=obj.id
-      let rid=obj.rid
-      let parent=map.get(rid)
-      let cloneObj=deepClone(obj)
-      parent.child.push(cloneObj)
-      map.set(id,cloneObj)
+    let res=list.slice()
+    // 补充map
+    // for(let i=0;i<list.length;i++){
+    //   let item=list[i]
+    //   if(!map.has(item.id)){
+    //     map.set(item.id,item)
+    //   }
+    // }
+    // for(let i=0;i<arr.length;i++){
+    //   let item=arr[i]
+    //   if(!map.has(item.id)){
+    //     map.set(item.id,item)
+    //   }
+    // }
+    // DFS遍历arr
+    for(let item of arr){
+      res=dfsClone(res,item)[0]
     }
     return res
+
+
+    // for(let i=0;i<list.length;i++){
+    //   let item=list[i]
+    //   if(map.has(item.id)){
+    //     res[i]=map.get(item.id)
+    //     continue
+    //   }
+    //   // let cloneItem=deepClone(item)
+    //   let cloneItem=item
+    //   map.set(item.id,cloneItem)
+    //   res[i]=cloneItem
+    // }
+    // for(let obj of arr){
+    //   let id=obj.id
+    //   let rid=obj.rid
+    //   let parent=map.get(rid)
+    //   // let cloneObj=deepClone(obj)
+    //   let cloneObj=obj
+    //   parent.child.push(cloneObj)
+    //   map.set(id,cloneObj)
+    // }
+    // return res
   }
 }
+
+
+
 
  function convert2SimplyList(arr){
   let res=[]
@@ -41,65 +89,7 @@ function simplyObj(obj){
   return Object.assign({id,createdAt,child:[]},curAttrs)
 }
 
-// function createNestComment(){
-//   let checkLater=[]
-//   let allCommentMap=new Map()
-//   let orderList=[]
-//   return function(insertArr,nest,fetchNxt){
-//     let insertList=simplyList(insertArr)
-//     for(let i=0;i<insertList.length;i++){
-//       let cur=insertList[i],id=cur['id']
-//       if(allCommentMap.has(id))continue
-//       allCommentMap.set(id,cur)
-//     }
-//     if(insertList.length===1){
-//       orderList.unshift(insertList[0].id)
-//     }else{
-//       for(let {id} of insertList){
-//         orderList.push(id)
-//       }
-//     }
-//     checkLater=[]
-//     let res=[]
-//     for(let id of orderList){
-//       let obj=allCommentMap.get(id),rid=obj.rid
-//       if(!nest || rid===''){
-//         res.push(deepClone(obj))
-//         continue
-//       }
-//       if(!allCommentMap.has(rid)){
-//         checkLater.push(obj)
-//         continue
-//       }
-//       let parent=allCommentMap.get(rid)
-//       let duplic=false
-//       for(let j=0;j<parent['child'].length;j++){
-//         if(parent['child'][j].id===id){
-//           duplic=true
-//           break
-//         }
-//       }
-//       if(!duplic){
-//         // let cloneParent=deepClone(parent)
-//         parent['child'].push(obj)
-//         // allCommentMap.set(rid,cloneParent)
-//       }
-//     }
-//
-//     return res
-//   }
-//   function simplyList(insertArr){
-//     let insertList=[]
-//     for(let i=0;i<insertArr.length;i++){
-//       let cur=insertArr[i],id=cur.id,curAttrs=cur.attributes,createdAt=cur.get('createdAt')
-//       console.log(curAttrs)
-//       let newObj=Object.assign({id,createdAt,child:[]},curAttrs)
-//       insertList.push(newObj)
-//     }
-//     return insertList
-//   }
-// }
-// let nestComment=createNestComment()
+
 
 let mergeNestComment=createNestComments()
 

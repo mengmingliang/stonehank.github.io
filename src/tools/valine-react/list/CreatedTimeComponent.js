@@ -6,7 +6,7 @@ export default class CreatedTimeComponent extends React.PureComponent{
 
   render(){
     return (
-      <span className="vtime">{timeAgo(this.props.oldTime)}</span>
+      <span className="vtime">{timeAgo(this.props.createdAt)}</span>
     )
   }
 }

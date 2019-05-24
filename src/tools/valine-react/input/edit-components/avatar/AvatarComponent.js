@@ -5,8 +5,18 @@ const avatarsList=["mp","identicon", "monsterid",  "retro", "robohash", "wavatar
 export default class AvatarComponent extends React.PureComponent{
 
   render(){
-    const {GRAVATAR_URL,showList,showMark,emailHash,avatarSrc,avatarOnChange,toggleShowList,turnOnMark,turnOffMark}=this.props
-    // console.log(avatarSrc)
+    const {
+      GRAVATAR_URL,
+      showList,
+      showMark,
+      emailHash,
+      avatarSrc,
+      avatarOnChange,
+      toggleShowList,
+      turnOnMark,
+      turnOffMark
+    }=this.props
+    // console.log(1)
     return (
       <React.Fragment>
         <div className={"vavatars-select-button"} onClick={toggleShowList} onMouseEnter={turnOnMark} onMouseLeave={turnOffMark}>
@@ -14,22 +24,20 @@ export default class AvatarComponent extends React.PureComponent{
           ? <div className={"vavatars-select-mark"}>更换</div>
           :  null
           }
-          <img className={"vavatars-select-selected"} src={avatarSrc} />
+          <img className={"vavatars-select-selected"} alt={"avatar"} src={avatarSrc} />
         </div>
         {
           showList
-          // ? <div className={"avatars-select"} >
           ? <ul className={"vavatars-select-list"} onClick={avatarOnChange}>
-              <li className={"vavatars-select-cell"}><img src={`${GRAVATAR_URL}/${emailHash}/?size=50`} /></li>
+              <li className={"vavatars-select-cell"}><img alt={"avatarToChoose"} src={`${GRAVATAR_URL}/${emailHash}/?size=50`} /></li>
               {
                 avatarsList.map((k,i)=>{
                   return (
-                    <li className={"vavatars-select-cell"} key={i}><img src={`${GRAVATAR_URL}/?d=${k}&size=50`} /></li>
+                    <li className={"vavatars-select-cell"} key={i}><img alt={"avatarToChoose"} src={`${GRAVATAR_URL}/?d=${k}&size=50`} /></li>
                   )
                 })
               }
           </ul>
-            // </div>
           : null
         }
       </React.Fragment>

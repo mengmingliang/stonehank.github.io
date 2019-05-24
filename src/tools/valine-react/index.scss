@@ -115,8 +115,8 @@
       right: 0;
       left: 0;
       bottom: 0;
-      width: 200px;
-      height: 30px;
+      width: 15rem;
+      height: 2rem;
       border-radius: 10px;
       border: 1px solid #ef5858;
       text-align: center;
@@ -378,13 +378,13 @@
       .vhead {
         line-height: 1.5;
         margin-top: 0;
-        .vnick {
+        .vnick a{
           position:relative;
           font-size: .875rem;
           font-weight: 500;
           margin-right: .875rem;
           cursor: pointer;
-          color: #1abc9c;
+          //color: #1abc9c;
           text-decoration:none;
           display:inline-block;
           &::before{
@@ -394,11 +394,11 @@
             right:0;
             bottom:0;
             height:1px;
-            background:#1abc9c;
+            //background:#1abc9c;
             transition: width .3s ease;
           }
           &:hover {
-            color: #D7191A;
+            //color: #D7191A;
             &::before{
               width:100%;
               left:0;

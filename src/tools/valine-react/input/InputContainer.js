@@ -3,7 +3,7 @@ import InputComponent from "./InputComponent";
 
 const avatarsList=["mp","identicon", "monsterid",  "retro", "robohash", "wavatar","blank",]
 
-export default class InputContainer extends React.Component {
+export default class InputContainer extends React.PureComponent {
   constructor(props){
     super(props)
     this.state={
@@ -20,20 +20,17 @@ export default class InputContainer extends React.Component {
   }
 
   avatarOnChange(event){
-    // console.log(event,event.target,event.currentTarget)
+    event.stopPropagation()
     let ele=event.target,parent=event.currentTarget
     return new Promise((resolve,reject)=>{
       if(parent.className==="vavatars-select-list" && ele.nodeName==="IMG"){
         let src=''
         if(ele.getAttribute)src=ele.getAttribute("src")
         else src=ele.src
-        // console.log(src)
         this.setState({
           avatarSrc:src
         })
           resolve()
-
-
       }else{
         reject()
       }
@@ -41,6 +38,7 @@ export default class InputContainer extends React.Component {
   }
 
   nameOnChange(event){
+    event.stopPropagation()
     let newStr=event.target.value
     this.setState({
       nickName:newStr
@@ -48,6 +46,7 @@ export default class InputContainer extends React.Component {
   }
 
   emailOnChange(event){
+    event.stopPropagation()
     let newStr=event.target.value
     this.setState({
       email:newStr
@@ -72,7 +71,6 @@ export default class InputContainer extends React.Component {
       let item=localStorage.getItem("ValineCache")
       if(!item)return
       let obj=JSON.parse(item)
-      // console.log(obj)
       this.setState({
         link:obj.link,
         nickName:obj.nick,
@@ -84,7 +82,18 @@ export default class InputContainer extends React.Component {
 
   render() {
     const { link,email,nickName,avatarSrc } = this.state;
-    const {commentContent,placeholder,requireName,requireEmail,GRAVATAR_URL,submitBtnDisable,toggleTextAreaFocus,previewShow,togglePreviewShow,contentOnChange}=this.props
+    const {
+      commentContent,
+      placeholder,
+      requireName,
+      requireEmail,
+      GRAVATAR_URL,
+      submitBtnDisable,
+      toggleTextAreaFocus,
+      previewShow,
+      togglePreviewShow,
+      contentOnChange
+    }=this.props
     return (
       <InputComponent email={email}
                       link={link}

@@ -8,7 +8,20 @@ import AvatarContainer from "./avatar/AvatarContainer";
 export default class EditAreaComponent extends React.PureComponent {
 
   render() {
-    const { link,email,nickName,requireEmail,requireName,avatarSrc,GRAVATAR_URL,emailOnChange,linkOnChange,nameOnChange,avatarOnChange} = this.props;
+    const {
+      link,
+      email,
+      nickName,
+      requireEmail,
+      requireName,
+      avatarSrc,
+      GRAVATAR_URL,
+      emailOnChange,
+      linkOnChange,
+      nameOnChange,
+      avatarOnChange
+    } = this.props;
+
     return (
       <div className={"vheader item3"} >
         <AvatarContainer avatarSrc={avatarSrc} email={email} GRAVATAR_URL={GRAVATAR_URL} avatarOnChange={avatarOnChange}/>

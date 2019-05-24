@@ -1,17 +1,28 @@
 import React from 'react'
 import Loading from "../Loading";
 import PageComponent from "./PageComponent";
-import CommentCardComponent from "./CommentCardComponent";
+import CommentCardContainer from "./CommentCardContainer";
 import {xssMarkdown} from '../utils'
 
 
-export default class CommentListComponent extends React.Component{
+export default class CommentListComponent extends React.PureComponent{
 
   render(){
-    const {commentList, commentCounts,currentCounts, emptyTxt,nestShow, handleReply,submitLoading,fetchInitLoading,fetchMoreLoading, GRAVATAR_URL,fillNxtCommentList}=this.props
-    // console.log(commentList)
+    const {
+      commentList,
+      commentCounts,
+      currentCounts,
+      emptyTxt,
+      nest,
+      handleReply,
+      submitLoading,
+      fetchInitLoading,
+      fetchMoreLoading,
+      GRAVATAR_URL,
+      fillNxtCommentList
+    }=this.props
+    console.log(1)
     return (
-
       <React.Fragment>
         {
           submitLoading
@@ -33,12 +44,12 @@ export default class CommentListComponent extends React.Component{
                         createdAt=commentObj['createdAt'],
                         commentContent=xssMarkdown(commentObj['comment']),
                         curId=commentObj['id'],
-                        rootId=commentObj['rootId']
-                      let child=nestShow ? commentObj['child'] : null
+                        rootId=commentObj['rootId'],
+                        child=nest ? commentObj['child'] : null
 
-                      return <CommentCardComponent curId={curId}
+                      return <CommentCardContainer curId={curId}
                                                    key={curId}
-                                                   nestShow={nestShow}
+                                                   nest={nest}
                                                    child={child}
                                                    rootId={rootId}
                                                    GRAVATAR_URL={GRAVATAR_URL}
@@ -52,7 +63,10 @@ export default class CommentListComponent extends React.Component{
                     })
                 }
               </div>
-              <PageComponent  commentCounts={commentCounts} currentCounts={currentCounts}  fillNxtCommentList={fillNxtCommentList}/>
+              <PageComponent  commentCounts={commentCounts}
+                              currentCounts={currentCounts}
+                              fillNxtCommentList={fillNxtCommentList}
+              />
               {
                 fetchMoreLoading
                   ? <Loading />

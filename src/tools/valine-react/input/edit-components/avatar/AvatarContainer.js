@@ -61,7 +61,6 @@ export default class AvatarContainer extends React.PureComponent{
   }
   checkIfClose(event){
     if(!event)return
-    // console.log(event.target)
     if(event && typeof event.target.className==="string" && !event.target.className.includes("vavatars-select")){
       this.setState({
         showList:false
