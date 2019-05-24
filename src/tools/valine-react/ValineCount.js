@@ -1,17 +1,21 @@
 import React from 'react'
 import ValineContext from './ValineContext'
-import ValineContainer from "./ValineContainer";
+import ValineGetCount from "./ValineGetCount";
 
 
-export default class ValinPanel extends React.Component{
+
+export default class ValineCount extends React.Component{
+
 
   render(){
+    console.log(this.props.path)
     return (
       <ValineContext.Consumer>
-        {props=>{
-          const {fetchCount,path,...otherPorps}=props
-          return <ValineContainer updateCount={updateCount} {...otherPorps}/>
-        }}
+        {contextProps=>{
+            const {fetchCount,...otherPorps}=contextProps
+            return <ValineGetCount fetchCount={fetchCount} path={this.props.path}/>
+          }
+        }
       </ValineContext.Consumer>
     )
 

@@ -18,20 +18,13 @@ export default class ValineContainer extends React.Component{
 
   constructor(props){
     super(props)
+    console.log(props,window.AV)
+    if(props.path==null)throw new Error('must set path')
     this.state={
-      requireName:props.requireName==null ? true : props.requireName,
-      requireEmail:props.requireEmail==null ? false : props.requireEmail,
-      placeholder:props.placeholder==null ? '' : props.placeholder,
-      AV:props.av,
-      nest:props.nest==null ? true : props.nest,
-      path:props.path ? decodeURI(props.path) : decodeURI(window.location.origin+window.location.pathname),
-      pageSize:props.pageSize || 10,
-      emptyTxt:props.emptyTxt==null ? '快来做第一个评论的人吧~' : props.emptyTxt,
-      previewShow:props.previewShow==null ? true : props.previewShow,
+      previewShow:props.previewShow,
       commentCounts:0,
       currentCounts:0,
       commentList:[],
-      // commentContent:'',
       toggleTextAreaFocus:false,
       submitBtnDisable:false,
       submitLoading:false,
@@ -70,13 +63,14 @@ export default class ValineContainer extends React.Component{
       comment:'',
       at:'',
       nick:'',
-      url:this.state.path,
+      uniqStr:this.props.path,
       ua:navigator.userAgent,
     }
   }
 
   createNewObj(){
-    const {AV,nest,commentList}=this.state
+    const {AV,nest,updateCount,path}=this.props
+    const {commentList}=this.state
     let Ct = AV.Object.extend('Comment');
     let comment = new Ct();
 
@@ -116,6 +110,7 @@ export default class ValineContainer extends React.Component{
             mail: this.defaultComment['mail'],
             avatarSrc:this.defaultComment['avatarSrc']
           }));
+
           this.setState((prevState,)=>({
             commentList:newCommentList,
             commentCounts:prevState.commentCounts+1,
@@ -123,7 +118,9 @@ export default class ValineContainer extends React.Component{
             submitBtnDisable:false,
             // commentContent:'',
             submitLoading:false
-          }))
+          }),()=>{
+            updateCount(path,this.state.commentCounts)
+          })
           if(this.rScrollTop!=null)document.documentElement.scrollTo(0,this.rScrollTop)
           this.resetDefaultComment()
         }).catch(ex => {
@@ -179,7 +176,7 @@ export default class ValineContainer extends React.Component{
   }
 
   submitVerify(){
-    const {requireName,requireEmail}=this.state
+    const {requireName,requireEmail}=this.props
     const {nick,mail,comment,link,at,rid}=this.defaultComment
     let errorStr='',state=false
     if(comment==='')errorStr='内容不能为空！'
@@ -215,7 +212,7 @@ export default class ValineContainer extends React.Component{
     let scrTop=document.documentElement.scrollTop
     let boundTop=ele.getBoundingClientRect().top
     let reachCeilTop=ele.offsetTop || scrTop+boundTop
-    if(this.state.nest){
+    if(this.props.nest){
       this.rScrollTop=scrTop
     }
     let inputContainer= this.inputContainerRef.current
@@ -236,7 +233,7 @@ export default class ValineContainer extends React.Component{
   }
 
   fillNxtCommentList(){
-    if(this.state.nest){
+    if(this.props.nest){
       this.fetchMoreNest()
     }else{
       this.fetchNxtCommentList()
@@ -244,7 +241,8 @@ export default class ValineContainer extends React.Component{
   }
 
   fetchNxtCommentList(){
-    const {AV,currentCounts,pageSize,commentCounts}=this.state
+    const {AV,pageSize}=this.props
+    const {currentCounts,commentCounts}=this.state
     let query=new AV.Query('Comment')
     if(currentCounts===commentCounts)return
     this.setState({
@@ -275,14 +273,15 @@ export default class ValineContainer extends React.Component{
 
   fetchMoreNest(){
     let contains=[],simplyList=[]
-    let {AV,path,pageSize,currentCounts,commentList,commentCounts}=this.state
+    const {AV,path,pageSize}=this.props
+    let {currentCounts,commentList,commentCounts}=this.state
     let newCurrentCounts=0
     if(currentCounts===commentCounts)return
     this.setState({
       fetchMoreLoading:true
     })
     let query1= new AV.Query('Comment'),query2= new AV.Query('Comment')
-    query1.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
+    query1.equalTo('uniqStr',path)
       .equalTo('rid','')
       .addDescending('createdAt')
       .skip(commentList.length)
@@ -301,7 +300,7 @@ export default class ValineContainer extends React.Component{
           simplyList.push(simplyObj(obj))
           contains.push(obj.get('rootId'))
         }
-        query2.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
+        query2.equalTo('uniqStr',path)
           .notEqualTo('rid','')
           .containedIn('rootId',contains)
           .addAscending('createdAt')
@@ -325,115 +324,112 @@ export default class ValineContainer extends React.Component{
 
   fetchNest(){
     let contains=[],simplyList=[],commentList=[]
-    let {path,AV,pageSize}=this.state
-    let query1 =new AV.Query('Comment'),
-      query2=new AV.Query('Comment'),
-      query3=new AV.Query('Comment')
-    let commentCounts=0
+    const {AV,pageSize,fetchCount,path}=this.props
     let currentCounts=0
+    let commentCounts=0
     this.setState({
       fetchInitLoading:true
     })
-    query1.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
-      .count()
-      .then(counts=>{
-        commentCounts=counts
-        if(commentCounts===0){
-          this.setState({
-            fetchInitLoading:false
-          })
-          return
-        }
-        query2.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
-          .equalTo('rid','')
-          .limit(pageSize)
-          .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
-          .addDescending('createdAt')
-          .find()
-          .then(items=>{
-            currentCounts+=items.length
-            for(let obj of items){
-              simplyList.push(simplyObj(obj))
-              contains.push(obj.get('rootId'))
-            }
-            query3.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
-              .notEqualTo('rid','')
-              .containedIn('rootId',contains)
-              .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
-              .addAscending('createdAt')
-              .find()
-              .then(items=>{
-                console.log(items)
-                currentCounts+=items.length
-                let simplyItems=[]
-                for(let obj of items)simplyItems.push(simplyObj(obj))
-                commentList=mergeNestComment(simplyList,simplyItems)
-                this.setState({
-                  commentList,
-                  commentCounts,
-                  currentCounts,
-                  fetchInitLoading:false,
-                  fetchMoreLoading:false
-                })
-                query1=null
-                query2=null
-                query3=null
+    return fetchCount(path).then(counts=> {
+      commentCounts = counts
+      if (commentCounts === 0) {
+        this.setState({
+          fetchInitLoading: false
+        })
+        return
+      }
+      let query1 =new AV.Query('Comment'), query2=new AV.Query('Comment')
+      query1.equalTo('uniqStr',path)
+        .equalTo('rid','')
+        .limit(pageSize)
+        .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
+        .addDescending('createdAt')
+        .find()
+        .then(items=>{
+          currentCounts+=items.length
+          for(let obj of items){
+            simplyList.push(simplyObj(obj))
+            contains.push(obj.get('rootId'))
+          }
+          query2.equalTo('uniqStr',path)
+          // query2.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
+            .notEqualTo('rid','')
+            .containedIn('rootId',contains)
+            .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
+            .addAscending('createdAt')
+            .find()
+            .then(items=>{
+              // console.log(items)
+              currentCounts+=items.length
+              let simplyItems=[]
+              for(let obj of items)simplyItems.push(simplyObj(obj))
+              commentList=mergeNestComment(simplyList,simplyItems)
+              this.setState({
+                commentList,
+                commentCounts,
+                currentCounts,
+                fetchInitLoading:false,
+                fetchMoreLoading:false
               })
-          })
-      })
-
+              query1=null
+              query2=null
+            })
+        })
+    })
   }
 
 
   initQuery(){
-    let {path,AV,pageSize}=this.state
-    let query =new AV.Query('Comment')
+    const {AV,pageSize,path,fetchCount}=this.props
     let commentCounts=0
     this.setState({
       fetchInitLoading:true
     })
-    return query.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
-      .count()
-      .then(counts=>{
-        commentCounts=counts
-        if(commentCounts===0){
+    return fetchCount(path).then(counts=>{
+      commentCounts=counts
+      if(commentCounts===0){
+        this.setState({
+          fetchInitLoading:false
+        })
+        return
+      }
+      let query =new AV.Query('Comment')
+      // query.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
+      query.matches('uniqStr',path)
+        .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
+        .addDescending('createdAt')
+        .limit(pageSize)
+        .find()
+        .then(commentArr=>{
+          let commentList=convert2SimplyList(commentArr)
           this.setState({
-            fetchInitLoading:false
+            query,
+            commentList,
+            commentCounts,
+            currentCounts:pageSize,
+            fetchInitLoading:false,
+            fetchMoreLoading:false
           })
-          return
-        }
-        query.select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
-          .addDescending('createdAt')
-          .limit(pageSize)
-          .find()
-          .then(commentArr=>{
-            let commentList=convert2SimplyList(commentArr)
-              this.setState({
-                query,
-                commentList,
-                commentCounts,
-                currentCounts:pageSize,
-                fetchInitLoading:false,
-                fetchMoreLoading:false
-              })
-            query=null
-          })
-      })
+          query=null
+        })
+    })
   }
 
 
   componentDidMount(){
-    // console.log(this.inputContainerRef.current)
-    if(!this.state.AV)return
+    const {AV,nest,appId,appKey}=this.props
+    if(!AV)return
+    // console.log(AV,appId,appKey)
     try{
-      this.state.AV.init({
-        appId:this.props.appId,
-        appKey:this.props.appKey
+      AV.init({
+        appId,
+        appKey
       })
     }catch(err){
       // do nothing
+      console.log(err)
     }
-    if(this.state.nest){
+    if(nest){
       this.fetchNest()
     }else{
       this.initQuery()
@@ -443,7 +439,8 @@ export default class ValineContainer extends React.Component{
 
 
   render(){
-    const {commentCounts,currentCounts, commentList, nest,requireName,requireEmail,placeholder, emptyTxt,fetchInitLoading,fetchMoreLoading,submitErrorLog,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
+    const {requireName,requireEmail,placeholder,nest,emptyTxt}=this.props
+    const {commentCounts,currentCounts, commentList,fetchInitLoading,fetchMoreLoading,submitErrorLog,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
     return (
       <div ref={this.wrapRef} className="v">
         <ValineComponent inputContainerRef={this.inputContainerRef}

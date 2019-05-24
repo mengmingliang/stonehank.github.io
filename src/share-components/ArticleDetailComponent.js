@@ -10,9 +10,12 @@ import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
 import ArticleHeaderProps from './ArticleHeaderProps'
 import {linkTo} from "../routes/linkPathList";
-import FetchCount from "../tools/valine-react/FetchCount";
-import ValineContainer from "../tools/valine-react/ValineContainer";
+import ValinePanel from '../tools/valine-react/ValinPanel'
+import ValineCount from "../tools/valine-react/ValineCount";
+// import FetchCount from "../tools/valine-react/FetchCount";
+// import ValineContainer from "../tools/valine-react/ValineContainer";
 // window.AV = require('leancloud-storage');
+
 
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
@@ -198,11 +201,12 @@ export default class ArticleDetailComponent extends React.Component{
           {showComment
             ? disqusRender
                 // ? <FetchCount />
-                ? <ValineContainer av={window.AV} appId={"I5DAxOhp2kPXkbj9VXPyKoEB-gzGzoHsz"} appKey={"lGPcHd7GL9nYKqBbNEkgXKjX"}/>
+                ? <ValinePanel path={fetchKey}/>
               // ? <ValineComment />
               // ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
               : <Button onClick={this.showDisqus} style={styles.disqusButton}>
-                  加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)
+                  评论数：<ValineCount path={fetchKey}/>
+                  {/*加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)*/}
                 </Button>
             : null
           }

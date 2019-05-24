@@ -3,6 +3,7 @@ import {Row,Col} from 'antd';
 import {Link} from "@reach/router"
 import TagLight from "./TagLight"
 import CustomComment from "../tools/CustomComment";
+import ValineCount from "../tools/valine-react/ValineCount";
 
 
 const styles={
@@ -103,9 +104,10 @@ export default class ArticleHeaderProps extends React.Component{
         }
         { showComment
           ? <Col>
-              <CustomComment.Count title={curContentData[showComment.title]}
-                                   sha={curContentData[showComment.sha]}
-                                   locationOrigin={window.location.origin} />
+              评论数：<ValineCount path={curContentData[showComment.sha]}/>
+              {/*<CustomComment.Count title={curContentData[showComment.title]}*/}
+                                   {/*sha={curContentData[showComment.sha]}*/}
+                                   {/*locationOrigin={window.location.origin} />*/}
             </Col>
           : null
         }

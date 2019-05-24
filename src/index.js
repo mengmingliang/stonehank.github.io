@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as userConfig from './user-config'
 import ProgressLoading from './progress-wrapper/ProgressLoading'
 import BookmarkProvider from "./bookmark/BookmarkProvider";
-
+import Valine from './tools/valine-react/Valine'
 
 // const {registerObserver} = require('react-perf-devtool')
 // // Simple, no?
@@ -32,7 +32,9 @@ try{
   ReactDOM.render(
     <Suspense fallback={<ProgressLoading />}>
       <BookmarkProvider>
+        <Valine  appId={"I5DAxOhp2kPXkbj9VXPyKoEB-gzGzoHsz"} appKey={"lGPcHd7GL9nYKqBbNEkgXKjX"}>
         <Initial userConfig={userConfig.default}/>
+        </Valine>
       </BookmarkProvider>
     </Suspense>
     , document.getElementById('root'));

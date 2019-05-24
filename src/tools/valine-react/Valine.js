@@ -7,12 +7,11 @@ export default class Valine extends React.Component{
   constructor(props){
     super(props)
     this.state={
+      AV:null,
       requireName:props.requireName==null ? true : props.requireName,
       requireEmail:props.requireEmail==null ? false : props.requireEmail,
       placeholder:props.placeholder==null ? '' : props.placeholder,
-      AV:props.av,
       nest:props.nest==null ? true : props.nest,
-      path:props.path ? decodeURI(props.path) : decodeURI(window.location.origin+window.location.pathname),
       pageSize:props.pageSize || 10,
       emptyTxt:props.emptyTxt==null ? '快来做第一个评论的人吧~' : props.emptyTxt,
       previewShow:props.previewShow==null ? true : props.previewShow,
@@ -22,15 +21,15 @@ export default class Valine extends React.Component{
     this.updateCounts=this.updateCounts.bind(this)
   }
 
-  fetchCount(){
-    const {path}=this.state
+  fetchCount(path){
     return new Promise(resolve=>{
       if(this.countMap.has(path)){
         resolve(this.countMap.get(path))
       }else{
         let AV=window.AV
+        if(!AV)return
         new AV.Query('Comment')
-          .matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
+          .equalTo('uniqStr',path)
           .count()
           .then((counts)=>{
             this.countMap.set(path,counts)
@@ -40,15 +39,28 @@ export default class Valine extends React.Component{
     })
   }
 
-  updateCounts(count){
-    const {path}=this.state
+  updateCounts(path,count){
     this.countMap.set(path,count)
   }
 
+  componentDidMount(){
+    const {appId,appKey}=this.props
+    const {AV}=this.state
+    if(!AV){
+      import('leancloud-storage').then(module=>{
+        window.AV=module.default
+        window.AV.init({appId,appKey})
+        this.setState({
+          AV:window.AV
+        })
+      })
+    }
+  }
 
   render(){
+    const {appId,appKey}=this.props
     return (
-      <ValineContext.Provider value={{fetchCount:this.fetchCount,updateCount:this.updateCounts,...this.state}}>
+      <ValineContext.Provider value={{appId,appKey,fetchCount:this.fetchCount,updateCount:this.updateCounts,...this.state}}>
         {this.props.children}
       </ValineContext.Provider>
     )
