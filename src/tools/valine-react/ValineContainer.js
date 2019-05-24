@@ -11,7 +11,7 @@ import {
   convert2SimplyList,
   simplyObj
 } from './utils'
-import emojiData from './assets/emoji.json'
+
 
 
 export default class ValineContainer extends React.Component{
@@ -26,12 +26,12 @@ export default class ValineContainer extends React.Component{
       nest:props.nest==null ? true : props.nest,
       path:props.path ? decodeURI(props.path) : decodeURI(window.location.origin+window.location.pathname),
       pageSize:props.pageSize || 10,
-      emptyTxt:props.emptyTxt==null ? "还没有评论哦，快来抢沙发吧!" : props.emptyTxt,
+      emptyTxt:props.emptyTxt==null ? '快来做第一个评论的人吧~' : props.emptyTxt,
       previewShow:props.previewShow==null ? true : props.previewShow,
       commentCounts:0,
       currentCounts:0,
       commentList:[],
-      commentContent:'',
+      // commentContent:'',
       toggleTextAreaFocus:false,
       submitBtnDisable:false,
       submitLoading:false,
@@ -51,11 +51,13 @@ export default class ValineContainer extends React.Component{
     this.fillNxtCommentList=this.fillNxtCommentList.bind(this)
     this.resetDefaultComment=this.resetDefaultComment.bind(this)
     this.fetchNxtCommentList=this.fetchNxtCommentList.bind(this)
-    this.commentContentOnChange=this.commentContentOnChange.bind(this)
+    // this.commentContentOnChange=this.commentContentOnChange.bind(this)
 
     this.resetDefaultComment()
     this.wrapRef=React.createRef()
+    this.inputContainerRef=React.createRef()
     this.rScrollTop=null
+    // console.log(this.inputContainerRef.current)
   }
 
   resetDefaultComment(){
@@ -85,8 +87,8 @@ export default class ValineContainer extends React.Component{
         comment.set(k,val);
       }
     }
-    console.log(this.defaultComment)
-    new Promise((resolve)=>{
+    // console.log(this.defaultComment)
+    return new Promise((resolve)=>{
       if(this.defaultComment.rid===''){
         comment.save().then(item=>{
           comment.set('rootId',item.id)
@@ -108,8 +110,6 @@ export default class ValineContainer extends React.Component{
           }else{
             newCommentList=[simplyItem].concat(commentList)
           }
-          // console.log(commentList,simplyItem)
-          // let newCommentList=[simplyItem].concat(commentList)
           localStorage && localStorage.setItem('ValineCache', JSON.stringify({
             nick: this.defaultComment['nick'],
             link: this.defaultComment['link'],
@@ -121,7 +121,7 @@ export default class ValineContainer extends React.Component{
             commentCounts:prevState.commentCounts+1,
             currentCounts:prevState.currentCounts+1,
             submitBtnDisable:false,
-            commentContent:'',
+            // commentContent:'',
             submitLoading:false
           }))
           if(this.rScrollTop!=null)document.documentElement.scrollTo(0,this.rScrollTop)
@@ -130,84 +130,11 @@ export default class ValineContainer extends React.Component{
           console.error("Something wrong with submit!",ex)
           this.setState({
             submitBtnDisable:false,
-            commentContent:'',
+            // commentContent:'',
             submitLoading:false
           })
         })
-      }).catch(err=>console.log(err))
-    // if(this.defaultComment.rid===''){
-    //   comment.save().then(item=> {
-    //     comment.set('rootId',item.id)
-    //     let acl = new AV.ACL();
-    //     acl.setPublicReadAccess(true);
-    //     acl.setPublicWriteAccess(false);
-    //     comment.setACL(acl);
-    //     comment.save().then((commentItem) => {
-    //       let simplyItem=simplyObj(commentItem)
-    //       let newCommentList=[simplyItem].concat(commentList)
-    //       localStorage && localStorage.setItem('ValineCache', JSON.stringify({
-    //         nick: this.defaultComment['nick'],
-    //         link: this.defaultComment['link'],
-    //         mail: this.defaultComment['mail'],
-    //         avatarSrc:this.defaultComment['avatarSrc']
-    //       }));
-    //       this.setState((prevState,)=>({
-    //         commentList:newCommentList,
-    //         commentCounts:prevState.commentCounts+1,
-    //         currentCounts:prevState.currentCounts+1,
-    //         submitBtnDisable:false,
-    //         commentContent:'',
-    //         submitLoading:false
-    //       }))
-    //       if(this.rScrollTop!=null)document.documentElement.scrollTo(0,this.rScrollTop)
-    //       this.resetDefaultComment()
-    //     }).catch(ex => {
-    //       console.error("Something wrong with submit!",ex)
-    //       this.setState({
-    //         submitBtnDisable:false,
-    //         commentContent:'',
-    //         submitLoading:false
-    //       })
-    //     })
-    //   })
-    // }else{
-    //   let acl = new AV.ACL();
-    //   acl.setPublicReadAccess(true);
-    //   acl.setPublicWriteAccess(false);
-    //   comment.setACL(acl);
-    //   comment.save().then((commentItem) => {
-    //     let simplyItem=simplyObj(commentItem)
-    //     let newCommentList=[]
-    //     if(nest){
-    //       newCommentList=mergeNestComment(commentList,[simplyItem])
-    //     }else{
-    //       newCommentList=[simplyItem].concat(commentList)
-    //     }
-    //     localStorage && localStorage.setItem('ValineCache', JSON.stringify({
-    //       nick: this.defaultComment['nick'],
-    //       link: this.defaultComment['link'],
-    //       mail: this.defaultComment['mail'],
-    //       avatarSrc:this.defaultComment['avatarSrc']
-    //     }));
-    //     this.setState((prevState,)=>({
-    //       commentList:newCommentList,
-    //       commentCounts:prevState.commentCounts+1,
-    //       currentCounts:prevState.currentCounts+1,
-    //       submitBtnDisable:false,
-    //       commentContent:'',
-    //       submitLoading:false
-    //     }))
-    //     if(this.rScrollTop!=null)document.documentElement.scrollTo(0,this.rScrollTop)
-    //     this.resetDefaultComment()
-    //   }).catch(ex => {
-    //     console.error("Something wrong with submit!",ex)
-    //     this.setState({
-    //       submitBtnDisable:false,
-    //       commentContent:'',
-    //       submitLoading:false
-    //     })
-    //   })
-    // }
+      })
   }
 
   togglePreviewShow(){
@@ -222,28 +149,33 @@ export default class ValineContainer extends React.Component{
         this.defaultComment[k]=defaultComment[k]
       }
     }
-    this.defaultComment.comment=this.state.commentContent
+    // this.defaultComment.comment=this.state.commentContent
     let checkR=this.submitVerify()
-    if(!checkR.state){
-      this.setState({
-        submitErrorLog:checkR.errorStr
-      },()=>{
-        setTimeout(()=>{
-          this.setState({
-            submitErrorLog:null
+    return new Promise((resolve,reject)=>{
+      if(!checkR.state){
+        this.setState({
+          submitErrorLog:checkR.errorStr
+        },()=>{
+          setTimeout(()=>{
+            this.setState({
+              submitErrorLog:null
+            })
+          },2000)
+        })
+        reject()
+      }else{
+        this.defaultComment.comment=xssMarkdown(this.defaultComment.comment)
+        this.setState({
+          submitBtnDisable:true,
+          submitLoading:true
+        },()=>{
+          this.createNewObj().then(()=>{
+            resolve()
           })
-        },2000)
-      })
-
-      return
-    }
-    this.defaultComment.comment=xssMarkdown(this.defaultComment.comment)
-    this.setState({
-      submitBtnDisable:true,
-      submitLoading:true
-    },()=>{
-      this.createNewObj()
+        })
+      }
     })
+
   }
 
   submitVerify(){
@@ -267,13 +199,13 @@ export default class ValineContainer extends React.Component{
     return {state,errorStr}
   }
 
-  commentContentOnChange(event,str=''){
-    let newStr=(event ? event.target.value : this.state.commentContent) +str
-    newStr=newStr.replace(/:(.+?):/g, (placeholder, key) => emojiData[key] || placeholder)
-    this.setState({
-      commentContent:newStr
-    })
-  }
+  // commentContentOnChange(event,str=''){
+  //   let newStr=(event ? event.target.value : this.state.commentContent) +str
+  //   newStr=newStr.replace(/:(.+?):/g, (placeholder, key) => emojiData[key] || placeholder)
+  //   this.setState({
+  //     commentContent:newStr
+  //   })
+  // }
 
   handleReply(replyId,replyName,rootId){
     this.defaultComment.rid=replyId
@@ -286,8 +218,17 @@ export default class ValineContainer extends React.Component{
     if(this.state.nest){
       this.rScrollTop=scrTop
     }
+    let inputContainer= this.inputContainerRef.current
+    if(!inputContainer){
+      setTimeout(()=>{
+        inputContainer.commentContentOnChange(null,`@${replyName} `)
+      },0)
+    }else{
+      inputContainer.commentContentOnChange(null,`@${replyName} `)
+    }
+
     this.setState((prevState)=>({
-      commentContent:`@${replyName} `+prevState.commentContent,
+      // commentContent:`@${replyName} `+prevState.commentContent,
       toggleTextAreaFocus:!prevState.toggleTextAreaFocus
     }),()=>{
       document.documentElement.scrollTo(0,reachCeilTop)
@@ -397,6 +338,12 @@ export default class ValineContainer extends React.Component{
       .count()
       .then(counts=>{
         commentCounts=counts
+        if(commentCounts===0){
+          this.setState({
+            fetchInitLoading:false
+          })
+          return
+        }
         query2.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
           .equalTo('rid','')
           .limit(pageSize)
@@ -404,7 +351,6 @@ export default class ValineContainer extends React.Component{
           .addDescending('createdAt')
           .find()
           .then(items=>{
-            if(items.length===0)return
             currentCounts+=items.length
             for(let obj of items){
               simplyList.push(simplyObj(obj))
@@ -450,6 +396,12 @@ export default class ValineContainer extends React.Component{
       .count()
       .then(counts=>{
         commentCounts=counts
+        if(commentCounts===0){
+          this.setState({
+            fetchInitLoading:false
+          })
+          return
+        }
         query.select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
           .addDescending('createdAt')
           .limit(pageSize)
@@ -471,6 +423,8 @@ export default class ValineContainer extends React.Component{
 
 
   componentDidMount(){
+    // console.log(this.inputContainerRef.current)
+    if(!this.state.AV)return
     try{
       this.state.AV.init({
         appId:this.props.appId,
@@ -489,10 +443,11 @@ export default class ValineContainer extends React.Component{
 
 
   render(){
-    const {commentCounts,currentCounts, commentList, nest,requireName,requireEmail,placeholder, emptyTxt,fetchInitLoading,fetchMoreLoading,submitErrorLog, commentContent,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
+    const {commentCounts,currentCounts, commentList, nest,requireName,requireEmail,placeholder, emptyTxt,fetchInitLoading,fetchMoreLoading,submitErrorLog,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
     return (
       <div ref={this.wrapRef} className="v">
-        <ValineComponent commentCounts={commentCounts}
+        <ValineComponent inputContainerRef={this.inputContainerRef}
+                         commentCounts={commentCounts}
                          currentCounts={currentCounts}
                          commentList={commentList}
                          placeholder={placeholder}
@@ -500,7 +455,7 @@ export default class ValineContainer extends React.Component{
                          requireName={requireName}
                          requireEmail={requireEmail}
                          nest={nest}
-                         commentContent={commentContent}
+                         // commentContent={commentContent}
                          toggleTextAreaFocus={toggleTextAreaFocus}
                          previewShow={previewShow}
                          submitLoading={submitLoading}

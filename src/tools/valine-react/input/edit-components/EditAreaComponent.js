@@ -21,7 +21,7 @@ export default class EditAreaComponent extends React.PureComponent {
       nameOnChange,
       avatarOnChange
     } = this.props;
-
+    // console.log(11)
     return (
       <div className={"vheader item3"} >
         <AvatarContainer avatarSrc={avatarSrc} email={email} GRAVATAR_URL={GRAVATAR_URL} avatarOnChange={avatarOnChange}/>

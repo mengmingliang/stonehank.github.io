@@ -10,8 +10,9 @@ import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
 import ArticleHeaderProps from './ArticleHeaderProps'
 import {linkTo} from "../routes/linkPathList";
+import FetchCount from "../tools/valine-react/FetchCount";
 import ValineContainer from "../tools/valine-react/ValineContainer";
-window.AV = require('leancloud-storage');
+// window.AV = require('leancloud-storage');
 
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
@@ -196,6 +197,7 @@ export default class ArticleDetailComponent extends React.Component{
 
           {showComment
             ? disqusRender
+                // ? <FetchCount />
                 ? <ValineContainer av={window.AV} appId={"I5DAxOhp2kPXkbj9VXPyKoEB-gzGzoHsz"} appKey={"lGPcHd7GL9nYKqBbNEkgXKjX"}/>
               // ? <ValineComment />
               // ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>

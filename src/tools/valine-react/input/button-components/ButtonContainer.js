@@ -23,6 +23,7 @@ export default class ButtonContainer extends React.PureComponent {
       show:!prevState.show
     }))
   }
+
   parseContent(){
     const {commentContent}=this.props
     let previewContent=replaceAt(commentContent)
@@ -43,6 +44,7 @@ export default class ButtonContainer extends React.PureComponent {
     }
   }
 
+
   componentDidMount(){
     document.addEventListener('click',this.shutdownEmojiPanel)
   }
@@ -56,11 +58,11 @@ export default class ButtonContainer extends React.PureComponent {
   }
   render() {
     const {show,previewContent} = this.state;
-    const {contentOnChange,previewShow,togglePreviewShow,submitBtnDisable,handleOnSubmit}=this.props
+    const {previewShow,togglePreviewShow,submitBtnDisable,handleOnSubmit,insertEmoji}=this.props
     return (
       <React.Fragment>
-        <ButtonComponent previewShow={previewShow} togglePreviewShow={togglePreviewShow}/>
-        <EmojiComponentShow show={show} contentOnChange={contentOnChange} />
+        <ButtonComponent previewShow={previewShow} togglePreviewShow={togglePreviewShow} toggleEmojiShow={this.toggleEmojiShow}/>
+        <EmojiComponentShow show={show} insertEmoji={insertEmoji} />
         <PreviewComponentShow previewShow={previewShow} previewContent={previewContent} />
         <ControlButton submitBtnDisable={submitBtnDisable} handleOnSubmit={handleOnSubmit}/>
       </React.Fragment>

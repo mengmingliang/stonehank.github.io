@@ -24,8 +24,9 @@ export default class ValineComponent extends React.Component{
       submitErrorLog,
       submitBtnDisable,
       previewShow,
-      commentContent,
+      // commentContent,
       submitComment,
+      inputContainerRef,
       handleReply,
       togglePreviewShow,
       commentContentOnChange,
@@ -41,11 +42,12 @@ export default class ValineComponent extends React.Component{
               : null
           }
           <InputContainer submitBtnDisable={submitBtnDisable}
+                          ref={inputContainerRef}
                           placeholder={placeholder}
                           requireName={requireName}
                           requireEmail={requireEmail}
                           GRAVATAR_URL={GRAVATAR_URL}
-                          commentContent={commentContent}
+                          // commentContent={commentContent}
                           toggleTextAreaFocus={toggleTextAreaFocus}
                           previewShow={previewShow}
                           submitComment={submitComment}

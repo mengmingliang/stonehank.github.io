@@ -1,6 +1,10 @@
 import React from 'react';
-import InputComponent from "./InputComponent";
-
+// import InputComponent from "./InputComponent";
+import emojiData from '.././assets/emoji.json'
+import EditAreaComponent from "./edit-components/EditAreaComponent";
+import ButtonContainer from "./button-components/ButtonContainer";
+import TextAreaComponent from "./edit-components/TextAreaComponent";
+import {insertAtCaret} from "../utils";
 const avatarsList=["mp","identicon", "monsterid",  "retro", "robohash", "wavatar","blank",]
 
 export default class InputContainer extends React.PureComponent {
@@ -10,15 +14,47 @@ export default class InputContainer extends React.PureComponent {
       nickName:'',
       email:'',
       link:'',
+      commentContent:'',
       avatarSrc:`${props.GRAVATAR_URL}/?d=${avatarsList[Math.floor(Math.random()*avatarsList.length)]}&size=50`,
     }
     this.emailOnChange=this.emailOnChange.bind(this)
+    this.insertEmoji=this.insertEmoji.bind(this)
     this.linkOnChange=this.linkOnChange.bind(this)
     this.nameOnChange=this.nameOnChange.bind(this)
     this.avatarOnChange=this.avatarOnChange.bind(this)
     this.handleOnSubmit=this.handleOnSubmit.bind(this)
+    this.contentOnKeyDown=this.contentOnKeyDown.bind(this)
+    this.commentContentOnChange=this.commentContentOnChange.bind(this)
+
+    this.textAreaRef=React.createRef()
   }
 
+  insertEmoji(emoji){
+    let ele=this.textAreaRef.current
+    insertAtCaret(ele,emoji)
+    this.setState({
+      commentContent:ele.value
+    })
+  }
+
+  contentOnKeyDown(event){
+    if(event && event.keyCode===9){
+      event.preventDefault()
+      let ele=this.textAreaRef.current
+      insertAtCaret(ele,'  ')
+      this.setState({
+        commentContent:ele.value
+      })
+    }
+  }
+
+  commentContentOnChange(event,str=''){
+    let newStr=event ? event.target.value : (str + this.state.commentContent)
+    newStr=newStr.replace(/:(.+?):/g, (placeholder, key) => emojiData[key] || placeholder)
+    this.setState({
+      commentContent:newStr
+    })
+  }
   avatarOnChange(event){
     event.stopPropagation()
     let ele=event.target,parent=event.currentTarget
@@ -60,10 +96,21 @@ export default class InputContainer extends React.PureComponent {
     })
   }
   handleOnSubmit(){
-    const {nickName,email,link,avatarSrc}=this.state
+    const {nickName,email,link,avatarSrc,commentContent}=this.state
     const {submitComment}=this.props
-    submitComment({mail:email,link,nick:nickName,avatarSrc})
+    submitComment({mail:email,link,nick:nickName,avatarSrc,comment:commentContent})
+      .then(()=>{
+        this.setState({
+          commentContent:''
+        })
+      })
+      .catch(()=>{})
+  }
 
+  componentDidUpdate(prevProps){
+    if(this.props.toggleTextAreaFocus!==prevProps.toggleTextAreaFocus){
+      this.textAreaRef.current.focus()
+    }
   }
 
   componentDidMount(){
@@ -81,9 +128,8 @@ export default class InputContainer extends React.PureComponent {
   }
 
   render() {
-    const { link,email,nickName,avatarSrc } = this.state;
+    const { link,email,nickName,avatarSrc,commentContent } = this.state;
     const {
-      commentContent,
       placeholder,
       requireName,
       requireEmail,
@@ -91,30 +137,39 @@ export default class InputContainer extends React.PureComponent {
       submitBtnDisable,
       toggleTextAreaFocus,
       previewShow,
-      togglePreviewShow,
-      contentOnChange
+      togglePreviewShow
     }=this.props
     return (
-      <InputComponent email={email}
-                      link={link}
-                      nickName={nickName}
-                      avatarSrc={avatarSrc}
-                      requireName={requireName}
-                      requireEmail={requireEmail}
-                      GRAVATAR_URL={GRAVATAR_URL}
-                      commentContent={commentContent}
-                      placeholder={placeholder}
-                      previewShow={previewShow}
-                      submitBtnDisable={submitBtnDisable}
-                      toggleTextAreaFocus={toggleTextAreaFocus}
-                      togglePreviewShow={togglePreviewShow}
-                      linkOnChange={this.linkOnChange}
-                      emailOnChange={this.emailOnChange}
-                      nameOnChange={this.nameOnChange}
-                      avatarOnChange={this.avatarOnChange}
-                      contentOnChange={contentOnChange}
-                      handleOnSubmit={this.handleOnSubmit}
-      />
+      <React.Fragment>
+        <EditAreaComponent link={link}
+                           email={email}
+                           nickName={nickName}
+                           avatarSrc={avatarSrc}
+                           requireName={requireName}
+                           requireEmail={requireEmail}
+                           GRAVATAR_URL={GRAVATAR_URL}
+                           emailOnChange={this.emailOnChange}
+                           linkOnChange={this.linkOnChange}
+                           nameOnChange={this.nameOnChange}
+                           avatarOnChange={this.avatarOnChange}
+        />
+        <div className="vedit">
+          <TextAreaComponent ref={this.textAreaRef}
+                             toggleTextAreaFocus={toggleTextAreaFocus}
+                             commentContent={commentContent}
+                             placeholder={placeholder}
+                             contentOnKeyDown={this.contentOnKeyDown}
+                             contentOnChange={this.commentContentOnChange}
+          />
+          <ButtonContainer previewShow={previewShow}
+                           insertEmoji={this.insertEmoji}
+                           commentContent={commentContent}
+                           togglePreviewShow={togglePreviewShow}
+                           submitBtnDisable={submitBtnDisable}
+                           handleOnSubmit={this.handleOnSubmit}
+          />
+        </div>
+      </React.Fragment>
     );
   }
 }
