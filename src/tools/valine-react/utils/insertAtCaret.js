@@ -5,7 +5,7 @@ export default function insertAtCaret (field, val){
     let sel = document.selection.createRange();
     sel.text = val;
     field.focus();
-  } else if (field.selectionStart || field.selectionStart == '0') {
+  } else if (field.selectionStart || field.selectionStart === 0) {
     //For browsers like Firefox and Webkit based
     let startPos = field.selectionStart;
     let endPos = field.selectionEnd;

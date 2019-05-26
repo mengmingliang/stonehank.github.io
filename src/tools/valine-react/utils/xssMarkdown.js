@@ -1,7 +1,4 @@
 import marked from 'marked';
-import {unescape} from './escape'
-// const xss=require('xss')
-
 
 /**
  * XSS filter

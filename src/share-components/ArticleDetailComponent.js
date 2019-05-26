@@ -3,20 +3,22 @@ import fetchLazyContent from '../leetcode-problem/fetchLazyContent'
 import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import Loading from './Loading'
-import CustomComment from "../tools/CustomComment";
+// import CustomComment from "../tools/CustomComment";
 // import ValineComment from "../tools/ValineReact";
 import BookmarkContext from '../bookmark/BookmarkContext'
 import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
 import ArticleHeaderProps from './ArticleHeaderProps'
 import {linkTo} from "../routes/linkPathList";
-import ValinePanel from '../tools/valine-react/ValinPanel'
-import ValineCount from "../tools/valine-react/ValineCount";
-// import FetchCount from "../tools/valine-react/FetchCount";
-// import ValineContainer from "../tools/valine-react/ValineContainer";
-// window.AV = require('leancloud-storage');
 
-
+// import ValinePanel from '../tools/valine-react/ValinPanel'
+// import ValineCount from "../tools/valine-react/ValineCount";
+// import {ValineCount,ValinePanel} from "../tools/valine-react/index";
+import {ValineCount,ValinePanel} from "react-valine";
+// const obj=require("react-valine")
+// let {ValineCount,ValinePanel}=obj
+// const obj=require('react-valine')
+// console.log(ValineCount,ValinePanel)
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
   articleTitle:{textAlign:"center"},
@@ -44,6 +46,7 @@ export default class ArticleDetailComponent extends React.Component{
       renderData:null,
       disqusRender:false
     }
+    // import('react-valine').then(obj=>console.log(obj))
     this.curContentIndex=null
     this.handlePageChange=this.handlePageChange.bind(this)
     this.pageItemRender=this.pageItemRender.bind(this)
@@ -164,7 +167,7 @@ export default class ArticleDetailComponent extends React.Component{
     const {
       renderData,
       fetchKey,
-      location,
+      // location,
       titleProp,
       showComment,
       wantedPropsFromContent,
@@ -200,12 +203,10 @@ export default class ArticleDetailComponent extends React.Component{
 
           {showComment
             ? disqusRender
-                // ? <FetchCount />
-                ? <ValinePanel path={fetchKey}/>
-              // ? <ValineComment />
+                ? <ValinePanel uniqStr={fetchKey}/>
               // ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
               : <Button onClick={this.showDisqus} style={styles.disqusButton}>
-                  评论数：<ValineCount path={fetchKey}/>
+                  查看评论(<ValineCount uniqStr={fetchKey}/>条)
                   {/*加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)*/}
                 </Button>
             : null

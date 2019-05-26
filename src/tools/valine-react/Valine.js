@@ -1,5 +1,8 @@
 import React from 'react'
 import ValineContext from './ValineContext'
+const AV=require('leancloud-storage')
+
+window.AV=AV
 
 
 export default class Valine extends React.Component{
@@ -7,54 +10,54 @@ export default class Valine extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      AV:null,
-      requireName:props.requireName==null ? true : props.requireName,
-      requireEmail:props.requireEmail==null ? false : props.requireEmail,
-      placeholder:props.placeholder==null ? '' : props.placeholder,
-      nest:props.nest==null ? true : props.nest,
-      pageSize:props.pageSize || 10,
-      emptyTxt:props.emptyTxt==null ? '快来做第一个评论的人吧~' : props.emptyTxt,
-      previewShow:props.previewShow==null ? true : props.previewShow,
+      AV:window.AV,
+      requireName:props.requireName,
+      requireEmail:props.requireEmail,
+      placeholder:props.placeholder,
+      nest:props.nest,
+      pageSize:props.pageSize,
+      emptyTxt:props.emptyTxt,
+      previewShow:props.previewShow,
     }
     this.countMap=new Map()
     this.fetchCount=this.fetchCount.bind(this)
     this.updateCounts=this.updateCounts.bind(this)
   }
 
-  fetchCount(path){
+  fetchCount(uniqStr){
     return new Promise(resolve=>{
-      if(this.countMap.has(path)){
-        resolve(this.countMap.get(path))
+      if(this.countMap.has(uniqStr)){
+        resolve(this.countMap.get(uniqStr))
       }else{
         let AV=window.AV
         if(!AV)return
         new AV.Query('Comment')
-          .equalTo('uniqStr',path)
+          .equalTo('uniqStr',uniqStr)
           .count()
           .then((counts)=>{
-            this.countMap.set(path,counts)
+            this.countMap.set(uniqStr,counts)
             resolve(counts)
           })
       }
     })
   }
 
-  updateCounts(path,count){
-    this.countMap.set(path,count)
+  updateCounts(uniqStr,count){
+    this.countMap.set(uniqStr,count)
   }
 
   componentDidMount(){
     const {appId,appKey}=this.props
-    const {AV}=this.state
-    if(!AV){
-      import('leancloud-storage').then(module=>{
-        window.AV=module.default
+    // const {AV}=this.state
+    // if(!AV){
+    //   import('leancloud-storage').then(module=>{
+    //     window.AV=module.default
         window.AV.init({appId,appKey})
-        this.setState({
-          AV:window.AV
-        })
-      })
-    }
+        // this.setState({
+        //   AV:window.AV
+        // })
+      // })
+    // }
   }
 
   render(){
@@ -66,4 +69,14 @@ export default class Valine extends React.Component{
     )
 
   }
+}
+
+Valine.defaultProps={
+  requireName:true,
+  requireEmail:false,
+  placeholder:"说点什么吧",
+  nest:true,
+  pageSize:10,
+  emptyTxt:'快来做第一个评论的人吧~',
+  previewShow:true,
 }

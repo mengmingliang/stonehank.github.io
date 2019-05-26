@@ -1,6 +1,5 @@
 import React from 'react';
-// import InputComponent from "./InputComponent";
-import emojiData from '.././assets/emoji.json'
+import emojiData from '../emoji.json'
 import EditAreaComponent from "./edit-components/EditAreaComponent";
 import ButtonContainer from "./button-components/ButtonContainer";
 import TextAreaComponent from "./edit-components/TextAreaComponent";

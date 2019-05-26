@@ -5,23 +5,33 @@ export default class ValineGetCount extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      counts:'获取中',
-      path:props.path==null ? decodeURI(window.location.origin+window.location.pathname) : props.path
+      count:props.count,
+      uniqStr:props.uniqStr
     }
+    this._isMounted=false
   }
-
 
   componentDidMount(){
-    this.props.fetchCount(this.state.path)
-      .then(counts=>{
-        this.setState({
-          counts
-        })
+    this._isMounted=true
+    this.props.fetchCount(this.state.uniqStr)
+      .then(count=>{
+        if(this._isMounted){
+          this.setState({
+            count
+          })
+        }
       })
   }
-
+  componentWillUnmount(){
+    this._isMounted=false
+  }
 
   render(){
-    return <span>{this.state.counts}</span>
+    return <span style={this.props.style}>{this.state.count}</span>
   }
+}
+
+ValineGetCount.defaultProps={
+  uniqStr:decodeURI(window.location.origin+window.location.pathname),
+  count:'获取中'
 }

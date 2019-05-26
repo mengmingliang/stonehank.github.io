@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import * as userConfig from './user-config'
 import ProgressLoading from './progress-wrapper/ProgressLoading'
 import BookmarkProvider from "./bookmark/BookmarkProvider";
-import Valine from './tools/valine-react/Valine'
+// import Valine from './tools/valine-react/Valine'
+import {Valine} from "react-valine";
 
 // const {registerObserver} = require('react-perf-devtool')
 // // Simple, no?

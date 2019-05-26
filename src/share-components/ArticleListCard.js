@@ -6,7 +6,6 @@ import ArticleHeaderProps from "./ArticleHeaderProps";
 import {linkTo} from "../routes/linkPathList";
 
 
-
 export default class ArticleListCard extends React.Component {
   static defaultProps={
     getContentDetailPath:curPropsData=>linkTo.articles+"/"+curPropsData.uniqueID,

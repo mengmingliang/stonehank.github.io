@@ -1,5 +1,5 @@
 import React from 'react';
-const emojiData=require('../../../assets/emoji.json');
+const emojiData=require('../../../emoji.json');
 
 export default class EmojiComponentShow extends React.PureComponent {
 

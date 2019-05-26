@@ -1,6 +1,8 @@
 import React from 'react'
-import ValineComponent from "./ValineComponent";
 import './index.scss'
+import InfoComponent from "./info/InfoComponent";
+import CommentListComponent from "./list/CommentListComponent";
+import InputContainer from "./input/InputContainer";
 import {
   xssMarkdown,
   replaceAt,
@@ -11,15 +13,14 @@ import {
   convert2SimplyList,
   simplyObj
 } from './utils'
-
+const GRAVATAR_URL='https://gravatar.loli.net/avatar'
 
 
 export default class ValineContainer extends React.Component{
 
   constructor(props){
     super(props)
-    console.log(props,window.AV)
-    if(props.path==null)throw new Error('must set path')
+    if(props.uniqStr==null)throw new Error('Must set uniqStr!')
     this.state={
       previewShow:props.previewShow,
       commentCounts:0,
@@ -50,7 +51,6 @@ export default class ValineContainer extends React.Component{
     this.wrapRef=React.createRef()
     this.inputContainerRef=React.createRef()
     this.rScrollTop=null
-    // console.log(this.inputContainerRef.current)
   }
 
   resetDefaultComment(){
@@ -63,13 +63,13 @@ export default class ValineContainer extends React.Component{
       comment:'',
       at:'',
       nick:'',
-      uniqStr:this.props.path,
+      uniqStr:this.props.uniqStr,
       ua:navigator.userAgent,
     }
   }
 
   createNewObj(){
-    const {AV,nest,updateCount,path}=this.props
+    const {AV,nest,updateCount,uniqStr}=this.props
     const {commentList}=this.state
     let Ct = AV.Object.extend('Comment');
     let comment = new Ct();
@@ -81,7 +81,7 @@ export default class ValineContainer extends React.Component{
         comment.set(k,val);
       }
     }
-    // console.log(this.defaultComment)
+    comment.set('pid',this.defaultComment.rid)
     return new Promise((resolve)=>{
       if(this.defaultComment.rid===''){
         comment.save().then(item=>{
@@ -119,7 +119,7 @@ export default class ValineContainer extends React.Component{
             // commentContent:'',
             submitLoading:false
           }),()=>{
-            updateCount(path,this.state.commentCounts)
+            updateCount(uniqStr,this.state.commentCounts)
           })
           if(this.rScrollTop!=null)document.documentElement.scrollTo(0,this.rScrollTop)
           this.resetDefaultComment()
@@ -127,7 +127,6 @@ export default class ValineContainer extends React.Component{
           console.error("Something wrong with submit!",ex)
           this.setState({
             submitBtnDisable:false,
-            // commentContent:'',
             submitLoading:false
           })
         })
@@ -273,7 +272,7 @@ export default class ValineContainer extends React.Component{
 
   fetchMoreNest(){
     let contains=[],simplyList=[]
-    const {AV,path,pageSize}=this.props
+    const {AV,uniqStr,pageSize}=this.props
     let {currentCounts,commentList,commentCounts}=this.state
     let newCurrentCounts=0
     if(currentCounts===commentCounts)return
@@ -281,7 +280,7 @@ export default class ValineContainer extends React.Component{
       fetchMoreLoading:true
     })
     let query1= new AV.Query('Comment'),query2= new AV.Query('Comment')
-    query1.equalTo('uniqStr',path)
+    query1.equalTo('uniqStr',uniqStr)
       .equalTo('rid','')
       .addDescending('createdAt')
       .skip(commentList.length)
@@ -300,7 +299,7 @@ export default class ValineContainer extends React.Component{
           simplyList.push(simplyObj(obj))
           contains.push(obj.get('rootId'))
         }
-        query2.equalTo('uniqStr',path)
+        query2.equalTo('uniqStr',uniqStr)
           .notEqualTo('rid','')
           .containedIn('rootId',contains)
           .addAscending('createdAt')
@@ -324,13 +323,13 @@ export default class ValineContainer extends React.Component{
 
   fetchNest(){
     let contains=[],simplyList=[],commentList=[]
-    const {AV,pageSize,fetchCount,path}=this.props
+    const {AV,pageSize,fetchCount,uniqStr}=this.props
     let currentCounts=0
     let commentCounts=0
     this.setState({
       fetchInitLoading:true
     })
-    return fetchCount(path).then(counts=> {
+    return fetchCount(uniqStr).then(counts=> {
       commentCounts = counts
       if (commentCounts === 0) {
         this.setState({
@@ -339,7 +338,7 @@ export default class ValineContainer extends React.Component{
         return
       }
       let query1 =new AV.Query('Comment'), query2=new AV.Query('Comment')
-      query1.equalTo('uniqStr',path)
+      query1.equalTo('uniqStr',uniqStr)
         .equalTo('rid','')
         .limit(pageSize)
         .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
@@ -351,15 +350,13 @@ export default class ValineContainer extends React.Component{
             simplyList.push(simplyObj(obj))
             contains.push(obj.get('rootId'))
           }
-          query2.equalTo('uniqStr',path)
-          // query2.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
+          query2.equalTo('uniqStr',uniqStr)
             .notEqualTo('rid','')
             .containedIn('rootId',contains)
             .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
             .addAscending('createdAt')
             .find()
             .then(items=>{
-              // console.log(items)
               currentCounts+=items.length
               let simplyItems=[]
               for(let obj of items)simplyItems.push(simplyObj(obj))
@@ -380,12 +377,12 @@ export default class ValineContainer extends React.Component{
 
 
   initQuery(){
-    const {AV,pageSize,path,fetchCount}=this.props
+    const {AV,pageSize,uniqStr,fetchCount}=this.props
     let commentCounts=0
     this.setState({
       fetchInitLoading:true
     })
-    return fetchCount(path).then(counts=>{
+    return fetchCount(uniqStr).then(counts=>{
       commentCounts=counts
       if(commentCounts===0){
         this.setState({
@@ -394,8 +391,7 @@ export default class ValineContainer extends React.Component{
         return
       }
       let query =new AV.Query('Comment')
-      // query.matches('url',new RegExp(`${path.replace(/\//g,'\\/')}\\/?`))
-      query.matches('uniqStr',path)
+      query.matches('uniqStr',uniqStr)
         .select(['nick', 'comment', 'link', 'rid', 'avatarSrc','rootId'])
         .addDescending('createdAt')
         .limit(pageSize)
@@ -419,7 +415,6 @@ export default class ValineContainer extends React.Component{
   componentDidMount(){
     const {AV,nest,appId,appKey}=this.props
     if(!AV)return
-    // console.log(AV,appId,appKey)
     try{
       AV.init({
         appId,
@@ -427,7 +422,6 @@ export default class ValineContainer extends React.Component{
       })
     }catch(err){
       // do nothing
-      console.log(err)
     }
     if(nest){
       this.fetchNest()
@@ -440,31 +434,50 @@ export default class ValineContainer extends React.Component{
 
   render(){
     const {requireName,requireEmail,placeholder,nest,emptyTxt}=this.props
-    const {commentCounts,currentCounts, commentList,fetchInitLoading,fetchMoreLoading,submitErrorLog,toggleTextAreaFocus,previewShow, submitLoading, submitBtnDisable}=this.state
+    const {
+      commentCounts,
+      currentCounts,
+      commentList,
+      fetchInitLoading,
+      fetchMoreLoading,
+      submitErrorLog,
+      toggleTextAreaFocus,
+      previewShow,
+      submitLoading,
+      submitBtnDisable
+    }=this.state
     return (
       <div ref={this.wrapRef} className="v">
-        <ValineComponent inputContainerRef={this.inputContainerRef}
-                         commentCounts={commentCounts}
-                         currentCounts={currentCounts}
-                         commentList={commentList}
-                         placeholder={placeholder}
-                         emptyTxt={emptyTxt}
-                         requireName={requireName}
-                         requireEmail={requireEmail}
-                         nest={nest}
-                         // commentContent={commentContent}
-                         toggleTextAreaFocus={toggleTextAreaFocus}
-                         previewShow={previewShow}
-                         submitLoading={submitLoading}
-                         fetchInitLoading={fetchInitLoading}
-                         fetchMoreLoading={fetchMoreLoading}
-                         submitBtnDisable={submitBtnDisable}
-                         submitErrorLog={submitErrorLog}
-                         togglePreviewShow={this.togglePreviewShow}
-                         submitComment={this.submitComment}
-                         handleReply={this.handleReply}
-                         commentContentOnChange={this.commentContentOnChange}
-                         fillNxtCommentList={this.fillNxtCommentList}
+        <div className="vwrap">
+          {
+            submitErrorLog!=null
+              ? <div className={"verrorlog"}>{submitErrorLog}</div>
+              : null
+          }
+          <InputContainer submitBtnDisable={submitBtnDisable}
+                          ref={this.inputContainerRef}
+                          placeholder={placeholder}
+                          requireName={requireName}
+                          requireEmail={requireEmail}
+                          GRAVATAR_URL={GRAVATAR_URL}
+                          toggleTextAreaFocus={toggleTextAreaFocus}
+                          previewShow={previewShow}
+                          submitComment={this.submitComment}
+                          togglePreviewShow={this.togglePreviewShow}
+          />
+        </div>
+        <InfoComponent commentCounts={commentCounts}/>
+        <CommentListComponent GRAVATAR_URL={GRAVATAR_URL}
+                              commentCounts={commentCounts}
+                              currentCounts={currentCounts}
+                              commentList={commentList}
+                              emptyTxt={emptyTxt}
+                              nest={nest}
+                              submitLoading={submitLoading}
+                              fetchMoreLoading={fetchMoreLoading}
+                              fetchInitLoading={fetchInitLoading}
+                              handleReply={this.handleReply}
+                              fillNxtCommentList={this.fillNxtCommentList}
         />
       </div>
     )

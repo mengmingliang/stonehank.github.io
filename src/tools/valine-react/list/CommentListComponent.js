@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from "../Loading";
+import Loading from "../utils/Loading";
 import PageComponent from "./PageComponent";
 import CommentCardContainer from "./CommentCardContainer";
 import {xssMarkdown} from '../utils'
@@ -21,7 +21,7 @@ export default class CommentListComponent extends React.PureComponent{
       GRAVATAR_URL,
       fillNxtCommentList
     }=this.props
-    console.log(1)
+    // console.log(1)
     return (
       <React.Fragment>
         {
