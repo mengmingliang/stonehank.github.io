@@ -2435,7 +2435,7 @@
     "difficultNum": 2,
     "difficult": "Middle",
     "hasThinking": true,
-    "title": "200. 岛屿的个数",
+    "title": "200. 岛屿数量",
     "relatedTags": [
       "深度优先搜索",
       "广度优先搜索",
@@ -11504,7 +11504,10 @@
     "difficult": "Easy",
     "hasThinking": false,
     "title": "1046. 最后一块石头的重量",
-    "relatedTags": []
+    "relatedTags": [
+      "堆",
+      "贪心算法"
+    ]
   },
   "1047": {
     "lang": [
@@ -11515,7 +11518,9 @@
     "difficult": "Easy",
     "hasThinking": false,
     "title": "1047. 删除字符串中的所有相邻重复项",
-    "relatedTags": []
+    "relatedTags": [
+      "栈"
+    ]
   },
   "1048": {
     "lang": [
@@ -11526,7 +11531,10 @@
     "difficult": "Middle",
     "hasThinking": false,
     "title": "1048. 最长字符串链",
-    "relatedTags": []
+    "relatedTags": [
+      "哈希表",
+      "动态规划"
+    ]
   },
   "1049": {
     "lang": [
@@ -11537,6 +11545,52 @@
     "difficult": "Middle",
     "hasThinking": true,
     "title": "1049. 最后一块石头的重量 II",
+    "relatedTags": [
+      "动态规划"
+    ]
+  },
+  "1051": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1051",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1051. 高度检查器",
+    "relatedTags": []
+  },
+  "1052": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1052",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1052. 爱生气的书店老板",
+    "relatedTags": []
+  },
+  "1053": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1053",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1053. 交换一次的先前排列",
+    "relatedTags": []
+  },
+  "1054": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1054",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1054. 距离相等的条形码",
     "relatedTags": []
   }
 }
