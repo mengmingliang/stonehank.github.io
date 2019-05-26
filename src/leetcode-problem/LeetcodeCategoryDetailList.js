@@ -44,7 +44,8 @@ export default class LeetcodeCategoryDetailList extends React.Component {
                                    getContentDetailPath={defaultProps.getContentDetailPath}
                                    singleRenderPropsOnHeader={defaultProps.singleRenderPropsOnHeader}
                                    multiRenderPropsOnHeader={defaultProps.multiRenderPropsOnHeader}
-                                   showComment={false} />
+
+                  />
                 )} />
     )
   }

@@ -267,13 +267,12 @@ export default class BlogLayout extends React.Component {
                                     read_content_path={read_leetcode_path}
                                     fetchLeetcodeList={this.fetchLeetcodeList}
                                     toggleRenderMode={this.toggleRenderMode}/>
-
+                        {/*fetchKey 通过路由url传送*/}
                         <LeetcodeDetailComponent path={`${linkTo.myleetcode}/problems/:fetchKey`}
                                                  titleProp={"title"}
                                                  fetchKeyProp={"uniqueID"}
                                                  wantedPropsFromList={['title','uniqueID','relatedTags','difficult','lang']}
                                                  wantedPropsFromContent={['content','thinking','code']}
-                                                 showComment={false}
                                                  read_content_path={read_leetcode_path}
                                                  renderData={leetcodeList}
                                                  fetchContentList={this.fetchLeetcodeList}

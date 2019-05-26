@@ -4,7 +4,14 @@ import * as userConfig from './user-config'
 import ProgressLoading from './progress-wrapper/ProgressLoading'
 import BookmarkProvider from "./bookmark/BookmarkProvider";
 // import Valine from './tools/valine-react/Valine'
-import {Valine} from "react-valine";
+import {modify_hljs, Valine} from "react-valine";
+
+modify_hljs((hljs)=>{
+  const python = require('highlight.js/lib/languages/python');
+  hljs.registerLanguage('python', python);
+  return hljs
+})
+
 
 // const {registerObserver} = require('react-perf-devtool')
 // // Simple, no?
@@ -33,7 +40,7 @@ try{
   ReactDOM.render(
     <Suspense fallback={<ProgressLoading />}>
       <BookmarkProvider>
-        <Valine  appId={"I5DAxOhp2kPXkbj9VXPyKoEB-gzGzoHsz"} appKey={"lGPcHd7GL9nYKqBbNEkgXKjX"}>
+        <Valine  appId={"I5DAxOhp2kPXkbj9VXPyKoEB-gzGzoHsz"} appKey={"lGPcHd7GL9nYKqBbNEkgXKjX"} >
         <Initial userConfig={userConfig.default}/>
         </Valine>
       </BookmarkProvider>

@@ -3,22 +3,15 @@ import fetchLazyContent from '../leetcode-problem/fetchLazyContent'
 import {Button,Divider, Pagination} from 'antd';
 import {navigate} from "@reach/router";
 import Loading from './Loading'
-// import CustomComment from "../tools/CustomComment";
-// import ValineComment from "../tools/ValineReact";
 import BookmarkContext from '../bookmark/BookmarkContext'
 import {SetMark} from "../bookmark/Bookmark";
 import {querySearch} from "../utils/index";
 import ArticleHeaderProps from './ArticleHeaderProps'
 import {linkTo} from "../routes/linkPathList";
-
-// import ValinePanel from '../tools/valine-react/ValinPanel'
-// import ValineCount from "../tools/valine-react/ValineCount";
-// import {ValineCount,ValinePanel} from "../tools/valine-react/index";
 import {ValineCount,ValinePanel} from "react-valine";
-// const obj=require("react-valine")
-// let {ValineCount,ValinePanel}=obj
-// const obj=require('react-valine')
-// console.log(ValineCount,ValinePanel)
+
+
+
 const styles={
   article:{margin:"24px 36px", background: '#fff', minHeight: 360},
   articleTitle:{textAlign:"center"},
@@ -44,7 +37,7 @@ export default class ArticleDetailComponent extends React.Component{
       contentLoading:true,
       curFetchKey:null,
       renderData:null,
-      disqusRender:false
+      disqusRender:true
     }
     // import('react-valine').then(obj=>console.log(obj))
     this.curContentIndex=null
@@ -203,10 +196,10 @@ export default class ArticleDetailComponent extends React.Component{
 
           {showComment
             ? disqusRender
-                ? <ValinePanel uniqStr={fetchKey}/>
+                ? <ValinePanel path={window.location.origin+"__uniq__"+fetchKey}/>
               // ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
               : <Button onClick={this.showDisqus} style={styles.disqusButton}>
-                  查看评论(<ValineCount uniqStr={fetchKey}/>条)
+                  查看评论(共<ValineCount path={window.location.origin+"__uniq__"+fetchKey}/>条)
                   {/*加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)*/}
                 </Button>
             : null

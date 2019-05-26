@@ -1,6 +1,6 @@
 import React from 'react'
 import {Icon,Spin} from 'antd';
-import Disqus from 'disqus-react';
+// import Disqus from 'disqus-react';
 
 
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;

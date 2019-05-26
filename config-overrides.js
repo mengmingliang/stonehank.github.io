@@ -2,7 +2,7 @@ const hljs=require('highlight.js/lib/highlight')
 hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
 const webpack = require('webpack');
 const { injectBabelPlugin } = require('react-app-rewired');
-// const rewireWebpackBundleAnalyzer = require('react-app-rewire-webpack-bundle-analyzer')
+const rewireWebpackBundleAnalyzer = require('react-app-rewire-webpack-bundle-analyzer')
 const path=require("path")
 
 module.exports = function override(config, env) {
@@ -45,12 +45,12 @@ module.exports = function override(config, env) {
 
 
   // bunlde-analyzer分析
-  // if (env === 'production') {
-  //   config = rewireWebpackBundleAnalyzer(config, env, {
-  //     analyzerMode: 'static',
-  //     reportFilename: 'report.html'
-  //   })
-  // }
+  if (env === 'production') {
+    config = rewireWebpackBundleAnalyzer(config, env, {
+      analyzerMode: 'static',
+      reportFilename: 'report.html'
+    })
+  }
 
   // if(env==="production"){
   //   config.plugins.push(

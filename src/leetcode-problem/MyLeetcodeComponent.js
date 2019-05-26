@@ -106,7 +106,7 @@ export default class MyLeetcodeComponent extends React.Component{
                                  getContentDetailPath={defaultProps.getContentDetailPath}
                                  singleRenderPropsOnHeader={defaultProps.singleRenderPropsOnHeader}
                                  multiRenderPropsOnHeader={defaultProps.multiRenderPropsOnHeader}
-                                 showComment={false}
+                                 // showComment={true}
                   />
                 ))}
               </List>
