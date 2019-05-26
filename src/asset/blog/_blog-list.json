@@ -1,1120 +1,4 @@
 {
-  "31433c459f46ab7cc7aec26c01bc45b83d21d72d": {
-    "relatedTags": [
-      "算法"
-    ],
-    "createdTime": "12/12/2018",
-    "timeArr": [
-      2018,
-      11,
-      12,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "关于雨水收集算法",
-    "uniqueID": "31433c459f46ab7cc7aec26c01bc45b83d21d72d",
-    "summary": "<p>核心思想：使用<code>优先队列</code>，每次找<strong>最容易漏水</strong>的位置，</p>",
-    "sha": "a77edd2fdb3535913fbc09581000bf3242fdbedc"
-  },
-  "b1f5ca61aa11b54e8e854bd3c67096d01428d37b": {
-    "relatedTags": [
-      "react"
-    ],
-    "createdTime": "11/28/2018",
-    "timeArr": [
-      2018,
-      10,
-      28,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "React-Fiber简述",
-    "uniqueID": "b1f5ca61aa11b54e8e854bd3c67096d01428d37b",
-    "summary": "<p><code>Fiber</code>可以看成一种数据结构，它内部包含了对当前组件的行为，包括对组件行为的跟踪、安排、暂停和取消。</p>",
-    "sha": "0577a959c7299927efbe8e15eb104f1a45ad84ee"
-  },
-  "2bd50bd84bc74d731859ba7d0c3008c8ed84172a": {
-    "relatedTags": [
-      "算法"
-    ],
-    "createdTime": "12/10/2018",
-    "timeArr": [
-      2018,
-      11,
-      10,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "红黑树要点-根据《算法第4版》",
-    "uniqueID": "2bd50bd84bc74d731859ba7d0c3008c8ed84172a",
-    "summary": "<h4>规则：</h4>\n<ol>\n<li>原型是<code>2-3树</code></li>\n<li>红链接：相当于<code>2-3树</code>的<code>3节点</code>，红链接中子节点是<code>红色</code>，父节点是<code>黑色</code></li>\n<li>只存在红链接为左链接，发现红链接为右链接需要转换</li>\n<li>当节点为null，也认为是<code>黑色</code></li>\n<li>当插入节点，出现2个左红点相邻(不可能出现2个右红点相邻，因为第3条)，其实就是`...</li>\n</ol>",
-    "sha": "18598c17b6c44620cb536b5b1bb6fa7f9f9cd4e4"
-  },
-  "34441675832af7bfe9b306f5bd75927d10cb58a0": {
-    "relatedTags": [
-      "react",
-      "笔记"
-    ],
-    "createdTime": "12/8/2018",
-    "timeArr": [
-      2018,
-      11,
-      8,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "前端日常笔记",
-    "uniqueID": "34441675832af7bfe9b306f5bd75927d10cb58a0",
-    "summary": "<p>内容包括：<code>tag 模板字符串</code>，<code>Labelled statements</code>，<code>React服务端渲染使用stream</code>，<code>jest.fn</code>，<code>jest.mock</code></p>\n<h4>tag 模板字符串</h4>\n<p>以<code>${xx}</code>分割字符串，分别传入2个数组，第一个是<code>分割后的结果</code>，第二个是<code>分割的变量</code></p>\n<p>例如：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">// ...</span></code></pre>",
-    "sha": "a599fef4a57cb1e1e640bb153fdedda0e6ad5339"
-  },
-  "b921517a71d6975276b0a16acc18047667769321": {
-    "relatedTags": [
-      "笔记",
-      "promise"
-    ],
-    "createdTime": "12/6/2018",
-    "timeArr": [
-      2018,
-      11,
-      6,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "customElements简述-笔记",
-    "uniqueID": "b921517a71d6975276b0a16acc18047667769321",
-    "summary": "<h4>custom elements</h4>\n<p>作用：将HTML页面的功能封装为<code>custom elements</code>(自定义标签)</p>\n<blockquote>\n<p><code>shadow root</code>：渲染隔离</p>\n</blockquote>\n<h4>API</h4>\n<ul>\n<li>\n<p>customElement.define()</p>\n<p>定义一个新的 自定义元素。</p>\n<p>参数1：<code>name</code>自定义...</p>\n</li>\n</ul>",
-    "sha": "a05dffbbc1c300934bccf6d802d61ea2a8458807"
-  },
-  "87971cd868e8cd749775bd93de4025ef1746d9d7": {
-    "relatedTags": [
-      "笔记"
-    ],
-    "createdTime": "12/5/2018",
-    "timeArr": [
-      2018,
-      11,
-      5,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "node-querystring和url笔记",
-    "uniqueID": "87971cd868e8cd749775bd93de4025ef1746d9d7",
-    "summary": "<h4>querystring</h4>\n<ul>\n<li>querystring.stringify</li>\n</ul>\n<p>参数一：转换对象</p>\n<p><code>querystring.stringify({x:1,y:2,c:[3,4]})</code></p>\n<p>输出：</p>\n<p><code>x=1&amp;y=2&amp;c=3&amp;c=4</code></p>\n<p>参数二：输出连接符</p>\n<p>`querystring.stringify({x:1,y...</p>",
-    "sha": "65baf42e906ec1137456584196cc311c143c7570"
-  },
-  "1c4e38c3c8cdea68cde83fbec5fb641f85a0c066": {
-    "relatedTags": [
-      "react",
-      "源码",
-      "webpack",
-      "正则"
-    ],
-    "createdTime": "12/3/2018",
-    "timeArr": [
-      2018,
-      11,
-      3,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "源码阅读-react-snapshot",
-    "uniqueID": "1c4e38c3c8cdea68cde83fbec5fb641f85a0c066",
-    "summary": "<p><code>react-snapshot</code>一个用于react服务端渲染的工具，并没有使用<code>react V16+</code>的<code>hydrate</code>，但也能学到一些东西</p>",
-    "sha": "d568476c4e1852e8b6439b1bc26f6ea8435bf4bc"
-  },
-  "b0662d8a00fca2a154662ad07955d8c807636c91": {
-    "relatedTags": [
-      "笔记",
-      "表单"
-    ],
-    "createdTime": "11/29/2018",
-    "timeArr": [
-      2018,
-      10,
-      29,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "图解Http大纲笔记(3)",
-    "uniqueID": "b0662d8a00fca2a154662ad07955d8c807636c91",
-    "summary": "<p>HTTP的瓶颈</p>\n<ul>\n<li>一条连接上只可发送一个请求。</li>\n<li>请求只能从客户端开始。客户端不可以接收除响应以外的指令。</li>\n<li>请求 / 响应首部未经压缩就发送。首部信息越多延迟越大。</li>\n<li>发送冗长的首部。每次互相发送相同的首部造成的浪费较多。</li>\n<li>可任意选择数据压缩格式。非强制压缩发送。</li>\n</ul>\n<p>解决方法：</p>\n<ol>\n<li>Ajax (局部...</li>\n</ol>",
-    "sha": "fe5b6414904c9b660ed09bb3304c04df11fe2d88"
-  },
-  "d8cf763cd33c2883caf30f5d6f247da84af3cf8f": {
-    "relatedTags": [
-      "算法"
-    ],
-    "createdTime": "10/2/2018",
-    "timeArr": [
-      2018,
-      9,
-      2,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "获取数组中和为某个值的组合数量的算法",
-    "uniqueID": "d8cf763cd33c2883caf30f5d6f247da84af3cf8f",
-    "summary": "<p>记录一个算法，要求获取数组中的和为<code>sum</code>的组合的数量</p>\n<ul>\n<li>不要求连续，不要求重复</li>\n</ul>\n<p>例如<code>arr=[1,2,3,4,5]</code>，那么和为5的组合数量为3，分别是<code>2,3</code>、<code>1,4</code>、<code>5</code></p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">computeSubset</span>(<span class=\"hljs-params\">arr,sum</span>)</span>{\n  <span class=\"hljs-comment\">// 创建数组，用于记录从1到sum每一个...</span></code></pre>",
-    "sha": "ccf5cf75d3f663c8c143ed75e3d46b5a2f8aa576"
-  },
-  "1fe9476aee8ec9e615a5ea77d64b322605aa28f8": {
-    "relatedTags": [
-      "babel",
-      "ast",
-      "es6"
-    ],
-    "createdTime": "9/20/2018",
-    "timeArr": [
-      2018,
-      8,
-      20,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "从零开始构建babel插件",
-    "uniqueID": "1fe9476aee8ec9e615a5ea77d64b322605aa28f8",
-    "summary": "<h4>回顾</h4>\n<p>在这一片文章中，我构建一个获取函数参数名的工具，是通过<code>esprima</code>去解析<code>AST</code>并对其进行分析判断。</p>\n<p>通过对<code>AST</code>的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。</p>\n<h4>问题</h4>\n<p>但使用的同时，也发现了3个问题，<strong>第1个是致命的</strong>。</p>\n<ol>\n<li>babel编译。</li>\n</ol>\n<p>...</p>",
-    "sha": "c6aabf028612373f374ca39935fa4a385595f224"
-  },
-  "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49": {
-    "relatedTags": [
-      "canvas"
-    ],
-    "createdTime": "8/26/2018",
-    "timeArr": [
-      2018,
-      7,
-      26,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "canvas执行15万粒子的动画",
-    "uniqueID": "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49",
-    "summary": "<p>最近遇到的，目的是通过粒子动画渲染图片</p>\n<p>图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来</p>\n<p>最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...</p>\n<pre class=\"hljs\"><code> <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> py = <span class=\"hljs-number\">0</span>; py &lt; targetH; py ++) ...</code></pre>",
-    "sha": "742860bdc0a8dc633fd2c91feb13e60b00f46229"
-  },
-  "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b": {
-    "relatedTags": [
-      "算法"
-    ],
-    "createdTime": "8/9/2018",
-    "timeArr": [
-      2018,
-      7,
-      9,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "KMP回溯分析",
-    "uniqueID": "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b",
-    "summary": "<p>KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯</p>\n<p>一般写法是：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">calcNext</span>(<span class=\"hljs-params\">str,pat</span>)</span>{\n  <span class=\"hljs-comment\">/*...*/</span>\n  <span class=\"hljs-keyword\">if</span>(str[k]!==str[j]){\n    <span class=\"hljs-comment\">// 有些会写成k=next[k]，原理是一样的</span>\n    <span class=\"hljs-comment\">// 这里k表示，所对应当前正在进行对比的...</span></code></pre>",
-    "sha": "dcb12fd298b9d963db9b1d4b12cbff7da94227bc"
-  },
-  "54ce9f8dc0d7064cd42d8c9ee6a7138966a00888": {
-    "relatedTags": [
-      "worker",
-      "promise",
-      "github",
-      "性能"
-    ],
-    "createdTime": "7/16/2018",
-    "timeArr": [
-      2018,
-      6,
-      16,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "处理额外复杂任务的3种方式",
-    "uniqueID": "54ce9f8dc0d7064cd42d8c9ee6a7138966a00888",
-    "summary": "<h4>web worker VS idleRequestCallback VS setTimeout</h4>\n<p><em><strong>测试平台：FireFox</strong></em>(Chrome嵌套worker会有<a href=\"https://bugs.chromium.org/p/chromium/issues/detail?id=31666\">bug</a>)</p>\n<p>|*方法...</p>",
-    "sha": "f28cf454576cd104bf798125e2ecfc91945fc1cf"
-  },
-  "a6a06a76f20c9fd24c4954c100dbd016a75a5974": {
-    "relatedTags": [
-      "缓存",
-      "源码",
-      "性能",
-      "github"
-    ],
-    "createdTime": "7/15/2018",
-    "timeArr": [
-      2018,
-      6,
-      15,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "2个JS缓存工具学习心得",
-    "uniqueID": "a6a06a76f20c9fd24c4954c100dbd016a75a5974",
-    "summary": "<h4>nano-memoize 和 fast-memoize</h4>\n<p>首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。</p>\n<p>fast-memoize导图：\n![](https://stonehank.github.io/articles/img/fast-memoize.png...</p>",
-    "sha": "4bdf87c5d346920df9247464ab6b24fdcc7791ab"
-  },
-  "2cf2373f2fa9c28ce15661630048ac1848d2530f": {
-    "relatedTags": [
-      "源码",
-      "github",
-      "缓存"
-    ],
-    "createdTime": "7/13/2018",
-    "timeArr": [
-      2018,
-      6,
-      13,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "源码阅读-reselect源码学习",
-    "uniqueID": "2cf2373f2fa9c28ce15661630048ac1848d2530f",
-    "summary": "<h4>reselect源码亮点介绍</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md\">完整源码说明注释</a></p>\n<p>导图：</p>\n<p>![](https://stonehank.github.io...</p>",
-    "sha": "85d8aee7f13669499db1bd4d7c3233117665daea"
-  },
-  "1478ca77fae5cf65527c2cf310fae0e530ea7496": {
-    "relatedTags": [
-      "router",
-      "源码",
-      "react",
-      "github"
-    ],
-    "createdTime": "7/8/2018",
-    "timeArr": [
-      2018,
-      6,
-      8,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "reach-router",
-    "uniqueID": "1478ca77fae5cf65527c2cf310fae0e530ea7496",
-    "summary": "<h4>reach/router</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md\">完整源码说明注释</a></p>\n<p>一张导图：</p>\n<p>![](https://stonehank.githu...</p>",
-    "sha": "a479afc7ac0daaf4863905d74229db3658f16354"
-  },
-  "94269872739a3bce7b949811a96155420826e1bd": {
-    "relatedTags": [
-      "源码",
-      "router",
-      "promise",
-      "算法"
-    ],
-    "createdTime": "7/7/2018",
-    "timeArr": [
-      2018,
-      6,
-      7,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "源码阅读-reach-router源码学习到的3",
-    "uniqueID": "94269872739a3bce7b949811a96155420826e1bd",
-    "summary": "<p>All Consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.\nThe propagation from Provider to its descendant Consumers is not subject to the shouldComponentUpdate method,\nso the Consumer is updated even when an ancestor component bails out of the update.</p>",
-    "sha": "d91847cb95128b4df27dc580f59ae7f12b7a6af8"
-  },
-  "e3c935001e875147dac6c7b68d6d86f7cfb78754": {
-    "relatedTags": [
-      "算法"
-    ],
-    "createdTime": "7/4/2018",
-    "timeArr": [
-      2018,
-      6,
-      4,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "编码-加密-哈希-混淆不同点-文章翻译",
-    "uniqueID": "e3c935001e875147dac6c7b68d6d86f7cfb78754",
-    "summary": "<p><a href=\"https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/\">原文阅读</a></p>\n<p>![js_obfuscation](https://stonehank.github.io/articles/img/js_obfuscation.png...</p>",
-    "sha": "e315fbb406b0f3100dfcf4ec5b7ebb7fc1f41a83"
-  },
-  "ab4d7fd4fc306830807768df35b00d9bc91c9d20": {
-    "relatedTags": [
-      "源码",
-      "github"
-    ],
-    "createdTime": "7/2/2018",
-    "timeArr": [
-      2018,
-      6,
-      2,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "hyperapp-patch",
-    "uniqueID": "ab4d7fd4fc306830807768df35b00d9bc91c9d20",
-    "summary": "<h4>hyperapp-patch</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>patch是hyperapp进行节点更新的核心，主要步骤：</p>\n<ul>\n<li>先判断n...</li>\n</ul>",
-    "sha": "59bb573e47697c7551bfe0191079a8772342b529"
-  },
-  "041e14e2880378f2920fae48877b46694fbfc26d": {
-    "relatedTags": [
-      "源码",
-      "github",
-      "react"
-    ],
-    "createdTime": "7/1/2018",
-    "timeArr": [
-      2018,
-      6,
-      1,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "超简洁1kb框架-hyperapp",
-    "uniqueID": "041e14e2880378f2920fae48877b46694fbfc26d",
-    "summary": "<h4>hyperapp框架</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过...</p>",
-    "sha": "ec662a13e128b776e46f1ef9ec3fdaa63e0d7381"
-  },
-  "7a618f35d69b48cbdbef3e7285fffc03098e720a": {
-    "relatedTags": [
-      "disqus"
-    ],
-    "createdTime": "10/27/2018",
-    "timeArr": [
-      2018,
-      9,
-      27,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "解决disqus无法正确显示每一个comment count",
-    "uniqueID": "7a618f35d69b48cbdbef3e7285fffc03098e720a",
-    "summary": "<p>博客添加了<code>disqus</code>，并且在文章列表处每一篇标题边上添加一个评论计数器。</p>\n<p>它通过<code>identifier</code>去获取，<code>identifier</code>在文章详情页面提供配置。</p>\n<p>问题是：<strong>这个计数器并不是每一篇文章都能正确显示</strong>，有的列表能显示2个，有的列表一个都不显示，</p>\n<p>![](https://stonehank.g...</p>",
-    "sha": "901e43a8e9f1c5cf70956f7fb9139ccb541370fd"
-  },
-  "f410e8013460016ef21db0425ddcc6ef131809a0": {
-    "relatedTags": [
-      "react",
-      "webpack",
-      "github",
-      "babel",
-      "css"
-    ],
-    "createdTime": "10/14/2018",
-    "timeArr": [
-      2018,
-      9,
-      14,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "一个create-react-app项目构建体积的压缩",
-    "uniqueID": "f410e8013460016ef21db0425ddcc6ef131809a0",
-    "summary": "<p>这是一个个人博客，基于<code>antd</code>搭建，这个项目构建流程如下：</p>\n<ol>\n<li>先启动<code>fetch-blog-serve</code>，这是一个能将你的<code>repertory</code>的blog内容拉去到本地，并且写入<code>xxx.json</code>。</li>\n<li>在写入之前会生成一个列表，包含每一篇blog的标题、日期、标签、摘要、sha值(唯一性判断)。</li>\n<li>前...</li>\n</ol>",
-    "sha": "e0bc2c78310a534ecec19f96adac09f5c5cb835a"
-  },
-  "6b947579be3958bc587abb5535d818129ff810da": {
-    "relatedTags": [
-      "笔记",
-      "表单"
-    ],
-    "createdTime": "11/26/2018",
-    "timeArr": [
-      2018,
-      10,
-      26,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "图解Http大纲笔记(2)",
-    "uniqueID": "6b947579be3958bc587abb5535d818129ff810da",
-    "summary": "<p>实体首部字段</p>\n<ul>\n<li>Content-Encoding：实体编码方式(gzip, compress, deflate, identity)</li>\n<li>Content-Location：报文主体返回资源对应的 URI(不一定是请求URI)。</li>\n<li>Content-Range：匹配部分。</li>\n<li>Content-Type：实体内对象的媒...</li>\n</ul>",
-    "sha": "ad5b165bf43fc96f65189cf43aad4253aafc6b16"
-  },
-  "b3f75a48780077e930c5409efefb6e27050a2057": {
-    "relatedTags": [
-      "mysql"
-    ],
-    "createdTime": "9/4/2018",
-    "timeArr": [
-      2018,
-      8,
-      4,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "MYSQL常用命令记录",
-    "uniqueID": "b3f75a48780077e930c5409efefb6e27050a2057",
-    "summary": "<ul>\n<li>给表添加别名(M是movies的别名,T是title的输出名)</li>\n</ul>\n<p><code>SELECT title as T FROM movies M;</code></p>\n<ul>\n<li>添加row</li>\n</ul>\n<p><code>INSERT INTO library VALUES (1,'javascript',8);</code></p>\n<ul>\n<li>条件排序order by</li>\n</ul>\n<p>`SELECT *  F...</p>",
-    "sha": "876bcd03410d0865b98212677e8ea1297deefb8a"
-  },
-  "07cc2d304f96574c9995198fe6ff05e9fc342322": {
-    "relatedTags": [
-      "react",
-      "es6",
-      "redux"
-    ],
-    "createdTime": "6/10/2018",
-    "timeArr": [
-      2018,
-      5,
-      10,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "React.Children",
-    "uniqueID": "07cc2d304f96574c9995198fe6ff05e9fc342322",
-    "summary": "<p><code>React.Children</code>和<code>this.props.children</code>都是获取父组件的子元素(子组件)</p>\n<p>this.props.children:</p>\n<ol>\n<li>1个子元素  =&gt; {Object}(React元素(组件)对象)</li>\n<li>多个子元素 =&gt; [{Object},{Object}...]</li>\n<li>无子元素   =...</li>\n</ol>",
-    "sha": "30a4f1281825a6b1c904adf8abddc4b886ccbd1a"
-  },
-  "e4ce5c4bef01302a0d060390b3bb12ae149f583f": {
-    "relatedTags": [
-      "源码",
-      "react",
-      "笔记"
-    ],
-    "createdTime": "11/25/2018",
-    "timeArr": [
-      2018,
-      10,
-      25,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "源码阅读-react-infinite-scroller-笔记",
-    "uniqueID": "e4ce5c4bef01302a0d060390b3bb12ae149f583f",
-    "summary": "<ol>\n<li>\n<p><code>offsetParent</code></p>\n<p><code>offsetParent</code>返回一个指向最近的包含该元素的定位元素.</p>\n<p><code>offsetParent</code>很有用，因为计算<code>offsetTop</code>和<code>offsetLeft</code>都是相对于<code>offsetParent</code>边界的。</p>\n<p><code>offsetParent</code>...</p>\n</li>\n</ol>",
-    "sha": "ca1df5a51761dd3bb612a4ab486576a8102d2d1b"
-  },
-  "42b4b2b7669e8fdbc1cd63d0eb42e60b98c48f8e": {
-    "relatedTags": [
-      "源码",
-      "react",
-      "redux"
-    ],
-    "createdTime": "11/18/2018",
-    "timeArr": [
-      2018,
-      10,
-      18,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "源码阅读-react-redux-参数为obj的默认参数写法",
-    "uniqueID": "42b4b2b7669e8fdbc1cd63d0eb42e60b98c48f8e",
-    "summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">myFunc</span>(<span class=\"hljs-params\">{x=<span class=\"hljs-number\">1</span>,y=<span class=\"hljs-number\">2</span>}</span>)</span>{\n  <span class=\"hljs-built_in\">console</span>.log(x,y)  \n  <span class=\"hljs-comment\">// ...</span>\n}\nmyFunc({})      <span class=\"hljs-comment\">// x:1,y:2</span>\nmyFunc()        <span class=\"hljs-comment\">// 报错</span>\nmyFunc(<span class=\"hljs-literal\">null</span>)    <span class=\"hljs-comment\">// 报错</span>\n</code></pre>\n<p>不传参数，则从<code>undefined</code>里...</p>",
-    "sha": "bca6508299954ec1022678e1f36b060954a8e990"
-  },
-  "75b7a94b953a19ffc6d8a4b8352441ee521ee46e": {
-    "relatedTags": [
-      "react",
-      "redux",
-      "源码"
-    ],
-    "createdTime": "11/18/2018",
-    "timeArr": [
-      2018,
-      10,
-      18,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "源码阅读-react-redux-使用Hooks替换一处逻辑",
-    "uniqueID": "75b7a94b953a19ffc6d8a4b8352441ee521ee46e",
-    "summary": "<p>Provider组件中有2个生命周期函数：</p>\n<pre class=\"hljs\"><code>componentWillUnmount() {\n  if (this.unsubscribe) this.unsubscribe()\n  this._isMounted = false\n}\n\ncomponentDidUpdate(prevProps) {\n  //...</code></pre>",
-    "sha": "914eddfc21a7198b0e39080e62fc5cf7ec280993"
-  },
-  "f559d47fb4cf8cfa9bfb2bd0d9bba58e079f66ec": {
-    "relatedTags": [
-      "笔记"
-    ],
-    "createdTime": "11/17/2018",
-    "timeArr": [
-      2018,
-      10,
-      17,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "WeakMap理解笔记",
-    "uniqueID": "f559d47fb4cf8cfa9bfb2bd0d9bba58e079f66ec",
-    "summary": "<h4>WeakMap</h4>\n<ul>\n<li>\n<p>键是弱引用</p>\n<p>如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象是否还在该弱引用的结构中</p>\n</li>\n</ul>\n<p>因此，键一旦丢失，再也无法获取内容</p>\n<ol>\n<li>必须使用对象作为键，当对象引用消失，自动清除</li>\n<li>必须通过键去获取内容</li>\n</ol>\n<p>只要保管好 key ，它就是...</p>",
-    "sha": "200fdba2077d822ff14086c8249fb87383fb32dc"
-  },
-  "cd67e255a685952b6e3ba3efb90befd0197d1fe4": {
-    "relatedTags": [
-      "笔记",
-      "缓存"
-    ],
-    "createdTime": "11/14/2018",
-    "timeArr": [
-      2018,
-      10,
-      14,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "图解Http大纲笔记(1)",
-    "uniqueID": "cd67e255a685952b6e3ba3efb90befd0197d1fe4",
-    "summary": "<ul>\n<li>TCP/IP分为4个层</li>\n</ul>\n<table>\n<thead>\n<tr>\n<th style=\"text-align:center\">名称</th>\n<th style=\"text-align:center\">代表</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align:center\">应用层</td>\n<td style=\"text-align:center\">HTTP</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">传输层</td>\n<td style=\"text-align:center\">TCP</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">网络层</td>\n<td style=\"text-align:center\">IP</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">链路层</td>\n<td style=\"text-align:center\"></td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>\n<p>HTTP协议</p>\n<ul>\n<li>生成请求提交(客户端)</li>\n<li>处理请求(服务端)</li>\n</ul>\n</li>\n<li>\n<p>DNS协议</p>\n<ul>\n<li>根据域名查找IP</li>\n</ul>\n</li>\n<li>\n<p>TCP...</p>\n</li>\n</ul>",
-    "sha": "a606cff58ed32d4564139956743675e9c438e11a"
-  },
-  "98dd615567b3aca2beb98ad1d65b71331760149b": {
-    "relatedTags": [
-      "react",
-      "缓存"
-    ],
-    "createdTime": "10/31/2018",
-    "timeArr": [
-      2018,
-      9,
-      31,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "React v16.7 Hooks(2)",
-    "uniqueID": "98dd615567b3aca2beb98ad1d65b71331760149b",
-    "summary": "<p><code>useCallback, useMemo, useRef, useImperativeMethods, useMutationEffect, useLayoutEffect</code></p>",
-    "sha": "4f37e4ca6137a17d6454b46239f1712d981ecdc7"
-  },
-  "f38c0d6abc75ce713d9bcd733aa66d5097d25e56": {
-    "relatedTags": [
-      "react"
-    ],
-    "createdTime": "10/29/2018",
-    "timeArr": [
-      2018,
-      9,
-      29,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "React v16.7 Hooks(1)",
-    "uniqueID": "f38c0d6abc75ce713d9bcd733aa66d5097d25e56",
-    "summary": "<h4>Hooks</h4>\n<p><code>useState, useEffect, useContext</code></p>",
-    "sha": "fc32341fa1074291a622a829343b7b8a33955b7c"
-  },
-  "9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da": {
-    "relatedTags": [
-      "graphql",
-      "babel"
-    ],
-    "createdTime": "11/13/2018",
-    "timeArr": [
-      2018,
-      10,
-      13,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "GraphQL服务器的简易实现",
-    "uniqueID": "9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da",
-    "summary": "<ul>\n<li>\n<p>为什么要实现一个<code>GraphQL</code>服务器</p>\n<p>通过自己实现，更深入了解<code>GraphQL</code>怎么构造，怎么获取，一些术语</p>\n</li>\n<li>\n<p>直接入正题，如何实现一个<code>GraphQL</code>服务器</p>\n<p>了解4种类型</p>\n<ul>\n<li>\n<p>Query</p>\n<p>执行内容查询</p>\n</li>\n<li>\n<p>Muta...</p>\n</li>\n</ul>\n</li>\n</ul>",
-    "sha": "2df708b7274da2278a0b10daebf16bf60e8a965f"
-  },
-  "d1414b5e8fe837fbddd4957fcf7183b76489732f": {
-    "relatedTags": [
-      "算法",
-      "leetcode"
-    ],
-    "createdTime": "11/12/2018",
-    "timeArr": [
-      2018,
-      10,
-      12,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "LeetCode岛屿问题算法",
-    "uniqueID": "d1414b5e8fe837fbddd4957fcf7183b76489732f",
-    "summary": "<p>岛屿问题比较通用的算法</p>\n<p>大概思路：</p>\n<ol>\n<li>\n<p>先用dfs求出岛屿</p>\n</li>\n<li>\n<p>再用bfs根据要求算出连通量</p>\n</li>\n</ol>\n<p>以<code>827. Making A Large Island</code>为例</p>\n<p>题目给出一个二维数组，只有<code>0</code>和<code>1</code>，<code>1</code>代表陆地，\n当<code>1</code>周围4个方向(上下左右)有另一个<code>1</code>的时候，可以连接。</p>\n<p>问题是，只能走1步，...</p>",
-    "sha": "3fc478b01fbc4df0042a6b4ccd3ba389fff31494"
-  },
-  "734ec46092d55f646e70dce2766a3c42e017cad4": {
-    "relatedTags": [
-      "github"
-    ],
-    "createdTime": "9/28/2018",
-    "timeArr": [
-      2018,
-      8,
-      28,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "关于github-api.v3认证方面的总结",
-    "uniqueID": "734ec46092d55f646e70dce2766a3c42e017cad4",
-    "summary": "<h4>GithubAPI-Authorization</h4>\n<p>一些特定的API，例如获取<code>user</code>的public资料，<code>repo</code>的内容等，不认证也可以获取，\n区别是，不认证，大约每个小时只有60次调用的次数限制，而使用认证后，则大约有5000次的调用次数。</p>\n<p>认证有2方面，</p>\n<ol>\n<li>\n<p>使用你自己的名义去做一些事情</p>\n</li>\n<li>\n<p>...</p>\n</li>\n</ol>",
-    "sha": "6b205fb9eb1995355142e4b491f0e45bac6ca9f9"
-  },
-  "39277c1a6e1a6c2280d116793ed086ee2507fa7e": {
-    "relatedTags": [
-      "worker",
-      "promise",
-      "缓存"
-    ],
-    "createdTime": "9/26/2018",
-    "timeArr": [
-      2018,
-      8,
-      26,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "service-worker要点概括",
-    "uniqueID": "39277c1a6e1a6c2280d116793ed086ee2507fa7e",
-    "summary": "<p>service worker和cache</p>\n<p>客户端：register</p>\n<p>服务端：install, activate, fetch</p>\n<ul>\n<li><code>install</code></li>\n</ul>\n<p>主要作用是内部回调中的参数<code>event</code>的方法<code>event.waitUntil</code>中缓存本次的资源。</p>\n<ul>\n<li><code>activate</code></li>\n</ul>\n<p>主要作用是在内部回调中的参数`e...</p>",
-    "sha": "e35e017c1e99651fcf6cabf2e7873c3ad59e795c"
-  },
-  "ca04d014d61ce50791c49363dae3a3d3ae3b1e54": {
-    "relatedTags": [
-      "babel",
-      "ast",
-      "性能"
-    ],
-    "createdTime": "9/24/2018",
-    "timeArr": [
-      2018,
-      8,
-      24,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "babel插件的一些总结",
-    "uniqueID": "ca04d014d61ce50791c49363dae3a3d3ae3b1e54",
-    "summary": "<h4>BABLE插件编写一些总结</h4>\n<ol>\n<li>\n<p>babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\nrace模式。https://jamie.build/babel-plugin-ordering.html</p>\n<p>这么做是为...</p>\n</li>\n</ol>",
-    "sha": "35b77bbafb93c7b66d99747c168be81a28ee84aa"
-  },
-  "ddc3d1d8d6334cc464eb634a0d813d48c0d48776": {
-    "relatedTags": [
-      "ast",
-      "正则",
-      "github",
-      "npm",
-      "es6"
-    ],
-    "createdTime": "9/18/2018",
-    "timeArr": [
-      2018,
-      8,
-      18,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "如何通过AST树去获取函数参数名",
-    "uniqueID": "ddc3d1d8d6334cc464eb634a0d813d48c0d48776",
-    "summary": "<h4>写在最前</h4>\n<p>最近项目有个需求，获取函数参数名，听起来很简单，但有了ES6，参数和函数写法千奇百怪，在github上大概看了几个库，基本上都是正则，\n对通用的写法能够覆盖，稍微越过边界，往往无法正确匹配。</p>\n<p>于是就有了使用<code>AST</code>去进行覆盖查找的想法。</p>\n<h4>概念</h4>\n<p>抽象语法树（abstract synta...</p>",
-    "sha": "a7854a9c9c9dd7722bb525311af632ee5752fe47"
-  },
-  "486e17cd17cf6034e71874e022bd9b11474cb15f": {
-    "relatedTags": null,
-    "createdTime": "9/17/2018",
-    "timeArr": [
-      2018,
-      8,
-      17,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "一段模拟尾调用的代码",
-    "uniqueID": "486e17cd17cf6034e71874e022bd9b11474cb15f",
-    "summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">tco</span>(<span class=\"hljs-params\">f</span>) </span>{\n            <span class=\"hljs-keyword\">var</span> value;\n            <span class=\"hljs-keyword\">var</span> active = <span class=\"hljs-literal\">false</span>;\n            <span class=\"hljs-keyword\">var</span> accumulated = [];\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">accumulator</span>(<span class=\"hljs-params\"></span>) </span>{\n   ...</code></pre>",
-    "sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27"
-  },
-  "a20bb2e8ea076042017b4a5a990e2aac82af6a1b": {
-    "relatedTags": [
-      "es6"
-    ],
-    "createdTime": "9/14/2018",
-    "timeArr": [
-      2018,
-      8,
-      14,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "ES6的Generators函数双向传值",
-    "uniqueID": "a20bb2e8ea076042017b4a5a990e2aac82af6a1b",
-    "summary": "<p>Generators函数的双向传递</p>\n<p>每次调用<code>answer()</code>，相当于在<code>generators</code>函数的next方法加入参数，这个参数会返回给<code>yield</code>的返回值</p>\n<p>在函数内部可以判断这个返回值，实现双向传递</p>\n<pre class=\"hljs\"><code>  <span class=\"hljs-keyword\">let</span> stepCount=<span class=\"hljs-number\">1</span>\n  <span class=\"hljs-keyword\">let</span> currentPoint=<span class=\"hljs-number\">1</span>\n  functi...</code></pre>",
-    "sha": "cacba9466975c15e93a9cba0db310bf12752a2c2"
-  },
-  "be95143b4d5b92aa8901844dde5e73230a1d2f49": {
-    "relatedTags": [
-      "npm",
-      "正则",
-      "es6",
-      "ast"
-    ],
-    "createdTime": "9/13/2018",
-    "timeArr": [
-      2018,
-      8,
-      13,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "获取函数参数名称",
-    "uniqueID": "be95143b4d5b92aa8901844dde5e73230a1d2f49",
-    "summary": "<p>今天碰到一个需求，获取函数参数名称，\n刚开始打算用正则去处理，但函数写法(包括es6)也挺多的，</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>function x(a,b){}\nfunction x(a=5,b=3){}\nlet x=function(a=5,b){}\nlet x=(a=5,b)=&gt;a+b\nlet x=a=&gt;a*2\nfuncti...</code></pre>",
-    "sha": "666081661a6e70d949e3a7754293a33f83e18432"
-  },
-  "5ba1422eb5748f36ae6b36980b06e537d336b746": {
-    "relatedTags": [
-      "算法"
-    ],
-    "createdTime": "9/11/2018",
-    "timeArr": [
-      2018,
-      8,
-      11,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "二分查找的range方法",
-    "uniqueID": "5ba1422eb5748f36ae6b36980b06e537d336b746",
-    "summary": "<p>通常二分查找算法是根据index进行查找，并且要求数据结构是已排序的。</p>\n<p>这里记录一个未排序的二分查找</p>\n<p>题目：在一个数组arr中，找出从小到大第n个的数字</p>\n<p>例如：<code>[6,3,8,1,4,7]</code>，找出第3位，结果是4</p>\n<p>使用排序也可以解决，当空间有限制时，时间复杂度是<code>O(N*lgN)</code>，但二分查找的范围法可以控制到...</p>",
-    "sha": "bcaa51d3db66e9c67d11b14a85afe0fed30faf07"
-  },
-  "1ce699882ae4c19377061e00fa95e2bc41b3f185": {
-    "relatedTags": [
-      "缓存",
-      "性能"
-    ],
-    "createdTime": "9/8/2018",
-    "timeArr": [
-      2018,
-      8,
-      8,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "文章记录—为什么要知道js的引擎如何工作",
-    "uniqueID": "1ce699882ae4c19377061e00fa95e2bc41b3f185",
-    "summary": "<p>原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess...</p>",
-    "sha": "f6d88502864f6fa2ddb9fd4f3a6d78cbd5bc29c5"
-  },
-  "c8b2b19bf52484de902c2d4d23a44ed8b158ab18": {
-    "relatedTags": [
-      "算法",
-      "leetcode"
-    ],
-    "createdTime": "9/6/2018",
-    "timeArr": [
-      2018,
-      8,
-      6,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "关于位操作符应用的算法题",
-    "uniqueID": "c8b2b19bf52484de902c2d4d23a44ed8b158ab18",
-    "summary": "<p><a href=\"https://leetcode.com/problems/maximum-product-of-word-lengths/\">原题目</a>：\n给定一个字符串数组，找到长度的最大值<code>length(word[i]) * length(word[j])</code>，其中两个单词中的字母无相同。您可以假定每个单词只包含小写字母。如果没有...</p>",
-    "sha": "7963f582de66e6e2582fb61249dbba57221190fe"
-  },
-  "0dd0d60aa80404051e5b01683717fd83676f1c68": {
-    "relatedTags": [
-      "canvas"
-    ],
-    "createdTime": "9/3/2018",
-    "timeArr": [
-      2018,
-      8,
-      3,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "drawImage的9个参数",
-    "uniqueID": "0dd0d60aa80404051e5b01683717fd83676f1c68",
-    "summary": "<p>canvas的drawImage方法组多可以有9个参数，如下：</p>\n<pre class=\"hljs\"><code>void ctx.drawImage(image, dx, dy);\nvoid ctx.drawImage(image, dx, dy, dWidth, dHeight);\nvoid ctx.drawImage(image, sx, sy, sWi...</code></pre>",
-    "sha": "9037842d9026af5c37a1ba0eca58e9071b5903e3"
-  },
-  "c717f697562ea9e27b08040a52e05db0718b1a50": {
-    "relatedTags": [
-      "git"
-    ],
-    "createdTime": "9/1/2018",
-    "timeArr": [
-      2018,
-      8,
-      1,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "一个关于GIT撤销合并的处理revert",
-    "uniqueID": "c717f697562ea9e27b08040a52e05db0718b1a50",
-    "summary": "<pre class=\"hljs\"><code>init -&gt; v1 -&gt; v2 -&gt; v3 -- faulty merge -&gt; v4  (master)\n           \\            /                     \n            d1  --&gt;  d2                               ...</code></pre>",
-    "sha": "1de2e1722337b507aecf967ac8e888cae31f7bbb"
-  },
-  "e3b94840e980e8848b479296e62a83d39630ab76": {
-    "relatedTags": [
-      "mutationobserver"
-    ],
-    "createdTime": "8/29/2018",
-    "timeArr": [
-      2018,
-      7,
-      29,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "MutationObserver对象",
-    "uniqueID": "e3b94840e980e8848b479296e62a83d39630ab76",
-    "summary": "<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> observer=<span class=\"hljs-keyword\">new</span> MutationObserver(<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\">records</span>)</span>{\n  <span class=\"hljs-comment\">// 获取变化的DOM的一些属性 </span>\n  records.API1\n})\n</code></pre>\n<p>API1：</p>\n<pre class=\"hljs\"><code>API1={\ntype：观察的变动类型（attribute、characterData或者chil...</code></pre>",
-    "sha": "8540f01502cc34ee1bdc412b3483427e52a8e911"
-  },
-  "af105b2df12bc15528a731d149193b4aa9927533": {
-    "relatedTags": [
-      "算法"
-    ],
-    "createdTime": "8/27/2018",
-    "timeArr": [
-      2018,
-      7,
-      27,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "算法记录-最长回文子字符串",
-    "uniqueID": "af105b2df12bc15528a731d149193b4aa9927533",
-    "summary": "<p>思路：利用对称思想</p>\n<ol>\n<li>先将原字符串转换成转换成 <code>#x$x$x$</code> 的形式(一定是奇数)</li>\n<li>p为一个数组，储存每一个值的最大回文数量的一半+1，例如：'ababa' 对应的p 就是<code>[1,2,3,2,1]</code></li>\n<li><code>max</code>为当前已经计算过得最大回文量<code>p[id]</code>+对应的位置<code>id</code>，默认为0或者-infi...</li>\n</ol>",
-    "sha": "b43da9771d20a5bb5e735c832af36f85b932df54"
-  },
-  "a5bed495fbfaa670dcb632ac350bfa5c527e6eca": {
-    "relatedTags": null,
-    "createdTime": "8/23/2018",
-    "timeArr": [
-      2018,
-      7,
-      23,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "深入海明距离",
-    "uniqueID": "a5bed495fbfaa670dcb632ac350bfa5c527e6eca",
-    "summary": "<p>通常海明距离的计算使用 <code>^</code>，再计算1的次数</p>\n<p>但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的</p>\n<p>另一种计算海明距离的方法：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">/**\n* @param nums {Array}\n* @returns {number}\n*/</span>\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">cal</span>...</span></code></pre>",
-    "sha": "4a3568d093ea0316f644a973e4b91143b8563bd4"
-  },
-  "80cda11f9e18b118723c11b54a629d2ce4a71c79": {
-    "relatedTags": [
-      "性能"
-    ],
-    "createdTime": "8/21/2018",
-    "timeArr": [
-      2018,
-      7,
-      21,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "对比map,{},[]的存取效率",
-    "uniqueID": "80cda11f9e18b118723c11b54a629d2ce4a71c79",
-    "summary": "<p>对比了map和hashTable对数据存取的性能，key类型为string</p>\n<p>测试方法：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">// CODES是字符串组成的数组</span>\n\n<span class=\"hljs-comment\">// map</span>\n<span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> x=<span class=\"hljs-number\">0</span>;x&lt;<span class=\"hljs-number\">2</span>;x++){\n    <span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> k=<span class=\"hljs-number\">0</span>;k&lt;CODES.length;k++){\n      <span class=\"hljs-keyword\">let</span> i=CODES[k]\n   ...</code></pre>",
-    "sha": "d2b8968488e3098bc8d6a318374cc0b57ab9511d"
-  },
-  "7d330d0cc2eaff951ab1a45bc216f483c483f6e0": {
-    "relatedTags": [
-      "canvas"
-    ],
-    "createdTime": "8/20/2018",
-    "timeArr": [
-      2018,
-      7,
-      20,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "canvas处理大量重复运动",
-    "uniqueID": "7d330d0cc2eaff951ab1a45bc216f483c483f6e0",
-    "summary": "<p>canvas做大量重复的粒子运动，例如雪花，星光闪烁</p>\n<p>并不需要针对每一个粒子进行动画，例如</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> i=<span class=\"hljs-number\">0</span>;i&lt;particles,length;i++){\n  <span class=\"hljs-keyword\">let</span> p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>)</span>{}\n  ...</code></pre>",
-    "sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591"
-  },
-  "f72ad63b02516bf71d570ecbf6c39488e64deb8e": {
-    "relatedTags": [
-      "github"
-    ],
-    "createdTime": "8/18/2018",
-    "timeArr": [
-      2018,
-      7,
-      18,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "记录一次xhr.upload.onprogress填坑",
-    "uniqueID": "f72ad63b02516bf71d570ecbf6c39488e64deb8e",
-    "summary": "<h4>一次xhr.upload.onprogress与multiparty搭配的踩坑记录</h4>\n<p>有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96...</p>",
-    "sha": "bc7ed8c6eae00e50c69810221c75724e5987c3ef"
-  },
-  "bd9804a5d37884a5eff1d06717429f0517cd2782": {
-    "relatedTags": [
-      "表单"
-    ],
-    "createdTime": "8/17/2018",
-    "timeArr": [
-      2018,
-      7,
-      17,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "原生表单验证相关",
-    "uniqueID": "bd9804a5d37884a5eff1d06717429f0517cd2782",
-    "summary": "<h4>表单验证原生</h4>\n<ul>\n<li>\n<p>查看是否通过验证：\n<code>ele.checkValidity</code></p>\n</li>\n<li>\n<p>验证不通过的时候的提示（只读）：\n<code>ele.validationMessage</code></p>\n<p>可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过</p>\n<p>`ele.set...</p>\n</li>\n</ul>",
-    "sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4"
-  },
-  "0d719ffaecb85402ef37b03bbd557d9adf641cd7": {
-    "relatedTags": [
-      "源码"
-    ],
-    "createdTime": "8/16/2018",
-    "timeArr": [
-      2018,
-      7,
-      16,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "源码阅读-lodash-一个创建数组的思考",
-    "uniqueID": "0d719ffaecb85402ef37b03bbd557d9adf641cd7",
-    "summary": "<h4>创建数组的思考</h4>\n<p><code>lodash.js---&gt;.internal--&gt;baseClone.js</code>内部</p>\n<p>有一句：<code>const result = new array.constructor(length)</code></p>\n<p>这里array是一个经过<code>Array.isArray(array)===true</code>判断的数组，</p>\n<p>这句...</p>",
-    "sha": "7166eb621f1c1bf86fd6cf194dc19b9f3f408810"
-  },
-  "b8d2829958b70c73fa0733e45fe779eff931cbc5": {
-    "relatedTags": [
-      "indexeddb"
-    ],
-    "createdTime": "8/15/2018",
-    "timeArr": [
-      2018,
-      7,
-      15,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "indexedDB简要增删查",
-    "uniqueID": "b8d2829958b70c73fa0733e45fe779eff931cbc5",
-    "summary": "<p>indexedDB\n在客户端进行保存保存：</p>\n<pre class=\"hljs\"><code>{id: 1, name: &quot;张三&quot;, age: 24, email: &quot;zhangsan@example.com&quot;}\n{id: 2, name: &quot;李四&quot;, age: 54, email: &quot;lisi@example.com&quot;}\n{id: 3, name: &quot;王五...</code></pre>",
-    "sha": "b9c382c33ecfc711c7de0a929d346090b6c78122"
-  },
-  "4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1": {
-    "relatedTags": [
-      "cors",
-      "表单"
-    ],
-    "createdTime": "8/14/2018",
-    "timeArr": [
-      2018,
-      7,
-      14,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "CORS通信",
-    "uniqueID": "4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1",
-    "summary": "<p>CORS通信就是服务端设置<code>Access-Control-Allow-Origin</code>等配置</p>\n<p>分为2类请求，简单请求和非简单请求</p>\n<ul>\n<li>\n<p>简单请求：</p>\n<p>无预检，直接传递数据的时候检查是否同源</p>\n<p>Content-Type类型：</p>\n<p>`application/x-www-form-urlenco...</p>\n</li>\n</ul>",
-    "sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425"
-  },
   "2d2fe99476f8b0fcf2a0f7ff6061756eff4803e5": {
     "relatedTags": [
       "canvas"
@@ -1521,25 +405,6 @@
     "uniqueID": "5fc1f9d14abff5f33e3b3a286fadfe82ad9a48b2",
     "summary": "<h4>正则 exec和match</h4>\n<ul>\n<li>都是返回数组，包括小括号内部</li>\n<li>非全局 一致</li>\n<li>match全局，匹配多个值</li>\n<li>exec全局，匹配单个值，但每次执行会继续从上一次匹配数据之后开始</li>\n</ul>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">let</span> str=<span class=\"hljs-string\">'this is a stick'</span>\n\n<span class=\"hljs-keyword\">let</span> reg=<span class=\"hljs-regexp\">/.is/</span>\nreg.exec(str)   /...</code></pre>",
     "sha": "150a56b6eb7cd88a1e0662000a7a8f23e0c8003a"
-  },
-  "a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44": {
-    "relatedTags": [
-      "规范"
-    ],
-    "createdTime": "7/10/2018",
-    "timeArr": [
-      2018,
-      6,
-      10,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "js宽松比较规范",
-    "uniqueID": "a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44",
-    "summary": "<p>ES5 规范 11.9.3.4-5 这样定义：</p>\n<ol>\n<li>如果 Type(x) 是数字， Type(y) 是字符串，则返回 x == ToNumber(y)\n的结果。</li>\n<li>如果 Type(x) 是字符串， Type(y) 是数字，则返回 ToNumber(x) == y\n的结果。</li>\n</ol>",
-    "sha": "df2e9c8633809f2f352ba06bdcde43a83ec1b3b4"
   },
   "fd8492b29dfac9fa4e50c5b2b4926048c19a0553": {
     "relatedTags": [
@@ -2429,25 +1294,119 @@
     "summary": "<p><a href=\"https://leetcode.com/problems/single-number-ii/description/\">原题目：</a>\n<code>LeetCode</code>的一个题目，要求算出数组中单独出现的数字</p>\n<pre class=\"hljs\"><code>Given a non-empty array of integers, every element appear...</code></pre>",
     "sha": "6a99838485b9fda6b8a6b0e9d892100d68d0a27c"
   },
-  "495269ded2b2a66ea2642b605595dd81515e05b7": {
+  "2d6cd16c42d4c8dc0c9ccfed027881544a800d15": {
     "relatedTags": [
+      "性能",
       "算法",
-      "leetcode"
+      "缓存"
     ],
-    "createdTime": "10/1/2018",
+    "createdTime": "4/11/2019",
     "timeArr": [
-      2018,
-      9,
-      1,
+      2019,
+      3,
+      11,
       0,
       0,
       0,
       0
     ],
-    "title": "二维数组旋转的简单算法",
-    "uniqueID": "495269ded2b2a66ea2642b605595dd81515e05b7",
-    "summary": "<p>一道<code>LeetCode</code>题目，二维数组按顺时针(逆时针)旋转的通用算法，非常简洁。</p>\n<ul>\n<li>顺时针旋转</li>\n</ul>\n<p>步骤：</p>\n<ol>\n<li>先<code>竖向逆转</code></li>\n<li>再按对角线交换即可</li>\n</ol>\n<pre class=\"hljs\"><code>  init     reverse  diagonal-swap\n  1 2 3     7 8 9     7 4 1\n  4 5 6  =&gt; ...</code></pre>",
-    "sha": "a39bd35a7e0ef814336d7906569e045398f8a131"
+    "title": "《Http权威指南》http性能",
+    "uniqueID": "2d6cd16c42d4c8dc0c9ccfed027881544a800d15",
+    "summary": "<p>影响<code>Http</code>性能的几点：</p>\n<ol>\n<li>\n<p>TCP 慢启动</p>\n<p>指的是TCP连接最初会被限制连接最大速度，只有当数据传送成功，才会逐步提高传输速度，这是为了防止因特网突然过载和拥塞。</p>\n</li>\n<li>\n<p><code>Nagle</code>算法</p>\n<p>将大量TCP数据绑定在一起，避免大量的小数据的分组。但问题是，可能因为等待其他TCP数据产...</p>\n</li>\n</ol>",
+    "sha": "b037d4e8d3b90a0aa21d65b03af8e28caf013de4"
+  },
+  "25190dd0cd5c8e0af3419567a8b6216802ec408e": {
+    "relatedTags": [
+      "算法"
+    ],
+    "createdTime": "3/29/2019",
+    "timeArr": [
+      2019,
+      2,
+      29,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "康拓展开算法",
+    "uniqueID": "25190dd0cd5c8e0af3419567a8b6216802ec408e",
+    "summary": "<ul>\n<li>\n<p>康拓展开</p>\n<p>例如，<code>2431</code>有多少种排列方式会比它小的，那么我们的计算方式是：</p>\n<p><code>1 * 3! + 2 * 2! + 1 * 1! + 0 * 0! = 11</code></p>\n<p>解释：</p>\n<p>第一个数<code>2</code>，比它小的有1个，后续能排列数量有<code>3!</code></p>\n<p>第二个...</p>\n</li>\n</ul>",
+    "sha": "c0a7f96accec11aab2162dfcb3787daff1b25439"
+  },
+  "5ba1422eb5748f36ae6b36980b06e537d336b746": {
+    "relatedTags": [
+      "算法"
+    ],
+    "createdTime": "9/11/2018",
+    "timeArr": [
+      2018,
+      8,
+      11,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "二分查找的range方法",
+    "uniqueID": "5ba1422eb5748f36ae6b36980b06e537d336b746",
+    "summary": "<p>通常二分查找算法是根据index进行查找，并且要求数据结构是已排序的。</p>\n<p>这里记录一个未排序的二分查找</p>\n<p>题目：在一个数组arr中，找出从小到大第n个的数字</p>\n<p>例如：<code>[6,3,8,1,4,7]</code>，找出第3位，结果是4</p>\n<p>使用排序也可以解决，当空间有限制时，时间复杂度是<code>O(N*lgN)</code>，~~但二分查找的范围法可以控...</p>",
+    "sha": "bcaa51d3db66e9c67d11b14a85afe0fed30faf07"
+  },
+  "6bb049b1a078a0b78387fb4624933c478107281e": {
+    "relatedTags": null,
+    "createdTime": "1/9/2019",
+    "timeArr": [
+      2019,
+      0,
+      9,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "BST的Morris Traversal-O(1)遍历",
+    "uniqueID": "6bb049b1a078a0b78387fb4624933c478107281e",
+    "summary": "<p>关于二叉树的遍历，使用栈递归或者仿栈循环都是需要<code>O(N)</code>的空间，<code>Morris Traversal</code>保证了空间为<code>O(1)</code>，时间还是<code>O(N)</code>（比原来多了一遍）。</p>\n<p>这里只介绍<code>inOrder</code>顺序。</p>\n<p>思路：</p>\n<p>对每一个<code>cur</code>节点，优先找到一个<code>pre</code>节点，这个<code>pre</code>节点的作用是，当后续<code>cur</code>节...</p>",
+    "sha": "58cf220aadf082c27c39c6bf0db303d77f20ea86"
+  },
+  "d8cf763cd33c2883caf30f5d6f247da84af3cf8f": {
+    "relatedTags": [
+      "算法"
+    ],
+    "createdTime": "10/2/2018",
+    "timeArr": [
+      2018,
+      9,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "获取数组中和为某个值的组合数量的算法",
+    "uniqueID": "d8cf763cd33c2883caf30f5d6f247da84af3cf8f",
+    "summary": "<p>记录一个算法，要求获取数组中的和为<code>sum</code>的组合的数量</p>\n<ul>\n<li>不要求连续，不要求重复</li>\n</ul>\n<p>例如<code>arr=[1,2,3,4,5]</code>，那么和为5的组合数量为3，分别是<code>2,3</code>、<code>1,4</code>、<code>5</code></p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">computeSubset</span>(<span class=\"hljs-params\">arr,sum</span>)</span>{\n  <span class=\"hljs-comment\">// 创建数组，用于记录从1到sum每一个...</span></code></pre>",
+    "sha": "ccf5cf75d3f663c8c143ed75e3d46b5a2f8aa576"
+  },
+  "a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44": {
+    "relatedTags": [
+      "规范"
+    ],
+    "createdTime": "7/10/2018",
+    "timeArr": [
+      2018,
+      6,
+      10,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "js宽松比较规范",
+    "uniqueID": "a0f124d6d5ccb06205fe4c0fcfcff8dd9fb16d44",
+    "summary": "<p>ES5 规范 11.9.3.4-5 这样定义：</p>\n<ol>\n<li>如果 Type(x) 是数字， Type(y) 是字符串，则返回 x == ToNumber(y)\n的结果。</li>\n<li>如果 Type(x) 是字符串， Type(y) 是数字，则返回 ToNumber(x) == y\n的结果。</li>\n</ol>",
+    "sha": "df2e9c8633809f2f352ba06bdcde43a83ec1b3b4"
   },
   "32f90eaf4808bb2b560d3a1c843cd785de0f72cc": {
     "relatedTags": [
@@ -2508,771 +1467,1065 @@
     "summary": "<p>调用<code>import()</code>执行动态加载时，如果使用变量模板进行请求，会潜在的请求当前确定的路径下的<strong>所有文件</strong>！</p>\n<p>例如：</p>\n<p>现在有如下文件结构：</p>\n<pre class=\"hljs\"><code>|---asset\n  |---blog\n    |---tech\n      |---001.json\n      |---002.json\n      |-...</code></pre>",
     "sha": "4edeb6d395d6a622ada753d259d16102786a87f9"
   },
-  "a090233d8340e01b45b3a3948a69ca03a6a4e546": {
+  "b1f5ca61aa11b54e8e854bd3c67096d01428d37b": {
     "relatedTags": [
-      "leetcode"
+      "react"
     ],
-    "createdTime": "1/23/2019",
+    "createdTime": "11/28/2018",
     "timeArr": [
-      2019,
-      0,
-      23,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-741-摘樱桃",
-    "uniqueID": "a090233d8340e01b45b3a3948a69ca03a6a4e546",
-    "summary": "<p>题目给定一个网格，遇见<code>1</code>表示能摘取1个樱桃，遇到<code>0</code>表示空地，遇到<code>-1</code>表示荆棘不能走。</p>\n<p>要求从左上走到右下，再从右下走回左上，樱桃摘掉就会从<code>1</code>变<code>0</code>，问能摘取的最大樱桃数。</p>\n<p>这道题初一看有点像<code>路径最大和</code>问题，但细想不能这么做，因为走完第一次，摘取的樱桃会消失，\n因此子问题互相有影响。</p>\n<p>思路：...</p>",
-    "sha": "ae8f7e43cb0d2c7a7a022c7c699f539ceca5c7e3"
-  },
-  "21dc47405efb4d703fbfade3e8c91ad9fc56e0d2": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "1/20/2019",
-    "timeArr": [
-      2019,
-      0,
-      20,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-927-三等分",
-    "uniqueID": "21dc47405efb4d703fbfade3e8c91ad9fc56e0d2",
-    "summary": "<p>给定一个数组，只由<code>0</code>和<code>1</code>组成。要求三等分，使得他们的对应的十进制的值相等。</p>\n<p>这道题我最初思路是<code>window slide</code>，通过设定2个指针，<code>left</code>和<code>right</code>，每次移动判断当前应该<code>left</code>增减还是<code>right</code>增加。</p>\n<p>结果是<code>TLE</code>，给定的数组范围是<code>[3,30000]</code>，这道题是存在`O...</p>",
-    "sha": "2c8687cdf35cfb93a7cb3c031272fb46cce46c2d"
-  },
-  "57b4753d3157977259c332676f0a0c872cc4291d": {
-    "relatedTags": [
-      "性能"
-    ],
-    "createdTime": "1/19/2019",
-    "timeArr": [
-      2019,
-      0,
-      19,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "两段k个数叠加的代码比较",
-    "uniqueID": "57b4753d3157977259c332676f0a0c872cc4291d",
-    "summary": "<p>给出一个数组和一个<code>k</code>值，要求对数组进行处理，使得每个<code>index</code>的值为它和它之后<code>k</code>个数的和。</p>\n<p>很简单的一道题，最直接的思路就是对每一个<code>index</code>，再次循环k次，求和，时间是<code>O(k*n)</code></p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> k=<span class=\"hljs-number\">2</span>,nums=[<span class=\"hljs-number\">1</span>,<span class=\"hljs-number\">2</span>,<span class=\"hljs-number\">1</span>,<span class=\"hljs-number\">2</span>,<span class=\"hljs-number\">6</span>,<span class=\"hljs-number\">7</span>,<span class=\"hljs-number\">5</span>,<span class=\"hljs-number\">1</span>],sums=[]\n<span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> i=<span class=\"hljs-number\">0.</span>..</code></pre>",
-    "sha": "a1b1ebd5635549f5567fa7d174ace71823c8a8ca"
-  },
-  "5323d2bb0a305fd9d5d8c9d32bcf1d5d31c96901": {
-    "relatedTags": [
-      "leetcode",
-      "算法"
-    ],
-    "createdTime": "1/18/2019",
-    "timeArr": [
-      2019,
-      0,
-      18,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-215-找到数组中第K大的值",
-    "uniqueID": "5323d2bb0a305fd9d5d8c9d32bcf1d5d31c96901",
-    "summary": "<p>在之前的文章<code>9-11-二分查找的range方法</code>，使用了<code>二分查找</code>解决这道题，但实际上还是<code>O(nlgn)</code>，相比起排序，并不是一个特别\n有效的优化，这次使用<code>快速选择</code>，<code>快速排序</code>算法的一个变体。</p>\n<p>思路：</p>\n<ol>\n<li>快速排序我们都很清楚，每一次选中一个<code>pivot</code>，将小于它的放左边，大于它的放右边，执行`lgN...</li>\n</ol>",
-    "sha": "820c182198e97bae1466efb81c1f42049e8d9a61"
-  },
-  "4d2a8760fce3d273f21d9b340020f28d30a83ca1": {
-    "relatedTags": [
-      "算法",
-      "leetcode"
-    ],
-    "createdTime": "1/14/2019",
-    "timeArr": [
-      2019,
-      0,
-      14,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-229-筛选多数算法",
-    "uniqueID": "4d2a8760fce3d273f21d9b340020f28d30a83ca1",
-    "summary": "<p>这道题要求使用时间<code>O(N)</code>和空间<code>O(1)</code>筛选出数量大于(不包括等于)三分一的值。</p>\n<p>一般想到的是时间<code>O(N)</code>，空间<code>O(N)</code>的hash记录，或者时间<code>O(NlogN)</code>，空间<code>O(1)</code>的排序。</p>\n<p>但这里使用了<code>Majority Vote algorithm</code>(多数投票算法)。</p>",
-    "sha": "55a04893b89d7ca33565a79d3b0c44ba6bc10b30"
-  },
-  "a7fdfb2de02b86a76f903ef54b0c94d41acea716": {
-    "relatedTags": [
-      "leetcode",
-      "算法"
-    ],
-    "createdTime": "1/13/2019",
-    "timeArr": [
-      2019,
-      0,
-      13,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-974-子数组和能被K整除的算法",
-    "uniqueID": "a7fdfb2de02b86a76f903ef54b0c94d41acea716",
-    "summary": "<p>首先是子数组和为某个值的计算。</p>\n<p>当计算子数组和为某一个值的数量，我们需要使用一个<code>hash</code>保存当前的和。</p>\n<p>这样当下一次计算<code>hash[sum-target]</code>的时候，可以快速找出以前保存过的子数组的数量，</p>\n<p>例如<code>[1,2,3,4,5]</code></p>\n<p>遍历一遍后<code>hash</code>为`{1:1, 3:1, 6:1, 10:1, 1...</p>",
-    "sha": "f019609e838bb6d5e76a874bd1eb725d7b50fed3"
-  },
-  "5b5bb11c26338e8f7fd42bee81806d7b778518dc": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "1/13/2019",
-    "timeArr": [
-      2019,
-      0,
-      13,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-678-有效括号的判定",
-    "uniqueID": "5b5bb11c26338e8f7fd42bee81806d7b778518dc",
-    "summary": "<p>题目是当给定一个字符串，只包含<code>(</code>,<code>)</code>, <code>*</code>这三种符号，其中<code>*</code>既可以当成<code>(</code>或者<code>)</code>，问题是判断给定的字符串是否有效。</p>\n<p>这道题刚拿到的时候，第一反应是认为<code>*</code>可以当成任意值，其实并不是。</p>\n<p><code>*</code>也有限制，例如：<code>**()(</code>，这里<code>*</code>并不能修复最后的<code>(</code>。</p>\n<p>因此需要考虑一下4点：</p>\n<p>1....</p>",
-    "sha": "41cf7ca5ef99ef15b16f02b7876c651846d11d33"
-  },
-  "6bb049b1a078a0b78387fb4624933c478107281e": {
-    "relatedTags": null,
-    "createdTime": "1/9/2019",
-    "timeArr": [
-      2019,
-      0,
-      9,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "BST的Morris Traversal-O(1)遍历",
-    "uniqueID": "6bb049b1a078a0b78387fb4624933c478107281e",
-    "summary": "<p>关于二叉树的遍历，使用栈递归或者仿栈循环都是需要<code>O(N)</code>的空间，<code>Morris Traversal</code>保证了空间为<code>O(1)</code>，时间还是<code>O(N)</code>（比原来多了一遍）。</p>\n<p>这里只介绍<code>inOrder</code>顺序。</p>\n<p>思路：</p>\n<p>对每一个<code>cur</code>节点，优先找到一个<code>pre</code>节点，这个<code>pre</code>节点的作用是，当后续<code>cur</code>节...</p>",
-    "sha": "58cf220aadf082c27c39c6bf0db303d77f20ea86"
-  },
-  "ce97b7857cc71bc6e1c685cf0922355c7dbd176e": {
-    "relatedTags": [
-      "算法",
-      "leetcode"
-    ],
-    "createdTime": "1/1/2019",
-    "timeArr": [
-      2019,
-      0,
-      1,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "关于隔项相加的DP算法",
-    "uniqueID": "ce97b7857cc71bc6e1c685cf0922355c7dbd176e",
-    "summary": "<p>这个<code>DP</code>算法用于解决一个抽象问题，关于一个数组中至少隔一个项目相加的最大和</p>\n<p>实际能解决的问题包括</p>\n<p><code>House Rubber</code>问题，例如<a href=\"https://leetcode.com/problems/house-robber-ii/\">House RubberⅡ</a></p>\n<p><code>Sell Stock</code>问题，例如[Sell...</p>",
-    "sha": "7503161f586be17eb0ccec24788a566d2593b09c"
-  },
-  "b3024f0032f24f1b69394e3a191c736292f47073": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/26/2019",
-    "timeArr": [
-      2019,
-      1,
-      26,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-658-找到K个最接近的数",
-    "uniqueID": "b3024f0032f24f1b69394e3a191c736292f47073",
-    "summary": "<p>给定一个排序好的数组，两个整数<code>k</code> 和<code>x</code>，从数组中找到最靠近<code>x</code>（两数之差最小）的 <code>k</code>个数。返回的结果必须要是按升序排好的。\n如果有两个数与 <code>x</code> 的差值一样，优先选择数值较小的那个数。</p>\n<pre class=\"hljs\"><code>示例 1:\n输入: [1,2,3,4,5], k=4, x=3\n输出: [1,2,3,4]\n</code></pre>\n<p>``...</p>",
-    "sha": "4f33929abe3e2a7b9cdb41095d858ec759246476"
-  },
-  "b1be002bc0a6386103e02133cb4a1c269993be8e": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/25/2019",
-    "timeArr": [
-      2019,
-      1,
-      25,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-300-最长上升子序列",
-    "uniqueID": "b1be002bc0a6386103e02133cb4a1c269993be8e",
-    "summary": "<p>给定一个无序的整数数组，找到其中最长上升子序列的长度。</p>\n<p>示例:</p>\n<pre class=\"hljs\"><code>输入: [10,9,2,5,3,7,101,18]\n输出: 4 \n解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。\n</code></pre>\n<p>这道题用<code>DP</code>解就是<code>O(n^2)</code>时间复杂度。</p>\n<p>思路：\n创建一个<code>dp数组</code>，用来储存每个`i...</p>",
-    "sha": "6212961643bea4db5b1b4c7ad810da2f3a98ece2"
-  },
-  "e7df1973c399a06c3d5320c0d70f8b576f252f80": {
-    "relatedTags": null,
-    "createdTime": "2/22/2019",
-    "timeArr": [
-      2019,
-      1,
-      22,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "计算当前数字的下一个回文数字",
-    "uniqueID": "e7df1973c399a06c3d5320c0d70f8b576f252f80",
-    "summary": "<p>例如：当前给出的数字为 <code>123456</code>，那么下一个回文数字就是 <code>124421</code></p>\n<p>思路：</p>\n<p>当前数字转换为字符串后，不需要判断长度为奇数偶数</p>\n<p>分割成3段，分别为回文头部，回文中部(长度为奇数则存在，偶数则不存在)，回文尾部(头部的反转)</p>\n<p>这里尾部需要进行一个判断，如果原始的尾部比头部反转更小，那么回文头部不变，...</p>",
-    "sha": "0aa07479be82d87fe846955405e78869a4a83e4b"
-  },
-  "df16c41ae22c3fbfb600b475686c3a9e6bc97e99": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/21/2019",
-    "timeArr": [
-      2019,
-      1,
-      21,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-600-不含连续1的非负整数",
-    "uniqueID": "df16c41ae22c3fbfb600b475686c3a9e6bc97e99",
-    "summary": "<p>给定一个正整数 n，找出小于或等于 n 的非负整数中，其二进制表示不包含 连续的1 的个数。</p>\n<pre class=\"hljs\"><code>示例 1:\n输入: 5\n输出: 5\n解释: \n下面是带有相应二进制表示的非负整数&lt;= 5：\n0 : 0\n1 : 1\n2 : 10\n3 : 11\n4 : 100\n5 : 101\n其中，只有整数3违反规则（有两个连续的1...</code></pre>",
-    "sha": "3b82a3ee10498128ad5f4cf36149b08490a239c7"
-  },
-  "be79fe65525d8482cc7163394cc9426e1850c201": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/20/2019",
-    "timeArr": [
-      2019,
-      1,
-      20,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-330-按要求补齐数组",
-    "uniqueID": "be79fe65525d8482cc7163394cc9426e1850c201",
-    "summary": "<p>给定一个已排序的正整数数组 <code>nums</code>，和一个正整数 <code>n</code> 。</p>\n<p>从<code>[1, n]</code>区间内选取任意个数字补充到 <code>nums</code> 中，使得<code>[1, n]</code>区间内的任何数字都可以用<code>nums</code>中某几个数字的和来表示。</p>\n<p>请输出满足上述要求的最少需要补充的数字个数。</p>\n<pre class=\"hljs\"><code>输入: nums = [1,3], n = 6...</code></pre>",
-    "sha": "35526f9509580331737d2b52e395c13d568950d9"
-  },
-  "b06bdfb7b628ea62292ade13e2e7c263b67f99bf": {
-    "relatedTags": [
-      "leetcode",
-      "算法"
-    ],
-    "createdTime": "2/18/2019",
-    "timeArr": [
-      2019,
-      1,
-      18,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-715-Range模块",
-    "uniqueID": "b06bdfb7b628ea62292ade13e2e7c263b67f99bf",
-    "summary": "<p>Range 模块是跟踪数字范围的模块。你的任务是以一种有效的方式设计和实现以下接口。</p>\n<ul>\n<li>addRange(int left, int right) 添加半开区间 [left, right)，跟踪该区间中的每个实数。添加与当前跟踪的数字部分重叠的区间时，应当添加在区间 [left, right) 中尚未跟踪的任何数字...</li>\n</ul>",
-    "sha": "0add872ca781ae37ae95570bd7d63045df637ada"
-  },
-  "1945b3cbf3c1d113d7fe5cca16000b60bb4f590b": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/14/2019",
-    "timeArr": [
-      2019,
-      1,
-      14,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-730-统计不同回文子序列",
-    "uniqueID": "1945b3cbf3c1d113d7fe5cca16000b60bb4f590b",
-    "summary": "<p>题目给定一个字符串 S，找出 S 中不同的非空回文子序列个数，并返回该数字与 10^9 + 7的模，计数结果不相同。</p>\n<p>示例：</p>\n<pre class=\"hljs\"><code>输入：\nS = 'bccb'\n输出：6\n解释：\n6 个不同的非空回文子字符序列分别为：'b', 'c', 'bb', 'cc', 'bcb', 'bccb'。\n注意：'bcb' 虽然出...</code></pre>",
-    "sha": "5f06890a4b35d7a93235b8370a698d45315d5a8e"
-  },
-  "91b1826635fda5785314c25e6c4c113779da6071": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/11/2019",
-    "timeArr": [
-      2019,
-      1,
-      11,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-782-棋盘转换",
-    "uniqueID": "91b1826635fda5785314c25e6c4c113779da6071",
-    "summary": "<p>题目给出一个<code>N*N</code>矩阵，要求计算出转换为棋盘的最小步数，每次转换只能交换两行或者两列，不能转换则输出<code>-1</code></p>\n<p>棋盘格式：</p>\n<pre class=\"hljs\"><code>1 0 1 0 1\n0 1 0 1 0\n1 0 1 0 1\n0 1 0 1 0\n1 0 1 0 1\n</code></pre>\n<p>思路：</p>\n<ol>\n<li>能转换为棋盘的矩阵符合2个特征：\n<ol>\n<li>抽取某一行...</li>\n</ol>\n</li>\n</ol>",
-    "sha": "7d821118601537d1f1427ad138da08eaca196cf7"
-  },
-  "5d6fe8b4380c08038c26fdf27e431bfff07921b3": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/4/2019",
-    "timeArr": [
-      2019,
-      1,
-      4,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-975-奇偶跳",
-    "uniqueID": "5d6fe8b4380c08038c26fdf27e431bfff07921b3",
-    "summary": "<p>题目给定一个数组<code>A</code>，并且定义从<code>i</code>点的奇数跳为<code>i</code>点之后<code>&gt;=A[i]</code>的最小值，从<code>i</code>点的偶数跳为<code>i</code>点之后的<code>&lt;=A[i]</code>的最大值。</p>\n<p>求能跳到终点的<code>i</code>的数量。</p>\n<p>思路：</p>\n<p>这道题暴力解是<code>O(N^2)</code>，从每一个点，模拟是否能跳到终点。</p>\n<p>但如果逆序遍历，则会发现当前点<code>i</code>需要找的值就在已经遍...</p>",
-    "sha": "45601e6a716cd101d6325218a63024e2c5a0b1c3"
-  },
-  "aab7fc0150d48de838401778028617fa5700bb8d": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "2/1/2019",
-    "timeArr": [
-      2019,
-      1,
-      1,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-862-和至少为K的子数组",
-    "uniqueID": "aab7fc0150d48de838401778028617fa5700bb8d",
-    "summary": "<p>给定一个数组<code>A</code>和一个<code>K</code>，算出和至少为<code>K</code>的子数组。</p>\n<p>刚开始处理这个问题，我使用的是处理和为<code>K</code>的子数组的方法，再通过一个<code>window slide</code>不断处理内部的值，当其大于等于<code>K</code>的时候，\n记录一下<code>slide</code>的长度。</p>\n<p>但这个方法的问题就是一旦需要的子数组在<code>slide</code>中间，则无法获取</p>\n<p>例如：...</p>",
-    "sha": "16f624ac4fe50fd60ba10433b458e7c5fbcad300"
-  },
-  "0a24008239b75d80ee857ee436d4a08ba4ada330": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "1/28/2019",
-    "timeArr": [
-      2019,
-      0,
+      2018,
+      10,
       28,
       0,
       0,
       0,
       0
     ],
-    "title": "Leetcode-最大有效括号",
-    "uniqueID": "0a24008239b75d80ee857ee436d4a08ba4ada330",
-    "summary": "<p>题目给出一个字符串只包括<code>(</code>和<code>)</code>，要求算出最大有效长度。</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>Input: &quot;)()(()()&quot;\nOutput: 4\nExplanation: The longest valid parentheses substring is &quot;()()&quot;\n</code></pre>\n<p>思路：</p>\n<p>一般来说，遇到括号问题，首先会想到...</p>",
-    "sha": "029c45caf73d2ded724e62d69798b4fb890ba463"
+    "title": "React-Fiber简述",
+    "uniqueID": "b1f5ca61aa11b54e8e854bd3c67096d01428d37b",
+    "summary": "<p><code>Fiber</code>可以看成一种数据结构，它内部包含了对当前组件的行为，包括对组件行为的跟踪、安排、暂停和取消。</p>",
+    "sha": "0577a959c7299927efbe8e15eb104f1a45ad84ee"
   },
-  "c9f59be3caa0bdf7de785d67830ac5abfce876b8": {
+  "2bd50bd84bc74d731859ba7d0c3008c8ed84172a": {
     "relatedTags": [
-      "算法",
-      "leetcode"
+      "算法"
     ],
-    "createdTime": "1/27/2019",
+    "createdTime": "12/10/2018",
     "timeArr": [
-      2019,
-      0,
-      27,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-从2个数组中创建最大数字",
-    "uniqueID": "c9f59be3caa0bdf7de785d67830ac5abfce876b8",
-    "summary": "<p>题目给出了2个无序数组，要求给出一个指定<code>k</code>位数的最大数的数组。</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>nums1 = [3, 4, 6, 5]\nnums2 = [9, 1, 2, 5, 8, 3]\nk = 5\nOutput:\n[9, 8, 6, 5, 3]\n</code></pre>\n<p>这道题题意很好理解，但是需要使用到2个小算法。</p>\n<p>算法一，计算一个数...</p>",
-    "sha": "6f67826dfcd45e98f1323ce119d7076ffa77c3ca"
-  },
-  "880139580b62ad012ac9b50ca708b5bad28b0021": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "1/25/2019",
-    "timeArr": [
-      2019,
-      0,
-      25,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-464-CanIWin双方最优解递归",
-    "uniqueID": "880139580b62ad012ac9b50ca708b5bad28b0021",
-    "summary": "<p>两个玩家可以轮流从公共整数池中抽取从<code>1</code>到<code>M</code>的整数（不放回），直到累计整数和&gt;=<code>T</code>。</p>\n<p>思路：</p>\n<ol>\n<li>由于双方都是最佳表现，因此可以使用同一个递归公式。</li>\n<li>当前玩家获胜的前提有2个：一是当前回合我能凑齐整数<code>T</code>，二是下一回合对手会输。</li>\n<li>如果当前玩家未获胜，到了下一回合对手玩家的胜利也同样是以上两点...</li>\n</ol>",
-    "sha": "509d7188a78b3cf42cd6113d85909305b84e57f4"
-  },
-  "2d6cd16c42d4c8dc0c9ccfed027881544a800d15": {
-    "relatedTags": [
-      "性能",
-      "算法",
-      "缓存"
-    ],
-    "createdTime": "4/11/2019",
-    "timeArr": [
-      2019,
-      3,
+      2018,
       11,
+      10,
       0,
       0,
       0,
       0
     ],
-    "title": "《Http权威指南》http性能",
-    "uniqueID": "2d6cd16c42d4c8dc0c9ccfed027881544a800d15",
-    "summary": "<p>影响<code>Http</code>性能的几点：</p>\n<ol>\n<li>\n<p>TCP 慢启动</p>\n<p>指的是TCP连接最初会被限制连接最大速度，只有当数据传送成功，才会逐步提高传输速度，这是为了防止因特网突然过载和拥塞。</p>\n</li>\n<li>\n<p><code>Nagle</code>算法</p>\n<p>将大量TCP数据绑定在一起，避免大量的小数据的分组。但问题是，可能因为等待其他TCP数据产...</p>\n</li>\n</ol>",
-    "sha": "b037d4e8d3b90a0aa21d65b03af8e28caf013de4"
+    "title": "红黑树要点-根据《算法第4版》",
+    "uniqueID": "2bd50bd84bc74d731859ba7d0c3008c8ed84172a",
+    "summary": "<h4>规则：</h4>\n<ol>\n<li>原型是<code>2-3树</code></li>\n<li>红链接：相当于<code>2-3树</code>的<code>3节点</code>，红链接中子节点是<code>红色</code>，父节点是<code>黑色</code></li>\n<li>只存在红链接为左链接，发现红链接为右链接需要转换</li>\n<li>当节点为null，也认为是<code>黑色</code></li>\n<li>当插入节点，出现2个左红点相邻(不可能出现2个右红点相邻，因为第3条)，其实就是`...</li>\n</ol>",
+    "sha": "18598c17b6c44620cb536b5b1bb6fa7f9f9cd4e4"
   },
-  "25190dd0cd5c8e0af3419567a8b6216802ec408e": {
+  "34441675832af7bfe9b306f5bd75927d10cb58a0": {
     "relatedTags": [
-      "算法"
+      "react",
+      "笔记"
     ],
-    "createdTime": "3/29/2019",
+    "createdTime": "12/8/2018",
     "timeArr": [
-      2019,
-      2,
-      29,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "康拓展开算法",
-    "uniqueID": "25190dd0cd5c8e0af3419567a8b6216802ec408e",
-    "summary": "<ul>\n<li>\n<p>康拓展开</p>\n<p>例如，<code>2431</code>有多少种排列方式会比它小的，那么我们的计算方式是：</p>\n<p><code>1 * 3! + 2 * 2! + 1 * 1! + 0 * 0! = 11</code></p>\n<p>解释：</p>\n<p>第一个数<code>2</code>，比它小的有1个，后续能排列数量有<code>3!</code></p>\n<p>第二个...</p>\n</li>\n</ul>",
-    "sha": "c0a7f96accec11aab2162dfcb3787daff1b25439"
-  },
-  "3f4c253e79b9e6c2ab7a2d3cce4f9c20407a6341": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/18/2019",
-    "timeArr": [
-      2019,
-      2,
-      18,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-962-最大宽度坡",
-    "uniqueID": "3f4c253e79b9e6c2ab7a2d3cce4f9c20407a6341",
-    "summary": "<p>给定一个整数数组 A，坡是元组 (i, j)，其中  i &lt; j 且 A[i] &lt;= A[j]。这样的坡的宽度为 j - i。</p>\n<p>找出 A 中的坡的最大宽度，如果不存在，返回 0 。</p>\n<pre class=\"hljs\"><code>示例 1：\n\n输入：[6,0,8,2,1,5]\n输出：4\n解释：\n最大宽度的坡为 (i, j) = (1, 5): A[1...</code></pre>",
-    "sha": "f461ecce239e7db1976f1d70c3cedd2a12d6d700"
-  },
-  "42203511ac5d80dbbf0ae80603aad6288441daa3": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/17/2019",
-    "timeArr": [
-      2019,
-      2,
-      17,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-954-二倍数对数组",
-    "uniqueID": "42203511ac5d80dbbf0ae80603aad6288441daa3",
-    "summary": "<p>给定一个长度为偶数的整数数组 A，只有对 A 进行重组后可以满足 “对于每个 0 &lt;= i &lt; len(A) / 2，都有 A[2 * i + 1] = 2 * A[2 * i]” 时，返回 true；否则，返回 false。</p>\n<pre class=\"hljs\"><code>示例 1：\n\n输入：[3,1,3,6]\n输出：false\n示例 2：\n\n输入：...</code></pre>",
-    "sha": "eb514e1335b910526c55260e9eb2de808e11321e"
-  },
-  "d060ba4d95ba0de8590e8111dcfbe6372c44e0ec": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/17/2019",
-    "timeArr": [
-      2019,
-      2,
-      17,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-926-将字符串翻转到单调递增",
-    "uniqueID": "d060ba4d95ba0de8590e8111dcfbe6372c44e0ec",
-    "summary": "<p>如果一个由 '0' 和 '1' 组成的字符串，是以一些 '0'（可能没有 '0'）后面跟着一些 '1'（也可能没有 '1'）的形式组成的，那么该字符串是单调递增的。</p>\n<p>我们给出一个由字符 '0' 和 '1' 组成的字符串 S，我们可以将任何 '0' 翻转为 '1' 或者将 '1' 翻转为 '0'。</p>\n<p>返回使 S 单调递...</p>",
-    "sha": "a9f5cd687e552432ae627ed0a7602929924bf1e0"
-  },
-  "ea6a157b271a064b8b99d3c858ab3e86bb5a5a08": {
-    "relatedTags": [
-      "leetcode",
-      "算法"
-    ],
-    "createdTime": "3/16/2019",
-    "timeArr": [
-      2019,
-      2,
-      16,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-918-环形子数组的最大和",
-    "uniqueID": "ea6a157b271a064b8b99d3c858ab3e86bb5a5a08",
-    "summary": "<p>给定一个由整数数组 A 表示的环形数组 C，求 C 的非空子数组的最大可能和。</p>\n<p>在此处，环形数组意味着数组的末端将会与开头相连呈环状。（形式上，当0 &lt;= i &lt; A.length 时 C[i] = A[i]，而当 i &gt;= 0 时 C[i+A.length] = C[i]）</p>\n<p>此外，子数组最多只能包含固定缓冲区 A...</p>",
-    "sha": "8e74b2b253eeb4a11d585dfde8a8662b067994a0"
-  },
-  "5c4467950e85a6eff52749ec930bfd9328830fa2": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/16/2019",
-    "timeArr": [
-      2019,
-      2,
-      16,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-891-子序列宽度之和",
-    "uniqueID": "5c4467950e85a6eff52749ec930bfd9328830fa2",
-    "summary": "<p>给定一个整数数组 A ，考虑 A 的所有非空子序列。</p>\n<p>对于任意序列 S ，设 S 的宽度是 S 的最大元素和最小元素的差。</p>\n<p>返回 A 的所有子序列的宽度之和。</p>\n<p>由于答案可能非常大，请返回答案模 10^9+7。</p>\n<pre class=\"hljs\"><code>示例：\n\n输入：[2,1,3]\n输出：6\n解释：\n子序列为 [1]，[2]，[3]，[2,...</code></pre>",
-    "sha": "0da39aad717bf08769d46b8e43db41e66136b03a"
-  },
-  "8bcc10badc20f58eae46985b19b266c5784431a2": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/15/2019",
-    "timeArr": [
-      2019,
-      2,
-      15,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-825-适龄的朋友",
-    "uniqueID": "8bcc10badc20f58eae46985b19b266c5784431a2",
-    "summary": "<p>人们会互相发送好友请求，现在给定一个包含有他们年龄的数组，ages[i] 表示第 i 个人的年龄。</p>\n<p>当满足以下条件时，A 不能给 B（A、B不为同一人）发送好友请求：</p>\n<ul>\n<li>age[B] &lt;= 0.5 * age[A] + 7</li>\n<li>age[B] &gt; age[A]</li>\n<li>age[B] &gt; 100 &amp;&amp; age[A] &lt; ...</li>\n</ul>",
-    "sha": "31c33bc284c6b587fbdf2b847cafb002cbc8ba8d"
-  },
-  "73c7d99e41ef139e9752df55bfb283c0784e820f": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/15/2019",
-    "timeArr": [
-      2019,
-      2,
-      15,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-775-全局倒置与局部倒置",
-    "uniqueID": "73c7d99e41ef139e9752df55bfb283c0784e820f",
-    "summary": "<p>数组 A 是 [0, 1, ..., N - 1] 的一种排列，N 是数组 A 的长度。全局倒置指的是 i,j 满足 0 &lt;= i &lt; j &lt; N 并且 A[i] &gt; A[j] ，局部倒置指的是 i 满足 0 &lt;= i &lt; N 并且 A[i] &gt; A[i+1] 。</p>\n<p>当数组 A 中全局倒置的数量等于局部倒置的数量时，返...</p>",
-    "sha": "8f469adcedc6f14266ac0fb17268e836f011d7e1"
-  },
-  "1c7bb92b8cef2c3b4514d2a4f89b69733bea1f67": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/15/2019",
-    "timeArr": [
-      2019,
-      2,
-      15,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-560-和为K的子数组",
-    "uniqueID": "1c7bb92b8cef2c3b4514d2a4f89b69733bea1f67",
-    "summary": "<p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>\n<pre class=\"hljs\"><code>示例 1 :\n输入:nums = [1,1,1], k = 2\n输出: 2 , [1,1] 与 [1,1] 为两种不同的情况。\n</code></pre>\n<p>说明 :</p>\n<ul>\n<li>数组的长度为 [1, 20,000]。</li>\n<li>数组中元素的范围是 [-10...</li>\n</ul>",
-    "sha": "c7bbf661f4fffac3a57c78c78aa7cb8a1db185f3"
-  },
-  "90da75ad91f2217d3ad374462847f60f1159c3c4": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/14/2019",
-    "timeArr": [
-      2019,
-      2,
-      14,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-238-除自身以外数组的乘积",
-    "uniqueID": "90da75ad91f2217d3ad374462847f60f1159c3c4",
-    "summary": "<p>给定长度为 n 的整数数组 nums，其中 n &gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。</p>\n<pre class=\"hljs\"><code>示例:\n\n输入: [1,2,3,4]\n输出: [24,12,8,6]\n说明: 请不要使用除法，且在 O(n) 时间复杂度内完成此题。\n`...</code></pre>",
-    "sha": "bbe41fbe8bcd21ec8e6002495765f3e4ac7a3602"
-  },
-  "d6e9bd0dcaca4faeee6ea356dec817a9494e1434": {
-    "relatedTags": [
-      "leetcode",
-      "算法"
-    ],
-    "createdTime": "3/13/2019",
-    "timeArr": [
-      2019,
-      2,
-      13,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-75-颜色分类",
-    "uniqueID": "d6e9bd0dcaca4faeee6ea356dec817a9494e1434",
-    "summary": "<p>给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</p>\n<p>此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。</p>\n<p>注意:\n不能使用代码库中的排序函数来解决这道题。</p>\n<pre class=\"hljs\"><code>示例:\n输入: [2,0,2,1,1,0]\n输出: [0...</code></pre>",
-    "sha": "2e70ab4868050ae4db685fe5789a5fbf6979ed8c"
-  },
-  "f7909dd3bf50383362081d73b11edb99e5d55695": {
-    "relatedTags": [
-      "leetcode",
-      "算法"
-    ],
-    "createdTime": "3/13/2019",
-    "timeArr": [
-      2019,
-      2,
-      13,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-73-矩阵置零",
-    "uniqueID": "f7909dd3bf50383362081d73b11edb99e5d55695",
-    "summary": "<p>给定一个 m x n 的矩阵，如果一个元素为 0，则将其所在行和列的所有元素都设为 0。请使用原地算法。</p>\n<pre class=\"hljs\"><code>示例 1:\n\n输入: \n[\n  [1,1,1],\n  [1,0,1],\n  [1,1,1]\n]\n输出: \n[\n  [1,0,1],\n  [0,0,0],\n  [1,0,1]\n]\n示例 2:\n\n输入: \n[...</code></pre>",
-    "sha": "faedc656626cb61462b8bf3e5be44f4fb0596348"
-  },
-  "62056eebb237b70d38cea5f40fd8e1dcd7e3d8f9": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/12/2019",
-    "timeArr": [
-      2019,
-      2,
-      12,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-57-插入区间",
-    "uniqueID": "62056eebb237b70d38cea5f40fd8e1dcd7e3d8f9",
-    "summary": "<p>给出一个无重叠的 ，按照区间起始端点排序的区间列表。</p>\n<p>在列表中插入一个新的区间，你需要确保列表中的区间仍然有序且不重叠（如果有必要的话，可以合并区间）。</p>\n<pre class=\"hljs\"><code>示例 1:\n输入: intervals = [[1,3],[6,9]], newInterval = [2,5]\n输出: [[1,5],[6,9]]\n\n示...</code></pre>",
-    "sha": "37a4f745be25f1bd89b36b14f06e235f466a1ad5"
-  },
-  "d5c85e9dec661db2090c51bbf9b6de7c4c84601b": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/8/2019",
-    "timeArr": [
-      2019,
-      2,
+      2018,
+      11,
       8,
       0,
       0,
       0,
       0
     ],
-    "title": "Leetcode-801-使序列递增的最小交换次数",
-    "uniqueID": "d5c85e9dec661db2090c51bbf9b6de7c4c84601b",
-    "summary": "<p>我们有两个长度相等且不为空的整型数组 A 和 B 。</p>\n<p>我们可以交换 A[i] 和 B[i] 的元素。注意这两个元素在各自的序列中应该处于相同的位置。</p>\n<p>在交换过一些元素之后，数组 A 和 B 都应该是严格递增的（数组严格递增的条件仅为A[0] &lt; A[1] &lt; A[2] &lt; ... &lt; A[A.length - 1]...</p>",
-    "sha": "b7576ba7b44ba47ab43713cd83f3e08bf700c82b"
+    "title": "前端日常笔记",
+    "uniqueID": "34441675832af7bfe9b306f5bd75927d10cb58a0",
+    "summary": "<p>内容包括：<code>tag 模板字符串</code>，<code>Labelled statements</code>，<code>React服务端渲染使用stream</code>，<code>jest.fn</code>，<code>jest.mock</code></p>\n<h4>tag 模板字符串</h4>\n<p>以<code>${xx}</code>分割字符串，分别传入2个数组，第一个是<code>分割后的结果</code>，第二个是<code>分割的变量</code></p>\n<p>例如：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">// ...</span></code></pre>",
+    "sha": "a599fef4a57cb1e1e640bb153fdedda0e6ad5339"
   },
-  "fcf6133fd0f5254283055a48cd885fd6f7218a31": {
+  "b921517a71d6975276b0a16acc18047667769321": {
     "relatedTags": [
-      "leetcode"
+      "笔记",
+      "promise"
     ],
-    "createdTime": "3/7/2019",
+    "createdTime": "12/6/2018",
     "timeArr": [
-      2019,
-      2,
-      7,
-      0,
-      0,
-      0,
-      0
-    ],
-    "title": "Leetcode-689-三个无重叠子数组的最大和",
-    "uniqueID": "fcf6133fd0f5254283055a48cd885fd6f7218a31",
-    "summary": "<p>给定数组 nums 由正整数组成，找到三个互不重叠的子数组的最大和。</p>\n<p>每个子数组的长度为k，我们要使这3*k个项的和最大化。</p>\n<p>返回每个区间起始索引的列表（索引从 0 开始）。如果有多个结果，返回字典序最小的一个。</p>\n<pre class=\"hljs\"><code>示例:\n\n输入: [1,2,1,2,6,7,5,1], 2\n输出: [0, 3, 5]\n解释:...</code></pre>",
-    "sha": "aa708628a21830c3a9a434af1d83abc73f1bda15"
-  },
-  "f4445dce3b63f0222bcdb0107b386b17c79f9662": {
-    "relatedTags": [
-      "leetcode"
-    ],
-    "createdTime": "3/6/2019",
-    "timeArr": [
-      2019,
-      2,
+      2018,
+      11,
       6,
       0,
       0,
       0,
       0
     ],
-    "title": "Leetcode-629-K个逆序对数组",
-    "uniqueID": "f4445dce3b63f0222bcdb0107b386b17c79f9662",
-    "summary": "<p>给出两个整数 n 和 k，找出所有包含从 1 到 n 的数字，且恰好拥有 k 个逆序对的不同的数组的个数。</p>\n<p>逆序对的定义如下：对于数组的第i个和第 j个元素，如果满i &lt; j且 a[i] &gt; a[j]，则其为一个逆序对；否则不是。</p>\n<p>由于答案可能很大，只需要返回 答案 mod 109 + 7 的值。</p>\n<pre class=\"hljs\"><code>示例 ...</code></pre>",
-    "sha": "8ffffb1af1ec88a9c480e32a47ccbcf07112ab10"
+    "title": "customElements简述-笔记",
+    "uniqueID": "b921517a71d6975276b0a16acc18047667769321",
+    "summary": "<h4>custom elements</h4>\n<p>作用：将HTML页面的功能封装为<code>custom elements</code>(自定义标签)</p>\n<blockquote>\n<p><code>shadow root</code>：渲染隔离</p>\n</blockquote>\n<h4>API</h4>\n<ul>\n<li>\n<p>customElement.define()</p>\n<p>定义一个新的 自定义元素。</p>\n<p>参数1：<code>name</code>自定义...</p>\n</li>\n</ul>",
+    "sha": "a05dffbbc1c300934bccf6d802d61ea2a8458807"
   },
-  "9e3a3a8ad51c1af18295749e10ab6ef54ad2b9de": {
+  "87971cd868e8cd749775bd93de4025ef1746d9d7": {
     "relatedTags": [
-      "leetcode"
+      "笔记"
     ],
-    "createdTime": "3/5/2019",
+    "createdTime": "12/5/2018",
     "timeArr": [
-      2019,
-      2,
+      2018,
+      11,
       5,
       0,
       0,
       0,
       0
     ],
-    "title": "Leetcode-907-子数组最小值的和",
-    "uniqueID": "9e3a3a8ad51c1af18295749e10ab6ef54ad2b9de",
-    "summary": "<p>给定一个整数数组 A，找到 min(B) 的总和，其中 B 的范围为 A 的每个（连续）子数组。</p>\n<p>由于答案可能很大，因此返回答案模 10^9 + 7。</p>\n<pre class=\"hljs\"><code>示例：\n输入：[3,1,2,4]\n输出：17\n解释：\n子数组为 [3]，[1]，[2]，[4]，[3,1]，[1,2]，[2,4]，[3,1,2]，[1...</code></pre>",
-    "sha": "14330b69840bafd4252805eeb96422d95ce2cdc8"
+    "title": "node-querystring和url笔记",
+    "uniqueID": "87971cd868e8cd749775bd93de4025ef1746d9d7",
+    "summary": "<h4>querystring</h4>\n<ul>\n<li>querystring.stringify</li>\n</ul>\n<p>参数一：转换对象</p>\n<p><code>querystring.stringify({x:1,y:2,c:[3,4]})</code></p>\n<p>输出：</p>\n<p><code>x=1&amp;y=2&amp;c=3&amp;c=4</code></p>\n<p>参数二：输出连接符</p>\n<p>`querystring.stringify({x:1,y...</p>",
+    "sha": "65baf42e906ec1137456584196cc311c143c7570"
+  },
+  "1c4e38c3c8cdea68cde83fbec5fb641f85a0c066": {
+    "relatedTags": [
+      "react",
+      "源码",
+      "webpack",
+      "正则"
+    ],
+    "createdTime": "12/3/2018",
+    "timeArr": [
+      2018,
+      11,
+      3,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "源码阅读-react-snapshot",
+    "uniqueID": "1c4e38c3c8cdea68cde83fbec5fb641f85a0c066",
+    "summary": "<p><code>react-snapshot</code>一个用于react服务端渲染的工具，并没有使用<code>react V16+</code>的<code>hydrate</code>，但也能学到一些东西</p>",
+    "sha": "d568476c4e1852e8b6439b1bc26f6ea8435bf4bc"
+  },
+  "b0662d8a00fca2a154662ad07955d8c807636c91": {
+    "relatedTags": [
+      "笔记",
+      "表单"
+    ],
+    "createdTime": "11/29/2018",
+    "timeArr": [
+      2018,
+      10,
+      29,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "图解Http大纲笔记(3)",
+    "uniqueID": "b0662d8a00fca2a154662ad07955d8c807636c91",
+    "summary": "<p>HTTP的瓶颈</p>\n<ul>\n<li>一条连接上只可发送一个请求。</li>\n<li>请求只能从客户端开始。客户端不可以接收除响应以外的指令。</li>\n<li>请求 / 响应首部未经压缩就发送。首部信息越多延迟越大。</li>\n<li>发送冗长的首部。每次互相发送相同的首部造成的浪费较多。</li>\n<li>可任意选择数据压缩格式。非强制压缩发送。</li>\n</ul>\n<p>解决方法：</p>\n<ol>\n<li>Ajax (局部...</li>\n</ol>",
+    "sha": "fe5b6414904c9b660ed09bb3304c04df11fe2d88"
+  },
+  "1fe9476aee8ec9e615a5ea77d64b322605aa28f8": {
+    "relatedTags": [
+      "babel",
+      "ast",
+      "es6"
+    ],
+    "createdTime": "9/20/2018",
+    "timeArr": [
+      2018,
+      8,
+      20,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "从零开始构建babel插件",
+    "uniqueID": "1fe9476aee8ec9e615a5ea77d64b322605aa28f8",
+    "summary": "<h4>回顾</h4>\n<p>在这一片文章中，我构建一个获取函数参数名的工具，是通过<code>esprima</code>去解析<code>AST</code>并对其进行分析判断。</p>\n<p>通过对<code>AST</code>的分析，几乎能兼容所有函数和参数的写法，这是因为它是从语义上分析代码。</p>\n<h4>问题</h4>\n<p>但使用的同时，也发现了3个问题，<strong>第1个是致命的</strong>。</p>\n<ol>\n<li>babel编译。</li>\n</ol>\n<p>...</p>",
+    "sha": "c6aabf028612373f374ca39935fa4a385595f224"
+  },
+  "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49": {
+    "relatedTags": [
+      "canvas"
+    ],
+    "createdTime": "8/26/2018",
+    "timeArr": [
+      2018,
+      7,
+      26,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "canvas执行15万粒子的动画",
+    "uniqueID": "7d5b714624c6bcfe8c2c66acd5114f3f547fbb49",
+    "summary": "<p>最近遇到的，目的是通过粒子动画渲染图片</p>\n<p>图片大小为500*300，并且粒子动画细度为1，也就是粒子总量为15万，并且当动画完成后，图片能完整清晰的显示出来</p>\n<p>最初尝试15万个粒子同时运动，结果标签页直接崩溃了，意料之中...</p>\n<pre class=\"hljs\"><code> <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> py = <span class=\"hljs-number\">0</span>; py &lt; targetH; py ++) ...</code></pre>",
+    "sha": "742860bdc0a8dc633fd2c91feb13e60b00f46229"
+  },
+  "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b": {
+    "relatedTags": [
+      "算法"
+    ],
+    "createdTime": "8/9/2018",
+    "timeArr": [
+      2018,
+      7,
+      9,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "KMP回溯分析",
+    "uniqueID": "d19b06a421c09a6a7e3d012ce39d42cf0cfc380b",
+    "summary": "<p>KMP算法中，当对应的字符不匹配时，需要对前一个索引进行回溯</p>\n<p>一般写法是：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">calcNext</span>(<span class=\"hljs-params\">str,pat</span>)</span>{\n  <span class=\"hljs-comment\">/*...*/</span>\n  <span class=\"hljs-keyword\">if</span>(str[k]!==str[j]){\n    <span class=\"hljs-comment\">// 有些会写成k=next[k]，原理是一样的</span>\n    <span class=\"hljs-comment\">// 这里k表示，所对应当前正在进行对比的...</span></code></pre>",
+    "sha": "dcb12fd298b9d963db9b1d4b12cbff7da94227bc"
+  },
+  "54ce9f8dc0d7064cd42d8c9ee6a7138966a00888": {
+    "relatedTags": [
+      "worker",
+      "promise",
+      "github",
+      "性能"
+    ],
+    "createdTime": "7/16/2018",
+    "timeArr": [
+      2018,
+      6,
+      16,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "处理额外复杂任务的3种方式",
+    "uniqueID": "54ce9f8dc0d7064cd42d8c9ee6a7138966a00888",
+    "summary": "<h4>web worker VS idleRequestCallback VS setTimeout</h4>\n<p><em><strong>测试平台：FireFox</strong></em>(Chrome嵌套worker会有<a href=\"https://bugs.chromium.org/p/chromium/issues/detail?id=31666\">bug</a>)</p>\n<p>|*方法...</p>",
+    "sha": "f28cf454576cd104bf798125e2ecfc91945fc1cf"
+  },
+  "a6a06a76f20c9fd24c4954c100dbd016a75a5974": {
+    "relatedTags": [
+      "缓存",
+      "源码",
+      "性能",
+      "github"
+    ],
+    "createdTime": "7/15/2018",
+    "timeArr": [
+      2018,
+      6,
+      15,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "2个JS缓存工具学习心得",
+    "uniqueID": "a6a06a76f20c9fd24c4954c100dbd016a75a5974",
+    "summary": "<h4>nano-memoize 和 fast-memoize</h4>\n<p>首先，这2个工具的实现源码是极其相似的，基本上，只要阅读了其中一个源码，也就了解了另外一个的实现。</p>\n<p>fast-memoize导图：\n![](https://stonehank.github.io/articles/img/fast-memoize.png...</p>",
+    "sha": "4bdf87c5d346920df9247464ab6b24fdcc7791ab"
+  },
+  "2cf2373f2fa9c28ce15661630048ac1848d2530f": {
+    "relatedTags": [
+      "源码",
+      "github",
+      "缓存"
+    ],
+    "createdTime": "7/13/2018",
+    "timeArr": [
+      2018,
+      6,
+      13,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "源码阅读-reselect源码学习",
+    "uniqueID": "2cf2373f2fa9c28ce15661630048ac1848d2530f",
+    "summary": "<h4>reselect源码亮点介绍</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reselect/README.md\">完整源码说明注释</a></p>\n<p>导图：</p>\n<p>![](https://stonehank.github.io...</p>",
+    "sha": "85d8aee7f13669499db1bd4d7c3233117665daea"
+  },
+  "1478ca77fae5cf65527c2cf310fae0e530ea7496": {
+    "relatedTags": [
+      "router",
+      "源码",
+      "react",
+      "github"
+    ],
+    "createdTime": "7/8/2018",
+    "timeArr": [
+      2018,
+      6,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "reach-router",
+    "uniqueID": "1478ca77fae5cf65527c2cf310fae0e530ea7496",
+    "summary": "<h4>reach/router</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.reach-router/README.md\">完整源码说明注释</a></p>\n<p>一张导图：</p>\n<p>![](https://stonehank.githu...</p>",
+    "sha": "a479afc7ac0daaf4863905d74229db3658f16354"
+  },
+  "94269872739a3bce7b949811a96155420826e1bd": {
+    "relatedTags": [
+      "源码",
+      "router",
+      "promise",
+      "算法"
+    ],
+    "createdTime": "7/7/2018",
+    "timeArr": [
+      2018,
+      6,
+      7,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "源码阅读-reach-router源码学习到的3",
+    "uniqueID": "94269872739a3bce7b949811a96155420826e1bd",
+    "summary": "<p>All Consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.\nThe propagation from Provider to its descendant Consumers is not subject to the shouldComponentUpdate method,\nso the Consumer is updated even when an ancestor component bails out of the update.</p>",
+    "sha": "d91847cb95128b4df27dc580f59ae7f12b7a6af8"
+  },
+  "e3c935001e875147dac6c7b68d6d86f7cfb78754": {
+    "relatedTags": [
+      "算法"
+    ],
+    "createdTime": "7/4/2018",
+    "timeArr": [
+      2018,
+      6,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "编码-加密-哈希-混淆不同点-文章翻译",
+    "uniqueID": "e3c935001e875147dac6c7b68d6d86f7cfb78754",
+    "summary": "<p><a href=\"https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/\">原文阅读</a></p>\n<p>![js_obfuscation](https://stonehank.github.io/articles/img/js_obfuscation.png...</p>",
+    "sha": "e315fbb406b0f3100dfcf4ec5b7ebb7fc1f41a83"
+  },
+  "ab4d7fd4fc306830807768df35b00d9bc91c9d20": {
+    "relatedTags": [
+      "源码",
+      "github"
+    ],
+    "createdTime": "7/2/2018",
+    "timeArr": [
+      2018,
+      6,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "hyperapp-patch",
+    "uniqueID": "ab4d7fd4fc306830807768df35b00d9bc91c9d20",
+    "summary": "<h4>hyperapp-patch</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>patch是hyperapp进行节点更新的核心，主要步骤：</p>\n<ul>\n<li>先判断n...</li>\n</ul>",
+    "sha": "59bb573e47697c7551bfe0191079a8772342b529"
+  },
+  "041e14e2880378f2920fae48877b46694fbfc26d": {
+    "relatedTags": [
+      "源码",
+      "github",
+      "react"
+    ],
+    "createdTime": "7/1/2018",
+    "timeArr": [
+      2018,
+      6,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "超简洁1kb框架-hyperapp",
+    "uniqueID": "041e14e2880378f2920fae48877b46694fbfc26d",
+    "summary": "<h4>hyperapp框架</h4>\n<p><a href=\"https://github.com/stonehank/sourcecode-analysis/blob/master/source-code.hyperapp/README.md\">完整源码说明注释</a></p>\n<p>一个极小的类react框架，也是通过 Virtual DOM对节点进行对比（通过...</p>",
+    "sha": "ec662a13e128b776e46f1ef9ec3fdaa63e0d7381"
+  },
+  "7a618f35d69b48cbdbef3e7285fffc03098e720a": {
+    "relatedTags": [
+      "disqus"
+    ],
+    "createdTime": "10/27/2018",
+    "timeArr": [
+      2018,
+      9,
+      27,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "解决disqus无法正确显示每一个comment count",
+    "uniqueID": "7a618f35d69b48cbdbef3e7285fffc03098e720a",
+    "summary": "<p>博客添加了<code>disqus</code>，并且在文章列表处每一篇标题边上添加一个评论计数器。</p>\n<p>它通过<code>identifier</code>去获取，<code>identifier</code>在文章详情页面提供配置。</p>\n<p>问题是：<strong>这个计数器并不是每一篇文章都能正确显示</strong>，有的列表能显示2个，有的列表一个都不显示，</p>\n<p>![](https://stonehank.g...</p>",
+    "sha": "901e43a8e9f1c5cf70956f7fb9139ccb541370fd"
+  },
+  "f410e8013460016ef21db0425ddcc6ef131809a0": {
+    "relatedTags": [
+      "react",
+      "webpack",
+      "github",
+      "babel",
+      "css"
+    ],
+    "createdTime": "10/14/2018",
+    "timeArr": [
+      2018,
+      9,
+      14,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "一个create-react-app项目构建体积的压缩",
+    "uniqueID": "f410e8013460016ef21db0425ddcc6ef131809a0",
+    "summary": "<p>这是一个个人博客，基于<code>antd</code>搭建，这个项目构建流程如下：</p>\n<ol>\n<li>先启动<code>fetch-blog-serve</code>，这是一个能将你的<code>repertory</code>的blog内容拉去到本地，并且写入<code>xxx.json</code>。</li>\n<li>在写入之前会生成一个列表，包含每一篇blog的标题、日期、标签、摘要、sha值(唯一性判断)。</li>\n<li>前...</li>\n</ol>",
+    "sha": "e0bc2c78310a534ecec19f96adac09f5c5cb835a"
+  },
+  "6b947579be3958bc587abb5535d818129ff810da": {
+    "relatedTags": [
+      "笔记",
+      "表单"
+    ],
+    "createdTime": "11/26/2018",
+    "timeArr": [
+      2018,
+      10,
+      26,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "图解Http大纲笔记(2)",
+    "uniqueID": "6b947579be3958bc587abb5535d818129ff810da",
+    "summary": "<p>实体首部字段</p>\n<ul>\n<li>Content-Encoding：实体编码方式(gzip, compress, deflate, identity)</li>\n<li>Content-Location：报文主体返回资源对应的 URI(不一定是请求URI)。</li>\n<li>Content-Range：匹配部分。</li>\n<li>Content-Type：实体内对象的媒...</li>\n</ul>",
+    "sha": "ad5b165bf43fc96f65189cf43aad4253aafc6b16"
+  },
+  "b3f75a48780077e930c5409efefb6e27050a2057": {
+    "relatedTags": [
+      "mysql"
+    ],
+    "createdTime": "9/4/2018",
+    "timeArr": [
+      2018,
+      8,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "MYSQL常用命令记录",
+    "uniqueID": "b3f75a48780077e930c5409efefb6e27050a2057",
+    "summary": "<ul>\n<li>给表添加别名(M是movies的别名,T是title的输出名)</li>\n</ul>\n<p><code>SELECT title as T FROM movies M;</code></p>\n<ul>\n<li>添加row</li>\n</ul>\n<p><code>INSERT INTO library VALUES (1,'javascript',8);</code></p>\n<ul>\n<li>条件排序order by</li>\n</ul>\n<p>`SELECT *  F...</p>",
+    "sha": "876bcd03410d0865b98212677e8ea1297deefb8a"
+  },
+  "07cc2d304f96574c9995198fe6ff05e9fc342322": {
+    "relatedTags": [
+      "react",
+      "es6",
+      "redux"
+    ],
+    "createdTime": "6/10/2018",
+    "timeArr": [
+      2018,
+      5,
+      10,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "React.Children",
+    "uniqueID": "07cc2d304f96574c9995198fe6ff05e9fc342322",
+    "summary": "<p><code>React.Children</code>和<code>this.props.children</code>都是获取父组件的子元素(子组件)</p>\n<p>this.props.children:</p>\n<ol>\n<li>1个子元素  =&gt; {Object}(React元素(组件)对象)</li>\n<li>多个子元素 =&gt; [{Object},{Object}...]</li>\n<li>无子元素   =...</li>\n</ol>",
+    "sha": "30a4f1281825a6b1c904adf8abddc4b886ccbd1a"
+  },
+  "e4ce5c4bef01302a0d060390b3bb12ae149f583f": {
+    "relatedTags": [
+      "源码",
+      "react",
+      "笔记"
+    ],
+    "createdTime": "11/25/2018",
+    "timeArr": [
+      2018,
+      10,
+      25,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "源码阅读-react-infinite-scroller-笔记",
+    "uniqueID": "e4ce5c4bef01302a0d060390b3bb12ae149f583f",
+    "summary": "<ol>\n<li>\n<p><code>offsetParent</code></p>\n<p><code>offsetParent</code>返回一个指向最近的包含该元素的定位元素.</p>\n<p><code>offsetParent</code>很有用，因为计算<code>offsetTop</code>和<code>offsetLeft</code>都是相对于<code>offsetParent</code>边界的。</p>\n<p><code>offsetParent</code>...</p>\n</li>\n</ol>",
+    "sha": "ca1df5a51761dd3bb612a4ab486576a8102d2d1b"
+  },
+  "42b4b2b7669e8fdbc1cd63d0eb42e60b98c48f8e": {
+    "relatedTags": [
+      "源码",
+      "react",
+      "redux"
+    ],
+    "createdTime": "11/18/2018",
+    "timeArr": [
+      2018,
+      10,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "源码阅读-react-redux-参数为obj的默认参数写法",
+    "uniqueID": "42b4b2b7669e8fdbc1cd63d0eb42e60b98c48f8e",
+    "summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">myFunc</span>(<span class=\"hljs-params\">{x=<span class=\"hljs-number\">1</span>,y=<span class=\"hljs-number\">2</span>}</span>)</span>{\n  <span class=\"hljs-built_in\">console</span>.log(x,y)  \n  <span class=\"hljs-comment\">// ...</span>\n}\nmyFunc({})      <span class=\"hljs-comment\">// x:1,y:2</span>\nmyFunc()        <span class=\"hljs-comment\">// 报错</span>\nmyFunc(<span class=\"hljs-literal\">null</span>)    <span class=\"hljs-comment\">// 报错</span>\n</code></pre>\n<p>不传参数，则从<code>undefined</code>里...</p>",
+    "sha": "bca6508299954ec1022678e1f36b060954a8e990"
+  },
+  "75b7a94b953a19ffc6d8a4b8352441ee521ee46e": {
+    "relatedTags": [
+      "react",
+      "redux",
+      "源码"
+    ],
+    "createdTime": "11/18/2018",
+    "timeArr": [
+      2018,
+      10,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "源码阅读-react-redux-使用Hooks替换一处逻辑",
+    "uniqueID": "75b7a94b953a19ffc6d8a4b8352441ee521ee46e",
+    "summary": "<p>Provider组件中有2个生命周期函数：</p>\n<pre class=\"hljs\"><code>componentWillUnmount() {\n  if (this.unsubscribe) this.unsubscribe()\n  this._isMounted = false\n}\n\ncomponentDidUpdate(prevProps) {\n  //...</code></pre>",
+    "sha": "914eddfc21a7198b0e39080e62fc5cf7ec280993"
+  },
+  "f559d47fb4cf8cfa9bfb2bd0d9bba58e079f66ec": {
+    "relatedTags": [
+      "笔记"
+    ],
+    "createdTime": "11/17/2018",
+    "timeArr": [
+      2018,
+      10,
+      17,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "WeakMap理解笔记",
+    "uniqueID": "f559d47fb4cf8cfa9bfb2bd0d9bba58e079f66ec",
+    "summary": "<h4>WeakMap</h4>\n<ul>\n<li>\n<p>键是弱引用</p>\n<p>如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象是否还在该弱引用的结构中</p>\n</li>\n</ul>\n<p>因此，键一旦丢失，再也无法获取内容</p>\n<ol>\n<li>必须使用对象作为键，当对象引用消失，自动清除</li>\n<li>必须通过键去获取内容</li>\n</ol>\n<p>只要保管好 key ，它就是...</p>",
+    "sha": "200fdba2077d822ff14086c8249fb87383fb32dc"
+  },
+  "cd67e255a685952b6e3ba3efb90befd0197d1fe4": {
+    "relatedTags": [
+      "笔记",
+      "缓存"
+    ],
+    "createdTime": "11/14/2018",
+    "timeArr": [
+      2018,
+      10,
+      14,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "图解Http大纲笔记(1)",
+    "uniqueID": "cd67e255a685952b6e3ba3efb90befd0197d1fe4",
+    "summary": "<ul>\n<li>TCP/IP分为4个层</li>\n</ul>\n<table>\n<thead>\n<tr>\n<th style=\"text-align:center\">名称</th>\n<th style=\"text-align:center\">代表</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align:center\">应用层</td>\n<td style=\"text-align:center\">HTTP</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">传输层</td>\n<td style=\"text-align:center\">TCP</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">网络层</td>\n<td style=\"text-align:center\">IP</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">链路层</td>\n<td style=\"text-align:center\"></td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>\n<p>HTTP协议</p>\n<ul>\n<li>生成请求提交(客户端)</li>\n<li>处理请求(服务端)</li>\n</ul>\n</li>\n<li>\n<p>DNS协议</p>\n<ul>\n<li>根据域名查找IP</li>\n</ul>\n</li>\n<li>\n<p>TCP...</p>\n</li>\n</ul>",
+    "sha": "a606cff58ed32d4564139956743675e9c438e11a"
+  },
+  "98dd615567b3aca2beb98ad1d65b71331760149b": {
+    "relatedTags": [
+      "react",
+      "缓存"
+    ],
+    "createdTime": "10/31/2018",
+    "timeArr": [
+      2018,
+      9,
+      31,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "React v16.7 Hooks(2)",
+    "uniqueID": "98dd615567b3aca2beb98ad1d65b71331760149b",
+    "summary": "<p><code>useCallback, useMemo, useRef, useImperativeMethods, useMutationEffect, useLayoutEffect</code></p>",
+    "sha": "4f37e4ca6137a17d6454b46239f1712d981ecdc7"
+  },
+  "f38c0d6abc75ce713d9bcd733aa66d5097d25e56": {
+    "relatedTags": [
+      "react"
+    ],
+    "createdTime": "10/29/2018",
+    "timeArr": [
+      2018,
+      9,
+      29,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "React v16.7 Hooks(1)",
+    "uniqueID": "f38c0d6abc75ce713d9bcd733aa66d5097d25e56",
+    "summary": "<h4>Hooks</h4>\n<p><code>useState, useEffect, useContext</code></p>",
+    "sha": "fc32341fa1074291a622a829343b7b8a33955b7c"
+  },
+  "9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da": {
+    "relatedTags": [
+      "graphql",
+      "babel"
+    ],
+    "createdTime": "11/13/2018",
+    "timeArr": [
+      2018,
+      10,
+      13,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "GraphQL服务器的简易实现",
+    "uniqueID": "9b5e4a6871e0353c0cbc1f47c9de37eabe73f5da",
+    "summary": "<ul>\n<li>\n<p>为什么要实现一个<code>GraphQL</code>服务器</p>\n<p>通过自己实现，更深入了解<code>GraphQL</code>怎么构造，怎么获取，一些术语</p>\n</li>\n<li>\n<p>直接入正题，如何实现一个<code>GraphQL</code>服务器</p>\n<p>了解4种类型</p>\n<ul>\n<li>\n<p>Query</p>\n<p>执行内容查询</p>\n</li>\n<li>\n<p>Muta...</p>\n</li>\n</ul>\n</li>\n</ul>",
+    "sha": "2df708b7274da2278a0b10daebf16bf60e8a965f"
+  },
+  "734ec46092d55f646e70dce2766a3c42e017cad4": {
+    "relatedTags": [
+      "github"
+    ],
+    "createdTime": "9/28/2018",
+    "timeArr": [
+      2018,
+      8,
+      28,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "关于github-api.v3认证方面的总结",
+    "uniqueID": "734ec46092d55f646e70dce2766a3c42e017cad4",
+    "summary": "<h4>GithubAPI-Authorization</h4>\n<p>一些特定的API，例如获取<code>user</code>的public资料，<code>repo</code>的内容等，不认证也可以获取，\n区别是，不认证，大约每个小时只有60次调用的次数限制，而使用认证后，则大约有5000次的调用次数。</p>\n<p>认证有2方面，</p>\n<ol>\n<li>\n<p>使用你自己的名义去做一些事情</p>\n</li>\n<li>\n<p>...</p>\n</li>\n</ol>",
+    "sha": "6b205fb9eb1995355142e4b491f0e45bac6ca9f9"
+  },
+  "39277c1a6e1a6c2280d116793ed086ee2507fa7e": {
+    "relatedTags": [
+      "worker",
+      "promise",
+      "缓存"
+    ],
+    "createdTime": "9/26/2018",
+    "timeArr": [
+      2018,
+      8,
+      26,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "service-worker要点概括",
+    "uniqueID": "39277c1a6e1a6c2280d116793ed086ee2507fa7e",
+    "summary": "<p>service worker和cache</p>\n<p>客户端：register</p>\n<p>服务端：install, activate, fetch</p>\n<ul>\n<li><code>install</code></li>\n</ul>\n<p>主要作用是内部回调中的参数<code>event</code>的方法<code>event.waitUntil</code>中缓存本次的资源。</p>\n<ul>\n<li><code>activate</code></li>\n</ul>\n<p>主要作用是在内部回调中的参数`e...</p>",
+    "sha": "e35e017c1e99651fcf6cabf2e7873c3ad59e795c"
+  },
+  "ca04d014d61ce50791c49363dae3a3d3ae3b1e54": {
+    "relatedTags": [
+      "babel",
+      "ast",
+      "性能"
+    ],
+    "createdTime": "9/24/2018",
+    "timeArr": [
+      2018,
+      8,
+      24,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "babel插件的一些总结",
+    "uniqueID": "ca04d014d61ce50791c49363dae3a3d3ae3b1e54",
+    "summary": "<h4>BABLE插件编写一些总结</h4>\n<ol>\n<li>\n<p>babel-plugin总是先于babel-presets执行，但实际上它们是并行执行，因此如果需要编写一个有依赖的babel插件，其实就是\nrace模式。https://jamie.build/babel-plugin-ordering.html</p>\n<p>这么做是为...</p>\n</li>\n</ol>",
+    "sha": "35b77bbafb93c7b66d99747c168be81a28ee84aa"
+  },
+  "ddc3d1d8d6334cc464eb634a0d813d48c0d48776": {
+    "relatedTags": [
+      "ast",
+      "正则",
+      "github",
+      "npm",
+      "es6"
+    ],
+    "createdTime": "9/18/2018",
+    "timeArr": [
+      2018,
+      8,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "如何通过AST树去获取函数参数名",
+    "uniqueID": "ddc3d1d8d6334cc464eb634a0d813d48c0d48776",
+    "summary": "<h4>写在最前</h4>\n<p>最近项目有个需求，获取函数参数名，听起来很简单，但有了ES6，参数和函数写法千奇百怪，在github上大概看了几个库，基本上都是正则，\n对通用的写法能够覆盖，稍微越过边界，往往无法正确匹配。</p>\n<p>于是就有了使用<code>AST</code>去进行覆盖查找的想法。</p>\n<h4>概念</h4>\n<p>抽象语法树（abstract synta...</p>",
+    "sha": "a7854a9c9c9dd7722bb525311af632ee5752fe47"
+  },
+  "486e17cd17cf6034e71874e022bd9b11474cb15f": {
+    "relatedTags": null,
+    "createdTime": "9/17/2018",
+    "timeArr": [
+      2018,
+      8,
+      17,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "一段模拟尾调用的代码",
+    "uniqueID": "486e17cd17cf6034e71874e022bd9b11474cb15f",
+    "summary": "<pre class=\"hljs\"><code><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">tco</span>(<span class=\"hljs-params\">f</span>) </span>{\n            <span class=\"hljs-keyword\">var</span> value;\n            <span class=\"hljs-keyword\">var</span> active = <span class=\"hljs-literal\">false</span>;\n            <span class=\"hljs-keyword\">var</span> accumulated = [];\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">accumulator</span>(<span class=\"hljs-params\"></span>) </span>{\n   ...</code></pre>",
+    "sha": "d4ccfc9c818cb82435d9ad49679ef1c39a597b27"
+  },
+  "a20bb2e8ea076042017b4a5a990e2aac82af6a1b": {
+    "relatedTags": [
+      "es6"
+    ],
+    "createdTime": "9/14/2018",
+    "timeArr": [
+      2018,
+      8,
+      14,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "ES6的Generators函数双向传值",
+    "uniqueID": "a20bb2e8ea076042017b4a5a990e2aac82af6a1b",
+    "summary": "<p>Generators函数的双向传递</p>\n<p>每次调用<code>answer()</code>，相当于在<code>generators</code>函数的next方法加入参数，这个参数会返回给<code>yield</code>的返回值</p>\n<p>在函数内部可以判断这个返回值，实现双向传递</p>\n<pre class=\"hljs\"><code>  <span class=\"hljs-keyword\">let</span> stepCount=<span class=\"hljs-number\">1</span>\n  <span class=\"hljs-keyword\">let</span> currentPoint=<span class=\"hljs-number\">1</span>\n  functi...</code></pre>",
+    "sha": "cacba9466975c15e93a9cba0db310bf12752a2c2"
+  },
+  "be95143b4d5b92aa8901844dde5e73230a1d2f49": {
+    "relatedTags": [
+      "npm",
+      "正则",
+      "es6",
+      "ast"
+    ],
+    "createdTime": "9/13/2018",
+    "timeArr": [
+      2018,
+      8,
+      13,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "获取函数参数名称",
+    "uniqueID": "be95143b4d5b92aa8901844dde5e73230a1d2f49",
+    "summary": "<p>今天碰到一个需求，获取函数参数名称，\n刚开始打算用正则去处理，但函数写法(包括es6)也挺多的，</p>\n<p>例如：</p>\n<pre class=\"hljs\"><code>function x(a,b){}\nfunction x(a=5,b=3){}\nlet x=function(a=5,b){}\nlet x=(a=5,b)=&gt;a+b\nlet x=a=&gt;a*2\nfuncti...</code></pre>",
+    "sha": "666081661a6e70d949e3a7754293a33f83e18432"
+  },
+  "1ce699882ae4c19377061e00fa95e2bc41b3f185": {
+    "relatedTags": [
+      "缓存",
+      "性能"
+    ],
+    "createdTime": "9/8/2018",
+    "timeArr": [
+      2018,
+      8,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "文章记录—为什么要知道js的引擎如何工作",
+    "uniqueID": "1ce699882ae4c19377061e00fa95e2bc41b3f185",
+    "summary": "<p>原文：[https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553](https://medium.freecodecamp.org/javascript-ess...</p>",
+    "sha": "f6d88502864f6fa2ddb9fd4f3a6d78cbd5bc29c5"
+  },
+  "c8b2b19bf52484de902c2d4d23a44ed8b158ab18": {
+    "relatedTags": [
+      "算法",
+      "leetcode"
+    ],
+    "createdTime": "9/6/2018",
+    "timeArr": [
+      2018,
+      8,
+      6,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "关于位操作符应用的算法题",
+    "uniqueID": "c8b2b19bf52484de902c2d4d23a44ed8b158ab18",
+    "summary": "<p><a href=\"https://leetcode.com/problems/maximum-product-of-word-lengths/\">原题目</a>：\n给定一个字符串数组，找到长度的最大值<code>length(word[i]) * length(word[j])</code>，其中两个单词中的字母无相同。您可以假定每个单词只包含小写字母。如果没有...</p>",
+    "sha": "7963f582de66e6e2582fb61249dbba57221190fe"
+  },
+  "0dd0d60aa80404051e5b01683717fd83676f1c68": {
+    "relatedTags": [
+      "canvas"
+    ],
+    "createdTime": "9/3/2018",
+    "timeArr": [
+      2018,
+      8,
+      3,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "drawImage的9个参数",
+    "uniqueID": "0dd0d60aa80404051e5b01683717fd83676f1c68",
+    "summary": "<p>canvas的drawImage方法组多可以有9个参数，如下：</p>\n<pre class=\"hljs\"><code>void ctx.drawImage(image, dx, dy);\nvoid ctx.drawImage(image, dx, dy, dWidth, dHeight);\nvoid ctx.drawImage(image, sx, sy, sWi...</code></pre>",
+    "sha": "9037842d9026af5c37a1ba0eca58e9071b5903e3"
+  },
+  "c717f697562ea9e27b08040a52e05db0718b1a50": {
+    "relatedTags": [
+      "git"
+    ],
+    "createdTime": "9/1/2018",
+    "timeArr": [
+      2018,
+      8,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "一个关于GIT撤销合并的处理revert",
+    "uniqueID": "c717f697562ea9e27b08040a52e05db0718b1a50",
+    "summary": "<pre class=\"hljs\"><code>init -&gt; v1 -&gt; v2 -&gt; v3 -- faulty merge -&gt; v4  (master)\n           \\            /                     \n            d1  --&gt;  d2                               ...</code></pre>",
+    "sha": "1de2e1722337b507aecf967ac8e888cae31f7bbb"
+  },
+  "e3b94840e980e8848b479296e62a83d39630ab76": {
+    "relatedTags": [
+      "mutationobserver"
+    ],
+    "createdTime": "8/29/2018",
+    "timeArr": [
+      2018,
+      7,
+      29,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "MutationObserver对象",
+    "uniqueID": "e3b94840e980e8848b479296e62a83d39630ab76",
+    "summary": "<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> observer=<span class=\"hljs-keyword\">new</span> MutationObserver(<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\">records</span>)</span>{\n  <span class=\"hljs-comment\">// 获取变化的DOM的一些属性 </span>\n  records.API1\n})\n</code></pre>\n<p>API1：</p>\n<pre class=\"hljs\"><code>API1={\ntype：观察的变动类型（attribute、characterData或者chil...</code></pre>",
+    "sha": "8540f01502cc34ee1bdc412b3483427e52a8e911"
+  },
+  "af105b2df12bc15528a731d149193b4aa9927533": {
+    "relatedTags": [
+      "算法"
+    ],
+    "createdTime": "8/27/2018",
+    "timeArr": [
+      2018,
+      7,
+      27,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "算法记录-最长回文子字符串",
+    "uniqueID": "af105b2df12bc15528a731d149193b4aa9927533",
+    "summary": "<p>思路：利用对称思想</p>\n<ol>\n<li>先将原字符串转换成转换成 <code>#x$x$x$</code> 的形式(一定是奇数)</li>\n<li>p为一个数组，储存每一个值的最大回文数量的一半+1，例如：'ababa' 对应的p 就是<code>[1,2,3,2,1]</code></li>\n<li><code>max</code>为当前已经计算过得最大回文量<code>p[id]</code>+对应的位置<code>id</code>，默认为0或者-infi...</li>\n</ol>",
+    "sha": "b43da9771d20a5bb5e735c832af36f85b932df54"
+  },
+  "a5bed495fbfaa670dcb632ac350bfa5c527e6eca": {
+    "relatedTags": null,
+    "createdTime": "8/23/2018",
+    "timeArr": [
+      2018,
+      7,
+      23,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "深入海明距离",
+    "uniqueID": "a5bed495fbfaa670dcb632ac350bfa5c527e6eca",
+    "summary": "<p>通常海明距离的计算使用 <code>^</code>，再计算1的次数</p>\n<p>但如果遇到大量数据，并且需要计算相互的海明距离，这种方法就不合适了，因为每次计算1的次数相对消耗是巨大的</p>\n<p>另一种计算海明距离的方法：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">/**\n* @param nums {Array}\n* @returns {number}\n*/</span>\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">cal</span>...</span></code></pre>",
+    "sha": "4a3568d093ea0316f644a973e4b91143b8563bd4"
+  },
+  "80cda11f9e18b118723c11b54a629d2ce4a71c79": {
+    "relatedTags": [
+      "性能"
+    ],
+    "createdTime": "8/21/2018",
+    "timeArr": [
+      2018,
+      7,
+      21,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "对比map,{},[]的存取效率",
+    "uniqueID": "80cda11f9e18b118723c11b54a629d2ce4a71c79",
+    "summary": "<p>对比了map和hashTable对数据存取的性能，key类型为string</p>\n<p>测试方法：</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">// CODES是字符串组成的数组</span>\n\n<span class=\"hljs-comment\">// map</span>\n<span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> x=<span class=\"hljs-number\">0</span>;x&lt;<span class=\"hljs-number\">2</span>;x++){\n    <span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> k=<span class=\"hljs-number\">0</span>;k&lt;CODES.length;k++){\n      <span class=\"hljs-keyword\">let</span> i=CODES[k]\n   ...</code></pre>",
+    "sha": "d2b8968488e3098bc8d6a318374cc0b57ab9511d"
+  },
+  "7d330d0cc2eaff951ab1a45bc216f483c483f6e0": {
+    "relatedTags": [
+      "canvas"
+    ],
+    "createdTime": "8/20/2018",
+    "timeArr": [
+      2018,
+      7,
+      20,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "canvas处理大量重复运动",
+    "uniqueID": "7d330d0cc2eaff951ab1a45bc216f483c483f6e0",
+    "summary": "<p>canvas做大量重复的粒子运动，例如雪花，星光闪烁</p>\n<p>并不需要针对每一个粒子进行动画，例如</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> i=<span class=\"hljs-number\">0</span>;i&lt;particles,length;i++){\n  <span class=\"hljs-keyword\">let</span> p=particles[i]\n  ctx.beginPath()\n  ctx.fillStyle=<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>)</span>{}\n  ...</code></pre>",
+    "sha": "e43ef69f83c35b3fbffbb984a2b1c56c4c7db591"
+  },
+  "f72ad63b02516bf71d570ecbf6c39488e64deb8e": {
+    "relatedTags": [
+      "github"
+    ],
+    "createdTime": "8/18/2018",
+    "timeArr": [
+      2018,
+      7,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "记录一次xhr.upload.onprogress填坑",
+    "uniqueID": "f72ad63b02516bf71d570ecbf6c39488e64deb8e",
+    "summary": "<h4>一次xhr.upload.onprogress与multiparty搭配的踩坑记录</h4>\n<p>有一个[分段上传的demo](https://github.com/stonehank/blogs/blob/master/07-26-%E9%80%9A%E8%BF%87blob%E5%AE%9E%E7%8E%B0%E6%96...</p>",
+    "sha": "bc7ed8c6eae00e50c69810221c75724e5987c3ef"
+  },
+  "bd9804a5d37884a5eff1d06717429f0517cd2782": {
+    "relatedTags": [
+      "表单"
+    ],
+    "createdTime": "8/17/2018",
+    "timeArr": [
+      2018,
+      7,
+      17,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "原生表单验证相关",
+    "uniqueID": "bd9804a5d37884a5eff1d06717429f0517cd2782",
+    "summary": "<h4>表单验证原生</h4>\n<ul>\n<li>\n<p>查看是否通过验证：\n<code>ele.checkValidity</code></p>\n</li>\n<li>\n<p>验证不通过的时候的提示（只读）：\n<code>ele.validationMessage</code></p>\n<p>可以通过setCustomValidity修改，设为空字符串表示取消自定义提示，但要设定条件，否则默认不通过</p>\n<p>`ele.set...</p>\n</li>\n</ul>",
+    "sha": "9d6992f642b20f00a885c2f614ed58f5ff23a0e4"
+  },
+  "0d719ffaecb85402ef37b03bbd557d9adf641cd7": {
+    "relatedTags": [
+      "源码"
+    ],
+    "createdTime": "8/16/2018",
+    "timeArr": [
+      2018,
+      7,
+      16,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "源码阅读-lodash-一个创建数组的思考",
+    "uniqueID": "0d719ffaecb85402ef37b03bbd557d9adf641cd7",
+    "summary": "<h4>创建数组的思考</h4>\n<p><code>lodash.js---&gt;.internal--&gt;baseClone.js</code>内部</p>\n<p>有一句：<code>const result = new array.constructor(length)</code></p>\n<p>这里array是一个经过<code>Array.isArray(array)===true</code>判断的数组，</p>\n<p>这句...</p>",
+    "sha": "7166eb621f1c1bf86fd6cf194dc19b9f3f408810"
+  },
+  "b8d2829958b70c73fa0733e45fe779eff931cbc5": {
+    "relatedTags": [
+      "indexeddb"
+    ],
+    "createdTime": "8/15/2018",
+    "timeArr": [
+      2018,
+      7,
+      15,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "indexedDB简要增删查",
+    "uniqueID": "b8d2829958b70c73fa0733e45fe779eff931cbc5",
+    "summary": "<p>indexedDB\n在客户端进行保存保存：</p>\n<pre class=\"hljs\"><code>{id: 1, name: &quot;张三&quot;, age: 24, email: &quot;zhangsan@example.com&quot;}\n{id: 2, name: &quot;李四&quot;, age: 54, email: &quot;lisi@example.com&quot;}\n{id: 3, name: &quot;王五...</code></pre>",
+    "sha": "b9c382c33ecfc711c7de0a929d346090b6c78122"
+  },
+  "4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1": {
+    "relatedTags": [
+      "cors",
+      "表单"
+    ],
+    "createdTime": "8/14/2018",
+    "timeArr": [
+      2018,
+      7,
+      14,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "CORS通信",
+    "uniqueID": "4aa3042e4e1e6dbca1c52b5895fc12ef898bb9a1",
+    "summary": "<p>CORS通信就是服务端设置<code>Access-Control-Allow-Origin</code>等配置</p>\n<p>分为2类请求，简单请求和非简单请求</p>\n<ul>\n<li>\n<p>简单请求：</p>\n<p>无预检，直接传递数据的时候检查是否同源</p>\n<p>Content-Type类型：</p>\n<p>`application/x-www-form-urlenco...</p>\n</li>\n</ul>",
+    "sha": "bc9cd7d945070b9e0abe4cde44baf13cf7044425"
+  },
+  "61201b4391ad7bf76e96a9ebee00ef017060bc32": {
+    "relatedTags": [
+      "webpack",
+      "github",
+      "react",
+      "es6"
+    ],
+    "createdTime": "5/16/2019",
+    "timeArr": [
+      2019,
+      4,
+      16,
+      0,
+      0,
+      0,
+      0
+    ],
+    "title": "记录CRA的webpack配置曾经的issue-5",
+    "uniqueID": "61201b4391ad7bf76e96a9ebee00ef017060bc32",
+    "summary": "<p>问题地址：<a href=\"https://github.com/facebook/create-react-app/issues/240\">https://github.com/facebook/create-react-app/issues/240</a></p>\n<p>触发原因：</p>\n<p>在一次处理组件的分割子组件和引用时，由于大小写的失误，导致热更...</p>",
+    "sha": "8d6fcb285907c764f600268a93546755ad3d3afa"
   }
 }

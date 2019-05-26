@@ -4,6 +4,7 @@
       "react",
       "redux",
       "router",
+      "graphql",
       "webpack",
       "缓存",
       "算法",
