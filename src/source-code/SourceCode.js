@@ -18,7 +18,7 @@ export default function SourceCode(props){
       .catch(err=>{
         console.error(err)
       })
-  },[props.sourceCodeNavSHA])
+  },[props,content,props.sourceCodeNavSHA])
   return (
     contentLoading
       ? <Loading loading={contentLoading}
