@@ -103,7 +103,7 @@ export default class ArticleHeaderProps extends React.Component{
         }
         { showComment
           ? <Col>
-              评论数：<ValineCount path={window.location.origin+"__uniq__"+curContentData[showComment.sha]}/>
+              评论数：<ValineCount uniqStr={window.location.origin+"__uniq__"+curContentData[showComment.sha]}/>
               {/*<CustomComment.Count title={curContentData[showComment.title]}*/}
                                    {/*sha={curContentData[showComment.sha]}*/}
                                    {/*locationOrigin={window.location.origin} />*/}
