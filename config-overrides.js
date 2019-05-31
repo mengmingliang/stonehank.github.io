@@ -25,10 +25,10 @@ module.exports = override(
   addWebpackAlias({
     ['@ant-design/icons/lib/dist$']:path.resolve(__dirname, './src/icons.js')
   }),
-  addBundleVisualizer({
-    "analyzerMode": "static",
-    "reportFilename": "report.html"
-  })
+  // addBundleVisualizer({
+  //   "analyzerMode": "static",
+  //   "reportFilename": "report.html"
+  // })
 );
 
 

@@ -174,12 +174,14 @@ export default class ArticleDetailComponent extends React.Component{
         <article style={styles.article}>
           <header>
             <h1 style={styles.articleTitle}>{curPropsData[titleProp]}</h1>
-            <ArticleHeaderProps curContentData={curPropsData}
-                                singleRenderPropsOnHeader={singleRenderPropsOnHeader}
-                                multiRenderPropsOnHeader={multiRenderPropsOnHeader}
-                                showComment={showComment}
-                                justify={justify}
-            />
+              <ArticleHeaderProps curContentData={curPropsData}
+                                  singleRenderPropsOnHeader={singleRenderPropsOnHeader}
+                                  multiRenderPropsOnHeader={multiRenderPropsOnHeader}
+                                  showComment={showComment}
+                                  justify={justify}
+                                  title={curPropsData[titleProp]}
+                                  showPageview={true}
+              />
           </header>
           {
             wantedPropsFromContent.map((prop,i)=>{

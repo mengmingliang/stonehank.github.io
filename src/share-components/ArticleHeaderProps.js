@@ -2,7 +2,7 @@ import React from 'react'
 import {Row,Col} from 'antd';
 import {Link} from "@reach/router"
 import TagLight from "./TagLight"
-import {ValineCount} from "react-valine";
+import {ValineCount,ValinePageview} from "react-valine";
 
 
 const styles={
@@ -40,7 +40,7 @@ export default class ArticleHeaderProps extends React.Component{
 
 
   render(){
-    const {curContentData,oneRow,singleRenderPropsOnHeader,multiRenderPropsOnHeader,showComment,...props}=this.props
+    const {curContentData,oneRow,singleRenderPropsOnHeader,multiRenderPropsOnHeader,showComment,showPageview,title,...props}=this.props
 
     // console.log(curContentData)
     return (
@@ -104,13 +104,15 @@ export default class ArticleHeaderProps extends React.Component{
         { showComment
           ? <Col>
               评论数：<ValineCount uniqStr={window.location.origin+"__uniq__"+curContentData[showComment.sha]}/>
-              {/*<CustomComment.Count title={curContentData[showComment.title]}*/}
-                                   {/*sha={curContentData[showComment.sha]}*/}
-                                   {/*locationOrigin={window.location.origin} />*/}
             </Col>
           : null
         }
-
+        { showPageview
+          ?  <Col>
+              浏览量：<ValinePageview uniqStr={window.location.origin+"__uniq__"+curContentData[showComment.sha]} title={title}/>
+             </Col>
+          : null
+        }
       </Row>
     )
   }
