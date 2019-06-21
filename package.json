@@ -10,7 +10,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "react-transition-group": "^2.5.0",
-    "react-valine": "^0.3.5"
+    "react-valine": "^0.3.9"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -34,6 +34,7 @@
     "gzip-size": "^5.0.0",
     "highlight.js": "^9.13.1",
     "html-loader": "^0.5.5",
+    "html-to-md": "^0.1.0",
     "js-base64": "^2.4.9",
     "jsdom": "12.1.0",
     "jsdom-global": "3.0.2",

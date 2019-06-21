@@ -30,7 +30,8 @@ function html2Md(htmlStr){
     'h4':['\n#### ','\n'],
     'h5':['\n##### ','\n'],
     'h6':['\n###### ','\n'],
-    's':['~~','~~']
+    's':['~~','~~'],
+    'del':['~~','~~'],
   }
   let checkNotNewLine={
     'em':true,
@@ -289,8 +290,8 @@ function html2Md(htmlStr){
     }
     return Math.max(trStr.split('</td>').length-1,trStr.split('</th>').length-1)
   }
-
 }
+
 
 
 module.exports= html2Md
