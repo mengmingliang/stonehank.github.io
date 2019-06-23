@@ -113,9 +113,8 @@ export default class MyLeetcodeContainer extends React.Component{
   }
   render(){
     const {renderContent,page,pageSize,curSortedKey,curSortedAsc}=this.state
-    const {initLeetcodeData,leetcodeRenderMode,read_content_path}=this.props
+    const {initLeetcodeData,leetcodeRenderMode}=this.props
 
-    // console.log(initLeetcodeData,renderContent)
     return(
       <div style={styles.defaultMargin}>
         {
@@ -123,7 +122,6 @@ export default class MyLeetcodeContainer extends React.Component{
             ? <MyLeetcodeComponent page={page}
                                    pageSize={pageSize}
                                    initData={initLeetcodeData}
-                                   read_content_path={read_content_path}
                                    toggleSorted={this.toggleSorted}
                                    totalPage={this.totalPage}
                                    curSortedKey={curSortedKey}

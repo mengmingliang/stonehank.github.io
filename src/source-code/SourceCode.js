@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Loading from "../share-components/Loading";
-
+import '../css/source-code.css'
 
 export default function SourceCode(props){
   const [contentLoading,setLoading]=useState(true)
@@ -26,6 +26,6 @@ export default function SourceCode(props){
                  ske_title_width={"30%"}
                  ske_para_width={"50%"}
                  ske_para_rows={8} />
-      : <div dangerouslySetInnerHTML={{__html: content}}/>
+      : <div className={'source-code'} dangerouslySetInnerHTML={{__html: content}}/>
   )
 }

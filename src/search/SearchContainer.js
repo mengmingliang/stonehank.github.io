@@ -4,9 +4,7 @@ import SearchDrawer from "./SearchDrawer";
 import {inHTMLTag,searchPrecision,ignoreInterceptTags} from '../utils/index'
 import SearchConfirmSize from "./SearchConfirmSize";
 import SearchInputComponent from "./SearchInputComponent";
-// import SlideCheckBox from "../tools/SlideCheckBox";
 
-// const SearchComponent=SearchComponentHOC(SlideCheckBox)
 
 const confirm = Modal.confirm;
 
@@ -19,7 +17,7 @@ export default class SearchContainer extends React.Component {
       matchTags: null,
       matchArticles: null,
       drawShow: false,
-      data: null,
+      data: props.data,
       globalSearch: false,
       globalFetching: false
     }
@@ -334,13 +332,24 @@ export default class SearchContainer extends React.Component {
     });
   }
 
-  componentDidUpdate() {
-    const {data} = this.props
-    if (this.state.data || !data) return
-    this.setState({
-      data: data
+  componentDidUpdate(prevProps) {
+    const {data,ident} = this.props
+    if ((!data && !this.state.data) || (this.state.data && data && prevProps.ident===ident && this.state.data.length===data.length)) return
+    clearTimeout(this.timer)
+    this.timer=null
+    this.setState(()=>({
+      data: data,
+      controlledValue: '',
+      searchKeyword:'',
+      matchTags: null,
+      matchArticles: null,
+    }),()=>{
+      this.globalMem = {}
+      this.localMem = {}
     })
   }
+
+
 
   componentWillUnmount(){
     clearTimeout(this.timer)

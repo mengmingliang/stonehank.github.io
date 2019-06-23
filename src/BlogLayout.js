@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router,Location } from "@reach/router";
-import {BackTop, Layout,Icon } from 'antd';
+import {BackTop, Layout,Icon ,Affix} from 'antd';
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -33,9 +33,9 @@ import './css/index.css';
 
 
 const styles={
-  layout_wrapper:{minHeight: '100vh',transition:"background 1s solid"  },
-  layout_inner:{background:"#fff"},
-  layout_header:{ background: '#898989', padding: 0 ,zIndex:1,display: "flex", flexFlow: "row", justifyContent: "start"},
+  layout_wrapper:{minHeight: '100vh',transition:'background 1s solid'  },
+  layout_inner:{background:'#fff'},
+  layout_header:{ background: '#898989', padding: 0 ,zIndex:1,display: 'flex', flexFlow: 'row', justifyContent: 'start',alignItems:'center'},
 }
 
 const IconFont = Icon.createFromIconfontCN({
@@ -81,7 +81,6 @@ export default class BlogLayout extends React.Component {
       )
       .then((module)=>{
         let leetcodeData=module.default
-        // console.log(leetcodeData)
         let leetcodeList=objSortBy(leetcodeData,'uniqueID',true)
         let leetcodeCategory=objGroupBy(leetcodeData,"relatedTags")
         this.setState({
@@ -209,29 +208,47 @@ export default class BlogLayout extends React.Component {
                          username={username}/>
 
         <Layout style={{background:wrapperBackground,minHeight: '100vh', transition: "background 500ms" }}>
-          <HeaderPure style={styles.layout_header} >
 
-            <SearchContainer data={initArticles}
-                             id={"slide-checkbox1"}
-                             needGlobalMode={true}
-                             simpleSearchProps={['title','createdTime']}
-                             complicateSearchProps={[{prop:'summary',globalProp:'content'}]}
-                             read_content_path={read_blog_path}
-                             tagsList={categoryArticles && Object.keys(categoryArticles)} />
-
-            <BookmarkContext.Consumer>
-              {({bookmark})=> <GetMark bookmark={bookmark} />}
-            </BookmarkContext.Consumer>
-
-            <a style={{marginLeft:"auto"}} href={github}><IconFont id="githubIcon" type="icon-github" /></a>
-
-          </HeaderPure>
           <Location>
             {({location})=>{
+              // console.log(leetcodeData)
               return (
-                <TransitionGroup>
-                  <CSSTransition key={location.pathname} classNames="slide" exit={false} timeout={500} >
-                    <Router location={location}>
+                <>
+                  <HeaderPure style={styles.layout_header} >
+                    <Affix>
+                      <Router location={location} style={styles.layout_header}>
+                        <SearchContainer path='/*'
+                                         ident={linkTo.home}
+                                         data={initArticles}
+                                         id={"slide-checkbox1"}
+                                         needGlobalMode={true}
+                                         simpleSearchProps={['title','createdTime']}
+                                         complicateSearchProps={[{prop:'summary',globalProp:'content'}]}
+                                         read_content_path={read_blog_path}
+                                         tagsList={categoryArticles && Object.keys(categoryArticles)}
+                        />
+                        <SearchContainer path={`${linkTo.myleetcode}/*`}
+                                         ident={linkTo.myleetcode}
+                                         data={leetcodeList}
+                                         id={"slide-checkbox2"}
+                                         getContentDetailPath={(curPropsData)=>linkTo.myleetcode+"/problems/"+curPropsData.uniqueID}
+                                         simpleSearchProps={['title']}
+                                         placeholder={"leetcode题目查询"}
+                          // complicateSearchProps={[{globalProp:'content'}]}
+                                         read_content_path={read_leetcode_path}
+                        />
+                      </Router>
+                    </Affix>
+                    <BookmarkContext.Consumer>
+                      {({bookmark})=> <GetMark bookmark={bookmark} />}
+                    </BookmarkContext.Consumer>
+
+                    <a style={{marginLeft:"auto"}} href={github}><IconFont id="githubIcon" type="icon-github" /></a>
+
+                  </HeaderPure>
+                  <TransitionGroup>
+                    <CSSTransition key={location.pathname} classNames="slide" exit={false} timeout={500} >
+                      <Router location={location}>
                         <Home path="/"
                               page={1}
                               articles={initArticles}
@@ -264,7 +281,6 @@ export default class BlogLayout extends React.Component {
                         <MyLeetcode path={`${linkTo.myleetcode}`}
                                     initLeetcodeData={leetcodeData}
                                     leetcodeRenderMode={leetcodeRenderMode}
-                                    read_content_path={read_leetcode_path}
                                     fetchLeetcodeList={this.fetchLeetcodeList}
                                     toggleRenderMode={this.toggleRenderMode}/>
                         {/*fetchKey 通过路由url传送*/}
@@ -301,8 +317,10 @@ export default class BlogLayout extends React.Component {
                                   changeBG={this.changeBackground} />
 
                       </Router>
-                  </CSSTransition>
-                </TransitionGroup>
+                    </CSSTransition>
+                  </TransitionGroup>
+                </>
+
               )
             }}
           </Location>
