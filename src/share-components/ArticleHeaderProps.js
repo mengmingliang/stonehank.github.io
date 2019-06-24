@@ -40,7 +40,7 @@ export default class ArticleHeaderProps extends React.Component{
 
 
   render(){
-    const {curContentData,oneRow,singleRenderPropsOnHeader,multiRenderPropsOnHeader,showComment,showPageview,title,...props}=this.props
+    const {curContentData,oneRow,singleRenderPropsOnHeader,multiRenderPropsOnHeader,showComment,showPageview,title,dangerouslyRender,...props}=this.props
 
     // console.log(curContentData)
     return (
@@ -54,8 +54,11 @@ export default class ArticleHeaderProps extends React.Component{
                   <Col key={i}>
                     <CheckLinkWrap link={link} propVal={propVal}>
                       <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={propVal}>
-                        {/*<div dangerouslySetInnerHTML={{__html:propVal || "未知"}} />*/}
-                        {propVal || "未知"}
+                        {
+                          dangerouslyRender
+                          ? <div dangerouslySetInnerHTML={{__html:propVal || "未知"}} />
+                          : propVal || "未知"
+                        }
                       </CheckTagWrap>
                     </CheckLinkWrap>
                   </Col>
@@ -72,7 +75,6 @@ export default class ArticleHeaderProps extends React.Component{
             {
               multiRenderPropsOnHeader.map((props,i)=>{
                 let link=props.link,eleMode=props.ele,tagStyle=props.tagStyle,propVal=props.val,getClassName=props.getClassName
-                // console.log(propVal,curContentData[propVal])
                 let contentDataProp=curContentData[propVal]
                 contentDataProp=contentDataProp
                   ? Array.isArray(contentDataProp)
@@ -86,8 +88,11 @@ export default class ArticleHeaderProps extends React.Component{
                         return (
                           <CheckLinkWrap key={j} link={link} propVal={prop}>
                             <CheckTagWrap eleMode={eleMode} tagStyle={tagStyle} getClassName={getClassName} propVal={prop}>
-                              {/*<div dangerouslySetInnerHTML={{__html:prop || "未知"}} />*/}
-                              {prop || "未知"}
+                              {
+                                dangerouslyRender
+                                  ? <div dangerouslySetInnerHTML={{__html:prop || "未知"}} />
+                                  : prop || "未知"
+                              }
                             </CheckTagWrap>
                           </CheckLinkWrap>
                         )

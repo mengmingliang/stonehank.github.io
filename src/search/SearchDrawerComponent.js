@@ -56,6 +56,7 @@ export default class SearchDrawerComponent extends React.Component {
                            beforeNavigate={clearSearchInput}
                            curPropsData={item}
                            singleRenderPropsOnHeader={newSingleRenderPropsOnHeader}
+                           dangerouslyRender={true}
                            // multiRenderPropsOnHeader={[
                            //   {val:'label',ele:'tag',link:(tag)=>`${linkTo.category}/${tag}`},
                            // ]}

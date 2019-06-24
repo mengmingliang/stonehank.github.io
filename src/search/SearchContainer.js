@@ -92,9 +92,7 @@ export default class SearchContainer extends React.Component {
           if(matchIdx!==-1)contentMatchPart=obj[curProp].substring(matchIdx - lo, matchIdx + hi)
           else break
         }
-        // console.log(matchIdx,obj[curProp])
         if(matchIdx===-1)return [prefix,match,affix,matchIdx]
-        // console.log(matchIdx,lo)
         prefix = obj[curProp].substring(matchIdx-lo, matchIdx)
         match = obj[curProp].substr(matchIdx, patternValue.length)
         affix = obj[curProp].substr(matchIdx + patternValue.length,hi)

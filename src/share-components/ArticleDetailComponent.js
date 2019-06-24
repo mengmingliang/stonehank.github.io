@@ -132,7 +132,7 @@ export default class ArticleDetailComponent extends React.Component{
         }
         return false
       })
-      // console.log(curContentListProps,fetchKey,fetchKeyProp,renderData)
+
       fetchLazyContent(read_content_path, fetchKey,curContentListProps,wantedPropsFromList,wantedPropsFromContent)
         .then(contentData => {
           this.bookmarkScroll()
@@ -154,13 +154,10 @@ export default class ArticleDetailComponent extends React.Component{
     this.timer=null
   }
   render(){
-    // console.log('article')
     const {curPropsData,contentLoading,disqusRender}=this.state
-    // console.log(curPropsData)
     const {
       renderData,
       fetchKey,
-      // location,
       titleProp,
       showComment,
       wantedPropsFromContent,
@@ -199,10 +196,8 @@ export default class ArticleDetailComponent extends React.Component{
           {showComment
             ? disqusRender
                 ? <ValinePanel uniqStr={window.location.origin+"__uniq__"+fetchKey}/>
-              // ? <CustomComment.Detail title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>
               : <Button onClick={this.showDisqus} style={styles.disqusButton}>
                   查看评论(共<ValineCount uniqStr={window.location.origin+"__uniq__"+fetchKey}/>条)
-                  {/*加载评论 (<CustomComment.Count title={curPropsData[titleProp]} sha={fetchKey} locationOrigin={location.origin}/>)*/}
                 </Button>
             : null
           }

@@ -45,7 +45,8 @@ export default class ArticleListCard extends React.Component {
       showComment,
       cardStyle,
       bodyStyle,
-      oneRow
+      oneRow,
+      dangerouslyRender
     }=this.props
 
 // console.log(curPropsData)
@@ -62,6 +63,7 @@ export default class ArticleListCard extends React.Component {
               ? <div style={{flex:5}}>
                   <ArticleHeaderProps curContentData={curPropsData}
                                       oneRow={oneRow}
+                                      dangerouslyRender={dangerouslyRender}
                                       singleRenderPropsOnHeader={singleRenderPropsOnHeader }
                                       multiRenderPropsOnHeader={multiRenderPropsOnHeader }
                                       showComment={showComment}/>
