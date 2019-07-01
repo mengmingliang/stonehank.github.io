@@ -1,6 +1,7 @@
 const escape2Html=require('./escape2Html')
 
 function html2Md(htmlStr){
+  if(!htmlStr)return ''
   let orderNum=0
   let tag2MdHash={
     'empty':['',''],

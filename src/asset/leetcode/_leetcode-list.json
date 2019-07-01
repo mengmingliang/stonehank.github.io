@@ -343,7 +343,7 @@
     "difficultNum": 3,
     "difficult": "Hard",
     "hasThinking": true,
-    "title": "25. k个一组翻转链表",
+    "title": "25. K 个一组翻转链表",
     "relatedTags": [
       "链表"
     ]
@@ -2023,8 +2023,8 @@
       "javascript"
     ],
     "uniqueID": "146",
-    "difficultNum": 3,
-    "difficult": "Hard",
+    "difficultNum": 2,
+    "difficult": "Middle",
     "hasThinking": true,
     "title": "146. LRU缓存机制",
     "relatedTags": [
@@ -4560,8 +4560,8 @@
       "javascript"
     ],
     "uniqueID": "427",
-    "difficultNum": 1,
-    "difficult": "Easy",
+    "difficultNum": 2,
+    "difficult": "Middle",
     "hasThinking": false,
     "title": "427. 建立四叉树",
     "relatedTags": []
@@ -8922,7 +8922,7 @@
     "hasThinking": true,
     "title": "853. 车队",
     "relatedTags": [
-      "栈"
+      "排序"
     ]
   },
   "854": {
@@ -11558,7 +11558,9 @@
     "difficult": "Easy",
     "hasThinking": false,
     "title": "1051. 高度检查器",
-    "relatedTags": []
+    "relatedTags": [
+      "数组"
+    ]
   },
   "1052": {
     "lang": [
@@ -11569,7 +11571,10 @@
     "difficult": "Middle",
     "hasThinking": false,
     "title": "1052. 爱生气的书店老板",
-    "relatedTags": []
+    "relatedTags": [
+      "数组",
+      "Sliding Window"
+    ]
   },
   "1053": {
     "lang": [
@@ -11580,7 +11585,10 @@
     "difficult": "Middle",
     "hasThinking": false,
     "title": "1053. 交换一次的先前排列",
-    "relatedTags": []
+    "relatedTags": [
+      "贪心算法",
+      "数组"
+    ]
   },
   "1054": {
     "lang": [
@@ -11591,6 +11599,390 @@
     "difficult": "Middle",
     "hasThinking": false,
     "title": "1054. 距离相等的条形码",
+    "relatedTags": [
+      "堆",
+      "排序"
+    ]
+  },
+  "1064": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1064",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1064. 不动点",
+    "relatedTags": [
+      "数组",
+      "二分查找"
+    ]
+  },
+  "1065": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1065",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1065. 字符串的索引对",
+    "relatedTags": [
+      "字典树",
+      "字符串"
+    ]
+  },
+  "1066": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1066",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1066. 校园自行车分配 II",
+    "relatedTags": [
+      "动态规划",
+      "回溯算法"
+    ]
+  },
+  "1071": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1071",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": true,
+    "title": "1071. 字符串的最大公因子",
+    "relatedTags": [
+      "字符串"
+    ]
+  },
+  "1072": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1072",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": true,
+    "title": "1072. 按列翻转得到最大值等行数",
+    "relatedTags": [
+      "哈希表"
+    ]
+  },
+  "1073": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1073",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1073. 负二进制数相加",
+    "relatedTags": [
+      "数学"
+    ]
+  },
+  "1074": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1074",
+    "difficultNum": 3,
+    "difficult": "Hard",
+    "hasThinking": false,
+    "title": "1074. 元素和为目标值的子矩阵数量",
+    "relatedTags": [
+      "数组",
+      "动态规划",
+      "Sliding Window"
+    ]
+  },
+  "1078": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1078",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1078. Bigram 分词",
+    "relatedTags": [
+      "哈希表"
+    ]
+  },
+  "1079": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1079",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1079. 活字印刷",
+    "relatedTags": [
+      "回溯算法"
+    ]
+  },
+  "1080": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1080",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1080. 根到叶路径上的不足节点",
+    "relatedTags": [
+      "深度优先搜索"
+    ]
+  },
+  "1081": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1081",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1081. 不同字符的最小子序列",
+    "relatedTags": [
+      "字符串"
+    ]
+  },
+  "1085": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1085",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1085. 最小元素各数位之和",
+    "relatedTags": [
+      "数组"
+    ]
+  },
+  "1086": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1086",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1086. 前五科的均分",
+    "relatedTags": [
+      "排序",
+      "数组",
+      "哈希表"
+    ]
+  },
+  "1087": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1087",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1087. 字母切换",
+    "relatedTags": [
+      "回溯算法"
+    ]
+  },
+  "1089": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1089",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1089. 复写零",
+    "relatedTags": [
+      "数组"
+    ]
+  },
+  "1090": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1090",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1090. 受标签影响的最大值",
+    "relatedTags": [
+      "贪心算法",
+      "哈希表"
+    ]
+  },
+  "1091": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1091",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1091. 二进制矩阵中的最短路径",
+    "relatedTags": [
+      "广度优先搜索"
+    ]
+  },
+  "1092": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1092",
+    "difficultNum": 3,
+    "difficult": "Hard",
+    "hasThinking": false,
+    "title": "1092. 最短公共超序列",
+    "relatedTags": [
+      "动态规划"
+    ]
+  },
+  "1093": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1093",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1093. 大样本统计",
+    "relatedTags": [
+      "数学",
+      "双指针"
+    ]
+  },
+  "1094": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1094",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1094. 拼车",
+    "relatedTags": [
+      "贪心算法"
+    ]
+  },
+  "1095": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1095",
+    "difficultNum": 3,
+    "difficult": "Hard",
+    "hasThinking": false,
+    "title": "1095. 山脉数组中查找目标值",
+    "relatedTags": [
+      "二分查找"
+    ]
+  },
+  "1099": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1099",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1099. 小于 K 的两数之和",
+    "relatedTags": [
+      "数组"
+    ]
+  },
+  "1100": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1100",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1100. 长度为 K 的无重复字符子串",
+    "relatedTags": [
+      "字符串",
+      "Sliding Window"
+    ]
+  },
+  "1101": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1101",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1101. 彼此熟识的最早时间",
+    "relatedTags": [
+      "并查集"
+    ]
+  },
+  "1102": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1102",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": false,
+    "title": "1102. 得分最高的路径",
+    "relatedTags": [
+      "深度优先搜索",
+      "并查集",
+      "图"
+    ]
+  },
+  "1103": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1103",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": false,
+    "title": "1103. 分糖果 II",
+    "relatedTags": []
+  },
+  "1104": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1104",
+    "difficultNum": 1,
+    "difficult": "Easy",
+    "hasThinking": true,
+    "title": "1104. 二叉树寻路",
+    "relatedTags": []
+  },
+  "1105": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1105",
+    "difficultNum": 2,
+    "difficult": "Middle",
+    "hasThinking": true,
+    "title": "1105. 填充书架",
+    "relatedTags": []
+  },
+  "1106": {
+    "lang": [
+      "javascript"
+    ],
+    "uniqueID": "1106",
+    "difficultNum": 3,
+    "difficult": "Hard",
+    "hasThinking": false,
+    "title": "1106. 解析布尔表达式",
     "relatedTags": []
   }
 }

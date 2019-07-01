@@ -1,0 +1,8 @@
+{
+  "code": [
+    "<pre class=\"hljs\"><code><span class=\"hljs-comment\">/**\n * @param {string} text\n * @param {string[]} words\n * @return {number[][]}\n */</span>\n<span class=\"hljs-keyword\">var</span> indexPairs = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\">text, words</span>) </span>{\n  <span class=\"hljs-keyword\">let</span> res=[]\n  <span class=\"hljs-keyword\">for</span>(<span class=\"hljs-keyword\">let</span> word <span class=\"hljs-keyword\">of</span> words){\n    <span class=\"hljs-keyword\">let</span> idStart=text.indexOf(word)\n    <span class=\"hljs-keyword\">while</span>(idStart!==<span class=\"hljs-number\">-1</span>){\n      <span class=\"hljs-keyword\">let</span> idEnd=idStart+word.length<span class=\"hljs-number\">-1</span>\n      res.push([idStart,idEnd])\n      idStart=text.indexOf(word,idStart+<span class=\"hljs-number\">1</span>)\n    }\n  }\n  res.sort(<span class=\"hljs-function\">(<span class=\"hljs-params\">a,b</span>)=&gt;</span>a[<span class=\"hljs-number\">0</span>]===b[<span class=\"hljs-number\">0</span>]?a[<span class=\"hljs-number\">1</span>]-b[<span class=\"hljs-number\">1</span>]:a[<span class=\"hljs-number\">0</span>]-b[<span class=\"hljs-number\">0</span>])\n  <span class=\"hljs-keyword\">return</span> res\n};\n</code></pre>\n"
+  ],
+  "titleSlug": "index-pairs-of-a-string",
+  "hasThinking": false,
+  "content": null
+}
